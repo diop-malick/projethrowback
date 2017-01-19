@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      # Display the VirtualBox GUI when booting the machine
      vb.gui = true
      # name of vm
-     # vb.name = "Vagrant_VPS_Debian8"
+     vb.name = "projethrowback"
      # Customize the amount of memory cpu on the VM
      vb.memory = "1024" # 1Go de RAM
      vb.cpus = 2 #  2 coeurs
@@ -30,14 +30,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # The hostname the machine should have
   # https://www.vagrantup.com/docs/vagrantfile/machine_settings.html
-  config.vm.hostname = "Debian8.Apache2.PHP5.Mysql56"
+  # config.vm.hostname = "Debian8.Apache2.PHP5.Mysql56"
 
   # NETWORK
   # forward port 8080 on your host machine to the standard port 80 on the box
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 80 # try 8080 & 8081
-  config.vm.network :"forwarded_port", guest: 443, host: 443
-  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "forwarded_port", guest: 80, host: 8081 # try 8080 & 8081
+  #config.vm.network :"forwarded_port", guest: 443, host: 443
+  #config.vm.network "private_network", ip: "192.168.33.10"
   # Forward ports to MySQL
   # config.vm.network "forwarded_port", guest: 3306, host: 8889
 

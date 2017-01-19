@@ -32,11 +32,11 @@ DBPRESTAUSER='test'
 DBPRESTAPASSWD='test'
 ROOTPASSWD='root' # for default root user
 
-domaineName="localhost"
+namedomain="localhost"
 
 #Accès administration
-contactEmail="mdiop.sne@gmail.com"
-adminpass='test'
+contactEmail="demo@demo.com"
+adminpass='demodemo'
 
 # Shell script (building the LAMP stack)
 # automated script
@@ -210,9 +210,9 @@ else
   if [ ! -f "$PS_VERSION_1_6" ]; then
     wget –quiet http://www.prestashop.com/download/old/$PS_VERSION_1_6 >/dev/null 2>&1
   fi
-  # if [ ! -f "$PS_VERSION_1_7" ]; then
-  #   wget –quie http://www.prestashop.com/download/old/$PS_VERSION_1_7 >/dev/null 2>&1
-  # fi
+  if [ ! -f "$PS_VERSION_1_7" ]; then
+    wget –quie http://www.prestashop.com/download/old/$PS_VERSION_1_7 >/dev/null 2>&1
+  fi
   # On dézippe l'archive
   unzip $PS_VERSION_1_6 >/dev/null 2>&1
   # on déplace les fichiers et on supprime ce dossier et l'archive pour finir
@@ -240,7 +240,7 @@ cd "$newdir"
 echo "\n--- install prestashop with CLI installer \n"
 cd install
 #sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost:8081 --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
-sudo php index_cli.php --domain="${domaineName}" --db_name=$DBPRESTA16 --db_user=$DBPRESTAUSER --db_password=$DBPRESTAPASSWD --email=$contactEmail --password=$adminpass
+sudo php index_cli.php --domain=$namedomain --db_name=$DBPRESTA16 --db_user=root --db_password=$ROOTPASSWD
 
 #Pour finir on renomme le dossier d'install et le dossier d'admin
 cd ..

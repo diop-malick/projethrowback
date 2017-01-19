@@ -41,10 +41,19 @@ http://localhost:8081/prestashop16/
 * Adminer
   http://localhost:8081/adminer.php/
 
+Admin :
+username : root
+password : root
+
+prestashop
+user : test
+password : test
+
+
 # Accès à l'interface d'administration de Prestashop :
 * admin URL
 http://localhost/prestashop16/admin-dev
 
 * Admin access :
-email = mdiop.sne@gmail.com
-password = test
+email = pub@prestashop.com
+password = 0123456789
