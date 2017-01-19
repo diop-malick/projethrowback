@@ -1,6 +1,11 @@
 
 https://docs.ovh.com/display/public/CRVPS/Installation+d%27un+serveur+web+sous+Debian+8
 
+# terminal
+
+Ctrl+l      effacer terminal
+ctrl+d      exit terminal
+
 
 # vim
 
@@ -103,6 +108,7 @@ https://www.codementor.io/linux/tutorial/configure-linux-toolset-zsh-tmux-vim
 https://www.grafikart.fr/formations/serveur-linux/pimp-my-shell
 
 sudo apt-get install -y zsh
+$ sudo apt-get install -y tmux
 
 * switch defautl shell :
 chsh -s /bin/zsh

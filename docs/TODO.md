@@ -31,6 +31,8 @@ un vhost pointant vers son répertoire de source (en local sur son poste)…
 Installer et configurer le module ssl pour Apache2
 Certificat ssl http
 with self-signed certificate
+created a self-signed SSL on localhost.
+https://technique.arscenic.org/lamp-linux-apache-mysql-php/apache-le-serveur-http/modules-complementaires/article/installer-et-configurer-le-module-ssl-pour-apache2
 
 check ssl :
 dpkg -l | grep ssl
