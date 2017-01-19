@@ -32,7 +32,8 @@ DBPRESTAUSER='test'
 DBPRESTAPASSWD='test'
 ROOTPASSWD='root' # for default root user
 
-namedomain="localhost"
+PRESTADOMAIN="localhost:8081"
+PRESTABASEURI="throwback16" # == newdir
 
 #Accès administration
 contactEmail="demo@demo.com"
@@ -192,7 +193,7 @@ echo -e "\n--- Installing javascript components"
 PS_VERSION_1_6='prestashop_1.6.1.11.zip'
 PS_VERSION_1_7='prestashop_1.7.0.4.zip'
 #Nom du dossier qu'on doit creer
-newdir="prestashop16"
+newdir=$PRESTABASEURI
 
 # sudo mysql_secure_installation
 
@@ -227,20 +228,22 @@ else
 fi
 
 echo -e "\n--- Prestashop - Setting up MySQL user and database \n"
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE USER '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';"
+sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
+sudo mysql -uroot -p$ROOTPASSWD -e "CREATE USER IF NOT EXISTS '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';"
 sudo mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
 
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
+sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
 sudo mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA17.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
 
 #on se place dans le nouveau dossier
 cd "$newdir"
 
 echo "\n--- install prestashop with CLI installer \n"
+# http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
 cd install
-#sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost:8081 --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
-sudo php index_cli.php --domain=$namedomain --db_name=$DBPRESTA16 --db_user=root --db_password=$ROOTPASSWD
+#sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
+sudo php index_cli.php --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_name=$DBPRESTAUSER --db_user=root --db_password=$DBPRESTAPASSWD
+# sudo php index_cli.php --base_uri='/prestashop16' --domain='localhost:8081' --db_name=throwbackpresta16 --db_user=root --db_password=root
 
 #Pour finir on renomme le dossier d'install et le dossier d'admin
 cd ..

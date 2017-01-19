@@ -17,16 +17,19 @@ Prestashop 1.6
 
 1 - Installer  VirtualBox et Vagrant sur vôtre machine
 
-2 - cloner le projec
+2 - cloner le project
 
-3 - entr le dossier du projet et faite un : vagrant up
-
-5 - Dossiers :
-
-dossier web : src\public
+3 - entrer le dossier du projet et tapez : vagrant up
 
 4 - Accés aux différents outils :
 
+# Accès à l'interface d'administration de Prestashop :
+* admin URL
+http://localhost/throwback16/admin-dev
+
+* Admin access :
+email = pub@prestashop.com
+password = 0123456789
 
 # Accès au front-end :
 cliquez sur "Voir mon magasin" en haut à droite de l'interface admin
@@ -49,11 +52,4 @@ prestashop
 user : test
 password : test
 
-
-# Accès à l'interface d'administration de Prestashop :
-* admin URL
-http://localhost/prestashop16/admin-dev
-
-* Admin access :
-email = pub@prestashop.com
-password = 0123456789
+Chemin dossier web : src\public\
