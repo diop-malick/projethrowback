@@ -15,6 +15,12 @@ VM Guest OS: Debian 8
 apache 2, php 5.6, MySQL 5.5 , PHPMyAdmin, adminer
 Prestashop 1.6
 
+0 - Assurez vous que l'option virtualisation est activé sur vôtre OS
+vour windows, tapez : systeminfo
+
+si non, aller l'activer dans le BIOS
+
+
 1 - Installer  VirtualBox et Vagrant sur vôtre machine
 
 2 - cloner le project

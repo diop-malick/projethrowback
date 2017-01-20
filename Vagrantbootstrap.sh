@@ -33,7 +33,7 @@ DBPRESTAPASSWD='test'
 ROOTPASSWD='root' # for default root user
 
 PRESTADOMAIN="localhost:8081"
-PRESTABASEURI="throwback16" # == newdir
+PRESTABASEURI='throwback16' # == newdir
 
 #Accès administration
 contactEmail="demo@demo.com"
@@ -242,7 +242,7 @@ echo "\n--- install prestashop with CLI installer \n"
 # http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
 cd install
 #sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
-sudo php index_cli.php --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_name=$DBPRESTAUSER --db_user=root --db_password=$DBPRESTAPASSWD
+sudo php index_cli.php --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_name=$DBPRESTA16 --db_user=root --db_password=$DBPRESTAPASSWD
 # sudo php index_cli.php --base_uri='/prestashop16' --domain='localhost:8081' --db_name=throwbackpresta16 --db_user=root --db_password=root
 
 #Pour finir on renomme le dossier d'install et le dossier d'admin
