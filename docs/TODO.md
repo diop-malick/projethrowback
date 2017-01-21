@@ -4,6 +4,9 @@ https://gist.github.com/rrosiek/8190550
 systemctl or service
 sudo systemctl restart apache2
 
+# Configuration de post fix pour l'envoi des mails
+
+
 # improve port forwarding
 
 forward_port = ->(guest, host = guest) do
