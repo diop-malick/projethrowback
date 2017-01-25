@@ -24,13 +24,14 @@ export DEBIAN_FRONTEND="noninteractive"
 # ---------------------------------------
 # Variables
 # ---------------------------------------
-# accée à la DB
+
+ROOTPASSWD='root' # for default root user
+
 DBHOST='localhost'
 DBPRESTA16='throwbackpresta16'
 DBPRESTA17='throwbackpresta17'
 DBPRESTAUSER='test'
 DBPRESTAPASSWD='test'
-ROOTPASSWD='root' # for default root user
 
 PRESTADOMAIN="localhost:8081"
 PRESTABASEURI='throwback16' # == newdir
@@ -56,14 +57,14 @@ echo -e "\n--- Mkay, installing now... ---\n"
 # dpkg-reconfigure -f noninteractive tzdata
 
 echo -e "\n--- Updating packages list ---\n"
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update 
+# sudo apt-get upgrade -y
 
 echo -e "\n--- Install basic tools ---\n"
 sudo apt-get install -y unzip
-sudo apt-get install -y vim git curl
+sudo apt-get install -y git curl
+# sudo apt-get install -y vim
 
-echo -e "\n--- Updating packages list ---\n"
-apt-get -qq update
 
 # --------------------------------------- #
 #          MYSQL 5.5 & Phpmyadmin Setup
@@ -72,18 +73,18 @@ apt-get -qq update
 echo -e "\n--- Install MySQL specific packages and settings ---\n"
 
 # configure a root password for MySQL before we can install it
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $ROOTPASSWD"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $ROOTPASSWD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $ROOTPASSWD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $ROOTPASSWD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $ROOTPASSWD"
+debconf-set-selections <<< "mysql-server mysql-server/root_password password $ROOTPASSWD"
+debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $ROOTPASSWD"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $ROOTPASSWD"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $ROOTPASSWD"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $ROOTPASSWD"
 # sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect none"
 
 
 # Installing Packages
-sudo apt-get install -y mysql-server mysql-client phpmyadmin >> /vagrant/vm_build.log 2>&1
+apt-get install -y mysql-server mysql-client phpmyadmin >> /vagrant/vm_build.log 2>&1
 
 # each virtual host, give access to your PHPMyAdmin installation
 # symbolic link from the document root to the phpMyAdmin installation location (/usr/share/phpmyadmin)
@@ -132,7 +133,7 @@ service apache2 restart >> /vagrant/vm_build.log 2>&1
 
 # --------- change to web directory
 
-cd "$vagrantdir"
+cd "$vagrantdir" || exit
 
 # --------- vhost
 # virtual host dev.fr within a file config named dev.conf
@@ -149,7 +150,7 @@ if [ ! -f "$file" ]; then
 </Directory>
 EOF
 )
-  sudo echo "$SITE_CONF" > "$file"
+  echo "$SITE_CONF" > "$file"
 fi
 
 sudo a2ensite dev
@@ -176,7 +177,7 @@ if [ ! -f "$file" ]; then
 fi
 
 echo -e "\n--- Installing Composer for PHP package management"
-sudo curl --silent https://getcomposer.org/installer | php >> /vagrant/vm_build.log 2>&1
+curl --silent https://getcomposer.org/installer | php >> /vagrant/vm_build.log 2>&1
 sudo mv composer.phar /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
 
@@ -200,7 +201,7 @@ newdir=$PRESTABASEURI
 echo -e "\n--- Prestashop - Installing ... \n"
 
 #On se positionne dans le dossier web
-cd "$vagrantdir"
+cd "$vagrantdir" || exit
 
 #On vérifie que le dossier n'existe pas
 if [ -d "$newdir" ]; then
@@ -220,33 +221,30 @@ else
   echo "Rename unziped folder prestashop to $newdir"
   mv prestashop "$newdir"
 
-  # echo "Delete unzip result prestashop folder"
-  # rm -rf prestashop
-
   # echo "Delete downloaded zip "
   # rm $PS_VERSION_1_6
 fi
 
 echo -e "\n--- Prestashop - Setting up MySQL user and database \n"
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE USER IF NOT EXISTS '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';"
-sudo mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
+mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
+mysql -uroot -p$ROOTPASSWD -e "CREATE USER IF NOT EXISTS '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';"
+mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
 
-sudo mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
-sudo mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA17.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
+mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
+mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA17.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
 
 #on se place dans le nouveau dossier
 cd "$newdir"
 
 echo "\n--- install prestashop with CLI installer \n"
 # http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
-cd install
+cd install || exit
 #sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
 sudo php index_cli.php --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_name=$DBPRESTA16 --db_user=root --db_password=$DBPRESTAPASSWD
 # sudo php index_cli.php --base_uri='/prestashop16' --domain='localhost:8081' --db_name=throwbackpresta16 --db_user=root --db_password=root
 
 #Pour finir on renomme le dossier d'install et le dossier d'admin
-cd ..
+cd .. || exit
 mv install _install
 mv admin admin-dev
 
@@ -254,5 +252,8 @@ mv admin admin-dev
 #          Virtual Machine clean
 # --------------------------------------- #
 
-# Suppression de paquets d'installation
-sudo apt-get clean >> /vagrant/vm_build_clean.log 2>&1
+echo -e "\n--- Updating packages list ---\n"
+sudo apt-get update 
+
+# Clean package installed list
+apt-get clean >> /vagrant/vm_build_clean.log 2>&1
