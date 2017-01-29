@@ -96,6 +96,11 @@ class Blockcontactinfos extends Module
 		return $this->display(__FILE__, 'blockcontactinfos.tpl', $this->getCacheId());
 	}
 	
+	public function hookDisplayNav($params)
+	{
+		return $this->hookFooter($params);
+	}
+	
 	public function renderForm()
 	{
 		$fields_form = array(
