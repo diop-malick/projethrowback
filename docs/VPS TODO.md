@@ -2,25 +2,6 @@
 # TODO
 
 
-
-# links
-
-https://www.bisolweb.com/tutoriels/serveur-vps-ovh-tutoriel/
-https://www.prestashop.com/forums/topic/278026-tuto-installer-son-serveur-d%C3%A9di%C3%A9-vps-de-a-%C3%A0-z-sur-debian-7-et-8-ispconfig-site/
-
-install php7
-http://www.love-moi.fr/2016/01/installer-php-7-avec-php-fpm-et-fastcgi.html
-
-https://gist.github.com/asmerkin/df919a6a79b081512366
-
-# serveur
-Debian 8 « Jessie »
-
-
-# commont Command
-
-
-
 # apache Module to enable
 
 mod_rewrite
@@ -56,17 +37,6 @@ Installer logwatch et fail2ban
 
 install iptable
 
-## Installation de Apache / PHP / MySQL / PhpMyAdmin
-
-apache
-
-> apt-get install
-libapache2-mod-fastcgi
-php5-intl php-pear php5-imagick
-php5-imap php5-mcrypt php5-memcache
-php5-pspell php5-recode php5-snmp
-php5-sqlite php5-tidy php5-xmlrpc php5-xsl
-php5-dev
 
 
 On active ensuite les mods et on redémarre
@@ -75,53 +45,28 @@ a2enmod headers
 a2enmod deflate
 a2enmod expires
 service apache2 restart
+mod_rewrite
 
-MySQL
-> sudo apt-get install -y
-sudo apt-get install php5-mysql
 
-secure install
+# Secure MYSQL
+
 > mysql_secure_installation
 
- optimize mysql config
+# optimize mysql config
 MySQLTuner
 
 
 # phpmyadmin
-sudo apt-get install -q -y phpmyadmin
-echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/app-password-confirm password your-app-pwd' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/admin-pass password your-admin-db-pwd' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/app-pass password your-app-db-pwd' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apac
 
 * Supprimer le dossier d’installation zr redémarrer apache
 sudo rm -rf /usr/share/phpmyadmin/setup
 sudo service apache2 reload
 
-# varnish ?
-
-
-# Installation du serveur DNS : le serveur de nom de domaine
-apt-get install bind9 dnsutils
-
-# autres
-
-
-# install Composer
+# PHP - install Composer
 curl -s https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# SSL https
-SSL Let's Encrypt
 
-# server mail avec
-
-Postfix
-
-# ftp
-
-VSFTPD
 
 # server Dashbord admin
 
@@ -148,14 +93,42 @@ chmod +x install.sh
 ./install.sh
 
 
+# =================================================== #
+# schedule cron jobs
+# =================================================== #
 
+# =================================================== #
+# Logs
+# =================================================== #
+logwatch ? 
 
+configurer cron pour avoir le résultat tous les mati
 
+# =================================================== #
+# Cache
+# =================================================== #
+APC ?
+varnish ?
+memcache ?
 
+# =================================================== #
+# Serveur DNS
+# =================================================== #
 
+BIND : 
+https://fr.wikipedia.org/wiki/BIND
 
+bind9 ?
+dnsutils ?
 
 
 https://docs.ovh.com/display/public/CRVPS/Installation+d%27un+serveur+web+sous+Debian+8
+
 http://crash-blog.com/installation-d-un-serveur-vps-ovh/
+
 https://www.bisolweb.com/tutoriels/serveur-vps-ovh-tutoriel/
+
+
+# check debian
+systemctl or service
+sudo systemctl restart apache2

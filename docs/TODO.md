@@ -1,11 +1,42 @@
-https://gist.github.com/rrosiek/8190550
 
-# check debian
-systemctl or service
-sudo systemctl restart apache2
 
-# Configuration de post fix pour l'envoi des mails
+# --------------------------------------- #
+#          Installing WordPress
+# --------------------------------------- #
+# get the latest stable build of WordPress and put it in the /public folder.
+# if [ ! -d /vagrant/www/wp-admin ]; then # check if dir does not exist
+#     cd "$vagrantdir"
+#     wget http://wordpress.org/latest.tar.gz
+#     tar xvf latest.tar.gz
+#     mv wordpress/* ./
+#     rmdir ./wordpress/
+#     rm -f latest.tar.gz
+# fi
 
+
+
+# --------------------------------------- #
+#          Install - SSL
+# --------------------------------------- #
+
+* Installer le https pour apt
+apt-get install apt-transport-https
+
+Installer et configurer le module ssl pour Apache2
+Certificat ssl http
+with self-signed certificate
+created a self-signed SSL on localhost.
+https://technique.arscenic.org/lamp-linux-apache-mysql-php/apache-le-serveur-http/modules-complementaires/article/installer-et-configurer-le-module-ssl-pour-apache2
+
+check ssl :
+dpkg -l | grep ssl
+
+# --------------------------------------- #
+#          Mail - Postfix
+# --------------------------------------- #
+
+Configuration de post fix pour l'envoi des mails
+Configuration du serveur de messagerie pour que prestashop puisse envoyer ds mail
 
 # improve port forwarding
 
@@ -25,32 +56,21 @@ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 apt-get install -y nodejs
 npm install -g bower
 
+echo -e "\n--- Installing NodeJS and NPM"
+# apt-get -y install nodejs >> /vagrant/vm_build.log 2>&1
+
+echo -e "\n--- Installing javascript components"
+# npm install -g gulp bower >> /vagrant/vm_build.log 2>&1
+
+
 # Config vhost
 un vhost pointant vers son répertoire de source (en local sur son poste)…
 
-# --------------------------------------- #
-#          Install - SSL
-# --------------------------------------- #
-Installer et configurer le module ssl pour Apache2
-Certificat ssl http
-with self-signed certificate
-created a self-signed SSL on localhost.
-https://technique.arscenic.org/lamp-linux-apache-mysql-php/apache-le-serveur-http/modules-complementaires/article/installer-et-configurer-le-module-ssl-pour-apache2
-
-check ssl :
-dpkg -l | grep ssl
-
-
-# --------------------------------------- #
-#          Install - MYSQL 5.6 Setup
-# --------------------------------------- #
-replace mysql5.5 by 5.6 or 5.7
 
 # --------------------------------------- #
 # Add Prestashop prestashop
 # --------------------------------------- #
 
-Configuration du serveur de messagerie pour que prestashop puisse envoyer ds mail
 
 # Modifiez le propriétaire du répertoire prestashop et de son arborescence :
 chown -R www-data:www-data /var/www/prestashop
@@ -60,9 +80,19 @@ chown -R www-data:www-data /var/www/prestashop
 echo -e "\n--- Add Node 6.x rather than 4 ---\n"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - >> /vagrant/vm_build.log 2>&1
 
+###### COnfig PHP
+
+les session
+purger à intervale de temps régulier : session.save_path = "/tmp"
+
+le cache : memcache
+
+
 # --------------------------------------- #
 #  Install PHP7
 # --------------------------------------- #
+
+pour des performance accrue
 
 https://www.h-hennes.fr/blog/2016/12/06/utiliser-plusieurs-version-de-php-avec-apache/
 
@@ -76,6 +106,44 @@ https://www.linode.com/docs/websites/lamp/lamp-on-debian-8-jessie/
 
 https://www.martar.fr/articles/installer-php-7-sur-un-serveur-debian
 
+* PHP 7.0 (PHP-FPM & FastCGI)
+FROM 'mod_php' to mod_fastcgi (fastcgi) avec PHP-FPM (FastCGI Process Manager).
+
+
+# --------------------------------------- #
+#          vhost apache
+# --------------------------------------- #
+
+# virtual host dev.fr within a file config named dev.conf
+file='/etc/apache2/sites-available/dev.conf'
+if [ ! -f "$file" ]; then
+  SITE_CONF=$(cat <<EOF
+<Directory /var/www/html>
+  AllowOverride All
+  Options +Indexes -MultiViews +FollowSymLinks
+  AddDefaultCharset utf-8
+  SetEnv ENVIRONMENT "development"
+  php_flag display_errors On
+  EnableSendfile Off
+</Directory>
+EOF
+)
+  echo "$SITE_CONF" > "$file"
+fi
+
+a2ensite dev
+
+echo -e "\n--- Reload Apache"
+service apache2 reload
+
+# --------------------------------------- #
+#          PHP FPM for apache
+# --------------------------------------- #
+# PHP en mode fastCGI
+sudo apt-get install -y libapache2-mod-fastcgi
+sudo apt-get install -y php5-fpm
+
+
 # --------------------------------------- #
 # Install OPcache gui script
 # --------------------------------------- #
@@ -88,38 +156,7 @@ if [ ! -f "$file" ]; then
   wget -nv -O "$file" https://raw.githubusercontent.com/amnuts/opcache-gui/master/index.php
 fi
 
-# --------------------------------------- #
-#          PHP FPM for apache
-# --------------------------------------- #
-# PHP en mode fastCGI
-sudo apt-get install -y libapache2-mod-fastcgi
-sudo apt-get install -y php5-fpm
 
-# --------------------------------------- #
-#          Installing Prestashop
-# --------------------------------------- #
-## Change this to the PS version you'd like to use
-PS_VERSION=prestashop_1.6.1.1.zip
-
-## Download Prestashop
-cd /vagrant
-wget http://www.prestashop.com/download/old/$PS_VERSION
-unzip -o $PS_VERSION
-sudo rm ./$PS_VERSION
-
-
-# --------------------------------------- #
-#          Installing WordPress
-# --------------------------------------- #
-# get the latest stable build of WordPress and put it in the /public folder.
-# if [ ! -d /vagrant/www/wp-admin ]; then # check if dir does not exist
-#     cd "$vagrantdir"
-#     wget http://wordpress.org/latest.tar.gz
-#     tar xvf latest.tar.gz
-#     mv wordpress/* ./
-#     rmdir ./wordpress/
-#     rm -f latest.tar.gz
-# fi
 
 
 # --------------------------------------- #
