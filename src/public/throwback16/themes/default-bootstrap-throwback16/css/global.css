@@ -5751,8 +5751,20 @@ header {
     position: relative; }
     header .row > .container {
       position: relative; }
+	 
+	/* Throwback_logo */
+	
     header .row #header_logo {
-      padding-top: 15px; }
+      padding-top: 0px;
+	  margin-top : -10px;
+	  width: 30%;
+	}
+	header .row #header_logo a {
+		margin: 0 auto;
+		width: 100%; /* largeur obligatoire pour être centré */
+	}
+	
+ 
       @media (max-width: 992px) {
         header .row #header_logo {
           padding-top: 40px; } }
@@ -7234,19 +7246,32 @@ div.star a:hover {
   @media (min-width: 768px) {
     .footer-container {
       background: url(../img/footer-bg.png) repeat-x #333; } }
+	  
+
+	/* throwback - footer contact */
+	 
   .footer-container .container {
-    padding-bottom: 100px; }
+    /* padding-bottom: 100px;  */
+	}
+		
   .footer-container #footer {
     color: #777777; }
     .footer-container #footer .row {
       position: relative; }
     .footer-container #footer ul.row {
       position: static; }
+	 
+	
+	 
     .footer-container #footer .footer-block {
-      margin-top: 45px; }
+      margin-top: 25px;
+	}
       @media (max-width: 767px) {
         .footer-container #footer .footer-block {
-          margin-top: 20px; } }
+          /* margin-top: 20px;  */
+		}
+	}
+		  
     .footer-container #footer a {
       color: #777777; }
       .footer-container #footer a:hover {
@@ -7277,8 +7302,13 @@ div.star a:hover {
       .footer-container #footer ul li a {
         font-weight: bold;
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4); }
+		
+		
     .footer-container #footer #block_contact_infos {
-      border-left: 1px solid #515151; }
+      /* border-left: 1px solid #515151;  */
+	}
+	  
+	  
       @media (max-width: 767px) {
         .footer-container #footer #block_contact_infos {
           border: none; } }
@@ -7306,7 +7336,7 @@ div.star a:hover {
       clear: left; }
     .footer-container #footer #social_block {
       float: left;
-      width: 50%;
+      width: 30%;
       padding: 22px 15px 0 15px; }
       @media (max-width: 767px) {
         .footer-container #footer #social_block {
