@@ -1,14 +1,9 @@
 #! /usr/bin/env bash
 
-# turn off "frontend" (prompts) during installations
-# disable queries for user manual interactions
-# install without prompting the user to answer any questions
-export DEBIAN_FRONTEND="noninteractive"
-
-
 ###
 #
-# vagrantbootstrap_mysql.sh
+# Shell automated script (building the LAMP stack)
+# Perform an unattended installation
 #
 # Vagrant provision script for php, Apache, MySQL, phpMyAdmin
 #
@@ -20,41 +15,33 @@ export DEBIAN_FRONTEND="noninteractive"
 #
 ###
 
+# turn off "frontend" (prompts) during installations
+# install without prompting the user to answer any questions
+export DEBIAN_FRONTEND="noninteractive"
+
+
 
 # ---------------------------------------
 # Variables
 # ---------------------------------------
 
-ROOTPASSWD='root' # for default root user
 
-DBHOST='localhost'
-DBPRESTA16='throwbackpresta16'
-DBPRESTA17='throwbackpresta17'
-DBPRESTAUSER='test'
-DBPRESTAPASSWD='test'
-
-PRESTADOMAIN="localhost:8081"
-PRESTABASEURI='throwback16' # == newdir
-
-#Accès administration
-contactEmail="demo@demo.com"
-adminpass='demodemo'
-
-# Shell script (building the LAMP stack)
-# automated script
-# on a non-interactive shell
-# Perform an unattended installation
 
 
 # ---------------------------------------
 #          Update & basic Tools Setup
 # ---------------------------------------
+
 echo -e "\n--- Mkay, installing now... ---\n"
 
+# basculer en superutilisateur
+sudo su # ou sudo -i
+echo -e "\n--- Vérifier l'appartenance au groupe sudo \n"
+groups
+
 # update time zone
-# TIME_ZONE='Europe/Paris'
-# echo "$TIME_ZONE" > /etc/timezone
-# dpkg-reconfigure -f noninteractive tzdata
+TIME_ZONE='Europe/Paris'
+echo "$TIME_ZONE" > /etc/timezone
 
 echo -e "\n--- Updating packages list ---\n"
 sudo apt-get update 
@@ -63,12 +50,14 @@ sudo apt-get update
 echo -e "\n--- Install basic tools ---\n"
 sudo apt-get install -y unzip
 sudo apt-get install -y git curl
-# sudo apt-get install -y vim
 
 
 # --------------------------------------- #
 #          MYSQL 5.5 & Phpmyadmin Setup
 # --------------------------------------- #
+
+ROOTPASSWD='root' # Mysql default root user
+
 # MySQL setup for development purposes ONLY
 echo -e "\n--- Install MySQL specific packages and settings ---\n"
 
@@ -90,170 +79,159 @@ apt-get install -y mysql-server mysql-client phpmyadmin >> /vagrant/vm_build.log
 # symbolic link from the document root to the phpMyAdmin installation location (/usr/share/phpmyadmin)
 echo -e "\n--- setup phpmyadmin by adding a simple symlink ---\n"
 sudo ln -fs /usr/share/phpmyadmin /var/www/phpmyadmin # create a symbolic link named phpmyadmin in apache doc root
-# sudo ln -fs /usr/share/phpmyadmin /var/www/html/example.org/public_html
 
 # --------------------------------------- #
 #          Apache & PHP Setup
 # --------------------------------------- #
 
 echo -e "\n--- Installing Aapche packages ---\n"
-sudo apt-get install -y apache2
-# sudo apt-get install -y apache2.2-common
+apt-get install -y apache2
 
 echo -e "\n--- Installing PHP-specific packages ---\n"
-sudo apt-get install -y php5
+apt-get install -y php5
 # module PHP5 pour le serveur web Apache 2 : https://packages.debian.org/sid/libapache2-mod-php5
-sudo apt-get install -y libapache2-mod-php5 >> /vagrant/vm_build.log 2>&1
-sudo apt-get install -y php5-mysql php-pear php5-xdebug php5-curl php5-gd php5-mcrypt php-gettext
+apt-get install -y libapache2-mod-php5 >> /vagrant/vm_build.log 2>&1
+apt-get install -y php5-mysql php-pear php5-xdebug php5-curl php5-gd php5-mcrypt php-gettext
 
 echo -e "\n--- Enabling mod_rewrite for URL rewriting ---\n"
-sudo a2enmod rewrite >> /vagrant/vm_build.log 2>&1
+a2enmod rewrite >> /vagrant/vm_build.log 2>&1
 
 echo -e "\n--- Allowing Apache override to all ---\n"
-sudo sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
-# sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
+sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
+# PHP  Composer
+
+echo -e "\n--- Installing Composer for PHP package management"
+curl --silent https://getcomposer.org/installer | php >> /vagrant/vm_build.log 2>&1
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+
+# SYNC web root folder
 
 echo -e "\n--- Setting document root to public directory ---\n"
+
 vagrantdir='/vagrant/public'
 apacherootfolder='/var/www/html'
+
 if [ ! -d "$vagrantdir" ]; then
   mkdir "$vagrantdir"
 fi
-# linking between the Apache 2.4 public directory /var/www folder and the public vagrant folder
+
+# linking between the Apache 2.4 default web public directory /var/www/html folder and the public vagrant folder
 echo -e "\n--- Setting document root to public directory ---\n"
-# The default Debian document root is /var/www/html
 if [ ! -L "$apacherootfolder" ]; then
-  sudo rm -rf "$apacherootfolder"
-  sudo ln -fs "$vagrantdir" "$apacherootfolder"
+  rm -rf "$apacherootfolder"
+  ln -fs "$vagrantdir" "$apacherootfolder"
 fi
 
 echo -e "\n--- Restarting Apache ---\n"
 service apache2 restart >> /vagrant/vm_build.log 2>&1
 
-
-# --------- change to web directory
-
+# change to web directory
 cd "$vagrantdir" || exit
 
-# --------- vhost
-# virtual host dev.fr within a file config named dev.conf
-file='/etc/apache2/sites-available/dev.conf'
-if [ ! -f "$file" ]; then
-  SITE_CONF=$(cat <<EOF
-<Directory /var/www/html>
-  AllowOverride All
-  Options +Indexes -MultiViews +FollowSymLinks
-  AddDefaultCharset utf-8
-  SetEnv ENVIRONMENT "development"
-  php_flag display_errors On
-  EnableSendfile Off
-</Directory>
-EOF
-)
-  echo "$SITE_CONF" > "$file"
-fi
 
-sudo a2ensite dev
-
-echo -e "\n--- Reload Apache"
-service apache2 restart >> /vagrant/vm_build.log 2>&1
-sudo service apache2 reload
-
-
-echo -e "\n--- Creating  phpinfo script"
+# PHP info
 
 file='phpinfo.php'
 if [ ! -f "$file" ]; then
+  echo -e "\n--- Creating  phpinfo script"
   echo '<?php phpinfo();' > "$file"
 fi
 
 
-echo -e "\n--- Adding Adminer for Database management"
+# ADMINER
 
 file='adminer.php'
 if [ ! -f "$file" ]; then
+  echo -e "\n--- Adding Adminer for Database management"
   wget -nv -O "$file" http://www.adminer.org/latest.php
   wget -nv https://raw.githubusercontent.com/vrana/adminer/master/designs/pepa-linha/adminer.css
 fi
 
-echo -e "\n--- Installing Composer for PHP package management"
-curl --silent https://getcomposer.org/installer | php >> /vagrant/vm_build.log 2>&1
-sudo mv composer.phar /usr/local/bin/composer
-sudo chmod +x /usr/local/bin/composer
-
-echo -e "\n--- Installing NodeJS and NPM"
-# apt-get -y install nodejs >> /vagrant/vm_build.log 2>&1
-
-echo -e "\n--- Installing javascript components"
-# npm install -g gulp bower >> /vagrant/vm_build.log 2>&1
 
 # --------------------------------------- #
 #          Installing Prestashop
 # --------------------------------------- #
 
+DBPRESTA16='throwbackpresta16'
+DBPRESTA17='throwbackpresta17'
+DBPRESTAUSER='test'
+DBPRESTAPASSWD='test'
+
+PRESTADOMAIN="localhost:8081"
+
 PS_VERSION_1_6='prestashop_1.6.1.11.zip'
 PS_VERSION_1_7='prestashop_1.7.0.4.zip'
-#Nom du dossier qu'on doit creer
-newdir=$PRESTABASEURI
 
-# sudo mysql_secure_installation
+# Nom du dossier Prestashop qu'on doit creer
+newdir='throwback16' # prestashop folder, prestashop base uri
 
 echo -e "\n--- Prestashop - Installing ... \n"
 
-#On se positionne dans le dossier web
+# On se positionne dans le dossier web
 cd "$vagrantdir" || exit
 
 #On vérifie que le dossier n'existe pas
 if [ -d "$newdir" ]; then
-    echo "$newdir existe !"
+    printf "%s existe !" $newdir
 #Si le dossier n'existe pas on lance le processus
 else
   # Téléchargement de l'archive depuis le site prestashop
   if [ ! -f "$PS_VERSION_1_6" ]; then
+
+    printf "\n Download 1.6 archive ..."
     wget –quiet http://www.prestashop.com/download/old/$PS_VERSION_1_6 >/dev/null 2>&1
+
   fi
+
   if [ ! -f "$PS_VERSION_1_7" ]; then
+
+    printf "\n Download 1.7 archive ..."
     wget –quie http://www.prestashop.com/download/old/$PS_VERSION_1_7 >/dev/null 2>&1
+
   fi
+
   # On dézippe l'archive
   unzip $PS_VERSION_1_6 >/dev/null 2>&1
   # on déplace les fichiers et on supprime ce dossier et l'archive pour finir
-  echo "Rename unziped folder prestashop to $newdir"
+  printf "\n Rename unziped folder from prestashop to $newdir"
   mv prestashop "$newdir"
-
   # echo "Delete downloaded zip "
   # rm $PS_VERSION_1_6
+
+
+  printf "\n--- Prestashop - Setting up MySQL user and database \n"
+
+  mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
+  mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
+
+  # mysql -uroot -p$ROOTPASSWD -e "CREATE USER IF NOT EXISTS 'test'@'localhost' IDENTIFIED BY 'test';"
+  mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';" > /vagrant/vm_build.log 2>&1
+  mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA17.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
+
+  # on se place dans le nouveau dossier
+  cd "$newdir" || exit
+
+  printf "\n--- install prestashop with CLI installer \n"
+  # http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
+  cd install || exit
+  sudo php index_cli.php --language=fr --timezone=Europe/Paris --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_server=localhost --db_name=$DBPRESTA16 --db_user=$DBPRESTAUSER --db_password=$DBPRESTAPASSWD
+
+  # Pour finir on renomme le dossier d'install et le dossier d'admin
+  cd .. || exit
+  mv install _install
+  sudo mv admin admin16
+
 fi
 
-echo -e "\n--- Prestashop - Setting up MySQL user and database \n"
-mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
-mysql -uroot -p$ROOTPASSWD -e "CREATE USER IF NOT EXISTS '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';"
-mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
-
-mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA17" >> /vagrant/vm_build.log 2>&1
-mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA17.* TO '$DBPRESTAUSER'@'localhost';" > /vagrant/vm_build.log 2>&1
-
-#on se place dans le nouveau dossier
-cd "$newdir"
-
-echo "\n--- install prestashop with CLI installer \n"
-# http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
-cd install || exit
-#sudo php index_cli.php --language=en --timezone=Europe/Paris --domain=localhost:8081/prestashop16/ --db_server=localhost --db_name=$DBPRESTA --db_user=$DBUSER --db_password=$ROOTPASSWD
-sudo php index_cli.php --base_uri="/$newdir" --domain=$PRESTADOMAIN --db_name=$DBPRESTA16 --db_user=root --db_password=$DBPRESTAPASSWD
-# sudo php index_cli.php --base_uri='/prestashop16' --domain='localhost:8081' --db_name=throwbackpresta16 --db_user=root --db_password=root
-
-#Pour finir on renomme le dossier d'install et le dossier d'admin
-cd .. || exit
-mv install _install
-mv admin admin-dev
 
 # --------------------------------------- #
 #          Virtual Machine clean
 # --------------------------------------- #
 
-echo -e "\n--- Updating packages list ---\n"
-sudo apt-get update 
+printf "\n--- Updating packages list ---\n"
+apt-get update 
 
 # Clean package installed list
 apt-get clean >> /vagrant/vm_build_clean.log 2>&1

@@ -1,20 +1,19 @@
 Machine Virtual pour le projet Throwback
 ========================================
 
-Objectif
---------
+Vagrant LAMP stack for Throwback, to Set up distributed development environments with VAGRANT
 
-industrialiser l’installation de Prestashop sur mon serveur de développement
+Contient la stack LAMP et les modules nécessaires à Prestashop. Chaque boutique disposera de sa propre base de données.
 
-Vagrant LAMP stack pour Throwback/Prestashop :
+Objectifs
+-----
 
+- industrialiser l’installation de Prestashop sur les env de développement
+- built a vagrant/virtualbox web server as a development sandbox
+- distribute this environment across team members
+- iso-prod dev env
+- anyone working on the project will benefit from the same environment
 
-Desc
-----
-
-Contient la stack LAMP (Linux Apache MySQL PHP) et les modules nécessaires à Prestashop
-Chaque version disposera de sa propre base de données
-built a vagrant/virtualbox web server as a development sandbo
 
 Stack
 -----
@@ -45,7 +44,7 @@ Si c'est pas activez, aller l'activer dans le BIOS avant de continuer
 6. Accès aux outils :
 
 ..* l'interface d'administration de la boutique Prestashop :
-admin URL : http://localhost:8081/throwback16/admin-dev
+admin URL : http://localhost:8081/throwback16/admin16
 Admin access : pub@prestashop.com / 0123456789
 
 ..* Accès au front-end :
@@ -67,4 +66,16 @@ http://localhost:8081/adminer.php/
 Troubleshooting
 ----------------
 
-make a coffee for me and may be... i'll come help you :-)
+- make a coffee for me and may be... i'll come help you :-)
+
+- if You experience some error with the conf, let me known it.
+
+Ressources :
+----------------
+
+Installer PrestaShop en ligne de commande
+http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
+
+https://www.shellcheck.net/
+
+

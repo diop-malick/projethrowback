@@ -144,6 +144,8 @@ sudo /etc/init.d/apache2 restart
 https://www.skyminds.net/serveur-dedie-passage-au-mod-fastcgi-et-php-fpm-avec-apache-mpm-worker/
 https://www.skyminds.net/serveur-dedie-installer-php7-fpm-avec-fastcgi-sous-debian/
 
+http://www.love-moi.fr/2016/01/installer-php-7-avec-php-fpm-et-fastcgi.html
+
 
 * list intalled php5
 dpkg --list | grep php | awk '/^ii/{ print $2}'
