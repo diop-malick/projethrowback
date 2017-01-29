@@ -28,16 +28,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # BASE BOX to build of
   config.vm.box = "debian/jessie64"
 
-  # The hostname the machine should have
-  # https://www.vagrantup.com/docs/vagrantfile/machine_settings.html
-  # config.vm.hostname = "Debian8.Apache2.PHP5.Mysql56"
 
   # NETWORK
+  
   # forward port 8080 on your host machine to the standard port 80 on the box
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 8081 # try 8080 & 8081
-  #config.vm.network :"forwarded_port", guest: 443, host: 443
-  #config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "forwarded_port", guest: 80, host: 8081
+  
+  # Forward SSL Port
+  # config.vm.network :"forwarded_port", guest: 443, host: 443
+  
   # Forward ports to MySQL
   # config.vm.network "forwarded_port", guest: 3306, host: 8889
 
@@ -46,17 +46,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "Vagrantbootstrap.sh"
 
   # SYNC FOLDER
-  # sync a folder on the host machine to the guest machine
+  # sync "src/" folder on the host machine to "/vagrant" folder on the guest machine
   # The first parameter is a path to a directory on the host machine.
   # The second argument the path on the guest to mount the folder.
-  # config.vm.synced_folder "src/", "/vagrant", create: true, disabled: false
   config.vm.synced_folder "src/", "/vagrant", type: "virtualbox",
     disabled: false, create: true
-
-   # prevent warning error default: stdin: is not a tty
-  #  config.vm.provision "fix-no-tty", type: "shell" do |s|
-  #      s.privileged = false
-  #      s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
-  #  end
 
 end
