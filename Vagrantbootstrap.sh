@@ -225,6 +225,15 @@ else
 
 fi
 
+# backup DB
+
+cd "$vagrantdir" || exit
+
+dumpfile='dbdump.sql'
+if [ ! -f "$dumpfile" ]; then
+  mv "$dumpfile" dumpfile_old.sql
+fi
+mysqldump -uroot -p$ROOTPASSWD --databases $DBPRESTA16 $DBPRESTA17 > dbdump.sql
 
 # --------------------------------------- #
 #          Virtual Machine clean
