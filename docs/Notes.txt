@@ -1,0 +1,13 @@
+
+
+T'aille d'image : 
+
+Slider : 
+
+	default bootstrap :
+		Largeur maximum : 	1170px
+		hauteur		: 	libre.
+
+	default throwback :
+		Largeur maximum : 	1010px
+		hauteur		: 	673px
