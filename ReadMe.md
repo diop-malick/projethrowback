@@ -70,6 +70,20 @@ cd /vagrant/public
 rm dbdumpfile.sql
 sudo mysqldump -uroot -proot --databases throwbackpresta16 > dbdumpfile.sql
 
+vérifier l'intégrité du cichier dumpfle.sql
+
+Manips 
+---------
+
+
+Pour annuler tous vos modifs et epartir d'une version clean
+
+git checkout .
+git reset
+git clean -fd
+
+git pull 
+
 Troubleshooting
 ----------------
 
@@ -88,6 +102,10 @@ https://www.shellcheck.net/
 https://gist.github.com/asmerkin/df919a6a79b081512366
 
 https://gist.github.com/rrosiek/8190550
+
+mysqlDump
+http://cipcnet.insa-lyon.fr/sqltut/nexen/mysqldump.html
+
 
 
 
