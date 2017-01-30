@@ -5741,8 +5741,12 @@ header {
     max-height: 100%; }
     header .banner .row {
       margin: 0px; }
+	  
+/* throwback header background */
   header .nav {
-    background: #333; }
+    background: #ececeb; 
+	}
+	
     header .nav .row {
       margin: 0px; }
     header .nav nav {
@@ -7241,11 +7245,15 @@ div.star a:hover {
   .ie8 .breadcrumb .navigation-pipe {
     width: 20px; }
 
+	/* throback footer */
 .footer-container {
-  background-color: #333; }
-  @media (min-width: 768px) {
-    .footer-container {
-      background: url(../img/footer-bg.png) repeat-x #333; } }
+  background-color: #ececeb; 
+}
+/*
+@media (min-width: 768px) {
+   .footer-container {
+   background: url(../img/footer-bg.png) repeat-x #333; } }
+*/
 	  
 
 	/* throwback - footer contact */
