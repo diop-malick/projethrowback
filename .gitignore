@@ -4,6 +4,7 @@
 ### Vagrant ###
 .vagrant/
 src/vm_build.log
+src/vm_build_clean.log
 
 ### project ###
 

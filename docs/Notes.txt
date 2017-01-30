@@ -16,7 +16,9 @@ Slider :
 Format Image :  JPEG ou PNG
 mode RVB
 
-dans photoshop : choisir l'option « Enregistrer pour le Web »
+dans photoshop : 
+choisir l'option « Enregistrer pour le Web »
+exporter png d'un psg : « File -> Scripts -> Export layers to files »
 
 Logo, dessin, icone, graphique : PNG
 photos de produits : JPEG
@@ -29,3 +31,5 @@ color :
 	menu text color : #fff
 	header & footer : #ececeb
 	 : 
+
+Police : 

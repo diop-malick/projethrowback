@@ -53,6 +53,7 @@ $(document).ready(function(){
 			infiniteLoop: homeslider_loop,
 			hideControlOnEnd: true,
 			pager: false,
+			autoControls : true,
 			autoHover: true,
 			auto: homeslider_loop,
 			speed: parseInt(homeslider_speed),
