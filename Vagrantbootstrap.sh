@@ -182,6 +182,7 @@ if [ -d "$newdir" ]; then
 
   # DROP existing DB
   mysql -uroot -p$ROOTPASSWD -e "DROP DATABASE IF EXISTS $DBPRESTA16"
+  mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
 
   # backup DB
 
