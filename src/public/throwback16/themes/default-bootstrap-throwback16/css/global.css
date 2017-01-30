@@ -7270,7 +7270,9 @@ div.star a:hover {
       position: static; }
 	 
 	
-	 
+	.nav .footer-block {
+      margin-top: 10px;
+	}
     .footer-container #footer .footer-block {
       margin-top: 25px;
 	}
