@@ -66,7 +66,9 @@ http://localhost:8081/adminer.php/
 dump DB
 -------
 
-sudo mysqldump -uroot -proot throwbackpresta16 > dbdumpfile.sql
+cd /vagrant/public
+rm dbdumpfile.sql
+sudo mysqldump -uroot -proot --databases throwbackpresta16 > dbdumpfile.sql
 
 Troubleshooting
 ----------------
