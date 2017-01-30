@@ -11,3 +11,21 @@ Slider :
 	default throwback :
 		Largeur maximum : 	1010px
 		hauteur		: 	673px
+
+
+Format Image :  JPEG ou PNG
+mode RVB
+
+dans photoshop : choisir l'option « Enregistrer pour le Web »
+
+Logo, dessin, icone, graphique : PNG
+photos de produits : JPEG
+Image avec transparence : PNG
+
+
+
+color :
+	menu backgroung : #353535
+	menu text color : #fff
+	header & footer : #ececeb
+	 : 
