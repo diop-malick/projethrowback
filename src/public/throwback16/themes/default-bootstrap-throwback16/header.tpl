@@ -102,6 +102,7 @@
 					<div>
 						<div class="container">
 							<div class="row">
+								<!-- logo -->
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 							</div>
 						</div>

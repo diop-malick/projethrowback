@@ -176,6 +176,21 @@ cd "$vagrantdir" || exit
 if [ -d "$newdir" ]; then
     printf "%s existe !" $newdir
 #Si le dossier n'existe pas on lance le processus
+
+# DROP existing DB
+sudo mysqldump -uroot -p$ROOTPASSWD $DBPRESTA16 > dbdumpfile_old.sql
+
+mysql -uroot -p$ROOTPASSWD "DROP DATABASE $DBPRESTA16"
+
+# backup DB
+
+dumpfile='dbdumpfile.sql'
+# if [ ! -f "$dumpfile" ]; then
+#   mv "$dumpfile" dbdumpfile_old.sql
+# fi
+sudo mysqldump -uroot -p$ROOTPASSWD $DBPRESTA16 < dbdumpfile.sql
+# sudo mysqldump -uroot -proot --databases throwbackpresta16 throwbackpresta17 > dbdumpfile.sql
+
 else
   # Téléchargement de l'archive depuis le site prestashop
   if [ ! -f "$PS_VERSION_1_6" ]; then
@@ -225,16 +240,7 @@ else
 
 fi
 
-# backup DB
 
-cd "$vagrantdir" || exit
-
-dumpfile='dbdumpfile.sql'
-if [ ! -f "$dumpfile" ]; then
-  mv "$dumpfile" dbdumpfile_old.sql
-fi
-sudo mysqldump -uroot -p$ROOTPASSWD --databases $DBPRESTA16 $DBPRESTA17 > dbdumpfile.sql
-# sudo mysqldump -uroot -proot --databases throwbackpresta16 throwbackpresta17 > dbdumpfile.sql
 
 # --------------------------------------- #
 #          Virtual Machine clean

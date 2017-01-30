@@ -8,6 +8,8 @@
 
 # src/public/
 
+dbdumpfile_old.sql
+
 # Prestashop - dowloaded zip & unzip file
 src/public/prestashop/
 src/public/prestashop_*.zip

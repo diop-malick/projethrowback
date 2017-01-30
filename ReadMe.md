@@ -54,7 +54,7 @@ ou http://localhost:8081/throwback16/
 ..* DB admin :
 
 Root User : root / root
-shop User : test / test
+throwbackDB User : test / test
 
 PhpMyadmin
  http://localhost:8081/phpmyadmin/
@@ -62,6 +62,11 @@ PhpMyadmin
 Adminer
 http://localhost:8081/adminer.php/
 
+
+dump DB
+-------
+
+sudo mysqldump -uroot -proot throwbackpresta16 > dbdumpfile.sql
 
 Troubleshooting
 ----------------
@@ -77,5 +82,10 @@ Installer PrestaShop en ligne de commande
 http://doc.prestashop.com/display/PS16/Installer+PrestaShop+en+ligne+de+commande
 
 https://www.shellcheck.net/
+
+https://gist.github.com/asmerkin/df919a6a79b081512366
+
+https://gist.github.com/rrosiek/8190550
+
 
 
