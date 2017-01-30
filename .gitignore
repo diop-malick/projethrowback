@@ -3,6 +3,7 @@
 
 ### Vagrant ###
 .vagrant/
+src/vm_build.log
 
 ### project ###
 
@@ -13,6 +14,7 @@ dbdumpfile_old.sql
 # Prestashop - dowloaded zip & unzip file
 src/public/prestashop/
 src/public/prestashop_*.zip
+
 
 ### PRESTASHOP ###
 
