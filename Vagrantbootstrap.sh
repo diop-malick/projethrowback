@@ -229,11 +229,12 @@ fi
 
 cd "$vagrantdir" || exit
 
-dumpfile='dbdump.sql'
+dumpfile='dbdumpfile.sql'
 if [ ! -f "$dumpfile" ]; then
-  mv "$dumpfile" dumpfile_old.sql
+  mv "$dumpfile" dbdumpfile_old.sql
 fi
-mysqldump -uroot -p$ROOTPASSWD --databases $DBPRESTA16 $DBPRESTA17 > dbdump.sql
+sudo mysqldump -uroot -p$ROOTPASSWD --databases $DBPRESTA16 $DBPRESTA17 > dbdumpfile.sql
+# sudo mysqldump -uroot -proot --databases throwbackpresta16 throwbackpresta17 > dbdumpfile.sql
 
 # --------------------------------------- #
 #          Virtual Machine clean
