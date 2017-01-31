@@ -178,18 +178,18 @@ if [ -d "$newdir" ]; then
   #Si le dossier n'existe pas on lance le processus
 
   # Backup existing DB
-  sudo mysqldump -uroot -p$ROOTPASSWD --databases throwbackpresta16 > dbdumpfile_old.sql
+  # sudo mysqldump -uroot -p$ROOTPASSWD --databases throwbackpresta16 > dbdumpfile_old.sql
 
   # DROP existing DB
-  mysql -uroot -p$ROOTPASSWD -e "DROP DATABASE IF EXISTS $DBPRESTA16"
-  mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
+  # mysql -uroot -p$ROOTPASSWD -e "DROP DATABASE IF EXISTS $DBPRESTA16"
+  # mysql -uroot -p$ROOTPASSWD -e "CREATE DATABASE IF NOT EXISTS $DBPRESTA16" >> /vagrant/vm_build.log 2>&1
 
   # backup DB
 
-  dumpfile='dbdumpfile.sql'
-  sudo mysqldump -uroot -p$ROOTPASSWD throwbackpresta16 < dbdumpfile.sql
+  # dumpfile='dbdumpfile.sql'
+  # sudo mysqldump -uroot -p$ROOTPASSWD throwbackpresta16 < dbdumpfile.sql
   # sudo mysqldump -uroot -proot --databases throwbackpresta16 throwbackpresta17 > dbdumpfile.sql
-  mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';" > /vagrant/vm_build.log 2>&1
+  # mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';" > /vagrant/vm_build.log 2>&1
 
 
 else
