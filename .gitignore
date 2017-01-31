@@ -1,3 +1,15 @@
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# ignore all files that start with ~
+~*
+
+
+
 # This is a template .gitignore file for git-managed Prestashop projects.
 # check : https://www.gitignore.io/
 
@@ -65,3 +77,6 @@ src/public/throwback16/blog/license.txt
 src/public/throwback16/blog/readme.html
 src/public/throwback16/blog/sitemap.xml
 src/public/throwback16/blog/sitemap.xml.gz
+
+# ignore specific themes
+# wp-content/themes/twenty*/
