@@ -55,6 +55,7 @@ ou http://localhost:8081/throwback16/
 
 Root User : root / root
 throwbackDB User : test / test
+wordpress user : usertbwp / pwdtbwp
 
 PhpMyadmin
  http://localhost:8081/phpmyadmin/
@@ -62,9 +63,18 @@ PhpMyadmin
 Adminer
 http://localhost:8081/adminer.php/
 
+Wordpress : 
+Front | http://localhost:8081/throwback16/blog
+Back | http://localhost:8081/throwback16/blog/wp-admin/
 
-dump DB
--------
+admin user : 
+identifiant : tbwpadmin
+password : T2KK#gXK6ffel$HMkW
+mail : mdiop.sne@gmail.com
+
+
+Merger votre installation
+--------
 
 cd /vagrant/public
 rm dbdumpfile.sql
