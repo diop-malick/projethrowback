@@ -247,8 +247,5 @@ fi
 #          Virtual Machine clean
 # --------------------------------------- #
 
-printf "\n--- Updating packages list ---\n"
-apt-get update 
-
 # Clean package installed list
 apt-get clean >> /vagrant/vm_build_clean.log 2>&1
