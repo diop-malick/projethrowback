@@ -43,3 +43,25 @@ src/public/throwback16/*sitemap.xml
 # src/public/throwback16/download/
 # src/public/throwback16/img/
 # src/public/throwback16/upload/
+
+
+### WORDPRESS ###
+
+# https://github.com/github/gitignore/blob/master/WordPress.gitignore
+
+src/public/throwback16/blog/*.log
+
+src/public/throwback16/blog/wp-content/advanced-cache.php
+src/public/throwback16/blog/wp-content/backup-db/
+src/public/throwback16/blog/wp-content/backups/
+src/public/throwback16/blog/wp-content/blogs.dir/
+src/public/throwback16/blog/wp-content/cache/
+src/public/throwback16/blog/wp-content/upgrade/
+# src/public/throwback16/blog/wp-content/uploads/
+# src/public/throwback16/blog/wp-content/wp-cache-config.php
+# src/public/throwback16/blog/wp-content/plugins/hello.php
+src/public/throwback16/blog/.htaccess
+src/public/throwback16/blog/license.txt
+src/public/throwback16/blog/readme.html
+src/public/throwback16/blog/sitemap.xml
+src/public/throwback16/blog/sitemap.xml.gz
