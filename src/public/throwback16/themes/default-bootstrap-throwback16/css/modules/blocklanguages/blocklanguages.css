@@ -1,6 +1,5 @@
 #languages-block-top {
   float: right;
-  border-left: 1px solid #515151;
   position: relative; }
   @media (max-width: 479px) {
     #languages-block-top {
@@ -11,8 +10,6 @@
     font-weight: bold;
     padding: 8px 10px 10px 10px;
     line-height: 18px;
-    color: #fff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     cursor: pointer; }
     @media (max-width: 479px) {
       #languages-block-top div.current {

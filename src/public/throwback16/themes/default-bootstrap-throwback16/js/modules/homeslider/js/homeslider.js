@@ -47,17 +47,19 @@ $(document).ready(function(){
 
 	if (!!$.prototype.bxSlider)
 		$('#homeslider').bxSlider({
+
 			useCSS: false,
 			maxSlides: 1,
 			slideWidth: homeslider_width,
 			infiniteLoop: homeslider_loop,
 			hideControlOnEnd: true,
-			pager: false,
-			autoControls : true,
+			pager: true,
+			autoControls : false,
 			autoHover: true,
 			auto: homeslider_loop,
 			speed: parseInt(homeslider_speed),
 			pause: homeslider_pause,
-			controls: true
+			controls: false,
+			auto: true,
 		});
 });

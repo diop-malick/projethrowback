@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2017-01-29 20:21:39
+<?php /* Smarty version Smarty-3.1.19, created on 2017-01-31 11:27:42
          compiled from "/vagrant/public/throwback16/modules/themeconfigurator/views/templates/hook/hook.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1930598091588e40c3450ad9-68400379%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '54a437f8e6301d36f66975b8a6408773c82fb748' => 
     array (
       0 => '/vagrant/public/throwback16/modules/themeconfigurator/views/templates/hook/hook.tpl',
-      1 => 1482160632,
+      1 => 1485858450,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_588e40c356ee20_58128557',
   'variables' => 
   array (
     'htmlitems' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'link' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_588e40c356ee20_58128557',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_588e40c356ee20_58128557')) {function content_588e40c356ee20_58128557($_smarty_tpl) {?>
 <?php if (isset($_smarty_tpl->tpl_vars['htmlitems']->value)&&$_smarty_tpl->tpl_vars['htmlitems']->value) {?>
@@ -44,7 +44,7 @@ $_smarty_tpl->tpl_vars['hItem']->_loop = true;
  col-xs-12">
 			<?php } else { ?>
 				<li class="htmlcontent-item-<?php echo mb_convert_encoding(htmlspecialchars($_smarty_tpl->getVariable('smarty')->value['foreach']['items']['iteration'], ENT_QUOTES, 'UTF-8', true), "HTML-ENTITIES", 'UTF-8');?>
- col-xs-4">
+ col-xs-6">
 			<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['hItem']->value['url']) {?>
 						<a href="<?php echo mb_convert_encoding(htmlspecialchars($_smarty_tpl->tpl_vars['hItem']->value['url'], ENT_QUOTES, 'UTF-8', true), "HTML-ENTITIES", 'UTF-8');?>

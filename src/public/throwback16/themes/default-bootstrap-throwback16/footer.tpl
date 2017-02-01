@@ -41,5 +41,6 @@
 		</div><!-- #page -->
 {/if}
 {include file="$tpl_dir./global.tpl"}
+		<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/style.js"></script>
 	</body>
 </html>

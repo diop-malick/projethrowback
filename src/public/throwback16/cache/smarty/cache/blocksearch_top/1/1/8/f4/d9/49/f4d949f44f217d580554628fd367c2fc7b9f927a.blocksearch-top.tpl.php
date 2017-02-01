@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:1592589169588e36e04ca088-44022014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1948525157588f7a5e3c89c2-72800544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,18 +9,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1592589169588e36e04ca088-44022014',
-  'variables' => 
-  array (
-    'link' => 0,
-    'search_query' => 0,
-  ),
-  'has_nocache_code' => false,
+  'nocache_hash' => '1948525157588f7a5e3c89c2-72800544',
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_588e36e071a226_69279130',
+  'unifunc' => 'content_588f835e577048_63880873',
+  'has_nocache_code' => false,
   'cache_lifetime' => 31536000,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_588e36e071a226_69279130')) {function content_588e36e071a226_69279130($_smarty_tpl) {?><!-- Block search module TOP -->
+<?php if ($_valid && !is_callable('content_588f835e577048_63880873')) {function content_588f835e577048_63880873($_smarty_tpl) {?><!-- Block search module TOP -->
 <div id="search_block_top" class="col-sm-4 clearfix">
 	<form id="searchbox" method="get" action="//localhost:8081/throwback16/index.php?controller=search" >
 		<input type="hidden" name="controller" value="search" />

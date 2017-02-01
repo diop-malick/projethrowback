@@ -845,4 +845,8 @@ class ThemeConfigurator extends Module
 		else
 			return filter_var($value, FILTER_SANITIZE_STRING);
 	}
+	public function hookDisplayHomeTabContent($params)
+    {
+        return $this->hookDisplayHome($params);    
+    }
 }
