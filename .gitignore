@@ -59,6 +59,8 @@ src/public/throwback16/*sitemap.xml
 
 ### WORDPRESS ###
 
+src/public/blog35
+
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
 src/public/throwback16/blog/*.log
@@ -70,7 +72,7 @@ src/public/throwback16/blog/wp-content/blogs.dir/
 src/public/throwback16/blog/wp-content/cache/
 src/public/throwback16/blog/wp-content/upgrade/
 # src/public/throwback16/blog/wp-content/uploads/
-# src/public/throwback16/blog/wp-content/wp-cache-config.php
+src/public/throwback16/blog/wp-content/wp-cache-config.php
 # src/public/throwback16/blog/wp-content/plugins/hello.php
 src/public/throwback16/blog/.htaccess
 src/public/throwback16/blog/license.txt

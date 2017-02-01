@@ -14,4 +14,17 @@ Context::getContext()->smarty->assign(array('meta_title' => html_entity_decode(g
 $controllerPrestashop->displayHeader();
 
 
+
+// footer.php
+<?php 
+/* Webbax - 24.02.16 - intégration WP-PS */
+global $controllerPrestashop;
+$controllerPrestashop->displayFooter();
 ?>
+
+?>
+
+
+
+
+
