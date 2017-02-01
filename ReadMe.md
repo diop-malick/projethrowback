@@ -1,7 +1,7 @@
 Machine Virtual pour le projet Throwback
 ========================================
 
-Vagrant LAMP stack for Throwback, to Set up distributed development environments with VAGRANT
+Vagrant LAMP stack for Throwback, to Set up distributed development environments with VAGRANT.
 
 Contient la stack LAMP et les modules nécessaires à Prestashop. Chaque boutique disposera de sa propre base de données.
 
@@ -17,12 +17,12 @@ Objectifs
 
 Stack
 -----
-OS: Debian 8
-Web server : Apache 2
-Php 5.6 + severals extensions
-MySQL 5.5
-PHPMyAdmin & Adminer
-Prestashop 1.6
+- OS: Debian 8
+- Web server : Apache 2
+- Php 5.6 + severals extensions
+- MySQL 5.5
+- PHPMyAdmin & Adminer
+- Prestashop 1.6
 
 
 steps to make it work !
@@ -35,17 +35,28 @@ Si c'est pas activez, aller l'activer dans le BIOS avant de continuer
 
 2. Installer  VirtualBox et Vagrant sur vôtre machine
 
-3. cloner le project
+  
 
-4. entrer dans le dossier du projet, tapez 'vagrant up' and enjoy !
+4. cloner le project
 
-5. Accés aux différents outils :
+5. entrer dans le dossier du projet, tapez 'vagrant up'.
+ 
+Allez prendre un café, cette étape peut être très longue si vous installez vagrant pour la première fois.
 
-6. Accès aux outils :
+6. Only for FIRST Vagrant installation
+
+Importer les fichiers , dans l'ordre , dans la base avec phpmyadmin.
+
+- db_throwback_ps_dumpfile.sql
+- db_throwback_wp_dumpfile.sql
+- db_throwback_users.sql
+
+
+7. Accès aux webapps & outils :
 
 ..* l'interface d'administration de la boutique Prestashop :
-admin URL : http://localhost:8081/throwback16/admin16
-Admin access : pub@prestashop.com / 0123456789
+- admin URL : http://localhost:8081/throwback16/admin16
+- Admin access : pub@prestashop.com / 0123456789
 
 ..* Accès au front-end :
 cliquez sur "Voir mon magasin" en haut à droite de l'interface admin
@@ -53,43 +64,63 @@ ou http://localhost:8081/throwback16/
 
 ..* DB admin :
 
-Root User : root / root
-throwbackDB User : test / test
+- Root User : root / root
+- throwbackDB User : test / test
+- wordpress user : usertbwp / pwdtbwp
 
-PhpMyadmin
- http://localhost:8081/phpmyadmin/
+- PhpMyadmin | http://localhost:8081/phpmyadmin/
 
-Adminer
-http://localhost:8081/adminer.php/
+- Adminer http://localhost:8081/adminer.php/
+
+Wordpress : 
+- Front | http://localhost:8081/throwback16/blog
+- Back | http://localhost:8081/throwback16/blog/wp-admin/
+
+admin user : 
+- identifiant : tbwpadmin
+- password : T2KK#gXK6ffel$HMkW
+- mail : mdiop.sne@gmail.com
 
 
-dump DB
--------
+Merger votre installation
+--------
 
+- exécuter les commandes suivantes 
+
+```bash
 cd /vagrant/public
 rm dbdumpfile.sql
 sudo mysqldump -uroot -proot --databases throwbackpresta16 > dbdumpfile.sql
+```
 
-vérifier l'intégrité du cichier dumpfle.sql
+- vérifier l'intégrité du fichier dumpfle.sql généré
+
+- pull & merge last version 
 
 Manips 
 ---------
 
 
-Pour annuler tous vos modifs et epartir d'une version clean
+Pour annuler le dernier commit : 
+
+git reset
+
+Pour annuler tous vos modifications courante et repartir d'une version clean :
 
 git checkout .
-git reset
+
+git checkout --
+
 git clean -fd
 
 git pull 
 
+
 Troubleshooting
 ----------------
 
-- make a coffee for me and may be... i'll come help you :-)
+if You experience some error with the conf, let me known, make a coffee for me and may be... i'll come help you :-)
 
-- if You experience some error with the conf, let me known it.
 
 Ressources :
 ----------------
@@ -108,4 +139,11 @@ http://cipcnet.insa-lyon.fr/sqltut/nexen/mysqldump.html
 
 
 
+* Si vous avez un problème de Sync folder Vagrant/virtualBox (Only for FIRST Vagrant installation) Installer le plugin vagrant pour virtualBox : 
 
+ouvrez un terminal et lancer la command suivante : 
+```bash
+vagrant plugin install vagrant-vbguest
+```
+
+source : https://github.com/mitchellh/vagrant/issues/6769 

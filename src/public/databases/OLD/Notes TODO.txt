@@ -1,0 +1,58 @@
+
+
+# Import BigDump (large sql file) in Mysql :
+ 
+cd /vagrant/public/databases/OLD/
+mysql -uroot -proot throwbackpresta14 < throwbacpresta14_wp_dumpfile.sql
+
+# define user password : throwbackpresta / throwbackpresta
+
+# 
+compte admin : admin123 / admin
+
+Login : Gael
+MDP : dedeagassi
+
+reset password : 
+UPDATE `wp_users` SET `user_pass`= PASSWORD("admin") WHERE user_login LIKE '%admin%';
+select * from `wp_users` where `user_pass`=md5(admin)
+
+
+#********* Define Blog Address and Site Address : 
+when change domains when moving a site and database
+
+	vagrant : blog35/wp-config.php
+
+		define('WP_HOME', 'http://localhost:8081/blog35');
+		define('WP_SITEURL', 'http://localhost:8081/blog35');
+
+
+	SNE serveur :  var/www/html/..../blog/wp-config.php
+
+		define('WP_HOME', 'https://digwp.com');
+		define('WP_SITEURL', 'https://digwp.com');
+
+#************** change htaccess
+
+
+#****** change two configuration values in Database
+	go to wp_options table
+	change value of 
+	option_name siteurl > http://localhost:8081/blog35
+	option_name home  > http://localhost:8081/blog35
+
+
+OR
+
+ : PHPmYadmin
+
+UPDATE wp_options SET option_value = replace(option_value, 'http://www.olddomain.com/', 'http://www.newdomain.com/') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = replace(guid, 'http://www.olddomain.com/','http://www.newdomain.com/');
+UPDATE wp_posts SET post_content = replace(post_content, 'http://www.olddomain.com/', 'http://www.newdomain.com/');
+UPDATE wp_postmeta SET meta_value = replace(meta_value, 'http://www.olddomain.com/', 'http://www.newdomain.com/');
+
+
+
+# RECOMMEND CONF : wp-config
+
+https://digwp.com/2009/06/wordpress-configuration-tricks/

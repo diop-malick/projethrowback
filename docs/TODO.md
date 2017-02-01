@@ -6,11 +6,20 @@
 # get the latest stable build of WordPress and put it in the /public folder.
 # if [ ! -d /vagrant/www/wp-admin ]; then # check if dir does not exist
 #     cd "$vagrantdir"
-#     wget http://wordpress.org/latest.tar.gz
-#     tar xvf latest.tar.gz
-#     mv wordpress/* ./
-#     rmdir ./wordpress/
-#     rm -f latest.tar.gz
+wget -q http://wordpress.org/latest.tar.gz
+tar zxf latest.tar.gz
+rm -f latest.tar.gz
+mkdir throwback16/blog/
+mv wordpress/* throwback16/blog/
+rm -rf wordpress
+rm latest.tar.gz
+
+mkdir throwback16/blog/wp-includes/languages
+cd throwback16/blog/wp-includes/languages
+wget -q https://downloads.wordpress.org/translation/core/4.7.2/fr_FR.zip
+unzip fr_FR.zip >/dev/null 2>&1
+rm fr_FR.zip
+
 # fi
 
 
