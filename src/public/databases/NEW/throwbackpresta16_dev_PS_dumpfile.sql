@@ -1,10 +1,20 @@
+-- MySQL dump 10.13  Distrib 5.5.54, for debian-linux-gnu (x86_64)
 --
--- Current Database: `throwbackpresta16`
---
+-- Host: localhost    Database: throwbackpresta16
+-- ------------------------------------------------------
+-- Server version	5.5.54-0+deb8u1
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `throwbackpresta16` /*!40100 DEFAULT CHARACTER SET latin1 */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-USE `throwbackpresta16`;
 
 --
 -- Table structure for table `ps_access`
@@ -7767,4 +7777,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-01 14:56:41
+-- Dump completed on 2017-02-01 18:55:45

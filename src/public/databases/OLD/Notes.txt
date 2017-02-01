@@ -5,7 +5,18 @@
 cd /vagrant/public/databases/OLD/
 mysql -uroot -proot throwbackpresta14 < throwbacpresta14_wp_dumpfile.sql
 
-# define user password : throwbackpresta / throwbackpresta
+mysql -uroot -proot throwbackpresta14 < throwbacpresta14_wp_dumpfile.sql
+
+
+# Connect Databases remotely : 
+dbnames : throwbackpresta16_dev / throwbackpresta16_qlf / throwbackpresta16_prod
+dhhost : vps365425.ovh.net
+dbuser  : throwbackpresta 
+dbpassword : HYn99OxM4yP6TsSe
+
+# dump local dbfile in remote db
+
+mysql -uthrowbackpresta -pHYn99OxM4yP6TsSe -h 193.70.112.96 throwbackpresta16_dev < throwbackpresta16_dev_PS_dumpfile.sql
 
 # 
 compte admin : admin123 / admin
