@@ -83,7 +83,6 @@
     font-weight: normal;
     color: #777777; }
     #categories_block_left li li a:before {
-      content: "\f105";
       font-family: "FontAwesome";
       line-height: 29px;
       padding-right: 8px; }
