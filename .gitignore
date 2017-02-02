@@ -41,15 +41,15 @@ src/public/throwback16/themes/*/cache/
 src/public/throwback16/*sitemap.xml
 
 # src/public/throwback16/admin16/autoupgrade/
-# src/public/throwback16/config/xml/*.xml
+src/public/throwback16/config/xml/*.xml
 # src/public/throwback16/modules/*/config*.xml
 
 # Site content
 # The following folders contain product images, virtual products, CSV's, etc.
 
-# src/public/throwback16/admin16/backups/
-# src/public/throwback16/admin16/export/
-# src/public/throwback16/admin16/import/
+src/public/throwback16/admin16/backups/
+src/public/throwback16/admin16/export/
+src/public/throwback16/admin16/import/
 # src/public/throwback16/download/
 # src/public/throwback16/img/
 # src/public/throwback16/upload/
