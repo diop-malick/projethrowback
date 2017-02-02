@@ -36,20 +36,11 @@ Si c'est pas activez, aller l'activer dans le BIOS avant de continuer
 2. Installer  VirtualBox et Vagrant sur vôtre machine
 
   
-
 4. cloner le project
 
 5. entrer dans le dossier du projet, tapez 'vagrant up'.
  
 Allez prendre un café, cette étape peut être très longue si vous installez vagrant pour la première fois.
-
-6. Only for FIRST Vagrant installation
-
-Importer les fichiers , dans l'ordre , dans la base avec phpmyadmin.
-
-- db_throwback_ps_dumpfile.sql
-- db_throwback_wp_dumpfile.sql
-- db_throwback_users.sql
 
 
 7. Accès aux webapps & outils :
@@ -69,51 +60,16 @@ ou http://localhost:8081/throwback16/
 - wordpress user : usertbwp / pwdtbwp
 
 - PhpMyadmin | http://localhost:8081/phpmyadmin/
-
 - Adminer http://localhost:8081/adminer.php/
 
-Wordpress : 
+..* Wordpress : 
 - Front | http://localhost:8081/throwback16/blog
 - Back | http://localhost:8081/throwback16/blog/wp-admin/
 
-admin user : 
+..* Wordpress admin user : 
 - identifiant : tbwpadmin
 - password : T2KK#gXK6ffel$HMkW
 - mail : mdiop.sne@gmail.com
-
-
-Merger votre installation
---------
-
-- exécuter les commandes suivantes 
-
-```bash
-cd /vagrant/public
-rm dbdumpfile.sql
-sudo mysqldump -uroot -proot --databases throwbackpresta16 > dbdumpfile.sql
-```
-
-- vérifier l'intégrité du fichier dumpfle.sql généré
-
-- pull & merge last version 
-
-Manips 
----------
-
-
-Pour annuler le dernier commit : 
-
-git reset
-
-Pour annuler tous vos modifications courante et repartir d'une version clean :
-
-git checkout .
-
-git checkout --
-
-git clean -fd
-
-git pull 
 
 
 Troubleshooting

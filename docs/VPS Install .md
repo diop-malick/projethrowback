@@ -20,6 +20,8 @@ journalctl -xn
 * logs
 tail -f /var/log/mail.log
 
+* 
+
 # terminal
 
 Ctrl+l      effacer terminal
@@ -237,10 +239,29 @@ sudo apt-get install mysql-server
 sudo service mysql status
 sudo service mysql stop
 sudo service mysql start 
+
 mysql_upgrade -u root -pmysqlsne123
 
 dpkg -l | grep mysql | grep ii
 mysql --version
+
+* mysql conf : /etc/mysql/my.cnf
+
+* Configure iptables for firewall
+sudo iptables -I INPUT -p udp --dport 3306 -j ACCEPT
+sudo iptables -I INPUT -p tcp --dport 3306 --syn -j ACCEPT
+
+* allow remote access :
+comment the followinf line in my.conf : 
+  skip-networking
+  bind-address = 127.0.0.1
+
+* test remote conection
+telnet 193.70.112.96 3306
+mysql -u throwbackpresta  -pHYn99OxM4yP6TsSe -h 193.70.112.96
+
+* Logs
+https://www.it-connect.fr/activer-les-logs-dans-mysql/
 
 # --------------------------------------- #
 #          PHPMyAdmin
@@ -367,6 +388,8 @@ openssl genrsa -aes256 -out certificat.key 4096
 hostname
 hostname -f
 ifconfig
+
+ifconfig | grep "inet addr"
 
 * To list your Debian version
 

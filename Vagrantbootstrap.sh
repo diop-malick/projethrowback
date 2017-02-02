@@ -175,7 +175,7 @@ cd "$vagrantdir" || exit
 #On vérifie que le dossier n'existe pas
 if [ -d "$newdir" ]; then
   printf "%s existe !" $newdir
-  #Si le dossier n'existe pas on lance le processus
+  
 
   # Backup existing DB
   # sudo mysqldump -uroot -p$ROOTPASSWD --databases throwbackpresta16 > dbdumpfile_old.sql
@@ -192,7 +192,7 @@ if [ -d "$newdir" ]; then
   # mysql -uroot -p$ROOTPASSWD -e "GRANT ALL PRIVILEGES ON $DBPRESTA16.* TO '$DBPRESTAUSER'@'localhost' IDENTIFIED BY '$DBPRESTAPASSWD';" > /vagrant/vm_build.log 2>&1
 
 
-else
+else #Si le dossier n'existe pas on lance le processus
   # Téléchargement de l'archive depuis le site prestashop
   if [ ! -f "$PS_VERSION_1_6" ]; then
 
