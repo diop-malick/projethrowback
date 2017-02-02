@@ -1,6 +1,6 @@
 <!-- Block user information module NAV  -->
 
-<div class="header_user_info col-sm-3 clearfix">
+<div class="header_user_info col-sm-4 clearfix">
    <div class="dropdown">
 	{if $is_logged}
 		<button class="dropbtn"> 

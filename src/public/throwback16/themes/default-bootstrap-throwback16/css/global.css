@@ -5717,7 +5717,11 @@ textarea {
   resize: none; }
 
 #header {
-  z-index: 5003; }
+  z-index: 5003;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
 
 .columns-container {
   background: #fff; }
@@ -5761,7 +5765,7 @@ header {
     header .row #header_logo {
       padding-top: 0px;
 	  margin-top : -10px;
-	  width: 25%;
+	  width: 16.66667%;
 	}
 	header .row #header_logo a {
 		margin: 0 auto;
@@ -5783,7 +5787,7 @@ header {
             margin: 0 auto; } }
   @media (min-width: 767px) {
     header .col-sm-4 + .col-sm-4 + .col-sm-4, header .row #header_logo + .col-sm-4 + .col-sm-4, header .row .col-sm-4 + #header_logo + .col-sm-4, header .row #header_logo + #header_logo + .col-sm-4, header .row .col-sm-4 + .col-sm-4 + #header_logo, header .row #header_logo + .col-sm-4 + #header_logo, header .row .col-sm-4 + #header_logo + #header_logo, header .row #header_logo + #header_logo + #header_logo {
-      float: right; } }
+      float: left; } }
 
 .ie8 #header #header_logo {
   width: 350px; }
@@ -8615,8 +8619,8 @@ div.star.star_hover:after {
 /*# sourceMappingURL=global.css.map */
 
 .header_user_info {
-  width: 25%;
   padding-top: 40px;
+  text-align: center;
 }
 
 /* Dropdown Button */
@@ -8661,4 +8665,11 @@ div.star.star_hover:after {
     display: block;
 }
 
-
+.hidden{
+  display:none !important; }
+.show{
+  display:block !important; }
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; }
