@@ -97,7 +97,12 @@
 								{/if}
 							</div>
 						{/if}
-						
+						{if isset($product.new) && $product.new == 1}
+							
+						{/if}
+						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
+							
+						{/if}
 					</div>
 					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
 					{hook h="displayProductPriceBlock" product=$product type="weight"}
