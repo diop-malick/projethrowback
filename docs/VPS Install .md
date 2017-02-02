@@ -240,6 +240,8 @@ sudo service mysql status
 sudo service mysql stop
 sudo service mysql start 
 
+sudo systemctl restart mysql
+
 mysql_upgrade -u root -pmysqlsne123
 
 dpkg -l | grep mysql | grep ii
@@ -262,6 +264,30 @@ mysql -u throwbackpresta  -pHYn99OxM4yP6TsSe -h 193.70.112.96
 
 * Logs
 https://www.it-connect.fr/activer-les-logs-dans-mysql/
+
+* check 
+voir liste process : run sql command : show full processlist
+voir paramètre cache : SHOW VARIABLES LIKE 'query_cache_%';
+max connetion : SHOW VARIABLES LIKE 'max%connections';
+
+* MYSQL Performance : Optimisation
+- slow remote connection > stop dns lookup, removes the dependency on the DNS sevice : turn off MySQL reverse DNS turned
+http://www.vionblog.com/skip-name-resolve-to-speed-up-mysql-and-avoid-problems/
+
+- moteur de données :
+MyISAM plutôt que InnoDB
+encodage UTF-8
+
+ MySqlTuner  ?
+
+- Query cache : query_cache_type 
+http://sametmax.com/optimiser-mysql-en-utilisant-le-cache-query_cache_size/
+
+- cache : memcache & innod db
+https://dev.mysql.com/doc/refman/5.6/en/innodb-memcached-benefits.html
+
+ MysqlCheck ?
+ https://www.saotn.org/check-repair-and-optimize-mysql-tables-with-mysqlcheck/
 
 # --------------------------------------- #
 #          PHPMyAdmin

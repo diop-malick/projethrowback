@@ -39,11 +39,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :"forwarded_port", guest: 443, host: 443
   
   # Forward ports to MySQL
-  # config.vm.network "forwarded_port", guest: 3306, host: 8889
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # PROVISIONING
+
   # Enable provisioning with a shell script.
   config.vm.provision "shell", path: "Vagrantbootstrap.sh"
+
+# https://github.com/scotch-io/scotch-box/issues/98
+  config.vm.provision "shell", inline: <<-SHELL
+        echo 'echo "upload_max_filesize = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
+        echo 'echo "post_max_size = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
+        sudo service apache2 restart
+  SHELL
 
   # SYNC FOLDER
   # sync "src/" folder on the host machine to "/vagrant" folder on the guest machine

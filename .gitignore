@@ -8,8 +8,6 @@
 # ignore all files that start with ~
 ~*
 
-
-
 # This is a template .gitignore file for git-managed Prestashop projects.
 # check : https://www.gitignore.io/
 
@@ -71,7 +69,10 @@ src/public/throwback16/blog/wp-content/backups/
 src/public/throwback16/blog/wp-content/blogs.dir/
 src/public/throwback16/blog/wp-content/cache/
 src/public/throwback16/blog/wp-content/upgrade/
-# src/public/throwback16/blog/wp-content/uploads/
+
+# blog image
+src/public/throwback16/blog/wp-content/uploads/
+
 src/public/throwback16/blog/wp-content/wp-cache-config.php
 # src/public/throwback16/blog/wp-content/plugins/hello.php
 src/public/throwback16/blog/.htaccess

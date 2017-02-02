@@ -55,6 +55,10 @@ mod_rewrite
 # optimize mysql config
 MySQLTuner
 
+** http://www.tocker.ca/2013/09/17/what-to-tune-in-mysql-56-after-installation.html
+
+https://www.percona.com/blog/2014/01/28/10-mysql-performance-tuning-settings-after-installation/
+
 
 # phpmyadmin
 
