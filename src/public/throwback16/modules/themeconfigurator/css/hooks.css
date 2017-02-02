@@ -1,8 +1,10 @@
 /* Home hook CSS */
 #htmlcontent_home ul {
   margin: 0 -5px; }
+
   #htmlcontent_home ul li {
     padding: 0 5px 10px; }
+
     @media (max-width: 479px) {
       #htmlcontent_home ul li {
         width: 100%; } }

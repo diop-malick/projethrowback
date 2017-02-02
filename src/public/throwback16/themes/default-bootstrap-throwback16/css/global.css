@@ -8673,3 +8673,25 @@ div.star.star_hover:after {
     position: fixed;
     top:0; left:0;
     width: 100%; }
+
+
+
+  /* Throwback CSS Custom */
+  
+  /*TODO - Move themeconfiguratro et other module css in global css */
+
+  /* Throwback > Banner > Center text */
+    #htmlcontent_home ul li a h3 {
+    position: relative;
+    float: left;
+    top: -150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 24px;
+    font-family: 'Futura',Trebuchet MS,Arial,sans-serif !important;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.667;
+  }

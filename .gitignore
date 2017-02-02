@@ -57,8 +57,6 @@ src/public/throwback16/admin16/import/
 
 ### WORDPRESS ###
 
-src/public/blog35
-
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
 src/public/throwback16/blog/*.log
