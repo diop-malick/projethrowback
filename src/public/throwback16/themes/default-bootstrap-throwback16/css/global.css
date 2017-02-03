@@ -6290,16 +6290,31 @@ table.table_block td {
   color: #777;
   white-space: nowrap; }
 
+/* Throwback > product container > price style */
 .price.product-price {
-  font: 600 21px/26px "Open Sans", sans-serif;
-  color: #333; }
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Helvetica Neue", Open Sans, sans-serif;
+  color: rgb(88, 89, 91);
+  line-height: 1;
+  /*z-index: 85;*/
+}
 
 .old-price {
   color: #6f6f6f;
   text-decoration: line-through; }
 
 .old-price.product-price {
-  font-size: 17px; }
+  font-size: 16px;
+  font-family: "Helvetica Neue", Open Sans, sans-serif;
+  color: rgb(88, 89, 91);
+  text-decoration: line-through;
+  line-height: 1.5;
+  -moz-transform: matrix( 1.06126342609182,0,0,1.06126342609182,0,0);
+  -webkit-transform: matrix( 1.06126342609182,0,0,1.06126342609182,0,0);
+  -ms-transform: matrix( 1.06126342609182,0,0,1.06126342609182,0,0);
+  /*z-index: 103;*/
+}
 
 .special-price {
   color: #f13340; }
