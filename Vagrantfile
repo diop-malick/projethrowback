@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :"forwarded_port", guest: 443, host: 443
   
   # Forward ports to MySQL
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
+  #config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # PROVISIONING
 
