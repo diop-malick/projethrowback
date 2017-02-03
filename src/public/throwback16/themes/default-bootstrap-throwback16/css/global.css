@@ -6640,12 +6640,13 @@ table.table_block td {
 
 .page-heading {
   font: 600 18px/22px "Open Sans", sans-serif;
-  color: #555454;
+  color: #fff;
   text-transform: uppercase;
   padding: 0px 0px 17px 0px;
   margin-bottom: 30px;
   border-bottom: 1px solid #d6d4d4;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #000 }
   .page-heading span.heading-counter {
     font: bold 13px/22px Arial, Helvetica, sans-serif;
     float: right;
@@ -6703,8 +6704,7 @@ ul.footer_links {
   border-bottom: 1px solid #d6d4d4;
   clear: both; }
   .content_sortPagiBar .sortPagiBar #productsSortForm {
-    float: left;
-    margin-right: 20px;
+    float: right;
     margin-bottom: 10px; }
     .content_sortPagiBar .sortPagiBar #productsSortForm select {
       max-width: 192px;
@@ -8702,4 +8702,12 @@ div.star.star_hover:after {
   }
   #category .columns-container{
     margin-top: 250px;
+  }
+  .layered_filter , .layered_price , .cat-name {
+    display:inline-block; 
+    vertical-align: top;
+  }
+  .heading-counter{
+    position: absolute;
+    top : 120px;
   }
