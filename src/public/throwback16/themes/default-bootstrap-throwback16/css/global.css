@@ -5739,7 +5739,10 @@ header {
   z-index: 1;
   position: relative;
   background: #fff;
-  padding-bottom: 15px; }
+  /* throwback > superpose menu and slider */
+  /* padding-bottom: 15px; */
+}
+
   header .banner {
     background: black;
     max-height: 100%; }
