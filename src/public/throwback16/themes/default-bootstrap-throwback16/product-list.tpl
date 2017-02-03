@@ -98,14 +98,10 @@
 							</div>
 						{/if}
 						{if isset($product.new) && $product.new == 1}
-							<a class="new-box" href="{$product.link|escape:'html':'UTF-8'}">
-								<span class="new-label">{l s='New'}</span>
-							</a>
+							
 						{/if}
 						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-							<a class="sale-box" href="{$product.link|escape:'html':'UTF-8'}">
-								<span class="sale-label">{l s='Sale!'}</span>
-							</a>
+							
 						{/if}
 					</div>
 					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
