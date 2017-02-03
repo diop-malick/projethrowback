@@ -159,10 +159,18 @@ ul.product_list.grid > li {
     ul.product_list.grid > li {
       width: 50%;
       float: left; } }
+
+/* Throwback > background product container */
   ul.product_list.grid > li .product-container {
-    background: #eee;
+    background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
     padding: 0;
-    position: relative; }
+    position: relative;
+    /*z-index: 45;*/
+  }
+
+
     ul.product_list.grid > li .product-container .product-image-container {
       border: 1px solid #d6d4d4;
       padding: 9px;
