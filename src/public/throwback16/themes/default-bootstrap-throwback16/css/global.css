@@ -5766,8 +5766,9 @@ header {
 	/* Throwback_logo */
 	
     header .row #header_logo {
-      padding-top: 0px;
-	  margin-top : -10px;
+    padding-top: 0px;
+    /*TODO  decomment and use transparent image */
+	  /*margin-top : -10px;*/
 	  width: 16.66667%;
 	}
 	header .row #header_logo a {
@@ -5777,6 +5778,7 @@ header {
 
   .logo-throwback{
     float:right;/* largeur obligatoire pour être centré */
+    background: transparent;
   }
 	
  
