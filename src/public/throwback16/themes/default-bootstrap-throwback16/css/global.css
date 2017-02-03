@@ -8700,3 +8700,6 @@ div.star.star_hover:after {
     text-transform: uppercase;
     line-height: 0.667;
   }
+  #category .columns-container{
+    margin-top: 250px;
+  }

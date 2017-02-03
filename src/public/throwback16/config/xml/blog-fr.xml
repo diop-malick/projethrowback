@@ -13,12 +13,35 @@
 	<atom:link href="http://www.prestashop.com/blog/fr/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/fr</link>
 	<description></description>
-	<lastBuildDate>Wed, 01 Feb 2017 17:45:46 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 02 Feb 2017 17:27:57 +0000</lastBuildDate>
 	<language>fr-FR</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>Comment réussir sa stratégie omnicanal &#8211; Interview de Faguo</title>
+		<link>https://www.prestashop.com/blog/fr/comment-reussir-strategie-omnicanal-interview-faguo/</link>
+		<comments>https://www.prestashop.com/blog/fr/comment-reussir-strategie-omnicanal-interview-faguo/#comments</comments>
+		<pubDate>Thu, 02 Feb 2017 17:27:57 +0000</pubDate>
+		<dc:creator><![CDATA[mvalenza]]></dc:creator>
+				<category><![CDATA[Success Story]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21110</guid>
+		<description><![CDATA[<p>L’omnicanal est devenu un pilier de développement pour les entrepreneurs ambitieux et connectés. L’objectif : vendre via différents canaux de distribution en toute synergie, afin de toucher plus largement et plus efficacement sa cible, tout en limitant les contraintes opérationnelles. C’est ce qu’a réussi à faire l’entreprise française Faguo, à la réussite internationale. Elle bénéficie [...]</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-reussir-strategie-omnicanal-interview-faguo/">Comment réussir sa stratégie omnicanal &#8211; Interview de Faguo</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>L’omnicanal est devenu un pilier de développement pour les entrepreneurs ambitieux et connectés. L’objectif : vendre via différents canaux de distribution en toute synergie, afin de toucher plus largement et plus efficacement sa cible, tout en limitant les contraintes opérationnelles.<span id="more-21110"></span></p>
+<p>C’est ce qu’a réussi à faire l’entreprise française Faguo, à la réussite internationale. Elle bénéficie aujourd’hui d’un réseau de boutiques physiques et d’une présence en ligne, grâce à son site Ecommerce et aux réseaux sociaux, qui lui permet de se faire connaître et de distribuer rapidement en France et dans 24 pays.</p>
+<p>Dans cette vidéo, Nicolas, co-fondateur de Faguo et Anne-Charlotte, Responsable Ecommerce de la marque, vous explique comment s’est construite cette stratégie omnicanal et vous donneront leur conseils pour réussir à développer votre business.</p>
+<div class="g-ytsubscribe col-centered text-center" data-channelid="UCqDSbqSbkboMBARlYrhNa7g" data-layout="full" data-count="default"></div>
+<p><iframe width="700" height="394" src="https://www.youtube.com/embed/lOf5uMyGcIg?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<div class="text-center"><a class="btn" style="background-color: #cd201f;border: 1px solid #b31217;border-bottom: 3px solid #b31217;margin: 20px 0 0;color: #fff" href="https://www.youtube.com/user/prestashop?utm_source=blog&amp;utm_medium=article&amp;utm_campaign=youtube&amp;utm_content=faguo">Voir plus de vidéos</a></div>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-reussir-strategie-omnicanal-interview-faguo/">Comment réussir sa stratégie omnicanal &#8211; Interview de Faguo</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/fr/comment-reussir-strategie-omnicanal-interview-faguo/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Marketing social et mobile : les tendances incontournables pour le secteur de la mode</title>
 		<link>https://www.prestashop.com/blog/fr/marketing-social-mobile-les-tendances-incontournables-secteur-mode/</link>
 		<comments>https://www.prestashop.com/blog/fr/marketing-social-mobile-les-tendances-incontournables-secteur-mode/#comments</comments>
@@ -369,67 +392,6 @@ Autre possibilité : <strong>regrouper les données en fonction de leurs caract�
 <p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/faire-appel-aux-youtubeurs-moyen-efficace-booster-les-ventes-site-ecommerce/">Faire appel aux YouTubeurs : un moyen efficace de booster les ventes de votre site Ecommerce !</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/fr/faire-appel-aux-youtubeurs-moyen-efficace-booster-les-ventes-site-ecommerce/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Comment migrer votre site PrestaShop vers un nouveau serveur</title>
-		<link>https://www.prestashop.com/blog/fr/comment-migrer-site-prestashop-vers-nouveau-serveur/</link>
-		<comments>https://www.prestashop.com/blog/fr/comment-migrer-site-prestashop-vers-nouveau-serveur/#comments</comments>
-		<pubDate>Mon, 09 Jan 2017 11:25:30 +0000</pubDate>
-		<dc:creator><![CDATA[Eva Lacalle]]></dc:creator>
-				<category><![CDATA[Conseils E-commerce]]></category>
-		<category><![CDATA[Developpement / Technique]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=20998</guid>
-		<description><![CDATA[<p>Le transfert de votre boutique PrestaShop vers un nouveau serveur figure parmi les tâches techniques auxquelles tout propriétaire de boutique en ligne peut se trouver confronté. Déplacer la totalité d&#8217;une boutique en ligne vers un nouveau serveur ne présente pas de difficulté particulière, mais il est nécessaire de prendre en compte un ensemble d&#8217;aspects et [...]</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-migrer-site-prestashop-vers-nouveau-serveur/">Comment migrer votre site PrestaShop vers un nouveau serveur</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p><strong>Le transfert de votre boutique PrestaShop vers un nouveau serveur</strong> figure parmi les tâches techniques auxquelles tout propriétaire de boutique en ligne peut se trouver confronté. Déplacer la totalité d&rsquo;une boutique en ligne vers un nouveau serveur ne présente pas de difficulté particulière, mais il est nécessaire de prendre en compte un ensemble d&rsquo;aspects et de suivre le processus en respectant un ordre approprié afin d&rsquo;éviter tout problème sur votre site internet. Nous avons créé un petit guide sur le blog de PrestaShop qui vous aidera à <strong>migrer votre site vers un autre hébergeur.</strong><span id="more-20998"></span></p>
-<h4 style="color: #eaad52">Avant de commencer&#8230;</h4>
-<p>Avant toute chose, pour migrer votre site web PrestaShop, vous devez vous assurer de remplir les conditions suivantes :</p>
-<ul>
-<li><strong>Avoir installé sur votre ordinateur le client FTP de votre choix</strong> et pouvoir vous connecter via FTP au nouveau serveur et à l&rsquo;ancien. Si vous rencontrez un problème à ce stade du processus, contactez l&rsquo;assistance de l&rsquo;hébergeur en question pour obtenir les informations dont vous avez besoin.</li>
-<li><strong>Avoir un compte administrateur dans le cPanel de vos boutiques en ligne,</strong> sur le nouveau serveur comme sur l&rsquo;ancien.</li>
-<li><strong>Avoir également un compte administrateur dans le back-office de vos boutiques en ligne PrestaShop.</strong></li>
-</ul>
-<p>Si vous êtes prêts, vous pouvez commencer la migration !</p>
-<h4 style="color: #eaad52">Étape 1 : déterminez la version de PrestaShop sur laquelle se trouve votre boutique en ligne, puis mettez votre site en maintenance</h4>
-<p><strong>Actualisez si nécessaire la version de PrestaShop sur laquelle fonctionne votre site web.</strong> Pour déterminer la version de PrestaShop sur laquelle se trouve votre boutique, il vous suffit de regarder la barre supérieure du back-office de votre boutique si vous êtes sur la version 1.6 et si vous êtes sur la version 1.5 vous la trouverez dans la barre inferieure. De plus, même si cela n&rsquo;est pas obligatoire, <strong>nous vous recommandons de mettre votre boutique en ligne en maintenance.</strong> Ainsi, si quelqu&rsquo;un accède à votre domaine, vous ne perdrez aucune donnée pendant le processus de migration de votre site web PrestaShop. Si votre site web est en local, cette étape n&rsquo;est pas nécessaire puisque votre site web PrestaShop n&rsquo;est pas public.</p>
-<h4 style="color: #eaad52">Étape 2 : créez une copie de sauvegarde sur l&rsquo;ancien serveur avant de faire la migration</h4>
-<p>Pour ce faire, vous devez accéder au panneau de configuration du serveur actuel (c&rsquo;est-à-dire l&rsquo;ancien) en tant qu&rsquo;administrateur et <strong>rechercher le module de backup qui vous permettra de générer rapidement une copie de sauvegarde de votre site web PrestaShop</strong>. Si vous rencontrez un problème à ce stade, contactez l&rsquo;assistance de l&rsquo;hébergeur, qui vous expliquera rapidement la marche à suivre. Une fois la sauvegarde créée, <strong>téléchargez-la sur votre ordinateur</strong>. N&rsquo;effectuez aucune étape de migration de votre boutique en ligne PrestaShop avant d&rsquo;avoir enregistré une copie de sauvegarde. Ainsi, en cas de problème lors du processus, vous ne perdrez pas votre site web.</p>
-<h4 style="color: #eaad52">Étape 3 : téléchargez les fichiers de votre boutique en ligne sur votre ordinateur</h4>
-<p>Commençons la migration : téléchargez tous les fichiers de votre boutique en ligne PrestaShop sur votre ordinateur. Pour ce faire, suivez les étapes ci-dessous : En premier lieu, créez un nouveau dossier sur votre bureau et connectez-vous au client FTP que vous avez choisi. <strong>Connectez-vous ensuite via le FTP au serveur actuel</strong>. Comment savoir si vous avez correctement effectué cette étape ? Si la connexion s&rsquo;est établie avec succès, une liste de dossiers devrait apparaître dans le volet droit. Une fois connecté, vous devez vous rendre sur votre répertoire public, généralement intitulé <strong>public_html</strong> ou htdocs, et l&rsquo;ouvrir. Sachez que si votre boutique en ligne est installée dans un sous-répertoire (c&rsquo;est-à-dire, si elle est installée sur un domaine au format de type : <a href="http://www.tuweb.com/tienda" target="_blank">www.tuweb.com/tienda</a>), vous devrez rechercher le dossier correspondant et l&rsquo;ouvrir. Sélectionnez tous les fichiers (ctrl+A/cmd+A) et glissez-les vers le dossier que vous avez créé sur votre bureau pour qu&rsquo;ils se téléchargent sur votre ordinateur. Ce processus peut durer quelques minutes, en fonction du nombre de fichiers et de leur taille. Une fois tous les fichiers de votre site web PrestaShop téléchargés, un message d&rsquo;avertissement apparaîtra pour vous signaler que le transfert des fichiers est terminé.</p>
-<h4 style="color: #eaad52">Étape 4 : exportez la base de données de votre boutique en ligne</h4>
-<p>Une fois les fichiers transférés sur votre ordinateur, cliquez sur <strong>revenir au cPanel du serveur</strong> actuel et recherchez le <strong>module phpMyAdmin</strong> (<a href="https://www.phpmyadmin.net/" target="_blank">phpMyAdmin</a> est un outil écrit en PHP pour gérer une base de données, qui vous permet de créer, supprimer ou modifier des éléments de bases de données SQL). Lors de l&rsquo;ouverture du module, vous trouverez sur la partie gauche une liste de toutes les bases de données disponibles. <strong>Vous devez sélectionner la base de données de votre boutique en ligne actuelle</strong>. Vous trouverez alors sur la partie droite une liste de tables. <strong>Cliquez sur « exporter »</strong> pour commencer le téléchargement de notre base de données. Laissez telles quelles les options qui apparaissent cochées par défaut et continuez. À ce stade, votre navigateur commencera à télécharger un fichier compressé contenant une copie de la base de données de votre boutique en ligne PrestaShop.</p>
-<h4 style="color: #eaad52">Étape 5 : créez une nouvelle base de données sur le nouveau serveur</h4>
-<p>Accédez au panneau de configuration du nouveau serveur en tant qu&rsquo;administrateur, <strong>recherchez le module MySQLDatabaseWizard</strong> et suivez les étapes afin de créer une nouvelle base de données. Donnez-lui un nom qui se distingue nettement de la base de données de votre précédent site web PrestaShop.</p>
-<h4 style="color: #eaad52">Étape 6 : importez la base de données de l&rsquo;ancienne boutique en ligne sur le nouveau serveur</h4>
-<p><strong>Recherchez à nouveau le module phpMyAdmin</strong> sur le serveur. Lors de l&rsquo;ouverture du module, vous verrez sur le panneau de gauche (dans la liste des bases de données disponibles) la base de données que vous avez créée précédemment. Sélectionnez-la. <strong>Sur le panneau de droite, cliquez sur « Import »</strong> et sélectionnez le fichier que vous avez téléchargé à l&rsquo;étape 4. Lorsque vous aurez correctement importé la base de données de votre site web PrestaShop, un message d&rsquo;avertissement apparaîtra.</p>
-<h4 style="color: #eaad52">Étape 7 : téléchargez les fichiers de votre boutique en ligne sur le nouveau serveur</h4>
-<p><strong>Revenez sur votre client FTP et connectez-vous au serveur</strong> que vous avez choisi. <strong>Naviguez jusqu&rsquo;au dossier public_html</strong>. Si vous souhaitez enregistrer votre boutique en ligne à la racine ou dans un sous-dossier (c&rsquo;est-à-dire <a href="http://www.tuweb.com/tienda" target="_blank">www.tuweb.com/tienda</a>), vous devrez créer le dossier correspondant à l&rsquo;intérieur du répertoire public, puis l&rsquo;ouvrir. <strong>Glissez les fichiers</strong> (que vous avez copiés à l&rsquo;étape 3) depuis votre ordinateur et déposez-les dans le répertoire correspondant du nouveau serveur. Ce processus peut prendre quelques minutes.</p>
-<h4 style="color: #eaad52">Étape 8 : éditez les fichiers config/settings.inc.php de PrestaShop</h4>
-<p><strong>Recherchez dans votre client FTP le fichier config/settings.inc.php</strong>, ouvrez-le et éditez les lignes indiquées ci-après. <img class="alignnone size-full wp-image-21004" alt="configuracion_servidor" src="https://www.prestashop.com/blog/fr/files/2017/01/configuracion_servidor_paso8.jpg" width="669" height="219" /> Vous devez éditer ce fichier PHP avec les informations fournies par l&rsquo;hébergeur, et celles que vous avez choisies au moment de la configuration de votre site web PrestaShop :</p>
-<ul>
-<li>DB_SERVER : serveur de la base de données ;</li>
-<li>DB_NAME : nom de la base de données de l&rsquo;étape 5 ;</li>
-<li>DB_USER : utilisateur associé à la base de données ;</li>
-<li>DB_PASSWD : mot de passe de l&rsquo;utilisateur ;</li>
-</ul>
-<p>Enregistrez le dossier puis téléchargez-le sur le serveur.</p>
-<h4 style="color: #eaad52">Étape 9 : vérifiez les autorisations</h4>
-<p>Avant de vérifier que la nouvelle boutique en ligne fonctionne correctement, <strong>vous devez vous assurer que les fichiers et répertoires détiennent les autorisations requises.</strong> Vous devez toujours consulter l&rsquo;hébergeur que vous avez préalablement choisi, mais en général, la majorité des hébergeurs travaille avec :</p>
-<ul>
-<li>autorisations pour les fichiers : 664</li>
-<li>autorisations pour les répertoires : 755</li>
-</ul>
-<p>Si vous rencontrez le moindre problème avec le téléchargement d&rsquo;images, essayez l&rsquo;autorisation 777.</p>
-<h4 style="color: #eaad52">Étape 10 : videz le cache</h4>
-<p>L&rsquo;idéal serait d&rsquo;effacer le cache de votre page et d&rsquo;<strong>établir une nouvelle réindexation</strong> pour vous assurer que tout fonctionne correctement. Veuillez noter que si vous ne respectez pas cette étape, les données que vous voyez peuvent être celles de l&rsquo;ancienne page enregistrée dans le cache de votre navigateur, et vous pouvez ne pas voir les éventuelles erreurs. Pour vider correctement le cache, effacez le contenu des dossiers /cache/smarty/compile et /chache/smarty/cache, <strong>à l&rsquo;exception du fichier index.php</strong> dans les deux cas.</p>
-<h4 style="color: #eaad52">Étape 11 : quittez le mode maintenance</h4>
-<p>Entrez dans le back-office de votre site web PrestaShop et <strong>désactivez le mode maintenance de votre boutique en ligne</strong>. Vous devez ensuite vous connecter à votre domaine et vérifier que votre site web fonctionne correctement. Si c&rsquo;est le cas, <strong>le processus de migration de votre site web PrestaShop vers un autre hébergeur est terminé</strong>. Votre boutique en ligne est désormais sur votre nouveau serveur.</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-migrer-site-prestashop-vers-nouveau-serveur/">Comment migrer votre site PrestaShop vers un nouveau serveur</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/fr/comment-migrer-site-prestashop-vers-nouveau-serveur/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 	</channel>

@@ -70,33 +70,7 @@
             </div>
 		{/if}
 		<h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}"><span class="cat-name">{$category->name|escape:'html':'UTF-8'}{if isset($categoryNameComplement)}&nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}{/if}</span>{include file="$tpl_dir./category-count.tpl"}</h1>
-		{if isset($subcategories)}
-        {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
-		<!-- Subcategories -->
-		<div id="subcategories">
-			<p class="subcategory-heading">{l s='Subcategories'}</p>
-			<ul class="clearfix">
-			{foreach from=$subcategories item=subcategory}
-				<li>
-                	<div class="subcategory-image">
-						<a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}" class="img">
-						{if $subcategory.id_image}
-							<img class="replace-2x" src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
-						{else}
-							<img class="replace-2x" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
-						{/if}
-					</a>
-                   	</div>
-					<h5><a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'}</a></h5>
-					{if $subcategory.description}
-						<div class="cat_desc">{$subcategory.description}</div>
-					{/if}
-				</li>
-			{/foreach}
-			</ul>
-		</div>
-        {/if}
-		{/if}
+		
 		{if $products}
 			<div class="content_sortPagiBar clearfix">
             	<div class="sortPagiBar clearfix">

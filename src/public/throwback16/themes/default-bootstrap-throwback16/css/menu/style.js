@@ -42,3 +42,9 @@ $(window).scroll(function (event) {
     	fullPage();
     }
 });
+
+$('.product_list li').hover(function () {
+    $( this).addClass('hovered');
+}, function () {
+    $( this).removeClass('hovered');
+});
