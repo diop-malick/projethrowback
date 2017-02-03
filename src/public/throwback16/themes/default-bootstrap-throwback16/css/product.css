@@ -1,7 +1,9 @@
 /* product desc */
 /* primary_block ***************************************************************************** */
 .primary_block {
-  margin-bottom: 40px; }
+  margin-bottom: 40px; 
+  margin-top: 200px;
+  }
 
 .top-hr {
   background: #C4C4C4;

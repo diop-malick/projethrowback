@@ -5739,7 +5739,10 @@ header {
   z-index: 1;
   position: relative;
   background: #fff;
-  padding-bottom: 15px; }
+  /* throwback > superpose menu and slider */
+  /* padding-bottom: 15px; */
+}
+
   header .banner {
     background: black;
     max-height: 100%; }
@@ -5763,8 +5766,9 @@ header {
 	/* Throwback_logo */
 	
     header .row #header_logo {
-      padding-top: 0px;
-	  margin-top : -10px;
+    padding-top: 0px;
+    /*TODO  decomment and use transparent image */
+	  /*margin-top : -10px;*/
 	  width: 16.66667%;
 	}
 	header .row #header_logo a {
@@ -5774,6 +5778,7 @@ header {
 
   .logo-throwback{
     float:right;/* largeur obligatoire pour être centré */
+    background: transparent;
   }
 	
  
@@ -8673,3 +8678,25 @@ div.star.star_hover:after {
     position: fixed;
     top:0; left:0;
     width: 100%; }
+
+
+
+  /* Throwback CSS Custom */
+  
+  /*TODO - Move themeconfiguratro et other module css in global css */
+
+  /* Throwback > Banner > Center text */
+    #htmlcontent_home ul li a h3 {
+    position: relative;
+    float: left;
+    top: -150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 24px;
+    font-family: 'Futura',Trebuchet MS,Arial,sans-serif !important;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.667;
+  }

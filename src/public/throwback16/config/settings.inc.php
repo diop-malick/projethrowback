@@ -1,4 +1,5 @@
 <?php
+
 define('_DB_SERVER_', 'localhost');
 define('_DB_NAME_', 'throwbackpresta16');
 define('_DB_USER_', 'root');
