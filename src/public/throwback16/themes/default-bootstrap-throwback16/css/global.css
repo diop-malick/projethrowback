@@ -6270,15 +6270,24 @@ table.table_block td {
   .table tfoot tr {
     background: #fbfbfb; }
 
+/* Throwback > product container > customize name style */
 .product-name {
-  font-size: 17px;
+  font-size: 16px;
+  /*font-family: "Futura", Open Sans, sans-serif;*/
   line-height: 23px;
-  color: #3a3939;
-  margin-bottom: 0; }
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.143;
+  margin-bottom: 0; 
+  /*z-index: 82;*/
+  }
+
   .product-name a {
     font-size: 17px;
     line-height: 23px;
-    color: #3a3939; }
+    color: rgb(53, 53, 53); 
+  }
     .product-name a:hover {
       color: #515151; }
     @media (max-width: 768px) {
@@ -8707,9 +8716,8 @@ div.star.star_hover:after {
     top: -150px;
     left: 50%;
     transform: translate(-50%, -50%);
-
     font-size: 24px;
-    font-family: 'Futura',Trebuchet MS,Arial,sans-serif !important;
+    /*font-family: 'Futura',Trebuchet MS,Arial,sans-serif !important;*/
     color: rgb(255, 255, 255);
     font-weight: bold;
     text-transform: uppercase;

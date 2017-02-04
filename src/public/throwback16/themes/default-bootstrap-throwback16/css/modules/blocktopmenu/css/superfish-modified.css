@@ -66,7 +66,7 @@
 /* throwback > personalization */
   .sf-menu > li > a {
   font-size: 14px;
-  font-family: "Open Sans", sans-serif, FontAwesome;
+  /*font-family: "Open Sans", sans-serif, FontAwesome;*/
   color: rgb(255, 255, 255);
   font-weight: bold;
   text-transform: uppercase;
