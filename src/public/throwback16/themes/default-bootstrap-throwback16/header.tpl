@@ -107,10 +107,8 @@
 					{/if}
 					<div>
 						<div class="container">
-							<div class="row">
-								<!-- logo -->
+						<!-- row Header(search + logo + cart) + row Menu -->
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
-							</div>
 						</div>
 					</div>
 				</header>

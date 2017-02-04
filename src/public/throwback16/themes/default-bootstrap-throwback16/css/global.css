@@ -5766,10 +5766,10 @@ header {
 	/* Throwback_logo */
 	
     header .row #header_logo {
-    padding-top: 0px;
+    /*padding-top: 0px;*/
     /*TODO  decomment and use transparent image */
-	  /*margin-top : -10px;*/
-	  width: 16.66667%;
+	  margin-top : -50px;
+	  /*width: 16.66667%;*/
 	}
 	header .row #header_logo a {
 		margin: 0 auto;
@@ -8647,10 +8647,8 @@ div.star.star_hover:after {
 
 /*# sourceMappingURL=global.css.map */
 
-.header_user_info {
-  padding-top: 40px;
-  text-align: center;
-}
+/* TODO - deplace inside sourceMap URL */
+
 
 /* Dropdown Button */
 .dropbtn {

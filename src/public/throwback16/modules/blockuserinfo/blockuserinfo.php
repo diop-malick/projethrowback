@@ -69,9 +69,7 @@ class BlockUserInfo extends Module
 			'lastName' => ($this->context->customer->logged ? $this->context->customer->lastname : false),
 			'order_process' => Configuration::get('PS_ORDER_PROCESS_TYPE') ? 'order-opc' : 'order'
 		));
-		// return $this->display(__FILE__, 'blockuserinfo.tpl');
-		
-		return $this->display(__FILE__, 'nav.tpl');
+		return $this->display(__FILE__, 'blockuserinfo.tpl');
 	}
 
 	public function hookDisplayHeader($params)

@@ -1,10 +1,19 @@
 /*******************************************************************
 					Cart Block Styles
 ********************************************************************/
+
+/* throwback > customize */
 #header .shopping_cart {
   position: relative;
-  float: right;
-  padding-top: 40px; }
+  /*float: right;*/
+  /*padding-top: 40px; */
+  padding-top: 20px;
+}
+
+.shopping_cart {
+  min-width: 200px;
+}
+
   #header .shopping_cart > a:first-child:after {
     font-family: "FontAwesome";
     display: inline-block;
@@ -15,8 +24,7 @@
   #header .shopping_cart > a:first-child:hover:after {
     padding: 4px 0px 2px 0px; }
 
-.shopping_cart {
-  /*width: 200px; */}
+
   @media (max-width: 480px) {
     .shopping_cart {
       padding-top: 20px; } }
@@ -25,12 +33,23 @@
       margin: 0 auto;
       float: none;
       width: 100%; } }
+
+   /* throwback > customize */
   .shopping_cart > a:first-child {
-    padding: 1px 10px 1px 16px;
-    display: block;
+    /*padding: 1px 10px 1px 16px;*/
+    /*display: block;*/
+    font-size: 13px;
     font-weight: bold;
-    color: #777777;
-    overflow: hidden; }
+    /*font-family: "Futura";*/
+    color: rgb(147, 149, 152);
+    line-height: 1.143;
+    overflow: hidden;
+    /*line-height: 18px;*/
+    /*padding: 8px 9px 11px 8px;*/
+    cursor: pointer;
+    /*z-index: 126;*/
+  }
+
     @media (min-width: 768px) and (max-width: 991px) {
       .shopping_cart > a:first-child span.ajax_cart_product_txt, .shopping_cart > a:first-child span.ajax_cart_product_txt_s {
         display: none !important; } }
