@@ -48,66 +48,8 @@
 		{if $totModuloMobile == 0}{assign var='totModuloMobile' value=$nbItemsPerLineMobile}{/if}
 		<li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-4 col-md-3{else} col-xs-12 col-sm-6 col-md-4{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLine == 1} first-in-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModulo)} last-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 0} last-item-of-tablet-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 1} first-item-of-tablet-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 0} last-item-of-mobile-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 1} first-item-of-mobile-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModuloMobile)} last-mobile-line{/if}">
 			<div class="product-container" itemscope itemtype="https://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
-							<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
-						</a>
-						{if isset($quick_view) && $quick_view}
-							<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
-							<span>{l s='Quick view'}</span>
-						</a>
-						{/if}
-						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
-							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-								{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
-									<span itemprop="price" class="price product-price">
-										{hook h="displayProductPriceBlock" product=$product type="before_price"}
-										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
-									</span>
-									<meta itemprop="priceCurrency" content="{$currency->iso_code}" />
-									{if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
-										{hook h="displayProductPriceBlock" product=$product type="old_price"}
-										<span class="old-price product-price">
-											{displayWtPrice p=$product.price_without_reduction}
-										</span>
-										{if $product.specific_prices.reduction_type == 'percentage'}
-											<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
-										{/if}
-									{/if}
-									{if $PS_STOCK_MANAGEMENT && isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}
-										<span class="unvisible">
-											{if ($product.allow_oosp || $product.quantity > 0)}
-													<link itemprop="availability" href="https://schema.org/InStock" />{if $product.quantity <= 0}{if $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{/if}{else}{if isset($product.available_now) && $product.available_now}{$product.available_now}{else}{l s='In Stock'}{/if}{/if}
-											{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}
-													<link itemprop="availability" href="https://schema.org/LimitedAvailability" />{l s='Product available with different options'}
-
-											{else}
-													<link itemprop="availability" href="https://schema.org/OutOfStock" />{l s='Out of stock'}
-											{/if}
-										</span>
-									{/if}
-									{hook h="displayProductPriceBlock" product=$product type="price"}
-									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
-								{/if}
-							</div>
-						{/if}
-						{if isset($product.new) && $product.new == 1}
-							
-						{/if}
-						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-							
-						{/if}
-					</div>
-					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-					{hook h="displayProductPriceBlock" product=$product type="weight"}
-				</div>
-				<div class="right-block">
+				
+				<div class="row text-right">
 					<h5 itemprop="name">
 						{if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
 						<a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
@@ -185,6 +127,68 @@
 						{/if}
 					{/if}
 				</div>
+
+				<div class="row">
+					<div class="product-image-container">
+						<a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
+							<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
+						</a>
+						{if isset($quick_view) && $quick_view}
+							<div class="quick-view-wrapper-mobile">
+							<a class="quick-view-mobile" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
+								<i class="icon-eye-open"></i>
+							</a>
+						</div>
+						<a class="quick-view" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
+							<span>{l s='Quick view'}</span>
+						</a>
+						{/if}
+						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
+							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+								{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
+									<span itemprop="price" class="price product-price">
+										{hook h="displayProductPriceBlock" product=$product type="before_price"}
+										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
+									</span>
+									<meta itemprop="priceCurrency" content="{$currency->iso_code}" />
+									{if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
+										{hook h="displayProductPriceBlock" product=$product type="old_price"}
+										<span class="old-price product-price">
+											{displayWtPrice p=$product.price_without_reduction}
+										</span>
+										{if $product.specific_prices.reduction_type == 'percentage'}
+											<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
+										{/if}
+									{/if}
+									{if $PS_STOCK_MANAGEMENT && isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}
+										<span class="unvisible">
+											{if ($product.allow_oosp || $product.quantity > 0)}
+													<link itemprop="availability" href="https://schema.org/InStock" />{if $product.quantity <= 0}{if $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{/if}{else}{if isset($product.available_now) && $product.available_now}{$product.available_now}{else}{l s='In Stock'}{/if}{/if}
+											{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}
+													<link itemprop="availability" href="https://schema.org/LimitedAvailability" />{l s='Product available with different options'}
+
+											{else}
+													<link itemprop="availability" href="https://schema.org/OutOfStock" />{l s='Out of stock'}
+											{/if}
+										</span>
+									{/if}
+									{hook h="displayProductPriceBlock" product=$product type="price"}
+									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
+								{/if}
+							</div>
+						{/if}
+						{if isset($product.new) && $product.new == 1}
+							
+						{/if}
+						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
+							
+						{/if}
+					</div>
+					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
+					{hook h="displayProductPriceBlock" product=$product type="weight"}
+				</div>
+
+				
 				{if $page_name != 'index'}
 					<div class="functional-buttons clearfix">
 						{hook h='displayProductListFunctionalButtons' product=$product}
