@@ -3,7 +3,12 @@
 <div class="row">
 	<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
 		<div class="cat-title">{l s="Menu" mod="blocktopmenu"}</div>
-		<ul class="sf-menu clearfix menu-content">
+		
+			{if $page_name == 'index'}
+			    <ul class="sf-menu sf-menu-opacity clearfix menu-content">
+			{else}
+			    <ul class="sf-menu clearfix menu-content">
+			{/if}		
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">
