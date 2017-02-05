@@ -10,7 +10,7 @@
 <!-- /menu verticale -->
 
 <!-- MODULE Block search TOP -->
-<div id="search_block_top" class="col-sm-4 col-md-4"> 	
+<div id="search_block_top" class="col-sm-3"> 	
 	<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 		<input type="hidden" name="controller" value="search" />
 		<input type="hidden" name="orderby" value="position" />

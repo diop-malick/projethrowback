@@ -1,4 +1,11 @@
 
+# prestashop : 
+ps_shop_domain
+PS_SHOP_DOMAIN_SSL
+
+change donnée in shop url : 
+ps_shop_url
+
 
 # Import BigDump (large sql file) in Mysql :
 
@@ -7,8 +14,11 @@ mysql -uroot -proot throwbackpresta14 < throwbacpresta14_wp_dumpfile.sql
 
 
 # Connect Databases remotely :
- 
-dbnames : throwbackpresta16_dev / throwbackpresta16_qlf / throwbackpresta16_prod
+
+CREATE DATABASE IF NOT EXISTS `throwbackpresta16` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+dbnames : throwbackpresta16
 dhhost : vps365425.ovh.net
 dbuser  : throwbackpresta 
 dbpassword : HYn99OxM4yP6TsSe

@@ -167,13 +167,13 @@
 					<!-- TITRE  -->
 					<div class="col-sm-5 ">
 
-							{if $product->online_only}
-								<p class="online_only">{l s='Online only'}</p>
-							{/if}
-
 							<!-- NAME -->
 							<h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
 							<!-- // NAME -->
+
+							{if $product->online_only}
+								<p class="online_only">{l s='Online only'}</p>
+							{/if}
 							
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
@@ -213,7 +213,7 @@
 
 					</div>
 
-					<div class="col-sm-2 panel pull-right">
+					<div class="content_prices col-sm-2 pull-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->

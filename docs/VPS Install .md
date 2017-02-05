@@ -417,6 +417,10 @@ ifconfig
 
 ifconfig | grep "inet addr"
 
+* voir user 
+whoami
+su - www-data
+
 * To list your Debian version
 
 lsb_release -a
@@ -616,7 +620,6 @@ echo "Message Body" | mail -s "Message Subject" demotutosne@mailinator.com
 
 
 #  configurer un serveur de messagerie sortant (pouvoir envoyer des courriels sans en héberger) avec « postfix »
-
 
 
 

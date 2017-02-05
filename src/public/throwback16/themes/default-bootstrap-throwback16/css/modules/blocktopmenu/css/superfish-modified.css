@@ -17,8 +17,12 @@
   padding: 0;
   width: 100%;
   /* Fond noir à moitié transparent */
-  background-color: rgba(53, 53, 53, 0.35); 
+  background-color: rgba(53, 53, 53, 1); 
   z-index: 123;
+}
+
+.sf-contener_opacity .sf-menu {
+    background-color: rgba(53, 53, 53, 0.35) !important; 
 }
 
   @media (max-width: 767px) {

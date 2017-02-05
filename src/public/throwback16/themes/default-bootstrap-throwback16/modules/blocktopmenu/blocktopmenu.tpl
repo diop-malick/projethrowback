@@ -1,14 +1,16 @@
 {if $MENU != ''}
 <!-- Menu Horizontal -->
 <div class="row">
+
+	{if $page_name == 'index'}
+	<div id="block_top_menu" class="sf-contener sf-contener_opacity clearfix col-lg-12">
+	{else}
 	<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
+	{/if}
+
 		<div class="cat-title">{l s="Menu" mod="blocktopmenu"}</div>
 		
-			{if $page_name == 'index'}
-			    <ul class="sf-menu sf-menu-opacity clearfix menu-content">
-			{else}
-			    <ul class="sf-menu clearfix menu-content">
-			{/if}		
+			<ul class="sf-menu clearfix menu-content">		
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">
