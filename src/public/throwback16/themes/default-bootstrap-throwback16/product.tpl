@@ -164,6 +164,8 @@
 
 				<div id="rigth-row-1" class="row">
 
+					<div class="container">
+					
 					<!-- TITRE  -->
 					<div class="col-sm-5 ">
 
@@ -213,6 +215,7 @@
 
 					</div>
 
+					<!-- PRICE  -->
 					<div class="content_prices col-sm-2 pull-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
@@ -296,6 +299,7 @@
 
 					</div> <!-- end col-sm-2 -->
 
+					</div> <!-- // rigth-row-1 container -->
 				</div> <!-- // rigth-row-1 -->
 				
 				<div class="clear"></div>
@@ -433,7 +437,8 @@
 					</p>
 
 					<!-- Cart button -->
-					<div class="box-info-product">
+					<!-- <div class="box-info-product"> --> 
+					<!-- TODO - delete corresponding css -->
 						<div class="box-cart-bottom">
 							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -444,7 +449,9 @@
 							</div>
 							{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 						</div> <!-- end box-cart-bottom -->
-					</div> <!-- end box-info-product -->
+					
+					<!-- </div>  -->
+					<!-- end box-info-product -->
 					<!-- // Cart button -->
 
 				</div>

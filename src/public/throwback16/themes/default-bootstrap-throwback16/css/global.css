@@ -6668,9 +6668,9 @@ table.table_block td {
   text-transform: uppercase;
   padding: 0px 0px 17px 0px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #d6d4d4;
   overflow: hidden;
-  background: #000 }
+ }
+
   .page-heading span.heading-counter {
     font: bold 13px/22px Arial, Helvetica, sans-serif;
     float: right;
@@ -8731,4 +8731,14 @@ div.star.star_hover:after {
   .heading-counter{
     position: absolute;
     top : 120px;
+  }
+
+
+  .filter-line {
+    background-color: rgb(53, 53, 53);
+    font-size: 18px;
+  /*font-family: "Futura";*/
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 0.889;
   }
