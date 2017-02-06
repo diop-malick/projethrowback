@@ -28,14 +28,14 @@
 	
 	<div class="block_content">
 		<form action="#" id="layered_form">
-			<div>
+			
 				
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
-							<div class="layered_{$filter.type} col-lg-4" style="display: none;">
+							<div class="layered_{$filter.type} col-lg-3 pull-right" style="display: none;">
 						{else}
-							<div class="layered_filter col-lg-2">
+							<div class="layered_filter col-lg-2 pull-right">
 						{/if}
                         
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}" class=" layered_filter_ul{if isset($filter.is_color_group) && $filter.is_color_group} color-group{/if}">
@@ -145,7 +145,9 @@
 					</div>
 					{/if}
 				{/foreach}
-			</div>
+			
+
+
 			<input type="hidden" name="id_category_layered" value="{$id_category_layered}" />
 			{foreach from=$filters item=filter}
 				{if $filter.type_lite == 'id_attribute_group' && isset($filter.is_color_group) && $filter.is_color_group && $filter.filter_type != 2}

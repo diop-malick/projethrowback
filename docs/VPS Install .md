@@ -166,7 +166,7 @@ php7.0-gettext
 
 * install PHP7
 sudo apt-get install php7.0 php7.0-fpm
-sudo apt-get install php7.0-gd php7.0-mysql php7.0-cli php7.0-common php7.0-curl php7.0-opcache php7.0-json php7.0-xdebug php7.0-mcrypt php7.0-mbstring php7.0-imagick libpcre3
+sudo apt-get install php7.0-gd php7.0-mysql php7.0-cli php7.0-common php7.0-curl php7.0-opcache php7.0-json php7.0-xdebug php7.0-mcrypt php7.0-mbstring php7.0-imagick php7.0-imap libpcre3
 
 * fichier init : /etc/php/7.0/fpm/php.ini
 
@@ -641,6 +641,9 @@ usermod -a -G www-data ftpsne
 sudo chown -R www-data:www-data /var/www
 sudo chgrp -R www-data /var/www     ajout groupe propiétaire réperoire
 sudo chmod -R g+rwx /var/www      ajout droit read writeexecute au groupe
+
+réesécuter a chaque nouveau dossier : 
+sudo chown -R www-data:www-data /var/www
 
 
 
