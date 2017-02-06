@@ -41,6 +41,11 @@
 		</div><!-- #page -->
 {/if}
 {include file="$tpl_dir./global.tpl"}
-		<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/style.js"></script>
+			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/define.js"></script>
+		{if $page_name == 'index'}
+			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/home.js"></script>
+		{else}
+			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/category.js"></script>
+		{/if}
 	</body>
 </html>

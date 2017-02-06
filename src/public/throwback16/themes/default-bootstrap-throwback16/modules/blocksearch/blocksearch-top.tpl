@@ -3,7 +3,7 @@
 
 <!-- menu verticale -->
 <div class="col-sm-1 clearfix menu_vertical hidden">
-	<button type="button" id="toggleMenu" class="toggle_menu maxi">
+	<button type="button" id="toggleMenu" class="toggle_menu {if $page_name == 'index'} maxi {else} mini {/if}">
       <i class="fa fa-bars"></i>
     </button>
 </div>

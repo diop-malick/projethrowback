@@ -70,9 +70,7 @@
 		<![endif]-->
 		
 		 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-		 
-		  <link href="{$base_dir}themes/default-bootstrap-throwback16/css/menu/vertical-responsive-menu.css" rel="stylesheet">
-
+		 <link href="{$base_dir}themes/default-bootstrap-throwback16/css/menu/vertical-responsive-menu.css" rel="stylesheet">
 
 	</head>
 	<body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">
