@@ -1,34 +1,14 @@
-{*
-* 2007-2016 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2016 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*}
+
 {capture name=path}
 	{if !isset($email_create)}{l s='Authentication'}{else}
 		<a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Authentication'}">{l s='Authentication'}</a>
 		<span class="navigation-pipe">{$navigationPipe}</span>{l s='Create your account'}
 	{/if}
 {/capture}
-<h1 class="page-heading">{if !isset($email_create)}{l s='Authentication'}{else}{l s='Create an account'}{/if}</h1>
+
+{include file="$tpl_dir./header-simple.tpl"}
+
+<h1 class="page-heading authentication">{if !isset($email_create)}{l s='Authentication'}{else}{l s='Create an account'}{/if}</h1>
 {if isset($back) && preg_match("/^http/", $back)}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if}
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -50,30 +30,8 @@
 	</div>
 	{/if}-->
 	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box">
-				<h3 class="page-subheading">{l s='Create an account'}</h3>
-				<div class="form_content clearfix">
-					<p>{l s='Please enter your email address to create an account.'}</p>
-					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
-					<div class="form-group">
-						<label for="email_create">{l s='Email address'}</label>
-						<input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
-					</div>
-					<div class="submit">
-						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
-							<span>
-								<i class="icon-user left"></i>
-								{l s='Create an account'}
-							</span>
-						</button>
-						<input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}" />
-					</div>
-				</div>
-			</form>
-		</div>
-		<div class="col-xs-12 col-sm-6">
+	<div id="equalheight">  
+		<div class="col-xs-12 col-sm-6 custom-equalheight">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
@@ -98,6 +56,31 @@
 				</div>
 			</form>
 		</div>
+		<div class="col-xs-12 col-sm-6 custom-equalheight">
+			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box">
+				<h3 class="page-subheading">{l s='Create an account'}</h3>
+				<div class="form_content clearfix">
+					<p>{l s='Please enter your email address to create an account.'}</p>
+					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
+					<div class="form-group">
+						<label for="email_create">{l s='Email address'}</label>
+						<input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
+					</div>
+					<div class="submit">
+						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
+						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+							<span>
+								<i class="icon-user left"></i>
+								{l s='Create an account'}
+							</span>
+						</button>
+						<input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- end equaltheight -->
 	</div>
 	{if isset($inOrderProcess) && $inOrderProcess && $PS_GUEST_CHECKOUT_ENABLED}
 		<form action="{$link->getPageLink('authentication', true, NULL, "back=$back")|escape:'html':'UTF-8'}" method="post" id="new_account_form" class="std clearfix">
@@ -425,83 +408,145 @@
 		</ol>
 	</div>
 	{/if}-->
-	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="std box">
+
+
+<div class="my-account-selfcare">
+    <div class="row header vertical-center">
+        <div class="col-md-3 text-left vertical-center">
+            {l s='Aide'}
+        </div>
+        <div class="col-md-6">
+        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+            <!-- <div class="center-block"> -->
+                <img src="{$base_dir}/img/logo/logo-simple.png" class="logo-simple img-responsive" alt="Throwback logo"/>
+            <!-- </div> -->
+        </a>
+        </div>
+        <div class="col-md-3 text-right">
+            {l s='Votre espace sécurisé'}&nbsp;&nbsp;<span class="glyphicon glyphicon-lock"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row my-account-selfcare">
+
+	<!-- FORM -->
+	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="form-horizontal std box">
 		{$HOOK_CREATE_ACCOUNT_TOP}
+		
 		<div class="account_creation">
 			<h3 class="page-subheading">{l s='Your personal information'}</h3>
 			<p class="required"><sup>*</sup>{l s='Required field'}</p>
-			<div class="clearfix">
-				<label>{l s='Title'}</label>
-				<br />
-				{foreach from=$genders key=k item=gender}
-					<div class="radio-inline">
-						<label for="id_gender{$gender->id}" class="top">
-							<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-						{$gender->name}
-						</label>
+
+		<div class="row vertical-center">
+            <div class="col-md-4 text-center">
+                <h4>{l s='Votre identité'}</h4>
+            </div>
+            <div class="col-md-8">
+				<div class="clearfix">
+					<label class="col-md-4 text-right">{l s='Title'}</label>
+					<div class="col-md-8">
+					{foreach from=$genders key=k item=gender}
+						<div class="radio-inline">
+							<label for="id_gender{$gender->id}" class="top">
+								<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
+							{$gender->name}
+							</label>
+						</div>
+					{/foreach}
 					</div>
-				{/foreach}
-			</div>
-			<div class="required form-group">
-				<label for="customer_firstname">{l s='First name'} <sup>*</sup></label>
-				<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
-			</div>
-			<div class="required form-group">
-				<label for="customer_lastname">{l s='Last name'} <sup>*</sup></label>
-				<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
-			</div>
-			<div class="required form-group">
-				<label for="email">{l s='Email'} <sup>*</sup></label>
-				<input type="email" class="is_required validate form-control" data-validate="isEmail" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
-			</div>
-			<div class="required password form-group">
-				<label for="passwd">{l s='Password'} <sup>*</sup></label>
-				<input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
-				<span class="form_info">{l s='(Five characters minimum)'}</span>
-			</div>
-			<div class="form-group">
-				<label>{l s='Date of Birth'}</label>
-				<div class="row">
-					<div class="col-xs-4">
-						<select id="days" name="days" class="form-control">
-							<option value="">-</option>
-							{foreach from=$days item=day}
-								<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
-							{/foreach}
-						</select>
-						{*
-							{l s='January'}
-							{l s='February'}
-							{l s='March'}
-							{l s='April'}
-							{l s='May'}
-							{l s='June'}
-							{l s='July'}
-							{l s='August'}
-							{l s='September'}
-							{l s='October'}
-							{l s='November'}
-							{l s='December'}
-						*}
+				</div>
+
+				<div class="row required form-group">
+					<label for="customer_firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
+					<div class="col-md-8">
+					<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
 					</div>
-					<div class="col-xs-4">
-						<select id="months" name="months" class="form-control">
-							<option value="">-</option>
-							{foreach from=$months key=k item=month}
-								<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
-							{/foreach}
-						</select>
+				</div>
+
+				<div class="row required form-group">
+					<label for="customer_lastname" class="col-md-4 text-right">{l s='Last name'} <sup>*</sup></label>
+					<div class="col-md-8">
+					<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
 					</div>
-					<div class="col-xs-4">
-						<select id="years" name="years" class="form-control">
-							<option value="">-</option>
-							{foreach from=$years item=year}
-								<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
-							{/foreach}
-						</select>
+				</div>
+
+				<div class="row form-group">
+					<label lass="col-md-4 text-right">{l s='Date of Birth'}</label>
+					<div class="col-md-8">
+					<div class="row">
+						<div class="col-xs-4">
+							<select id="days" name="days" class="form-control">
+								<option value="">-</option>
+								{foreach from=$days item=day}
+									<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
+								{/foreach}
+							</select>
+							{*
+								{l s='January'}
+								{l s='February'}
+								{l s='March'}
+								{l s='April'}
+								{l s='May'}
+								{l s='June'}
+								{l s='July'}
+								{l s='August'}
+								{l s='September'}
+								{l s='October'}
+								{l s='November'}
+								{l s='December'}
+							*}
+						</div>
+						<div class="col-xs-4">
+							<select id="months" name="months" class="form-control">
+								<option value="">-</option>
+								{foreach from=$months key=k item=month}
+									<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
+								{/foreach}
+							</select>
+						</div>
+						<div class="col-xs-4">
+							<select id="years" name="years" class="form-control">
+								<option value="">-</option>
+								{foreach from=$years item=year}
+									<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
+								{/foreach}
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
+         </div>           
+            <!-- end col -->           
+        </div>
+        <!-- end row -->
+
+		<div class="row vertical-center">
+            <div class="col-md-4 text-center">
+                <h4>{l s='Vos Information de connexion'}</h4>
+            </div>
+            <div class="col-md-8 ">
+	            <div class="row required form-group">
+					<label for="email" lass="col-md-4 text-right">{l s='Email'} <sup>*</sup></label>
+					<div class="col-md-8">
+					<input type="email" class="is_required validate form-control" data-validate="isEmail" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
+					</div>
+				</div>
+				<div class="row required password form-group">
+					<label for="passwd" lass="col-md-4 text-right">{l s='Password'} <sup>*</sup></label>
+					<div class="col-md-8">
+					<input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
+					<span class="form_info">{l s='(Five characters minimum)'}</span>
+					</div>
+				</div>
+            </div>
+        </div>
+
+		<div class="row vertical-center">             
+            <div class="col-md-4 text-center">
+                <h4>{l s='Newletter'}</h4>
+            </div>
+            <div class="col-md-8">
 			{if isset($newsletter) && $newsletter}
 				<div class="checkbox">
 					<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
@@ -520,8 +565,11 @@
 					{/if}
 				</div>
 			{/if}
+            </div>
 		</div>
-		{if $b2b_enable}
+
+
+<!-- 		{if $b2b_enable}
 			<div class="account_creation">
 				<h3 class="page-subheading">{l s='Your company information'}</h3>
 				<p class="form-group">
@@ -541,7 +589,8 @@
 					<input type="text" class="form-control" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}" />
 				</p>
 			</div>
-		{/if}
+		{/if} -->
+
 		{if isset($PS_REGISTRATION_PROCESS_TYPE) && $PS_REGISTRATION_PROCESS_TYPE}
 			<div class="account_creation">
 				<h3 class="page-subheading">{l s='Your address'}</h3>
@@ -669,6 +718,8 @@
 			<p class="pull-right required"><span><sup>*</sup>{l s='Required field'}</span></p>
 		</div>
 	</form>
+</div> <!-- // my-account-selfcare -->
+
 {/if}
 {strip}
 {if isset($smarty.post.id_state) && $smarty.post.id_state}

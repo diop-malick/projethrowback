@@ -1,14 +1,7 @@
 /*throwback > customize*/
 
 .header_user_info {
-    padding-top: 10px;
-    /*text-align: center;*/
-    min-width: 50%;
-    /* 200px */
-    float: right;
-    /*border-left: 1px solid #515151;*/
-    /*border-right: 1px solid #515151; */
-    z-index: 124;
+    /*z-index: 124;*/
 }
 
 .header_user_info a {

@@ -48,6 +48,7 @@ Allez prendre un café, cette étape peut être très longue si vous installez v
 * BO boutique :
 - admin URL : http://localhost:8081/throwback16/admin16
 - Admin access : pub@prestashop.com / 0123456789
+- Client : pub@prestashop.com / aqwzsx123
 
 * FO boutique :
 cliquez sur "Voir mon magasin" en haut à droite de l'interface admin

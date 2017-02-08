@@ -1106,28 +1106,10 @@ Quick View Styles
 }
 
 #rigth-row-1 .content_prices {
-
 }
 
 #rigth-row-1, #rigth-row-2, #rigth-row-3 {
-/*border: 1px solid #000000;*/
 }
-
-/*all id start with rigth-row-*/
-/**[id^='rigth-row-']{
-    border: 1px solid lightgreen;
-}*/
-/*div[class^="-"] {
-border: 1px solid #000000;
-} */
-/*all colone*/
-/*[class*="col-"] {
-  border: 2px solid black;
-}*/
-/*allrow*/
-/*[class*="row"] {
-  border: 2px solid lightgreen;
-}*/
 
 
 #rigth-row-1 .content_prices {
