@@ -14,7 +14,7 @@ function minimizePage() {
 	$('#homepage-slider').removeClass('col-xs-12').addClass('col-xs-9').css("width", "75%").css("float", "right");
 	$('#toggleMenu').removeClass('maxi').addClass('mini');
 
-    $('.breadcrumb').css("margin-left", "25%");
+    $('.breadcrumb').css("margin-left", "25.5%");
 }
 $( ".toggle_menu" ).click(function(e) {
      e.preventDefault();

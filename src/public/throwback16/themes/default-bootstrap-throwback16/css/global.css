@@ -6939,9 +6939,6 @@ ul.footer_links {
       .bottom-pagination-content .product-count {
         clear: left; } }
 
-.bottom-pagination-content {
-  border-top: 1px solid #d6d4d4; }
-
 ul.step {
   margin-bottom: 30px;
   overflow: hidden; }
@@ -8724,10 +8721,7 @@ div.star.star_hover:after {
   #category .columns-container{
     margin-top: 120px;
   }
-  .layered_filter , .layered_price , .cat-name {
-    display:inline-block; 
-    vertical-align: top;
-  }
+  
   .heading-counter{
     position: absolute;
     top : 120px;
@@ -8740,5 +8734,6 @@ div.star.star_hover:after {
   /*font-family: "Futura";*/
   color: rgb(255, 255, 255);
   font-weight: bold;
-  line-height: 0.889;
+  line-height: 0.889;margin-right: 1px;
+  margin: 0 1px 5px 1px; 
   }
