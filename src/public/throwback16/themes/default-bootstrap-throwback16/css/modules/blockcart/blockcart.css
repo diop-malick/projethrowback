@@ -4,14 +4,15 @@
 
 /* throwback > customize */
 #header .shopping_cart {
-  position: relative;
+  /*position: relative;*/
   /*float: right;*/
   /*padding-top: 40px; */
-  padding-top: 20px;
+  /*padding-top: 20px;*/
+  /*margin-top: 10px;*/
 }
 
 .shopping_cart {
-  min-width: 200px;
+  /*min-width: 200px;*/
 }
 
   #header .shopping_cart > a:first-child:after {
