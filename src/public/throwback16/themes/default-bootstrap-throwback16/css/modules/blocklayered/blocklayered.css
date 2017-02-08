@@ -161,6 +161,7 @@
   overflow-x: auto; }
 
 .layered_filter {
+  margin-top: 10px;
    }
   .layered_filter label {
     font-weight: normal; }
