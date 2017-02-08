@@ -1,7 +1,6 @@
 
 <!-- Hide breadcrump in myaccount  -->
 {if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
-{include file="$tpl_dir./footer-simple.tpl"}
 <!-- TODO -->
 {else}
 
