@@ -8825,14 +8825,7 @@ font-size: 17px;
 
 
 
-/*all colone*/
-[class*="col-"] {
-  border: 2px solid black;
-}
-/*allrow*/
-[class*="row"] {
-  border: 2px solid lightgreen;
-}
+
 
 
 
