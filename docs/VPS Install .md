@@ -384,7 +384,8 @@ $ sudo iptables -S
 * Set Up the SSL Certificate
 $ sudo certbot --apache
 
-* Rep certificats générés : /etc/letsencrypt/live/ 
+* Rep certificats générés : 
+/etc/letsencrypt/live/vps365425.ovh.net/
 
 
 * test configuration : 
