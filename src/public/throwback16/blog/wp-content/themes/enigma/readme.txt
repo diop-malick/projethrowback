@@ -5,6 +5,10 @@ Consider weblizar PRE-Fix for function-name and as a slug of the Theme Enigma.
 Enigma
 
 CHANGE-LOG:
+@Version: 2.8.3 [2/02/2017]
+1. Header text color support added.
+
+CHANGE-LOG:
 @Version: 2.8.2 [24/01/2017]
 1. Snow effect removed.
 2. Minor issue Fixed.
