@@ -24,11 +24,15 @@
 		</div><!-- #page -->
 {/if}
 
-
 {include file="$tpl_dir./global.tpl"}
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/define.js"></script>
 		{if $page_name == 'index'}
+			<script type="text/javascript">
+				var url_logo = "{$base_dir}img/logo/logo.png";
+				var url_logo_simple = "{$base_dir}img/logo/logo-simple.png";
+			</script>
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/home.js"></script>
+			
 		{else}
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/category.js"></script>
 		{/if}

@@ -1,9 +1,10 @@
 
 <div class="row"> <!-- Row HEADER -->
 
+<div class="col-md-4"> 
 <!-- menu verticale -->
-
-<div class="col-md-1 clearfix menu_vertical hidden">
+<div class="row">
+<div class="col-md-4 clearfix menu_vertical hidden">
 	<button type="button" id="toggleMenu" class="toggle_menu {if $page_name == 'index'} maxi {else} mini {/if}">
       <i class="fa fa-bars"></i>
     </button>
@@ -11,7 +12,7 @@
 <!-- /menu verticale -->
 
 <!-- MODULE Block search TOP -->
-<div id="search_block_top" class="col-md-3"> 	
+<div id="search_block_top" class="col-md-8"> 	
 	<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 		<input type="hidden" name="controller" value="search" />
 		<input type="hidden" name="orderby" value="position" />
@@ -22,8 +23,9 @@
 		</button>
 	</form>	
 </div>
+</div>
 <!-- /MODULE Block search TOP -->
-
+</div>
 <!-- Logo TOP -->
 	<div id="header_logo" class="col-md-4">
 		<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
