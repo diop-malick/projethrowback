@@ -6695,13 +6695,14 @@ table.table_block td {
 
 .page-heading,
 .page-subheading {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: rgb(53, 53, 53);
+  /*font-family: "Open Sans", sans-serif;*/
+  /*font-weight: 600;*/
+  /*text-transform: uppercase;*/
+  /*color: rgb(53, 53, 53);*/
+
  }
  .page-heading {
-  font-size: 22px;
+  font-size: 13px;
   text-transform: uppercase;
   padding: 0px 0px 17px 0px;
   /*margin-bottom: 20px;*/
