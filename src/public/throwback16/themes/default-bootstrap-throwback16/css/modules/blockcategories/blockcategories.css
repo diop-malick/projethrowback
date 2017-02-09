@@ -78,7 +78,9 @@
   #categories_block_left li span.grower:hover + a,
   #categories_block_left li a:hover,
   #categories_block_left li a.selected {
-    background: #f6f6f6; }
+    text-decoration: underline;
+    color: #000;
+     }
   #categories_block_left li li a {
     font-weight: normal;
     color: #777777; }

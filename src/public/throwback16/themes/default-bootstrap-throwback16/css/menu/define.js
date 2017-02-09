@@ -18,7 +18,6 @@ function minimizePage() {
 }
 $( ".toggle_menu" ).click(function(e) {
      e.preventDefault();
-     console.log($( "#toggleMenu" ).hasClass("maxi"));
      if ($( "#toggleMenu" ).hasClass("maxi")){
             minimizePage();
      }
