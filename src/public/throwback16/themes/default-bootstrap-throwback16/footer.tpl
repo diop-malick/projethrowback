@@ -10,13 +10,15 @@
 			{if isset($HOOK_FOOTER)}
 				<!-- Footer -->
 				<div class="footer-container">
-					<footer id="footer"  class="container">						
-						<!-- footer simplified -->
+					<footer id="footer"  class="container">
 						{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
-						{include file="$tpl_dir./footer-simple.tpl"}
-						<!-- footer complete -->
+							<!-- footer simplified -->
+							{include file="$tpl_dir./footer-simple.tpl"}
 						{else}
-						<div class="row">{$HOOK_FOOTER}</div>
+							<!-- footer complete -->
+							<div class="row">
+								{$HOOK_FOOTER}
+							</div>
 						{/if}						
 					</footer>
 				</div><!-- #footer -->
@@ -28,7 +30,7 @@
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/define.js"></script>
 		{if $page_name == 'index'}
 			<script type="text/javascript">
-				var url_logo = "{$base_dir}img/logo/logo.png";
+				var url_logo = "{$logo_url}";
 				var url_logo_simple = "{$base_dir}img/logo/logo-simple.png";
 			</script>
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/home.js"></script>

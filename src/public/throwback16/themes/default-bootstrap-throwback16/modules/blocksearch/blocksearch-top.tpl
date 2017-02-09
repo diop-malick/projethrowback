@@ -1,5 +1,5 @@
 
-<div class="row"> <!-- Row HEADER -->
+<div class="row header-top-row"> <!-- Row HEADER -->
 
 <div class="col-md-4"> 
 <!-- menu verticale -->

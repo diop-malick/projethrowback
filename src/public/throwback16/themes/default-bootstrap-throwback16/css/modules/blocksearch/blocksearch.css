@@ -21,22 +21,23 @@
     display: inline;
     padding-left: 35px !important;
     border: none;
-    height: 43px;
+    /*height: 43px;*/
     /*background: #fbfbfb;*/
     /*margin-right: 1px;*/
 }
+
+#search_block_top .btn {
+padding: 0 0 !important;
+}
+
 /* Icone */
   #search_block_top .btn.button-search {
-    /*background: #333;*/
     display: block;
     position: absolute;
     top: 0;
-    /*right: 0;*/
     border: none;
     color: rgb(147, 149, 152);
-    /*width: 50px;*/
     text-align: center;
-    padding: 8px 0 0 10px; 
 }
 /* Icone> Text en dessous */
 #search_block_top .btn.button-search span {
