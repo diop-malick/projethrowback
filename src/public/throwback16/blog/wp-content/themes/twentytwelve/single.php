@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all single posts
+ * The Template for displaying all single posts.
  *
  * @package WordPress
  * @subpackage Twenty_Twelve
@@ -22,7 +22,7 @@ get_header(); ?>
 					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
 				</nav><!-- .nav-single -->
 
-				<?php comments_template( '', true ); ?>
+				
 
 			<?php endwhile; // end of the loop. ?>
 
