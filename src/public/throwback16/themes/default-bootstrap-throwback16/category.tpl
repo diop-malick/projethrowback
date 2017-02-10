@@ -30,9 +30,9 @@
 
 				<div class="container-fluid">
 				
-				        <div class="col-md-1">
-							<h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}"><span class="cat-name">{$category->name|escape:'html':'UTF-8'}{if isset($categoryNameComplement)}&nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}{/if}</span></h1>
-					        {include file="$tpl_dir./category-count.tpl"}
+				        <div class="col-md-1 categ-name">
+							<h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}"><span class="cat-name">{$category->name|escape:'html':'UTF-8'}{if isset($categoryNameComplement)}{$categoryNameComplement|escape:'html':'UTF-8'} ({$nb_products}){/if}</span></h1>
+					        
 				        </div>
 
 				        <div class="col-md-11 pull-right">

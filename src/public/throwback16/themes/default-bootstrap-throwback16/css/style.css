@@ -84,5 +84,10 @@ header .row #header_logo {
     margin: 0 auto;
 }
 
+/* Filtre
+====================================  */
+.categ-name{
+    padding: 0 ;
+}
 
 /*# sourceMappingURL=history.css.map */

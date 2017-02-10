@@ -35,7 +35,7 @@
 			</script>
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/home.js"></script>
 			
-		{else}
+		{elseif $page_name == 'category'}
 			<script type="text/javascript" src="{$base_dir}themes/default-bootstrap-throwback16/css/menu/category.js"></script>
 		{/if}
 	</body>
