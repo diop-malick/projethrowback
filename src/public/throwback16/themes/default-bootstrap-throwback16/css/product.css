@@ -385,7 +385,10 @@ span.view_scroll_spacer {
     vertical-align: top;
     display: block; }
 #attributes .attribute_list {
-  width: 100%; }
+  
+  /*width: 100%; */
+}
+
   #attributes .attribute_list .form-control {
     max-width: 230px; }
     #attributes .attribute_list .form-control option {
@@ -1095,14 +1098,15 @@ Quick View Styles
 }
 
 .pb-my-right-column h1 {
-  font-size: 28px;
+  /*font-size: 28px;*/
   /*font-family: "Futura";*/
   color: rgb(53, 53, 53);
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 1;
-  width: 464px;
+  /*line-height: 1;*/
+  /*width: 464px;*/
   z-index: 87;
+  margin-top: 0;
 }
 
 #rigth-row-1 .content_prices {
@@ -1113,10 +1117,10 @@ Quick View Styles
 
 
 #rigth-row-1 .content_prices {
- width: 30%;
- text-align: center; 
- padding-top: 5px;
- padding-right: 0;
+ /*width: 30%;*/
+ /*text-align: center; */
+ /*padding-top: 5px;*/
+ /*padding-right: 0;*/
 }
 
 

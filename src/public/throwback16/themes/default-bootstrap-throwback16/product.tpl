@@ -1,27 +1,3 @@
-{*
-* 2007-2016 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2016 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*}
 {include file="$tpl_dir./errors.tpl"}
 {if $errors|@count == 0}
 	{if !isset($priceDisplayPrecision)}
@@ -34,6 +10,7 @@
 		{assign var='productPrice' value=$product->getPrice(false, $smarty.const.NULL, 6)}
 		{assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
 	{/if}
+
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
 	<div class="primary_block row">
@@ -66,11 +43,6 @@
 		<div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
-				{if $product->new}
-					<span class="new-box">
-						<span class="new-label">{l s='New'}</span>
-					</span>
-				{/if}
 				{if $product->on_sale}
 					<span class="sale-box no-print">
 						<span class="sale-label">{l s='Sale!'}</span>
@@ -153,21 +125,17 @@
 		<!-- end left infos-->
 
 		<!-- right  -->
-		<div class="pb-my-right-column col-xs-12 col-sm-7">
+		<div class="pb-my-right-column col-xs-12 col-md-7">
 
-		<div class="container">
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 			
 			<!-- FORM -->
 			<!-- add to cart form-->
 			<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 
-				<div id="rigth-row-1" class="row">
-
-					<div class="container">
-					
+				<div id="rigth-row-1" class="row">					
 					<!-- TITRE  -->
-					<div class="col-sm-5 ">
+					<div class="col-md-7 text-left">
 
 							<!-- NAME -->
 							<h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
@@ -183,6 +151,32 @@
 								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 							</p>
 							<!-- // REFERENCE -->
+
+							<!-- FEATURES from `ps_feature_lang` table -->
+							<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
+							<section>
+								<ul id="idTab2" class="bullet">
+								{foreach from=$features item=feature}      
+								{if $feature.id_feature eq "8"}      
+									<li>
+									{if isset($feature.value)}
+											<span>{$feature.name|escape:'html':'UTF-8'}</span>
+											<span>{$feature.value|escape:'html':'UTF-8'}</span>
+									{/if}
+									</li>    
+								{/if}
+								{if $feature.id_feature eq "9"}      
+									<li>
+									{if isset($feature.value)}
+											<span>{$feature.name|escape:'html':'UTF-8'}</span>
+											<span>{$feature.value|escape:'html':'UTF-8'}</span>
+									{/if}
+									</li>    
+								{/if}    
+								{/foreach}
+								</ul>
+							</section>
+							<!-- // FEATURES -->							
 
 							<!-- STOCK -->
 							{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
@@ -214,9 +208,10 @@
 							</div>
 
 					</div>
+					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-sm-2 pull-right">
+					<div class="content_prices col-md-5 text-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -278,8 +273,34 @@
 																		
 						</div> <!-- end content_prices -->
 
+						<!-- Flag NEW Product -->
+						{if $product->new}
+							<!-- <span class="new-box">
+								<span class="new-label">{l s='New'}</span>
+							</span> -->
+							<img src="{$base_dir}/img/icones/new.png"/>
+						{/if}
+
+						<!-- Flag GENRE -->
+						<!-- FEATURES from `ps_feature_lang` table - genre : 10  -->
+							<section>
+								<ul id="idTab2" class="bullet">
+								{foreach from=$features item=feature}      
+									{if $feature.id_feature eq "10"}      
+										<li>
+										{if isset($feature.value)}
+												<!-- <span>{$feature.name|escape:'html':'UTF-8'}</span> -->
+												<!-- <span>{$feature.value|escape:'html':'UTF-8'}</span> -->
+												<img src="{$base_dir}/img/icones/sexe.png"/>
+										{/if}
+										</li>    
+									{/if}   
+								{/foreach}
+								</ul>
+							</section>
+							<!-- // FEATURES -->
 						<!-- ETAT -->
-						{if !$product->is_virtual && $product->condition}
+						<!-- {if !$product->is_virtual && $product->condition}
 						<p id="product_condition">
 								<label>{l s='Condition:'} </label>
 								{if $product->condition == 'new'}
@@ -294,12 +315,11 @@
 									<span class="editable">{l s='Refurbished'}</span>
 								{/if}
 						</p>
-						{/if}
+						{/if} -->
 						<!-- // ETAT -->
 
-					</div> <!-- end col-sm-2 -->
-
-					</div> <!-- // rigth-row-1 container -->
+					</div>
+					<!-- // PRICE  -->
 				</div> <!-- // rigth-row-1 -->
 				
 				<div class="clear"></div>
@@ -338,7 +358,7 @@
 					<!-- full description - -->
 					{if isset($product) && $product->description}
 							<!-- <h3 class="page-product-heading">{l s='More info'}</h3> -->
-							<div  class="rte">{$product->description}</div>
+							<div  class="rte text-justify">{$product->description}</div>
 					{/if}
 					<!-- // full description -->
 				</div> <!-- // rigth-row-2 -->
@@ -346,7 +366,7 @@
 				<!-- rigth-row-3 -->
 				<div id="rigth-row-3" class="row">
 					
-					<div class="col-sm-4">
+					<div class="col-md-8 text-left">
 					<!-- quantity wanted -->
 					{if !$PS_CATALOG_MODE}
 								<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
@@ -364,7 +384,7 @@
 								</p>
 					{/if}
 					</div>
-					<div class="col-sm-3 pull-right">
+					<div class="col-md-4 text-left">
 							<div class="product_attributes clearfix">
 								<!-- minimal quantity wanted -->
 								<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
@@ -428,6 +448,14 @@
 				<!-- rigth-row-4 -->
 				<div id="rigth-row-4" class="row pull-right">
 
+					<div class="col-md-8 text-left">
+					</div>
+
+					<div>
+					
+					</div>
+
+
 					<!-- hidden datas -->
 					<p class="hidden">
 						<input type="hidden" name="token" value="{$static_token}" />
@@ -460,7 +488,6 @@
 			</form> <!-- // end FORM -->
 
 			{/if}
-			</div> <!-- end Container -->
 
 		</div> 
 
@@ -562,11 +589,10 @@
 		{/if}
 
 
-		<!-- TODO : Fiche technique -->
+		<!-- TODO : Fiche technique / caractéristique  -->		
 		{if isset($features) && $features}
-			<!-- Data sheet -->
-			<!-- 
-			<section class="page-product-box">
+			<!-- Data sheet -->			 
+			<!-- <section class="page-product-box">
 				<h3 class="page-product-heading">{l s='Data sheet'}</h3>
 				<table class="table-data-sheet">
 					{foreach from=$features item=feature}
@@ -578,8 +604,7 @@
 					</tr>
 					{/foreach}
 				</table>
-			</section>
-			-->
+			</section>	 -->
 			<!--end Data sheet -->
 		{/if}
 
