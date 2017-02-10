@@ -11,7 +11,8 @@
 				<button class="dropbtn"> 
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 				      			 <span>{l s='Welcome' mod='blockuserinfo'} {$cookie->customer_firstname}
-				      				<img src="{$base_dir}/img/icones/icone-mon-compte-on.png"/>
+				      				<!-- <img src="{$base_dir}/img/icones/icone-mon-compte-on.png"/> -->
+				      				<img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
 				      			</span>
 				      </a>
 			    </button>
