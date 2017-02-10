@@ -1,5 +1,5 @@
                 <!-- Block Social -->
-                <section id="social_block" class="col-md-6 text-left">
+                <section id="social_block" class="col-md-6 text-right">
                 	<ul>
                 		{if isset($facebook_url) && $facebook_url != ''}
                 			<li class="facebook">

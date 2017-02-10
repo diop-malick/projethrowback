@@ -1,3 +1,9 @@
+<!-- Footer Logo  -->
+<div class="col-md-3">
+    <img src="{$base_dir}/img/logo/logo-footer.png" class="footer-logo img-responsive" alt="Throwback logo"/>
+</div> <!-- // Footer Logo -->
+
+
 <div class="col-md-4">	
 	<div class="row">
 		<!-- Block Newsletter module-->
