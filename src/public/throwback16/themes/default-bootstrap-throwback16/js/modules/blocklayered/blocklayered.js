@@ -409,6 +409,7 @@ function stopAjaxQuery() {
 
 function reloadContent(params_plus)
 {
+
 	stopAjaxQuery();
 
 	if (!ajaxLoaderOn)
@@ -519,24 +520,24 @@ function reloadContent(params_plus)
 
 			if (result.pagination.search(/[^\s]/) >= 0)
 			{
-				var pagination = $('<div/>').html(result.pagination)
-				var pagination_bottom = $('<div/>').html(result.pagination_bottom);
-
-				if ($('<div/>').html(pagination).find('#pagination').length)
-				{
-					$('#pagination').show();
-					$('#pagination').replaceWith(pagination.find('#pagination'));
+				if ($(result.pagination).find('ul.pagination').length){
+				    $('div#pagination').show();
+				    $('ul.pagination').each(function () {
+				        $(this).replaceWith($(result.pagination).find('ul.pagination'));
+				    });
+				    var noOfPages = $(result.pagination).find('ul.pagination > li').length; //Write the login to find the no of pages in your theme
+				    infinite_scroll.maxPage = noOfPages - 2;
+				    var path = 'modules/blocklayered/blocklayered-ajax.php?'+data+params_plus+n+'&p=';
+				    
+				    infinite_scroll.path = [ path , ""] ;
+				    infinite_scroll.dataType = 'json';
+				    infinite_scroll.template = function(data){
+				        var productList = '<div>' + data.productList + '</div>';
+				        var ht = $(productList).find(infinite_scroll.contentSelector).html();
+				        return ht;
+				    }
+				    $( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function(newElements, data, url) { eval(infinite_scroll.callback); });
 				}
-				else
-					$('#pagination').hide();
-
-				if ($('<div/>').html(pagination_bottom).find('#pagination_bottom').length)
-				{
-					$('#pagination_bottom').show();
-					$('#pagination_bottom').replaceWith(pagination_bottom.find('#pagination_bottom'));
-				}
-				else
-					$('#pagination_bottom').hide();
 			}
 			else
 			{
