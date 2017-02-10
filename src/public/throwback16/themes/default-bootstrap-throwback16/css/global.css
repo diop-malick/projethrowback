@@ -6645,8 +6645,8 @@ table.table_block td {
  }
  .page-heading {
   font-size: 13px;
-  text-transform: uppercase;
-  padding: 0px 0px 17px 0px;
+  /*text-transform: uppercase;*/
+  /*padding: 0px 0px 17px 0px;*/
   /*margin-bottom: 20px;*/
   overflow: hidden;
 }
