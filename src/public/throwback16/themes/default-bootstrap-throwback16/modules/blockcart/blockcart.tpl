@@ -1,6 +1,6 @@
 
 			<!-- MODULE Block cart -->
-			<div class="col-md-6">
+			<div class="col-md-6 text-right">
 
 				{if isset($blockcart_top) && $blockcart_top}
 				<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">

@@ -5,7 +5,7 @@
 	<div class="row"> 
 
 		<!-- MODULE Block UserInfo  NAV  -->
-		<div class="header_user_info col-md-6">
+		<div class="header_user_info col-md-6 text-right">
 		   <div class="dropdown">
 			{if $is_logged}
 				<button class="dropbtn"> 
