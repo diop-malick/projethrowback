@@ -46,7 +46,12 @@
     /*padding: 13px 15px 7px 15px;*/
     /*margin-bottom: 0; */
 }
-
+.input-newsletter , .button-newsletter {
+  padding: 0;
+}
+ .button-newsletter {
+  padding-left: 3px;
+}
 
 /*
 @media (min-width: 768px) {

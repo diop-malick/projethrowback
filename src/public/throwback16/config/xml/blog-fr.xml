@@ -13,12 +13,55 @@
 	<atom:link href="http://www.prestashop.com/blog/fr/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/fr</link>
 	<description></description>
-	<lastBuildDate>Wed, 08 Feb 2017 10:43:14 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 10 Feb 2017 09:21:05 +0000</lastBuildDate>
 	<language>fr-FR</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>Pourquoi devriez-vous connecter votre ERP à votre e-commerce ?</title>
+		<link>https://www.prestashop.com/blog/fr/devriez-connecter-erp-e-commerce/</link>
+		<comments>https://www.prestashop.com/blog/fr/devriez-connecter-erp-e-commerce/#comments</comments>
+		<pubDate>Thu, 09 Feb 2017 17:16:05 +0000</pubDate>
+		<dc:creator><![CDATA[Les amis de Preston]]></dc:creator>
+				<category><![CDATA[Conseils E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21152</guid>
+		<description><![CDATA[<p>Avec l’essor des ERP (*Enterprise ressource Planning ou PGI en français ) sur le cloud mais aussi en open source, la gestion d’entreprise informatisée se démocratise. Aujourd’hui, 1 marchand sur 2 déclare avoir une solution de gestion pour administrer sa comptabilité, ses stocks, sa logistique ou encore son parc client. Mais rares sont ceux qui [...]</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/devriez-connecter-erp-e-commerce/">Pourquoi devriez-vous connecter votre ERP à votre e-commerce ?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Avec l’essor des ERP (*<em>Enterprise ressource Planning ou PGI en français</em> ) sur le cloud mais aussi en open source, la gestion d’entreprise informatisée se démocratise. Aujourd’hui, 1 marchand sur 2 déclare avoir une solution de gestion pour administrer sa comptabilité, ses stocks, sa logistique ou encore son parc client. Mais rares sont ceux qui savent qu’il est possible de connecter leur ERP à leur boutique en ligne, et surtout quels bénéfices en retirer. Voici en résumé 5 avantages à connecter votre logiciel de gestion à votre boutique PrestaShop.<span id="more-21152"></span></p>
+<h2 style="color: black;">1 – Sécurisez vos informations</h2>
+<p>En tant que marchand, les informations recueillies sont essentielles car elles sont votre base de travail : tarifs, données clients, pièces comptables etc. Or, malgré tout le soin apporté à votre inventaire par exemple, l’erreur de saisie ou la perte d’information est toujours possible.</p>
+<p>Pourtant, en connectant votre ERP à votre boutique PrestaShop, il est possible de faire communiquer automatiquement vos informations, comme par exemple les stocks. Un produit est vendu sur votre boutique ? Les stocks sont automatiquement impactés dans votre ERP. En temps réel, vous suivez vos stocks et repassez commande auprès de vos fournisseurs si besoin.</p>
+<p>Ajoutez ou modifiez une information dans votre logiciel de gestion et votre plateforme e-commerce est automatiquement mise à jour : prix, promotion, stock, etc.</p>
+<p>Avec une passerelle entre votre ERP et votre boutique PrestaShop, vos flux de données sont tracés et sécurisés. Vous ne perdez pas d’informations. Il n’y a plus d’erreur de re-saisie possible.</p>
+<h2 style="color: black;">2- Automatisez la gestion des produits et des commandes</h2>
+<p>Les commandes passées sur le site marchand sont instantanément intégrées dans l’ERP pour être traitées. Une fois les commandes expédiées, les factures sont générées automatiquement en PDF et poussées sur le compte client de la plate-forme e-commerce.</p>
+<p>De la même façon, l&rsquo;ensemble du catalogue produits est synchronisé entre votre boutique PrestaShop et votre ERP. Ainsi, si vous créez 100 produits dans votre ERP, ils remontent automatiquement dans votre boutique PrestaShop.</p>
+<h2 style="color: black;">3- Des outils dissociés en cas de mises à jour</h2>
+<p>Lors d’une mise à jour importante d’une des solutions, les autres solutions connectées ne sont pas impactées, seule la configuration de la gestion des flux sera modifiée. L’indisponibilité de l’un n’affecte pas l’autre.</p>
+<h2 style="color: black;">4- Gagnez du temps et concentrez-vous sur l’essentiel : le client.</h2>
+<p>En évitant la ressaisie mais aussi les nombreuses vérifications collatérales, vos équipes gagnent en efficacité. Ils peuvent se concentrer sur l’essentiel : satisfaire et fidéliser vos clients. Ainsi, vous allez pouvoir dégager du temps pour analyser vos statistiques et fixer des axes d’amélioration pour votre boutique (ventes flash, cross selling, relance paniers etc).</p>
+<h2 style="color: black;">5- Générez plus de marge</h2>
+<p>Comme nous l’avons vu plus haut, connecter votre ERP à votre boutique PrestaShop c’est automatiser des flux et gagner du temps sur des tâches chronophages et rébarbatives. Et cela, au profit d’autres tâches qui nécessitent toute votre attention. Des tâches essentielles à la longévité de votre activité : calculer la rentabilité de vos frais de transports, calculer le prix de revient de vos produits, renégocier votre contrat VAD auprès de votre banque etc.</p>
+<p>Conclusion<br />
+Avec une activité exigeante, un e-commerçant a besoin de fonctionnalités de gestion de plus en plus poussées (stocks, préparation des commandes, comptabilité, réapprovisionnement…). A partir d’une trentaine de commandes par jour et/ou la gestion de plus de 200 produits, le couplage boutique PrestaShop et ERP devient plus que légitime.</p>
+<div>
+<h2>Biographie</h2>
+<h3 style="color: black;">Eve LEFORT</h3>
+<p><img class="alignleft size-thumbnail wp-image-21158" alt="Eve LEFORT" src="https://www.prestashop.com/blog/fr/files/2017/02/eve-150x150.png" width="80" height="80" /></p>
+<ul style="text-align: left;">
+<li>Chef de projet sénior chez <a href="https://www.prestashop.com/fr/agences-web-partenaires/or/agence-123" target="_blank">l’agence123</a> avec plus de 10 années d’expérience dans le web et les projets ERP.</li>
+<li>Chasseuse de tendances digitales sous toutes ses formes, dingo du SEO, addict à son mobile.</li>
+</ul>
+</div>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/devriez-connecter-erp-e-commerce/">Pourquoi devriez-vous connecter votre ERP à votre e-commerce ?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/fr/devriez-connecter-erp-e-commerce/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>5 modules pour optimiser vos ventes</title>
 		<link>https://www.prestashop.com/blog/fr/5-modules-optimiser-vos-ventes/</link>
 		<comments>https://www.prestashop.com/blog/fr/5-modules-optimiser-vos-ventes/#comments</comments>
@@ -388,51 +431,6 @@ Autre possibilité : <strong>regrouper les données en fonction de leurs caract�
 <p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/ux-design-les-erreurs-les-frequentes-designers-leurs-solutions/">UX Design : les erreurs les plus fréquentes des designers et leurs solutions</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/fr/ux-design-les-erreurs-les-frequentes-designers-leurs-solutions/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>nailmatic : un projet PrestaShop alliant image de marque et e-commerce</title>
-		<link>https://www.prestashop.com/blog/fr/nailmatic-projet-prestashop-alliant-image-marque-e-commerce/</link>
-		<comments>https://www.prestashop.com/blog/fr/nailmatic-projet-prestashop-alliant-image-marque-e-commerce/#comments</comments>
-		<pubDate>Tue, 17 Jan 2017 09:09:51 +0000</pubDate>
-		<dc:creator><![CDATA[Les amis de Preston]]></dc:creator>
-				<category><![CDATA[Conseils E-commerce]]></category>
-		<category><![CDATA[Success Story]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=20807</guid>
-		<description><![CDATA[<p>Avec son esprit fonceur et créatif et ses idées de génie, nailmatic agite le monde du beauty business ! Distributeur automatique de vernis, coffrets vernis, ligne Kids avec des vernis à l’eau&#8230; la marque ose et inspire des looks colorés empreints de bonne humeur. Une identité forte que le site, lancé sous PrestaShop, doit exprimer [...]</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/nailmatic-projet-prestashop-alliant-image-marque-e-commerce/">nailmatic : un projet PrestaShop alliant image de marque et e-commerce</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p dir="ltr">Avec son esprit fonceur et créatif et ses idées de génie, nailmatic agite le monde du beauty business ! <strong>Distributeur automatique de vernis, coffrets vernis, ligne Kids avec des vernis à l’eau&#8230;</strong> la marque ose et inspire des looks colorés empreints de bonne humeur. Une identité forte que le site, lancé sous PrestaShop, doit exprimer à tous les niveaux : du graphisme aux fonctionnalités.</p>
-<p dir="ltr"><span id="more-20807"></span></p>
-<h2 dir="ltr"><span style="color: #00ccff;">Esprit de marque</span></h2>
-<p dir="ltr">nailmatic, c’est une collection de vernis fun, féminins et résolument modernes. Boris et Lilian, les créateurs de la marque, ont savamment apporté une valeur ajoutée à ces produits en leur construisant une personnalité. Le vernis change au gré des looks et s’autorise des teintes insolites. Un sentiment d’insouciance renforcé par les p<strong>rix attractifs et la production 100 % française</strong> : il n’y a vraiment pas de quoi se priver !</p>
-<h2><span style="color: #00ccff;">Qualité graphique</span></h2>
-<p dir="ltr">nailmatic.com reflète au premier coup d’oeil l’esprit de liberté de la marque : <strong>un design novateur et dynamique</strong>, qui laisse la part belle aux visuels pour mettre les produits en valeur. L’univers de la marque se décline à mesure que la home se déroule. C’est frais, c’est clair et ça va à l’essentiel !</p>
-<h2 dir="ltr"><span style="color: #00ccff;">Une boutique propulsée par PrestaShop</span></h2>
-<p dir="ltr">Pour la création de sa boutique sur PrestaShop 1.6, la nailmaTeam a travaillé avec <a href="https://www.prestashop.com/fr/agences-web-partenaires/platinum/axome" target="_blank"><strong>l’agence certifiée Axome.</strong></a> Elle a ainsi pu s’appuyer sur différentes fonctionnalités et modules approuvés par la communauté PrestaShop.</p>
-<p dir="ltr">nailmatic met notamment à disposition<strong> sa liste des points de vente via le Store Locator</strong> de PrestaShop : une fonctionnalité agrémentée par un développement spécifique permettant à nailmatic de <strong>définir les gammes de leur produit disponibles dans chaque magasin.</strong></p>
-<p dir="ltr">La rubrique Journal est alimentée via le module Prestablog, qui a été adapté pour coller aux besoin de la marque et ses mises en page graphiques.</p>
-<div dir="ltr"> <a href="http://www.nailmatic.com/fr/points-de-vente" target="_blank"><img alt="Capture du 2016-11-16 15-35-21.png" src="https://lh3.googleusercontent.com/Wo4Y7XazQcOHEY0Gt7-4TLgChooZPhholhJLYJXjKI3BHaYOjCTDp3X30GWMB3FNUdQ3xSzP_0tpXH-Gig9JDBJnXPMtqow0PivT6qPJ_qhNeGwdZiOBbim_LgxQM5pHXyWnAq6N" width="602" height="572" /></a></div>
-<div dir="ltr"></div>
-<div dir="ltr"></div>
-<h2><span style="color: #00ccff;"> Configurateur</span></h2>
-<p dir="ltr">Le configurateur, c’est l’exemple d’une <strong>fonctionnalité technique au service de l’identité de marque.</strong> nailmatic a lancé le concept du coffret cadeau en 2013. En 2016, la marque va plus loin sur son site avec le configurateur. Ce service inédit permet de <strong>composer son propre coffret en choisissant le nombre de flacons, les couleurs avec la possibilité d’ajouter un message personnalisé &#8211; tout en visualisant le coffret.</strong> nailmatic invente encore une nouvelle façon d’acheter du vernis à ongle. Techniquement, l’outil s’appuie sur la fonctionnalité des packs de PrestaShop pour générer ces coffrets à la demande.</p>
-<p dir="ltr"><a href="http://www.nailmatic.com/fr/coffret-personnalise" target="_blank"><img alt="Capture du 2016-11-16 15-36-46.png" src="https://lh5.googleusercontent.com/xqB-q3r13sBawMGcGChAj9zIwTQImxUWXGJ3J2ey2EkAesrpRyeeZ4xeFmCVrYGRXI79H0gJkzZCbOreVJGRMZMCL85_dn8vgvA6QwY-jMozw8DlAjWXsmTJJB91DrJAVe-lrE6F" width="602" height="767" /></a></p>
-<h2 dir="ltr"><span style="color: #00ccff;">Responsive</span></h2>
-<p dir="ltr">Avec l’irrésistible ascension de la navigation mobile, le responsive est devenu indispensable. Pour nailmatic, c’est aussi une question de positionnement. Quand la marque imagine son distributeur automatique de vernis en 2013, elle mise sur l’achat spontané. Avec son site responsive, elle est accessible à tout moment et facilite l’achat “petit plaisir” qu’elle revendique depuis toujours.</p>
-<p>&nbsp;</p>
-<p style="text-align: center;"><img class="aligncenter" alt="Capture du 2016-11-16 15-38-45.png" src="https://lh5.googleusercontent.com/Xc_3gWkLKvXcYpxeoQWTcs0cFkBnf-UF_gXvBz57F7FPMHj1mjQBuhsg1ssdUgialf4JwnX7aRqJoupUzNUFVDslTsaVq4sgJZHHbY43O4ivVIGht362MjQ2m1pm-SB98pTxp7H_" width="328" height="586" /></p>
-<h2 dir="ltr"><span style="color: #00ccff;">Des outils pour mieux convertir</span></h2>
-<p dir="ltr">Une fois son site lancé, l’entreprise a pu profiter des nombreux <a href="http://addons.prestashop.com/fr/" target="_blank">Addons</a> pour développer son chiffre d’affaires et recruter de nouveaux clients, comme notamment <a href="http://addons.prestashop.com/fr/18349-nostotagging.html" target="_blank">Nosto</a> pour le retargeting sur Facebook.</p>
-<h3><span style="color: #888888;"><b>Le mot d&rsquo;Axome</b></span></h3>
-<div><a href="http://www.axome.com/" target="_blank"><strong>Axome</strong></a> est la marque e-commerce de l&rsquo;agence de communication Trenta. Notre métier est de créer de la valeur pour les marques via le développement de stratégies BtoB et BtoC.</div>
-<p>&nbsp;</p>
-<div dir="ltr"></div>
-<p>&nbsp;</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/nailmatic-projet-prestashop-alliant-image-marque-e-commerce/">nailmatic : un projet PrestaShop alliant image de marque et e-commerce</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/fr/nailmatic-projet-prestashop-alliant-image-marque-e-commerce/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 	</channel>
