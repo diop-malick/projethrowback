@@ -67,15 +67,15 @@
 		<!-- Header complete -->
 			<div class="header-container">
 
-
-
 				<header id="header">
 					{capture name='displayBanner'}{hook h='displayBanner'}{/capture}
 					{if $smarty.capture.displayBanner}
 						<div class="banner">
-							<div class="container">
+							<div class="container-fluid">
 								<div class="row">
-									{$smarty.capture.displayBanner}
+									<div class="container">
+										{$smarty.capture.displayBanner}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -83,15 +83,17 @@
 					{capture name='displayNav'}{hook h='displayNav'}{/capture}
 					{if $smarty.capture.displayNav}
 						<div class="nav">
-							<div class="container">
+							<div class="container-fluid">
 								<div class="row">
-									<nav>{$smarty.capture.displayNav}</nav>
+									<div class="container">
+										<nav>{$smarty.capture.displayNav}</nav>
+									</div>
 								</div>
 							</div>
 						</div>
 					{/if}
 					<div>
-						<div class="container">
+						<div class="container-fluid">
 						<!-- row Header(search + logo + cart) + row Menu -->
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 						</div>
