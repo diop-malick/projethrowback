@@ -26,8 +26,8 @@ src/public/throwback16/cache/smarty/compile/*
 src/public/throwback16/cache/tcpdf/*
 !src/public/throwback16/cache/tcpdf/index.php
 
-config/xml/*.xml
-config/settings.inc.php
+src/public/throwback16/config/xml/*.xml
+src/public/throwback16/config/settings.inc.php
 
 log/*.log
 
