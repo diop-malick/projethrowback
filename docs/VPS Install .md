@@ -160,9 +160,6 @@ cd
 bash
 sudo apt-get purge php5-*
 
-php7.0-xdebug
-php7.0-mcrypt
-php7.0-gettext
 
 * install PHP7
 sudo apt-get install php7.0 php7.0-fpm
@@ -300,19 +297,7 @@ rm https://files.phpmyadmin.net/phpMyAdmin/4.6.5.2/phpMyAdmin-4.6.5.2-all-langua
 mv phpMyAdmin-4.6.5.2-all-languages phpmyadmin
 
 
-# Server FTP : proFTPD
-https://www.grafikart.fr/formations/serveur-linux/proftpd
 
-sudo apt-get install -y proftpd
-
-  version standalone sur port 21
-  TODO : ouvrir le port 21
-
-* ajouter utlisateur ftp  
-sudo adduser sneftp
-
-* change config :
-sudo vim /etc/proftpd/proftpd.conf
 
 
 # --------------------------------------- #
@@ -434,6 +419,10 @@ sudo apache2ctl -M | sort
 
 vérif apache conf :
 apache2ctl configtest
+
+
+netstat utility tells us that the Postfix master process
+
 
 * check package is installed :
 dpkg -s <packagename>
@@ -559,7 +548,6 @@ https://www.grafikart.fr/tutoriels/serveur/email-dns-dkim-spf-551
 
 https://postfix.traduc.org/index.php/BASIC_CONFIGURATION_README.html
 
-https://www.skyminds.net/serveur-dedie-creation-dun-serveur-mail-postfix-securise-avec-saslauthd-et-certificat-ssl-et-courier-acces-pop-et-imap-utilisant-une-base-mysql-dutilisateursdomaines-virtuels/
 
 https://openclassrooms.com/courses/gerer-votre-mail-a-la-unix/do-you-speak-smtp#r-1359207
 
@@ -608,16 +596,7 @@ apt-get install -y postfixadmin
 
 dpkg --list | grep postfix | awk '/^ii/{ print $2}'
 
-* fichier conf : /etc/postfix/main.cf 
 
-  -  modifier les interfaces pour ne pas écouter l'extérieur (notre serveur ne servira pas de relai).
-  inet_interfaces = loopback-only
-
-* reload 
-systemctl reload postfix
-
-* test mail send :
-echo "Message Body" | mail -s "Message Subject" demotutosne@mailinator.com 
 
 
 #  configurer un serveur de messagerie sortant (pouvoir envoyer des courriels sans en héberger) avec « postfix »
@@ -639,9 +618,12 @@ https://doc.ubuntu-fr.org/permissions
 * Add a existing ftp user to existing group
 usermod -a -G www-data ftpsne
 
+ ajout groupe propiétaire réperoire
+ajout droit read writeexecute au groupe
+ 
 sudo chown -R www-data:www-data /var/www
-sudo chgrp -R www-data /var/www     ajout groupe propiétaire réperoire
-sudo chmod -R g+rwx /var/www      ajout droit read writeexecute au groupe
+sudo chgrp -R www-data /var/www    
+sudo chmod -R g+rwx /var/www      
 
 réesécuter a chaque nouveau dossier : 
 sudo chown -R www-data:www-data /var/www
