@@ -69,15 +69,15 @@
 		<!-- Header complete -->
 			<div class="header-container">
 
-
-
 				<header id="header">
 					{capture name='displayBanner'}{hook h='displayBanner'}{/capture}
 					{if $smarty.capture.displayBanner}
 						<div class="banner">
-							<div class="container">
+							<div class="container-fluid">
 								<div class="row">
-									{$smarty.capture.displayBanner}
+									<div class="container">
+										{$smarty.capture.displayBanner}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -85,15 +85,17 @@
 					{capture name='displayNav'}{hook h='displayNav'}{/capture}
 					{if $smarty.capture.displayNav}
 						<div class="nav">
-							<div class="container">
+							<div class="container-fluid">
 								<div class="row">
-									<nav>{$smarty.capture.displayNav}</nav>
+									<div class="container">
+										<nav>{$smarty.capture.displayNav}</nav>
+									</div>
 								</div>
 							</div>
 						</div>
 					{/if}
 					<div>
-						<div class="container">
+						<div class="container-fluid">
 						<!-- row Header(search + logo + cart) + row Menu -->
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 						</div>
@@ -103,19 +105,22 @@
 		<!-- end Header complete -->
 		{/if}
 
-
+			<!-- SLIDER  -->
+			<div class="container-fluid">
+			<div id="slider_row" class="row">
+					{capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
+					{if $smarty.capture.displayTopColumn}
+						<div id="top_column" class="center_column col-xs-12 col-sm-12">{$smarty.capture.displayTopColumn}</div>
+					{/if}
+			</div>
+			</div>
 
 			<div class="columns-container">		
 				<div id="columns" class="container">
 					{if $page_name !='index' && $page_name !='pagenotfound'}
 						{include file="$tpl_dir./breadcrumb.tpl"}
 					{/if}
-					<div id="slider_row" class="row">
-						{capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
-						{if $smarty.capture.displayTopColumn}
-							<div id="top_column" class="center_column col-xs-12 col-sm-12">{$smarty.capture.displayTopColumn}</div>
-						{/if}
-					</div>
+					
 
 					<!-- on réinitialise les éléments flottants qui suivent pour les ramener dans le flux normal, et éviter qu'ils viennent recouvrir les éléments précédents.  -->
 					<div class="clearfix"></div>

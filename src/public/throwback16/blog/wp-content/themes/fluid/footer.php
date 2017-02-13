@@ -17,10 +17,22 @@
 
 	</div><!-- #main -->
 
-	<footer id="footer" class="cryout" role="contentinfo" <?php cryout_schema_microdata( 'footer' );?>>
-		<?php cryout_master_footer_hook(); ?>
-	</footer>
 
-	<?php wp_footer(); ?>
+	<?php 
+	// wp_footer(); 
+	?>
 </body>
 </html>
+
+
+<?php
+/* BEGIN - intégration WP-PS */
+global $controllerPrestashop;
+$controllerPrestashop->displayFooter();
+/* END - intégration WP-PS */
+?>
+<style type="text/css">
+.lp-boxes .lp-box-overlay{
+	background-color: rgba(53, 53, 53, 0.35) !important;
+}
+</style>

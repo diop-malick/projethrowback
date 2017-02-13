@@ -596,7 +596,7 @@ a#logo > img {
 }
 
 #masthead .header-image {
-	display: block;
+	display: none;
 	width: inherit;
 	max-width: 100%;
 	margin: 0 auto;
@@ -4689,6 +4689,11 @@ body.mobile .main {min-height:0;}
 	}
 
 }
-
+.lp-boxes .lp-box-overlay{
+	background-color: rgba(53, 53, 53, 0.35) !important;
+}
+#colophon, #footer{
+	background-color: #ececeb !important;
+}
 
 /* FIN! */

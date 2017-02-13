@@ -45,14 +45,14 @@
   }
 
 #footer #newsletter_block_left .form-group .form-control {
-    /*height: 45px;*/
+    height: 40px;
     max-width: 267px;
     background: #ececeb;
     /*border-color: #515151;*/
     /*color: #fff;*/
     padding: 10px 43px 10px 12px;
     display: inline-block;
-    float: left;
+    /*float: left;*/
 }
 
 #footer #newsletter_block_left .newsletter_icon {

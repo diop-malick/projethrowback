@@ -342,6 +342,7 @@
 	</div>
 	<!-- // COL UserInfo + Cart -->
 
+	</div> <!-- // container -->
 </div > 
 <!-- // Row HEADER -->
 
