@@ -18,15 +18,19 @@ src/public/prestashop/
 src/public/prestashop_*.zip
 
 # Directories content
-src/public/throwback16/cache/class_index.php
-src/public/throwback16/cache/smarty/cache/*
-!src/public/throwback16/cache/smarty/cache/index.php
-src/public/throwback16/cache/smarty/compile/*
-!src/public/throwback16/cache/smarty/compile/index.php
-src/public/throwback16/cache/tcpdf/*
-!src/public/throwback16/cache/tcpdf/index.php
+
+src/public/throwback16/cache/
+
+# src/public/throwback16/cache/class_index.php
+# src/public/throwback16/cache/smarty/cache/*
+# !src/public/throwback16/cache/smarty/cache/index.php
+# src/public/throwback16/cache/smarty/compile/*
+# !src/public/throwback16/cache/smarty/compile/index.php
+# src/public/throwback16/cache/tcpdf/*
+# !src/public/throwback16/cache/tcpdf/index.php
 
 src/public/throwback16/config/xml/
+
 #src/public/throwback16/config/xml/*.xml
 src/public/throwback16/config/settings.inc.php
 
