@@ -2185,7 +2185,7 @@
   ),
   'FrontController' => 
   array (
-    'path' => '',
+    'path' => 'override/classes/controller/FrontController.php',
     'type' => 'class',
     'override' => false,
   ),

@@ -16,18 +16,20 @@ function minimizePage() {
 
     $('.breadcrumb').css("margin-left", "25.5%");
 }
-$( ".toggle_menu" ).click(function(e) {
-     e.preventDefault();
-     if ($( "#toggleMenu" ).hasClass("maxi")){
-            minimizePage();
-     }
-     else if ($( "#toggleMenu" ).hasClass("mini")){
-            fullPage();
-     }
-});
+$(document).ready(function() {
+    $( ".toggle_menu" ).click(function(e) {
+         e.preventDefault();
+         if ($( "#toggleMenu" ).hasClass("maxi")){
+                minimizePage();
+         }
+         else if ($( "#toggleMenu" ).hasClass("mini")){
+                fullPage();
+         }
+    });
 
-$('.product_list li').hover(function () {
-    $( this).addClass('hovered');
-}, function () {
-    $( this).removeClass('hovered');
+    $('.product_list li').hover(function () {
+        $( this).addClass('hovered');
+    }, function () {
+        $( this).removeClass('hovered');
+    });
 });
