@@ -22,7 +22,7 @@
 		{if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
 		{if $totModuloTablet == 0}{assign var='totModuloTablet' value=$nbItemsPerLineTablet}{/if}
 		{if $totModuloMobile == 0}{assign var='totModuloMobile' value=$nbItemsPerLineMobile}{/if}
-		<li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-4 col-md-3{else} col-xs-12 col-sm-6 col-md-4{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLine == 1} first-in-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModulo)} last-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 0} last-item-of-tablet-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 1} first-item-of-tablet-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 0} last-item-of-mobile-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 1} first-item-of-mobile-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModuloMobile)} last-mobile-line{/if}">
+		<li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-12 col-md-12{else} col-xs-12 col-sm-12 col-md-12{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLine == 1} first-in-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModulo)} last-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 0} last-item-of-tablet-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 1} first-item-of-tablet-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 0} last-item-of-mobile-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 1} first-item-of-mobile-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModuloMobile)} last-mobile-line{/if}">
 			<div class="product-container" itemscope itemtype="https://schema.org/Product">
 				
 				<div class="row text-right">
@@ -68,6 +68,7 @@
 						{/if}
 					</div>
 					{/if}
+
 					
 					{if isset($product.color_list)}
 						<div class="color-list-container">{$product.color_list}</div>
@@ -164,7 +165,42 @@
 					{hook h="displayProductPriceBlock" product=$product type="weight"}
 				</div>
 
-				
+				<div class="row">
+				{* Added for attributes *}
+					{if $combinations}
+
+					{foreach from=$combinations key=k item=comb}
+					    {* because the array key are id_product, we can separate the product combinations in here 
+					       with if/else statement compared with the id_product from the foreach loop of products-list *}
+					    {if $k = $product.id_product}
+					    	<pre>
+					    	{$comb|print_r}
+					    	</pre>
+					        <!-- {* The attribute Group Name *}
+					        <p class="comb_title">{$comb.group_name}</p>
+					        {* List of attribute values inside the attribute Group for current product *}
+					        <select>
+					        {foreach from=$comb item=attr}
+					            <option value="{$attr.id_attribute}">{$attr.attribute_name} {l s=': +'} {convertPrice price=$attr.unit_price_impact}</option>
+					        {/foreach}
+					        </select> -->
+					    {/if}
+					{/foreach}
+					<!-- {$combinations|print_r} -->
+					<div class="att_list" style="display:block;">
+						<!-- <fieldset>
+						<label class="attribute_label">Select {$product.combinations.attribute_groups|escape:'html':'UTF-8'}&nbsp;</label>
+						<select name="attribute_combination_{$product.id_product}" id="attribute_combination_{$product.id_product}" class="form-control attribute_select" ref="{$product.id_product}">
+							{foreach from=$product.combinations.values key=id_product_attribute item=combination}
+								<option value="{$id_product_attribute|intval}" title="{$combination.attributes_names|escape:'html':'UTF-8'}">{$combination.attributes_names|escape:'html':'UTF-8'}</option>
+							{/foreach}
+						</select>
+						</fieldset> -->
+					</div>
+					{/if}
+					{* Added for attributes *}
+					</div>
+
 				{if $page_name != 'index'}
 					<div class="functional-buttons clearfix">
 						{hook h='displayProductListFunctionalButtons' product=$product}

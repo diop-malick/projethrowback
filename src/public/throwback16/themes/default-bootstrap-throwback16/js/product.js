@@ -530,6 +530,7 @@ function updateDisplay()
 		$('#oosHook').hide();
 
 		$('#availability_date').fadeOut();
+		$('#availability_datechrono').fadeOut();
 
 		//availability value management
 		if (stock_management && availableNowValue != '')
@@ -615,9 +616,15 @@ function updateDisplay()
 					$('#availability_date_value').text(selectedCombination['available_date']['date_formatted']);
 					$(this).fadeIn();
 				});
+				
+				$('#availability_datechrono').fadeOut('normal', function(){
+					$('#availability_date_value').text(selectedCombination['available_date']['date_formatted']);
+					$(this).fadeIn();
+				});
 			}
 			else if (now.getTime() < time_available.getTime())
 				$('#availability_date').fadeIn();
+			$('#availability_datechrono').fadeIn();
 		}
 		else
 			$('#availability_date').fadeOut();

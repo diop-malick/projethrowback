@@ -199,10 +199,7 @@
 								{if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
 								<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
 							{/if}
-							<p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-								<span id="availability_date_label">{l s='Availability date:'}</span>
-								<span id="availability_date_value">{if Validate::isDate($product->available_date)}{dateFormat date=$product->available_date full=false}{/if}</span>
-							</p>
+
 
 							<!-- Out of stock hook -->
 							<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
@@ -275,8 +272,13 @@
 																		
 						</div> <!-- end content_prices -->
 
+
+						
+						<p id="availability_datechrono" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+							<img src="{$base_dir}/img/icones/chrono.png"/>
+						</p>
 						<!-- Flag NEW Product -->
-						{if $product->new}
+						{if $product->new && ($product->quantity > 0) && !$product->available_for_order && isset($product->available_date)}
 							<!-- <span class="new-box">
 								<span class="new-label">{l s='New'}</span>
 							</span> -->
@@ -459,10 +461,31 @@
 						<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 					</p>
 
+					<!-- box Chrno -->
+					<div class="row box-cart-chrono">
+						<p id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+
+								<!-- <span id="availability_date_label">{l s='Availability date:'}</span> -->
+								<!-- <span id="availability_date_value">{if Validate::isDate($product->available_date)}{/if}</span> -->
+								<!-- <span> date now: {$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}</span> -->
+								{if $dateavailabilitydiff}
+									{foreach from=$dateavailabilitydiff key=key item=item}
+									{if $key eq 'day'}<span>{$item} J </span>{/if}
+									{if $key eq 'hour'}<span> {$item} H </span>{/if}
+									{if $key eq 'minute'}<span> {$item} M </span>{/if}
+									{if $key eq 'second'}<span> {$item} S </span>{/if}
+									<!-- {$dateavailabilitydiff}J {$dateavailabilitydiff->hour}H {$dateavailabilitydiff->minute}M {$dateavailabilitydiff->second}S -->							
+									{/foreach}
+								{/if}
+								<!-- <pre>{$dateavailabilitydiff|print_r}</pre> -->
+						</p>					
+					</div>
+
+
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> --> 
 					<!-- TODO - delete corresponding css -->
-						<div class="box-cart-bottom">
+						<div class="row box-cart-bottom">
 							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="exclusive">
