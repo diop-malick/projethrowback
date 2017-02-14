@@ -3361,7 +3361,7 @@
   ),
   'ProductController' => 
   array (
-    'path' => '',
+    'path' => 'override/controllers/front/ProductController.php',
     'type' => 'class',
     'override' => false,
   ),
