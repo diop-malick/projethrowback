@@ -4696,4 +4696,35 @@ body.mobile .main {min-height:0;}
 	background-color: #ececeb !important;
 }
 
+
+/* TRHOWBACK Custom */
+
+#search_block_top,
+#block_contact_infos,
+.header_user_info,
+.shopping_cart {
+	display: none !important;
+}
+
+#block_top_menu .sf-menu > li > a {
+	color: rgb(255, 255, 255) !important;
+}
+
+#newsletter_block_left {
+	display: none !important;
+}
+
+#footer {
+    border: none;
+}
+
+#social_block ul {
+	list-style: none !important;
+}
+
+.footer-container #footer #social_block {
+	margin-top: 5px;
+}
+
+
 /* FIN! */
