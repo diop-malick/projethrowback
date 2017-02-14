@@ -147,6 +147,7 @@ header .row #header_logo {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 /* Quick view
 ====================================  */
 .qv-size{
@@ -162,4 +163,29 @@ header .row #header_logo {
 }
 .qv-reference,.qv-dispo{
   color:#000 !important;
+=======
+
+/* Pape produit
+====================================  */
+
+
+.box-cart-chrono {
+  font-size: 21.261px;
+  /*font-family: "Futura";*/
+  color: rgb(199, 200, 200);
+  font-weight: bold;
+  /*line-height: 0.753;*/
+  text-align: center;
+ -moz-transform: matrix( 0.94070856013375,0,0,0.94070856013375,0,0);
+  -webkit-transform: matrix( 0.94070856013375,0,0,0.94070856013375,0,0);
+  -ms-transform: matrix( 0.94070856013375,0,0,0.94070856013375,0,0);
+  margin-top:5px;
+  background-color: rgb(230, 231, 232);
+  width: 219px;
+  height: 50px;
+
+  /*margin: 0 auto;*/
+
+  z-index: 73;
+>>>>>>> ba6d2134da383c5a7560fb86ad136d02fa32bd47
 }

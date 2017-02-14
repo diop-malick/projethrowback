@@ -68,6 +68,7 @@
 						{/if}
 					</div>
 					{/if}
+
 					
 					{if isset($product.color_list)}
 						<div class="color-list-container">{$product.color_list}</div>
@@ -156,6 +157,55 @@
 					{hook h="displayProductPriceBlock" product=$product type="weight"}
 				</div>
 
+<<<<<<< HEAD
+=======
+				<div class="row">
+				{* Added for attributes *}
+					{if $combinations}
+
+					{foreach from=$combinations key=k item=comb}
+					    {* because the array key are id_product, we can separate the product combinations in here 
+					       with if/else statement compared with the id_product from the foreach loop of products-list *}
+					    {if $k = $product.id_product}
+					    	<pre>
+					    	{$comb|print_r}
+					    	</pre>
+					        <!-- {* The attribute Group Name *}
+					        <p class="comb_title">{$comb.group_name}</p>
+					        {* List of attribute values inside the attribute Group for current product *}
+					        <select>
+					        {foreach from=$comb item=attr}
+					            <option value="{$attr.id_attribute}">{$attr.attribute_name} {l s=': +'} {convertPrice price=$attr.unit_price_impact}</option>
+					        {/foreach}
+					        </select> -->
+					    {/if}
+					{/foreach}
+					<!-- {$combinations|print_r} -->
+					<div class="att_list" style="display:block;">
+						<!-- <fieldset>
+						<label class="attribute_label">Select {$product.combinations.attribute_groups|escape:'html':'UTF-8'}&nbsp;</label>
+						<select name="attribute_combination_{$product.id_product}" id="attribute_combination_{$product.id_product}" class="form-control attribute_select" ref="{$product.id_product}">
+							{foreach from=$product.combinations.values key=id_product_attribute item=combination}
+								<option value="{$id_product_attribute|intval}" title="{$combination.attributes_names|escape:'html':'UTF-8'}">{$combination.attributes_names|escape:'html':'UTF-8'}</option>
+							{/foreach}
+						</select>
+						</fieldset> -->
+					</div>
+					{/if}
+					{* Added for attributes *}
+					</div>
+
+				{if $page_name != 'index'}
+					<div class="functional-buttons clearfix">
+						{hook h='displayProductListFunctionalButtons' product=$product}
+						{if isset($comparator_max_item) && $comparator_max_item}
+							<div class="compare">
+								<a class="add_to_compare" href="{$product.link|escape:'html':'UTF-8'}" data-id-product="{$product.id_product}">{l s='Add to Compare'}</a>
+							</div>
+						{/if}
+					</div>
+				{/if}
+>>>>>>> ba6d2134da383c5a7560fb86ad136d02fa32bd47
 			</div><!-- .product-container> -->
 		</li>
 	{/foreach}
