@@ -6481,7 +6481,8 @@ table.table_block td {
 
 #home-page-tabs {
   border: none;
-  background: #fff; }
+  background: #fff; 
+display: none}
   @media (min-width: 768px) {
     #home-page-tabs {
       padding: 10px 0;
