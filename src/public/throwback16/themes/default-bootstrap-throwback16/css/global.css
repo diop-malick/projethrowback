@@ -8687,56 +8687,7 @@ div.star.star_hover:after {
   margin: 0 1px 5px 1px; 
   }
 
-  /* my Account */
 
-.my-account-selfcare .form-horizontal .vertical-center {
-
-}
-
-.simplified-header {
-  /*border: 1px solid;*/
-  /*border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;*/
-}
-
-/* Center image in block*/
-.simplified-header .simplified-logo {
-  margin: 0 auto; 
-}
-/* Vertical text center*/
-.simplified-header .vertical-center {
-  display: flex;
-  align-items: center;
-}
-.simplified-header span {
-padding: 10px 10px 10px 14px;
-padding: 0;
-font-weight: bold;
-/*color: rgb(53, 53, 53);*/
-}
-
-.simplified-header span span {
-font-size: 17px;
-}
-.simplified-header span i.right {
-    vertical-align: -2px;
-    /*margin: -4px 10px 0 0;*/
-}
-
-/*simplified footer*/
-.footer-container .container .simplified-footer {
-  
-}
-
-.simplified-footer span span {
-   font-size: 17px;
-   line-height: 21px;
-   font-weight: bold;
-   text-transform: uppercase;
-}
-
-#block-history {
-  margin-top: 50px;
-}
 
 
 
