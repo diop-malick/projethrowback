@@ -216,6 +216,15 @@ $(document).ready(function()
 		if (url.indexOf('#') != -1)
 			getProductAttribute();
 	}
+
+	// CHRONO
+	if (typeof available_date !== 'undefined' && available_date) {
+		console.log(available_date);
+		$('#clock').countdown(available_date, function(event) {		
+			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
+		});
+	}
+
 });
 
 //find a specific price rule, based on pre calculated dom display array

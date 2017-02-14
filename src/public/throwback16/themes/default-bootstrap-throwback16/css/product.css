@@ -1248,4 +1248,39 @@ h3.page-product-heading {
   background: #fbfbfb; 
 }
 
+/* throwback custom */
+
+.box-cart-chrono {
+    font-size: 21.261px;
+    /*font-family: "Futura";*/
+    color: rgb(199, 200, 200);
+    font-weight: bold;
+    /*line-height: 0.753;*/
+    text-align: center;
+    -moz-transform: matrix( 0.94070856013375, 0, 0, 0.94070856013375, 0, 0);
+    -webkit-transform: matrix( 0.94070856013375, 0, 0, 0.94070856013375, 0, 0);
+    -ms-transform: matrix( 0.94070856013375, 0, 0, 0.94070856013375, 0, 0);
+    margin-top: 5px;
+    width: 219px;
+    height: 50px;
+    /*margin: 0 auto;*/
+    z-index: 73;
+}
+
+.box-cart-chrono #clock {
+    font-size: 21.261px;
+    font-weight: 900;
+}
+
+.box-cart-chrono #clock .chronounity {
+    font-size: 16.261px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#availability_date .panel {
+    background-color: rgb(230, 231, 232) !important;
+}
+
 /*# sourceMappingURL=product.css.map */
+

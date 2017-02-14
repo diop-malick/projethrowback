@@ -471,7 +471,7 @@
 				<!-- // rigth-row-3 -->
 
 				<!-- rigth-row-4 -->
-				<div id="rigth-row-4" class="row pull-right">
+				<div id="rigth-row-4" class="row">
 
 					<div class="col-md-offset-8 col-md-4 text-left">
 					<!-- hidden datas -->
@@ -483,25 +483,16 @@
 					</p>
 
 					<!-- box Chrno -->
-					<div class="row box-cart-chrono">
-						<p id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-
-								<!-- <span id="availability_date_label">{l s='Availability date:'}</span> -->
-								<!-- <span id="availability_date_value">{if Validate::isDate($product->available_date)}{/if}</span> -->
-								<!-- <span> date now: {$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}</span> -->
-								{if $dateavailabilitydiff}
-									{foreach from=$dateavailabilitydiff key=key item=item}
-									{if $key eq 'day'}<span>{$item} J </span>{/if}
-									{if $key eq 'hour'}<span> {$item} H </span>{/if}
-									{if $key eq 'minute'}<span> {$item} M </span>{/if}
-									{if $key eq 'second'}<span> {$item} S </span>{/if}
-									<!-- {$dateavailabilitydiff}J {$dateavailabilitydiff->hour}H {$dateavailabilitydiff->minute}M {$dateavailabilitydiff->second}S -->							
-									{/foreach}
-								{/if}
-								<!-- <pre>{$dateavailabilitydiff|print_r}</pre> -->
-						</p>					
-					</div>
-
+						<div class="row box-cart-chrono" id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>						
+							<script type="text/javascript">
+							    var available_date = "{$product->available_date|date_format:'%Y-%m-%d %H:%M:%S'}";
+							</script>
+							<div class="panel panel-default">
+							    <div class="panel-body">
+							    	<span id="clock"></span>
+							    </div>
+							</div>														
+						</div>					
 
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> --> 
