@@ -1585,7 +1585,7 @@
   ),
   'CategoryController' => 
   array (
-    'path' => '',
+    'path' => 'override/controllers/front/CategoryController.php',
     'type' => 'class',
     'override' => false,
   ),

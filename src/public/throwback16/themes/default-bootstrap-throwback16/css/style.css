@@ -146,3 +146,20 @@ header .row #header_logo {
   /*margin-top: 100px;*/
   overflow: hidden;
 }
+
+/* Quick view
+====================================  */
+.qv-size{
+  float: left;
+  padding-left: 30px;
+  padding-top: 10px
+}
+.size-list{
+  border: 1px solid rgb(88, 89, 91);
+  border-radius: 3px;
+  padding: 5px 10px;
+  color:#000 !important;
+}
+.qv-reference,.qv-dispo{
+  color:#000 !important;
+}

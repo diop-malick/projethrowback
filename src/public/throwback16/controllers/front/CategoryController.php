@@ -121,6 +121,7 @@ class CategoryControllerCore extends FrontController
         }
     }
 
+    
     /**
      * Initializes page content variables
      */
@@ -144,7 +145,7 @@ class CategoryControllerCore extends FrontController
         $this->assignScenes();
         $this->assignSubcategories();
         $this->assignProductList();
-
+        
         $this->context->smarty->assign(array(
             'category'             => $this->category,
             'description_short'    => Tools::truncateString($this->category->description, 350),

@@ -103,7 +103,8 @@
 						{/if}
 					{/if}
 				</div>
-
+				
+					
 				<div class="row">
 					<div class="product-image-container">
 						<a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
@@ -121,36 +122,27 @@
 						{/if}
 						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-								{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
-									<span itemprop="price" class="price product-price">
-										{hook h="displayProductPriceBlock" product=$product type="before_price"}
-										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
-									</span>
-									<meta itemprop="priceCurrency" content="{$currency->iso_code}" />
-									{if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
-										{hook h="displayProductPriceBlock" product=$product type="old_price"}
-										<span class="old-price product-price">
-											{displayWtPrice p=$product.price_without_reduction}
-										</span>
-										{if $product.specific_prices.reduction_type == 'percentage'}
-											<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
-										{/if}
-									{/if}
-									{if $PS_STOCK_MANAGEMENT && isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}
-										<span class="unvisible">
-											{if ($product.allow_oosp || $product.quantity > 0)}
-													<link itemprop="availability" href="https://schema.org/InStock" />{if $product.quantity <= 0}{if $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{/if}{else}{if isset($product.available_now) && $product.available_now}{$product.available_now}{else}{l s='In Stock'}{/if}{/if}
-											{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}
-													<link itemprop="availability" href="https://schema.org/LimitedAvailability" />{l s='Product available with different options'}
+								<div class="row">
+									<div class="col-md-6">
+										<span class="qv-reference">{$product.reference}</span>
+									</div>
+									<div class="col-md-6 qv-dispo">
+										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
+									</div>
+								</div>
+								<div class=qv-size>
+									{foreach from=$size_list key=k item=v}
+										{if $k > 0 && $k==$product.id_product }
+											
+												{foreach from=$v item=p}
+													{foreach from=$p item=t}
+														<span class="size-list">{$t}</span>
+													{/foreach}
 
-											{else}
-													<link itemprop="availability" href="https://schema.org/OutOfStock" />{l s='Out of stock'}
-											{/if}
-										</span>
-									{/if}
-									{hook h="displayProductPriceBlock" product=$product type="price"}
-									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
-								{/if}
+												{/foreach}
+										{/if}
+									{/foreach}
+								</div>
 							</div>
 						{/if}
 						{if isset($product.new) && $product.new == 1}
@@ -164,17 +156,6 @@
 					{hook h="displayProductPriceBlock" product=$product type="weight"}
 				</div>
 
-				
-				{if $page_name != 'index'}
-					<div class="functional-buttons clearfix">
-						{hook h='displayProductListFunctionalButtons' product=$product}
-						{if isset($comparator_max_item) && $comparator_max_item}
-							<div class="compare">
-								<a class="add_to_compare" href="{$product.link|escape:'html':'UTF-8'}" data-id-product="{$product.id_product}">{l s='Add to Compare'}</a>
-							</div>
-						{/if}
-					</div>
-				{/if}
 			</div><!-- .product-container> -->
 		</li>
 	{/foreach}
