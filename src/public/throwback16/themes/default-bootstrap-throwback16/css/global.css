@@ -6678,20 +6678,6 @@ table.table_block td {
     margin-bottom: 0; }
 
 
-h3.page-product-heading {
-  color: #555454;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-  padding: 14px 20px 17px;
-  margin: 0 0 20px;
-  position: relative;
-  border: 1px solid #d6d4d4;
-  border-bottom: none;
-  background: #fbfbfb; }
-
 ul.footer_links {
   padding: 20px 0 0px 0;
   border-top: 1px solid #d6d4d4;
@@ -7135,10 +7121,14 @@ div.star a:hover {
   font-size: 13px;
   background: none repeat scroll 0 0 lightyellow; }
 
+ /*TODO : page list text description */
 #page .rte {
-  background: transparent none repeat scroll 0 0; }
-  #page .rte em {
-    font-style: italic !important; }
+  /*background: transparent none repeat scroll 0 0; */
+}
+
+#page .rte em {
+  font-style: italic !important; 
+}
 
 .listcomment {
   list-style-type: none;

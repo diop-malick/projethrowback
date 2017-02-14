@@ -129,6 +129,7 @@ $(document).ready(function()
 	serialScrollSetNbImages();
 
 	//init the serialScroll for thumbs
+	// THROWBACK CUSTOM
 	if (!!$.prototype.serialScroll)
 		$('#thumbs_list').serialScroll({
 			items:'li:visible',
@@ -182,15 +183,17 @@ $(document).ready(function()
 		}
 	}
 
+	// THROWBACK CUSTOM
+	// http://bxslider.com/examples/carousel-demystified#example1
 	if ($('#bxslider li').length && !!$.prototype.bxSlider)
 		$('#bxslider').bxSlider({
 			minSlides: 1,
-			maxSlides: 6,
-			slideWidth: 178,
-			slideMargin: 20,
-			pager: false,
-			nextText: '',
-			prevText: '',
+			maxSlides: 4,
+			slideWidth: 271,
+			slideMargin: 16,
+			// pager: false,
+			// nextText: '',
+			// prevText: '',
 			moveSlides:1,
 			infiniteLoop:false,
 			hideControlOnEnd: true
