@@ -187,14 +187,15 @@ $(document).ready(function()
 	// http://bxslider.com/examples/carousel-demystified#example1
 	if ($('#bxslider li').length && !!$.prototype.bxSlider)
 		$('#bxslider').bxSlider({
-			minSlides: 1,
+			minSlides: 2,
 			maxSlides: 4,
 			slideWidth: 271,
 			slideMargin: 16,
 			// pager: false,
 			// nextText: '',
 			// prevText: '',
-			moveSlides:1,
+			moveSlides:4,
+			controls:false,
 			infiniteLoop:false,
 			hideControlOnEnd: true
 		});
