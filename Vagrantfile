@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :"forwarded_port", guest: 443, host: 443
   
   # Forward ports to MySQL
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
+  #config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # PROVISIONING
 
@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: <<-SHELL
         echo 'echo "upload_max_filesize = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
         echo 'echo "post_max_size = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
+        echo 'echo "max_input_vars = 2000" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
         sudo service apache2 restart
   SHELL
 

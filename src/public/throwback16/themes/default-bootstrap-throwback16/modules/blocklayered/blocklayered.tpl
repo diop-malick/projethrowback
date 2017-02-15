@@ -25,67 +25,25 @@
 
 {if $nbr_filterBlocks != 0}
 <div id="layered_block_left" class="block">
-	<p class="title_block">{l s='Catalog' mod='blocklayered'}</p>
+	
 	<div class="block_content">
 		<form action="#" id="layered_form">
-			<div>
-				{if isset($selected_filters) && $n_filters > 0}
-				<div id="enabled_filters">
-					<span class="layered_subtitle" style="float: none;">
-						{l s='Enabled filters:' mod='blocklayered'}
-					</span>
-					<ul>
-						{foreach from=$selected_filters key=filter_type item=filter_values}
-							{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
-								{foreach from=$filters item=filter}
-									{if $filter.type == $filter_type && isset($filter.values)}
-										{if isset($filter.slider)}
-											{if $smarty.foreach.f_values.first}
-												<li>
-													<a href="#" data-rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}"></a>
-													{if $filter.format == 1}
-														{l s='%1$s: %2$s - %3$s'|sprintf:$filter.name:{displayPrice price=$filter.values[0]}:{displayPrice price=$filter.values[1]}|escape:'html':'UTF-8' mod='blocklayered'}
-													{else}
-														{l s='%1$s: %2$s %4$s - %3$s %4$s'|sprintf:$filter.name:$filter.values[0]:$filter.values[1]:$filter.unit|escape:'html':'UTF-8' mod='blocklayered'}
-													{/if}
-												</li>
-											{/if}
-										{else}
-											{foreach from=$filter.values key=id_value item=value}
-												{if $id_value == $filter_key && !is_numeric($filter_value) && ($filter.type eq 'id_attribute_group' || $filter.type eq 'id_feature') || $id_value == $filter_value && $filter.type neq 'id_attribute_group' && $filter.type neq 'id_feature'}
-													<li>
-														<a href="#" data-rel="layered_{$filter.type_lite}_{$id_value}" title="{l s='Cancel' mod='blocklayered'}"><i class="icon-remove"></i></a>
-														{l s='%1$s: %2$s' mod='blocklayered' sprintf=[$filter.name, $value.name]}
-													</li>
-												{/if}
-											{/foreach}
-										{/if}
-									{/if}
-								{/foreach}
-							{/foreach}
-						{/foreach}
-					</ul>
-				</div>
-				{/if}
+			
+				
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
-							<div class="layered_{$filter.type}" style="display: none;">
+							<div class="layered_{$filter.type} col-lg-3 pull-right" style="display: none;">
 						{else}
-							<div class="layered_filter">
+							<div class="layered_filter col-lg-2 pull-right">
 						{/if}
-                        <div class="layered_subtitle_heading">
-                            <span class="layered_subtitle">{$filter.name|escape:'html':'UTF-8'}</span>
-                            <!--<span class="layered_close">
-                            	<a href="#" data-rel="ul_layered_{$filter.type}_{$filter.id_key}"></a>
-                            </span>-->
-						</div>
-						<ul id="ul_layered_{$filter.type}_{$filter.id_key}" class="col-lg-12 layered_filter_ul{if isset($filter.is_color_group) && $filter.is_color_group} color-group{/if}">
+                        
+						<ul id="ul_layered_{$filter.type}_{$filter.id_key}" class=" layered_filter_ul{if isset($filter.is_color_group) && $filter.is_color_group} color-group{/if}">
 							{if !isset($filter.slider)}
 								{if $filter.filter_type == 0}
 									{foreach from=$filter.values key=id_value item=value name=fe}
 										{if $value.nbr || !$hide_0_values}
-										<li class="nomargin {if $smarty.foreach.fe.index >= $filter.filter_show_limit}hiddable{/if} col-lg-12">
+										<li class="nomargin {if $smarty.foreach.fe.index >= $filter.filter_show_limit}hiddable{/if} col-lg-3">
 											{if isset($filter.is_color_group) && $filter.is_color_group}
 												<input class="color-option {if isset($value.checked) && $value.checked}on{/if} {if !$value.nbr}disable{/if}" type="button" name="layered_{$filter.type_lite}_{$id_value}" data-rel="{$id_value}_{$filter.id_key}" id="layered_id_attribute_group_{$id_value}" {if !$value.nbr}disabled="disabled"{/if} style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};" />
 												{if isset($value.checked) && $value.checked}<input type="hidden" name="layered_{$filter.type_lite}_{$id_value}" value="{$id_value}" />{/if}
@@ -139,7 +97,7 @@
 							{else}
 								{if $filter.filter_type == 0}
 									<label for="{$filter.type}">
-										{l s='Range:' mod='blocklayered'}
+										{l s='' mod='blocklayered'}
 									</label> 
 									<span id="layered_{$filter.type}_range"></span>
 									<div class="layered_slider_container">
@@ -187,7 +145,9 @@
 					</div>
 					{/if}
 				{/foreach}
-			</div>
+			
+
+
 			<input type="hidden" name="id_category_layered" value="{$id_category_layered}" />
 			{foreach from=$filters item=filter}
 				{if $filter.type_lite == 'id_attribute_group' && isset($filter.is_color_group) && $filter.is_color_group && $filter.filter_type != 2}

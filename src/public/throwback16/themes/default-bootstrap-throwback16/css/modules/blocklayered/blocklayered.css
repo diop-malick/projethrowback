@@ -161,7 +161,8 @@
   overflow-x: auto; }
 
 .layered_filter {
-  border-bottom: 1px solid #eee; }
+  margin-top: 10px;
+   }
   .layered_filter label {
     font-weight: normal; }
   .layered_filter layered_subtitle {
@@ -172,3 +173,4 @@
   width: auto; }
 
 /*# sourceMappingURL=blocklayered.css.map */
+

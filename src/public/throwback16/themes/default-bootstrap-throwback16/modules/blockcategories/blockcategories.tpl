@@ -24,6 +24,7 @@
 *}
 {if $blockCategTree && $blockCategTree.children|@count}
 <!-- Block categories module -->
+<div class="container">
 <div id="categories_block_left" class="block">
 	<div class="block_content">
 		<ul class="tree {if $isDhtml}dhtml{/if}">
@@ -36,6 +37,7 @@
 			{/foreach}
 		</ul>
 	</div>
+</div>
 </div>
 <!-- /Block categories module -->
 {/if}

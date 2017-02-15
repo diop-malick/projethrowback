@@ -2,7 +2,9 @@
 				Addresses Styles
 ********************************************************/
 #addresses #center_column .page-heading {
-  margin: 0 0 22px; }
+  /*margin: 0 0 22px; */
+}
+
 #addresses #center_column p {
   margin: 0 0 13px; }
   #addresses #center_column p.p-indent {

@@ -52,7 +52,7 @@
 		{assign var='requestNb' value=$link->getPaginationLink(false, false, true, false, false, true)}
 	{/if}
 	<!-- Pagination -->
-	<div id="pagination{if isset($paginationId)}_{$paginationId}{/if}" class="pagination clearfix">
+	<div id="pagination{if isset($paginationId)}_{$paginationId}{/if}" class="pagination hidden clearfix">
 	    {if $nb_products > $products_per_page && $start!=$stop}
 			<form class="showall" action="{if !is_array($requestNb)}{$requestNb}{else}{$requestNb.requestUrl}{/if}" method="get">
 				<div>
@@ -186,7 +186,7 @@
 			</ul>
 		{/if}
 	</div>
-    <div class="product-count">
+    <div class="product-count hidden">
     	{if ($n*$p) < $nb_products }
     		{assign var='productShowing' value=$n*$p}
         {else}

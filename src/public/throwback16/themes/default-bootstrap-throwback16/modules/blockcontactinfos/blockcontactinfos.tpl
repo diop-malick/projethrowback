@@ -1,5 +1,7 @@
 <!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-4">
+
+<div class="col-md-4">
+<section id="block_contact_infos" class="footer-block">
 	<div>
         {if $blockcontactinfos_address != ''}
 			<i class="icon-map-marker"></i>
@@ -11,5 +13,5 @@
             <span>&nbsp;{$blockcontactinfos_phone|escape:'html':'UTF-8'}</span>
         {/if}
     </div>
-</section>
-<!-- /MODULE Block contact infos -->
+</section> <!-- // MODULE Block contact infos -->
+</div>
