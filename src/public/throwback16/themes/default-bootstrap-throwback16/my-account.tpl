@@ -1,8 +1,6 @@
 
 {capture name=path}{l s='My account'}{/capture}
 
-{include file="$tpl_dir./header-simple.tpl"}
-
 <div class="my-account-selfcare">
     
     <div class="row">

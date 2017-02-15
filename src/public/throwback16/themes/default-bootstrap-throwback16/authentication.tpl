@@ -31,7 +31,7 @@
 	{/if}-->
 	<div class="row">
 	<div id="equalheight">  
-		<div class="col-xs-12 col-sm-6 custom-equalheight">
+		<div class="col-xs-12 col-sm-6">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
@@ -56,7 +56,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-xs-12 col-sm-6 custom-equalheight">
+		<div class="col-xs-12 col-sm-6">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box">
 				<h3 class="page-subheading">{l s='Create an account'}</h3>
 				<div class="form_content clearfix">
