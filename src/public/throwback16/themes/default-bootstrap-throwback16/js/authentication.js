@@ -66,7 +66,11 @@ function submitFunction()
 				$('#center_column').html('<div id="noSlide">' + $('#center_column').html() + '</div>');
 				$('#noSlide').fadeOut('slow', function()
 				{
+
 					$('#noSlide').html(jsonData.page);
+					$('#noSlide .simplified-header').hide();
+					$('.page-heading:first').hide();
+					
 					$(this).fadeIn('slow', function()
 					{
 						if (typeof bindUniform !=='undefined')

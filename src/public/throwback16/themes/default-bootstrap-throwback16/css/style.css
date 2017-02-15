@@ -111,7 +111,11 @@ header .row #header_logo {
 #authentication #page{
   min-height: 92.5vh;
 }
-
+.vertical-center {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
 .button.button-medium {
   font-size: 17px;
   line-height: 21px;
