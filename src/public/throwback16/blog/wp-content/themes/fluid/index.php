@@ -23,6 +23,8 @@ get_header();
 					get_template_part( 'content/content', get_post_format() );
 				endwhile;
 				?>
+				
+				<?php theme_pagination(); ?>
 
 				<style type="text/css">
 
