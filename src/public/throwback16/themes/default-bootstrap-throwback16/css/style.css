@@ -19,6 +19,7 @@
 
 .footer-container {
     background-color: #ececeb;
+    padding: 15px 0;
 }
 
 .footer-logo {
@@ -107,6 +108,9 @@ header .row #header_logo {
 ====================================  */
 
 /* throwback > customize > conexion  */
+#authentication #page{
+  min-height: 92.5vh;
+}
 
 .button.button-medium {
   font-size: 17px;
@@ -216,7 +220,7 @@ font-size: 17px;
 }
 
 .simplified-footer span span {
-   font-size: 17px;
+   font-size: 14px;
    line-height: 21px;
    font-weight: bold;
    text-transform: uppercase;
