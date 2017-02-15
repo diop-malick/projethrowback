@@ -46,7 +46,7 @@
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
+						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium btn-disable">
 							<span>
 								<i class="icon-lock left"></i>
 								{l s='Sign in'}
@@ -68,7 +68,7 @@
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<button class="btn btn-default button button-medium exclusive btn-disable" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
 								{l s='Create an account'}

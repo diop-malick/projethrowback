@@ -141,7 +141,16 @@ header .row #header_logo {
     border: 1px solid;
     border-color: #ececeb;
   }
-
+.btn-enable{
+  background: #000 !important;
+  color: #fff!important;
+  pointer-events: visible !important;
+}
+.btn-disable {
+  background: #dedede!important;
+  color: #8c8c8c!important;
+  pointer-events: none !important;
+}
 .page-heading.authentication {
 /*margin-top: 120px;*/
 }
