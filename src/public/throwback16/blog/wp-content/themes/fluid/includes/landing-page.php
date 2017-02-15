@@ -301,7 +301,8 @@ function fluida_lpindex() {
 						get_template_part( 'content/content', get_post_format() );
 					endwhile; ?>
 				</div> <!-- content-masonry -->
-				<?php fluida_pagination();
+				<?php 
+ 
 			else :
 				get_template_part( 'content/content', 'notfound' );
 			endif;

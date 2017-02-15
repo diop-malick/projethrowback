@@ -46,9 +46,16 @@ get_header();?>
 					</footer><!-- .entry-meta -->
 
 					<nav id="nav-below" class="navigation" role="navigation">
-						<div class="nav-previous"><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>%title</span>' ); ?></div>
-						<div class="nav-next"><?php next_post_link( '%link', '<span>%title</span> <i class="icon-angle-right"></i>' ); ?></div>
+
+					<div class="accueil" style="font-weight:bold"> <a href="http://localhost:8081/throwback16/blog"> < HOME </a> </div>
+					
+
+						<div class="nav-previous"><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>PREV</span>' ); ?></div>
+						<div class="nav-next"><?php next_post_link( '%link', '<span>NEXT</span> <i class="icon-angle-right"></i>' ); ?></div>
 					</nav><!-- #nav-below -->
+
+
+
 
 					<?php comments_template( '', true ); ?>
 					<?php cryout_singular_after_inner_hook();  ?>
@@ -64,3 +71,5 @@ get_header();?>
 </div><!-- #container -->
 
 <?php get_footer();
+
+
