@@ -40,7 +40,7 @@
 			</p>
 		{/if}
 		<!-- left infos-->
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
+		<div class="pb-left-column col-xs-12 col-sm-4 col-md-6">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
 				{if $product->on_sale}
@@ -127,7 +127,7 @@
 		<!-- end left infos-->
 
 		<!-- right  -->
-		<div class="pb-my-right-column col-xs-12 col-md-7">
+		<div class="pb-my-right-column col-xs-12 col-md-6">
 
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 			
@@ -215,6 +215,9 @@
 							<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 								{$HOOK_PRODUCT_OOS}
 							</div>
+							
+							<!-- social sharing -->
+							{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 
 					</div>
 					<!-- // TITRE  -->
@@ -370,10 +373,12 @@
 					<!-- // short_description_block -->
 
 					<!-- full description - -->
+					<div class="col-xs-12">
 					{if isset($product) && $product->description}
 							<!-- <h3 class="page-product-heading">{l s='More info'}</h3> -->
 							<div  class="rte text-justify">{$product->description}</div>
 					{/if}
+					</div>
 					<!-- // full description -->
 				</div> <!-- // rigth-row-2 -->
 					
@@ -382,6 +387,12 @@
 					
 					<div class="col-md-8 text-left">
 					<!-- quantity wanted -->
+						
+
+					
+
+					<div class="clearfix"></div>
+						
 					{if !$PS_CATALOG_MODE}
 								<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 									<label for="quantity_wanted">{l s='Quantity'}</label>
@@ -460,7 +471,7 @@
 				<!-- // rigth-row-3 -->
 
 				<!-- rigth-row-4 -->
-				<div id="rigth-row-4" class="row pull-right">
+				<div id="rigth-row-4" class="row">
 
 					<div class="col-md-offset-8 col-md-4 text-left">
 					<!-- hidden datas -->
@@ -472,25 +483,16 @@
 					</p>
 
 					<!-- box Chrno -->
-					<div class="row box-cart-chrono">
-						<p id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-
-								<!-- <span id="availability_date_label">{l s='Availability date:'}</span> -->
-								<!-- <span id="availability_date_value">{if Validate::isDate($product->available_date)}{/if}</span> -->
-								<!-- <span> date now: {$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}</span> -->
-								{if $dateavailabilitydiff}
-									{foreach from=$dateavailabilitydiff key=key item=item}
-									{if $key eq 'day'}<span>{$item} J </span>{/if}
-									{if $key eq 'hour'}<span> {$item} H </span>{/if}
-									{if $key eq 'minute'}<span> {$item} M </span>{/if}
-									{if $key eq 'second'}<span> {$item} S </span>{/if}
-									<!-- {$dateavailabilitydiff}J {$dateavailabilitydiff->hour}H {$dateavailabilitydiff->minute}M {$dateavailabilitydiff->second}S -->							
-									{/foreach}
-								{/if}
-								<!-- <pre>{$dateavailabilitydiff|print_r}</pre> -->
-						</p>					
-					</div>
-
+						<div class="row box-cart-chrono" id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>						
+							<script type="text/javascript">
+							    var available_date = "{$product->available_date|date_format:'%Y-%m-%d %H:%M:%S'}";
+							</script>
+							<div class="panel panel-default">
+							    <div class="panel-body">
+							    	<span id="clock"></span>
+							    </div>
+							</div>														
+						</div>					
 
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> --> 
@@ -519,9 +521,6 @@
 
 		<!-- center infos -->
 		<!-- <div class="pb-center-column col-xs-12 col-sm-4"> -->
-			
-			<!-- {if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if} -->
-			
 			<!-- {if !$content_only} -->
 			<!-- TODO : imprimer -->
 				<!-- usefull links-->
@@ -648,8 +647,10 @@
 		</section>
 		<!--end HOOK_PRODUCT_TAB -->
 		{/if}
+
+
 		{if isset($accessories) && $accessories}
-			<!--Accessories -->
+			<!--ZONE PUSH - Accessories -->
 			<section class="page-product-box">
 				<h3 class="page-product-heading">{l s='Accessories'}</h3>
 				<div class="block products_block accessories-block clearfix">
@@ -689,8 +690,6 @@
 												</a>
 											</div>
 										</div>
-										
-
 										<!-- button ajout panier -->
 										<!-- <div class="clearfix" style="margin-top:5px">
 											{if !$PS_CATALOG_MODE && ($accessory.allow_oosp || $accessory.quantity > 0) && isset($add_prod_display) && $add_prod_display == 1}
