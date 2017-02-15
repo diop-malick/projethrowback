@@ -23,25 +23,6 @@
 				</div>
 				{hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
 			</div>
-
-			<!-- <div id="newsletter_block_left" class="text-left block inline">
-				<div class="block_content">
-					<form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
-						<div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
-
-							<div class="news-footer">
-								<i class="fa fa-envelope"></i>
-								<input class="inputNew form-control grey newsletter-input form-control" id="newsletter-input" type="email" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Newsletter' mod='blocknewsletter'}{/if}" />
-				                <input type="submit" value="OK" class="button_mini btn-outline btn button-default" name="submitNewsletter" />
-								<input type="hidden" name="action" value="0" />
-							</div>
-						</div>
-					</form>
-				</div>
-			    {hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
-			</div> -->
-
-
 		</div>
 		<!-- /Block Newsletter module-->
 {strip}
