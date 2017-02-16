@@ -14,7 +14,8 @@ src/vm_build_clean.log
 
 ### BLOG ###
 
-src/public/throwback16/blog/wp-content/plugins/*
+src/public/throwback16/blog/*
+src/public/throwback16/blog/wp-content/plugins/elementor/assets/*
 
 # Prestashop dowloaded zip & unzip file
 
