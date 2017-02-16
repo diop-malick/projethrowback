@@ -171,9 +171,12 @@ function fluida_lpboxes( $sid = 1 ) {
 	if ( $fluids['fluida_lpboxanimation' . $sid] == 1 ) $animated_class = 'lp-boxes-animated';
 	if ( $fluids['fluida_lpboxanimation' . $sid] == 2 ) $animated_class = 'lp-boxes-static';
     $custom_query = new WP_query();
+    
+    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;   
+
     if ( ! empty( $fluids['fluida_lpboxcat' . $sid] ) ) $cat = '&category_name=' . $fluids['fluida_lpboxcat' . $sid]; else $cat = '';
 
-    $custom_query->query( 'showposts=' . $fluids['fluida_lpboxcount' . $sid] . $cat . '&ignore_sticky_posts=1' );
+    $custom_query->query( 'showposts=' . $fluids['fluida_lpboxcount' . $sid] . $cat . '&ignore_sticky_posts=1'.'&paged='.$paged );
     if ( $custom_query->have_posts() ) : ?>
 		<section class="lp-boxes lp-boxes-<?php echo absint( $sid ) ?> <?php  echo esc_attr( $animated_class ) ?> lp-boxes-rows-<?php echo absint( $fluids['fluida_lpboxrow' . $sid] ); ?>">
 			<?php if( $fluids['fluida_lpboxmaintitle' . $sid] || $fluids['fluida_lpboxmaindesc' . $sid] ) { ?>
@@ -205,10 +208,16 @@ function fluida_lpboxes( $sid = 1 ) {
             fluida_lpbox_output( $box );
         endwhile; ?>
 
-		<!-- pagination -->
-        <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
-        <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
+        <?php
+		$big = 999999999; // need an unlikely integer
 
+		echo paginate_links( array(
+			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format' => '?paged=%#%',
+			'current' => max( 1, get_query_var('paged') ),
+			'total' => $custom_query->max_num_pages
+		) );
+		?>
 			</div>
 		</section><!-- .lp-boxes -->
 <?php endif;
