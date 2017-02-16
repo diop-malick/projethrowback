@@ -59,20 +59,24 @@
 							<span class="price product-price">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
-							{if isset($product.new) && $product.new == 1}
+
+							<!-- FALG New -->
+							<!-- show new flag if date_add is not after now -->
+							{if isset($product.new) && $product.new == 1 && isset($product.date_add) && $product.date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 								<img src="{$base_dir}/img/icones/new.png"/>
+							<!-- FALG Comming soon -->
+							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+								<img src="{$base_dir}/img/icones/chrono.png"/>
 							{/if}
+							<!-- <p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+								<img src="{$base_dir}/img/icones/chrono.png"/>
+							</p> -->
 							{hook h="displayProductPriceBlock" product=$product type="price"}
 							{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 							{hook h="displayProductPriceBlock" product=$product type='after_price'}
 						{/if}
 					</div>
 					{/if}
-
-					<!-- FALG Comming soon -->
-					<p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-						<img src="{$base_dir}/img/icones/chrono.png"/>
-					</p>
 
 					<div class="product-flags">
 						{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
