@@ -12,6 +12,10 @@
 src/vm_build.log
 src/vm_build_clean.log
 
+### BLOG ###
+
+src/public/throwback16/blog/wp-content/plugins/*
+
 # Prestashop dowloaded zip & unzip file
 
 src/public/prestashop/
@@ -56,5 +60,4 @@ src/public/throwback16/robots.txt
 src/public/throwback16/sitemap.xml
 
 
-src/public/throwback16/blog
 
