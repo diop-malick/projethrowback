@@ -69,6 +69,11 @@
 					</div>
 					{/if}
 
+					<!-- FALG Comming soon -->
+					<p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+						<img src="{$base_dir}/img/icones/chrono.png"/>
+					</p>
+
 					<div class="product-flags">
 						{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 							{if isset($product.online_only) && $product.online_only}

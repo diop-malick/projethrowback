@@ -6297,7 +6297,8 @@ table.table_block td {
 }
 
 .special-price {
-  color: #f13340; }
+  color: #f13340; 
+}
 
 .price-percent-reduction {
   background: #f13340;
@@ -7329,26 +7330,43 @@ div.star a:hover {
 
 
       @media (max-width: 767px) {
-        .footer-container #footer #social_block {
-          width: 100%;
-          float: left;
-          padding-top: 5px; } }
+          .footer-container #footer #social_block {
+              width: 100%;
+              float: left;
+              padding-top: 5px;
+          }
+      }
+      
       .footer-container #footer #social_block ul {
-        float: right; }
-        @media (max-width: 767px) {
+          float: right;
+      }
+      
+      @media (max-width: 767px) {
           .footer-container #footer #social_block ul {
-            float: none; } }
-        .footer-container #footer #social_block ul li {
+              float: none;
+          }
+      }
+      
+      .footer-container #footer #social_block ul li {
           float: left;
-          width: 40px;
-          text-align: center; }
-          @media (min-width: 768px) and (max-width: 991px) {
-            .footer-container #footer #social_block ul li {
-              width: 30px; } }
-          .footer-container #footer #social_block ul li a {
-            display: inline-block;
-            color: #908f8f;
-            font-size: 28px; }
+          width: 30px;
+          text-align: center;
+      }
+      
+      @media (min-width: 768px) and (max-width: 991px) {
+          .footer-container #footer #social_block ul li {
+              width: 30px;
+          }
+      }
+      
+      .footer-container #footer #social_block ul li a {
+          display: inline-block;
+          color: #908f8f;
+          font-size: 21px;
+      }
+
+
+
             @media (min-width: 768px) and (max-width: 991px) {
               .footer-container #footer #social_block ul li a {
                 font-size: 20px; } }
@@ -8346,7 +8364,7 @@ div.star.star_hover:after {
   display: none !important; }
 
 .form-group.form-error input, .form-group.form-error textarea {
-  /*border: 1px solid #f13340;*/
+  border: 1px solid #f13340;
   /*color: #f13340;*/
   background: url(../img/icon/form-error.png) 98% 5px no-repeat; 
 }
@@ -8354,7 +8372,7 @@ div.star.star_hover:after {
 .form-group.form-ok input, .form-group.form-ok textarea {
   border: 1px solid #46a74e;
   color: #35b33f;
-  background: url(../img/icon/form-ok.png) 98% 5px no-repeat #ddf9e1; }
+  background: url(../img/icon/form-ok.png) 98% 5px no-repeat; }
 .form-group.form-error .form-control, .form-group.form-ok .form-control {
   padding-right: 30px; }
 

@@ -29,10 +29,10 @@
 		</ol>
 	</div>
 	{/if}-->
-	<div class="row">
+	<div class="row" id="center_column">
 	<div id="equalheight">  
 		<div class="col-xs-12 col-sm-6">
-			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box">
+			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box is-customer">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
 					<div class="form-group">
@@ -46,7 +46,7 @@
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
+						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium btn-disable">
 							<span>
 								<i class="icon-lock left"></i>
 								{l s='Sign in'}
@@ -57,7 +57,7 @@
 			</form>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box">
+			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box be-customer">
 				<h3 class="page-subheading">{l s='Create an account'}</h3>
 				<div class="form_content clearfix">
 					<p>{l s='Please enter your email address to create an account.'}</p>
@@ -68,7 +68,7 @@
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<button class="btn btn-default button button-medium exclusive btn-disable" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
 								{l s='Create an account'}
@@ -409,25 +409,6 @@
 	</div>
 	{/if}-->
 
-
-<div class="my-account-selfcare">
-    <div class="row header vertical-center">
-        <div class="col-md-3 text-left vertical-center">
-            {l s='Aide'}
-        </div>
-        <div class="col-md-6">
-        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
-            <!-- <div class="center-block"> -->
-                <img src="{$base_dir}/img/logo/logo-simple.png" class="logo-simple img-responsive" alt="Throwback logo"/>
-            <!-- </div> -->
-        </a>
-        </div>
-        <div class="col-md-3 text-right">
-            {l s='Votre espace sécurisé'}&nbsp;&nbsp;<span class="glyphicon glyphicon-lock"></span>
-        </div>
-    </div>
-</div>
-
 <div class="row my-account-selfcare">
 
 	<!-- FORM -->
@@ -472,49 +453,49 @@
 				</div>
 
 				<div class="row form-group">
-					<label lass="col-md-4 text-right">{l s='Date of Birth'}</label>
+					<label class="col-md-4 text-right">{l s='Date of Birth'}</label>
 					<div class="col-md-8">
-					<div class="row">
-						<div class="col-xs-4">
-							<select id="days" name="days" class="form-control">
-								<option value="">-</option>
-								{foreach from=$days item=day}
-									<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
-								{/foreach}
-							</select>
-							{*
-								{l s='January'}
-								{l s='February'}
-								{l s='March'}
-								{l s='April'}
-								{l s='May'}
-								{l s='June'}
-								{l s='July'}
-								{l s='August'}
-								{l s='September'}
-								{l s='October'}
-								{l s='November'}
-								{l s='December'}
-							*}
-						</div>
-						<div class="col-xs-4">
-							<select id="months" name="months" class="form-control">
-								<option value="">-</option>
-								{foreach from=$months key=k item=month}
-									<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
-								{/foreach}
-							</select>
-						</div>
-						<div class="col-xs-4">
-							<select id="years" name="years" class="form-control">
-								<option value="">-</option>
-								{foreach from=$years item=year}
-									<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
-								{/foreach}
-							</select>
+						<div class="row">
+							<div class="col-md-4">
+								<select id="days" name="days" class="form-control">
+									<option value="">-</option>
+									{foreach from=$days item=day}
+										<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
+									{/foreach}
+								</select>
+								{*
+									{l s='January'}
+									{l s='February'}
+									{l s='March'}
+									{l s='April'}
+									{l s='May'}
+									{l s='June'}
+									{l s='July'}
+									{l s='August'}
+									{l s='September'}
+									{l s='October'}
+									{l s='November'}
+									{l s='December'}
+								*}
+							</div>
+							<div class="col-md-4">
+								<select id="months" name="months" class="form-control">
+									<option value="">-</option>
+									{foreach from=$months key=k item=month}
+										<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
+									{/foreach}
+								</select>
+							</div>
+							<div class="col-md-4">
+								<select id="years" name="years" class="form-control">
+									<option value="">-</option>
+									{foreach from=$years item=year}
+										<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
+									{/foreach}
+								</select>
+							</div>
 						</div>
 					</div>
-				</div>
 			</div>
          </div>           
             <!-- end col -->           
@@ -527,13 +508,13 @@
             </div>
             <div class="col-md-8 ">
 	            <div class="row required form-group">
-					<label for="email" lass="col-md-4 text-right">{l s='Email'} <sup>*</sup></label>
+					<label for="email" class="col-md-4 text-right">{l s='Email'} <sup>*</sup></label>
 					<div class="col-md-8">
 					<input type="email" class="is_required validate form-control" data-validate="isEmail" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
 					</div>
 				</div>
 				<div class="row required password form-group">
-					<label for="passwd" lass="col-md-4 text-right">{l s='Password'} <sup>*</sup></label>
+					<label for="passwd" class="col-md-4 text-right">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
 					<input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
 					<span class="form_info">{l s='(Five characters minimum)'}</span>
@@ -547,24 +528,29 @@
                 <h4>{l s='Newletter'}</h4>
             </div>
             <div class="col-md-8">
-			{if isset($newsletter) && $newsletter}
-				<div class="checkbox">
-					<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
-					<label for="newsletter">{l s='Sign up for our newsletter!'}</label>
-					{if array_key_exists('newsletter', $field_required)}
-						<sup> *</sup>
-					{/if}
+            	<div class="row form-group">
+            	<label for="email" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
+	            	<div class="col-md-8">
+							{if isset($newsletter) && $newsletter}
+								<div class="checkbox">
+									<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
+									<label for="newsletter">{l s='Sign up for our newsletter!'}</label>
+									{if array_key_exists('newsletter', $field_required)}
+										<sup> *</sup>
+									{/if}
+								</div>
+							{/if}
+							{if isset($optin) && $optin}
+								<div class="checkbox">
+									<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
+									<label for="optin">{l s='Receive special offers from our partners!'}</label>
+									{if array_key_exists('optin', $field_required)}
+										<sup> *</sup>
+									{/if}
+								</div>
+							{/if}
+					</div>
 				</div>
-			{/if}
-			{if isset($optin) && $optin}
-				<div class="checkbox">
-					<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
-					<label for="optin">{l s='Receive special offers from our partners!'}</label>
-					{if array_key_exists('optin', $field_required)}
-						<sup> *</sup>
-					{/if}
-				</div>
-			{/if}
             </div>
 		</div>
 

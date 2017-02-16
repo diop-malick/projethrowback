@@ -174,7 +174,17 @@ function validate_isPasswd(s)
 {
 	return (s.length >= 5 && s.length < 255);
 }
+function activeButton(){
+	if($(".is-customer .form-ok").length == 2)
+			$('.is-customer .button').removeClass('btn-disable').addClass('btn-enable');
+	else
+			$('.is-customer .button').removeClass('btn-enable').addClass('btn-disable');
 
+	if($(".be-customer .form-ok").length == 1)
+			$('.be-customer .button').removeClass('btn-disable').addClass('btn-enable');
+	else
+			$('.be-customer .button').removeClass('btn-enable').addClass('btn-disable');
+}
 function validate_field(that)
 {
 	if ($(that).hasClass('is_required') || $(that).val().length)
@@ -197,9 +207,11 @@ function validate_field(that)
 			$(that).parent().removeClass('form-error').addClass('form-ok');
 		else
 			$(that).parent().addClass('form-error').removeClass('form-ok');
+
+		activeButton();
 	}
 }
 
-$(document).on('focusout', 'input.validate, textarea.validate', function() {
+$(document).on('input focusout blur', 'input.validate, textarea.validate', function() {
 	validate_field(this);
 });

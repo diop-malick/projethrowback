@@ -19,6 +19,7 @@
 
 .footer-container {
     background-color: #ececeb;
+    padding: 15px 0;
 }
 
 .footer-logo {
@@ -107,7 +108,14 @@ header .row #header_logo {
 ====================================  */
 
 /* throwback > customize > conexion  */
-
+#authentication #page{
+  min-height: 92.5vh;
+}
+.vertical-center {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
 .button.button-medium {
   font-size: 17px;
   line-height: 21px;
@@ -133,7 +141,16 @@ header .row #header_logo {
     border: 1px solid;
     border-color: #ececeb;
   }
-
+.btn-enable{
+  background: #000 !important;
+  color: #fff!important;
+  pointer-events: visible !important;
+}
+.btn-disable {
+  background: #dedede!important;
+  color: #8c8c8c!important;
+  pointer-events: none !important;
+}
 .page-heading.authentication {
 /*margin-top: 120px;*/
 }
@@ -216,7 +233,7 @@ font-size: 17px;
 }
 
 .simplified-footer span span {
-   font-size: 17px;
+   font-size: 14px;
    line-height: 21px;
    font-weight: bold;
    text-transform: uppercase;
