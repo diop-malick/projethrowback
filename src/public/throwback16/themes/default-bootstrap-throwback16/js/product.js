@@ -189,7 +189,7 @@ $(document).ready(function()
 		$('#bxslider').bxSlider({
 			minSlides: 2,
 			maxSlides: 4,
-			slideWidth: 271,
+			slideWidth: 285,
 			slideMargin: 16,
 			// pager: false,
 			// nextText: '',
