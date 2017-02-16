@@ -369,7 +369,9 @@ class fancypopup extends Module
 	public function hookDisplayHeader()
 	{
 		$this->context->controller->addCSS(_PS_JS_DIR_.'jquery/plugins/fancybox/jquery.fancybox.css');
+		$this->context->controller->addCSS(dirname(__FILE__).'/css/fancypopup.css');
 		$this->context->controller->addJS(_PS_JS_DIR_.'jquery/plugins/fancybox/jquery.fancybox.js');
+		$this->context->controller->addJS(dirname(__FILE__).'/js/fancypopup.js');
 	}
 
 	public function displayFancyPopup(){
