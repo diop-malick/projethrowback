@@ -162,6 +162,6 @@ class IdentityControllerCore extends FrontController
     {
         parent::setMedia();
         $this->addCSS(_THEME_CSS_DIR_.'identity.css');
-        $this->addJS(_PS_JS_DIR_.'validate.js');
+        //$this->addJS(_PS_JS_DIR_.'validate.js');
     }
 }

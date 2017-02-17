@@ -13,6 +13,9 @@ class FrontController extends FrontControllerCore
             $this->addJS(_THEME_JS_DIR_.'menu/category.js');
         if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'product')
             $this->addJS(_THEME_JS_DIR_.'jquery.countdown-2.0.4/jquery.countdown.min.js');
+
+        $this->addJS(_THEME_JS_DIR_.'form-validator/jquery.form-validator.js');
+        $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');
     }
 }
 ?>

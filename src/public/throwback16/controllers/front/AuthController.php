@@ -68,7 +68,7 @@ class AuthControllerCore extends FrontController
             _THEME_JS_DIR_.'tools/vatManagement.js',
             _THEME_JS_DIR_.'tools/statesManagement.js',
             _THEME_JS_DIR_.'authentication.js',
-            _PS_JS_DIR_.'validate.js'
+            
         ));
     }
 
