@@ -65,7 +65,7 @@
 							{if isset($product.new) && $product.new == 1 && isset($product.date_add) && $product.date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 								<img src="{$base_dir}/img/icones/new.png"/>
 							<!-- FALG Comming soon -->
-							{elseif !($product.quantity > 0) && $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 								<img src="{$base_dir}/img/icones/chrono.png"/>
 							{/if}
 							<!-- <p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
