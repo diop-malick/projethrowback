@@ -3,9 +3,10 @@
 
 <div class="my-account-selfcare">
 <div class="box">
-	<h1 class="page-heading text-center">{l s='Your addresses'}</h1>
+	<h3 class="page-subheading">{l s='Ajouter une adresse'}</h3>
 	<div class="text-center">
 	<p class="info-title">
+	<!--
 		{if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
 			{l s='Modify address'}
 			{if isset($smarty.post.alias)}
@@ -17,8 +18,9 @@
 			{l s='To add a new address, please fill out the form below.'}
 		{/if}
 	</p>
+	-->
 	{include file="$tpl_dir./errors.tpl"}
-	<p class="required"><sup>*</sup>{l s='Required field'}</p>
+	<!--<p class="required"><sup>*</sup>{l s='Required field'}</p>-->
 	</div>
 
 	<div class="text-center">
@@ -63,7 +65,7 @@
 				<div class="row required form-group">
 					<label for="firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -71,24 +73,24 @@
 				<div class="row required form-group">
 					<label for="lastname" class="col-md-4 text-right">{l s='Last name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
 
 			{if $field_name eq 'address1'}
 				<div class="row required form-group">
-					<label for="address1" class="col-md-4 text-right">{l s='Address'} <sup>*</sup></label>
+					<label for="address1" class="col-md-4 text-right">{l s='Numéro voie'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
 			{if $field_name eq 'address2'}
 				<div class="row required form-group">
-					<label for="address2" class="col-md-4 text-right">{l s='Address (Line 2)'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
+					<label for="address2" class="col-md-4 text-right">{l s='Nom voie'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 					<div class="col-md-8">
-					<input class="validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="length" data-validation-length="2-38" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -97,7 +99,7 @@
 				<div class="row required postcode form-group unvisible">
 					<label for="postcode" class="col-md-4 text-right">{l s='Zip/Postal Code'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir un code postal valide.'}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -105,7 +107,7 @@
 				<div class="row required form-group">
 					<label for="city" class="col-md-4 text-right">{l s='City'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}" maxlength="64" />
+					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-38" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
 				</div>
 				{* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
@@ -114,7 +116,10 @@
 				<div class="row required form-group">
 					<label for="id_country" class="col-md-4 text-right">{l s='Country'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<select id="id_country" class="form-control" name="id_country">{$countries_list}</select>
+						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" name="id_country">
+						
+						{$countries_list}
+						</select>
 					</div>
 				</div>
 			{/if}
@@ -146,13 +151,13 @@
 				<div class="row form-group {if isset($one_phone_at_least) && $one_phone_at_least}required {/if}">
 					<label for="phone_mobile" class="col-md-4 text-right">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
 					<div class="col-md-8">
-					<input class="validate form-control" data-validate="{$address_validation.phone_mobile.validate}" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir un numéro de téléphone valide. '}" data-validation-optional="true" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
 			{if ($field_name eq 'phone_mobile') || ($field_name eq 'phone_mobile') && !isset($atLeastOneExists) && isset($one_phone_at_least) && $one_phone_at_least}
 				{assign var="atLeastOneExists" value=true}
-				<p class="inline-infos required">** {l s='You must register at least one phone number.'}</p>
+				
 			{/if}
 		{/foreach}
 
@@ -183,9 +188,9 @@
 
 
 		<div class="row form-group">
-			<label for="other" class="col-md-4 text-right">{l s='Additional information'}</label>
+			<label for="other" class="col-md-4 text-right">{l s='Complément adresse'}</label>
 			<div class="col-md-8">
-			<textarea class="validate form-control" data-validate="{$address_validation.other.validate}" id="other" name="other" cols="26" rows="3" >{if isset($smarty.post.other)}{$smarty.post.other}{else}{if isset($address->other)}{$address->other|escape:'html':'UTF-8'}{/if}{/if}</textarea>
+			<textarea class="validate form-control" data-validation="length" data-validation-length="2-38" data-validation-error-msg="{l s='Merci de saisir une adresse valide. '}" data-validation-optional="true" id="other" name="other" cols="26" rows="3" >{if isset($smarty.post.other)}{$smarty.post.other}{else}{if isset($address->other)}{$address->other|escape:'html':'UTF-8'}{/if}{/if}</textarea>
 			</div>
 		</div>
 
@@ -266,3 +271,11 @@
 	{addJsDef vatnumber_ajax_call=$vatnumber_ajax_call}
 {/if}
 {/strip}
+<script>
+    $.validate({
+            lang : 'fr',
+            modules : 'file,html5,sanitize,toggleDisabled,security',
+            form : '#add_address'
+    });
+    $("#firstname").focus();
+</script>

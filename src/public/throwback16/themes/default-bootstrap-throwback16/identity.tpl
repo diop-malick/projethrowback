@@ -63,7 +63,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="strength" data-validation-strength="1" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -71,7 +71,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="strength" data-validation-strength="1" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
+                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -296,6 +296,4 @@
             form : '#form_data'
     });
     
-    
 </script>
-

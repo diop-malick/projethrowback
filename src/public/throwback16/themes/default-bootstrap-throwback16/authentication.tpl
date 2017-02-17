@@ -435,7 +435,7 @@
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
                             <div class="col-md-8">
-                            	<input class="is_required validate form-control" type="password" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" />
+                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" />
                             </div>     
                 </div>
 
@@ -769,7 +769,7 @@
 	});
     $.validate({
 			lang : 'fr',
-			modules : 'file,html5,sanitize,toggleDisabled,security',
+			modules : 'file,html5,sanitize,security',
 			form : '#create-account_form'
 	});
 
