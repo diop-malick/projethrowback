@@ -68,8 +68,8 @@ ou http://localhost:8081/throwback16/
 - Back | http://localhost:8081/throwback16/blog/wp-admin/
 
 ..* Wordpress admin user : 
-- identifiant : tbwpadmin
-- password : T2KK#gXK6ffel$HMkW
+- identifiant : Gael
+- password : dedeagassi
 - mail : mdiop.sne@gmail.com
 
 

@@ -767,15 +767,28 @@ table.table-product-discounts {
   .accessories-block .exclusive span:focus, .accessories-block .exclusive span:active {
     text-decoration: none; }
 
+#productscategory_list span.special-price {
+  color: #777;
+}
+
 .accessories-block .product-name,
+#productscategory_list .product-name,
+#productscategory_list p.price_display,
 .accessories-block span.price {
 margin-right: 25px; /* to ovveride bootstrap row margin : 15 + 10*/
 }
 .accessories-block .product-name {
   margin-bottom: 5px;
 }
+
+#productscategory_list p.price_display span.price,
 .accessories-block span.price {
   font-size: 21px
+}
+
+#productscategory_list .bx-wrapper .content_price img {
+display: inline !important;
+margin-right: 25px;
 }
 
 .bx-wrapper .bx-pager {
@@ -1210,6 +1223,7 @@ Quick View Styles
 
 }
 
+#productscategory_list .product-image.product_image,
 .accessories-block .product-image.product_image {
 background: none;
 border: none;

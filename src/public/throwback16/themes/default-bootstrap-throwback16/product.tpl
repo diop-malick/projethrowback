@@ -284,18 +284,21 @@
 	                        {hook h="displayProductPriceBlock" product=$product type="after_price"}
 																		
 						</div> <!-- end content_prices -->
-
-
 						
-						<p id="availability_datechrono" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-							<img src="{$base_dir}/img/icones/chrono.png"/>
-						</p>
-						<!-- Flag NEW Product -->
-						{if $product->new && ($product->quantity > 0) && !$product->available_for_order && isset($product->available_date)}
-							<!-- <span class="new-box">
-								<span class="new-label">{l s='New'}</span>
-							</span> -->
+						<!-- FALG New -->
+						{if $product->new && $product->new == 1 && ($product->quantity > 0) &&$product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 							<img src="{$base_dir}/img/icones/new.png"/>
+						{elseif isset($product->date_add) && $product->date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+						
+						<!-- MC comming soon -->
+						<img id="availability_datechrono" src="{$base_dir}/img/icones/chrono.png"/>
+						{elseif isset($product->available_date)}
+
+						<!-- MCT coming soon -->
+						<!-- <p id="availability_datechrono" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+							<img src="{$base_dir}/img/icones/chrono.png"/>
+						</p> -->
+
 						{/if}
 
 						<!-- Flag GENRE -->
@@ -316,6 +319,7 @@
 								</ul>
 							</section>
 							<!-- // FEATURES -->
+
 						<!-- ETAT -->
 						<!-- {if !$product->is_virtual && $product->condition}
 						<p id="product_condition">
@@ -399,11 +403,11 @@
 									<input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 									<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 										<!-- <span><i class="icon-minus"></i></span> -->
-										<img src="{$base_dir}/img/icones/size_moins.png"/>
+										<img src="{$base_dir}/img/icones/size_down.png"/>
 									</a>
 									<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
 										<!-- <span><i class="icon-plus"></i></span> -->
-										<img src="{$base_dir}/img/icones/size_moins.png"/>
+										<img src="{$base_dir}/img/icones/size_up.png"/>
 									</a>
 									<span class="clearfix"></span>
 								</p>
@@ -483,9 +487,9 @@
 					</p>
 
 					<!-- box Chrno -->
-						<div class="row box-cart-chrono" id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>						
+						<div class="row box-cart-chrono" id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>						
 							<script type="text/javascript">
-							    var available_date = "{$product->available_date|date_format:'%Y-%m-%d %H:%M:%S'}";
+							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
 							</script>
 							<div class="panel panel-default">
 							    <div class="panel-body">
@@ -707,9 +711,14 @@
 					</div>
 				</div>
 			</section>
-			<!--end Accessories -->
+			<!--end Accessories -->			
+		{elseif isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}
+			<!-- ZONE PUSH - Produit même catégorie -->	
+			{$HOOK_PRODUCT_FOOTER}
 		{/if}
-		{if isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}{$HOOK_PRODUCT_FOOTER}{/if}
+
+	
+
 		<!-- description & features -->
 		{if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
 			{if isset($attachments) && $attachments}

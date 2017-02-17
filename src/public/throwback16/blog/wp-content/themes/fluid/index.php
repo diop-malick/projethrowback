@@ -16,6 +16,15 @@ get_header();
 		<?php cryout_before_content_hook(); ?>
 
 		<?php if ( have_posts() ) : ?>
+		<?php
+//Protect against arbitrary paged values
+$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+
+$args = array(
+	'posts_per_page' => 5,
+	'category_name' => 'categories',
+	'paged' => $paged,
+);
 
 			<div id="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>>
 				<?php /* Start the Loop */
