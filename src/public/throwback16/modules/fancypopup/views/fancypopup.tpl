@@ -40,4 +40,5 @@
 
 <script>
 	fancypopup_SHOW_TIME = {$fancypopup_SHOW_TIME};
+	fancypopup_MODULE_PATH = "{$module_path}";
 </script>

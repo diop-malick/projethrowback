@@ -36,17 +36,17 @@
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
 					<div class="form-group">
-						<label for="email">{l s='Email address'}</label>
-						<input class="is_required validate account_input form-control" data-validate="isEmail" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" />
+						<label for="email" class="control-label">{l s='Email address'}</label>
+						<input class="required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" />
 					</div>
 					<div class="form-group">
-						<label for="passwd">{l s='Password'}</label>
-						<input class="is_required validate account_input form-control" type="password" data-validate="isPasswd" id="passwd" name="passwd" value="" />
+						<label for="passwd" class="control-label">{l s='Password'}</label>
+						<input class="is_required validate account_input form-control" type="password" data-validation="strength" data-validation-strength="1" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
 					</div>
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium btn-disable">
+						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
 							<span>
 								<i class="icon-lock left"></i>
 								{l s='Sign in'}
@@ -63,8 +63,8 @@
 					<p>{l s='Please enter your email address to create an account.'}</p>
 					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 					<div class="form-group">
-						<label for="email_create">{l s='Email address'}</label>
-						<input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
+						<label for="email_create" class="control-label">{l s='Email address'}</label>
+						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
@@ -417,38 +417,74 @@
 		
 		<div class="account_creation">
 			<h3 class="page-subheading">{l s='Your personal information'}</h3>
-			<p class="required"><sup>*</sup>{l s='Required field'}</p>
+			
+		<div class="row vertical-center">
+            <div class="col-md-4 text-center">
+                <h4>{l s='Vos Information de connexion'}</h4>
+            </div>
+            <div class="col-md-8 ">
+	            <div class="row required form-group">
+					<label for="email" class="col-md-4 text-right control-label">{l s='Email'} <sup>*</sup></label>
+					<div class="col-md-8">
+						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
+					</div>
+				</div>
+
+				<div class="row password form-group">
+                            <label for="confirmation-mail" class="col-md-4 text-right control-label">
+                                &nbsp;&nbsp;{l s='Confirmation Email'}
+                            </label>
+                            <div class="col-md-8">
+                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" />
+                            </div>     
+                </div>
+
+				<div class="row required password form-group">
+					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
+					<div class="col-md-8">
+						<input type="password" class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" />
+					</div>
+				</div>
+
+				<div class="row password form-group">
+                            <label for="confirmation" class="col-md-4 text-right control-label">
+                                &nbsp;&nbsp;{l s='Confirmation Pass'}
+                            </label>
+                            <div class="col-md-8">
+                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" />     
+                            </div>
+                </div>
+            </div>
+        </div>
 
 		<div class="row vertical-center">
             <div class="col-md-4 text-center">
                 <h4>{l s='Votre identité'}</h4>
             </div>
             <div class="col-md-8">
-				<div class="clearfix">
+				<div class="row required form-group">
 					<label class="col-md-4 text-right">{l s='Title'}</label>
 					<div class="col-md-8">
-					{foreach from=$genders key=k item=gender}
-						<div class="radio-inline">
-							<label for="id_gender{$gender->id}" class="top">
-								<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-							{$gender->name}
-							</label>
-						</div>
-					{/foreach}
+						<select id="id_gender" name="id_gender" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+										<option value="">{l s='Choisir la civilité'}</option>
+						{foreach from=$genders key=k item=gender}
+							<option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
+						{/foreach}
+						</select>
 					</div>
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
+					<label for="customer_firstname" class="col-md-4 text-right control-label">{l s='First name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
+						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_lastname" class="col-md-4 text-right">{l s='Last name'} <sup>*</sup></label>
+					<label for="customer_lastname" class="col-md-4 text-right control-label">{l s='Last name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validate="isName" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
+						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
 					</div>
 				</div>
 
@@ -502,27 +538,7 @@
         </div>
         <!-- end row -->
 
-		<div class="row vertical-center">
-            <div class="col-md-4 text-center">
-                <h4>{l s='Vos Information de connexion'}</h4>
-            </div>
-            <div class="col-md-8 ">
-	            <div class="row required form-group">
-					<label for="email" class="col-md-4 text-right">{l s='Email'} <sup>*</sup></label>
-					<div class="col-md-8">
-					<input type="email" class="is_required validate form-control" data-validate="isEmail" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
-					</div>
-				</div>
-				<div class="row required password form-group">
-					<label for="passwd" class="col-md-4 text-right">{l s='Password'} <sup>*</sup></label>
-					<div class="col-md-8">
-					<input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
-					<span class="form_info">{l s='(Five characters minimum)'}</span>
-					</div>
-				</div>
-            </div>
-        </div>
-
+	
 		<div class="row vertical-center">             
             <div class="col-md-4 text-center">
                 <h4>{l s='Newletter'}</h4>
@@ -701,7 +717,7 @@
 			<button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium">
 				<span>{l s='Register'}<i class="icon-chevron-right right"></i></span>
 			</button>
-			<p class="pull-right required"><span><sup>*</sup>{l s='Required field'}</span></p>
+			
 		</div>
 	</form>
 </div> <!-- // my-account-selfcare -->
@@ -744,3 +760,31 @@
 	{addJsDef email_create=false}
 {/if}
 {/strip}
+
+<script>
+	$.validate({
+			lang : 'fr',
+			modules : 'file,html5,sanitize,toggleDisabled,security',
+			form : '#login_form'
+	});
+    $.validate({
+			lang : 'fr',
+			modules : 'file,html5,sanitize,security',
+			form : '#create-account_form'
+	});
+
+	
+	$.validate({
+			lang : 'fr',
+			modules : 'file,html5,sanitize,toggleDisabled,security',
+			form : '#account-creation_form'
+	});
+
+	$('input[name=email_create]').on('input blur', function() { 
+		if($(".be-customer .has-success").length == 1)
+			$('.be-customer .button').removeClass('btn-disable').addClass('btn-enable');
+		else
+			$('.be-customer .button').removeClass('btn-enable').addClass('btn-disable');
+	});
+	
+</script>

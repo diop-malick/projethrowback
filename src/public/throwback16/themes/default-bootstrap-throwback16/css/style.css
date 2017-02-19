@@ -142,7 +142,7 @@ header .row #header_logo {
     border-color: #ececeb;
   }
 .btn-enable{
-  background: #000 !important;
+  background: rgb(53, 53, 53) !important;
   color: #fff!important;
   pointer-events: visible !important;
 }
@@ -166,7 +166,16 @@ header .row #header_logo {
   /*margin-top: 100px;*/
   overflow: hidden;
 }
+#account-creation_form .form-error {
+/*float: left !important;*/
+}
 
+/* throwback > customize > Inscription  */
+.select_title{
+  width : 270px;
+  padding: 5px;
+  float: left;
+}
 
 /* Quick view
 ====================================  */
@@ -263,3 +272,18 @@ font-size: 17px;
   z-index: 73;
 }
 
+/*margin top colum center and hesder*/
+#category .columns-container{
+    margin-top: 120px;
+  }
+
+#my-account .columns-container{
+    margin-top: 160px;
+  }
+#address .columns-container{
+    margin-top: 160px;
+  }
+
+  #addresses .columns-container , #history .columns-container{
+    margin-top: 200px;
+  }

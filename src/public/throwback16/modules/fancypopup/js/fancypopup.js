@@ -17,7 +17,7 @@ $(document).ready(function () {
 	$('.fancypopup-btn-newsletter').on('click',function(){
 		$.ajax({
 			method: "POST",
-			url: "{$module_path}subscribe.php",
+			url: fancypopup_MODULE_PATH + "subscribe.php",
 			data: { action: 0, email: $('.fancypopup-email').val(), }
 		})
 		  .done(function( msg ) {		  	

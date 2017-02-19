@@ -33,16 +33,14 @@
                 </p>
             {else}
                 <p class="info-title">
-                    {l s='Please be sure to update your personal information if it has changed.'}
+                    {l s=''}
                 </p>
-                <p class="required">
-                    <sup>*</sup>{l s='Required field'}
-                </p>
+                
         </div>
 
         <!-- FORM -->
 
-        <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="form-horizontal std">
+        <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="form-horizontal std" id="form_data">
         
         <!-- <div class="container"> -->
         <div class="row vertical-center ">
@@ -50,40 +48,41 @@
                 <h4>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 ">               
-                    <div class="row required form-group">
-                            <label for="email" class="col-md-4 text-right required">
+                    <div class="row form-group">
+                            <label for="email" class="col-md-4 text-right control-label required">
                                 {l s='E-mail address'}
                             </label>
                             <div class="col-md-8">
-                            <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" />
+                                <input class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}"
+                                 type="email" name="email" id="email" value="{$smarty.post.email}" />  
                             </div>
                     </div>
-                <fieldset>
+               
                     <div class="row required form-group">
-                            <label for="old_passwd" class="col-md-4 text-right required">
+                            <label for="old_passwd" class="col-md-4 text-right">
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                            <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
                             </div>
-                        </div>
-                        <div class="row password form-group">
+                    </div>
+                    <div class="row required form-group">
                             <label for="passwd" class="col-md-4 text-right">
-                                &nbsp;&nbsp;{l s='New Password'}
+                                {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                            <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="passwd" id="passwd" />
+                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
                             </div>
-                        </div>
-                        <div class="row password form-group">
+                    </div>
+                    <div class="row required form-group">
                             <label for="confirmation" class="col-md-4 text-right">
-                                &nbsp;&nbsp;{l s='Confirmation'}
+                                {l s='Confirmation'}
                             </label>
                             <div class="col-md-8">
-                            <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="confirmation" id="confirmation" />
+                                <input class="col-md-8 is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" />
                             </div>
-                        </div>
-                </fieldset>
+                    </div>
+                
             </div>           
         </div>
         
@@ -99,31 +98,30 @@
                     <div class="row">
                         <label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Social title'}</label>
                         <div class="col-md-8">
-                        {foreach from=$genders key=k item=gender}
-                            <div class="radio-inline">
-                                <label for="id_gender{$gender->id}" class="top">
-                                <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-                                {$gender->name}</label>
-                            </div>
-                        {/foreach}
+                            <select id="id_gender" name="id_gender" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+                                            <option value="">{l s='Choisir la civilité'}</option>
+                            {foreach from=$genders key=k item=gender}
+                                <option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
+                            {/foreach}
+                            </select>
                         </div>
                     </div>
 
                     <div class="row required form-group">
-                        <label for="firstname" class="col-md-4 text-right required">
+                        <label for="firstname" class="col-md-4 text-right required control-label">
                             {l s='First name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
+                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
                         </div>
                     </div>
 
                     <div class="row required form-group">
-                        <label for="lastname" class="col-md-4 text-right required">
+                        <label for="lastname" class="col-md-4 text-right required control-label">
                             {l s='Last name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
                         </div>
                     </div>
 
@@ -268,13 +266,7 @@
                             </span>
                         </a>
                     </li>
-                    <li>
-                        <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
-                            <span>
-                                <i class="icon-chevron-left"></i>{l s='Home'}
-                            </span>
-                        </a>
-                    </li>
+                   
                 </ul>
             </div>
 
@@ -297,5 +289,11 @@
 
 
 
-
-
+<script>
+    $.validate({
+            lang : 'fr',
+            modules : 'file,html5,sanitize,toggleDisabled,security',
+            form : '#form_data'
+    });
+    
+</script>

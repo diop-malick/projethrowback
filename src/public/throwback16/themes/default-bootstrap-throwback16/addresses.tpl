@@ -2,13 +2,13 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span><span class="navigation_page">{l s='My addresses'}</span>{/capture}
 
 <div class="my-account-selfcare">
-
-    <h1 class="page-heading">{l s='My addresses'}</h1>
-    <p>{l s='Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.'}</p>
+    <h3 class="page-subheading">{l s='My addresses'}</h3>
+    <!--
+    <p>{l s='Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.'}</p> -->
     {if isset($multipleAddresses) && $multipleAddresses}
     <div class="addresses">
-    	<p><strong class="dark">{l s='Your addresses are listed below.'}</strong></p>
-    	<p class="p-indent">{l s='Be sure to update your personal information if it has changed.'}</p>
+    	<!--<p><strong class="dark">{l s='Your addresses are listed below.'}</strong></p>
+    	<p class="p-indent">{l s='Be sure to update your personal information if it has changed.'}</p>-->
     	{assign var="adrs_style" value=$addresses_style}
     	<div class="bloc_adresses row">
     	{foreach from=$multipleAddresses item=address name=myLoop}

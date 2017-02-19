@@ -28,17 +28,20 @@
                 <span>{l s='My personal information'}</span></a></li>
                 </div>
 
+                               
+                {if $has_customer_an_address}
+                    <div class="myacount-block-container">
+                    <li class="col-sm-6"><a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add my first address'}">
+                    <span><i class="icon-building"></i></span>
+                    <br >
+                    <span>{l s='Add my first address'}</span></a></li>
+                    </div>
+               
+                {else}
                 <div class="myacount-block-container">
                 <li class="col-sm-6"><a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" title="{l s='Addresses'}"><i class="icon-building"></i><span>{l s='My addresses'}</span></a></li>
-                </div>               
-                {if $has_customer_an_address}
-                <div class="myacount-block-container">
-                <li class="col-sm-6"><a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add my first address'}">
-                <span><i class="icon-building"></i></span>
-                <br >
-                <span>{l s='Add my first address'}</span></a></li>
                 </div>
-                {/if}
+                 {/if}
 
                 <li class="col-sm-6"><a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='Orders'}">
                 <span><i class="icon-list-ol"></i></span>

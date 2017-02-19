@@ -92,8 +92,9 @@ function showOrder(mode, var_content, file)
 				$('form#sendOrderMessage').submit(function(){
 					return sendOrderMessage();
 			});
+				$("#order-list").hide();
 			$(this).fadeIn('slow', function() {
-				$.scrollTo(this, 1200);
+				//$.scrollTo(this, 1200);
 			});
 		});
 	});
