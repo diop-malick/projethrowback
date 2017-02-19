@@ -1,5 +1,8 @@
 <?php
 
+// changes : 
+// date_add comparison format
+
 class Product extends ProductCore {
 
 

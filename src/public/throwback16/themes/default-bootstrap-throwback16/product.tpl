@@ -174,7 +174,15 @@
 											<span>{$feature.value|escape:'html':'UTF-8'}</span>
 									{/if}
 									</li>    
-								{/if}    
+								{/if}
+								<!-- {if $feature.id_feature eq "11"}      
+									<li>
+									{if isset($feature.value)}
+											<span>{$feature.name|escape:'html':'UTF-8'}</span>
+											<span>{$feature.value|escape:'html':'UTF-8'}</span>
+									{/if}
+									</li>    
+								{/if}  -->
 								{/foreach}
 								</ul>
 							</section>
