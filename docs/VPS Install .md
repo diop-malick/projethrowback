@@ -165,6 +165,8 @@ sudo apt-get purge php5-*
 sudo apt-get install php7.0 php7.0-fpm
 sudo apt-get install php7.0-gd php7.0-mysql php7.0-cli php7.0-common php7.0-curl php7.0-opcache php7.0-json php7.0-xdebug php7.0-mcrypt php7.0-mbstring php7.0-imagick php7.0-imap libpcre3
 
+
+
 * fichier init : /etc/php/7.0/fpm/php.ini
 
     activer directive :
@@ -189,6 +191,11 @@ service apache2 restart
 * Apache tourne désormais avec mod_fastcgi et PHP-FPM!
 
 
+
+
+# --------------------------------------- #
+#  PhP Zend OPache
+# --------------------------------------- #
 # configure apache
 
 * Enabling mod_rewrite for URL rewriting
@@ -197,6 +204,22 @@ sudo a2enmod rewrite
 
 sudo /etc/init.d/apache2 restart
 
+
+# --------------------------------------- #
+#  PhP Zend OPache
+# --------------------------------------- #
+http://php.net/manual/fr/opcache.installation.php
+https://www.grafikart.fr/tutoriels/php/opcache-633
+https://www.ekino.com/php-comment-configurer-utiliser-et-surveiller-opcache/
+
+php7.0-opcache
+
+
+# --------------------------------------- #
+#  PHP - install Composer
+# --------------------------------------- #
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
 # --------------------------------------- #
 #          SGBD : MySQL 5.5

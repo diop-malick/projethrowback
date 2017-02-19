@@ -66,9 +66,7 @@ https://www.percona.com/blog/2014/01/28/10-mysql-performance-tuning-settings-aft
 sudo rm -rf /usr/share/phpmyadmin/setup
 sudo service apache2 reload
 
-# PHP - install Composer
-curl -s https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+
 
 
 
@@ -113,7 +111,8 @@ configurer cron pour avoir le résultat tous les mati
 # =================================================== #
 APC ?
 varnish ?
-memcache ?
+memcache & memcached ?
+
 
 # =================================================== #
 # Serveur DNS
