@@ -1,64 +1,88 @@
-# track this file .gitignore (i.e. do NOT ignore it)
-!.gitignore
 
-# track readme.md in the root (i.e. do NOT ignore it)
+# https://gist.github.com/prestarocket/6190909883e084e77e32
+# http://build.prestashop.com/howtos/misc/prestashop-perfect-gitignore/
+
+########################### GENERAL ###########################
+
+*.sublime-project
+*.sublime-workspace
+.buildpath
+.project
+.settings
+
+!.gitignore
 !readme.md
 
-# ignore all files that start with ~
 ~*
 
-### Vagrant ###
-.vagrant/
-src/vm_build.log
-src/vm_build_clean.log
+/.htaccess
+robots.txt
+*sitemap.xml
 
-### BLOG ###
+########################### PRESTASHOP ###########################
 
-src/public/throwback16/blog/*
-src/public/throwback16/blog/wp-content/plugins/elementor/assets/*
+blog/*
+blog/wp-content/plugins/elementor/assets/*
 
-# Prestashop dowloaded zip & unzip file
-
-src/public/prestashop/
-src/public/prestashop_*.zip
-
-# Directories content
-
-#src/public/throwback16/cache/*
+#cache/*
 
 
-src/public/throwback16/cache/class_index.php
-src/public/throwback16/cache/smarty/cache/*
-!src/public/throwback16/cache/smarty/cache/index.php
-src/public/throwback16/cache/smarty/compile/*
-!src/public/throwback16/cache/smarty/compile/index.php
-src/public/throwback16/cache/tcpdf/*
-!src/public/throwback16/cache/tcpdf/index.php
-src/public/throwback16/cache/purifier/CSS/*
-
-#src/public/throwback16/config/xml/
-
-src/public/throwback16/config/xml/*.xml
-src/public/throwback16/config/settings.inc.php
-
-log/*.log
-
-src/public/throwback16/tools/smarty*/cache/*.php
-!src/public/throwback16/tools/smarty*/cache/index.php
-src/public/throwback16/tools/smarty*/compile/*.php
-!src/public/throwback16/tools/smarty*/compile/index.php
+cache/class_index.php
+cache/smarty/cache/*
+!cache/smarty/cache/index.php
+cache/smarty/compile/*
+!cache/smarty/compile/index.php
+cache/tcpdf/*
+!cache/tcpdf/index.php
+cache/purifier/CSS/*
 
 
-src/public/throwback16/themes/*/cache/*.js
-src/public/throwback16/themes/*/cache/*.css
+config/xml/*.xml
+config/settings.inc.php
+#config/xml/
 
 
-src/public/throwback16/modules/*/config*.xml
+themes/*/cache/*.js
+themes/*/cache/*.css
 
 
-# Ignore files on root directory
-src/public/throwback16/robots.txt
-src/public/throwback16/sitemap.xml
+modules/*/config*.xml
 
 
+# Site content
+# The following folders contain product images, virtual products, CSV's, etc.
 
+# admin16/backups/
+# admin16/export/
+# admin16/import/
+# download/
+# img/
+# upload/
+
+
+########################### WORDPRESS ###########################
+
+# https://github.com/github/gitignore/blob/master/WordPress.gitignore
+
+# blog/*.log
+
+# blog/wp-content/advanced-cache.php
+# blog/wp-content/backup-db/**
+# blog/wp-content/backups/**
+# blog/wp-content/blogs.dir/**
+# blog/wp-content/cache/**
+# blog/wp-content/upgrade/**
+
+# blog image
+# src/public/blog/wp-content/uploads/**
+
+# blog/wp-content/wp-cache-config.php
+# blog/wp-content/plugins/hello.php
+# blog/.htaccess
+# blog/license.txt
+# blog/readme.html
+# blog/sitemap.xml
+# blog/sitemap.xml.gz
+
+# ignore specific themes
+# wp-content/themes/twenty*/
