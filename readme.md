@@ -64,3 +64,18 @@ if You experience some error with the conf, let me known, make a coffee for me a
 chmod -R 777 throwback16
 
 
+
+Deploy on remote SNE server
+----------------
+
+* add multiple pushurl for sne given remote
+
+git remote add sneorigin ssh://dev@vps365425.ovh.net:29/home/dev/mygithub/throwback.git
+
+* show remotes config
+
+git remote -v
+
+* when you want to deploy on sne serveur , push to sneorigin :
+
+dev / snedev
