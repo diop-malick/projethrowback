@@ -4,7 +4,10 @@
 	max-width: 320px;
     max-height: 80px;
 }
-
+.custom-logo{
+	max-width:380px;
+	max-height: 95px;
+}
 <?php echo "#lpb_menu_widget-$j"; ?> ul{
 	list-style:none;
 	margin:0;
