@@ -1,0 +1,6 @@
+*ERROR* 	2017/02/20 - 18:39:23: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2017/02/20 - 18:39:30: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2017/02/20 - 18:39:34: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2017/02/20 - 19:20:43: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2017/02/20 - 19:20:50: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2017/02/20 - 19:21:02: Duplicate entry '0' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_page` (`id_page_type`, `id_object`) VALUES ('8', '0')</pre> at line 791 in file classes/db/Db.php

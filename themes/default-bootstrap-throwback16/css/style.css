@@ -284,10 +284,110 @@ font-size: 17px;
     margin-top: 160px;
   }
 
-  #addresses .columns-container , #history .columns-container{
+  #addresses .columns-container , #history .columns-container , #order .columns-container{
     margin-top: 200px;
   }
+
   /*    */
   #search .columns-container{
    margin-top: 160px;
  }
+
+
+  /******** Panier ********************/
+  .img-line {
+    background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    padding: 0;
+    position: relative;
+    /*z-index: 45;*/
+  }
+  .icone-active{
+    color: #000;
+  }
+  .row_line_product{
+    margin-bottom: 50px;
+  }
+  .row_line_product_commande{
+     margin-bottom: 30px;
+  }
+  .size_line{
+    border:1px solid #000;
+    padding: 5px 20px;
+  }
+  .commande_title{
+    background: #ececeb;
+    padding: 15px;
+  }
+
+  .commande_body .total{
+    font-size: 18px;
+  }
+
+  .commande_body{
+    background: #fafafa;
+    padding: 15px;
+  }
+  .commande_button{
+    background: #000;
+    padding: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 17px;
+  }
+  #quantity_wanted_p input {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(214, 157, 50);
+    background-color: rgb(255, 255, 255);
+    opacity: 0.502;
+    width: 44px;
+    height: 28px;
+    padding: 0 6px;
+    float: left;
+    line-height: 27px;
+    z-index: 82;
+}
+
+#quantity_wanted_p .btn.button-plus,#quantity_wanted_p .btn.button-minus {
+    /* font-size: 14px; */
+    line-height: 20px;
+    /* color: #c0c0c0; */
+    text-shadow: 1px -1px rgba(0, 0, 0, 0.05);
+    /* padding: 0; */
+    border: none;
+    /* border-color: #dedcdc #c1bfbf #b5b4b4 #dad8d8; */
+}
+
+#quantity_wanted_p .btn {
+    float: left;
+    margin-left: 3px;
+}
+
+#attributes .attribute_list ul li {
+    float: left;
+    clear: none;
+    /* margin-right: 10px; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(214, 157, 50);
+    color: rgb(53, 53, 53);
+    padding: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-weight: bold;
+    /* opacity: 0.6; */
+    width: 43px;
+    height: 28px;
+    z-index: 79;
+    }
+.buttons_modify{
+      background-color: #000;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
