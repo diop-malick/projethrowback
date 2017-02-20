@@ -28,23 +28,29 @@
 <h1
 {if isset($instant_search) && $instant_search}id="instant_search_results"{/if}
 class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$instant_search)} product-listing{/if}">
-    {l s='Search'}&nbsp;
-    {if $nbProducts > 0}
-        <span class="lighter">
-            "{if isset($search_query) && $search_query}{$search_query|escape:'html':'UTF-8'}{elseif $search_tag}{$search_tag|escape:'html':'UTF-8'}{elseif $ref}{$ref|escape:'html':'UTF-8'}{/if}"
-        </span>
+
+  {if $nbProducts > 1}
+      {if isset($search_query) && $search_query }
+        {if isset($alias) && $alias != $search_query }
+          Aucun article ne correspond à la recherche : {$search_query|escape:'html':'UTF-8'}<br/>
+          <span class="lighter">Nous vous proposons cependant une recherche avec le terme : {$alias|escape:'html':'UTF-8'}.</span>
+         {elseif $alias == $search_query}
+              {l s='Search'}&nbsp;
+              {$search_query|escape:'html':'UTF-8'}({l s='%d results have been found.' sprintf=$nbProducts|intval})
+          {/if}
+        {elseif $search_tag}{l s='Search'}&nbsp;{$search_tag|escape:'html':'UTF-8'}
+        {elseif $ref}{l s='Search'}&nbsp;{$ref|escape:'html':'UTF-8'}
+        {/if}
+
     {/if}
     {if isset($instant_search) && $instant_search}
         <a href="#" class="close">
             {l s='Return to the previous page'}
         </a>
-    {else}
-        <span class="heading-counter">
-            {if $nbProducts == 1}{l s='%d result has been found.' sprintf=$nbProducts|intval}{else}{l s='%d results have been found.' sprintf=$nbProducts|intval}{/if}
-        </span>
+
     {/if}
 </h1>
-
+ {hook h="categoryTop"}
 {include file="$tpl_dir./errors.tpl"}
 {if !$nbProducts}
 	<p class="alert alert-warning">

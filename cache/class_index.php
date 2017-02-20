@@ -3529,7 +3529,7 @@
   ),
   'SearchController' => 
   array (
-    'path' => '',
+    'path' => 'override/controllers/front/SearchController.php',
     'type' => 'class',
     'override' => false,
   ),

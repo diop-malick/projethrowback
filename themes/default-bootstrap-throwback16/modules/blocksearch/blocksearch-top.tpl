@@ -1,8 +1,8 @@
 
 <div class="row header-top-row"> <!-- Row HEADER -->
-	<div class="container"> 
+	<div class="container">
 
-		<div class="col-md-4"> 		
+		<div class="col-md-4">
 			<div class="row">
 				<!-- menu verticale -->
 				<div class="col-md-4 clearfix menu_vertical hidden">
@@ -13,7 +13,7 @@
 				<!-- /menu verticale -->
 
 				<!-- MODULE Block search TOP -->
-				<div id="search_block_top" class="col-md-8"> 	
+				<div id="search_block_top" class="col-md-8">
 					<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 						<input type="hidden" name="controller" value="search" />
 						<input type="hidden" name="orderby" value="position" />
@@ -22,7 +22,7 @@
 						<button type="submit" name="submit_search" class="btn btn-default button-search">
 							<span>{l s='Search' mod='blocksearch'}</span>
 						</button>
-					</form>	
+					</form>
 				</div>
 			</div>
 			<!-- /MODULE Block search TOP -->
