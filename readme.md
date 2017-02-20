@@ -72,7 +72,7 @@ Deploy on remote SNE server
 
 git remote add sneorigin ssh://dev@vps365425.ovh.net:29/home/dev/mygithub/throwback.git
 
-* show remotes config
+* verify remotes config
 
 git remote -v
 
