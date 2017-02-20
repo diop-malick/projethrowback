@@ -36,7 +36,7 @@ cache/tcpdf/*
 !cache/tcpdf/index.php
 cache/purifier/CSS/*
 
-# config/settings.inc.php
+config/settings.inc.php
 
 config/xml/*.xml
 config/settings.inc.php
@@ -65,7 +65,9 @@ modules/*/config*.xml
 
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
-# blog/*.log
+blog/*.log
+
+blog/wp-content/plugins/*
 
 # blog/wp-content/advanced-cache.php
 # blog/wp-content/backup-db/**
