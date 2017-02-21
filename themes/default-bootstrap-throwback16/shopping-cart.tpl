@@ -38,9 +38,10 @@
 		{l s='Your account has been created.'}
 	</p>
 {/if}
-
+{*
 {assign var='current_step' value='summary'}
 {include file="$tpl_dir./order-steps.tpl"}
+*}
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($empty)}
@@ -84,7 +85,8 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-					
+						
+						
 						<div class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
@@ -110,7 +112,7 @@
 										</p>
 										<p class="attributes_line_{$product.id_product}">
 											<label>{l s='Quantity'}</label>
-											<span class="size_line">1</span>
+											<span class="size_line">{$product.cart_quantity}</span>
 										</p>
 									</div>
 
@@ -233,7 +235,7 @@
 						<div class="col-md-12">	
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
-									<span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span>
+									<span class="text_valid_commande">{l s='Valider mon panier'}<i class="icon-chevron-right right"></i></span>
 								</a>
 							{/if}
 						</div>
@@ -242,8 +244,8 @@
 					<div class="row text-center">
 						<div class="col-md-12">	
 						<p class="cart_navigation clearfix">
-							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default" title="{l s='Continue shopping'}">
-							<i class="icon-chevron-left"></i>{l s='Continue shopping'}
+							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+							<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 						</a>
 						</p>
 						</div>
