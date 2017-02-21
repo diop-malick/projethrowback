@@ -178,26 +178,28 @@
 </tab>
 <tab class_name="AdminCustomerThreads" display_type="slider_list">
 <module name="sendinblue" position="1"/>
-<module name="skebby" position="2"/>
-<module name="expressmailing" position="3"/>
-<module name="salesmanago" position="4"/>
-<module name="fianetsceau" position="5"/>
-<module name="veplatform" position="6"/>
-<module name="smartsupp" position="7"/>
-<module name="onehopsmsservice" position="8"/>
-<module name="zendesk" position="9"/>
+<module name="digitaleo" position="2"/>
+<module name="skebby" position="3"/>
+<module name="expressmailing" position="4"/>
+<module name="salesmanago" position="5"/>
+<module name="fianetsceau" position="6"/>
+<module name="veplatform" position="7"/>
+<module name="smartsupp" position="8"/>
+<module name="onehopsmsservice" position="9"/>
+<module name="zendesk" position="10"/>
 </tab>
 <tab class_name="AdminContacts" display_type="slider_list">
 <module name="sendinblue" position="1"/>
-<module name="skebby" position="2"/>
-<module name="expressmailing" position="3"/>
-<module name="salesmanago" position="4"/>
-<module name="iadvize" position="5"/>
-<module name="webcallback" position="6"/>
-<module name="smartsupp" position="7"/>
-<module name="veplatform" position="8"/>
-<module name="onehopsmsservice" position="9"/>
-<module name="zendesk" position="10"/>
+<module name="digitaleo" position="2"/>
+<module name="skebby" position="3"/>
+<module name="expressmailing" position="4"/>
+<module name="salesmanago" position="5"/>
+<module name="iadvize" position="6"/>
+<module name="webcallback" position="7"/>
+<module name="smartsupp" position="8"/>
+<module name="veplatform" position="9"/>
+<module name="onehopsmsservice" position="10"/>
+<module name="zendesk" position="11"/>
 </tab>
 <tab class_name="AdminCartRules" display_type="slider_list">
 <module name="nostotagging" position="1"/>
@@ -444,16 +446,17 @@
 </tab>
 <tab class_name="AdminEmails" display_type="slider_list">
 <module name="sendinblue" position="1"/>
-<module name="expressmailing" position="2"/>
-<module name="newsletter" position="3"/>
-<module name="mynewsletter" position="4"/>
-<module name="mailchimp" position="5"/>
-<module name="salesmanago" position="6"/>
-<module name="etranslation" position="7"/>
-<module name="bablic" position="8"/>
-<module name="smartsupp" position="9"/>
-<module name="onehopsmsservice" position="10"/>
-<module name="ps_emailalerts" position="11"/>
+<module name="digitaleo" position="2"/>
+<module name="expressmailing" position="3"/>
+<module name="newsletter" position="4"/>
+<module name="mynewsletter" position="5"/>
+<module name="mailchimp" position="6"/>
+<module name="salesmanago" position="7"/>
+<module name="etranslation" position="8"/>
+<module name="bablic" position="9"/>
+<module name="smartsupp" position="10"/>
+<module name="onehopsmsservice" position="11"/>
+<module name="ps_emailalerts" position="12"/>
 </tab>
 <tab class_name="AdminImport" display_type="slider_list">
 </tab>
