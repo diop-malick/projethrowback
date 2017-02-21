@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="passwd" class="control-label">{l s='Password'}</label>
-						<input class="is_required validate account_input form-control" type="password" data-validation="strength" data-validation-strength="1" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
+						<input class="is_required validate account_input form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
 					</div>
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
@@ -442,7 +442,7 @@
 				<div class="row required password form-group">
 					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="password" class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" />
+						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" />
 					</div>
 				</div>
 
@@ -477,14 +477,14 @@
 				<div class="row required form-group">
 					<label for="customer_firstname" class="col-md-4 text-right control-label">{l s='First name'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
+						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
 					<label for="customer_lastname" class="col-md-4 text-right control-label">{l s='Last name'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
+						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
 					</div>
 				</div>
 
@@ -556,15 +556,19 @@
 									{/if}
 								</div>
 							{/if}
+							<!--
 							{if isset($optin) && $optin}
 								<div class="checkbox">
 									<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
+									
 									<label for="optin">{l s='Receive special offers from our partners!'}</label>
 									{if array_key_exists('optin', $field_required)}
 										<sup> *</sup>
 									{/if}
+									
 								</div>
 							{/if}
+							-->
 					</div>
 				</div>
             </div>
@@ -762,6 +766,19 @@
 {/strip}
 
 <script>
+	$.formUtils.addValidator({
+      name : 'check_password',
+      validatorFunction : function(value) {
+        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_name',
+      validatorFunction : function(value) {
+        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
+      }
+    });
 	$.validate({
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',

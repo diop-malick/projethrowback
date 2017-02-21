@@ -30,8 +30,9 @@
 	<span class="navigation_page">{l s='Order history'}</span>
 {/capture}
 {include file="$tpl_dir./errors.tpl"}
-<h1 class="page-heading bottom-indent">{l s='Order history'}</h1>
+<!--<h1 class="page-heading bottom-indent">{l s='Order history'}</h1>-->
 <!--<p class="info-title">{l s='Here are the orders you\'ve placed since your account was created.'}</p>-->
+<button id="show_tab_history" style="display: none" class="button btn btn-default button-medium"><span>{l s='Voir la liste des commandes'}</span></button>
 {if $slowValidation}
 	<p class="alert alert-warning">{l s='If you have just placed an order, it may take a few minutes for it to be validated. Please refresh this page if your order is missing.'}</p>
 {/if}

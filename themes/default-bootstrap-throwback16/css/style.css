@@ -2,6 +2,31 @@
 				styles intégrés
 ************************************************************/
 
+/*margin top colum center and hesder*/
+#category .columns-container{
+    margin-top: 120px;
+  }
+
+#my-account .columns-container{
+    margin-top: 160px;
+  }
+#address .columns-container{
+    margin-top: 200px;
+  }
+
+  #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal {
+    margin-top: 200px;
+  }
+
+  /*    */
+  #search .columns-container{
+   margin-top: 160px;
+ }
+
+#identity , #authentication{
+  color:#000 !important;
+}
+
 #layered_block_left div.selector {
     width: auto !important;
 }
@@ -166,15 +191,24 @@ header .row #header_logo {
   /*margin-top: 100px;*/
   overflow: hidden;
 }
-#account-creation_form .form-error {
-/*float: left !important;*/
-}
 
 /* throwback > customize > Inscription  */
 .select_title{
+  max-width: 100%;
   width : 270px;
   padding: 5px;
   float: left;
+  margin-bottom: 5px;
+}
+
+/* throwback > customize > Infos perso  */
+#identity .form-error , #account-creation_form .form-error {
+    float: left !important;
+    width: 100%;
+}
+
+ #add_address .form-error {
+    float: left !important;
 }
 
 /* Quick view
@@ -271,27 +305,6 @@ font-size: 17px;
 
   z-index: 73;
 }
-
-/*margin top colum center and hesder*/
-#category .columns-container{
-    margin-top: 120px;
-  }
-
-#my-account .columns-container{
-    margin-top: 160px;
-  }
-#address .columns-container{
-    margin-top: 160px;
-  }
-
-  #addresses .columns-container , #history .columns-container , #order .columns-container{
-    margin-top: 200px;
-  }
-
-  /*    */
-  #search .columns-container{
-   margin-top: 160px;
- }
 
 
   /******** Panier ********************/

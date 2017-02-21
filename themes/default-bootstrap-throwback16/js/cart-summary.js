@@ -35,7 +35,24 @@ $(document).ready(function(){
 	});
 	$('.cart_quantity_delete' ).off('click').on('click', function(e){
 		e.preventDefault();
-		deleteProductFromSummary($(this).attr('id'));
+		var ids = $(this).attr('id');
+		bootbox.confirm({
+		    message: "This is a confirm with custom button text and color! Do you like it?",
+		    buttons: {
+		        confirm: {
+		            label: 'Valider',
+		            className: 'btn-success'
+		        },
+		        cancel: {
+		            label: 'Annuler',
+		            className: 'btn-danger'
+		        }
+		    },
+		    callback: function (result) {
+		        if(result)
+			    deleteProductFromSummary(ids);
+		    }
+		});
 	});
 	$('.cart_address_delivery').on('change', function(e){
 		changeAddressDelivery($(this));
@@ -487,6 +504,9 @@ function deleteProductFromSummary(id)
 						cleanSelectAddressDelivery();
 						if (!customizationId)
 							refreshOddRow();
+					});
+					$('#facturette_' + id).fadeOut('slow', function() {
+						$(this).remove();
 					});
 					var exist = false;
 					for (i=0;i<jsonData.summary.products.length;i++)

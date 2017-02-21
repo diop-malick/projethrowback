@@ -33,7 +33,7 @@ $(document).ready(function()
 	var $input = $("#search_query_" + blocksearch_type);
 		$input.keyup(function () {
 	    if ($(this).val() == '') {
-	        $(":submit").prop('disabled', true);
+	       // $(":submit").prop('disabled', true);
 	    } else {
 	        $(":submit").prop('disabled', false);
 	    }

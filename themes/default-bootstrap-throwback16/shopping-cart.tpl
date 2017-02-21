@@ -87,7 +87,7 @@
 					{foreach $products as $product}
 						
 						
-						<div class="row row_line_product line_product_{$product.id_product}">
+						<div id="product_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
 							</div>
@@ -116,10 +116,9 @@
 										</p>
 									</div>
 
-									<div class="col-md-9">
+									<div class="col-md-5">
 											<div class="attributes_to_modify_{$product.id_product}" style="display: none">
 												<div class="row">
-													<div class="col-md-8">
 														<div id="attributes">
 															<div class="attribute_list">
 																<label class="attribute_label" >{l s='Taille'}</label>
@@ -141,34 +140,49 @@
 																</ul>
 															</div>
 														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="row">
-															<div class="col-md-6">
-																
-																	<button class="buttons_modify buttons_modify_line_{$product.id_product}" type="submit">
-																		<span>{l s='VALIDER'}</span>
-																	</button>
-																
-															</div>
-
-															<div class="col-md-6">
-																
-																	<button class="buttons_modify buttons_cancel_line_{$product.id_product}" type="submit">
-																		<span>{l s='ANNULER'}</span>
-																	</button>
-																
-															</div>
-														</div>
-													</div>
 												</div>
 											</div>
 
 											<p class="attributes_line_{$product.id_product}">
-											<label>{l s='Taille'}</label>
-											<span class="size_line">S</span>
-										</p>
+												<label>{l s='Taille'}</label>
+												<span class="size_line">S</span>
+											</p>
+									</div>
 
+									<div class="col-md-4">
+										{if !$priceDisplay}
+											<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
+										{else}
+						               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price}</span>
+										{/if}
+										{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
+										<span class="price-percent-reduction small">
+											{if !$priceDisplay}
+					            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+					                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
+					                    			{assign var='symbol' value=$currency->sign}
+					                    		{else}
+					                    			{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price_wt)/$product.price_without_specific_price) * 100 * -1}
+					                    			{assign var='symbol' value='%'}
+					                    		{/if}
+											{else}
+												{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+													{assign var='priceReduction' value=($product.price - $product.price_without_specific_price)}
+													{assign var='symbol' value=$currency->sign}
+												{else}
+													{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price)/$product.price_without_specific_price) * -100}
+													{assign var='symbol' value='%'}
+												{/if}
+											{/if}
+											{if $symbol == '%'}
+												&nbsp;{$priceReduction|string_format:"%.2f"|regex_replace:"/[^\d]0+$/":""}{$symbol}&nbsp;
+											{else}
+												&nbsp;{convertPrice price=$priceReduction}&nbsp;
+											{/if}
+										</span>
+										<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
+										
+										{/if}
 									</div>
 
 								</div>
@@ -176,15 +190,16 @@
 
 							<div class="col-md-1">
 								<div class="row">
+									<!--
 									<div class="col-md-6 edit">
 										<a href="{$product.id_product}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o fa-2x icone-active" aria-hidden="true"></i></a>
 									</div>
-
-									<div class="col-md-6">
+									-->
+									<div class="col-md-12">
 										<a
-											id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
+											id="{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"
-											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
+											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization=0&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
 											title="{l s='Delete'}">
 											<i class="fa fa-trash-o fa-2x icone-active"></i>
@@ -206,7 +221,7 @@
 					</div>
 					<div class="row commande_body">
 						{foreach $products as $product}
-						<div class="row row_line_product_commande">
+						<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
 								<div class="col-md-8">
 									<p class="command-product-name">{$product.name|escape:'html':'UTF-8'}</p>
 								</div>
@@ -363,9 +378,10 @@
 {/strip}
 {/if}
 
+<script src="http://bootboxjs.com/bootbox.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />
 <script>
 		    $( document ).ready(function() {
-
 			   $( ".edit a" ).on( "click", function(e) {
 			   		e.preventDefault();
 			   		var line = $(this).attr('href');
