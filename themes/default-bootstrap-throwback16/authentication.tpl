@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="passwd" class="control-label">{l s='Password'}</label>
-						<input class="is_required validate account_input form-control" type="password" data-validation="strength" data-validation-strength="1" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
+						<input class="is_required validate account_input form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
 					</div>
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
@@ -68,7 +68,7 @@
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium exclusive btn-disable" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<button class="btn btn-default button button-medium disabled" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
 								{l s='Create an account'}
@@ -435,14 +435,14 @@
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
                             <div class="col-md-8">
-                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" />
+                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" />
                             </div>     
                 </div>
 
 				<div class="row required password form-group">
 					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="password" class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" />
+						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" />
 					</div>
 				</div>
 
@@ -451,7 +451,7 @@
                                 &nbsp;&nbsp;{l s='Confirmation Pass'}
                             </label>
                             <div class="col-md-8">
-                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" />     
+                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" />     
                             </div>
                 </div>
             </div>
@@ -477,23 +477,23 @@
 				<div class="row required form-group">
 					<label for="customer_firstname" class="col-md-4 text-right control-label">{l s='First name'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
+						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. Légrandè" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
 					<label for="customer_lastname" class="col-md-4 text-right control-label">{l s='Last name'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" />
+						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Jean – François" />
 					</div>
 				</div>
 
 				<div class="row form-group">
 					<label class="col-md-4 text-right">{l s='Date of Birth'}</label>
 					<div class="col-md-8">
-						<div class="row">
+						<div class="row select-date">
 							<div class="col-md-4">
-								<select id="days" name="days" class="form-control">
+								<select id="days" name="days" class="select_title">
 									<option value="">-</option>
 									{foreach from=$days item=day}
 										<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
@@ -515,7 +515,7 @@
 								*}
 							</div>
 							<div class="col-md-4">
-								<select id="months" name="months" class="form-control">
+								<select id="months" name="months" class="select_title">
 									<option value="">-</option>
 									{foreach from=$months key=k item=month}
 										<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
@@ -523,7 +523,7 @@
 								</select>
 							</div>
 							<div class="col-md-4">
-								<select id="years" name="years" class="form-control">
+								<select id="years" name="years" class="select_title">
 									<option value="">-</option>
 									{foreach from=$years item=year}
 										<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
@@ -556,15 +556,19 @@
 									{/if}
 								</div>
 							{/if}
+							<!--
 							{if isset($optin) && $optin}
 								<div class="checkbox">
 									<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
+									
 									<label for="optin">{l s='Receive special offers from our partners!'}</label>
 									{if array_key_exists('optin', $field_required)}
 										<sup> *</sup>
 									{/if}
+									
 								</div>
 							{/if}
+							-->
 					</div>
 				</div>
             </div>
@@ -762,6 +766,19 @@
 {/strip}
 
 <script>
+	$.formUtils.addValidator({
+      name : 'check_password',
+      validatorFunction : function(value) {
+        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_name',
+      validatorFunction : function(value) {
+        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
+      }
+    });
 	$.validate({
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
@@ -782,9 +799,9 @@
 
 	$('input[name=email_create]').on('input blur', function() { 
 		if($(".be-customer .has-success").length == 1)
-			$('.be-customer .button').removeClass('btn-disable').addClass('btn-enable');
+			$('.be-customer .button').removeClass('disabled');
 		else
-			$('.be-customer .button').removeClass('btn-enable').addClass('btn-disable');
+			$('.be-customer .button').addClass('disabled');
 	});
 	
 </script>

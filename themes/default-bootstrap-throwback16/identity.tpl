@@ -11,14 +11,22 @@
     </span>
 {/capture}
 
+{if isset($confirmation) && $confirmation}
+        <script>window.location="{$link->getPageLink('my-account', true)}";</script>
+    {else}
 {include file="$tpl_dir./header-simple.tpl"}
 
+
+<!--{$smarty.get.action}-->
 <div class="row my-account-selfcare">
     <div class="box">
+    <!--
         <h1 class="row text-center page-heading ">
             {l s='Your personal information'}
         </h1>
+    -->
 
+    <h3 class="page-subheading">{l s='Your personal information'}</h3>
         <!-- INFO text -->
 
         <div class="text-center">
@@ -26,12 +34,13 @@
             {include file="$tpl_dir./errors.tpl"}
 
             <!-- FIELD SUCESS -->
-            {if isset($confirmation) && $confirmation}
+            
+                <!--
                 <p class="alert alert-success">
                     {l s='Your personal information has been successfully updated.'}
                     {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
                 </p>
-            {else}
+                -->
                 <p class="info-title">
                     {l s=''}
                 </p>
@@ -63,7 +72,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="old_passwd" id="old_passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -71,7 +80,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
+                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -112,7 +121,7 @@
                             {l s='First name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
+                        <input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
                         </div>
                     </div>
 
@@ -121,7 +130,7 @@
                             {l s='Last name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+                        <input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
                         </div>
                     </div>
 
@@ -130,9 +139,9 @@
                             &nbsp;&nbsp;{l s='Date of Birth'}
                         </label>
                         <div class="col-md-8">
-                        <div class="row">
+                        <div class="row select-date">
                             <div class="col-xs-4">
-                                <select name="days" id="days" class="form-control">
+                                <select name="days" id="days" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$days item=v}
                                         <option value="{$v}" {if ($sl_day == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -154,7 +163,7 @@
                                     {l s='November'}
                                     {l s='December'}
                                 *}
-                                <select id="months" name="months" class="form-control">
+                                <select id="months" name="months" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$months key=k item=v}
                                         <option value="{$k}" {if ($sl_month == $k)}selected="selected"{/if}>{l s=$v}&nbsp;</option>
@@ -162,7 +171,7 @@
                                 </select>
                             </div>
                             <div class="col-xs-4">
-                                <select id="years" name="years" class="form-control">
+                                <select id="years" name="years" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$years item=v}
                                         <option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -260,9 +269,9 @@
             <div class="col-md-6 pull-left">
                 <ul class="footer_links clearfix">
                     <li>
-                        <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)}">
+                        <a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)}">
                             <span>
-                                <i class="icon-chevron-left"></i>{l s='Back to your account'}
+                                <i class="icon-chevron-left"></i> {l s='Retour'}
                             </span>
                         </a>
                     </li>
@@ -290,6 +299,19 @@
 
 
 <script>
+    $.formUtils.addValidator({
+      name : 'check_password',
+      validatorFunction : function(value) {
+        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_name',
+      validatorFunction : function(value) {
+        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
+      }
+    });
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',

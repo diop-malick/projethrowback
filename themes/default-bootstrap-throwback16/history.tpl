@@ -30,8 +30,9 @@
 	<span class="navigation_page">{l s='Order history'}</span>
 {/capture}
 {include file="$tpl_dir./errors.tpl"}
-<h1 class="page-heading bottom-indent">{l s='Order history'}</h1>
+<!--<h1 class="page-heading bottom-indent">{l s='Order history'}</h1>-->
 <!--<p class="info-title">{l s='Here are the orders you\'ve placed since your account was created.'}</p>-->
+ <h3 class="page-subheading">{l s='Mes commandes'}</h3>
 {if $slowValidation}
 	<p class="alert alert-warning">{l s='If you have just placed an order, it may take a few minutes for it to be validated. Please refresh this page if your order is missing.'}</p>
 {/if}
@@ -45,7 +46,7 @@
 					<th data-hide="phone" class="item">{l s='Total price'}</th>
 					<th data-sort-ignore="true" data-hide="phone,tablet" class="item">{l s='Payment'}</th>
 					<th class="item">{l s='Status'}</th>
-					<th data-sort-ignore="true" data-hide="phone,tablet" class="item">{l s='Invoice'}</th>
+					<!--<th data-sort-ignore="true" data-hide="phone,tablet" class="item">{l s='Invoice'}</th>-->
 					<th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">&nbsp;</th>
 				</tr>
 			</thead>
@@ -76,6 +77,7 @@
 								</span>
 							{/if}
 						</td>
+						<!--
 						<td class="history_invoice">
 							{if (isset($order.invoice) && $order.invoice && isset($order.invoice_number) && $order.invoice_number) && isset($invoiceAllowed) && $invoiceAllowed == true}
 								<a class="link-button" href="{$link->getPageLink('pdf-invoice', true, NULL, "id_order={$order.id_order}")|escape:'html':'UTF-8'}" title="{l s='Invoice'}" target="_blank">
@@ -85,12 +87,14 @@
 								-
 							{/if}
 						</td>
+						-->
 						<td class="history_detail">
 							<a class="btn btn-default button button-small" href="javascript:showOrder(1, {$order.id_order|intval}, '{$link->getPageLink('order-detail', true, NULL, "id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}');">
 								<span>
 									{l s='Details'}<i class="icon-chevron-right right"></i>
 								</span>
 							</a>
+							<!--
 							{if isset($opc) && $opc}
 								<a class="link-button" href="{$link->getPageLink('order-opc', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
 							{else}
@@ -100,6 +104,7 @@
 									<i class="icon-refresh"></i>{l s='Reorder'}
 								{/if}
 							</a>
+							-->
 						</td>
 					</tr>
 				{/foreach}
@@ -112,15 +117,10 @@
 </div>
 <ul class="footer_links clearfix">
 	<li>
-		<a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+		<a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
 			<span>
-				<i class="icon-chevron-left"></i> {l s='Back to Your Account'}
+				<i class="icon-chevron-left"></i> {l s='Retour'}
 			</span>
-		</a>
-	</li>
-	<li>
-		<a class="btn btn-default button button-small" href="{$base_dir}">
-			<span><i class="icon-chevron-left"></i> {l s='Home'}</span>
 		</a>
 	</li>
 </ul>

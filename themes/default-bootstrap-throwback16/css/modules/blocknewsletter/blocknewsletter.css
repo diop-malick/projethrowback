@@ -111,16 +111,17 @@
     display: inline-block;
     text-align: center;
 }
+/* CUSTOM THROWBACK */
 #footer #newsletter_block_left .block_content {
-    overflow: hidden;
-    margin: 5px 0;
+    /*overflow: hidden;*/
+    /*margin: 5px 0;*/
     display: inline-block;
 }
 
 #footer .block .block_content {
-    border: none;
-    padding: 0;
-    background: none;
+    /*border: none;*/
+    /*padding: 0;*/
+    /*background: none;*/
 }
 
 .news-footer {

@@ -82,11 +82,12 @@
 										{/if}
 									{/foreach}
 									{else}
+										
 										<select class="select form-control" {if $filter.filter_show_limit > 1}multiple="multiple" size="{$filter.filter_show_limit}"{/if}>
-											<option value="">{l s='No filters' mod='blocklayered'}</option>
+											<option value="">{l s=$filter.name mod='blocklayered'}</option>
 											{foreach from=$filter.values key=id_value item=value}
 											{if $value.nbr || !$hide_0_values}
-												<option style="color: {if isset($value.color)}{$value.color}{/if}" id="layered_{$filter.type_lite}{if $id_value || $filter.type == 'quantity'}_{$id_value}{/if}" value="{$id_value}_{$filter.id_key}" {if isset($value.checked) && $value.checked}selected="selected"{/if} {if !$value.nbr}disabled="disabled"{/if}>
+												<option id="layered_{$filter.type_lite}{if $id_value || $filter.type == 'quantity'}_{$id_value}{/if}" value="{$id_value}_{$filter.id_key}" {if isset($value.checked) && $value.checked}selected="selected"{/if} {if !$value.nbr}disabled="disabled"{/if}>
 													{$value.name|escape:'html':'UTF-8'}{if $layered_show_qties}<span> ({$value.nbr})</span>{/if}
 												</option>
 											{/if}

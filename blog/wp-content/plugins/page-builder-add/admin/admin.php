@@ -26,6 +26,12 @@ class ULPB_AdminClass {
 		add_action( 'wp_ajax_nopriv_ulpb_admin_data', array( $this,'ulpb_admin_ajax')  );
 		add_action( 'wp_ajax_ulpb_admin_data', array( $this,'ulpb_admin_ajax') );
 
+		//add_action( 'wp_ajax_nopriv_ulpb_subscribeForm_data', array( $this,'ulpb_subscribeForm_ajax')  );
+		//add_action( 'wp_ajax_ulpb_subscribeForm_data', array( $this,'ulpb_subscribeForm_ajax') );
+
+		add_action( 'wp_ajax_nopriv_ulpb_activate_pb_request', array( $this,'ulpb_update_pagebuilder_active_option')  );
+		add_action( 'wp_ajax_ulpb_activate_pb_request', array( $this,'ulpb_update_pagebuilder_active_option') );
+
 		add_action( 'pre_get_posts', array($this,'pbp_custom_parse_request_tricksy') );
 		
 		add_filter( 'single_template', array( $this,'ulpb_main_front_html') );
@@ -40,10 +46,14 @@ class ULPB_AdminClass {
 
 		add_action('manage_ulpb_post_posts_custom_column',array($this,'ulpb_column_visitors_data'),10, 2);
 		add_action('manage_ulpb_post_posts_custom_column',array($this,'ulpb_front_page_column'),10, 2);
+		add_action('admin_menu',array($this,'ulpb_menupages_add') );
+
+
+
 	}
 
 	function _filters(){
-
+		add_filter('the_content',array($this,'ulpb_pagebuilder_content_filter') );
 	}
 
 
@@ -52,8 +62,9 @@ class ULPB_AdminClass {
 function ulpb_register_feed_post_type() {
 
 	$labels = array(
-		'name'                => __( 'Page Builder', 'pbp-ps-cpt' ),
+		'name'                => __( 'Pages by Page Builder', 'pbp-ps-cpt' ),
 		'singular_name'       => __( 'Page Builder', 'pbp-ps-cpt' ),
+		'all_items'       	  => __( 'Pages', 'pbp-ps-cpt' ),
 		'add_new'             => _x( 'Add New Page', 'pbp-ps-cpt', 'pbp-ps-cpt' ),
 		'add_new_item'        => __( 'Add New Page', 'pbp-ps-cpt' ),
 		'edit_item'           => __( 'Edit Page', 'pbp-ps-cpt' ),
@@ -67,7 +78,7 @@ function ulpb_register_feed_post_type() {
 	);
 
 	$args = array(
-		'labels'                   => $labels,
+		'labels'              => $labels,
 		'hierarchical'        => false,
 		'description'         => 'Add Pages',
 		'taxonomies'          => array(),
@@ -123,7 +134,7 @@ function wssf_admin_scripts( ) {
 
 	$screen_id = get_current_screen();
 	
-	if ($screen_id->post_type !== 'ulpb_post'){} else{ ;
+	if ($screen_id->post_type === 'ulpb_post'){
 	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'media-upload' );
 	wp_enqueue_script( 'underscore');
@@ -133,7 +144,16 @@ function wssf_admin_scripts( ) {
 	wp_enqueue_script( 'wssf-backbone-builder-collectionView', ULPB_PLUGIN_URL.'/js/Backbone-resources/backbone.collectionView.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'wssf-backbone-builder-pbb-model-1', ULPB_PLUGIN_URL.'/admin/scripts/pbb-model-1.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'wssf-backbone-builder-pbb-model-2', ULPB_PLUGIN_URL.'/admin/scripts/pbb-model-2.js', array( 'jquery' ), false, true );
+	
 	wp_enqueue_script( 'wssf-backbone-builder-script-bb3', ULPB_PLUGIN_URL.'/admin/scripts/bb3.js', array( 'jquery' ), false, true );
+
+	wp_enqueue_script( 'wssf-backbone-builder-script-row-view', ULPB_PLUGIN_URL.'/admin/scripts/row-view.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-widget-view', ULPB_PLUGIN_URL.'/admin/scripts/widget-view.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-save-page', ULPB_PLUGIN_URL.'/admin/scripts/save-page.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-new-row', ULPB_PLUGIN_URL.'/admin/scripts/new-row.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-side-panel', ULPB_PLUGIN_URL.'/admin/scripts/side-panel.js', array( 'jquery' ), false, true );
+
+
 	wp_enqueue_script( 'wssf-backbone-builder-script_collectionView', ULPB_PLUGIN_URL.'/admin/scripts/pbb-CollectionView.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'wssf-backbone-builder-script-pbb-drag-n-drop', ULPB_PLUGIN_URL.'/admin/scripts/pbb-drag-n-drop.js', array( 'jquery' ), false, true );
 
@@ -145,6 +165,7 @@ function wssf_admin_scripts( ) {
     wp_enqueue_script( 'wssf-color-picker-script', ULPB_PLUGIN_URL.'/js/alpha-picker.js', array( 'wp-color-picker' ), false, true );
     wp_enqueue_script( 'wssf-imgUpload-script', ULPB_PLUGIN_URL.'/js/image-upload.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'wssf-fontPicker-script', ULPB_PLUGIN_URL.'/js/g-font-family.js', array( 'jquery' ), false, true );
+
 	}
 
 }
@@ -154,14 +175,66 @@ function wssf_custom_UI_without_metabox($post){
 
 	$screen_id = get_current_screen();
 	
-	if ($screen_id->post_type === 'ulpb_post') {
-		include(ULPB_PLUGIN_PATH.'/admin/admin-ui.php');
-		//include(ULPB_PLUGIN_PATH.'admin/bb3js.php');
+	if ($screen_id->post_type === 'page') {
+
+		include_once(ULPB_PLUGIN_PATH.'/admin/views/admin-ui-pageType.php');
+
+		$checkPbActive = get_post_meta( $post->ID, 'ulpb_page_builder_active', true );
+		if ($checkPbActive === 'true' && $screen_id->post_type === 'page') {
+			include(ULPB_PLUGIN_PATH.'/admin/views/UI/admin-ui.php');
+			wp_enqueue_script('jquery');
+	wp_enqueue_script( 'media-upload' );
+	wp_enqueue_script( 'underscore');
+	wp_enqueue_script( 'backbone');
+	//wp_enqueue_script( 'jquery-ui');
+	wp_enqueue_script( 'wssf-backbone-builder-jqueryUI', ULPB_PLUGIN_URL.'/js/Backbone-resources/jquery-ui.js', array( 'jquery' ), false, false );
+	wp_enqueue_script( 'wssf-backbone-builder-collectionView', ULPB_PLUGIN_URL.'/js/Backbone-resources/backbone.collectionView.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-pbb-model-1', ULPB_PLUGIN_URL.'/admin/scripts/pbb-model-1.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-pbb-model-2', ULPB_PLUGIN_URL.'/admin/scripts/pbb-model-2.js', array( 'jquery' ), false, true );
 	
+	wp_enqueue_script( 'wssf-backbone-builder-script-bb3', ULPB_PLUGIN_URL.'/admin/scripts/bb3.js', array( 'jquery' ), false, true );
+
+	wp_enqueue_script( 'wssf-backbone-builder-script-row-view', ULPB_PLUGIN_URL.'/admin/scripts/row-view.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-widget-view', ULPB_PLUGIN_URL.'/admin/scripts/widget-view.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-save-page', ULPB_PLUGIN_URL.'/admin/scripts/save-page.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-new-row', ULPB_PLUGIN_URL.'/admin/scripts/new-row.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-side-panel', ULPB_PLUGIN_URL.'/admin/scripts/side-panel.js', array( 'jquery' ), false, true );
+
+
+	wp_enqueue_script( 'wssf-backbone-builder-script_collectionView', ULPB_PLUGIN_URL.'/admin/scripts/pbb-CollectionView.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'wssf-backbone-builder-script-pbb-drag-n-drop', ULPB_PLUGIN_URL.'/admin/scripts/pbb-drag-n-drop.js', array( 'jquery' ), false, true );
+
+	
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_style( 'wssf-backbone-builder-jqueryUI-style', ULPB_PLUGIN_URL.'/js/Backbone-resources/jquery-ui.css' );
+	wp_enqueue_style( 'wssf-adminUI-styling', ULPB_PLUGIN_URL.'/styles/admin-style.css' );
+
+    wp_enqueue_script( 'wssf-color-picker-script', ULPB_PLUGIN_URL.'/js/alpha-picker.js', array( 'wp-color-picker' ), false, true );
+    wp_enqueue_script( 'wssf-imgUpload-script', ULPB_PLUGIN_URL.'/js/image-upload.js', array( 'jquery' ), false, true );
+    wp_enqueue_script( 'wssf-fontPicker-script', ULPB_PLUGIN_URL.'/js/g-font-family.js', array( 'jquery' ), false, true );
+
+		}
+	}
+	if ($screen_id->post_type === 'ulpb_post'){
+		include_once(ULPB_PLUGIN_PATH.'/admin/views/UI/admin-ui.php');
 	}
 	
 } /// wssf_custom_UI_without_metabox ends here
 
+function ulpb_update_pagebuilder_active_option(){
+	global $post;
+	$page_id = intval($_GET['page_id']);
+	$sentData = sanitize_text_field($_GET['ulpbActivate']);
+
+	if ($sentData === 'ActivatePB') {
+		update_post_meta($page_id, 'ulpb_page_builder_active','true');
+	}else{
+		update_post_meta($page_id, 'ulpb_page_builder_active','false');
+	}
+
+	echo "Switched";
+	exit();
+}
 
 function ulpb_admin_ajax(){
 	if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -181,7 +254,9 @@ function ulpb_admin_ajax(){
 		echo "this is a POST request\n";
 		$data = json_decode( file_get_contents( 'php://input' ), true );
 		$page_id  = intval($data['pageID']);
+		$postType  = $data['postType'];
 		$pageTitle    = $data['pageOptions']['pageSeoName'];
+		$pageLink    = $data['pageOptions']['pageLink'];
 		$setFrontPage    = $data['pageOptions']['setFrontPage'];
 		$loadWpHead    = $data['pageOptions']['loadWpHead'];
 		$loadWpFooter    = $data['pageOptions']['loadWpFooter'];
@@ -189,8 +264,9 @@ function ulpb_admin_ajax(){
 		$post = array(
 			'ID'		=> wp_strip_all_tags($page_id),
 			'post_title' => wp_strip_all_tags($pageTitle),
+			'post_name' => wp_strip_all_tags($pageLink),
 			'post_status' => 'publish',           
-			'post_type' => 'ulpb_post'  
+			'post_type' => "$postType"  
 		);
 		$post_id =  wp_insert_post($post);
 		
@@ -206,11 +282,6 @@ function ulpb_admin_ajax(){
    		//var_dump($data);
    		exit();
 
-	} elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-
-		echo "this is a Delete request\n";
-		$data = json_decode( file_get_contents( 'php://input' ), true );
-		echo json_encode( $data );
 	}
 
 } //  ulpb_admin_ajax() ends here .     
@@ -336,12 +407,39 @@ function ulpb_front_page_column($column_name, $post_ID) {
 }
 
 
+function ulpb_menupages_add(){
+	add_submenu_page(
+			'edit.php?post_type=ulpb_post',
+			__('Page Builder Dashboard','ulpb_text'),
+			'Dashboard',
+			'manage_options',
+			'page-builder-dashboard-ulpb',
+			array($this,'ulpb_pageBuilder_dashboard_page')
+		);
+}
+
+
+function ulpb_pageBuilder_dashboard_page(){
+	include_once(ULPB_PLUGIN_PATH.'/admin/views/Dashboard/admin-dashboard.php');
+}
 
 
 
+function ulpb_pagebuilder_content_filter($content){
+
+	global $post;
+	$ulpb_is_active = get_post_meta($post->ID,'ulpb_page_builder_active',true);
+
+	if ($ulpb_is_active == 'true') {
+		include(ULPB_PLUGIN_PATH.'public/templates/template.php');
+	}else{
+		return do_shortcode( $content );
+	}
 
 
+}
 
 
 } //class ends
+
 ?>

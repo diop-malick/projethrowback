@@ -4,7 +4,7 @@ Tags: page builder, landing pages, landing page, real page builder,wordpress,plu
 Requires at least: 3.7
 Tested up to: 4.7
 Donate link : http://pluginops.com/page-builder/
-Stable tag: 1.1
+Stable tag: 1.2.1
 License:GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,7 @@ Page builder plugin is compatible with almost all WordPress themes.
 
 == Installation ==
 
-https://www.youtube.com/watch?v=e2hnpm9RN74
+https://www.youtube.com/watch?v=VCnep3RyE8M
 
 
 == Frequently Asked Questions ==
@@ -83,6 +83,22 @@ TBA
 
 
 == Changelog ==
+
+= V 1.2.1 =
+
+* UI bug fixes.
+* UI Design Changes.
+* Margin unit bug fixed.
+* Padding unit bug fixed.
+
+
+= V 1.2 =
+
+* New Widgets Added.
+* Page post type supported.
+* Bug Fixes.
+* Tutorials Added.
+* Dashboard Page Added.
 
 = V 1.1 =
 

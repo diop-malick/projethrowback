@@ -40,7 +40,7 @@ $(document).ready(function()
 	   }).on('click', '.onX', function(){
 	       $(this).removeClass('x onX').val('').change();
 	   });
-		 
+
 		// disable search button if empty search term
 			var input_top = $("#search_query_top");
 				input_top.keyup(function () {
@@ -68,7 +68,6 @@ $(document).ready(function()
 
 
 			var $input = $("#search_query_" + blocksearch_type);
-
 
 	var width_ac_results = 	$input.parent('form').outerWidth();
 	if (typeof ajaxsearch != 'undefined' && ajaxsearch) {

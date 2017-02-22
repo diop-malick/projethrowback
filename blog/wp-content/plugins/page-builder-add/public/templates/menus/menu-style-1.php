@@ -15,7 +15,10 @@
 	margin:0;
 	padding:0
 }
-
+.custom-logo{
+	max-width:380px;
+	max-height: 95px;
+}
 #lpb_menu_widget ul a{
 	display:block;
 	color:<?php echo $menuColor; ?>;
@@ -80,7 +83,7 @@ if(!has_custom_logo()) {
 
  ?></div>
  <?php
-wp_nav_menu( array( 'menu' => $menuName, 'container_id' => 'lpb_menu_widget' ) );
+wp_nav_menu( array( 'menu' => $menuName, 'container_id' => 'lpb_menu_widget', 'menu_class' => 'w3-navbar' ) );
 $this_widget_menu = ob_get_contents();
 ob_end_clean();
 

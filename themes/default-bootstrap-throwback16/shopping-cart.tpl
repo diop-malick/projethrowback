@@ -38,9 +38,10 @@
 		{l s='Your account has been created.'}
 	</p>
 {/if}
-
+{*
 {assign var='current_step' value='summary'}
 {include file="$tpl_dir./order-steps.tpl"}
+*}
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($empty)}
@@ -84,8 +85,9 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-					
-						<div class="row row_line_product line_product_{$product.id_product}">
+						
+						
+						<div id="product_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
 							</div>
@@ -110,14 +112,13 @@
 										</p>
 										<p class="attributes_line_{$product.id_product}">
 											<label>{l s='Quantity'}</label>
-											<span class="size_line">1</span>
+											<span class="size_line">{$product.cart_quantity}</span>
 										</p>
 									</div>
 
-									<div class="col-md-9">
+									<div class="col-md-5">
 											<div class="attributes_to_modify_{$product.id_product}" style="display: none">
 												<div class="row">
-													<div class="col-md-8">
 														<div id="attributes">
 															<div class="attribute_list">
 																<label class="attribute_label" >{l s='Taille'}</label>
@@ -139,53 +140,70 @@
 																</ul>
 															</div>
 														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="row">
-															<div class="col-md-6">
-																
-																	<button class="buttons_modify buttons_modify_line_{$product.id_product}" type="submit">
-																		<span>{l s='VALIDER'}</span>
-																	</button>
-																
-															</div>
-
-															<div class="col-md-6">
-																
-																	<button class="buttons_modify buttons_cancel_line_{$product.id_product}" type="submit">
-																		<span>{l s='ANNULER'}</span>
-																	</button>
-																
-															</div>
-														</div>
-													</div>
 												</div>
 											</div>
 
 											<p class="attributes_line_{$product.id_product}">
-											<label>{l s='Taille'}</label>
-											<span class="size_line">S</span>
-										</p>
+												<label>{l s='Taille'}</label>
+												<span class="size_line">S</span>
+											</p>
+									</div>
 
+									<div class="col-md-4">
+										{if !$priceDisplay}
+											<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
+										{else}
+						               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price}</span>
+										{/if}
+										{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
+										<span class="price-percent-reduction small">
+											{if !$priceDisplay}
+					            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+					                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
+					                    			{assign var='symbol' value=$currency->sign}
+					                    		{else}
+					                    			{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price_wt)/$product.price_without_specific_price) * 100 * -1}
+					                    			{assign var='symbol' value='%'}
+					                    		{/if}
+											{else}
+												{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+													{assign var='priceReduction' value=($product.price - $product.price_without_specific_price)}
+													{assign var='symbol' value=$currency->sign}
+												{else}
+													{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price)/$product.price_without_specific_price) * -100}
+													{assign var='symbol' value='%'}
+												{/if}
+											{/if}
+											{if $symbol == '%'}
+												&nbsp;{$priceReduction|string_format:"%.2f"|regex_replace:"/[^\d]0+$/":""}{$symbol}&nbsp;
+											{else}
+												&nbsp;{convertPrice price=$priceReduction}&nbsp;
+											{/if}
+										</span>
+										<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
+										
+										{/if}
 									</div>
 
 								</div>
+								<span class="label{if $product.quantity_available <= 0 && isset($product.allow_oosp) && !$product.allow_oosp} label-danger{elseif $product.quantity_available <= 0} label-warning{else} label-success{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}</span>
 							</div>
 
 							<div class="col-md-1">
 								<div class="row">
+									<!--
 									<div class="col-md-6 edit">
 										<a href="{$product.id_product}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o fa-2x icone-active" aria-hidden="true"></i></a>
 									</div>
-
-									<div class="col-md-6">
+									-->
+									<div class="col-md-12">
 										<a
-											id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
+											id="{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"
-											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
+											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization=0&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
 											title="{l s='Delete'}">
-											<i class="fa fa-trash-o fa-2x icone-active"></i>
+											X
 										</a>
 									</div>
 								</div>
@@ -204,7 +222,7 @@
 					</div>
 					<div class="row commande_body">
 						{foreach $products as $product}
-						<div class="row row_line_product_commande">
+						<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
 								<div class="col-md-8">
 									<p class="command-product-name">{$product.name|escape:'html':'UTF-8'}</p>
 								</div>
@@ -217,7 +235,7 @@
 
 						<div class="row line_product">
 								<div class="col-md-8">
-									<p class="command-product-name total"><span>{l s='Total'}</span></p>
+									<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 								</div>
 
 								<div class="col-md-4 text-right total">
@@ -233,7 +251,7 @@
 						<div class="col-md-12">	
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
-									<span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span>
+									<span class="text_valid_commande">{l s='Valider mon panier'}<i class="icon-chevron-right right"></i></span>
 								</a>
 							{/if}
 						</div>
@@ -242,8 +260,8 @@
 					<div class="row text-center">
 						<div class="col-md-12">	
 						<p class="cart_navigation clearfix">
-							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default" title="{l s='Continue shopping'}">
-							<i class="icon-chevron-left"></i>{l s='Continue shopping'}
+							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+							<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 						</a>
 						</p>
 						</div>
@@ -361,9 +379,10 @@
 {/strip}
 {/if}
 
+<script src="http://bootboxjs.com/bootbox.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />
 <script>
 		    $( document ).ready(function() {
-
 			   $( ".edit a" ).on( "click", function(e) {
 			   		e.preventDefault();
 			   		var line = $(this).attr('href');

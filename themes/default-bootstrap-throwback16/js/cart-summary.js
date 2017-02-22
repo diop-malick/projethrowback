@@ -35,7 +35,24 @@ $(document).ready(function(){
 	});
 	$('.cart_quantity_delete' ).off('click').on('click', function(e){
 		e.preventDefault();
-		deleteProductFromSummary($(this).attr('id'));
+		var ids = $(this).attr('id');
+		bootbox.confirm({
+		    message: "Êtes-vous sûre de vouloir supprimer ce produit",
+		    buttons: {
+		        confirm: {
+		            label: 'Oui',
+		            className: 'btn-success'
+		        },
+		        cancel: {
+		            label: 'Non',
+		            className: 'btn-danger'
+		        }
+		    },
+		    callback: function (result) {
+		        if(result)
+			    deleteProductFromSummary(ids);
+		    }
+		});
 	});
 	$('.cart_address_delivery').on('change', function(e){
 		changeAddressDelivery($(this));
@@ -487,6 +504,9 @@ function deleteProductFromSummary(id)
 						cleanSelectAddressDelivery();
 						if (!customizationId)
 							refreshOddRow();
+					});
+					$('#facturette_' + id).fadeOut('slow', function() {
+						$(this).remove();
 					});
 					var exist = false;
 					for (i=0;i<jsonData.summary.products.length;i++)

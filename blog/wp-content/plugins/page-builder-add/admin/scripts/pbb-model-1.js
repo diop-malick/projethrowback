@@ -20,7 +20,7 @@
             rowPaddingLeft: 0,
             rowPaddingRight: 0,
           },
-          customStyling: '/* Your Custom Styling */',
+          customStyling: '#a { }',
           customJS: ' ',
         },
         column1: {
@@ -178,5 +178,28 @@
       },
       url: "/"
     });
+/*
+app.Column = Backbone.Model.extend({
+  defaults: {
+      colWidgets: 0,
+      columnOptions:{
+      bg_color: 'transparent',
+      margin: {
+        columnMarginTop: 0,
+        columnMarginBottom: 0,
+        columnMarginLeft: 0,
+        columnMarginRight: 0,
+        },
+      padding:{
+        columnPaddingTop: 0,
+        columnPaddingBottom: 0,
+        columnPaddingLeft: 0,
+        columnPaddingRight: 0,
+      },
+      width: '',
+      }
+  }
+});
+*/
 
 }( jQuery ) );
