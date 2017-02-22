@@ -28,16 +28,47 @@ $(document).ready(function()
 {
 	if (typeof blocksearch_type == 'undefined')
 		return;
+					// CLEARABLE INPUT
+			function tog(v){
+	   		return v?'addClass':'removeClass';
+	   }
 
-// disable search button
-	var $input = $("#search_query_" + blocksearch_type);
-		$input.keyup(function () {
-	    if ($(this).val() == '') {
-	        $(":submit").prop('disabled', true);
-	    } else {
-	        $(":submit").prop('disabled', false);
-	    }
-	}).keyup();
+	   $(document).on('input', '.search_query.form-control', function() {
+	       $(this)[tog(this.value)]('x');
+	   }).on('mousemove', '.x', function(e) {
+	       $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
+	   }).on('click', '.onX', function(){
+	       $(this).removeClass('x onX').val('').change();
+	   });
+		 
+		// disable search button if empty search term
+			var input_top = $("#search_query_top");
+				input_top.keyup(function () {
+			    if ($(this).val() == '') {
+
+			        $("#searchbox :submit").prop('disabled', true);
+
+			    } else {
+			      $("#searchbox :submit").prop('disabled', false);
+
+			    }
+			}).keyup();
+
+			var input_block = $("#search_query_block");
+				input_block.keyup(function () {
+			    if ($(this).val() == '') {
+
+			        $("#searchbox2 :submit").prop('disabled', true);
+
+			    } else {
+			      $("#searchbox2 :submit").prop('disabled', false);
+
+			    }
+			}).keyup();
+
+
+			var $input = $("#search_query_" + blocksearch_type);
+
 
 	var width_ac_results = 	$input.parent('form').outerWidth();
 	if (typeof ajaxsearch != 'undefined' && ajaxsearch) {

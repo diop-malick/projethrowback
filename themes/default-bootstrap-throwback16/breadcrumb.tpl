@@ -1,6 +1,6 @@
 
 <!-- Hide breadcrump in myaccount  -->
-{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
+{if {$smarty.get.controller} eq 'myaccount'  or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
 <!-- TODO -->
 {else}
 
@@ -29,6 +29,4 @@
 {/if}
 <!-- /Breadcrumb -->
 
-{/if}	
-
-
+{/if}

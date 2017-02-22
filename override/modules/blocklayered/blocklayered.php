@@ -2,10 +2,10 @@
 
 if (!defined('_CAN_LOAD_FILES_'))
     exit;
-  
+
 class BlockLayeredOverride extends BlockLayered
 {
-  
+
   public function install()
 {
     if(parent::install() && $this->registerHook('categoryTop'))
@@ -17,7 +17,8 @@ public function hookCategoryTop($params)
 {
     return $this->hookLeftColumn($params);
 }
-  
+
+
 }
 
 ?>
