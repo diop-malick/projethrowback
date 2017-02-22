@@ -479,10 +479,18 @@ font-size: 17px;
     z-index: 79;
     }
 .buttons_modify{
-      background-color: #000;
+    background-color: #000;
     border: none;
     color: white;
     padding: 5px 15px;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* style search  zero result page*/
+.title_zero_result_page   {
+    text-align: center;
+    font-size: 1.61538em;
+    font-weight: 600;
+    color: #333;
 }
