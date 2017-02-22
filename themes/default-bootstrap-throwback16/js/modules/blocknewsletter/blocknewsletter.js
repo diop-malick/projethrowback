@@ -47,13 +47,14 @@ $(document).ready(function() {
 	}
     */
 
-    // mailchimps > form AJX
-    $('#mailchimps-embedded-subscribe-form').submit(function(e) {
-      console.log("mailchimps");
+
+    /* mailchimps > form AJX */
+    
+    $('#mc-embedded-subscribe-form').submit(function(e) {
+      // console.log("mailchimps");
       var $this = $(this);
       $.ajax({
           type: "GET", // GET & url for json slightly different
-          // url: "http://XXXXXXXX.list-manage2.com/subscribe/post-json?c=?",
           url: "http://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
           data: $this.serialize(),
           dataType    : 'jsonp',
@@ -69,12 +70,19 @@ $(document).ready(function() {
 
 });
 
-// mailchimps > traitement message d'erreur
+/* mailchimps > Manage error message */
+
+
+
+err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+
+
 function mce_success_cb(resp){
     $('#mce-success-response').hide();
     $('#mce-error-response').hide();
     if (resp.result=="success"){
         $('#mce-'+resp.result+'-response').show();
+        // $('#mce-'+resp.result+'-response').css('color', 'green');
         $('#mce-'+resp.result+'-response').html(resp.msg);
         $('#mc-embedded-subscribe-form').each(function(){
             this.reset();

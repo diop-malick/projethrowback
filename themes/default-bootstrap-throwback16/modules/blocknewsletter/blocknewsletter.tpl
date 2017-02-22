@@ -4,43 +4,69 @@
 </div> <!-- // Footer Logo -->
 
 
-<div class="col-md-4">	
+<!-- Block Newsletter module-->
+<div style="display:none">
+	<div id="mc_embed_signup" class=" block inline">
+		<form id="mc-embedded-subscribe-form">
+			<div class="news-footer">
+						<i class="fa fa-envelope fa-3x"></i>
+						<input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" value="" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
+						<!-- <span class="glyphicon glyphicon-remove-circle"></span> -->
+						<!-- <input type="submit" value="OK" class="btn button-default" name="submitNewsletter" /> -->
+						<br>
+						<span class="response" id="mce-error-response" style="display:none"></span>
+						<span class="response" id="mce-success-response" style="display:none"></span>
+						<br>
+							<!-- <input type="hidden" name="action" value="0"/> -->
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+					    	<input type="text" name="b_d56def1fdca3f61da060d5d2a_2eca580371" tabindex="-1" value="">
+					    </div>
+					    <div class="clear">
+					    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+			</div>
+		</form>					
+	</div>
+</div>
+<!-- Block Newsletter module-->
 
+<!-- Newletter fancyBox -->
+
+<script type="text/javascript">
+     $(document).ready(function() {
+      $("#displaynewsletter").fancybox({
+             'titlePosition'     : 'inside',
+             'transitionIn'      : 'elastic',
+             'transitionOut'     : 'elastic',
+             'autoResize'        : 'false',
+             'autoSize'          : 'false',
+             'autoWidth '        : 'false',
+             'minWidth'          : 350,
+             'minHeight': 150,
+            // 'type': 'iframe',
+            // 'width': 250,
+            // 'height': '90%',
+         });
+     });
+     </script>
+
+
+
+<div class="col-md-4">	
 	<div class="row">
 		
-		<!-- Block Newsletter module-->
 		<div class="col-md-8">
-			<div id="newsletter_block_left" class="row block inline">
+			<div id="newsletter_block_left" class=" block inline">
 				<div class="block_content">
-					<!-- <form class="form-inline" action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post"> -->
-					<form id="mailchimps-embedded-subscribe-form">
-
-						<div class="news-footer">
-							<i class="fa fa-envelope"></i>
-							<input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{/if}" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
-							<span class="glyphicon glyphicon-remove-circle"></span>
-							<input type="submit" value="OK" class="btn button-default" name="submitNewsletter" />
-							<br>
-							<span class="response" id="mce-error-response" style="display:none"></span>
-							<span class="response" id="mce-success-response" style="display:none"></span>
-							<input type="hidden" name="action" value="0"/>
-						</div>
-					</form>
+					<!-- Link to Trigger the modal NEWLETTER -->
+					<div id="contact-link" class="text-center">
+						<a id="displaynewsletter" href="#mc_embed_signup" title="{l s='Newsletter' mod='blockcontact'}">
+						<i class="fa fa-envelope"></i>{l s=' Newsletter' mod='blocknewletter'}
+						</a>
+					</div>
 				</div>
-				{hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
 			</div>
-		</div>
-		<!-- /Block Newsletter module-->
+		</div>		
 
-{strip}
-{if isset($msg) && $msg}
-{addJsDef msg_newsl=$msg|@addcslashes:'\''}
-{/if}
-{if isset($nw_error)}
-{addJsDef nw_error=$nw_error}
-{/if}
-{addJsDefL name=placeholder_blocknewsletter}{l s='Enter your e-mail' mod='blocknewsletter' js=1}{/addJsDefL}
-{if isset($msg) && $msg}
-	{addJsDefL name=alert_blocknewsletter}{l s='Newsletter : %1$s' sprintf=$msg js=1 mod="blocknewsletter"}{/addJsDefL}
-{/if}
-{/strip}
+
+

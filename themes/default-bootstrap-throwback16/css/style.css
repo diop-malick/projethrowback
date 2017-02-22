@@ -28,14 +28,16 @@
 
 
 /* social block */
-
 .footer-container #footer #social_block {
-    margin-top: 25px;
+    margin-top: 20px;
     /*float: left;*/
     /*width: 30%;*/
     /*padding: 22px 15px 0 15px;*/
 }
 
+.footer-container #footer #social_block ul {
+  margin-bottom: 0;
+}
 
 /* newsletter block */
 
@@ -53,6 +55,17 @@
  .button-newsletter {
   padding-left: 3px;
 }
+.footer-container #footer #contact-link {
+  border: none;
+}
+.footer-container #footer #contact-link a {
+  border: none;
+  text-shadow: none;
+}
+
+.footer-container #footer #contact-link a .fa {
+  font-size: 15px;
+}
 
 /*
 @media (min-width: 768px) {
@@ -66,11 +79,22 @@
 
 .footer-container #footer {
     /*color: #777777; */
+    /*position: absolute;*/
+    bottom: 0;
 }
 
 .footer-container #footer .icon-check {
   color: #46a74e;
 }
+/*MAILCHImps NEWLETTER*/
+.footer-container .container #mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+
 
 /* header
 ====================================  */
