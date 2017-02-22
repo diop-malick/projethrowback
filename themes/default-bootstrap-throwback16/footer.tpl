@@ -9,6 +9,7 @@
 			</div><!-- .columns-container -->
 			{if isset($HOOK_FOOTER)}
 				<!-- Footer -->
+				<div class="clearfix"></div>
 				<div class="footer-container">
 					<footer id="footer"  class="container">
 						{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity' }

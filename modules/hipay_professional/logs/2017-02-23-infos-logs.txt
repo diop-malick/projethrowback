@@ -1,0 +1,135 @@
+## 2017-02-23 00:00:13 ##
+##########################
+## 2017-02-23 00:00:13 ##
+---- START function getContent
+## 2017-02-23 00:00:13 ##
+---- >> function postProcess
+## 2017-02-23 00:00:13 ##
+---- >> submitRegister
+## 2017-02-23 00:00:13 ##
+---- >> function createMerchantAccount
+## 2017-02-23 00:00:13 ##
+Array
+(
+    [email] => mdiop.sne@gmail.com
+    [controle_type] => CAPTCHA
+    [captcha] => Array
+        (
+            [id] => 3251
+            [phrase] => 5sypzppy
+        )
+
+    [firstname] => Malick
+    [lastname] => DIOP
+    [currency] => EUR
+    [locale] => fr_FR
+    [activation_type] => 1
+)
+
+## 2017-02-23 00:00:13 ##
+url : https://merchant.hipaywallet.com/api/user-account
+## 2017-02-23 00:00:14 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result 5sypzppy sent for CAPTCHA 3251 is invalid
+)
+
+## 2017-02-23 00:00:14 ##
+---- >> Display captcha form because error
+## 2017-02-23 00:00:14 ##
+url : https://merchant.hipaywallet.com/api/tools/captcha
+## 2017-02-23 00:00:16 ##
+---- END function getContent
+## 2017-02-23 00:00:16 ##
+##########################
+## 2017-02-23 00:00:37 ##
+##########################
+## 2017-02-23 00:00:37 ##
+---- START function getContent
+## 2017-02-23 00:00:37 ##
+---- >> function postProcess
+## 2017-02-23 00:00:37 ##
+---- >> submitRegister
+## 2017-02-23 00:00:37 ##
+---- >> function createMerchantAccount
+## 2017-02-23 00:00:37 ##
+Array
+(
+    [email] => mdiop.sne@gmail.com
+    [controle_type] => CAPTCHA
+    [captcha] => Array
+        (
+            [id] => 3252
+            [phrase] => d6pzvx8f
+        )
+
+    [firstname] => Malick
+    [lastname] => DIOP
+    [currency] => EUR
+    [locale] => fr_FR
+    [activation_type] => 1
+)
+
+## 2017-02-23 00:00:37 ##
+url : https://merchant.hipaywallet.com/api/user-account
+## 2017-02-23 00:00:38 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result d6pzvx8f sent for CAPTCHA 3252 is invalid
+)
+
+## 2017-02-23 00:00:38 ##
+---- >> Display captcha form because error
+## 2017-02-23 00:00:38 ##
+url : https://merchant.hipaywallet.com/api/tools/captcha
+## 2017-02-23 00:00:40 ##
+---- END function getContent
+## 2017-02-23 00:00:40 ##
+##########################
+## 2017-02-23 00:01:10 ##
+##########################
+## 2017-02-23 00:01:10 ##
+---- START function getContent
+## 2017-02-23 00:01:10 ##
+---- >> function postProcess
+## 2017-02-23 00:01:10 ##
+---- >> submitRegister
+## 2017-02-23 00:01:10 ##
+---- >> function createMerchantAccount
+## 2017-02-23 00:01:10 ##
+Array
+(
+    [email] => mdiop.sne@gmail.com
+    [controle_type] => CAPTCHA
+    [captcha] => Array
+        (
+            [id] => 3253
+            [phrase] => 24sthvs
+        )
+
+    [firstname] => Malick
+    [lastname] => DIOP
+    [currency] => EUR
+    [locale] => fr_FR
+    [activation_type] => 1
+)
+
+## 2017-02-23 00:01:10 ##
+url : https://merchant.hipaywallet.com/api/user-account
+## 2017-02-23 00:01:11 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result 24sthvs sent for CAPTCHA 3253 is invalid
+)
+
+## 2017-02-23 00:01:11 ##
+---- >> Display captcha form because error
+## 2017-02-23 00:01:11 ##
+url : https://merchant.hipaywallet.com/api/tools/captcha
+## 2017-02-23 00:01:13 ##
+---- END function getContent
+## 2017-02-23 00:01:13 ##
+##########################
