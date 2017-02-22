@@ -114,10 +114,11 @@
 									<div class="col-md-6">
 										<span class="qv-reference">{$product.reference}</span>
 									</div>
-									<div class="col-md-6 qv-dispo">
+									<div class="col-md-6 qv-dispo text-right">
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
 									</div>
 								</div>
+								{if isset($size_list) && $size_list}
 								<div class=qv-size>
 									{foreach from=$size_list key=k item=v}
 										{if $k > 0 && $k==$product.id_product }
@@ -131,6 +132,7 @@
 										{/if}
 									{/foreach}
 								</div>
+								{/if}
 							</div>
 						{/if}
 						{if isset($product.new) && $product.new == 1}

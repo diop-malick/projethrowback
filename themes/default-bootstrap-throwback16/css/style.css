@@ -220,6 +220,15 @@ header .row #header_logo {
   margin-top: 75px;
 }
 
+/* Page Liste
+====================================  */
+#layered_price_range{
+  padding: 5px 30px;
+}
+.product-container .content_price{
+  width: 100%;
+}
+
 /* Quick view
 ====================================  */
 .qv-size{
