@@ -11,30 +11,31 @@ A utiliser avec Un environnement WAMP : Laragon ou Wamp Serveur
 steps to make it work !
 ----------------------
 
-1. Cloner le repo 
+1. Cloner le repo
 
   
-4. Renommer et placer le project dans le répertorie web laragon : 
+4. placer le project dans le répertorie web laragon : 
 
 laragon/wwww/thorwback16
 
+<<<<<<< HEAD
 
 5. Installer les baseS de donnée
 
-importer les fichers sql 
+importer les fichers sql : throwbackpresta-DEV.sql et throwbackwordpress-DEV.sql
 
-throwbackpresta-DEV.sql et throwbackwordpress-DEV.sql
 
 7. Accès aux webapps & outils :
 
 * boutique :
 - FO : http://localhost/throwback16/admin16
 - BO : http://localhost/throwback16/
+
 - Admin : pub@prestashop.com / 0123456789
 - Client : pub@prestashop.com / aqwzsx123
 
 
-* Wordpress : 
+* Wordpress :
 - Front | https://throwback16.dev/blog
 - Back | https://throwback16.dev/blog/wp-admin/
 - login : Gael / dedeagassi
@@ -44,7 +45,7 @@ Troubleshooting
 ----------------
 
 
-* droit acce fichier : 
+* droit acce fichier :
 
 exécuter laragon en mod administrateur
 

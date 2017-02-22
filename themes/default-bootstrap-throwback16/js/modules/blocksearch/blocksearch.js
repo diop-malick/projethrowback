@@ -29,7 +29,15 @@ $(document).ready(function()
 	if (typeof blocksearch_type == 'undefined')
 		return;
 
+// disable search button
 	var $input = $("#search_query_" + blocksearch_type);
+		$input.keyup(function () {
+	    if ($(this).val() == '') {
+	       // $(":submit").prop('disabled', true);
+	    } else {
+	        $(":submit").prop('disabled', false);
+	    }
+	}).keyup();
 
 	var width_ac_results = 	$input.parent('form').outerWidth();
 	if (typeof ajaxsearch != 'undefined' && ajaxsearch) {

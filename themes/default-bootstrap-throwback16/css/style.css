@@ -2,6 +2,31 @@
 				styles intégrés
 ************************************************************/
 
+/*margin top colum center and hesder*/
+#category .columns-container{
+    margin-top: 120px;
+  }
+
+#my-account .columns-container{
+    margin-top: 160px;
+  }
+#address .columns-container{
+    margin-top: 200px;
+  }
+
+  #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal {
+    margin-top: 200px;
+  }
+
+  /*    */
+  #search .columns-container{
+   margin-top: 160px;
+ }
+
+#identity , #authentication{
+  color:#000 !important;
+}
+
 #layered_block_left div.selector {
     width: auto !important;
 }
@@ -154,7 +179,7 @@ header .row #header_logo {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF43B754', endColorstr='#FF42AC52', GradientType=0);
   border: 1px solid;
-  border-color: #ececeb #ececeb #ececeb #ececeb; 
+  border-color: #ececeb #ececeb #ececeb #ececeb;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0; }
@@ -190,15 +215,24 @@ header .row #header_logo {
   /*margin-top: 100px;*/
   overflow: hidden;
 }
-#account-creation_form .form-error {
-/*float: left !important;*/
-}
 
 /* throwback > customize > Inscription  */
 .select_title{
+  max-width: 100%;
   width : 270px;
   padding: 5px;
   float: left;
+  margin-bottom: 5px;
+}
+
+/* throwback > customize > Infos perso  */
+#identity .form-error , #account-creation_form .form-error {
+    float: left !important;
+    width: 100%;
+}
+
+ #add_address .form-error {
+    float: left !important;
 }
 
 /* Quick view
@@ -238,7 +272,7 @@ header .row #header_logo {
 
 /* Center image in block*/
 .simplified-header .simplified-logo {
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 /* Vertical text center*/
 .simplified-header .vertical-center {
@@ -262,7 +296,7 @@ font-size: 17px;
 
 /*simplified footer*/
 .footer-container .container .simplified-footer {
-  
+
 }
 
 .simplified-footer span span {
@@ -296,18 +330,107 @@ font-size: 17px;
   z-index: 73;
 }
 
-/*margin top colum center and hesder*/
-#category .columns-container{
-    margin-top: 120px;
+
+  /******** Panier ********************/
+  .img-line {
+    background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+    padding: 0;
+    position: relative;
+    /*z-index: 45;*/
+  }
+  .icone-active{
+    color: #000;
+  }
+  .row_line_product{
+    margin-bottom: 50px;
+  }
+  .row_line_product_commande{
+     margin-bottom: 30px;
+  }
+  .size_line{
+    border:1px solid #000;
+    padding: 5px 20px;
+  }
+  .commande_title{
+    background: #ececeb;
+    padding: 15px;
   }
 
-#my-account .columns-container{
-    margin-top: 160px;
-  }
-#address .columns-container{
-    margin-top: 160px;
+  .commande_body .total{
+    font-size: 18px;
   }
 
-  #addresses .columns-container , #history .columns-container{
-    margin-top: 200px;
+  .commande_body{
+    background: #fafafa;
+    padding: 15px;
   }
+  .commande_button{
+    background: #000;
+    padding: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 17px;
+  }
+  .text_valid_commande{
+  	color: #fff;
+  }
+  .continue_shoping{
+  	font-weight: normal !important;
+  }
+  #quantity_wanted_p input {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(214, 157, 50);
+    background-color: rgb(255, 255, 255);
+    opacity: 0.502;
+    width: 44px;
+    height: 28px;
+    padding: 0 6px;
+    float: left;
+    line-height: 27px;
+    z-index: 82;
+}
+
+#quantity_wanted_p .btn.button-plus,#quantity_wanted_p .btn.button-minus {
+    /* font-size: 14px; */
+    line-height: 20px;
+    /* color: #c0c0c0; */
+    text-shadow: 1px -1px rgba(0, 0, 0, 0.05);
+    /* padding: 0; */
+    border: none;
+    /* border-color: #dedcdc #c1bfbf #b5b4b4 #dad8d8; */
+}
+
+#quantity_wanted_p .btn {
+    float: left;
+    margin-left: 3px;
+}
+
+#attributes .attribute_list ul li {
+    float: left;
+    clear: none;
+    /* margin-right: 10px; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(214, 157, 50);
+    color: rgb(53, 53, 53);
+    padding: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-weight: bold;
+    /* opacity: 0.6; */
+    width: 43px;
+    height: 28px;
+    z-index: 79;
+    }
+.buttons_modify{
+      background-color: #000;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    cursor: pointer;
+}

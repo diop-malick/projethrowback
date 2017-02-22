@@ -15,10 +15,12 @@
 
 <div class="row my-account-selfcare">
     <div class="box">
+    <!--
         <h1 class="row text-center page-heading ">
             {l s='Your personal information'}
         </h1>
-
+    -->
+    <h3 class="page-subheading">{l s='Your personal information'}</h3>
         <!-- INFO text -->
 
         <div class="text-center">
@@ -63,7 +65,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -71,7 +73,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="custom" data-validation-regexp="^([a-z]+)$" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
+                                 <input class="col-md-8 is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -112,7 +114,7 @@
                             {l s='First name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
+                        <input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
                         </div>
                     </div>
 
@@ -121,7 +123,7 @@
                             {l s='Last name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+                        <input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
                         </div>
                     </div>
 
@@ -290,6 +292,19 @@
 
 
 <script>
+    $.formUtils.addValidator({
+      name : 'check_password',
+      validatorFunction : function(value) {
+        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_name',
+      validatorFunction : function(value) {
+        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
+      }
+    });
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',

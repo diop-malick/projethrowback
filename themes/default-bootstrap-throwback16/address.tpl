@@ -39,6 +39,7 @@
 					<input class="form-control validate" data-validate="{$address_validation.$field_name.validate}" type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'html':'UTF-8'}{/if}{/if}" />
 				</div>
 			{/if} -->
+			<!--
 			{if $field_name eq 'vat_number'}
 				<div id="vat_area">
 					<div id="vat_number">
@@ -49,6 +50,7 @@
 					</div>
 				</div>
 			{/if}
+
 			{if $field_name eq 'dni'}
 			{assign var="dniExist" value=true}
 			<div class="row required form-group dni">
@@ -59,13 +61,12 @@
 				</div>
 			</div>
 			{/if}
-
-
+			-->
 			{if $field_name eq 'firstname'}
 				<div class="row required form-group">
 					<label for="firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -73,7 +74,7 @@
 				<div class="row required form-group">
 					<label for="lastname" class="col-md-4 text-right">{l s='Last name'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-28" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -82,7 +83,7 @@
 				<div class="row required form-group">
 					<label for="address1" class="col-md-4 text-right">{l s='Numéro voie'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="check_num_voie" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -90,7 +91,7 @@
 				<div class="row required form-group">
 					<label for="address2" class="col-md-4 text-right">{l s='Nom voie'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 					<div class="col-md-8">
-					<input class="validate form-control" data-validation="length" data-validation-length="2-38" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -99,7 +100,7 @@
 				<div class="row required postcode form-group unvisible">
 					<label for="postcode" class="col-md-4 text-right">{l s='Zip/Postal Code'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir un code postal valide.'}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="check_cp" data-validation-error-msg="{l s='Merci de saisir un code postal valide.'}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -107,7 +108,7 @@
 				<div class="row required form-group">
 					<label for="city" class="col-md-4 text-right">{l s='City'} <sup>*</sup></label>
 					<div class="col-md-8">
-					<input class="is_required validate form-control" data-validation="length" data-validation-length="2-38" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
+					<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
 				</div>
 				{* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
@@ -123,6 +124,7 @@
 					</div>
 				</div>
 			{/if}
+			<!--
 			{if $field_name eq 'State:name'}
 				{assign var="stateExist" value=true}
 				<div class="row required id_state form-group">
@@ -134,7 +136,7 @@
 					</div>
 				</div>
 			{/if}
-
+			-->
 			
 			<!-- {if $field_name eq 'phone'}
 				{assign var="homePhoneExist" value=true}
@@ -151,7 +153,7 @@
 				<div class="row form-group {if isset($one_phone_at_least) && $one_phone_at_least}required {/if}">
 					<label for="phone_mobile" class="col-md-4 text-right">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
 					<div class="col-md-8">
-					<input class="validate form-control" data-validation="custom" data-validation-regexp="^([0-9]+)$" data-validation-error-msg="{l s='Merci de saisir un numéro de téléphone valide. '}" data-validation-optional="true" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="check_phone" data-validation-error-msg="{l s='Merci de saisir un numéro de téléphone valide. '}" data-validation-optional="true" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -169,6 +171,7 @@
 				<input class="is_required validate form-control" data-validate="{$address_validation.postcode.validate}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 			</div>
 		{/if}
+		<!--
 		{if !$stateExist}
 			<div class="required id_state form-group unvisible">
 				<label for="id_state">{l s='State'} <sup>*</sup></label>
@@ -177,6 +180,7 @@
 				</select>
 			</div>
 		{/if}
+		-->
 		{if !$dniExist}
 			<div class="required dni form-group unvisible">
 				<label for="dni">{l s='Identification number'} <sup>*</sup></label>
@@ -272,6 +276,39 @@
 {/if}
 {/strip}
 <script>
+	$.formUtils.addValidator({
+      name : 'check_name',
+      validatorFunction : function(value) {
+        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_num_voie',
+      validatorFunction : function(value) {
+        return ( (value.length >= 1 && value.length <= 5) && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_alpha_num',
+      validatorFunction : function(value) {
+        return ( (value.length >= 2 && value.length <= 38) && (value.toString().match(/^[A-Za-z0-9éèïçà^îù¨-ê-]+$/)))  
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_phone',
+      validatorFunction : function(value) {
+        start = value.substr(0, 2);
+		var array = ["01", "02", "03", "04", "05", "06", "07", "09"];
+		return ( value.length == 10  && (parseFloat(value) == parseInt(value)) && !isNaN(value) && array.indexOf(start) >= 0) 
+      }
+    });
+    $.formUtils.addValidator({
+      name : 'check_cp',
+      validatorFunction : function(value) {
+        return ( value.length == 5  && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
+      }
+    });
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',

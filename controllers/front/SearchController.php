@@ -69,7 +69,7 @@ class SearchControllerCore extends FrontController
 
         //Only controller content initialization when the user use the normal search
         parent::initContent();
-        
+
         $product_per_page = isset($this->context->cookie->nb_item_per_page) ? (int)$this->context->cookie->nb_item_per_page : Configuration::get('PS_PRODUCTS_PER_PAGE');
 
         if ($this->instant_search && !is_array($query)) {

@@ -41,7 +41,7 @@ padding: 0 0 !important;
 }
 /* Icone> Text en dessous */
 #search_block_top .btn.button-search span {
-  display: none; 
+  display: none;
 }
 
 
@@ -53,8 +53,10 @@ padding: 0 0 !important;
       width: 100%;
       text-align: center; }
     #search_block_top .btn.button-search:hover {
-      color: #6f6f6f; }
-
+      color: #353535;}
+/* Remove placeholder on focus */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
 
 
 .ac_results {
@@ -90,4 +92,3 @@ form#searchbox {
       margin-right: 0; }
 
 /*# sourceMappingURL=blocksearch.css.map */
-
