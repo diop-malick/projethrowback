@@ -512,7 +512,7 @@
 						<div class="row box-cart-bottom">
 							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
-									<button type="submit" name="Submit" class="exclusive">
+									<button type="submit" name="Submit" class="btn exclusive">
 										<span>{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Add to cart'}{/if}</span>
 									</button>
 								</p>
@@ -908,11 +908,24 @@
 {else}
 	{addJsDef product_specific_price=array()}
 {/if}
+
+
+<!-- assign defined limited quantity variable to product.js  -->
+{foreach from=$features item=feature}      
+	{if $feature.id_feature eq "11"}      
+		{if isset($feature.value)}
+			{addJsDef quantityLimitedAvailable=$feature.value}
+		{/if}
+	{/if}   
+{/foreach}
+
+<!-- assign quantity variable to product.js   -->
 {if $display_qties == 1 && $product->quantity}
 	{addJsDef quantityAvailable=$product->quantity}
 {else}
 	{addJsDef quantityAvailable=0}
 {/if}
+
 {addJsDef quantitiesDisplayAllowed=$display_qties|boolval}
 {if $product->specificPrice && $product->specificPrice.reduction && $product->specificPrice.reduction_type == 'percentage'}
 	{addJsDef reduction_percent=$product->specificPrice.reduction*100|floatval}
