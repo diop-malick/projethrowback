@@ -58,7 +58,7 @@ a.fancybox-nav {
     /*bottom: 20px;*/
     /*left: 80%;*/
     /*margin-left: -68px;*/
-    display: block;
+    /*display: block;*/
     /*padding: 10px 0;*/
     text-align: center;
     line-height: 22px;
@@ -66,10 +66,13 @@ a.fancybox-nav {
     width: 40px;
     /*text-align: center;*/
     /*font-weight: 700;*/
-    background: rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16); }
+    /*background: rgba(255, 255, 255, 0.5);*/
+    /*-moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);*/
+    /*-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);*/
+    /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16); */
+  }
+
+
     .pb-left-column #image-block #view_full_size .span_link:after {
       font-family: "FontAwesome";
       color: #c0c0c0;
