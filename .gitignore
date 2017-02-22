@@ -38,9 +38,9 @@ cache/purifier/CSS/*
 
 config/settings.inc.php
 
-config/xml/*.xml
-config/settings.inc.php
-#config/xml/
+config/xml/*
+#config/xml/*.xml
+
 
 
 themes/*/cache/*.js
