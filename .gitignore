@@ -42,6 +42,7 @@ config/xml/*
 #config/xml/*.xml
 
 
+log/*
 
 themes/*/cache/*.js
 themes/*/cache/*.css
