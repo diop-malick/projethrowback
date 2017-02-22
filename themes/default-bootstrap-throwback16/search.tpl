@@ -29,12 +29,13 @@
 {if isset($instant_search) && $instant_search}id="instant_search_results"{/if}
 class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$instant_search)} product-listing{/if}">
 
-  {if $nbProducts > 1}
+  {if $nbProducts > 0}
       {if isset($search_query) && $search_query }
-        {if isset($alias) && $alias != $search_query }
-          Aucun article ne correspond à la recherche : {$search_query|escape:'html':'UTF-8'}<br/>
-          <span class="lighter">Nous vous proposons cependant une recherche avec le terme : {$alias|escape:'html':'UTF-8'}.</span>
-         {elseif $alias == $search_query}
+
+        {if !empty($alias) && ($alias != $search_query) }
+          {l s='Aucun article ne correspond à la recherche : '}{$search_query|escape:'html':'UTF-8'}<br/>
+          <span class="lighter">{l s='Nous vous proposons cependant une recherche avec le terme : '}{$alias|escape:'html':'UTF-8'}.</span>
+         {else}
               {l s='Search'}&nbsp;
               {$search_query|escape:'html':'UTF-8'}({l s='%d results have been found.' sprintf=$nbProducts|intval})
           {/if}
@@ -50,10 +51,10 @@ class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$
 
     {/if}
 </h1>
- {hook h="categoryTop"}
+
 {include file="$tpl_dir./errors.tpl"}
 {if !$nbProducts}
-	<p class="alert alert-warning">
+	<!--<p class="alert alert-warning">
 		{if isset($search_query) && $search_query}
 			{l s='No results were found for your search'}&nbsp;"{if isset($search_query)}{$search_query|escape:'html':'UTF-8'}{/if}"
 		{elseif isset($search_tag) && $search_tag}
@@ -62,6 +63,10 @@ class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$
 			{l s='Please enter a search keyword'}
 		{/if}
 	</p>
+-->
+<p class=title_zero_result_page>{l s='Aucune correspondance pour votre recherche : '}"{if isset($search_query) && $search_query }{$search_query|escape:'html':'UTF-8'}{/if}" </p>
+  {hook h="DisplaySearch"}
+
 {else}
 	{if isset($instant_search) && $instant_search}
         <p class="alert alert-info">

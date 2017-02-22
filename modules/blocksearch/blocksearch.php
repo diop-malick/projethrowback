@@ -46,7 +46,7 @@ class BlockSearch extends Module
 
 	public function install()
 	{
-		if (!parent::install() || !$this->registerHook('top') || !$this->registerHook('header') || !$this->registerHook('displayMobileTopSiteMap') || !$this->registerHook('displaySearch'))
+		if (!parent::install() || !$this->registerHook('top') || !$this->registerHook('displayHookSearchList') || !$this->registerHook('header')  || !$this->registerHook('displayMobileTopSiteMap') || !$this->registerHook('displaySearch'))
 			return false;
 		return true;
 	}
@@ -126,10 +126,14 @@ public function hookDisplayMobileHeader($params)
 	}
 
 	public function hookDisplaySearch($params)
-    {
-        return $this->hookRightColumn($params);
-    }
-
+  {
+      return $this->hookRightColumn($params); // Afficher le block sur la page de recherche
+					//return $this->hookTop($params);
+  }
+	public function hookDisplayHookSearchList($params)
+	{
+				return $this->hookTop($params);
+	}
 	private function calculHookCommon($params)
 	{
 		$this->smarty->assign(array(

@@ -186,6 +186,7 @@
 									</div>
 
 								</div>
+								<span class="label{if $product.quantity_available <= 0 && isset($product.allow_oosp) && !$product.allow_oosp} label-danger{elseif $product.quantity_available <= 0} label-warning{else} label-success{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}</span>
 							</div>
 
 							<div class="col-md-1">
@@ -202,7 +203,7 @@
 											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization=0&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
 											title="{l s='Delete'}">
-											<i class="fa fa-trash-o fa-2x icone-active"></i>
+											X
 										</a>
 									</div>
 								</div>
@@ -234,7 +235,7 @@
 
 						<div class="row line_product">
 								<div class="col-md-8">
-									<p class="command-product-name total"><span>{l s='Total'}</span></p>
+									<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 								</div>
 
 								<div class="col-md-4 text-right total">

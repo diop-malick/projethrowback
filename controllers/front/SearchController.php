@@ -157,6 +157,7 @@ class SearchControllerCore extends FrontController
         }
     }
 
+
     public function setMedia()
     {
         parent::setMedia();

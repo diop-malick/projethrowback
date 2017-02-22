@@ -11,8 +11,13 @@
     </span>
 {/capture}
 
+{if isset($confirmation) && $confirmation}
+        <script>window.location="{$link->getPageLink('my-account', true)}";</script>
+    {else}
 {include file="$tpl_dir./header-simple.tpl"}
 
+
+<!--{$smarty.get.action}-->
 <div class="row my-account-selfcare">
     <div class="box">
     <!--
@@ -20,6 +25,7 @@
             {l s='Your personal information'}
         </h1>
     -->
+
     <h3 class="page-subheading">{l s='Your personal information'}</h3>
         <!-- INFO text -->
 
@@ -28,12 +34,13 @@
             {include file="$tpl_dir./errors.tpl"}
 
             <!-- FIELD SUCESS -->
-            {if isset($confirmation) && $confirmation}
+            
+                <!--
                 <p class="alert alert-success">
                     {l s='Your personal information has been successfully updated.'}
                     {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
                 </p>
-            {else}
+                -->
                 <p class="info-title">
                     {l s=''}
                 </p>
@@ -65,7 +72,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="old_passwd" id="old_passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -132,9 +139,9 @@
                             &nbsp;&nbsp;{l s='Date of Birth'}
                         </label>
                         <div class="col-md-8">
-                        <div class="row">
+                        <div class="row select-date">
                             <div class="col-xs-4">
-                                <select name="days" id="days" class="form-control">
+                                <select name="days" id="days" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$days item=v}
                                         <option value="{$v}" {if ($sl_day == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -156,7 +163,7 @@
                                     {l s='November'}
                                     {l s='December'}
                                 *}
-                                <select id="months" name="months" class="form-control">
+                                <select id="months" name="months" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$months key=k item=v}
                                         <option value="{$k}" {if ($sl_month == $k)}selected="selected"{/if}>{l s=$v}&nbsp;</option>
@@ -164,7 +171,7 @@
                                 </select>
                             </div>
                             <div class="col-xs-4">
-                                <select id="years" name="years" class="form-control">
+                                <select id="years" name="years" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$years item=v}
                                         <option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -262,9 +269,9 @@
             <div class="col-md-6 pull-left">
                 <ul class="footer_links clearfix">
                     <li>
-                        <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)}">
+                        <a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)}">
                             <span>
-                                <i class="icon-chevron-left"></i>{l s='Back to your account'}
+                                <i class="icon-chevron-left"></i> {l s='Retour'}
                             </span>
                         </a>
                     </li>

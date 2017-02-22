@@ -25,16 +25,40 @@
 
 <!-- Block search module -->
 <div id="search_block_left" class="block exclusive">
+	{if {$smarty.get.controller} neq 'search'}
 	<p class="title_block">{l s='Search' mod='blocksearch'}</p>
-	<form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox">
-    	<label for="search_query_block">{l s='Search products:' mod='blocksearch'}</label>
-		<p class="block_content clearfix">
-			<input type="hidden" name="orderby" value="position" />
-			<input type="hidden" name="controller" value="search" />
-			<input type="hidden" name="orderway" value="desc" />
-			<input class="search_query form-control grey" type="text" id="search_query_block" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
-			<button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
-		</p>
+	{/if}
+	<form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox2">
+			{if {$smarty.get.controller} neq 'search'}
+			<label for="search_query_block">{l s='Search products:' mod='blocksearch'}</label>
+			{/if}
+
+		<div class="block_content clearfix">
+			<div class="conteneur">
+				<div class="result_title">
+				 <p>{l s='Nouvelle Recherche' mod='blocksearch'}</p>
+				</div>
+				<input type="hidden" name="orderby" value="position" />
+				<input type="hidden" name="controller" value="search" />
+				<input type="hidden" name="orderway" value="desc" />
+				<input class="search_query form-control grey" type="text" id="search_query_block" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
+				<button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
+			</div>
+			<hr>
+			<div class="text_page_zero_result">
+			<p>{l s='Nos conseils :' mod='blocksearch'}</p>
+					<ul>
+					<li>{l s='Vérifier l’orthographe de votre recherche' mod='blocksearch'}</li>
+					<li>{l s='Eviter les caractères spéciaux' mod='blocksearch'}</li>
+					<li>{l s='Saisissez un type de produit ou une marque' mod='blocksearch'}</li>
+					<li>{l s='Utilisez des mots simples, plus généraux' mod='blocksearch'}</li>
+					</ul>
+			</div>
+		</div>
 	</form>
 </div>
+<div class"redirect_home">
+	<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+</div>
+
 <!-- /Block search module -->
