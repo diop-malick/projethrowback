@@ -6,6 +6,7 @@ app.PageBuilderModel = new app.ULPBPage();
 
 var row = new app.Row();
 var widget = new app.ColWidget();
+//var savedPage = app.PageBuilderModel.fetch();
 app.PageBuilderModel.fetch({
     success: function() { 
       var Rows = app.PageBuilderModel.get('Rows');
@@ -14,6 +15,7 @@ app.PageBuilderModel.fetch({
       var loadWpHead = pageOptions['loadWpHead'];
       var loadWpFooter = pageOptions['loadWpFooter'];
       var pageSeoName = pageOptions['pageSeoName'];
+      var pageLink = pageOptions['pageLink'];
       var pageSeoDescription = pageOptions['pageSeoDescription'];
       var pageSeoKeywords = pageOptions['pageSeoKeywords'];
 
@@ -24,8 +26,9 @@ app.PageBuilderModel.fetch({
       var pagePaddingBottom = pagePadding['pagePaddingBottom'];
       var pagePaddingRight = pagePadding['pagePaddingRight'];
       var pagePaddingLeft = pagePadding['pagePaddingLeft'];
-
+      
     $('#title').val(pageSeoName);
+    $('#new-post-slug').val(pageLink);
     $('#title-prompt-text').html(' ');
     $('.pageSeoDescription').val(pageSeoDescription);
     $('.pageSeoKeywords').val(pageSeoKeywords);
@@ -37,7 +40,7 @@ app.PageBuilderModel.fetch({
     $('.pagePaddingRight').val(pagePaddingRight);
 
     $('.pageBgColor').parent().prev().css('background-color',pageBgColor);
-    $('#container').attr('style','background-image: url("'+pageBgImage+'"); background-size:cover;');
+    $('#container').attr('style','background-image: url("'+pageBgImage+'"); background-size:cover; background-color:'+pageBgColor+';');
       _.each( Rows, function(Row, index ) {
         app.rowList.add(Row);
       });

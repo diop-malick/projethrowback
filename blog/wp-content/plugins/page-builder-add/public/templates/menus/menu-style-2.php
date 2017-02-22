@@ -13,6 +13,10 @@
 	z-index: 999;
 	padding: 5px 0 5px 0;
 }
+.custom-logo{
+	max-width:380px;
+	max-height: 95px;
+}
 #menuWrap{
 	width: 90%;
 	display: block;

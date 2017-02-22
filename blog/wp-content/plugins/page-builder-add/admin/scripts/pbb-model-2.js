@@ -2,6 +2,8 @@
 app.ULPBPage = Backbone.Model.extend({
       defaults:{
         pageID: P_ID,
+        postType: thisPostType,
+        pageLink: '',
         pageTitle:'',
         pageStatus:'Unpublished',
         pageBuilderVersion: PageBuilder_Version,
@@ -24,7 +26,7 @@ app.ULPBPage = Backbone.Model.extend({
 app.ColWidget = Backbone.Model.extend({
       defaults:{
       	widgetType:' ',
-        widgetStyling:' /* Your Custom Styling */',
+        widgetStyling:'/* Custom CSS for widget here. */',
         widgetMtop:'',
         widgetMleft:'',
         widgetMbottom:'',
@@ -76,6 +78,24 @@ app.ColWidget = Backbone.Model.extend({
           btnBorderRadius: '10',
           btnButtonAlignment: 'Select',
         },
+        widgetSubscribeForm:{
+          pbFormID: 'ulpb_form'+Math.floor((Math.random() * 20000) + 100),
+          formLayout: 'stacked',
+          showNameField: 'block',
+          successAction:'showMessage',
+          successURL:'',
+          successMessage:'Thanks for subscribing! Please check your email for further instructions.',
+          formBtnText:'Subscribe',
+          formBtnHeight:'20',
+          formBtnWidth:'40',
+          formBtnBgColor:'#333',
+          formBtnColor:'#fff',
+          formBtnHoverBgColor:'#e3e3e3',
+          formBtnFontSize:'16',
+          formBtnBorderWidth:'1',
+          formBtnBorderColor:'#111',
+          formBtnBorderRadius:'5',
+        }
 
       },
       url: '/'

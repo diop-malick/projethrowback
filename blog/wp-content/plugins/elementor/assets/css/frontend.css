@@ -1,4 +1,4 @@
-/*! elementor - v1.2.0 - 01-02-2017 */
+/*! elementor - v1.2.3 - 14-02-2017 */
 @charset "UTF-8";
 .elementor-video-wrapper {
   position: relative;
@@ -127,7 +127,13 @@
 
 .elementor:after {
   position: absolute;
-  opacity: 0; }
+  opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
   @media (min-width: 1025px) {
     .elementor:after {
       content: 'desktop'; } }

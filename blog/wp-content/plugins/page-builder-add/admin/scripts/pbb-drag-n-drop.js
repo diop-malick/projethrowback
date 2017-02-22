@@ -1,10 +1,12 @@
 ( function( $ ) {
 
+// Column Widgets drag/drop
 $(function(){
    $('.wdt-draggable').draggable({revert: true,cursor: "move"});  
 });
 
 $('.add-widgets').click(function(){
+  //$('.edit_form').append('<div class="wdt-droppable" data-dropabble="dropable'+counter+'">Drop a widget here</div>');
 
   app.widgetList.add({
         widgetType:'wigt-WYSIWYG',
@@ -53,6 +55,7 @@ $('.add-widgets').click(function(){
     drop: function(event,ui){
       var type = ui.draggable.data('type');
       var curr_droppable = $(this).attr('data-widgetid');
+      //alert(curr_droppable);
       $('input[data-widgetType-id="'+curr_droppable+'"]').val(type);
       switch(type){
         case 'wigt-WYSIWYG': var texta = "HTML Editor"; break;
@@ -69,6 +72,7 @@ $('.add-widgets').click(function(){
 
       $('.editWidget-'+curr_droppable).trigger('click');
 
+      //console.log('input[data-widgetType-id="'+curr_droppable+'"]');
     }
    });
 

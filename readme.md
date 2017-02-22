@@ -13,36 +13,24 @@ steps to make it work !
 
 1. Cloner le repo
 
+  
+4. placer le project dans le répertorie web laragon : 
 
-4. placer le project dans le répertorie web laragon : wwww/
+laragon/wwww/thorwback16
 
+<<<<<<< HEAD
 
 5. Installer les baseS de donnée
 
-* augmenter la limite d'import de fichier sur phpmyadmin :
-/etc/php5/apache2/php.ini
+importer les fichers sql : throwbackpresta-DEV.sql et throwbackwordpress-DEV.sql
 
-Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values
-post_max_size : 50M
-
-* trooble shooting
-Fatal error: Maximum execution time of 300 seconds exceeded
-
-Pour modifier le temps limit d'éxécution de phpmyadmin, il faut aller dans :
-Phpmyadmin\libraries\config.default.php et trouver la ligne :
-
-$cfg['ExecTimeLimit'] = 300;
-
-remplaçant 300 par 1800 (ou plus) on augmente la durée maximale en seconde autoriser pour exécuter un script,  ce qui permet d'importer des fichiers beaucoup plus gros.
-
-
-* importer les fichers sql
 
 7. Accès aux webapps & outils :
 
 * boutique :
-- FO : http://localhost//throwback16/admin16
-- BO : http://http://localhost/throwback16/
+- FO : http://localhost/throwback16/admin16
+- BO : http://localhost/throwback16/
+
 - Admin : pub@prestashop.com / 0123456789
 - Client : pub@prestashop.com / aqwzsx123
 
@@ -56,14 +44,26 @@ remplaçant 300 par 1800 (ou plus) on augmente la durée maximale en seconde aut
 Troubleshooting
 ----------------
 
-if You experience some error with the conf, let me known, make a coffee for me and may be... i'll come help you :-)
-
 
 * droit acce fichier :
 
-chmod -R 777 throwback16
+exécuter laragon en mod administrateur
 
+* augmenter la limite d'import de fichier sur phpmyadmin : 
+/etc/php5/apache2/php.ini
 
+Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values 
+post_max_size : 50M
+
+    * trooble shooting
+Fatal error: Maximum execution time of 300 seconds exceeded
+
+Pour modifier le temps limit d'éxécution de phpmyadmin, il faut aller dans :
+Phpmyadmin\libraries\config.default.php et trouver la ligne :
+
+$cfg['ExecTimeLimit'] = 300;
+
+remplaçant 300 par 1800 (ou plus) on augmente la durée maximale en seconde autoriser pour exécuter un script,  ce qui permet d'importer des fichiers beaucoup plus gros.
 
 Deploy on remote SNE server
 ----------------
