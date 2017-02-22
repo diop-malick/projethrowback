@@ -17,6 +17,9 @@ class FrontController extends FrontControllerCore
         $this->addJS(_THEME_JS_DIR_.'form-validator/jquery.form-validator.js');
         $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');
         $this->addJS(_THEME_JS_DIR_.'validator.js');
+
+        $this->addjqueryPlugin('fancybox');
+
     }
 }
 ?>
