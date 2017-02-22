@@ -37,14 +37,14 @@ $(document).ready(function(){
 		e.preventDefault();
 		var ids = $(this).attr('id');
 		bootbox.confirm({
-		    message: "This is a confirm with custom button text and color! Do you like it?",
+		    message: "Êtes-vous sûre de vouloir supprimer ce produit",
 		    buttons: {
 		        confirm: {
-		            label: 'Valider',
+		            label: 'Oui',
 		            className: 'btn-success'
 		        },
 		        cancel: {
-		            label: 'Annuler',
+		            label: 'Non',
 		            className: 'btn-danger'
 		        }
 		    },

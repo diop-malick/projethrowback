@@ -24,6 +24,7 @@
 *}
 {if isset($order)}
 <div class="box box-small clearfix">
+<!--
 	{if isset($reorderingAllowed) && $reorderingAllowed}
 	<form id="submitReorder" action="{if isset($opc) && $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" class="submit">
 		<input type="hidden" value="{$order->id}" name="id_order"/>
@@ -32,6 +33,8 @@
 		<a href="#" onclick="$(this).closest('form').submit(); return false;" class="button btn btn-default button-medium pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
 	</form>
 	{/if}
+-->
+<a id="show_tab_history" style="display: none" class="button btn btn-default button-medium pull-right"><span>{l s='Voir la liste des commandes'}</span></a>
 	<p class="dark">
 		<strong>{l s='Order Reference %s - placed on' sprintf=$order->getUniqReference()} {dateFormat date=$order->date_add full=0}</strong>
 	</p>
@@ -386,6 +389,7 @@
 {/if}
 {if !$is_guest}</form>{/if}
 {assign var='carriers' value=$order->getShipping()}
+<!--
 {if $carriers|count > 0 && isset($carriers.0.carrier_name) && $carriers.0.carrier_name}
 	<table class="table table-bordered footab">
 		<thead>
@@ -412,6 +416,7 @@
 		</tbody>
 	</table>
 {/if}
+-->
 {if !$is_guest}
 	{if count($messages)}
 	<h3 class="page-heading">{l s='Messages'}</h3>

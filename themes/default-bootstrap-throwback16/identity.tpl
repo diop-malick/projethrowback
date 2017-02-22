@@ -11,7 +11,12 @@
     </span>
 {/capture}
 
+{if isset($confirmation) && $confirmation}
+        <script>window.location="{$link->getPageLink('my-account', true)}";</script>
+    {else}
 {include file="$tpl_dir./header-simple.tpl"}
+
+
 
 <div class="row my-account-selfcare">
     <div class="box">
@@ -20,6 +25,7 @@
             {l s='Your personal information'}
         </h1>
     -->
+
     <h3 class="page-subheading">{l s='Your personal information'}</h3>
         <!-- INFO text -->
 
@@ -28,12 +34,13 @@
             {include file="$tpl_dir./errors.tpl"}
 
             <!-- FIELD SUCESS -->
-            {if isset($confirmation) && $confirmation}
+            
+                <!--
                 <p class="alert alert-success">
                     {l s='Your personal information has been successfully updated.'}
                     {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
                 </p>
-            {else}
+                -->
                 <p class="info-title">
                     {l s=''}
                 </p>
@@ -65,7 +72,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="old_passwd" id="old_passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -262,9 +269,9 @@
             <div class="col-md-6 pull-left">
                 <ul class="footer_links clearfix">
                     <li>
-                        <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)}">
+                        <a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)}">
                             <span>
-                                <i class="icon-chevron-left"></i>{l s='Back to your account'}
+                                <i class="icon-chevron-left"></i> {l s='Retour'}
                             </span>
                         </a>
                     </li>

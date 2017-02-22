@@ -202,7 +202,7 @@
 											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization=0&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
 											title="{l s='Delete'}">
-											<i class="fa fa-trash-o fa-2x icone-active"></i>
+											<i class="fa fa-trash-o fa-1x icone-active"></i>
 										</a>
 									</div>
 								</div>
