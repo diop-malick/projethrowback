@@ -201,7 +201,11 @@ header .row #header_logo {
   float: left;
   margin-bottom: 5px;
 }
-
+/*
+#authentication #center_column form.std .row{
+  margin-left : none !important;
+}
+*/
 /* throwback > customize > Infos perso  */
 #identity .form-error , #account-creation_form .form-error {
     float: left !important;
@@ -210,6 +214,22 @@ header .row #header_logo {
 
  #add_address .form-error {
     float: left !important;
+}
+#uniform-days ,#uniform-years{
+  width : 100px !important;
+}
+#uniform-days span , #uniform-years span {
+  width : 70px !important;
+}
+
+#uniform-months{
+  width : 120px !important;
+}
+#uniform-months span{
+  width : 100px !important;
+}
+.select-date{
+  max-width: 300px;
 }
 
 /* throwback > customize > my Account  */
@@ -238,14 +258,23 @@ header .row #header_logo {
 }
 .size-list{
   border: 1px solid rgb(88, 89, 91);
-  border-radius: 3px;
-  padding: 5px 10px;
+  border-radius: 2px;
+  padding: 5px 15px;
   color:#000 !important;
 }
-.qv-reference,.qv-dispo{
-  color:#000 !important;
+.size-list:hover{
+  border: 1px solid rgb(214, 157, 50);
+  color: rgb(214, 157, 50) !important;
 }
-
+.qv-reference{
+  color:rgb(88, 89, 91) !important;
+  font-weight: bold;
+}
+.qv-dispo{
+  color:rgb(53, 53, 53) !important;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 /* Page produit
 ====================================  */
 
@@ -341,10 +370,14 @@ font-size: 17px;
   .commande_title{
     background: #ececeb;
     padding: 15px;
+    font-weight: bold;
   }
 
   .commande_body .total{
-    font-size: 18px;
+    font-size: 16px;
+  }
+  .total{
+    font-weight: bold;
   }
 
   .commande_body{
@@ -364,6 +397,16 @@ font-size: 17px;
   .continue_shoping{
   	font-weight: normal !important;
   }
+  .cart_quantity_delete{
+    font-size: 1.725rem;
+    color: #000;
+    border:1px solid #000;
+    padding: 0 5px;
+  }
+  .cart_quantity_delete:hover , .cart_quantity_delete:link { 
+    color: #000;
+    text-decoration: none;
+}
   #quantity_wanted_p input {
     border-style: solid;
     border-width: 1px;

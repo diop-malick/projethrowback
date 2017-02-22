@@ -8022,7 +8022,7 @@ p.cheque-indent {
     color: #777777; }
 
 #identity #center_column form.std .row,
-#authentication #center_column form.std .row,
+
 #order-opc #center_column form.std .row {
   margin-left: -5px;
   margin-right: -5px; }

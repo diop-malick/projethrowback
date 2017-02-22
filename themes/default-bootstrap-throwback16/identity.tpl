@@ -17,7 +17,7 @@
 {include file="$tpl_dir./header-simple.tpl"}
 
 
-
+<!--{$smarty.get.action}-->
 <div class="row my-account-selfcare">
     <div class="box">
     <!--
@@ -139,9 +139,9 @@
                             &nbsp;&nbsp;{l s='Date of Birth'}
                         </label>
                         <div class="col-md-8">
-                        <div class="row">
+                        <div class="row select-date">
                             <div class="col-xs-4">
-                                <select name="days" id="days" class="form-control">
+                                <select name="days" id="days" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$days item=v}
                                         <option value="{$v}" {if ($sl_day == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
@@ -163,7 +163,7 @@
                                     {l s='November'}
                                     {l s='December'}
                                 *}
-                                <select id="months" name="months" class="form-control">
+                                <select id="months" name="months" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$months key=k item=v}
                                         <option value="{$k}" {if ($sl_month == $k)}selected="selected"{/if}>{l s=$v}&nbsp;</option>
@@ -171,7 +171,7 @@
                                 </select>
                             </div>
                             <div class="col-xs-4">
-                                <select id="years" name="years" class="form-control">
+                                <select id="years" name="years" class="select_title">
                                     <option value="">-</option>
                                     {foreach from=$years item=v}
                                         <option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>

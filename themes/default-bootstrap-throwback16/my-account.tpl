@@ -84,10 +84,10 @@
 
                 <div class="myacount-block-container">
                 	<li class="col-sm-6">
-                		<a href="{$link->getPageLink('order-slip', true)|escape:'html':'UTF-8'}" title="{l s='Credit slips'}">
+                		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}">
                 			<div class="contenu">
                 				<span><i class="icon-file-o"></i></span>
-                				<span>{l s='My credit slips'}</span>
+                				<span>{l s='Newsletter'}</span>
                 			</div>
                 		</a>
                 	</li>

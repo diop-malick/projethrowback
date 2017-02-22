@@ -112,7 +112,7 @@
 							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 								<div class="row">
 									<div class="col-md-6">
-										<span class="qv-reference">{$product.reference}</span>
+										<span class="qv-reference">{$product.reference|upper}</span>
 									</div>
 									<div class="col-md-6 qv-dispo text-right">
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>

@@ -491,9 +491,9 @@
 				<div class="row form-group">
 					<label class="col-md-4 text-right">{l s='Date of Birth'}</label>
 					<div class="col-md-8">
-						<div class="row">
+						<div class="row select-date">
 							<div class="col-md-4">
-								<select id="days" name="days" class="form-control">
+								<select id="days" name="days" class="select_title">
 									<option value="">-</option>
 									{foreach from=$days item=day}
 										<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
@@ -515,7 +515,7 @@
 								*}
 							</div>
 							<div class="col-md-4">
-								<select id="months" name="months" class="form-control">
+								<select id="months" name="months" class="select_title">
 									<option value="">-</option>
 									{foreach from=$months key=k item=month}
 										<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
@@ -523,7 +523,7 @@
 								</select>
 							</div>
 							<div class="col-md-4">
-								<select id="years" name="years" class="form-control">
+								<select id="years" name="years" class="select_title">
 									<option value="">-</option>
 									{foreach from=$years item=year}
 										<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
