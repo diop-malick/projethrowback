@@ -61,7 +61,9 @@
                 </section>
                 <!-- Block Social -->
 
-        <div>   <!-- // row -->
-<div> <!-- end col-md-4 -->
+        </div>   <!-- // row -->
+        </div> <!-- end col-md-4 -->
+
+</div>
 
 <!-- <div class="clearfix"></div> -->
