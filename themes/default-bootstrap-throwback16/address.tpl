@@ -248,7 +248,7 @@
 
 <ul class="footer_links clearfix">
 	<li>
-		<a class="btn btn-defaul button button-small" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
+		<a class="btn btn-defaul button button-medium" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
 			<span><i class="icon-chevron-left"></i> {l s='Back to your addresses'}</span>
 		</a>
 	</li>
@@ -276,39 +276,6 @@
 {/if}
 {/strip}
 <script>
-	$.formUtils.addValidator({
-      name : 'check_name',
-      validatorFunction : function(value) {
-        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
-        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_num_voie',
-      validatorFunction : function(value) {
-        return ( (value.length >= 1 && value.length <= 5) && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_alpha_num',
-      validatorFunction : function(value) {
-        return ( (value.length >= 2 && value.length <= 38) && (value.toString().match(/^[A-Za-z0-9éèïçà^îù¨-ê-]+$/)))  
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_phone',
-      validatorFunction : function(value) {
-        start = value.substr(0, 2);
-		var array = ["01", "02", "03", "04", "05", "06", "07", "09"];
-		return ( value.length == 10  && (parseFloat(value) == parseInt(value)) && !isNaN(value) && array.indexOf(start) >= 0) 
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_cp',
-      validatorFunction : function(value) {
-        return ( value.length == 5  && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
-      }
-    });
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',

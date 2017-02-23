@@ -89,3 +89,4 @@ blog/wp-content/plugins/*
 
 # ignore specific themes
 # wp-content/themes/twenty*/
+log/20170223_exception.log

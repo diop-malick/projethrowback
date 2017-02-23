@@ -7,7 +7,7 @@
     margin-top: 120px;
   }
 
-#my-account .columns-container , #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal , #search .columns-container {
+#my-account .columns-container , #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
     margin-top: 160px;
   }
   /*
@@ -15,11 +15,11 @@
     margin-top: 200px;
   }
   */
-/*
-  #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal {
-    margin-top: 160px;
+
+   #order .columns-container , #order .modal {
+    margin-top: 200px;
   }
-*/
+
   /*    */
   /*
   #search .columns-container{
@@ -268,6 +268,9 @@ header .row #header_logo {
 }
 .myacount-block-container .contenu {
   margin-top: 75px;
+}
+.grise{
+  color: #777777;
 }
 
 /* Page Liste

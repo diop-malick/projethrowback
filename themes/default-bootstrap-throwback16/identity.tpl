@@ -52,7 +52,7 @@
         <!-- <div class="container"> -->
         <div class="row vertical-center ">
             <div class="col-md-4 text-center">
-                <h4>{l s='Vos Information de connexion'}</h4>
+                <h4  {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 ">               
                     <div class="row form-group">
@@ -60,7 +60,7 @@
                                 {l s='E-mail address'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" {/if}
+                                <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" {/if}
                                  type="email" name="email" id="email" value="{$smarty.post.email}"  />  
                             </div>
                     </div>
@@ -78,7 +78,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                                 <input class="col-md-8 is_required validate form-control" type="password" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
+                                 <input class="col-md-8 is_required validate form-control" type="password" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -86,7 +86,7 @@
                                 {l s='Confirmation'}
                             </label>
                             <div class="col-md-8">
-                                <input class="col-md-8 is_required validate form-control" type="password" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
+                                <input class="col-md-8 is_required validate form-control" type="password" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
                             </div>
                     </div>
                 
@@ -98,7 +98,7 @@
 
         <div class="row vertical-center">
             <div class="col-md-4 text-center">
-                <h4>{l s='Votre identité'}</h4>
+                <h4 {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} class="grise" {/if}>{l s='Votre identité'}</h4>
             </div>
             <div class="col-md-8">
             <!-- <div class="row"> -->
@@ -119,7 +119,7 @@
                             {l s='First name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" {/if} name="firstname" value="{$smarty.post.firstname}" />
+                        <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" {/if} name="firstname" value="{$smarty.post.firstname}" />
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
                             {l s='Last name'}
                         </label>
                         <div class="col-md-8">
-                        <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" {/if} type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+                        <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" {/if} type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
                         </div>
                     </div>
 
@@ -297,19 +297,7 @@
 
 
 <script>
-    $.formUtils.addValidator({
-      name : 'check_password',
-      validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_name',
-      validatorFunction : function(value) {
-        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
-        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
-      }
-    });
+    
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',
