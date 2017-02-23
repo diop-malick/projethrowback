@@ -50,6 +50,9 @@ themes/*/cache/*.css
 
 modules/*/config*.xml
 
+modules/hipay_professional/*
+modules/mailalerts/*
+
 
 # Site content
 # The following folders contain product images, virtual products, CSV's, etc.
@@ -90,3 +93,7 @@ blog/wp-content/plugins/*
 
 # ignore specific themes
 # wp-content/themes/twenty*/
+<<<<<<< HEAD
+log/20170223_exception.log
+=======
+>>>>>>> c7ded1bafbc9bf68e19436dc56dc264263bf2d6b

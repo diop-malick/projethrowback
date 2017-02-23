@@ -251,7 +251,7 @@
 						<div class="col-md-12">	
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
-									<span class="text_valid_commande">{l s='Valider mon panier'}<i class="icon-chevron-right right"></i></span>
+									<span class="text_valid_commande">{l s='Valider mon panier'} <i class="icon-chevron-right right"></i></span>
 								</a>
 							{/if}
 						</div>

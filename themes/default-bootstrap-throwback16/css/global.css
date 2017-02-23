@@ -5855,7 +5855,7 @@ label {
 .checkbox {
   line-height: 16px; }
   .checkbox label {
-    color: #777777; }
+    /*color: #777777;*/ color: #000;}
 
 .close {
   opacity: 1; }

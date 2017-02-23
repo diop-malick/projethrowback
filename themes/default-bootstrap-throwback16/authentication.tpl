@@ -749,19 +749,7 @@
 {/strip}
 
 <script>
-	$.formUtils.addValidator({
-      name : 'check_password',
-      validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_name',
-      validatorFunction : function(value) {
-        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
-        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
-      }
-    });
+	
 	$.validate({
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
@@ -778,7 +766,7 @@
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
 			form : '#account-creation_form'
-	});
+	})
 
 	$('input[name=email_create]').on('input blur', function() { 
 		if($(".be-customer .has-success").length == 1)

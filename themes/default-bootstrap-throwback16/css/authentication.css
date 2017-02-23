@@ -22,7 +22,8 @@
       #login_form .form-group.lost_password a {
         text-decoration: underline; }
         #login_form .form-group.lost_password a:hover {
-          text-decoration: none; }
+          text-decoration: none;
+          color : #FF0000; }
 
 #login_form .form-control, #create-account_form .form-control {
   max-width: 271px; }

@@ -93,12 +93,14 @@ function showOrder(mode, var_content, file)
 					return sendOrderMessage();
 			});
 				$("#order-list").hide();
+				$("#my-details").show();
 				$("#show_tab_history").show();
 				var context = $(this);
 				$(this).fadeIn('slow', function() {
 				//$.scrollTo(this, 1200);
 			});
 			 $( "#show_tab_history" ).on( "click", function(e) {
+			 		$("#my-details").hide();
 			 		$("#order-list").show();
 			 		$(this).hide();
 			 		context.hide();
