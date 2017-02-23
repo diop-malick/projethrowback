@@ -137,3 +137,19 @@ url : https://merchant.hipaywallet.com/api/tools/captcha
 ---- >> function insertConfigHiPay
 ## 2017-02-23 13:00:39 ##
 ---- >> function setAllConfigHiPay
+## 2017-02-23 16:52:50 ##
+##########################
+## 2017-02-23 16:52:50 ##
+---- START function getContent
+## 2017-02-23 16:52:50 ##
+---- >> function postProcess
+## 2017-02-23 16:52:50 ##
+---- >> default action
+## 2017-02-23 16:52:50 ##
+---- >> function majConfigurationByApi
+## 2017-02-23 16:52:50 ##
+url : https://merchant.hipaywallet.com/api/tools/captcha
+## 2017-02-23 16:52:53 ##
+---- END function getContent
+## 2017-02-23 16:52:53 ##
+##########################
