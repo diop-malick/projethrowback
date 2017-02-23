@@ -574,6 +574,8 @@
             </div>
 		</div>
 
+		<!-- Autoriser de l'adresse au moment de la création de compte  -->
+		<!-- Option a activer dans préférence client -->
 		{if isset($PS_REGISTRATION_PROCESS_TYPE) && $PS_REGISTRATION_PROCESS_TYPE}
 			<div class="account_creation">
 				<h3 class="page-subheading">{l s='Your address'}</h3>
@@ -690,7 +692,11 @@
 				</p>
 			</div>
 		{/if}
+
+
 		{$HOOK_CREATE_ACCOUNT_FORM}
+
+		
 		<div class="submit clearfix">
 			<input type="hidden" name="email_create" value="1" />
 			<input type="hidden" name="is_new_customer" value="1" />
