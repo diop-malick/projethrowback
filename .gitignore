@@ -80,7 +80,7 @@ blog/wp-content/plugins/*
 # blog/wp-content/upgrade/**
 
 # blog image
-# src/public/blog/wp-content/uploads/**
+# blog/wp-content/uploads/**
 
 # blog/wp-content/wp-cache-config.php
 # blog/wp-content/plugins/hello.php
@@ -92,7 +92,3 @@ blog/wp-content/plugins/*
 
 # ignore specific themes
 # wp-content/themes/twenty*/
-<<<<<<< HEAD
-log/20170223_exception.log
-=======
->>>>>>> c7ded1bafbc9bf68e19436dc56dc264263bf2d6b
