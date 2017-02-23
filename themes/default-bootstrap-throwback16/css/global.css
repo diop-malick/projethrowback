@@ -7268,8 +7268,11 @@ div.star a:hover {
 		  
     .footer-container #footer a {
       color: #777777; }
+      
       .footer-container #footer a:hover {
-        color: #fff; }
+        color: #fff; 
+      }
+
     .footer-container #footer h4 {
       font: 600 18px/22px "Open Sans", sans-serif;
       color: #fff;

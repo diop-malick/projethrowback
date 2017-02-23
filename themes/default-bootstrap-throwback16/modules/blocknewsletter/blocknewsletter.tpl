@@ -6,26 +6,25 @@
 
 <!-- Block Newsletter module-->
 <div style="display:none">
-	<div id="mc_embed_signup" class=" block inline">
-		<form id="mc-embedded-subscribe-form">
-			<div class="news-footer">
-						<i class="fa fa-envelope fa-3x"></i>
-						<input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" value="" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
-						<!-- <span class="glyphicon glyphicon-remove-circle"></span> -->
-						<!-- <input type="submit" value="OK" class="btn button-default" name="submitNewsletter" /> -->
-						<br>
-						<span class="response" id="mce-error-response" style="display:none"></span>
-						<span class="response" id="mce-success-response" style="display:none"></span>
-						<br>
-							<!-- <input type="hidden" name="action" value="0"/> -->
-							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-					    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-					    	<input type="text" name="b_d56def1fdca3f61da060d5d2a_2eca580371" tabindex="-1" value="">
-					    </div>
-					    <div class="clear">
-					    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-			</div>
-		</form>					
+	<div id="mc_embed_signup" class="row">
+    		<div class="thumbnail center well well-lg text-center">
+    		<div id="mc_embed_signup_header">
+                <h2>Newsletter</h2>               
+                <p>Abonnez vous à notre newletter </p>
+            </div>    
+                <form id="mc-embedded-subscribe-form">
+                    <div class="input-prepend">
+                    <!-- <span class="add-on"><i class="icon-envelope"></i></span> -->
+                        <input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" value="" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
+                    </div>
+                    <br />
+					<div class="text-center">
+						<span class="response" id="mce-error-response" style="display:none; color:red;"></span>
+						<span class="response" id="mce-success-response" style="display:none; color:green;"></span>
+					</div>
+                    <input type="submit" value="S'inscrire" class="btn btn-large btn-default button-medium" />
+              </form>
+            </div>    
 	</div>
 </div>
 <!-- Block Newsletter module-->
@@ -41,7 +40,7 @@
              'autoResize'        : 'false',
              'autoSize'          : 'false',
              'autoWidth '        : 'false',
-             'minWidth'          : 350,
+             'minWidth'          : 395,
              'minHeight': 150,
             // 'type': 'iframe',
             // 'width': 250,
