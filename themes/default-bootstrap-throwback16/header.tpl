@@ -63,7 +63,7 @@
 
 		<!-- Header simplified -->
 		<!-- Hide in myaccount  -->
-		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
+		{if {$smarty.get.controller} eq 'authentication'}
 		<!-- TODO -->
 		{else}
 		<!-- Header complete -->

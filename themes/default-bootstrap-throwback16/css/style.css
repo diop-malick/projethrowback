@@ -7,22 +7,25 @@
     margin-top: 120px;
   }
 
-#my-account .columns-container{
+#my-account .columns-container , #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal , #search .columns-container {
     margin-top: 160px;
   }
+  /*
 #address .columns-container{
     margin-top: 200px;
   }
-
+  */
+/*
   #addresses .columns-container , #history .columns-container , #order .columns-container , #order .modal {
-    margin-top: 200px;
+    margin-top: 160px;
   }
-
+*/
   /*    */
+  /*
   #search .columns-container{
    margin-top: 160px;
  }
-
+*/
 #identity , #authentication ,#history{
   color:#000 !important;
 }
@@ -259,6 +262,9 @@ header .row #header_logo {
 /* throwback > customize > my Account  */
 .my-account-selfcare{
   color: #000;
+}
+.new-adress{
+  margin-top: 30px;
 }
 .myacount-block-container .contenu {
   margin-top: 75px;

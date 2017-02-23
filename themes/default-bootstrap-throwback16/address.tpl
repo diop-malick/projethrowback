@@ -1,7 +1,7 @@
 
 {capture name=path}{l s='Your addresses'}{/capture}
 
-<div class="my-account-selfcare">
+<div class="my-account-selfcare new-adress">
 <div class="box">
 	<h3 class="page-subheading">{l s='Ajouter une adresse'}</h3>
 	<div class="text-center">
