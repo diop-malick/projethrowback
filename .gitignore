@@ -42,6 +42,7 @@ config/xml/*
 #config/xml/*.xml
 
 
+log/*
 
 themes/*/cache/*.js
 themes/*/cache/*.css
@@ -89,4 +90,7 @@ blog/wp-content/plugins/*
 
 # ignore specific themes
 # wp-content/themes/twenty*/
+<<<<<<< HEAD
 log/20170223_exception.log
+=======
+>>>>>>> c7ded1bafbc9bf68e19436dc56dc264263bf2d6b

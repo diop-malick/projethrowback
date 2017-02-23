@@ -18,7 +18,6 @@ steps to make it work !
 
 laragon/wwww/thorwback16
 
-<<<<<<< HEAD
 
 5. Installer les baseS de donnée
 
@@ -28,8 +27,8 @@ importer les fichers sql : throwbackpresta-DEV.sql et throwbackwordpress-DEV.sql
 7. Accès aux webapps & outils :
 
 * boutique :
-- FO : http://localhost/throwback16/admin16
-- BO : http://localhost/throwback16/
+- BO : http://localhost/throwback16/admin16
+- FO : http://localhost/throwback16/
 
 - Admin : pub@prestashop.com / 0123456789
 - Client : pub@prestashop.com / aqwzsx123

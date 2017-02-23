@@ -13,12 +13,182 @@
 	<atom:link href="http://www.prestashop.com/blog/fr/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/fr</link>
 	<description></description>
-	<lastBuildDate>Wed, 15 Feb 2017 18:02:22 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 23 Feb 2017 11:58:18 +0000</lastBuildDate>
 	<language>fr-FR</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>Comment proposer des abonnements sur votre boutique PrestaShop</title>
+		<link>https://www.prestashop.com/blog/fr/comment-proposer-abonnements-boutique-prestashop/</link>
+		<comments>https://www.prestashop.com/blog/fr/comment-proposer-abonnements-boutique-prestashop/#comments</comments>
+		<pubDate>Wed, 22 Feb 2017 14:38:18 +0000</pubDate>
+		<dc:creator><![CDATA[Cécile Dubouis]]></dc:creator>
+				<category><![CDATA[Conseils E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21221</guid>
+		<description><![CDATA[<p>La stratégie d&#8217;abonnements devrait faire partie de la roadmap des e-commerçants. Les abonnements peuvent porter sur des produits physiques, des produits virtuels, sur la livraison des produits (livraison “Premium”) et également sur des services. Proposer à vos clients des abonnements ou des box de vos produits vous permet d’augmenter vos revenus mensuels et de fidéliser [...]</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-proposer-abonnements-boutique-prestashop/">Comment proposer des abonnements sur votre boutique PrestaShop</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>La stratégie d&rsquo;abonnements devrait faire partie de la roadmap des e-commerçants. Les abonnements peuvent porter sur des produits physiques, des produits virtuels, sur la livraison des produits (livraison “Premium”) et également sur des services.</p>
+<p>Proposer à vos clients des abonnements ou des box de vos produits vous permet d’augmenter vos revenus mensuels et de fidéliser vos clients.</p>
+<p>Découvrez comment proposer différents abonnements à vos produits et également des abonnements à la livraison (“livraison Premium”) sur votre boutique PrestaShop.</p>
+<p><span id="more-21221"></span></p>
+<h2 style="color: #1e4848">Les avantages des différents abonnements</h2>
+<p>Pour l’e-commerçant, les abonnements sont un moyen facile pour s’<b>assurer un chiffre d’affaires récurrent chaque mois, sans dépendre de l’acquisition de nouveaux clients</b>. Et ces revenus sont rapidement exponentiels ! C’est l’un des moyens les plus sûrs d’arriver rapidement à l’objectif de chiffre d’affaires fixé et de prévoir facilement d’un mois à l’autre le revenu qui sera généré.<br />
+C’est un moyen simple pour<b> fidéliser vos clients</b>, mais aussi pour <b>faciliter la gestion de vos stocks et augmenter le taux de conversion de votre boutique</b>.</p>
+<p>En fonction des produits que vous vendez et également en fonction des attentes de vos visiteurs, vous pouvez proposer différents types d’abonnement.</p>
+<h2 style="color: #1e4848">Les “box”</h2>
+<p>Il existe une multitude de sites de box ! Toujours en vogue, les box se déclinent pour les produits de beauté, bébé, le vin, les fleurs (telle que les boutiques <a href="http://www.blooms.fr/" target="_blank">Blooms</a> et <a href="http://www.tiniloo.com/" target="_blank">Tiniloo</a> sous PrestaShop), la déco, les bijoux, les paniers gourmands, les objets geeks…</p>
+<p>Les inscrits attendent impatiemment chaque mois (ou à la fréquence souhaitée) le “cadeau” auquel ils se sont inscrits. La magie de la box réside dans le fait que les inscrits ne savent pas exactement ce que contiendra leur box cette fois-ci… Cet effet de “surprise” fait de l’abonnement &#8211; pour lequel ils sont prélevés &#8211; un véritable cadeau.<br />
+Vous pouvez proposer certains produits en box, et d’autres à l’achat classique. Vous pouvez également proposer uniquement des box (de différentes tailles et prix) ou même… une seule box pour faciliter encore la préparation de vos expéditions !</p>
+<h3 style="color: #1e4848">Avantages pour l’e-commerçant : </h3>
+<ul>
+<li>revenus récurrents</li>
+<li>stocks gérables très facilement</li>
+<li>prévision simplifiée du chiffre d’affaires à venir</li>
+<li>fidélisation des clients</li>
+<li>commandes identiques à préparer</li>
+</ul>
+<h3 style="color: #1e4848">Avantages pour le client : </h3>
+<ul>
+<li>un seul processus d’achat, une surprise reçue tous les mois (ou autre rythme)</li>
+<li>création d’un lien touchant à l’affect avec votre boutique, les clients considérant la box comme un réel “cadeau” (et oubliant presque qu’ils payent chaque mois pour cela).</li>
+</ul>
+<h3 style="color: #1e4848">Fonctionnalité nécessaire pour le site : </h3>
+<ul>
+<li><a href="https://addons.prestashop.com/fr/529-vendre-par-abonnement-box" target="_blank">un module d’abonnement avec paiement récurrent</a> à choisir dans la sélection proposée.</li>
+</ul>
+<h2 style="color: #1e4848">Les abonnements à des produits physiques :</h2>
+<p>Les plus grands sites e-commerce le proposent, et les internautes en raffolent ! Présentés avec une offre commerciale (<i>“économisez 10% en vous abonnant”</i>), ils augmentent rapidement leur taux de conversion.<br />
+Amazon Dash button permet à ses clients de ne jamais être à court de leurs produits du quotidien. Vous pouvez proposer la même chose à vos clients en leur permettant de souscrire à un produit avec abonnement. Les jeunes parents sont ravis de recevoir, à la fréquence souhaitée, le paquet de couches pour leur enfant, sans avoir à sortir et avant même de se retrouver en rupture de stock. Cela se décline pour tout, et même en B2B !<br />
+Vous pouvez proposer des abonnements sur l’ensemble de votre catalogue ou seulement sur certains produits.</p>
+<p>Exemple avec <a href="https://www.abonnement-cafe.com/abonnement-capsule-nespresso/16-100-capsules-ristretto-nespresso-compatible-8058454036092.html" target="_blank">abonnement-café</a> qui propose à ses clients de recevoir chaque mois des capsules de café à prix incitatif :</p>
+<p><img class="aligncenter size-large wp-image-21223" alt="Les abonnements à des produits physiques : " src="https://www.prestashop.com/blog/fr/files/2017/02/screen-2-1024x534.png" width="700" height="365" /></p>
+<h3 style="color: #1e4848">Avantages pour l’e-commerçant : </h3>
+<ul>
+<li>revenus récurrents</li>
+<li>stocks gérables facilement</li>
+<li>fidélisation des clients</li>
+<li>augmentation du taux de conversion</li>
+</ul>
+<h3 style="color: #1e4848">Avantages pour le client : </h3>
+<ul>
+<li>facilite le quotidien en leur faisant gagner du temps, en recevant ce produit à domicile au moment où ils en ont besoin, en leur évitant le stress d’être en rupture</li>
+<li>un seul processus d’achat</li>
+<li>satisfaction d’économiser (soit sur le prix total soit sur la livraison) en s’abonnant plutôt qu’en rachetant régulièrement le même produit à prix fort, avec les frais de port.</li>
+</ul>
+<h3 style="color: #1e4848">Fonctionnalité nécessaire pour le site : </h3>
+<ul>
+<li><a href="https://addons.prestashop.com/fr/529-vendre-par-abonnement-box">un module d’abonnement avec paiement récurrent</a> à choisir dans la sélection proposée.</li>
+</ul>
+<h2>Les abonnements à des services et produits virtuels :</h2>
+<p>Aide à domicile, massage, théâtre… les abonnements se déclinent également sur les services, et bien évidemment sur les produits virtuels : MOOC (formations en ligne), contenu, vidéo, musique…<br />
+Exemple : <a href="https://shop.quotidiano.net/">Shop Quotidiano.net</a> en Italie qui permet l’abonnement à des journaux en ligne</p>
+<p><img class="aligncenter size-large wp-image-21224" alt="Les abonnements à des services et produits virtuels : " src="https://www.prestashop.com/blog/fr/files/2017/02/screen-3-1024x629.png" width="700" height="429" /></p>
+<p><b>Avantages pour l’e-commerçant : </b></p>
+<ul>
+<li>revenus récurrents</li>
+<li>prévision simplifiée du chiffre d’affaires à venir</li>
+<li>fidélisation des clients</li>
+</ul>
+<h3 style="color: #1e4848">Avantages pour le client : </h3>
+<ul>
+<li>un seul processus d’achat</li>
+<li>l’accès facilité et privilégié à des produits dont seuls les abonnés peuvent profiter</li>
+</ul>
+<h3 style="color: #1e4848">Fonctionnalité nécessaire pour le site : </h3>
+<ul>
+<li><a href="https://addons.prestashop.com/fr/529-vendre-par-abonnement-box" target="_blank">un module d’abonnement avec paiement récurrent</a> à choisir dans la sélection proposée.</li>
+</ul>
+<h2 style="color: #1e4848">Les abonnements la livraison (Livraison Premium) :</h2>
+<p>Les frais de livraison causent près de 50% des abandons de paniers, et en revanche, la rentabilité est en forte baisse si vous proposez les frais de port gratuits… On a la solution ! Vous pouvez dès maintenant proposer à vos clients un <b>abonnement Premium à la livraison</b>, comme le font Amazon et les plus grands sites e-commerce.</p>
+<p>Vos clients paient leur abonnement à la livraison puis profitent de frais d&rsquo;expédition gratuits ou à prix très avantageux pendant toute la durée de validité de leur abonnement Premium.</p>
+<h3 style="color: #1e4848">Avantages pour l’e-commerçant : </h3>
+<ul>
+<li>fidélisation des clients</li>
+<li>augmentation du taux de conversion</li>
+<li>réduction des paniers abandonnés</li>
+</ul>
+<h3 style="color: #1e4848">Avantages pour le client : </h3>
+<ul>
+<li>satisfaction “d’économiser” les frais de livraison lors de chaque commande, et d’être livré en priorité.</li>
+<li>incitation à revenir sur le site sur lequel il s’est abonné à la livraison</li>
+</ul>
+<h3 style="color: #1e4848">Fonctionnalité nécessaire pour le site : </h3>
+<ul>
+<li><a href="https://addons.prestashop.com/fr/frais-de-port/24876-tarif-forfaitaire-des-frais-d-expedition-premium.html" target="_blank">un module d’abonnement Premium à la livraison</a></li>
+</ul>
+<h2 style="color: #1e4848">Last but not least</h2>
+<p>Dernière chose, lorsque vous mettez en place un abonnement sur votre boutique, pensez bien à :</p>
+<ul>
+<li>mettre à jour vos CGV (conditions générales de vente)</li>
+<li>vérifier que le client peut facilement se désabonner, et lui indiquer clairement dans la communication établie autour des abonnements “désabonnement en un clic”, “vous pouvez suspendre votre abonnement à tout moment”&#8230;</li>
+</ul>
+<p>Cela le rassurera de le lire et augmentera le taux de conversion de vos abonnements.</p>
+<p>Bonnes ventes !</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/comment-proposer-abonnements-boutique-prestashop/">Comment proposer des abonnements sur votre boutique PrestaShop</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/fr/comment-proposer-abonnements-boutique-prestashop/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Frais de port offerts : quelle stratégie adopter ?</title>
+		<link>https://www.prestashop.com/blog/fr/frais-port-offerts-quelle-strategie-adopter/</link>
+		<comments>https://www.prestashop.com/blog/fr/frais-port-offerts-quelle-strategie-adopter/#comments</comments>
+		<pubDate>Wed, 22 Feb 2017 09:05:54 +0000</pubDate>
+		<dc:creator><![CDATA[Les amis de Preston]]></dc:creator>
+				<category><![CDATA[Conseils E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21209</guid>
+		<description><![CDATA[<p>Par Boxtal Les frais de port offerts sont une excellente manière d’acquérir mais également de fidéliser de nouveaux clients. Les grandes enseignes e-commerce comme Amazon ou Cdiscount peuvent se permettre de les offrir sans condition. Cependant, tout le monde ne s’appelle pas comme ces deux géants… Alors quelle stratégie adopter ? Ce qu&#8217;il faut savoir avant de vous lancer [...]</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/frais-port-offerts-quelle-strategie-adopter/">Frais de port offerts : quelle stratégie adopter ?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p><a title="Boxtal module PresaShop" href="https://addons.prestashop.com/fr/transporteurs/1755-expeditions-envoimoinscher-relais-domicile-express.html">Par Boxtal</a></p>
+<p>Les frais de port offerts sont <b>une excellente manière d’acquérir</b> mais également de<b> fidéliser de nouveaux clients</b>. Les grandes enseignes e-commerce comme Amazon ou Cdiscount peuvent se permettre de les offrir sans condition. Cependant, tout le monde ne s’appelle pas comme ces deux géants… <b>Alors quelle stratégie adopter ?</b></p>
+<p><span id="more-21209"></span></p>
+<h2><span style="color: #25b9d7">Ce qu&rsquo;il faut savoir avant de vous lancer dans une stratégie de frais de port offerts</span></h2>
+<p>Avant de vous lancer dans une stratégie de frais de port offerts, vous devez d’abord <b>savoir comment se construisent les frais d’expédition</b>. Pour cela, quatre choses sont à prendre en compte :</p>
+<ul>
+<li>Le temps de préparation de la commande</li>
+<li>Le coût de l’emballage</li>
+<li>Le coût du transport</li>
+<li>Les potentiels frais de retour</li>
+</ul>
+<p>Sachez dans un deuxième temps que<b> les frais de port peuvent être un véritable frein à l’achat</b> ! C’est le cas pour 55%(1) des internautes. Pire encore, 44%(2) ne valident pas leur commande à cause de frais d’expédition trop élevés.</p>
+<p>Les <b>frais de port offerts sont un véritable investissement</b>. Comme tout investissement, il faut avoir les moyens de le réaliser. Si votre e-commerce en est à ses débuts, commencez par facturer les frais de port au tarif réel. Rien de plus simple avec le <a href="https://addons.prestashop.com/fr/transporteurs/1755-expeditions-envoimoinscher-relais-domicile-express.html">module Boxtal</a> qui calcule le tarif réel de la livraison par défaut.</p>
+<p>Vous verrez ainsi <b>comment se construit votre chiffres d’affaires</b> : panier moyen, nombre de produits par panier, produits les plus vendus.</p>
+<p>Ensuite, vous pourrez commencer à tester l’impact de la livraison gratuite en définissant la meilleure stratégie pour votre enseigne.</p>
+<h2><span style="color: #25b9d7">4 stratégies de frais de port offerts qui ont déjà fait leurs preuves</span></h2>
+<ul>
+<li>Offrez-les à <b>la prochaine commande</b> : une manière de fidéliser votre client et de le pousser à revenir sur votre boutique. 90%(3) des acheteurs déclarent que les frais de port offerts sont un critère majeur de réachat.</li>
+<li>Offrez-les à partir d’<b>un minimum d’achat</b> : le saviez-vous ? 43%(4) des acheteurs ajoutent un article à leur panier pour ne pas avoir de frais de port. C’est l’occasion d’augmenter votre panier moyen avec cette stratégie.</li>
+<li>Offrez-les sur <b>une période donnée</b> : un moyen pour attirer et acquérir de nouveaux clients.</li>
+<li>Offrez-les sur<b> un produit</b> : une bonne façon pour écouler un stock.</li>
+</ul>
+<h3></h3>
+<p>Une fois votre stratégie établie, <b>communiquez</b> sur cette dernière ! <b>Les frais de port offerts apportent une véritable plus-value</b> et sont un <b>argument concurrentiel</b> de taille, alors faites le savoir.</p>
+<p><strong> Auteur :</strong> Julien Callaou, expert livraison et plume de Boxtal</p>
+<p>&nbsp;</p>
+<h3><span style="color: #25b9d7">À propos de Boxtal</span></h3>
+<p><a href="https://www.prestashop.com/blog/fr/files/2017/02/400_carré.png"><img class="alignnone  wp-image-21210" alt="400_carré" src="https://www.prestashop.com/blog/fr/files/2017/02/400_carré.png" width="168" height="168" /></a></p>
+<ul>
+<li>Avec plus de 60 000 clients professionnels dont 5 000 e-commerçants, Boxtal (anciennement EnvoiMoinsCher.com) est le numéro 1 de la livraison de colis multi-transporteurs.</li>
+<li>Grâce au module Boxtal, vous bénéficiez de tarifs négociés jusqu’à -75% chez les meilleurs transporteurs (Mondial Relay, Relais Colis, Colissimo, Chronopost, TNT, DHL…) sans contrat à signer, ni obligation de volume. La livraison devient simple : vous générez vos bordereaux d’expédition en 1 clic et suivez vos expéditions depuis votre back-office Prestashop.</li>
+</ul>
+<p><a href="http://ecommerce.envoimoinscher.com/contact-blogprestashop)">En savoir plus</a></p>
+<p><strong><em>Sources : </em></strong></p>
+<p>1 : Sondage Ifop-Generix : “Les Français et la livraison des achats sur Internet”, 2012</p>
+<p>2 : Forrester Research 2013</p>
+<p>3 : Étude européenne “L’e-commerce et la livraison”, 2013</p>
+<p>4: Étude UPS / Com Score “Pulse of the Online Shopper”, 2013</p>
+<p>&nbsp;</p>
+<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/frais-port-offerts-quelle-strategie-adopter/">Frais de port offerts : quelle stratégie adopter ?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/fr/frais-port-offerts-quelle-strategie-adopter/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Comment booster le trafic de votre site Ecommerce grâce au contenu</title>
 		<link>https://www.prestashop.com/blog/fr/comment-booster-trafic-site-ecommerce-grace-au-contenu/</link>
 		<comments>https://www.prestashop.com/blog/fr/comment-booster-trafic-site-ecommerce-grace-au-contenu/#comments</comments>
@@ -318,95 +488,6 @@ Directement synchronisé avec vos clients PrestaShop, vous pourrez facilement se
 <p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/les-notifications-sms-prestashop-booster-vos-ventes/">Les notifications SMS PrestaShop  pour booster vos ventes</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/fr/les-notifications-sms-prestashop-booster-vos-ventes/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Pourquoi le service client est (encore) plus important pour le e-commerce</title>
-		<link>https://www.prestashop.com/blog/fr/service-client-encore-important-e-commerce/</link>
-		<comments>https://www.prestashop.com/blog/fr/service-client-encore-important-e-commerce/#comments</comments>
-		<pubDate>Thu, 26 Jan 2017 08:00:30 +0000</pubDate>
-		<dc:creator><![CDATA[Eva Lacalle]]></dc:creator>
-				<category><![CDATA[Conseils E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21080</guid>
-		<description><![CDATA[<p>Le service client est l’un des services clés des ventes, quel que soit le type de canal. Dans le monde numérique, il est encore plus important, car il vous permet de vendre vos produits et de fidéliser les utilisateurs. Selon les dernières études, jusqu’à 65 % des clients ont déjà abandonné leur panier d’achat car [...]</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/service-client-encore-important-e-commerce/">Pourquoi le service client est (encore) plus important pour le e-commerce</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Le service client est l’un des <strong>services clés des ventes</strong>, quel que soit le type de canal. Dans le monde numérique, il est encore plus important, car il vous permet de <strong>vendre vos produits et de fidéliser les utilisateurs</strong>. Selon les dernières études, jusqu’à 65 % des clients ont déjà abandonné leur panier d’achat car leurs doutes n’avaient pas été dissipés.</p>
-<p>Voilà l’un des obstacles auxquels le commerce électronique a toujours dû faire face : contrairement au commerce traditionnel, il n’y a personne pour répondre aux doutes des clients pendant le processus d’achat. Cependant, si l’on tient compte du <strong>nombre d’abandons de paniers</strong> et du fait <strong>qu’une grande majorité d’utilisateurs serait disposée à dépenser plus dans une boutique en ligne</strong> si elle bénéficiait d’un service client de qualité, on se rend compte que le service client mérite toute notre attention. <span id="more-21080"></span></p>
-<h2 style="color: #23135a;"><strong>Quel est l’état du service client aujourd’hui ?</strong></h2>
-<p>Information pendant le processus d’achat, résolution de problèmes et service après-vente sont des aspects essentiels du service client. Les techniques les plus utilisées par les boutiques en ligne sont :</p>
-<ul>
-<li><strong>Les e-mails ou formulaires de contact</strong>, pour neuf entreprises sur dix.</li>
-<li><strong>L’assistance téléphonique</strong>, pour plus de 80 % des entreprises.</li>
-<li>Une rubrique consacrée aux questions fréquentes (<strong>FAQ</strong>), pour deux tiers des boutiques, bien qu’il s’agisse d’une option plus utilisée que l’assistance téléphonique en Espagne.</li>
-<li><strong>Le chat</strong>, pour deux boutiques en ligne sur dix.</li>
-<li><strong>Les forums</strong>, qui sont anecdotiques dans certains pays, mais qui constituent l’une des options préférées pour les boutiques en ligne dans notre pays.</li>
-</ul>
-<h2 style="color: #23135a;"><strong>Pourquoi le service client est-il si important ?</strong></h2>
-<p>Il n’existe pas de seconde chance pour faire une première impression. C’est d’autant plus vrai sur Internet, <strong>car les clients retiendront davantage une expérience négative</strong>, ce qui entraîne des pertes considérables.</p>
-<p>Et ce n’est pas tout. Une fois que le client a vécu une mauvaise expérience, on estime que dix à douze expériences positives sont nécessaires pour lui faire oublier cette mauvaise impression. <strong>Des opportunités que tous les utilisateurs ne sont pas prêts à offrir</strong>.</p>
-<p>En outre, <strong>il est rare qu’un client revienne dans votre boutique en ligne après une mauvaise expérience</strong>. C’est encore plus vrai si vous travaillez dans le luxe, car le client exige un service personnalisé.</p>
-<h2 style="color: #23135a;"><strong>Et après une mauvaise expérience ?</strong></h2>
-<p>Que se passe-t-il si nous avons déjà commis une erreur ? Devons-nous considérer que nous avons perdu l’acheteur ? En premier lieu, ne minimisez jamais l’importance d’une mauvaise expérience.</p>
-<p>La première chose à faire est <strong>de comprendre le problème qu’a eu l’utilisateur</strong>. Vous pouvez automatiser certaines tâches dans votre boutique en ligne, mais d’autres, comme celle-ci, doivent être personnalisées, car vous devez vous adapter à chaque problème. Peu importe que le client ait besoin de plus d’informations sur un produit ou qu’il ait rencontré un problème lors du processus de livraison.</p>
-<p>Autre aspect à prendre en compte : <strong>la rapidité de la réponse</strong>. Si un client a un doute, vous devez prendre contact avec lui le plus rapidement possible pour qu’il se sente écouté. Si vous avez opté pour les e-mails ou les formulaires de contact, répondez rapidement et, si vous le pouvez, proposez d’autres canaux pour apporter une réponse immédiate, comme le téléphone ou le chat.</p>
-<p>Enfin, selon l’erreur, étudiez les <strong>éventuelles indemnisations pour la mauvaise expérience vécue</strong>. La plupart des gens sont conscients que des erreurs peuvent se produire, mais si vous agissez rapidement et que l’utilisateur se sent écouté et reçoit une indemnisation, il sera plus facile de lui faire oublier sa mauvaise expérience.</p>
-<p>Nous vous conseillons également de réaliser <strong>un suivi du problème</strong> pour vérifier que le client est satisfait après l’incident. Cela vous permettra non seulement de savoir si le problème a été résolu, mais aussi de communiquer directement avec l’utilisateur dans un climat plus positif : le client se sentira écouté jusqu’au bout.</p>
-<p>N’oubliez pas qu’un client satisfait recommandera votre boutique. Selon plusieurs études, il la recommandera à quatre ou six personnes, tandis qu’un client insatisfait partagera sa mauvaise expérience avec neuf à quinze personnes.</p>
-<h2 style="color: #23135a;"><strong>Quels sont les principaux problèmes ?</strong></h2>
-<p>Nous vous conseillons de prêter particulièrement attention à certains points pour éviter tout problème dans le service client.</p>
-<h4 style="color: #23135a;">Le manque de préparation du personnel</h4>
-<p>L’une des principales erreurs est que les personnes chargées du service client ne sont pas des spécialistes. Si nécessaire, <strong>formez une équipe</strong> dans laquelle chaque membre est <strong>spécialisé</strong> dans un domaine précis : informations sur le produit, résolution de problèmes techniques, etc. En outre, il est important d’avoir des connaissances en <strong>intelligence émotionnelle</strong> pour savoir faire preuve d’empathie.</p>
-<p>Vous devez bien sûr fournir les <strong>outils appropriés pour résoudre le problème</strong>, qu’il s’agisse d’outils techniques ou de la capacité à prendre des décisions.</p>
-<h4 style="color: #23135a;">L’impossibilité de faire face à la demande</h4>
-<p>De nombreuses entreprises se retrouvent confrontées à ce problème pendant certaines périodes, notamment à Noël, car <strong>si la demande est très importante, elle peut dépasser leur capacité</strong>. Dans ce cas, une mauvaise planification peut conduire au désastre. Évaluez votre croissance et envisagez de recruter davantage de personnel pendant ces périodes chargées.</p>
-<h4 style="color: #23135a;">L’absence de plan d’action pour répondre aux réclamations</h4>
-<p>Personne n’aime faire face à un client mécontent, et nombreux sont ceux qui ne savent pas quoi faire dans une telle situation. Préparez un <strong>plan d’action pour orienter le personnel chargé du service client</strong>. Il saura ainsi comment réagir dans les situations les plus courantes. Ceci est particulièrement utile si vous avez de nouvelles recrues.</p>
-<h4 style="color: #23135a;">Les erreurs commises par des tiers</h4>
-<p>Parfois, l’erreur est causée par le service d’un fournisseur ou la société de transport. Expliquez la situation au client, mais <strong>n’ignorez pas le problème</strong>. Même si l’erreur n’est pas le fait de votre entreprise, c’est dans votre boutique que le client ne remettra plus les pieds. C’est pourquoi vous devez vous impliquer et surtout faire comprendre au client que vous mettez tout en œuvre pour trouver une solution au problème.</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/service-client-encore-important-e-commerce/">Pourquoi le service client est (encore) plus important pour le e-commerce</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/fr/service-client-encore-important-e-commerce/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Pourquoi vendre en ligne avec PrestaShop?</title>
-		<link>https://www.prestashop.com/blog/fr/keep-calm-and-sell-online-with-prestashop/</link>
-		<comments>https://www.prestashop.com/blog/fr/keep-calm-and-sell-online-with-prestashop/#comments</comments>
-		<pubDate>Wed, 25 Jan 2017 07:00:13 +0000</pubDate>
-		<dc:creator><![CDATA[Sandra Fernandes]]></dc:creator>
-				<category><![CDATA[Actualités PrestaShop]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/fr/?p=21074</guid>
-		<description><![CDATA[<p>Keep Calm and Sell Online with PrestaShop. Vendre en ligne avec PrestaShop, c’est donner la possibilité aux commerçants de se surpasser et de saisir toutes les belles opportunités du web. En tout cas, tel est le challenge que s’est fixé PrestaShop il y a bientôt de cela 10 ans. Une solution simple, performante, puissante, internationale, [...]</p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/keep-calm-and-sell-online-with-prestashop/">Pourquoi vendre en ligne avec PrestaShop?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Keep Calm and Sell Online with PrestaShop. <strong>Vendre en ligne avec PrestaShop</strong>, c’est donner la possibilité aux commerçants de se surpasser et de saisir toutes les belles opportunités du web. En tout cas, tel est le challenge que s’est fixé PrestaShop il y a bientôt de cela 10 ans.<br />
-<span id="more-21074"></span></p>
-<p>Une solution simple, performante, puissante, internationale, prête à faire de votre produit, votre idée, votre projet, votre magasin, votre <em>startup</em>, le prochain succès <strong>e-commerce</strong> dans les régions du monde que vous aurez choisies. Car le soleil ne se couche jamais sur l’écosystème PrestaShop ; une aubaine pour les marchands de France et de Navarre qui veulent saisir tout le potentiel de développement du web en Europe et ailleurs!</p>
-<p>Les 15 raisons listées ci-dessous, pour ne citer qu’elles, retracent justement les valeurs ajoutées de 10 années de développement open source et de collaboration avec un écosystème d’experts au service de marchands passionnés et ambitieux des quatre coins du monde.</p>
-<h2>Les raisons pour lesquelles vous devez faire le choix de PrestaShop</h2>
-<p>1. C’est des <em>startups </em>du web français que rien n’arrête comme Sessun, Bobbies ou encore Monsieur Moustache ;</p>
-<p>2. C’est un logiciel accessible et simple d’utilisation grâce à une ergonomie pensée pour des utilisateurs novices et exigeants, expérimentés ou qui démarrent dans le web;</p>
-<p>3. C’est un logiciel hors du commun sur lequel se basent des retailers mode de renom comme Eric Bompard, Manoush ou encore Ba&amp;sh.</p>
-<p>4. C’est un hub auquel est connecté un écosystème d&rsquo;experts du commerce digital (développeurs, responsables e-commerce, chefs de projets) en France et à l’international;</p>
-<p>5. C’est une communauté de plus d&rsquo;un million de membres dans plus de 195 pays qui soutient les entrepreneurs ambitieux à vivre de leurs passions aux quatre coins du monde;</p>
-<p>6. C’est un logiciel gratuit doté de plus de 500 fonctionnalités qui permet de gérer son catalogue, ses commandes et ses clients, tout en vendant ses produits, via un site mobile responsive. Tout cela dans le but de développer son activité commerciale en ligne et en magasin;</p>
-<p>7. C’est une solution « scalable » qui permet rapidement le développement de sa boutique au marché européen et aux 6 continents de la planète en quelques clics ;</p>
-<p>8. C’est la caution de 250 000 sites e-commerce actifs partout dans le monde ;</p>
-<p>9. C’est vendre des savons organiques en Normandie, des cartes Pokémon au Japon, des articles de sport en République Démocratique du Congo, des produits de beauté naturels en Malaisie ou des T-Shirts en Colombie;</p>
-<p>10. C’est 5000 modules et thèmes disponibles sur la <a href="https://addons.prestashop.com/fr/">Marketplace PrestaShop Addons</a> assurant un accompagnement dans chaque phase de développement de sa boutique en ligne ;</p>
-<p>11. C’est une solution open-source accessible et versatile qui offre une très grande flexibilité et transparence de développement. On ajoute à cela un coût de développement et de maintenance deux fois moins élevés que d&rsquo;autres solutions open-source du marché ;</p>
-<p>12. C’est des Pure-Players, des entreprises championnes du digital, qui ont réussi leur développement en s’appuyant sur PrestaShop : Le Slip Français, Décathlon, Envie de Fraises, Private Sport Shop, Brico-Privé, etc.</p>
-<p>13. C’est des spécialistes de l&rsquo;hébergement qui vous permettent de gérer la performance de sites à très forte volumétrie ;</p>
-<p>14. C’est des sites e-commerce qui tournent et qui génèrent des dizaines de millions d’euros de CA via des modèles de vente très variés (vente directe, ventes privées, Marketplace, réseaux sociaux)</p>
-<p>15. C’est une équipe surmotivée, sur le terrain, experte et exigeante pour faire de votre boutique la prochaine success story e-commerce ;</p>
-<p>Pour en savoir plus, nous vous invitons à vous rapprocher de nos <a href="https://www.prestashop.com/fr/agences-web-partenaires">agences partenaires</a> ou tout simplement à <a href="https://www.prestashop.com/fr/telechargement">télécharger </a>le logiciel PrestaShop.</p>
-<p><strong>Bonne année e-commerce à tous !</strong></p>
-<p>Cet article <a rel="nofollow" href="https://www.prestashop.com/blog/fr/keep-calm-and-sell-online-with-prestashop/">Pourquoi vendre en ligne avec PrestaShop?</a> est apparu en premier sur <a rel="nofollow" href="https://www.prestashop.com/blog/fr">FR - Blog ecommerce par PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/fr/keep-calm-and-sell-online-with-prestashop/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 	</channel>
