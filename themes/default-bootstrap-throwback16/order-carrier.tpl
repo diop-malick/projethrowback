@@ -94,7 +94,7 @@
 									{foreach $option_list as $key => $option name=options}
 										<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
 											<div>
-												{if $smarty.foreach.options.iteration == 1}
+												{if $smarty.foreach.options.iteration == 2}
 													<p style="color:#ec4040">
 														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement Paypal à l’étape suivante!
 													</p>
@@ -136,13 +136,14 @@
 																			</option>
 																			{break}
 																		{/foreach}
-																	</select><span class="waitimage"></span>
+																	</select>
 																</div>																
 															</div>
 														</div> <!-- end row -->
 														<br>
-														<div class="row addresses">
+														<div class="row addresses">															
 															<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
+																<span class="waitimage"></span>
 																<ul class="address item box" id="address_delivery">
 																
 																</ul>
@@ -159,7 +160,7 @@
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
-												{elseif $smarty.foreach.options.iteration == 3}
+												{elseif $smarty.foreach.options.iteration == 1}
 													<p style="color:#ec4040">
 														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
 													</p>
@@ -173,7 +174,7 @@
 																		<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
 																			{foreach from=$addresses key=k item=address name=addresses}
 																				{if $smarty.foreach.addresses.iteration > 1}
-																					<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
+																					<option value="{$address.id_address|intval}"{if $smarty.foreach.addresses.iteration == $addresses|@count} selected="selected"{/if}>
 																						{$address.alias|escape:'html':'UTF-8'}
 																					</option>
 																					{if $smarty.foreach.addresses.iteration == 3}
@@ -196,11 +197,11 @@
 															</div> <!-- end row -->
 														{else}
 															<div class="row addresses">
-																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
-																	<ul class="address item box" id="address_delivery">
+																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>						<span class="waitimage"></span>		
+																	<ul style="padding: 24px" class="address item box" id="address_delivery">
 																		Aucune adresse secondaire à afficher
 																	</ul>
-																</div>
+																</div>																
 															</div> <!-- end row -->
 														{/if}
 														<p class="address_add submit {if $maxAddresses}hidden{/if}" style="text-align: right">
