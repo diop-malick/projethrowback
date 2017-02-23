@@ -21,8 +21,7 @@ robots.txt
 
 ########################### PRESTASHOP ###########################
 
-blog/*
-blog/wp-content/plugins/elementor/assets/*
+
 
 #cache/*
 
