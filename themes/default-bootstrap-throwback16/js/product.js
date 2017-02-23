@@ -359,12 +359,22 @@ if (typeof(contentOnly) !== 'undefined' && contentOnly)
 }
 
 // The button to increment the product value
+// TODO - delete console log
 $(document).on('click', '.product_quantity_up', function(e){
 	e.preventDefault();
 	fieldName = $(this).data('field-qty');
 	var currentVal = parseInt($('input[name='+fieldName+']').val());
-	if (!allowBuyWhenOutOfStock && quantityAvailable > 0)
-		quantityAvailableT = quantityAvailable;
+	// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
+	if (!allowBuyWhenOutOfStock && quantityAvailable > 0) {	
+	// if limited quantity per ordder is defined and < of available stock, this limit is used in increment button	
+		if (typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable > 0 && quantityLimitedAvailable < quantityAvailable) {
+			quantityAvailableT = quantityLimitedAvailable;
+			// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
+		} else {
+			quantityAvailableT = quantityAvailable;
+			// console.log('quantityAvailable =' + quantityAvailable);
+		}
+	}
 	else
 		quantityAvailableT = 100000000;
 	if (!isNaN(currentVal) && currentVal < quantityAvailableT)
@@ -533,11 +543,15 @@ function updateDisplay()
 
 	if (!selectedCombination['unavailable'] && quantityAvailable > 0 && productAvailableForOrder == 1)
 	{
-		//show the choice of quantities
-		$('#quantity_wanted_p:hidden').show('slow');
+		// show the choice of quantities
+		// $('#quantity_wanted_p:hidden').show('slow');
+		$('#quantity_wanted_p .btn').removeClass('disabled');
 
 		//show the "add to cart" button ONLY if it was hidden
-		$('#add_to_cart:hidden').fadeIn(600);
+		// $('#add_to_cart:hidden').fadeIn(600);
+		$('#add_to_cart button').removeClass('disabled').addClass('active');
+		
+
 
 		//hide the hook out of stock
 		$('#oosHook').hide();
@@ -598,7 +612,8 @@ function updateDisplay()
 
 		//hide the choice of quantities
 		if (!allowBuyWhenOutOfStock)
-			$('#quantity_wanted_p:visible').hide('slow');
+			// $('#quantity_wanted_p:visible').hide('slow');
+			$('#quantity_wanted_p .btn').addClass('disabled');
 
 		//display that the product is unavailable with theses attributes
 		if (!selectedCombination['unavailable'])
@@ -645,7 +660,9 @@ function updateDisplay()
 		//show the 'add to cart' button ONLY IF it's possible to buy when out of stock AND if it was previously invisible
 		if (allowBuyWhenOutOfStock && !selectedCombination['unavailable'] && productAvailableForOrder)
 		{
-			$('#add_to_cart:hidden').fadeIn(600);
+			// $('#add_to_cart:hidden').fadeIn(600);
+			// $('#add_to_cart button').prop('disabled', false);
+			$('#add_to_cart button').removeClass('disabled').addClass('active');
 
 			if (stock_management && availableLaterValue != '')
 			{
@@ -657,7 +674,10 @@ function updateDisplay()
 		}
 		else
 		{
-			$('#add_to_cart:visible').fadeOut(600);
+			// $('#add_to_cart:visible').fadeOut(600);
+			// $('#add_to_cart button').prop('disabled', true);
+			$('#add_to_cart button').removeClass('active').addClass('disabled');
+
 			if (stock_management == 1 && productAvailableForOrder)
 				$('#availability_statut:hidden').show('slow');
 		}

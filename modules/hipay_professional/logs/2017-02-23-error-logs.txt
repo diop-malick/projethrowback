@@ -1,0 +1,21 @@
+## 2017-02-23 00:00:14 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result 5sypzppy sent for CAPTCHA 3251 is invalid
+)
+
+## 2017-02-23 00:00:38 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result d6pzvx8f sent for CAPTCHA 3252 is invalid
+)
+
+## 2017-02-23 00:01:11 ##
+stdClass Object
+(
+    [code] => 271
+    [message] => The result 24sthvs sent for CAPTCHA 3253 is invalid
+)
+
