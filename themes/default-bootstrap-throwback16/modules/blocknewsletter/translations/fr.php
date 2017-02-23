@@ -70,4 +70,3 @@ $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_b40866
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_87b0ca57db642f4e7780174a6abdc37d'] = 'Aucun résultat trouvé !';
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_ffb7e666a70151215b4c55c6268d7d72'] = 'Lettre d\'informations';
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_416f61a2ce16586f8289d41117a2554e'] = 'votre e-mail';
-$_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_d8335f4a5d918134bd0bdc47cc487d74'] = 'Saisissez votre adresse e-mail';
