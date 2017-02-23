@@ -123,7 +123,7 @@ function bindStateInputAndUpdate()
 	}
 
 	if (typeof idSelectedState !== 'undefined' && idSelectedState)
-		$('.id_state option[value=' + idSelectedState + ']').prop('selected', true);
+		$('.id_state option[value=' + idSelectedState + ']').prop('selected', true).trigger('change');
 	if (typeof idSelectedStateInvoice !== 'undefined' && idSelectedStateInvoice)
 		$('.id_state_invoice option[value=' + idSelectedStateInvoice + ']').prop('selected', true);
 }
