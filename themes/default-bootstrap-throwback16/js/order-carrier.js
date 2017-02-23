@@ -47,6 +47,8 @@ $(document).ready(function(){
 		return acceptCGV();
 	});
 
+	
+
 });
 
 function acceptCGV()
@@ -70,4 +72,56 @@ function acceptCGV()
 	else
 		return true;
 	return false;
+}
+
+function ajaxAddressSetup()
+{
+	$('.addresses a').click(function(event){		
+		var $link = $(this);
+		event.preventDefault();
+		$('.addresses .waitimage').show();
+		$.ajax({
+			url: $link.attr('href') +  '&ajax=true' ,
+			type: 'get',
+			success: function(data) {
+				$('.addresses .waitimage').hide();
+				var $box = $('.box',data);
+				$('#address').html($box).removeClass('hidden');
+				$('.addresses').addClass('hidden');
+				$('#address .submit2').prepend('<a onclick="resetForm()" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');				
+				$('#address form').submit(function(event){
+					/*event.preventDefault();
+					var $form = $( this );
+					$.ajax({
+						url: $form.attr('action') +  '&ajax=true' ,
+						type: $form.attr('method'),
+						data : $form.serialize(),
+						success: function(data) {
+							console.log('success')
+							console.log(data)
+
+						}
+					});*/
+
+				});
+				setCountries();
+				bindStateInputAndUpdate();				
+				bindZipcode();
+				bindCheckbox();
+				$.validate({
+			            lang : 'fr',
+			            modules : 'html5,sanitize,toggleDisabled,security',
+			            form : '#address form',
+
+			    });	
+				$("#firstname").focus();				
+						
+			}
+		});
+	});
+}
+
+function resetForm(){
+	$('#address').addClass('hidden');
+	$('.addresses').removeClass('hidden');
 }
