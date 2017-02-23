@@ -15,12 +15,6 @@ $(document).ready(function() {
     });
 
     /*************************************** Infos perso ***************************/
-    $.formUtils.addValidator({
-      name : 'check_password',
-      validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
-      }
-    });
     
 
     /*************************************** Adress ***************************/
@@ -51,9 +45,5 @@ $(document).ready(function() {
         return ( value.length == 5  && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
       }
     });
-    $.validate({
-            lang : 'fr',
-            modules : 'file,html5,sanitize,toggleDisabled,security',
-            form : '#add_address'
-    });
+    
 });

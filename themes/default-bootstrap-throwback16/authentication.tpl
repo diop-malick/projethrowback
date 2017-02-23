@@ -766,6 +766,7 @@
 {/strip}
 
 <script>
+	
 	$.validate({
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
@@ -782,7 +783,7 @@
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
 			form : '#account-creation_form'
-	});
+	})
 
 	$('input[name=email_create]').on('input blur', function() { 
 		if($(".be-customer .has-success").length == 1)
