@@ -94,7 +94,7 @@
 									{foreach $option_list as $key => $option name=options}
 										<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
 											<div>
-												{if $smarty.foreach.options.iteration == 2}
+												{if $smarty.foreach.options.iteration == 1}
 													<p style="color:#ec4040">
 														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement Paypal à l’étape suivante!
 													</p>
@@ -119,12 +119,12 @@
 															{/if}
 														</p>
 													</div>
-												{elseif $smarty.foreach.options.iteration == 2}
-													<p style="color:#ec4040">
-														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-													</p>
-													<br>
+												{elseif $smarty.foreach.options.iteration == 2}													
 													<div class="addresses clearfix">
+														<p style="color:#ec4040">
+															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
+														</p>
+														<br>
 														<div class="row hidden">
 															<div class="col-xs-12 col-sm-6">
 																<div class="address_delivery select form-group selector1">
@@ -160,12 +160,12 @@
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
-												{elseif $smarty.foreach.options.iteration == 1}
-													<p style="color:#ec4040">
-														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-													</p>
-													<br>
+												{elseif $smarty.foreach.options.iteration == 3}													
 													<div class="addresses clearfix">
+														<p style="color:#ec4040">
+															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
+														</p>
+														<br>
 														{if $addresses|@count gt 1}
 															<div class="row">
 																<div class="col-xs-12 col-sm-6">
@@ -174,7 +174,7 @@
 																		<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
 																			{foreach from=$addresses key=k item=address name=addresses}
 																				{if $smarty.foreach.addresses.iteration > 1}
-																					<option value="{$address.id_address|intval}"{if $smarty.foreach.addresses.iteration == $addresses|@count} selected="selected"{/if}>
+																					<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
 																						{$address.alias|escape:'html':'UTF-8'}
 																					</option>
 																					{if $smarty.foreach.addresses.iteration == 3}
@@ -196,7 +196,7 @@
 																</div>
 															</div> <!-- end row -->
 														{else}
-															<div class="row addresses">
+															<div class="row none">
 																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>						<span class="waitimage"></span>		
 																	<ul style="padding: 24px" class="address item box" id="address_delivery">
 																		Aucune adresse secondaire à afficher
@@ -626,8 +626,7 @@
 	  fit: true, // 100% fit in a container
 	  closed: 'accordion', // Start closed if in accordion view
 	  tabidentify: 'tab', // The tab groups identifier
-	  activate: function() {
-	  	ajaxAddressSetup(); 
+	  activate: function() {	  	
 	  	$('input[type=radio]',this).trigger('click');
 	  	initMap();
 	  }
@@ -637,20 +636,23 @@
 		event.stopPropagation();		
 	});
 	function initMap(){
-		var latLong = {
-			lat: 48.873509 , lng: 2.382527
-		};
-		var center = {
-			lat: 48.873499 , lng: 2.382627
-		};
-		var map = new google.maps.Map(document.getElementById('map'), {
-		  center: center,
-		  zoom: 20
-		});
-		var marker = new google.maps.Marker({
-		  position: latLong,
-		  map: map
-		});
+		if(document.getElementById('map')){
+			var latLong = {
+				lat: 48.873509 , lng: 2.382527
+			};
+			var center = {
+				lat: 48.873499 , lng: 2.382627
+			};
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  center: center,
+			  zoom: 20
+			});
+			var marker = new google.maps.Marker({
+			  position: latLong,
+			  map: map
+			});
+		}		
 	}
+	ajaxAddressSetup(); 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnIXYJYTobkgB_9Nr1AEeGn84d_KPM74c&callback=initMap&language=fr&region=SN" async defer></script>

@@ -76,20 +76,24 @@ function acceptCGV()
 
 function ajaxAddressSetup()
 {
-	$('.addresses a').click(function(event){		
+	$('.resp-tab-content').on('click','.addresses a',function(event){
+		var $target = event.delegateTarget;	
 		var $link = $(this);
 		event.preventDefault();
-		$('.addresses .waitimage').show();
+		$('.addresses .waitimage',$target).show();
 		$.ajax({
 			url: $link.attr('href') +  '&ajax=true' ,
 			type: 'get',
 			success: function(data) {
-				$('.addresses .waitimage').hide();
+				$('.addresses .waitimage',$target).hide();
 				var $box = $('.box',data);
-				$('#address').html($box).removeClass('hidden');
-				$('.addresses').addClass('hidden');
-				$('#address .submit2').prepend('<a onclick="resetForm()" class="btn btn-default button button-medium"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');				
-				$('#address form').submit(function(event){
+				$('#address',$target).html($box).removeClass('hidden');
+				$('.addresses',$target).addClass('hidden');
+				$('#address .submit2',$target).prepend('<a class="btn btn-default button button-medium reset-form"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');
+				$('#address .submit2 .reset-form',$target).click(function(){
+					resetForm($target);
+				});
+				$('#address form',$target).submit(function(event){
 					/*event.preventDefault();
 					var $form = $( this );
 					$.ajax({
@@ -117,11 +121,14 @@ function ajaxAddressSetup()
 				$("#firstname").focus();				
 						
 			}
-		});
+		});		
 	});
+	if($('.resp-tab-content .addresses .none').length){
+		$('.resp-tab-content .addresses .address_add a').trigger('click');
+	}
 }
 
-function resetForm(){
-	$('#address').addClass('hidden');
-	$('.addresses').removeClass('hidden');
+function resetForm($target){
+	$('#address',$target).addClass('hidden');
+	$('.addresses',$target).removeClass('hidden');
 }
