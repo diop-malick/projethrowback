@@ -372,6 +372,9 @@
 		<div id="HOOK_SHOPPING_CART_EXTRA">{if isset($HOOK_SHOPPING_CART_EXTRA)}{$HOOK_SHOPPING_CART_EXTRA}{/if}</div>
 	</div>
 	-->
+
+	<div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
+	
 {strip}
 {addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 {addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}
