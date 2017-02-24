@@ -4,7 +4,9 @@
 <!-- MODULE Block new products -->
 <section class="page-product-box">
     <h4 class="title_block">
-            <a href="{$link->getPageLink('new-products')|escape:'html'}" title="{l s='New products' mod='blocknewproducts'}">{l s='New products' mod='blocknewproducts'}</a>
+            {l s='New products' mod='blocknewproducts'}            
+            <!-- <a href="{$link->getPageLink('new-products')|escape:'html'}" title="{l s='New products' mod='blocknewproducts'}">{l s='New products' mod='blocknewproducts'}
+            </a> -->
     </h4>
     <div class="block products_block accessories-block clearfix">
                     <div class="block_content">
