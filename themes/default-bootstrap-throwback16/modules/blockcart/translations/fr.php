@@ -53,4 +53,4 @@ $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_21034ae6d01a83e702
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_1f87346a16cf80c372065de3c54c86d9'] = 'TTC';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_f4e8b53a114e5a17d051ab84d326cae5'] = 'Frais de port';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_300225ee958b6350abc51805dab83c24'] = 'Continuer mes achats';
-$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7e0bf6d67701868aac3116ade8fea957'] = 'Commander';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7e0bf6d67701868aac3116ade8fea957'] = 'Voir mon panier';

@@ -29,6 +29,9 @@
 		</ul>
 	{/if}
 	<div class="tab-content">{$HOOK_HOME_TAB_CONTENT}</div>
+	<!-- custom  -->
+	<div class="tab-content">{hook h="displayHomeFooter"}</div>
+	<!-- custom -->
 {/if}
 {if isset($HOOK_HOME) && $HOOK_HOME|trim}
 	<div class="clearfix">{$HOOK_HOME}</div>

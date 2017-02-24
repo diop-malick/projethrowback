@@ -251,7 +251,7 @@
 						<div class="col-md-12">	
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
-									<span class="text_valid_commande">{l s='Valider mon panier'}<i class="icon-chevron-right right"></i></span>
+									<span class="text_valid_commande">{l s='Valider mon panier'} <i class="icon-chevron-right right"></i></span>
 								</a>
 							{/if}
 						</div>
@@ -372,6 +372,9 @@
 		<div id="HOOK_SHOPPING_CART_EXTRA">{if isset($HOOK_SHOPPING_CART_EXTRA)}{$HOOK_SHOPPING_CART_EXTRA}{/if}</div>
 	</div>
 	-->
+
+	<div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
+	
 {strip}
 {addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 {addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}

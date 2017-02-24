@@ -21,8 +21,7 @@ robots.txt
 
 ########################### PRESTASHOP ###########################
 
-blog/*
-blog/wp-content/plugins/elementor/assets/*
+
 
 #cache/*
 
@@ -49,6 +48,9 @@ themes/*/cache/*.css
 
 
 modules/*/config*.xml
+
+modules/hipay_professional/*
+modules/mailalerts/*
 
 
 # Site content
@@ -78,7 +80,7 @@ blog/wp-content/plugins/*
 # blog/wp-content/upgrade/**
 
 # blog image
-# src/public/blog/wp-content/uploads/**
+# blog/wp-content/uploads/**
 
 # blog/wp-content/wp-cache-config.php
 # blog/wp-content/plugins/hello.php

@@ -104,6 +104,7 @@
 											<option value="left"{if $hItem.hook == 'left'} selected="selected"{/if}>left</option>
 											<option value="right"{if $hItem.hook == 'right'} selected="selected"{/if}>right</option>
 											<option value="footer"{if $hItem.hook == 'footer'} selected="selected"{/if}>footer</option>
+											<option value="homeFooter"{if $hItem.hook == 'homeFooter'} selected="selected"{/if}>homeFooter</option>
 										</select>
 									</div>
 								</div>

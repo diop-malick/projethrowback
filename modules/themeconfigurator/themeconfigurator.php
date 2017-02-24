@@ -112,6 +112,7 @@ class ThemeConfigurator extends Module
 			!$this->registerHook('displayRightColumn') ||
 			!$this->registerHook('displayHome') ||
 			!$this->registerHook('displayFooter') ||
+			!$this->registerHook('displayHomeFooter') ||
 			!$this->registerHook('displayBackOfficeHeader') ||
 			!$this->registerHook('actionObjectLanguageAddAfter') ||
 			!Configuration::updateValue('PS_TC_THEMES', serialize($themes_colors)) ||
@@ -361,6 +362,16 @@ class ThemeConfigurator extends Module
 		));
 
 		return $html.$this->display(__FILE__, 'hook.tpl');
+	}
+
+	public function hookDisplayHomeFooter()
+	{
+		$this->context->smarty->assign(array(
+			'htmlitems' => $this->getItemsFromHook('homeFooter'),
+			'hook' => 'homeFooter'
+		));
+
+		return $this->display(__FILE__, 'hook.tpl');
 	}
 
 	protected function getItemsFromHook($hook)
@@ -703,7 +714,8 @@ class ThemeConfigurator extends Module
 				'top',
 				'left',
 				'right',
-				'footer'
+				'footer',
+				'homeFooter'
 			);
 
 			foreach ($hooks[$language['id_lang']] as $hook)

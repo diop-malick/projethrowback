@@ -2,10 +2,12 @@
 {capture name=path}{l s='My account'}{/capture}
 
 <div class="my-account-selfcare">
-    
+    <!--
     <div class="row">
             <h1 class="page-heading text-center">{l s='Bienvenue dans votre espace personnel'}</h1>
     </div>
+    -->
+    <h3 class="page-subheading text-center">{l s='Bienvenue dans votre espace personnel'}</h3>
 <!--
     {if isset($account_created)}
     	<p class="alert alert-success">
@@ -86,7 +88,7 @@
                 	<li class="col-sm-6">
                 		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}">
                 			<div class="contenu">
-                				<span><i class="icon-file-o"></i></span>
+                				<span><i class="fa fa-envelope"></i></span>
                 				<span>{l s='Newsletter'}</span>
                 			</div>
                 		</a>

@@ -545,7 +545,7 @@
             </div>
             <div class="col-md-8">
             	<div class="row form-group">
-            	<label for="email" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
+            	<label for="newsletter" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
 	            	<div class="col-md-8">
 							{if isset($newsletter) && $newsletter}
 								<div class="checkbox">
@@ -574,29 +574,8 @@
             </div>
 		</div>
 
-
-<!-- 		{if $b2b_enable}
-			<div class="account_creation">
-				<h3 class="page-subheading">{l s='Your company information'}</h3>
-				<p class="form-group">
-					<label for="">{l s='Company'}</label>
-					<input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="siret">{l s='SIRET'}</label>
-					<input type="text" class="form-control" id="siret" name="siret" value="{if isset($smarty.post.siret)}{$smarty.post.siret}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="ape">{l s='APE'}</label>
-					<input type="text" class="form-control" id="ape" name="ape" value="{if isset($smarty.post.ape)}{$smarty.post.ape}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="website">{l s='Website'}</label>
-					<input type="text" class="form-control" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}" />
-				</p>
-			</div>
-		{/if} -->
-
+		<!-- Autoriser de l'adresse au moment de la création de compte  -->
+		<!-- Option a activer dans préférence client -->
 		{if isset($PS_REGISTRATION_PROCESS_TYPE) && $PS_REGISTRATION_PROCESS_TYPE}
 			<div class="account_creation">
 				<h3 class="page-subheading">{l s='Your address'}</h3>
@@ -713,7 +692,11 @@
 				</p>
 			</div>
 		{/if}
+
+
 		{$HOOK_CREATE_ACCOUNT_FORM}
+
+		
 		<div class="submit clearfix">
 			<input type="hidden" name="email_create" value="1" />
 			<input type="hidden" name="is_new_customer" value="1" />
@@ -766,19 +749,7 @@
 {/strip}
 
 <script>
-	$.formUtils.addValidator({
-      name : 'check_password',
-      validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_name',
-      validatorFunction : function(value) {
-        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
-        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
-      }
-    });
+	
 	$.validate({
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
@@ -795,7 +766,7 @@
 			lang : 'fr',
 			modules : 'file,html5,sanitize,toggleDisabled,security',
 			form : '#account-creation_form'
-	});
+	})
 
 	$('input[name=email_create]').on('input blur', function() { 
 		if($(".be-customer .has-success").length == 1)

@@ -47,13 +47,12 @@ get_header();?>
 
 					<nav id="nav-below" class="navigation" role="navigation">
 
-					<div class="accueil" style="font-weight:bold"> <a href="http://localhost:8081/throwback16/blog"> < HOME </a> </div>
+					<div class="accueil"><a href="http://localhost/throwback16/blog"> < Accueil </a> </div>
 					
 
-						<div class="nav-previous"><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>PREV</span>' ); ?></div>
-						<div class="nav-next"><?php next_post_link( '%link', '<span>NEXT</span> <i class="icon-angle-right"></i>' ); ?></div>
+						<div class="nav-previous"><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>Article précédent</span>' ); ?></div>
+						<div class="nav-next"><?php next_post_link( '%link', '<span>Article suivant</span> <i class="icon-angle-right"></i>' ); ?></div>
 					</nav><!-- #nav-below -->
-
 
 
 

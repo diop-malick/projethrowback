@@ -31,7 +31,8 @@ class BlockNewProductsOverride extends BlockNewProducts
            }
        }
        return $combinations;
-   }
+  }
+
 	public function hookdisplayHomeTabContent($params)
 	{
 		if (!$this->isCached('blocknewproducts_home.tpl', $this->getCacheId('blocknewproducts-home')))
@@ -70,5 +71,31 @@ class BlockNewProductsOverride extends BlockNewProducts
 
 		return $this->display(__FILE__, 'blocknewproducts_home.tpl', $this->getCacheId('blocknewproducts-home'));
 	}
+
+  /* To display new product in PUSH ZONE of search result page */
+  public function hookDisplaySearch($params)
+  {
+      return $this->hookRightColumn($params);
+  }
+
+  /* To display new product in PUSH ZONE of shopping cart  page */
+    public function hookDisplayShoppingCartFooter($params)
+  {
+      return $this->hookRightColumn($params);
+  }
+
+  /* redifine header hook to add js file */
+  public function hookHeader($params)
+  {
+    if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'index')
+      $this->context->controller->addCSS(_THEME_CSS_DIR_.'product_list.css');
+
+    $this->context->controller->addJS(_THEME_JS_DIR_.'modules/blocknewproducts/blocknewproducts.js');
+    $this->context->controller->addCSS(_THEME_CSS_DIR_.'product.css');
+
+    $this->context->controller->addCSS($this->_path.'blocknewproducts.css', 'all');
+  }
+
+
 }
 
