@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 23, 2017 at 05:18 PM
+-- Generation Time: Feb 24, 2017 at 11:48 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.12
 
@@ -2538,7 +2538,9 @@ INSERT INTO `ps_cart` (`id_cart`, `id_shop_group`, `id_shop`, `id_carrier`, `del
 (39, 1, 1, 0, '', 1, 0, 0, 1, 0, 50, '', 0, 0, '', 0, 0, '2017-02-22 14:14:43', '2017-02-22 14:44:10'),
 (40, 1, 1, 0, '', 1, 0, 0, 1, 4, 55, 'fba65dccedd2864eccc59f7eb6002263', 0, 0, '', 0, 0, '2017-02-22 17:45:49', '2017-02-22 18:59:37'),
 (41, 1, 1, 0, '', 1, 4, 4, 1, 1, 56, 'a5a65489658876842dbe3f2a1b418f0c', 0, 0, '', 0, 0, '2017-02-22 23:30:33', '2017-02-23 16:58:20'),
-(42, 1, 1, 0, '', 1, 4, 4, 1, 1, 56, 'a5a65489658876842dbe3f2a1b418f0c', 0, 0, '', 0, 0, '2017-02-23 16:59:36', '2017-02-23 17:00:44');
+(42, 1, 1, 0, '', 1, 4, 4, 1, 1, 56, 'a5a65489658876842dbe3f2a1b418f0c', 0, 0, '', 0, 0, '2017-02-23 16:59:36', '2017-02-23 17:00:44'),
+(43, 1, 1, 0, '', 1, 4, 4, 1, 1, 59, 'a5a65489658876842dbe3f2a1b418f0c', 0, 0, '', 0, 0, '2017-02-23 21:38:29', '2017-02-23 21:38:29'),
+(44, 1, 1, 0, '', 1, 0, 0, 1, 8, 61, 'a6778e2d1e552f463a25bd4c3150f295', 0, 0, '', 0, 0, '2017-02-23 22:31:33', '2017-02-23 23:03:36');
 
 -- --------------------------------------------------------
 
@@ -2597,7 +2599,9 @@ INSERT INTO `ps_cart_product` (`id_cart`, `id_product`, `id_address_delivery`, `
 (40, 3, 0, 1, 14, 3, '2017-02-22 17:45:49'),
 (40, 4, 0, 1, 16, 12, '2017-02-22 18:03:05'),
 (41, 1, 4, 1, 1, 1, '2017-02-23 11:03:07'),
-(42, 5, 4, 1, 23, 1, '2017-02-23 16:59:36');
+(42, 5, 4, 1, 23, 1, '2017-02-23 16:59:36'),
+(44, 2, 0, 1, 7, 3, '2017-02-23 22:03:35'),
+(44, 2, 0, 1, 11, 3, '2017-02-23 21:57:27');
 
 -- --------------------------------------------------------
 
@@ -4787,7 +4791,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (375, NULL, NULL, 'SHOP_LOGO_MOBILE_WIDTH', '68', '2017-01-29 20:49:07', '2017-01-29 20:49:07'),
 (376, NULL, NULL, 'PS_GRID_PRODUCT', '0', '2017-01-29 20:56:29', '2017-01-29 20:56:29'),
 (377, NULL, NULL, 'FOOTER_CMS_TEXT_1', NULL, '2017-01-29 21:03:00', '2017-01-29 21:03:00'),
-(378, NULL, NULL, 'PS_SHOW_CAT_MODULES_1', NULL, '2017-01-29 21:11:40', '2017-02-23 18:03:23'),
+(378, NULL, NULL, 'PS_SHOW_CAT_MODULES_1', NULL, '2017-01-29 21:11:40', '2017-02-23 21:13:07'),
 (379, NULL, NULL, 'PS_IMAGE_GENERATION_METHOD', '0', '2017-01-30 15:52:05', '2017-01-30 15:52:05'),
 (380, NULL, NULL, 'PS_HIGHT_DPI', '1', '2017-01-30 15:52:05', '2017-02-19 22:31:12'),
 (384, NULL, NULL, 'PRODUCTSCATEGORY_DISPLAY_PRICE', '1', '2017-02-01 17:04:05', '2017-02-01 17:04:05'),
@@ -4838,7 +4842,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (429, NULL, NULL, 'MINIC_MAILCHIMP_FORM', 'a:2:{s:4:"data";a:2:{i:1;a:2:{s:5:"title";s:20:"Mailchimps Newletter";s:4:"form";s:1857:"&lt;!-- Begin MailChimp Signup Form --&gt;\r\n&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;\r\n&lt;style type=&quot;text/css&quot;&gt;\r\n	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\r\n	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\r\n	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\r\n&lt;/style&gt;\r\n&lt;div id=&quot;mc_embed_signup&quot;&gt;\r\n&lt;form action=&quot;//ovh.us15.list-manage.com/subscribe/post?u=d56def1fdca3f61da060d5d2a&amp;amp;id=2eca580371&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate&gt;\r\n    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;\r\n	&lt;label for=&quot;mce-EMAIL&quot;&gt;Subscribe to our mailing list&lt;/label&gt;\r\n	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required&gt;\r\n    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;\r\n    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_d56def1fdca3f61da060d5d2a_2eca580371&quot; tabindex=&quot;-1&quot; value=&quot;&quot;&gt;&lt;/div&gt;\r\n    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot;&gt;&lt;/div&gt;\r\n    &lt;/div&gt;\r\n&lt;/form&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;!--End mc_embed_signup--&gt;";}i:2;a:2:{s:5:"title";s:20:"Mailchimps Newletter";s:4:"form";s:1857:"&lt;!-- Begin MailChimp Signup Form --&gt;\r\n&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;\r\n&lt;style type=&quot;text/css&quot;&gt;\r\n	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\r\n	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\r\n	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\r\n&lt;/style&gt;\r\n&lt;div id=&quot;mc_embed_signup&quot;&gt;\r\n&lt;form action=&quot;//ovh.us15.list-manage.com/subscribe/post?u=d56def1fdca3f61da060d5d2a&amp;amp;id=2eca580371&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate&gt;\r\n    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;\r\n	&lt;label for=&quot;mce-EMAIL&quot;&gt;Subscribe to our mailing list&lt;/label&gt;\r\n	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required&gt;\r\n    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;\r\n    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_d56def1fdca3f61da060d5d2a_2eca580371&quot; tabindex=&quot;-1&quot; value=&quot;&quot;&gt;&lt;/div&gt;\r\n    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot;&gt;&lt;/div&gt;\r\n    &lt;/div&gt;\r\n&lt;/form&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;!--End mc_embed_signup--&gt;";}}s:5:"hooks";a:1:{i:0;s:6:"Footer";}}', '2017-02-21 17:05:22', '2017-02-21 22:26:15'),
 (430, NULL, NULL, 'MA_MERCHANT_ORDER', '1', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
 (431, NULL, NULL, 'MA_MERCHANT_OOS', '1', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
-(432, NULL, NULL, 'MA_CUSTOMER_QTY', '1', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
+(432, NULL, NULL, 'MA_CUSTOMER_QTY', '0', '2017-02-22 21:41:26', '2017-02-23 21:40:11'),
 (433, NULL, NULL, 'MA_ORDER_EDIT', '1', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
 (434, NULL, NULL, 'MA_RETURN_SLIP', '1', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
 (435, NULL, NULL, 'MA_MERCHANT_MAILS', 'pub@prestashop.com', '2017-02-22 21:41:26', '2017-02-22 21:41:26'),
@@ -4865,9 +4869,13 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (456, NULL, NULL, 'SOCOLISSIMO_USE_IFRAME', '1', '2017-02-23 00:04:21', '2017-02-23 00:04:21'),
 (457, NULL, NULL, 'SOCOLISSIMO_CARRIER_ID', '3', '2017-02-23 00:04:23', '2017-02-23 00:04:23'),
 (458, NULL, NULL, 'SOCOLISSIMO_CARRIER_ID_SELLER', '4', '2017-02-23 00:04:24', '2017-02-23 00:04:24'),
-(459, NULL, NULL, 'PS_REGISTRATION_PROCESS_TYPE', '1', '2017-02-23 18:02:27', '2017-02-23 18:02:43'),
+(459, NULL, NULL, 'PS_REGISTRATION_PROCESS_TYPE', '0', '2017-02-23 18:02:27', '2017-02-23 20:06:11'),
 (460, NULL, NULL, 'PS_CART_FOLLOWING', '0', '2017-02-23 18:02:27', '2017-02-23 18:02:27'),
-(461, NULL, NULL, 'PS_B2B_ENABLE', '0', '2017-02-23 18:02:27', '2017-02-23 18:02:27');
+(461, NULL, NULL, 'PS_B2B_ENABLE', '0', '2017-02-23 18:02:27', '2017-02-23 18:02:27'),
+(462, NULL, NULL, 'CONF_CASHONDELIVERY_FIXED', '0.2', '2017-02-23 18:54:02', '2017-02-23 18:54:02'),
+(463, NULL, NULL, 'CONF_CASHONDELIVERY_VAR', '2', '2017-02-23 18:54:02', '2017-02-23 18:54:02'),
+(464, NULL, NULL, 'CONF_CASHONDELIVERY_FIXED_FOREIGN', '0.2', '2017-02-23 18:54:02', '2017-02-23 18:54:02'),
+(465, NULL, NULL, 'CONF_CASHONDELIVERY_VAR_FOREIGN', '2', '2017-02-23 18:54:03', '2017-02-23 18:54:03');
 
 -- --------------------------------------------------------
 
@@ -4949,9 +4957,9 @@ INSERT INTO `ps_configuration_kpi` (`id_configuration_kpi`, `id_shop_group`, `id
 (65, NULL, NULL, 'DISABLED_PRODUCTS', '9.09%', '2017-02-01 17:05:06', '2017-02-17 13:02:38'),
 (66, NULL, NULL, 'DISABLED_PRODUCTS_EXPIRE', '1487850810', '2017-02-01 17:05:06', '2017-02-23 10:53:30'),
 (67, NULL, NULL, 'ENABLED_LANGUAGES', '2', '2017-02-04 17:34:39', '2017-02-04 17:34:39'),
-(68, NULL, NULL, 'ENABLED_LANGUAGES_EXPIRE', '1487842470', '2017-02-04 17:34:39', '2017-02-23 10:33:30'),
+(68, NULL, NULL, 'ENABLED_LANGUAGES_EXPIRE', '1487886067', '2017-02-04 17:34:39', '2017-02-23 22:40:07'),
 (69, NULL, NULL, 'FRONTOFFICE_TRANSLATIONS', '98.4%', '2017-02-04 17:34:39', '2017-02-10 13:10:19'),
-(70, NULL, NULL, 'FRONTOFFICE_TRANSLATIONS_EXPIRE', '1487842530', '2017-02-04 17:34:39', '2017-02-23 10:33:30'),
+(70, NULL, NULL, 'FRONTOFFICE_TRANSLATIONS_EXPIRE', '1487886127', '2017-02-04 17:34:39', '2017-02-23 22:40:07'),
 (71, NULL, NULL, 'MAIN_COUNTRY', NULL, '2017-02-04 17:34:39', '2017-02-04 17:34:39'),
 (72, NULL, NULL, 'MAIN_COUNTRY_EXPIRE', NULL, '2017-02-04 17:34:39', '2017-02-04 17:34:39'),
 (73, NULL, NULL, 'TRANSLATE_TOTAL_DEFAULT-BOOTSTRA', '1045', '2017-02-05 22:54:12', '2017-02-10 13:10:13'),
@@ -4966,12 +4974,12 @@ INSERT INTO `ps_configuration_kpi` (`id_configuration_kpi`, `id_shop_group`, `id
 (82, NULL, NULL, 'ORDERS_PER_CUSTOMER_EXPIRE', '1487889876', '2017-02-07 01:44:33', '2017-02-22 23:44:36'),
 (83, NULL, NULL, 'CONVERSION_RATE', '0%', '2017-02-08 11:51:47', '2017-02-08 11:51:47'),
 (84, NULL, NULL, 'NETPROFIT_VISIT', '0,00 €', '2017-02-08 11:51:47', '2017-02-08 11:51:47'),
-(85, NULL, NULL, 'CONVERSION_RATE_EXPIRE', '1487545200', '2017-02-08 11:51:47', '2017-02-19 22:32:07'),
+(85, NULL, NULL, 'CONVERSION_RATE_EXPIRE', '1487977200', '2017-02-08 11:51:47', '2017-02-24 12:16:47'),
 (86, NULL, NULL, 'AVG_ORDER_VALUE', '0,00 €', '2017-02-08 11:51:47', '2017-02-08 11:51:47'),
-(87, NULL, NULL, 'ABANDONED_CARTS', '0', '2017-02-08 11:51:47', '2017-02-15 18:59:03'),
-(88, NULL, NULL, 'AVG_ORDER_VALUE_EXPIRE', '1487545200', '2017-02-08 11:51:47', '2017-02-19 22:32:07'),
-(89, NULL, NULL, 'NETPROFIT_VISIT_EXPIRE', '1487545200', '2017-02-08 11:51:47', '2017-02-19 22:32:07'),
-(90, NULL, NULL, 'ABANDONED_CARTS_EXPIRE', '1487543527', '2017-02-08 11:51:47', '2017-02-19 22:32:07'),
+(87, NULL, NULL, 'ABANDONED_CARTS', '3', '2017-02-08 11:51:47', '2017-02-24 12:16:47'),
+(88, NULL, NULL, 'AVG_ORDER_VALUE_EXPIRE', '1487977200', '2017-02-08 11:51:47', '2017-02-24 12:16:47'),
+(89, NULL, NULL, 'NETPROFIT_VISIT_EXPIRE', '1487977200', '2017-02-08 11:51:47', '2017-02-24 12:16:47'),
+(90, NULL, NULL, 'ABANDONED_CARTS_EXPIRE', '1487938607', '2017-02-08 11:51:47', '2017-02-24 12:16:47'),
 (91, NULL, NULL, 'PENDING_MESSAGES', '0', '2017-02-08 11:58:52', '2017-02-08 11:58:52'),
 (92, NULL, NULL, 'PENDING_MESSAGES_EXPIRE', '1486551832', '2017-02-08 11:58:52', '2017-02-08 11:58:52'),
 (93, NULL, NULL, 'AVG_MSG_RESPONSE_TIME', '0.0 heures', '2017-02-08 11:58:52', '2017-02-08 11:58:52'),
@@ -5434,7 +5442,14 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (292, 1, 1, 1, 17, 0, '2017-02-23 14:29:36', ''),
 (293, 1, 1, 1, 17, 0, '2017-02-23 15:27:26', ''),
 (294, 1, 1, 1, 18, 0, '2017-02-23 16:58:58', ''),
-(295, 1, 1, 1, 18, 0, '2017-02-23 16:59:15', '');
+(295, 1, 1, 1, 18, 0, '2017-02-23 16:59:15', ''),
+(296, 1, 1, 57, 8, 0, '2017-02-23 19:57:34', ''),
+(297, 1, 1, 57, 1, 0, '2017-02-23 21:01:44', ''),
+(298, 1, 1, 58, 1, 0, '2017-02-23 21:22:23', ''),
+(299, 1, 1, 1, 4, 0, '2017-02-23 21:38:03', ''),
+(300, 1, 1, 60, 4, 0, '2017-02-23 21:44:27', ''),
+(301, 1, 1, 61, 1, 0, '2017-02-23 22:22:49', ''),
+(302, 1, 1, 50, 9, 0, '2017-02-24 11:25:00', '');
 
 -- --------------------------------------------------------
 
@@ -8830,7 +8845,11 @@ INSERT INTO `ps_customer` (`id_customer`, `id_shop_group`, `id_shop`, `id_gender
 (1, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'John', 'DOE', 'pub@prestashop.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-01-29 13:09:15', '1970-01-15', 1, NULL, '2013-12-13 08:19:15', 1, NULL, '0.000000', 0, 0, 'a5a65489658876842dbe3f2a1b418f0c', NULL, 1, 0, 0, '2017-01-29 19:09:15', '2017-02-08 11:54:53'),
 (2, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Abdou Khadre', 'Gueye', 'akgueye.sne@gmail.com', 'bbe9a321d113e8d8b933f89d25d18f48', '2017-01-31 06:20:43', '0000-00-00', 1, '10.0.2.2', '2017-01-31 12:20:43', 0, NULL, '0.000000', 0, 0, '92fc073deabf434fb855b505cdbb9ce0', NULL, 1, 0, 0, '2017-01-31 12:20:43', '2017-01-31 12:20:43'),
 (3, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Malick', 'DIOP', 'mdiop.sne@gmail.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-06 20:16:29', '1990-07-16', 1, NULL, '2017-02-07 02:16:29', 1, NULL, '0.000000', 0, 0, '8f03ffd04c81953de890c6d7d214a96b', NULL, 1, 0, 0, '2017-02-07 02:16:29', '2017-02-07 02:16:29'),
-(4, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Malick', 'DIOP', 'server.sne@gmail.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-22 12:59:35', '2008-02-15', 1, '::1', '2017-02-22 18:59:35', 0, NULL, '0.000000', 0, 0, 'fba65dccedd2864eccc59f7eb6002263', NULL, 1, 0, 0, '2017-02-22 18:59:35', '2017-02-22 18:59:35');
+(4, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Malick', 'DIOP', 'server.sne@gmail.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-22 12:59:35', '2008-02-15', 1, '::1', '2017-02-22 18:59:35', 0, NULL, '0.000000', 0, 0, 'fba65dccedd2864eccc59f7eb6002263', NULL, 1, 0, 0, '2017-02-22 18:59:35', '2017-02-22 18:59:35'),
+(5, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Azaz', 'azaza', 'sddsdsd@sdsds.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-23 14:06:50', '0000-00-00', 1, '::1', '2017-02-23 20:06:50', 0, NULL, '0.000000', 0, 0, '2e8e735c066d383003de043b2e50134e', NULL, 1, 0, 0, '2017-02-23 20:06:50', '2017-02-23 20:06:50'),
+(6, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Sqs', 'sqsq', 'sddsdsdsds@sdsds.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-23 15:27:55', '0000-00-00', 1, '::1', '2017-02-23 21:27:55', 0, NULL, '0.000000', 0, 0, '430d325550ec4f43d1f082c4e4d8bae8', NULL, 1, 0, 0, '2017-02-23 21:27:55', '2017-02-23 21:27:55'),
+(7, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Zzd', 'zeze', 'sdddssdsdsd@sdsds.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-23 15:45:43', '2016-02-02', 0, NULL, '0000-00-00 00:00:00', 0, NULL, '0.000000', 0, 0, '86b42da665df7bdf82df008dee7816f2', NULL, 1, 0, 0, '2017-02-23 21:45:43', '2017-02-23 21:45:43'),
+(8, 1, 1, 1, 3, 1, 0, NULL, NULL, NULL, 'Dsds', 'dsdsd', 'server.sne@gmails.com', '61f94f0dd0d56b1efb427fe583008f6a', '2017-02-23 16:30:07', '0000-00-00', 0, NULL, '0000-00-00 00:00:00', 0, NULL, '0.000000', 0, 0, 'a6778e2d1e552f463a25bd4c3150f295', NULL, 1, 0, 0, '2017-02-23 22:30:07', '2017-02-23 22:30:07');
 
 -- --------------------------------------------------------
 
@@ -8853,7 +8872,11 @@ INSERT INTO `ps_customer_group` (`id_customer`, `id_group`) VALUES
 (3, 1),
 (3, 2),
 (3, 3),
-(4, 3);
+(4, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3);
 
 -- --------------------------------------------------------
 
@@ -9042,7 +9065,7 @@ CREATE TABLE `ps_employee` (
 --
 
 INSERT INTO `ps_employee` (`id_employee`, `id_profile`, `id_lang`, `lastname`, `firstname`, `email`, `passwd`, `last_passwd_gen`, `stats_date_from`, `stats_date_to`, `stats_compare_from`, `stats_compare_to`, `stats_compare_option`, `preselect_date_range`, `bo_color`, `bo_theme`, `bo_css`, `default_tab`, `bo_width`, `bo_menu`, `active`, `optin`, `id_last_order`, `id_last_customer_message`, `id_last_customer`, `last_connection_date`) VALUES
-(1, 1, 1, 'Doe', 'John', 'pub@prestashop.com', 'fb955ec4271964f67f22606cb6b02c43', '2017-01-29 13:09:14', '2016-12-29', '2017-01-29', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'admin-theme.css', 1, 0, 1, 1, 1, 0, 0, 4, '2017-02-23');
+(1, 1, 1, 'Doe', 'John', 'pub@prestashop.com', 'fb955ec4271964f67f22606cb6b02c43', '2017-01-29 13:09:14', '2016-12-29', '2017-01-29', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'admin-theme.css', 1, 0, 1, 1, 1, 0, 0, 4, '2017-02-24');
 
 -- --------------------------------------------------------
 
@@ -9602,7 +9625,11 @@ INSERT INTO `ps_guest` (`id_guest`, `id_operating_system`, `id_web_browser`, `id
 (52, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
 (53, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
 (54, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
-(55, 0, 11, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0);
+(55, 0, 11, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
+(57, 0, 11, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
+(58, 0, 11, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
+(60, 0, 11, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0),
+(61, 0, 11, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'fr', 0);
 
 -- --------------------------------------------------------
 
@@ -9873,7 +9900,8 @@ INSERT INTO `ps_hook` (`id_hook`, `name`, `title`, `description`, `position`, `l
 (167, 'nameOfHook', 'The name of your hook', 'This is a custom hook!', 1, 0),
 (168, 'displayAdminHomeQuickLinks', 'displayAdminHomeQuickLinks', '', 1, 1),
 (169, 'actionProductCoverage', 'actionProductCoverage', '', 0, 0),
-(170, 'displayAdminOrderLeft', 'displayAdminOrderLeft', '', 1, 1);
+(170, 'displayAdminOrderLeft', 'displayAdminOrderLeft', '', 1, 1),
+(171, 'displayHomeFooter', 'displayHomeFooter', 'description displayHomeFooter', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -10063,6 +10091,7 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (50, 1, 12, 1),
 (63, 1, 57, 1),
 (63, 1, 97, 1),
+(63, 1, 171, 1),
 (64, 1, 2, 1),
 (64, 1, 20, 1),
 (64, 1, 95, 1),
@@ -10198,6 +10227,9 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (50, 1, 26, 4),
 (70, 1, 68, 4),
 (73, 1, 57, 4),
+(78, 1, 1, 4),
+(78, 1, 5, 4),
+(78, 1, 114, 4),
 (6, 1, 10, 5),
 (40, 1, 15, 5),
 (44, 1, 39, 5),
@@ -11477,7 +11509,12 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (266, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 13:00:03', '2017-02-23 13:00:03'),
 (267, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 15:12:26', '2017-02-23 15:12:26'),
 (268, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 16:47:24', '2017-02-23 16:47:24'),
-(269, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 18:01:50', '2017-02-23 18:01:50');
+(269, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 18:01:50', '2017-02-23 18:01:50'),
+(270, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 18:53:25', '2017-02-23 18:53:25'),
+(271, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 19:14:44', '2017-02-23 19:14:44'),
+(272, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 20:05:53', '2017-02-23 20:05:53'),
+(273, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-23 20:40:09', '2017-02-23 20:40:09'),
+(274, 1, 0, 'Connexion au back-office depuis ::1', '', 0, 1, '2017-02-24 12:05:34', '2017-02-24 12:05:34');
 
 -- --------------------------------------------------------
 
@@ -11500,7 +11537,11 @@ CREATE TABLE `ps_mail` (
 
 INSERT INTO `ps_mail` (`id_mail`, `recipient`, `template`, `subject`, `id_lang`, `date_add`) VALUES
 (1, 'akgueye.sne@gmail.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-01-31 12:20:45'),
-(2, 'server.sne@gmail.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-22 18:59:36');
+(2, 'server.sne@gmail.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-22 18:59:36'),
+(3, 'sddsdsd@sdsds.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-23 20:06:55'),
+(4, 'sddsdsdsds@sdsds.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-23 21:27:59'),
+(5, 'sdddssdsdsd@sdsds.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-23 21:45:46'),
+(6, 'server.sne@gmails.com', 'account', '[PrestaShop] Bienvenue !', 1, '2017-02-23 22:30:10');
 
 -- --------------------------------------------------------
 
@@ -11871,7 +11912,8 @@ INSERT INTO `ps_module` (`id_module`, `name`, `active`, `version`) VALUES
 (74, 'mailalerts', 1, '3.6.1'),
 (75, 'ps_emailsmanager', 1, '1.0.5'),
 (76, 'hipay_professional', 1, '1.0.0'),
-(77, 'socolissimo', 1, '3.0.4');
+(77, 'socolissimo', 1, '3.0.4'),
+(78, 'cashondelivery', 1, '1.0.0');
 
 -- --------------------------------------------------------
 
@@ -11984,6 +12026,7 @@ INSERT INTO `ps_module_access` (`id_profile`, `id_module`, `view`, `configure`, 
 (2, 75, 1, 1, 1),
 (2, 76, 1, 1, 1),
 (2, 77, 1, 1, 1),
+(2, 78, 1, 1, 1),
 (3, 1, 1, 0, 0),
 (3, 2, 1, 0, 0),
 (3, 3, 1, 0, 0),
@@ -12059,6 +12102,7 @@ INSERT INTO `ps_module_access` (`id_profile`, `id_module`, `view`, `configure`, 
 (3, 75, 1, 0, 0),
 (3, 76, 1, 0, 0),
 (3, 77, 1, 0, 0),
+(3, 78, 1, 0, 0),
 (4, 1, 1, 1, 1),
 (4, 2, 1, 1, 1),
 (4, 3, 1, 1, 1),
@@ -12133,7 +12177,8 @@ INSERT INTO `ps_module_access` (`id_profile`, `id_module`, `view`, `configure`, 
 (4, 74, 1, 1, 1),
 (4, 75, 1, 1, 1),
 (4, 76, 1, 1, 1),
-(4, 77, 1, 1, 1);
+(4, 77, 1, 1, 1),
+(4, 78, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -12640,9 +12685,494 @@ INSERT INTO `ps_module_country` (`id_module`, `id_shop`, `id_country`) VALUES
 (30, 1, 242),
 (30, 1, 243),
 (30, 1, 244),
+(76, 1, 1),
+(76, 1, 2),
+(76, 1, 3),
+(76, 1, 4),
+(76, 1, 5),
+(76, 1, 6),
+(76, 1, 7),
 (76, 1, 8),
+(76, 1, 9),
+(76, 1, 10),
+(76, 1, 11),
+(76, 1, 12),
+(76, 1, 13),
+(76, 1, 14),
+(76, 1, 15),
+(76, 1, 16),
 (76, 1, 17),
-(76, 1, 21);
+(76, 1, 18),
+(76, 1, 19),
+(76, 1, 20),
+(76, 1, 21),
+(76, 1, 22),
+(76, 1, 23),
+(76, 1, 24),
+(76, 1, 25),
+(76, 1, 26),
+(76, 1, 27),
+(76, 1, 28),
+(76, 1, 29),
+(76, 1, 30),
+(76, 1, 31),
+(76, 1, 32),
+(76, 1, 33),
+(76, 1, 34),
+(76, 1, 35),
+(76, 1, 36),
+(76, 1, 37),
+(76, 1, 38),
+(76, 1, 39),
+(76, 1, 40),
+(76, 1, 41),
+(76, 1, 42),
+(76, 1, 43),
+(76, 1, 44),
+(76, 1, 45),
+(76, 1, 46),
+(76, 1, 47),
+(76, 1, 48),
+(76, 1, 49),
+(76, 1, 50),
+(76, 1, 51),
+(76, 1, 52),
+(76, 1, 53),
+(76, 1, 54),
+(76, 1, 55),
+(76, 1, 56),
+(76, 1, 57),
+(76, 1, 58),
+(76, 1, 59),
+(76, 1, 60),
+(76, 1, 61),
+(76, 1, 62),
+(76, 1, 63),
+(76, 1, 64),
+(76, 1, 65),
+(76, 1, 66),
+(76, 1, 67),
+(76, 1, 68),
+(76, 1, 69),
+(76, 1, 70),
+(76, 1, 71),
+(76, 1, 72),
+(76, 1, 73),
+(76, 1, 74),
+(76, 1, 75),
+(76, 1, 76),
+(76, 1, 77),
+(76, 1, 78),
+(76, 1, 79),
+(76, 1, 80),
+(76, 1, 81),
+(76, 1, 82),
+(76, 1, 83),
+(76, 1, 84),
+(76, 1, 85),
+(76, 1, 86),
+(76, 1, 87),
+(76, 1, 88),
+(76, 1, 89),
+(76, 1, 90),
+(76, 1, 91),
+(76, 1, 92),
+(76, 1, 93),
+(76, 1, 94),
+(76, 1, 95),
+(76, 1, 96),
+(76, 1, 97),
+(76, 1, 98),
+(76, 1, 99),
+(76, 1, 100),
+(76, 1, 101),
+(76, 1, 102),
+(76, 1, 103),
+(76, 1, 104),
+(76, 1, 105),
+(76, 1, 106),
+(76, 1, 107),
+(76, 1, 108),
+(76, 1, 109),
+(76, 1, 110),
+(76, 1, 111),
+(76, 1, 112),
+(76, 1, 113),
+(76, 1, 114),
+(76, 1, 115),
+(76, 1, 116),
+(76, 1, 117),
+(76, 1, 118),
+(76, 1, 119),
+(76, 1, 120),
+(76, 1, 121),
+(76, 1, 122),
+(76, 1, 123),
+(76, 1, 124),
+(76, 1, 125),
+(76, 1, 126),
+(76, 1, 127),
+(76, 1, 128),
+(76, 1, 129),
+(76, 1, 130),
+(76, 1, 131),
+(76, 1, 132),
+(76, 1, 133),
+(76, 1, 134),
+(76, 1, 135),
+(76, 1, 136),
+(76, 1, 137),
+(76, 1, 138),
+(76, 1, 139),
+(76, 1, 140),
+(76, 1, 141),
+(76, 1, 142),
+(76, 1, 143),
+(76, 1, 144),
+(76, 1, 145),
+(76, 1, 146),
+(76, 1, 147),
+(76, 1, 148),
+(76, 1, 149),
+(76, 1, 150),
+(76, 1, 151),
+(76, 1, 152),
+(76, 1, 153),
+(76, 1, 154),
+(76, 1, 155),
+(76, 1, 156),
+(76, 1, 157),
+(76, 1, 158),
+(76, 1, 159),
+(76, 1, 160),
+(76, 1, 161),
+(76, 1, 162),
+(76, 1, 163),
+(76, 1, 164),
+(76, 1, 165),
+(76, 1, 166),
+(76, 1, 167),
+(76, 1, 168),
+(76, 1, 169),
+(76, 1, 170),
+(76, 1, 171),
+(76, 1, 172),
+(76, 1, 173),
+(76, 1, 174),
+(76, 1, 175),
+(76, 1, 176),
+(76, 1, 177),
+(76, 1, 178),
+(76, 1, 179),
+(76, 1, 180),
+(76, 1, 181),
+(76, 1, 182),
+(76, 1, 183),
+(76, 1, 184),
+(76, 1, 185),
+(76, 1, 186),
+(76, 1, 187),
+(76, 1, 188),
+(76, 1, 189),
+(76, 1, 190),
+(76, 1, 191),
+(76, 1, 192),
+(76, 1, 193),
+(76, 1, 194),
+(76, 1, 195),
+(76, 1, 196),
+(76, 1, 197),
+(76, 1, 198),
+(76, 1, 199),
+(76, 1, 200),
+(76, 1, 201),
+(76, 1, 202),
+(76, 1, 203),
+(76, 1, 204),
+(76, 1, 205),
+(76, 1, 206),
+(76, 1, 207),
+(76, 1, 208),
+(76, 1, 209),
+(76, 1, 210),
+(76, 1, 211),
+(76, 1, 212),
+(76, 1, 213),
+(76, 1, 214),
+(76, 1, 215),
+(76, 1, 216),
+(76, 1, 217),
+(76, 1, 218),
+(76, 1, 219),
+(76, 1, 220),
+(76, 1, 221),
+(76, 1, 222),
+(76, 1, 223),
+(76, 1, 224),
+(76, 1, 225),
+(76, 1, 226),
+(76, 1, 227),
+(76, 1, 228),
+(76, 1, 229),
+(76, 1, 230),
+(76, 1, 231),
+(76, 1, 232),
+(76, 1, 233),
+(76, 1, 234),
+(76, 1, 235),
+(76, 1, 236),
+(76, 1, 237),
+(76, 1, 238),
+(76, 1, 239),
+(76, 1, 240),
+(76, 1, 241),
+(76, 1, 242),
+(76, 1, 243),
+(76, 1, 244),
+(78, 1, 1),
+(78, 1, 2),
+(78, 1, 3),
+(78, 1, 4),
+(78, 1, 5),
+(78, 1, 6),
+(78, 1, 7),
+(78, 1, 8),
+(78, 1, 9),
+(78, 1, 10),
+(78, 1, 11),
+(78, 1, 12),
+(78, 1, 13),
+(78, 1, 14),
+(78, 1, 15),
+(78, 1, 16),
+(78, 1, 17),
+(78, 1, 18),
+(78, 1, 19),
+(78, 1, 20),
+(78, 1, 21),
+(78, 1, 22),
+(78, 1, 23),
+(78, 1, 24),
+(78, 1, 25),
+(78, 1, 26),
+(78, 1, 27),
+(78, 1, 28),
+(78, 1, 29),
+(78, 1, 30),
+(78, 1, 31),
+(78, 1, 32),
+(78, 1, 33),
+(78, 1, 34),
+(78, 1, 35),
+(78, 1, 36),
+(78, 1, 37),
+(78, 1, 38),
+(78, 1, 39),
+(78, 1, 40),
+(78, 1, 41),
+(78, 1, 42),
+(78, 1, 43),
+(78, 1, 44),
+(78, 1, 45),
+(78, 1, 46),
+(78, 1, 47),
+(78, 1, 48),
+(78, 1, 49),
+(78, 1, 50),
+(78, 1, 51),
+(78, 1, 52),
+(78, 1, 53),
+(78, 1, 54),
+(78, 1, 55),
+(78, 1, 56),
+(78, 1, 57),
+(78, 1, 58),
+(78, 1, 59),
+(78, 1, 60),
+(78, 1, 61),
+(78, 1, 62),
+(78, 1, 63),
+(78, 1, 64),
+(78, 1, 65),
+(78, 1, 66),
+(78, 1, 67),
+(78, 1, 68),
+(78, 1, 69),
+(78, 1, 70),
+(78, 1, 71),
+(78, 1, 72),
+(78, 1, 73),
+(78, 1, 74),
+(78, 1, 75),
+(78, 1, 76),
+(78, 1, 77),
+(78, 1, 78),
+(78, 1, 79),
+(78, 1, 80),
+(78, 1, 81),
+(78, 1, 82),
+(78, 1, 83),
+(78, 1, 84),
+(78, 1, 85),
+(78, 1, 86),
+(78, 1, 87),
+(78, 1, 88),
+(78, 1, 89),
+(78, 1, 90),
+(78, 1, 91),
+(78, 1, 92),
+(78, 1, 93),
+(78, 1, 94),
+(78, 1, 95),
+(78, 1, 96),
+(78, 1, 97),
+(78, 1, 98),
+(78, 1, 99),
+(78, 1, 100),
+(78, 1, 101),
+(78, 1, 102),
+(78, 1, 103),
+(78, 1, 104),
+(78, 1, 105),
+(78, 1, 106),
+(78, 1, 107),
+(78, 1, 108),
+(78, 1, 109),
+(78, 1, 110),
+(78, 1, 111),
+(78, 1, 112),
+(78, 1, 113),
+(78, 1, 114),
+(78, 1, 115),
+(78, 1, 116),
+(78, 1, 117),
+(78, 1, 118),
+(78, 1, 119),
+(78, 1, 120),
+(78, 1, 121),
+(78, 1, 122),
+(78, 1, 123),
+(78, 1, 124),
+(78, 1, 125),
+(78, 1, 126),
+(78, 1, 127),
+(78, 1, 128),
+(78, 1, 129),
+(78, 1, 130),
+(78, 1, 131),
+(78, 1, 132),
+(78, 1, 133),
+(78, 1, 134),
+(78, 1, 135),
+(78, 1, 136),
+(78, 1, 137),
+(78, 1, 138),
+(78, 1, 139),
+(78, 1, 140),
+(78, 1, 141),
+(78, 1, 142),
+(78, 1, 143),
+(78, 1, 144),
+(78, 1, 145),
+(78, 1, 146),
+(78, 1, 147),
+(78, 1, 148),
+(78, 1, 149),
+(78, 1, 150),
+(78, 1, 151),
+(78, 1, 152),
+(78, 1, 153),
+(78, 1, 154),
+(78, 1, 155),
+(78, 1, 156),
+(78, 1, 157),
+(78, 1, 158),
+(78, 1, 159),
+(78, 1, 160),
+(78, 1, 161),
+(78, 1, 162),
+(78, 1, 163),
+(78, 1, 164),
+(78, 1, 165),
+(78, 1, 166),
+(78, 1, 167),
+(78, 1, 168),
+(78, 1, 169),
+(78, 1, 170),
+(78, 1, 171),
+(78, 1, 172),
+(78, 1, 173),
+(78, 1, 174),
+(78, 1, 175),
+(78, 1, 176),
+(78, 1, 177),
+(78, 1, 178),
+(78, 1, 179),
+(78, 1, 180),
+(78, 1, 181),
+(78, 1, 182),
+(78, 1, 183),
+(78, 1, 184),
+(78, 1, 185),
+(78, 1, 186),
+(78, 1, 187),
+(78, 1, 188),
+(78, 1, 189),
+(78, 1, 190),
+(78, 1, 191),
+(78, 1, 192),
+(78, 1, 193),
+(78, 1, 194),
+(78, 1, 195),
+(78, 1, 196),
+(78, 1, 197),
+(78, 1, 198),
+(78, 1, 199),
+(78, 1, 200),
+(78, 1, 201),
+(78, 1, 202),
+(78, 1, 203),
+(78, 1, 204),
+(78, 1, 205),
+(78, 1, 206),
+(78, 1, 207),
+(78, 1, 208),
+(78, 1, 209),
+(78, 1, 210),
+(78, 1, 211),
+(78, 1, 212),
+(78, 1, 213),
+(78, 1, 214),
+(78, 1, 215),
+(78, 1, 216),
+(78, 1, 217),
+(78, 1, 218),
+(78, 1, 219),
+(78, 1, 220),
+(78, 1, 221),
+(78, 1, 222),
+(78, 1, 223),
+(78, 1, 224),
+(78, 1, 225),
+(78, 1, 226),
+(78, 1, 227),
+(78, 1, 228),
+(78, 1, 229),
+(78, 1, 230),
+(78, 1, 231),
+(78, 1, 232),
+(78, 1, 233),
+(78, 1, 234),
+(78, 1, 235),
+(78, 1, 236),
+(78, 1, 237),
+(78, 1, 238),
+(78, 1, 239),
+(78, 1, 240),
+(78, 1, 241),
+(78, 1, 242),
+(78, 1, 243),
+(78, 1, 244);
 
 -- --------------------------------------------------------
 
@@ -12669,7 +13199,10 @@ INSERT INTO `ps_module_currency` (`id_module`, `id_shop`, `id_currency`) VALUES
 (30, 1, 3),
 (76, 1, 1),
 (76, 1, 2),
-(76, 1, 3);
+(76, 1, 3),
+(78, 1, 1),
+(78, 1, 2),
+(78, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -12912,7 +13445,10 @@ INSERT INTO `ps_module_group` (`id_module`, `id_shop`, `id_group`) VALUES
 (76, 1, 3),
 (77, 1, 1),
 (77, 1, 2),
-(77, 1, 3);
+(77, 1, 3),
+(78, 1, 1),
+(78, 1, 2),
+(78, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -13012,7 +13548,8 @@ INSERT INTO `ps_module_shop` (`id_module`, `id_shop`, `enable_device`) VALUES
 (74, 1, 7),
 (75, 1, 7),
 (76, 1, 7),
-(77, 1, 7);
+(77, 1, 7),
+(78, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -25340,7 +25877,7 @@ CREATE TABLE `ps_smarty_last_flush` (
 
 INSERT INTO `ps_smarty_last_flush` (`type`, `last_flush`) VALUES
 ('compile', '2017-02-22 23:08:13'),
-('template', '2017-02-22 23:08:13');
+('template', '2017-02-23 21:41:05');
 
 -- --------------------------------------------------------
 
@@ -25963,7 +26500,11 @@ INSERT INTO `ps_statssearch` (`id_statssearch`, `id_shop`, `id_shop_group`, `key
 (106, 1, 1, 'dsfsdfd', 0, '2017-02-23 12:49:53'),
 (107, 1, 1, 'dsfsdfd', 0, '2017-02-23 13:01:15'),
 (108, 1, 1, 'dsfsdfd', 0, '2017-02-23 13:12:42'),
-(109, 1, 1, 'dsfsdfd', 0, '2017-02-23 13:14:47');
+(109, 1, 1, 'dsfsdfd', 0, '2017-02-23 13:14:47'),
+(110, 1, 1, 'qdqsdq', 0, '2017-02-23 21:31:09'),
+(111, 1, 1, 'qdqsdq', 0, '2017-02-23 21:31:09'),
+(112, 1, 1, 'dqsds', 0, '2017-02-24 10:59:37'),
+(113, 1, 1, 'dqsds', 0, '2017-02-24 10:59:37');
 
 -- --------------------------------------------------------
 
@@ -28058,7 +28599,8 @@ INSERT INTO `ps_themeconfigurator` (`id_item`, `id_shop`, `id_lang`, `item_order
 (11, 1, 2, 4, '', 0, 'home', 'http://www.prestashop.com/', 0, 'banner-img4.jpg', '383', '142', '', 1),
 (12, 1, 2, 5, '', 0, 'home', 'http://www.prestashop.com/', 0, 'banner-img5.jpg', '777', '142', '', 1),
 (13, 1, 2, 6, '', 0, 'top', 'http://www.prestashop.com/', 0, 'banner-img6.jpg', '381', '219', '', 1),
-(14, 1, 2, 7, '', 0, 'top', 'http://www.prestashop.com/', 0, 'banner-img7.jpg', '381', '219', '', 1);
+(14, 1, 2, 7, '', 0, 'top', 'http://www.prestashop.com/', 0, 'banner-img7.jpg', '381', '219', '', 1),
+(15, 1, 1, 1, 'test', 0, 'homeFooter', 'https://vps365425.ovh.net/throwback16', 0, '6b4da25d5c6339f3d60292fd95205827077c38ad_banner-img5.jpg', '0', '0', '', 1);
 
 -- --------------------------------------------------------
 
@@ -30914,7 +31456,7 @@ ALTER TABLE `ps_carrier`
 -- AUTO_INCREMENT for table `ps_cart`
 --
 ALTER TABLE `ps_cart`
-  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `ps_cart_rule`
 --
@@ -30984,7 +31526,7 @@ ALTER TABLE `ps_condition`
 -- AUTO_INCREMENT for table `ps_configuration`
 --
 ALTER TABLE `ps_configuration`
-  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=462;
+  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
 --
 -- AUTO_INCREMENT for table `ps_configuration_kpi`
 --
@@ -30994,7 +31536,7 @@ ALTER TABLE `ps_configuration_kpi`
 -- AUTO_INCREMENT for table `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
 --
 -- AUTO_INCREMENT for table `ps_connections_source`
 --
@@ -31024,7 +31566,7 @@ ALTER TABLE `ps_currency`
 -- AUTO_INCREMENT for table `ps_customer`
 --
 ALTER TABLE `ps_customer`
-  MODIFY `id_customer` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_customer` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `ps_customer_message`
 --
@@ -31074,7 +31616,7 @@ ALTER TABLE `ps_feature`
 -- AUTO_INCREMENT for table `ps_feature_value`
 --
 ALTER TABLE `ps_feature_value`
-  MODIFY `id_feature_value` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_feature_value` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `ps_gender`
 --
@@ -31094,7 +31636,7 @@ ALTER TABLE `ps_group_reduction`
 -- AUTO_INCREMENT for table `ps_guest`
 --
 ALTER TABLE `ps_guest`
-  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `ps_homeslider`
 --
@@ -31109,7 +31651,7 @@ ALTER TABLE `ps_homeslider_slides`
 -- AUTO_INCREMENT for table `ps_hook`
 --
 ALTER TABLE `ps_hook`
-  MODIFY `id_hook` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id_hook` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 --
 -- AUTO_INCREMENT for table `ps_hook_alias`
 --
@@ -31169,12 +31711,12 @@ ALTER TABLE `ps_linksmenutop`
 -- AUTO_INCREMENT for table `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
 --
 -- AUTO_INCREMENT for table `ps_mail`
 --
 ALTER TABLE `ps_mail`
-  MODIFY `id_mail` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mail` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ps_manufacturer`
 --
@@ -31199,7 +31741,7 @@ ALTER TABLE `ps_meta`
 -- AUTO_INCREMENT for table `ps_module`
 --
 ALTER TABLE `ps_module`
-  MODIFY `id_module` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_module` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `ps_modules_perfs`
 --
@@ -31374,7 +31916,7 @@ ALTER TABLE `ps_search_engine`
 -- AUTO_INCREMENT for table `ps_search_word`
 --
 ALTER TABLE `ps_search_word`
-  MODIFY `id_word` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8038;
+  MODIFY `id_word` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7203;
 --
 -- AUTO_INCREMENT for table `ps_sekeyword`
 --
@@ -31404,7 +31946,7 @@ ALTER TABLE `ps_specific_price`
 -- AUTO_INCREMENT for table `ps_specific_price_priority`
 --
 ALTER TABLE `ps_specific_price_priority`
-  MODIFY `id_specific_price_priority` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_specific_price_priority` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `ps_specific_price_rule`
 --
@@ -31429,7 +31971,7 @@ ALTER TABLE `ps_state`
 -- AUTO_INCREMENT for table `ps_statssearch`
 --
 ALTER TABLE `ps_statssearch`
-  MODIFY `id_statssearch` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id_statssearch` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 --
 -- AUTO_INCREMENT for table `ps_stock`
 --
@@ -31524,7 +32066,7 @@ ALTER TABLE `ps_theme`
 -- AUTO_INCREMENT for table `ps_themeconfigurator`
 --
 ALTER TABLE `ps_themeconfigurator`
-  MODIFY `id_item` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_item` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `ps_theme_meta`
 --
