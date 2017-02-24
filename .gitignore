@@ -35,11 +35,6 @@ cache/tcpdf/*
 !cache/tcpdf/index.php
 cache/purifier/CSS/*
 
-config/settings.inc.php
-
-config/xml/*
-#config/xml/*.xml
-
 
 log/*
 
