@@ -23,6 +23,7 @@ laragon/wwww/thorwback16
 
 importer les fichers sql : throwbackpresta-DEV.sql et throwbackwordpress-DEV.sql
 
+6. Activer le SSL sur laragon
 
 7. Accès aux webapps & outils :
 
