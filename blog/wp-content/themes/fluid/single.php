@@ -50,7 +50,7 @@ get_header();?>
 					<div class="accueil"><a href="http://localhost/throwback16/blog"> < Accueil </a> </div>
 					
 
-						<div class="nav-previous"><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>Article précédent</span>' ); ?></div>
+						<div class="nav-previous" style="right:155px" ><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>Article précédent</span>' ); ?></div>
 						<div class="nav-next"><?php next_post_link( '%link', '<span>Article suivant</span> <i class="icon-angle-right"></i>' ); ?></div>
 					</nav><!-- #nav-below -->
 

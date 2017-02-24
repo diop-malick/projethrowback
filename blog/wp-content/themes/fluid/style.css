@@ -1876,7 +1876,7 @@ body .main .wp-caption > a {
 
 #nav-below .nav-previous {
 	display: block;
-	right: 20%;
+	
 	position: absolute;
 	
 }
@@ -1904,7 +1904,7 @@ body .main .wp-caption > a {
 .accueil {
 
 position:absolute;
-bottom: 2.5%;
+bottom:72px !important;
 
 }
 
@@ -2437,6 +2437,7 @@ bottom: 2.5%;
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
 			width: 100% !important;
 			height: 500px;
+			margin-top: 10% !important;
 		}
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 .lp-box-image {
 			height: 500px;
@@ -2449,23 +2450,29 @@ bottom: 2.5%;
 @media (min-width: 768px) {
 	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
 			width: 100% !important;
+			margin-top: 10%;
+
 		}
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
 	width: 47.5%;
+
 }
 }
 
 @media (min-width: 600px) {
 	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
 			width: 100% !important;
+			margin-top: 10%;
 		}
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
 				width: 47%;
+
 		}
 		.lp-boxes.lp-boxes-rows-4 .lp-box:nth-child(4n+1),
 		.lp-boxes.lp-boxes-rows-3 .lp-box:nth-child(3n+1),
 		.lp-boxes.lp-boxes-rows-2 .lp-box:nth-child(2n+1) {
 			clear: none !important;
+
 		}
 }
 
