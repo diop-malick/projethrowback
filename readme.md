@@ -98,6 +98,20 @@ localhost by vps365425.ovh.net
 - Remote - 
 delete current db and upload new version :
 
-- change prestashop config in thorwback16/config/setting.in
+import : 
+cd home/dev/websites/thorwback16
+mysql -uroot -pmysqlsne123 < throwbackpresta-Recette.sql
+mysql -uroot -pmysqlsne123 < throwbackwordpress-Recette.sql
+
+- change prestashop config in thorwback16/config/setting.inc.php
+- change prestashop config in thorwback16/config/defines.inc.php
 - change wordpress config in thorwback16/blog/wp-config.php
+
+* activessl :
+https://vps365425.ovh.net/throwback16/admin16/index.php
+
+préférences > générales > Activer le SSL sur tout le site : OUI
+
+
+
 
