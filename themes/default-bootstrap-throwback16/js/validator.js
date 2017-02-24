@@ -3,7 +3,7 @@ $(document).ready(function() {
     $.formUtils.addValidator({
       name : 'check_password',
       validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
+        return value.length >= 6 && value.length <= 24;
       }
     });
     $.formUtils.addValidator({
