@@ -13,10 +13,8 @@ class OrderConfirmationController extends OrderConfirmationControllerCore
 
         $this->context->smarty->assign(array(            
             'products' => $order->getProducts(),
-            'total_price' => $order->total_paid,
-            'total_price_without_tax' => $order->total_paid_tax_excl,
-            'use_taxes' => (int)Configuration::get('PS_TAX'),
-            'shipping_costs' => $order->total_shipping,            
+            'total_products_wt' => $order->total_products_wt,
+            'shippingCost' => $order->total_shipping,            
         ));
 
     }

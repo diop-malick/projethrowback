@@ -43,30 +43,29 @@
 			</div>
 		</div>
 	{/foreach}
-	{if isset($shipping_costs) }
+	{if isset($shippingCost) }
 		<div class="row line_product">
 			<div class="col-md-8">
 				<p class="command-product-name total"><span>{l s='Frais de port'|upper}</span></p>
 			</div>
 			<div class="col-md-4 text-right total">
-				{if $shipping_costs > 0}
-					<span id="total_price">{displayPrice price=$shipping_costs}</span>
+				{if $shippingCost > 0}
+					<span id="total_price">{displayPrice price=$shippingCost}</span>
 				{else}
 					<span id="total_price" style="color:#40ec40">GRATUIT</span>
 				{/if}		
-			</div>
+			</div>			
 		</div>
-	{/if}
+		<br>
+	{else}
+		{assign var=shippingCost value=0}
+	{/if}	
 	<div class="row line_product">
 		<div class="col-md-8">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 		</div>
-		<div class="col-md-4 text-right total">
-			{if $use_taxes}
-				<span id="total_price">{displayPrice price=$total_price}</span>
-			{else}
-				<span id="total_price">{displayPrice price=$total_price_without_tax}</span>
-			{/if}
+		<div class="col-md-4 text-right total">			
+			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>			
 		</div>
 	</div>
 </div>
