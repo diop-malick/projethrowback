@@ -83,7 +83,6 @@ class OrderController extends OrderControllerCore
         }
         
         $this->addCSS(_THEME_CSS_DIR_.'tabs.css');       
-        $this->addCSS(_THEME_CSS_DIR_.'validator.css');       
         $this->addJS(array(
             _THEME_JS_DIR_.'tabs.js',
             _THEME_JS_DIR_.'order-address.js',

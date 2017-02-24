@@ -55,7 +55,7 @@ $(document).ready(function() {
       var $this = $(this);
       $.ajax({
           type: "GET", // GET & url for json slightly different
-          url: "http://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
+          url: "https://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
           data: $this.serialize(),
           dataType    : 'jsonp',
           jsonp       : 'c',
@@ -83,6 +83,11 @@ function mce_success_cb(resp){
     if (resp.result=="success"){
         $('#mce-'+resp.result+'-response').show();
         // $('#mce-'+resp.result+'-response').css('color', 'green');
+        
+        $('#mc_embed_signup_header').hide();
+        $('#mc_embed_signup .input-prepend').hide();
+        $('#mc_embed_signup .btn').hide();
+
         $('#mce-'+resp.result+'-response').html(resp.msg);
         $('#mc-embedded-subscribe-form').each(function(){
             this.reset();

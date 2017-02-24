@@ -26,8 +26,7 @@
 	{capture name=path}{l s='Shipping:'}{/capture}
 	{assign var='current_step' value='shipping'}
 	{assign var="back_order_page" value="order.php"}
-	<div id="carrier_area">
-		<h1 class="page-heading">{l s='Shipping:'}</h1>
+	<div id="carrier_area">		
 		{include file="$tpl_dir./order-steps.tpl"}
 		{include file="$tpl_dir./errors.tpl"}
 		<form id="form" action="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" method="post" name="carrier_area">
@@ -38,8 +37,8 @@
 				<div id="opc_delivery_methods-overlay" class="opc-overlay" style="display: none;"></div>
 {/if}
 <div class="container clearfix">
-	<div class="row no-gutter">
-		<div class="order_carrier_content box col-sm-8 col-md-9 no-gutter">
+	<div class="row">
+		<div class="order_carrier_content box col-sm-9">
 			{if isset($virtual_cart) && $virtual_cart}
 				<input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
 		        <p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
@@ -538,36 +537,9 @@
 		                {/if}
 					{/if}
 				</div> <!-- end delivery_options_address -->
-		{if !$opc}
-				<div class="cart_navigation clearfix  col-sm-4 col-md-3 ">
-					<input type="hidden" name="step" value="3" />
-					<input type="hidden" name="back" value="{$back}" />
-					{if !$is_guest}
-						{if $back}
-							<a href="{$link->getPageLink('order', true, NULL, "step=1&back={$back}{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default hidden">
-								<i class="icon-chevron-left"></i>
-								{l s='Continue shopping'}
-							</a>
-						{else}
-							<a href="{$link->getPageLink('order', true, NULL, "step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default hidden">
-								<i class="icon-chevron-left"></i>
-								{l s='Continue shopping'}
-							</a>
-						{/if}
-					{else}
-						<a href="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default hidden">
-							<i class="icon-chevron-left"></i>
-							{l s='Continue shopping'}
-						</a>
-					{/if}
-					{if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
-						<button type="submit" name="processCarrier" class="button btn btn-default standard-checkout button-medium">
-							<span>
-								{l s='Proceed to checkout'}
-								<i class="icon-chevron-right right"></i>
-							</span>
-						</button>
-					{/if}
+		{if !$opc}				
+				<div class="cart_navigation clearfix  col-sm-3" style="padding:8px;">
+					{include file="$tpl_dir./facturette.tpl"}
 				</div>
 			</div>
 		</div>
@@ -633,6 +605,7 @@
 	});	
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
+		$('button.standard-checkout').removeAttr('disabled');
 		event.stopPropagation();		
 	});
 	function initMap(){

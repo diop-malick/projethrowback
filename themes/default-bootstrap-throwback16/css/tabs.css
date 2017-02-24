@@ -48,8 +48,7 @@ h2.resp-accordion .free {
 .order_carrier_content{
     border: none;
     background: transparent;
-    padding: 0;
-    margin: 0;
+    margin-top: -14px;
 }
 
 .resp-tab-content {

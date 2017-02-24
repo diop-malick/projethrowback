@@ -82,10 +82,13 @@ class OrderConfirmationControllerCore extends FrontController
     {
         parent::initContent();
 
+        $order = new Order($this->id_order) ;
+
         $this->context->smarty->assign(array(
             'is_guest' => $this->context->customer->is_guest,
             'HOOK_ORDER_CONFIRMATION' => $this->displayOrderConfirmation(),
-            'HOOK_PAYMENT_RETURN' => $this->displayPaymentReturn()
+            'HOOK_PAYMENT_RETURN' => $this->displayPaymentReturn(),
+            'products' => $order->getProducts()
         ));
 
         if ($this->context->customer->is_guest) {
@@ -139,9 +142,11 @@ class OrderConfirmationControllerCore extends FrontController
                 $params['currency'] = $currency->sign;
                 $params['objOrder'] = $order;
                 $params['currencyObj'] = $currency;
+                
 
                 return Hook::exec('displayOrderConfirmation', $params);
             }
+
         }
         return false;
     }

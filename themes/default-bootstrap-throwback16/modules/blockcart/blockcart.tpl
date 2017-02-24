@@ -208,7 +208,7 @@
 								</div>
 								<div class="layer_cart_product_info">
 									<span id="layer_cart_product_title" class="product-name"></span>
-									<span id="layer_cart_product_attributes"></span>
+									<!-- <span id="layer_cart_product_attributes"></span> -->
 									<div>
 										<strong class="dark">{l s='Quantity' mod='blockcart'}</strong>
 										<span id="layer_cart_product_quantity"></span>

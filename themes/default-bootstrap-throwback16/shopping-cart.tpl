@@ -251,7 +251,7 @@
 						<div class="col-md-12">	
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
-									<span class="text_valid_commande">{l s='Valider mon panier'}<i class="icon-chevron-right right"></i></span>
+									<span class="text_valid_commande">{l s='Valider mon panier'} <i class="icon-chevron-right right"></i></span>
 								</a>
 							{/if}
 						</div>
@@ -260,7 +260,7 @@
 					<div class="row text-center">
 						<div class="col-md-12">	
 						<p class="cart_navigation clearfix">
-							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+							<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
 							<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 						</a>
 						</p>
@@ -282,96 +282,10 @@
 
 	{* Define the style if it doesn't exist in the PrestaShop version*}
 	{* Will be deleted for 1.5 version and more *}
-	<!--
-	{if !isset($addresses_style)}
-		{$addresses_style.company = 'address_company'}
-		{$addresses_style.vat_number = 'address_company'}
-		{$addresses_style.firstname = 'address_name'}
-		{$addresses_style.lastname = 'address_name'}
-		{$addresses_style.address1 = 'address_address1'}
-		{$addresses_style.address2 = 'address_address2'}
-		{$addresses_style.city = 'address_city'}
-		{$addresses_style.country = 'address_country'}
-		{$addresses_style.phone = 'address_phone'}
-		{$addresses_style.phone_mobile = 'address_phone_mobile'}
-		{$addresses_style.alias = 'address_title'}
-	{/if}
-	{if !$advanced_payment_api && ((!empty($delivery_option) && (!isset($isVirtualCart) || !$isVirtualCart)) OR $delivery->id || $invoice->id) && !$opc}
-		<div class="order_delivery clearfix row">
-			{if !isset($formattedAddresses) || (count($formattedAddresses.invoice) == 0 && count($formattedAddresses.delivery) == 0) || (count($formattedAddresses.invoice.formated) == 0 && count($formattedAddresses.delivery.formated) == 0)}
-				{if $delivery->id}
-					<div class="col-xs-12 col-sm-6"{if !$have_non_virtual_products} style="display: none;"{/if}>
-						<ul id="delivery_address" class="address item box">
-							<li><h3 class="page-subheading">{l s='Delivery address'}&nbsp;<span class="address_alias">({$delivery->alias})</span></h3></li>
-							{if $delivery->company}<li class="address_company">{$delivery->company|escape:'html':'UTF-8'}</li>{/if}
-							<li class="address_name">{$delivery->firstname|escape:'html':'UTF-8'} {$delivery->lastname|escape:'html':'UTF-8'}</li>
-							<li class="address_address1">{$delivery->address1|escape:'html':'UTF-8'}</li>
-							{if $delivery->address2}<li class="address_address2">{$delivery->address2|escape:'html':'UTF-8'}</li>{/if}
-							<li class="address_city">{$delivery->postcode|escape:'html':'UTF-8'} {$delivery->city|escape:'html':'UTF-8'}</li>
-							<li class="address_country">{$delivery->country|escape:'html':'UTF-8'} {if $delivery_state}({$delivery_state|escape:'html':'UTF-8'}){/if}</li>
-						</ul>
-					</div>
-				{/if}
-				{if $invoice->id}
-					<div class="col-xs-12 col-sm-6">
-						<ul id="invoice_address" class="address alternate_item box">
-							<li><h3 class="page-subheading">{l s='Invoice address'}&nbsp;<span class="address_alias">({$invoice->alias})</span></h3></li>
-							{if $invoice->company}<li class="address_company">{$invoice->company|escape:'html':'UTF-8'}</li>{/if}
-							<li class="address_name">{$invoice->firstname|escape:'html':'UTF-8'} {$invoice->lastname|escape:'html':'UTF-8'}</li>
-							<li class="address_address1">{$invoice->address1|escape:'html':'UTF-8'}</li>
-							{if $invoice->address2}<li class="address_address2">{$invoice->address2|escape:'html':'UTF-8'}</li>{/if}
-							<li class="address_city">{$invoice->postcode|escape:'html':'UTF-8'} {$invoice->city|escape:'html':'UTF-8'}</li>
-							<li class="address_country">{$invoice->country|escape:'html':'UTF-8'} {if $invoice_state}({$invoice_state|escape:'html':'UTF-8'}){/if}</li>
-						</ul>
-					</div>
-				{/if}
-			{else}
-				{foreach from=$formattedAddresses key=k item=address}
-					<div class="col-xs-12 col-sm-6"{if $k == 'delivery' && !$have_non_virtual_products} style="display: none;"{/if}>
-						<ul class="address {if $address@last}last_item{elseif $address@first}first_item{/if} {if $address@index % 2}alternate_item{else}item{/if} box">
-							<li>
-								<h3 class="page-subheading">
-									{if $k eq 'invoice'}
-										{l s='Invoice address'}
-									{elseif $k eq 'delivery' && $delivery->id}
-										{l s='Delivery address'}
-									{/if}
-									{if isset($address.object.alias)}
-										<span class="address_alias">({$address.object.alias})</span>
-									{/if}
-								</h3>
-							</li>
-							{foreach $address.ordered as $pattern}
-								{assign var=addressKey value=" "|explode:$pattern}
-								{assign var=addedli value=false}
-								{foreach from=$addressKey item=key name=foo}
-								{$key_str = $key|regex_replace:AddressFormat::_CLEANING_REGEX_:""}
-									{if isset($address.formated[$key_str]) && !empty($address.formated[$key_str])}
-										{if (!$addedli)}
-											{$addedli = true}
-											<li><span class="{if isset($addresses_style[$key_str])}{$addresses_style[$key_str]}{/if}">
-										{/if}
-										{$address.formated[$key_str]|escape:'html':'UTF-8'}
-									{/if}
-									{if ($smarty.foreach.foo.last && $addedli)}
-										</span></li>
-									{/if}
-								{/foreach}
-							{/foreach}
-						</ul>
-					</div>
-				{/foreach}
-			{/if}
-		</div>
-	{/if}
-	
+
+
 	<div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
 	
-	<div class="clear"></div>
-	<div class="cart_navigation_extra">
-		<div id="HOOK_SHOPPING_CART_EXTRA">{if isset($HOOK_SHOPPING_CART_EXTRA)}{$HOOK_SHOPPING_CART_EXTRA}{/if}</div>
-	</div>
-	-->
 {strip}
 {addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 {addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}
@@ -379,7 +293,6 @@
 {/strip}
 {/if}
 
-<script src="http://bootboxjs.com/bootbox.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />
 <script>
 		    $( document ).ready(function() {

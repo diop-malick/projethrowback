@@ -208,6 +208,9 @@ function fluida_lpboxes( $sid = 1 ) {
             fluida_lpbox_output( $box );
         endwhile; ?>
 
+        <div class="clearfix"></div>
+        <div class="text-center"  style="color:red; font-weight:bold">
+
         <?php
 		$big = 999999999; // need an unlikely integer
 
@@ -218,6 +221,7 @@ function fluida_lpboxes( $sid = 1 ) {
 			'total' => $custom_query->max_num_pages
 		) );
 		?>
+		</div>
 			</div>
 		</section><!-- .lp-boxes -->
 <?php endif;
@@ -230,7 +234,7 @@ endif;
 if ( ! function_exists( 'fluida_lpbox_output' ) ):
 function fluida_lpbox_output( $data ) {
 	$randomness = array ( 6, 8, 1, 5, 2, 7, 3, 4 );
-	foreach ( $data as $key => $value ) { ${"$key"} = $value; } ?>
+foreach ( $data as $key => $value ) { ${"$key"} = $value; } { ?>
 			<div class="lp-box box<?php echo absint( $colno ); ?> ">
 					<div class="lp-box-image lpbox-rnd<?php echo $randomness[$colno%8]; ?>">
 						<?php if( ! empty( $image ) ) { ?><img alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_url( $image ); ?>" /> <?php } ?>
@@ -249,7 +253,8 @@ function fluida_lpbox_output( $data ) {
 						</div>
 					</div>
 			</div><!-- lp-box -->
-	<?php
+	<?php 
+	}
 } // fluida_lpbox_output()
 endif;
 

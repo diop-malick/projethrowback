@@ -37,7 +37,7 @@
 				<div class="form_content clearfix">
 					<div class="form-group">
 						<label for="email" class="control-label">{l s='Email address'}</label>
-						<input class="required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" />
+						<input class="required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" required />
 					</div>
 					<div class="form-group">
 						<label for="passwd" class="control-label">{l s='Password'}</label>
@@ -64,11 +64,11 @@
 					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 					<div class="form-group">
 						<label for="email_create" class="control-label">{l s='Email address'}</label>
-						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
+						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" required />
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium disabled" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<button class="btn btn-default button button-medium" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
 								{l s='Create an account'}
@@ -426,7 +426,7 @@
 	            <div class="row required form-group">
 					<label for="email" class="col-md-4 text-right control-label">{l s='Email'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
+						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" required />
 					</div>
 				</div>
 
@@ -435,14 +435,14 @@
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
                             <div class="col-md-8">
-                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" />
+                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" required />
                             </div>     
                 </div>
 
 				<div class="row required password form-group">
 					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" />
+						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
 					</div>
 				</div>
 
@@ -451,7 +451,7 @@
                                 &nbsp;&nbsp;{l s='Confirmation Pass'}
                             </label>
                             <div class="col-md-8">
-                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" />     
+                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" required />     
                             </div>
                 </div>
             </div>
@@ -545,7 +545,7 @@
             </div>
             <div class="col-md-8">
             	<div class="row form-group">
-            	<label for="email" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
+            	<label for="newsletter" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
 	            	<div class="col-md-8">
 							{if isset($newsletter) && $newsletter}
 								<div class="checkbox">
@@ -574,29 +574,8 @@
             </div>
 		</div>
 
-
-<!-- 		{if $b2b_enable}
-			<div class="account_creation">
-				<h3 class="page-subheading">{l s='Your company information'}</h3>
-				<p class="form-group">
-					<label for="">{l s='Company'}</label>
-					<input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="siret">{l s='SIRET'}</label>
-					<input type="text" class="form-control" id="siret" name="siret" value="{if isset($smarty.post.siret)}{$smarty.post.siret}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="ape">{l s='APE'}</label>
-					<input type="text" class="form-control" id="ape" name="ape" value="{if isset($smarty.post.ape)}{$smarty.post.ape}{/if}" />
-				</p>
-				<p class="form-group">
-					<label for="website">{l s='Website'}</label>
-					<input type="text" class="form-control" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}" />
-				</p>
-			</div>
-		{/if} -->
-
+		<!-- Autoriser de l'adresse au moment de la création de compte  -->
+		<!-- Option a activer dans préférence client -->
 		{if isset($PS_REGISTRATION_PROCESS_TYPE) && $PS_REGISTRATION_PROCESS_TYPE}
 			<div class="account_creation">
 				<h3 class="page-subheading">{l s='Your address'}</h3>
@@ -713,7 +692,11 @@
 				</p>
 			</div>
 		{/if}
+
+
 		{$HOOK_CREATE_ACCOUNT_FORM}
+
+		
 		<div class="submit clearfix">
 			<input type="hidden" name="email_create" value="1" />
 			<input type="hidden" name="is_new_customer" value="1" />
@@ -766,42 +749,11 @@
 {/strip}
 
 <script>
-	$.formUtils.addValidator({
-      name : 'check_password',
-      validatorFunction : function(value) {
-        return value.length >= 6 && value.length <= 24 && value.match(/\d/);
-      }
-    });
-    $.formUtils.addValidator({
-      name : 'check_name',
-      validatorFunction : function(value) {
-        var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
-        return ( (value.length >= 2 && value.length <= 28) && (regex.test(value))) 
-      }
-    });
-	$.validate({
-			lang : 'fr',
-			modules : 'file,html5,sanitize,toggleDisabled,security',
-			form : '#login_form'
-	});
-    $.validate({
-			lang : 'fr',
-			modules : 'file,html5,sanitize,security',
-			form : '#create-account_form'
-	});
-
 	
 	$.validate({
 			lang : 'fr',
-			modules : 'file,html5,sanitize,toggleDisabled,security',
-			form : '#account-creation_form'
+			modules : 'html5,sanitize,toggleDisabled,security',
+			
 	});
-
-	$('input[name=email_create]').on('input blur', function() { 
-		if($(".be-customer .has-success").length == 1)
-			$('.be-customer .button').removeClass('disabled');
-		else
-			$('.be-customer .button').addClass('disabled');
-	});
-	
+   	
 </script>

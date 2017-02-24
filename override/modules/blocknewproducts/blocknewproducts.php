@@ -78,6 +78,12 @@ class BlockNewProductsOverride extends BlockNewProducts
       return $this->hookRightColumn($params);
   }
 
+  /* To display new product in PUSH ZONE of shopping cart  page */
+    public function hookDisplayShoppingCartFooter($params)
+  {
+      return $this->hookRightColumn($params);
+  }
+
   /* redifine header hook to add js file */
   public function hookHeader($params)
   {
