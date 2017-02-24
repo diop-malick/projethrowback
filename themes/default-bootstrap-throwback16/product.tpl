@@ -297,7 +297,6 @@
 						{if $product->new && $product->new == 1 && ($product->quantity > 0) &&$product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 							<img src="{$base_dir}/img/icones/new.png"/>
 						{elseif isset($product->date_add) && $product->date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-						
 						<!-- MC comming soon -->
 						<img id="availability_datechrono" src="{$base_dir}/img/icones/chrono.png"/>
 						{elseif isset($product->available_date)}
@@ -496,7 +495,7 @@
 					</p>
 
 					<!-- box Chrno -->
-						<div class="row box-cart-chrono" id="availability_date" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>						
+						<div class="row box-cart-chrono" id="availability_date" {if !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>						
 							<script type="text/javascript">
 							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
 							</script>
