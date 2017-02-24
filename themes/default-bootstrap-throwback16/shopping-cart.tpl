@@ -382,7 +382,6 @@
 {/strip}
 {/if}
 
-<script src="http://bootboxjs.com/bootbox.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />
 <script>
 		    $( document ).ready(function() {

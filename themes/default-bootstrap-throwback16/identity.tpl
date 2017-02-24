@@ -60,7 +60,7 @@
                                 {l s='E-mail address'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly {else}    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" {/if}
+                                <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly {else}    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" required {/if}
                                  type="email" name="email" id="email" value="{$smarty.post.email}"  />  
                             </div>
                     </div>
@@ -70,7 +70,7 @@
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8">
-                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="old_passwd" id="old_passwd" />
+                                <input class="is_required validate form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="old_passwd" id="old_passwd" required />
                             </div>
                     </div>
                     <div class="row required form-group">
