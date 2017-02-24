@@ -85,3 +85,19 @@ git remote -v
 * when you want to deploy on sne serveur , push to sneorigin :
 
 dev / snedev
+
+
+* update remote server database : 
+
+- Local import DB : 
+
+change : 
+localhost by vps365425.ovh.net
+ in ps_configuration and ps_shop_url
+
+- Remote - 
+delete current db and upload new version :
+
+- change prestashop config in thorwback16/config/setting.in
+- change wordpress config in thorwback16/blog/wp-config.php
+
