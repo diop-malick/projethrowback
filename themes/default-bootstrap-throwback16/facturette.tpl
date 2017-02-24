@@ -76,7 +76,7 @@
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
 			<span>
-				{l s='Proceed to checkout'}
+				{l s='Valider la livraison'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
