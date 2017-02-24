@@ -59,7 +59,7 @@ $(document).ready(function(){
 			auto: homeslider_loop,
 			speed: parseInt(homeslider_speed),
 			pause: homeslider_pause,
-			controls: false,
-			auto: true,
+			// controls: true,
+			// auto: true,
 		});
 });
