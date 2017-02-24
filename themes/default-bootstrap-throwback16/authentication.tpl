@@ -37,7 +37,7 @@
 				<div class="form_content clearfix">
 					<div class="form-group">
 						<label for="email" class="control-label">{l s='Email address'}</label>
-						<input class="required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" />
+						<input class="required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" required />
 					</div>
 					<div class="form-group">
 						<label for="passwd" class="control-label">{l s='Password'}</label>
@@ -64,11 +64,11 @@
 					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 					<div class="form-group">
 						<label for="email_create" class="control-label">{l s='Email address'}</label>
-						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" />
+						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" required />
 					</div>
 					<div class="submit">
 						{if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-						<button class="btn btn-default button button-medium disabled" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<button class="btn btn-default button button-medium" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
 								{l s='Create an account'}
@@ -752,27 +752,16 @@
 	
 	$.validate({
 			lang : 'fr',
-			modules : 'file,html5,sanitize,toggleDisabled,security',
-			form : '#login_form'
+			modules : 'html5,sanitize,toggleDisabled,security',
+			
 	});
-    $.validate({
-			lang : 'fr',
-			modules : 'file,html5,sanitize,security',
-			form : '#create-account_form'
-	});
-
-	
-	$.validate({
-			lang : 'fr',
-			modules : 'file,html5,sanitize,toggleDisabled,security',
-			form : '#account-creation_form'
-	})
-
+   
+/*
 	$('input[name=email_create]').on('input blur', function() { 
 		if($(".be-customer .has-success").length == 1)
 			$('.be-customer .button').removeClass('disabled');
 		else
 			$('.be-customer .button').addClass('disabled');
-	});
+	});*/
 	
 </script>
