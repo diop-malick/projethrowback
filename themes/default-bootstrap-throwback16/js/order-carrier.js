@@ -112,12 +112,12 @@ function ajaxAddressSetup()
 				bindStateInputAndUpdate();				
 				bindZipcode();
 				bindCheckbox();
-				/*$.validate({
+				$.validate({
 			            lang : 'fr',
 			            modules : 'html5,sanitize,toggleDisabled,security',
 			            form : '#address form',
 
-			    });	*/
+			    });	
 				$("#firstname").focus();				
 						
 			}
