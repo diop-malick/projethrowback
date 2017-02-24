@@ -13,12 +13,12 @@ steps to make it work !
 
 1. Cloner le repo
 
-  
-4. placer le project dans le répertorie web laragon : 
+
+4. placer le project dans le répertorie web laragon :
 
 laragon/wwww/thorwback16
 
-<<<<<<< HEAD
+
 
 5. Installer les baseS de donnée
 
@@ -49,10 +49,10 @@ Troubleshooting
 
 exécuter laragon en mod administrateur
 
-* augmenter la limite d'import de fichier sur phpmyadmin : 
+* augmenter la limite d'import de fichier sur phpmyadmin :
 /etc/php5/apache2/php.ini
 
-Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values 
+Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values
 post_max_size : 50M
 
     * trooble shooting
