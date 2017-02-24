@@ -755,13 +755,5 @@
 			modules : 'html5,sanitize,toggleDisabled,security',
 			
 	});
-   
-/*
-	$('input[name=email_create]').on('input blur', function() { 
-		if($(".be-customer .has-success").length == 1)
-			$('.be-customer .button').removeClass('disabled');
-		else
-			$('.be-customer .button').addClass('disabled');
-	});*/
-	
+   	
 </script>
