@@ -428,6 +428,10 @@ font-size: 17px;
 
 
   /******** Panier ********************/
+  .page-product-box a {
+    color: #777 !important;
+    text-decoration: none !important;
+  }
   .img-line {
     background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
@@ -544,7 +548,15 @@ font-size: 17px;
     text-decoration: none;
     cursor: pointer;
 }
+.bootbox button{
+  background-color: #000;
+border-color: #000;
+}
 
+.bootbox button:hover{
+  background-color: #000;
+border-color: #000;
+}
 /* style search  zero result page*/
 .title_zero_result_page   {
     text-align: center;

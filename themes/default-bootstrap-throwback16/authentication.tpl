@@ -426,7 +426,7 @@
 	            <div class="row required form-group">
 					<label for="email" class="col-md-4 text-right control-label">{l s='Email'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" />
+						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" required />
 					</div>
 				</div>
 
@@ -435,14 +435,14 @@
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
                             <div class="col-md-8">
-                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" />
+                            	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" required />
                             </div>     
                 </div>
 
 				<div class="row required password form-group">
 					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" />
+						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
 					</div>
 				</div>
 
@@ -451,7 +451,7 @@
                                 &nbsp;&nbsp;{l s='Confirmation Pass'}
                             </label>
                             <div class="col-md-8">
-                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" />     
+                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" required />     
                             </div>
                 </div>
             </div>

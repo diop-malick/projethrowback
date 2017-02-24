@@ -260,7 +260,7 @@
 					<div class="row text-center">
 						<div class="col-md-12">	
 						<p class="cart_navigation clearfix">
-							<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+							<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
 							<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 						</a>
 						</p>
@@ -293,7 +293,6 @@
 {/strip}
 {/if}
 
-<script src="http://bootboxjs.com/bootbox.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />
 <script>
 		    $( document ).ready(function() {
