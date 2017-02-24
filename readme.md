@@ -67,6 +67,13 @@ remplaçant 300 par 1800 (ou plus) on augmente la durée maximale en seconde aut
 Deploy on remote SNE server
 ----------------
 
+* REMOTE - git discard local unstaged changes in home/dev/websites/throwback16 : 
+
+cd /home/dev/websites/throwback16
+git clean -df
+git checkout -- .
+
+
 * add multiple pushurl for sne given remote
 
 git remote add sneorigin ssh://dev@vps365425.ovh.net:29/home/dev/mygithub/throwback.git
