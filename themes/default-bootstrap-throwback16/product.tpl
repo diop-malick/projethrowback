@@ -660,6 +660,27 @@
 		<!--end HOOK_PRODUCT_TAB -->
 		{/if}
 
+		<!-- CMS page TABS -->
+
+		{assign var=cms_content_1 value=CMS::getCMSContent(1, true, true)}
+		{assign var=cms_content_3 value=CMS::getCMSContent(3, true, true)}
+		{assign var=cms_content_5 value=CMS::getCMSContent(5, true, true)}
+		<!-- <div id="tabs_container"> -->
+		<div class="tabbable">
+		   <ul id="myTabs" class="nav nav-tabs" role="tablist">
+		      <li class="active" ><a href="#tab1">CMS 1</a></li>
+		      <li><a href="#tab2">CMS 3</a></li>
+		      <li><a href="#tab3">CMS 4</a></li>
+		   </ul>
+		<!-- Tab panes -->
+			<div class="tab-content">
+			   <div class="tab-pane active" id="tab1">{$cms_content_1.content}</div>
+			   <div class="tab-pane" id="tab2">{$cms_content_3.content}</div>
+			   <div class="tab-pane" id="tab3">{$cms_content_5.content}</div>
+			</div>
+		</div>
+		<!-- // CMS page TABS -->
+
 
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
