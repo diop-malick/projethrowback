@@ -1,5 +1,6 @@
 // Easy Responsive Tabs Plugin
 // Author: Samson.Onna <Email : samson3d@gmail.com>
+// source link : https://github.com/samsono/Easy-Responsive-Tabs-to-Accordion
 (function ($) {
     $.fn.extend({
         easyResponsiveTabs: function (options) {
