@@ -226,14 +226,6 @@ $(document).ready(function()
 		});
 	}
 
-	// TABS
-	/*
-	$('#myT a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	});
-	*/
-
 });
 
 //find a specific price rule, based on pre calculated dom display array
