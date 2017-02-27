@@ -2308,7 +2308,12 @@ input[type="button"].btn-block {
 
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {
-  /*display: none;*/ }
+  display: none; 
+}
+
+.tab-content #blocknewproducts.tab-pane {
+  display: block !important; 
+}
 
 .tab-content > .active,
 .pill-content > .active {
