@@ -227,10 +227,12 @@ $(document).ready(function()
 	}
 
 	// TABS
-	$('#myTabs a').click(function (e) {
+	/*
+	$('#myT a').click(function (e) {
 		e.preventDefault()
 		$(this).tab('show')
 	});
+	*/
 
 });
 

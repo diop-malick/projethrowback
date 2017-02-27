@@ -667,10 +667,10 @@
 		{assign var=cms_content_5 value=CMS::getCMSContent(5, true, true)}
 		<!-- <div id="tabs_container"> -->
 		<div class="tabbable">
-		   <ul id="myTabs" class="nav nav-tabs" role="tablist">
-		      <li class="active" ><a href="#tab1">CMS 1</a></li>
-		      <li><a href="#tab2">CMS 3</a></li>
-		      <li><a href="#tab3">CMS 4</a></li>
+		   <ul id="myTabs" class="nav nav-tabs nav-justified" role="tablist">
+		      <li class="active" ><a href="#tab1" data-toggle="tab">CMS 1</a></li>
+		      <li><a href="#tab2" data-toggle="tab">CMS 3</a></li>
+		      <li><a href="#tab3" data-toggle="tab">CMS 4</a></li>
 		   </ul>
 		<!-- Tab panes -->
 			<div class="tab-content">
