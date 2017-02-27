@@ -56,18 +56,18 @@ padding: 0 0 !important;
       color: #353535;}
 /* searchbox behaviour */
 /* Remove placeholder on focus */
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
+input[name="search_query"]:focus::-webkit-input-placeholder { color:transparent; }
+input[name="search_query"]:focus:-moz-placeholder { color:transparent; }
 /**/
 /* Display reset button on searchbox */
 .search_query.form-control{
   background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
-  border: 1px solid #999;
+/*  border: 1px solid #999;*/
   padding: 3px 18px 3px 4px;     /* Use the same right padding (18) in jQ! */
   border-radius: 3px;
   transition: background 0.4s;
 }
-.search_query.form-control.x  { background-position: right 5px center; } /* (jQ) Show icon */
+.search_query.form-control.x  { background-position: right 5px center;} /* (jQ) Show icon */
 .search_query.form-control.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
 .search_query.form-control::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
 /**/
@@ -152,7 +152,7 @@ form#searchbox2 input#search_query_block {
 .btn-dark{
   margin:0 auto !important ;
   display:block !important;
-  width:18em !important;    
+  width:18em !important;
   font-size: 100%;
   font-size:100% !important;
   background-color:black !important;
@@ -163,5 +163,21 @@ form#searchbox2 input#search_query_block {
   font-size: 1.61538em;
   font-weight: 600;
   color: #333;
+}
+#searchbox  .form-control:focus {
+
+  box-shadow: inset 0 1px 1px rgb(214, 157, 50), 0 0 8px rgb(214, 157, 50);
+}
+
+#searchbox2  .form-control{
+
+  box-shadow: inset 0 1px 1px rgb(214, 157, 50), 0 0 8px rgb(214, 157, 50);
+}
+
+#search_query_block {
+    display: inline;
+    padding-left: 35px !important;
+    border: none;
+
 }
 /*# sourceMappingURL=blocksearch.css.map */

@@ -13,10 +13,11 @@ steps to make it work !
 
 1. Cloner le repo
 
-  
-4. placer le project dans le répertorie web laragon : 
+
+4. placer le project dans le répertorie web laragon :
 
 laragon/wwww/thorwback16
+
 
 
 5. Installer les baseS de donnée
@@ -49,10 +50,10 @@ Troubleshooting
 
 exécuter laragon en mod administrateur
 
-* augmenter la limite d'import de fichier sur phpmyadmin : 
+* augmenter la limite d'import de fichier sur phpmyadmin :
 /etc/php5/apache2/php.ini
 
-Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values 
+Set the variables upload_max_filesize, post_max_size, memory_limit in php.ini to the right values
 post_max_size : 50M
 
     * trooble shooting
@@ -68,7 +69,7 @@ remplaçant 300 par 1800 (ou plus) on augmente la durée maximale en seconde aut
 Deploy on remote SNE server
 ----------------
 
-* REMOTE - git discard local unstaged changes in home/dev/websites/throwback16 : 
+* REMOTE - git discard local unstaged changes in home/dev/websites/throwback16 :
 
 cd /home/dev/websites/throwback16
 git clean -df
@@ -88,18 +89,18 @@ git remote -v
 dev / snedev
 
 
-* update remote server database : 
+* update remote server database :
 
-- Local import DB : 
+- Local import DB :
 
-change : 
+change :
 localhost by vps365425.ovh.net
  in ps_configuration and ps_shop_url
 
-- Remote - 
+- Remote -
 delete current db and upload new version :
 
-import : 
+import :
 cd home/dev/websites/thorwback16
 mysql -uroot -pmysqlsne123 < throwbackpresta-Recette.sql
 mysql -uroot -pmysqlsne123 < throwbackwordpress-Recette.sql
@@ -112,7 +113,3 @@ mysql -uroot -pmysqlsne123 < throwbackwordpress-Recette.sql
 https://vps365425.ovh.net/throwback16/admin16/index.php
 
 préférences > générales > Activer le SSL sur tout le site : OUI
-
-
-
-
