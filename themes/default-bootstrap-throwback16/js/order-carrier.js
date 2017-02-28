@@ -76,59 +76,80 @@ function acceptCGV()
 
 function ajaxAddressSetup()
 {
-	$('.resp-tab-content').on('click','.addresses a',function(event){
-		var $target = event.delegateTarget;	
-		var $link = $(this);
-		event.preventDefault();
-		$('.addresses .waitimage',$target).show();
-		$.ajax({
-			url: $link.attr('href') +  '&ajax=true' ,
-			type: 'get',
-			success: function(data) {
-				$('.addresses .waitimage',$target).hide();
-				var $box = $('.box',data);
-				$('#address',$target).html($box).removeClass('hidden');
-				$('.addresses',$target).addClass('hidden');
-				$('#address .submit2',$target).prepend('<a class="btn btn-default button button-medium reset-form"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');
-				$('#address .submit2 .reset-form',$target).click(function(){
-					resetForm($target);
-				});
-				$('#address form',$target).submit(function(event){
-					/*event.preventDefault();
-					var $form = $( this );
-					$.ajax({
-						url: $form.attr('action') +  '&ajax=true' ,
-						type: $form.attr('method'),
-						data : $form.serialize(),
-						success: function(data) {
-							console.log('success')
-							console.log(data)
+	$('.resp-tab-content').each(function(){
+		var tab = this;	
+		$('.addresses a',tab).click(function(event){
+			var $link = $(this);
+			event.preventDefault();
+			$('.addresses .waitimage',tab).show();			
+			$.ajax({
+				url: $link.attr('href') ,
+				type: 'GET',
+				headers: { "cache-control": "no-cache" },
+				async: true,
+				cache: false,
+				data: {
+					processAddress: true,
+					ajax: 'true',					
+					token: static_token
+				},
+				success: function(data) {
+					$('.addresses .waitimage',tab).hide();
+					var $box = $('.box',data);
+					$('#address',tab).html($box).removeClass('hidden');
+					$('.addresses',tab).addClass('hidden');
+					$('#address .submit2',tab).prepend('<a class="btn btn-default button button-medium reset-form"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');
+					$('#address .submit2 .reset-form',tab).click(function(){
+						resetForm(tab);
+					});
+					if($('.addresses .none',tab).length){							
+						$('#address .submit2 .reset-form',tab).addClass('hidden');
+					}
+					$('#address form',tab).submit(function(event){
+						event.preventDefault();
+						var $form = $( this );
+						$.ajax({
+							type: 'POST',
+							headers: { "cache-control": "no-cache" },
+							async: true,
+							cache: false,
+							dataType : "json",
+							url: $form.attr('action') +  '&ajax=true&modify=true' ,
+							data : $form.serialize(),							
+							success: function(data) {
+								if(data.formatedAddressFieldsValuesList){
+									formatedAddressFieldsValuesList = data.formatedAddressFieldsValuesList;	
+									updateAddressesDisplay(true);							
+								}
+								resetForm(tab);						
+							}
+							
+						});
 
-						}
-					});*/
+					});
+					setCountries();
+					bindStateInputAndUpdate();				
+					bindZipcode();
+					bindCheckbox();
+					/*$.validate({
+				            lang : 'fr',
+				            modules : 'html5,sanitize,toggleDisabled,security',
+				            form : '#address form',
 
-				});
-				setCountries();
-				bindStateInputAndUpdate();				
-				bindZipcode();
-				bindCheckbox();
-				$.validate({
-			            lang : 'fr',
-			            modules : 'html5,sanitize,toggleDisabled,security',
-			            form : '#address form',
-
-			    });	
-				$("#firstname").focus();				
-						
-			}
-		});		
+				    });	*/
+					$("#firstname").focus();				
+							
+				}
+			});		
+		});
+		if($('.addresses .none',tab).length){
+			$('.addresses .address_add a',tab).trigger('click');
+		}
 	});
-	if($('.resp-tab-content .addresses .none').length){
-		$('.resp-tab-content .addresses .address_add a').trigger('click');
-	}
+	
 }
 
-function resetForm($target){
-	$('#address',$target).addClass('hidden');
-	$('.addresses',$target).removeClass('hidden');
+function resetForm(tab){
+	$('#address',tab).addClass('hidden');
+	$('.addresses',tab).removeClass('hidden');
 }

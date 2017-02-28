@@ -23,8 +23,11 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 $(document).ready(function(){
+
 	if (typeof formatedAddressFieldsValuesList !== 'undefined')
 		updateAddressesDisplay(true);
+	else
+		ajaxAddressSetup();
 
 	$(document).on('change', 'select[name=id_address_delivery], select[name=id_address_invoice]', function(){
 		updateAddressesDisplay();
@@ -40,7 +43,7 @@ $(document).ready(function(){
 
 //update the display of the addresses
 function updateAddressesDisplay(first_view)
-{
+{	
 	// update content of delivery address
 	updateAddressDisplay('delivery');
 	var txtInvoiceTitle = "";
@@ -76,6 +79,7 @@ function updateAddressesDisplay(first_view)
 		if (orderProcess === 'order')
 			updateAddresses();
 	}
+	ajaxAddressSetup();
 	return true;
 }
 
@@ -84,17 +88,20 @@ function updateAddressDisplay(addressType)
 	if (typeof formatedAddressFieldsValuesList == 'undefined' || formatedAddressFieldsValuesList.length <= 0)
 		return;
 
-	var idAddress = parseInt($('#id_address_' + addressType + '').val());
-	buildAddressBlock(idAddress, addressType, $('#address_' + addressType));
+	$('.resp-tab-content').each(function(){
+		var tab = this;
+		var idAddress = parseInt($('#id_address_' + addressType,tab).val());
+		buildAddressBlock(idAddress, addressType, $('#address_' + addressType,tab));
 
-	// change update link
-	var link = $('ul#address_' + addressType + ' li.address_update a').attr('href');
-	var expression = /id_address=\d+/;
-	if (link)
-	{
-		link = link.replace(expression, 'id_address=' + idAddress);
-		$('ul#address_' + addressType + ' li.address_update a').attr('href', link);
-	}
+		// change update link
+		var link = $('ul#address_' + addressType + ' li.address_update a',tab).attr('href');
+		var expression = /id_address=\d+/;
+		if (link)
+		{
+			link = link.replace(expression, 'id_address=' + idAddress);
+			$('ul#address_' + addressType + ' li.address_update a',tab).attr('href', link);
+		}
+	});	
 }
 
 function updateAddresses()

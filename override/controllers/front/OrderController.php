@@ -27,8 +27,11 @@ class OrderController extends OrderControllerCore
         global $orderTotal;
         
         //Assign Adress Core
-        parent::_assignAddress();
-        parent::processAddressFormat();
+        $addressDelivery = new Address((int)$this->context->cart->id_address_delivery);
+        if(Validate::isLoadedObject($addressDelivery)){
+            parent::_assignAddress();
+            parent::processAddressFormat();
+        }        
 
 
         // Assign carrier core
@@ -78,18 +81,19 @@ class OrderController extends OrderControllerCore
     {
         parent::setMedia();
         
-        if ($this->step == OrderController::STEP_DELIVERY) {
-            $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
-        }
         
         $this->addCSS(_THEME_CSS_DIR_.'tabs.css');       
         $this->addJS(array(
-            _THEME_JS_DIR_.'tabs.js',
-            _THEME_JS_DIR_.'order-address.js',
+            _THEME_JS_DIR_.'tabs.js',            
             _THEME_JS_DIR_.'tools/vatManagement.js',
             _THEME_JS_DIR_.'tools/statesManagement.js',
+            _THEME_JS_DIR_.'order-address.js',
            
         ));
+
+        if ($this->step == OrderController::STEP_DELIVERY) {
+            $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
+        }
        
     }
  }
