@@ -85,9 +85,14 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-					
-						
-						
+						{* {$product|var_dump} *}
+						{assign var="productId" value=$product.id_product}
+						{assign var="attributes" value=$product.attributes}
+						{assign var="split_size" value=","|explode:$attributes}
+						{assign var="result_size" value=":"|explode:$split_size[0]}
+						{assign var="sizing" value=$result_size[1]|trim}
+
+				<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 						<div id="product_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
@@ -100,10 +105,10 @@
 								<div class="row">
 
 									<div class="col-md-3">
-
+									{addJsDef quantityAvailable=$product.quantity_available}
 										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}" style="display: none">
 											<label>{l s='Quantity'}</label>
-											<input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="" />
+											<input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{$product.cart_quantity}" />
 											<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 												<img src="{$base_dir}/img/icones/size_down.png"/>
 											</a>
@@ -120,43 +125,44 @@
 									<div class="col-md-5">
 											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}" style="display: none">
 												<div class="row">
+													{if isset($groups)}
 														<div id="attributes">
 															<div class="attribute_list">
 																<label class="attribute_label" >{l s='Taille'}</label>
-																{foreach from=$groups key=id_attribute_group item=group}
-												{if $group.attributes|@count}
-												<fieldset class="attribute_fieldset">
-													
-													{assign var="groupName" value="group_$id_attribute_group"}
-													<div class="attribute_list">
-														
-														{if ($group.group_type == 'radio')}
-															<ul>
-																{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																	<li>
-																		<input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} />
-																		<span>{$group_attribute|escape:'html':'UTF-8'}</span>
-																	</li>
+																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+																	{if $group.attributes|@count}
+																	<fieldset class="attribute_fieldset">
+																		
+																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
+																		 
+																		<div class="attribute_list">
+																			
+																			{if ($group.group_type == 'radio')}
+																				<ul>
+																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																					
+																						<li>
+																							<input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
+																							<span>{$group_attribute|escape:'html':'UTF-8'}</span>
+																						</li>
+																					{/foreach}
+																				</ul>
+																			{/if}
+																		</div> <!-- end attribute_list -->
+																	</fieldset>
+																	{/if}
 																{/foreach}
-															</ul>
-														{/if}
-													</div> <!-- end attribute_list -->
-												</fieldset>
-												{/if}
-											{/foreach}
 															</div>
 														</div>
+													{/if}
 												</div>
 											</div>
 
 											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}">
 												<label>{l s='Taille'}</label>
 												<span class="size_line">
-													{assign var="attributes" value=$product.attributes}
-													{assign var="split_size" value=","|explode:$attributes}
-													{assign var="result" value=":"|explode:$split_size[0]}
-													
-													{$result[1]}
+													{$sizing}
 												</span>
 											</p>
 									</div>
@@ -238,7 +244,8 @@
 								</div>
 							</div>
 						</div>
-								
+						
+					</form>		
 					{/foreach}
 				</div>
 
@@ -320,6 +327,17 @@
 {addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 {addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}
 {addJsDefL name=txtProducts}{l s='products' js=1}{/addJsDefL}
+
+{addJsDef quantityLimitedAvailable=10}
+{addJsDef allowBuyWhenOutOfStock=false}
+<!-- assign quantity variable to product.js   -->
+{foreach $products as $product}			
+	{addJsDef quantityAvailable=$product.quantity_available}
+{/foreach}
+
+{addJsDef attributesCombinations="test"}
+
+
 {/strip}
 {/if}
 
@@ -329,10 +347,15 @@
 			   $( ".edit a" ).on( "click", function(e) {
 			   		e.preventDefault();
 			   		var line = $(this).attr('href');
+			   		var radio_choice = $( ".attributes_to_modify_"+line+ " input[type='radio']:checked").val();
 			   		$( ".attributes_line_"+line ).hide();
 			   		$( ".quantity_"+line ).show();
 			   		$( ".attributes_to_modify_"+line ).show();
 			   		$( ".buttons_line_"+line ).show();
+
+			   		//console.log($( ".attributes_to_modify_"+line+ " input[type='radio']:checked").val());
+
+
 
 			   			$( ".buttons_cancel_line_"+line ).on( "click", function(e) {
 					   		e.preventDefault();
@@ -340,6 +363,10 @@
 					   		$( ".quantity_"+line ).hide();
 					   		$( ".attributes_to_modify_"+line ).hide();
 					   		$( ".buttons_line_"+line ).hide();
+
+					   		//$("input[name=group_"+line+"][value=" + radio_choice + "]").attr('checked', 'checked');
+					   		//console.log($("input[name=group_"+line+"][value=" + radio_choice + "]").attr('checked', 'checked'));
+					   		//$(".attributes_to_modify_"+line+ "[value=" + radio_choice + "]").attr('checked', 'checked');
 			   			});
 			   });
 
