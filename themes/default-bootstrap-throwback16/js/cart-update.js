@@ -22,31 +22,22 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
-//global variables
-var serialScrollNbImagesDisplayed;
-var selectedCombination = [];
-var globalQuantity = 0;
-var colors = [];
-var original_url = window.location + '';
-var first_url_check = true;
-var firstTime = true;
-
 
 // The button to increment the product value
-// TODO - delete console log
 $(document).on('click', '.product_quantity_up', function(e){
 	e.preventDefault();
+	var id = $(this).attr('id');
+	var ids = id.split('-');
+	var keyTab = ids[1];
+
 	fieldName = $(this).data('field-qty');
 	var currentVal = parseInt($('input[name='+fieldName+']').val());
-	// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
-	if (!allowBuyWhenOutOfStock && quantityAvailable > 0) {	
-	// if limited quantity per ordder is defined and < of available stock, this limit is used in increment button	
-		if (typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable > 0 && quantityLimitedAvailable < quantityAvailable) {
-			quantityAvailableT = quantityLimitedAvailable;
-			// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
+	if (!allowBuyWhenOutOfStock && quantityAvailable[keyTab] > 0) {	
+		console.log(quantityAvailable[keyTab]);
+		if (typeof quantityLimitedAvailable[keyTab] !== 'undefined' && parseInt(quantityLimitedAvailable[keyTab]) > 0 && parseInt(quantityLimitedAvailable[keyTab]) < parseInt(quantityAvailable[keyTab]) ) {
+			quantityAvailableT = parseInt(quantityLimitedAvailable[keyTab]);
 		} else {
-			quantityAvailableT = quantityAvailable;
-			// console.log('quantityAvailable =' + quantityAvailable);
+			quantityAvailableT = parseInt(quantityAvailable[keyTab]);
 		}
 	}
 	else
