@@ -26,11 +26,8 @@ class FrontController extends FrontControllerCore
 
     }
 
-        /**
+    /**
      * Compiles and outputs page header section (including HTML <head>)
-     *
-     * @param bool $display If true, renders visual page header section
-     * @deprecated 1.5.0.1
      */
     public function displayHeaderBlog($display = true)
     {
@@ -50,10 +47,13 @@ class FrontController extends FrontControllerCore
             }
         }
 
-        // Call hook before assign of css_files and js_files in order to include correctly all css and javascript files
+                // Call hook before assign of css_files and js_files in order to include correctly all css and javascript files
         $this->context->smarty->assign(array(
             'HOOK_HEADER'       => $hook_header,
-            'HOOK_TOP'          => Hook::exec('displayTop')
+            'HOOK_TOP'          => Hook::exec('displayTop'),
+            // 'HOOK_LEFT_COLUMN'  => ($this->display_column_left  ? Hook::exec('displayLeftColumn') : ''),
+            // 'HOOK_RIGHT_COLUMN' => ($this->display_column_right ? Hook::exec('displayRightColumn', array('cart' => $this->context->cart)) : ''),
+            'HOOK_FOOTER'       => Hook::exec('displayFooter')
         ));
 
         $this->context->smarty->assign(array(
@@ -63,6 +63,14 @@ class FrontController extends FrontControllerCore
 
         $this->display_header = $display;
         $this->smartyOutputContent(_PS_THEME_DIR_.'header-blog.tpl');
+    }
+
+    /**
+     * Compiles and outputs page footer section
+     */
+    public function displayFooterBlog($display = true)
+    {
+        $this->smartyOutputContent(_PS_THEME_DIR_.'footer-blog.tpl');
     }
 }
 ?>

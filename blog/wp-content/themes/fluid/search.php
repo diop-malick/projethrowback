@@ -5,7 +5,9 @@
  * @package Fluida
  */
 
-get_header(); ?>
+get_header(); 
+
+?>
 
 	<div id="container" class="<?php echo fluida_get_layout_class(); ?>">
 		<main id="main" role="main" class="main">

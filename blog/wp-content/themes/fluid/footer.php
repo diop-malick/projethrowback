@@ -21,18 +21,17 @@
 	<?php 
 	// wp_footer(); 
 	?>
+
+	<!-- BEGIN - intégration WP-PS -->
+	<?php		
+	global $controllerPrestashop;
+	$controllerPrestashop->displayFooterBlog();
+	?>
+	<!-- END - intégration WP-PS -->
+
 </body>
 </html>
 
 
-<?php
-/* BEGIN - intégration WP-PS */
-global $controllerPrestashop;
-$controllerPrestashop->displayFooter();
-/* END - intégration WP-PS */
-?>
-<style type="text/css">
-.lp-boxes .lp-box-overlay{
-	background-color: rgba(53, 53, 53, 0.35) !important;
-}
-</style>
+
+

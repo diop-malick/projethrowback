@@ -4805,4 +4805,36 @@ a:after{
 	background-color: none !important;
 }
 
+#searchform-header {
+	/*margin-top: -70px; */
+	top: 50px; 
+	z-index: 5004 !important;
+	position: fixed;
+	left: 160px;
+}
+
+.home.blog.fluida-landing-page .header-container {
+	/*z-index: 5003 !important;*/
+}
+
+.home.blog.fluida-landing-page .header-container #header {
+	z-index: 5003 !important;
+	position: fixed;
+}
+
+.lp-boxes .lp-box-overlay {
+    background-color: rgba(53, 53, 53, 0.35) !important;
+}
+
+.box-pagination {
+	color:red; 
+	font-weight:bold;
+	margin-bottom: 20px;
+}
+.content-search.pad-container {
+	margin-top: 40px;
+
+}
+
+
 /* FIN! */
