@@ -675,7 +675,7 @@
 		<!-- CMS page TABS -->
 		<!-- <div id="tabs_container"> -->
 		<div class="tabbable col-md-6">
-		   <ul id="myTabs" class="nav nav-tabs nav-justified" role="tablist">
+		   <ul class="nav nav-tabs nav-justified" role="tablist">
 		      <li class="active" ><a href="#tab1" data-toggle="tab">CMS 1</a></li>
 		      <li><a href="#tab2" data-toggle="tab">CMS 3</a></li>
 		      <li><a href="#tab3" data-toggle="tab">CMS 4</a></li>
@@ -693,7 +693,10 @@
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
 		        <h4 class="panel-title">
-		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse0">{l s='Description'}</a>
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
+		          <i class="fa fa-caret-down" aria-hidden="true"></i>
+		          	{l s='Description'}
+		          </a>
 		        </h4>
 		      </div>
 		      <div id="collapse0" class="panel-collapse collapse in">
@@ -705,7 +708,10 @@
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
 		        <h4 class="panel-title">
-		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{l s='Paiement'}</a>
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+		          	{l s='Paiement'}
+		          </a>
 		        </h4>
 		      </div>
 		      <div id="collapse1" class="panel-collapse collapse">
@@ -715,7 +721,10 @@
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
 		        <h4 class="panel-title">
-		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">{l s='Livraison'}</a>
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+		          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+		          	{l s='Livraison'}
+		          </a>
 		        </h4>
 		      </div>
 		      <div id="collapse2" class="panel-collapse collapse">
@@ -725,7 +734,10 @@
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
 		        <h4 class="panel-title">
-		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">{l s='Services'}</a>
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+		          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+		          	{l s='Services'}
+		          </a>
 		        </h4>
 		      </div>
 		      <div id="collapse3" class="panel-collapse collapse">
