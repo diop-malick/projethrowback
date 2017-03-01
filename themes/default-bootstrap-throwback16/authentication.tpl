@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="passwd" class="control-label">{l s='Password'}</label>
-						<input class="is_required validate account_input form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}"   id="passwd" name="passwd" value="" />
+						<input class="is_required validate account_input form-control" type="password" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères.'}"   id="passwd" name="passwd" value="" />
 					</div>
 					<p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
 					<p class="submit">
@@ -442,7 +442,7 @@
 				<div class="row required password form-group">
 					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
+						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
 					</div>
 				</div>
 
