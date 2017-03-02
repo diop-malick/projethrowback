@@ -45,7 +45,15 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($empty)}
-	<p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+	<p class="titre-panier">{l s='Mon panier'}</p>
+	<p class="panier-vide">{l s='Your shopping cart is empty.'}</p>
+	<div class"redirect_home">
+		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+	</div>
+	{hook h="displayShoppingCartFooter"}
+
+	
+
 {elseif $PS_CATALOG_MODE}
 	<p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
 {else}
@@ -232,10 +240,10 @@
 								<div class="row">
 									
 									<div class="col-md-6 edit">
-										<a id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o fa-2x icone-active" aria-hidden="true"></i></a>
+										<a id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-md-6">
+									<div class="col-md-6 delete">
 										<a
 											id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"

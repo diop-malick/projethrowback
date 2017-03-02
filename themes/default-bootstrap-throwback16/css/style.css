@@ -497,11 +497,17 @@ font-size: 17px;
   .continue_shoping{
   	font-weight: normal !important;
   }
+  .delete{
+    padding-left: 2px !important;
+  }
   .cart_quantity_delete{
-    font-size: 1.725rem;
+    /*font-size: 1.725rem;*/
     color: #000;
     border:1px solid #000;
     padding: 0 5px;
+  }
+  .icone-update{
+    font-size: 1.6em !important;
   }
   .cart_quantity_delete:hover , .cart_quantity_delete:link { 
     color: #000;
@@ -570,6 +576,20 @@ border-color: #000;
 .bootbox button:hover{
   background-color: #000;
 border-color: #000;
+}
+/*************************** panier vide ************************/
+.titre-panier{
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+}
+.panier-vide{
+  border:1px solid #000;
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+  padding: 40px 0px;
+  margin-bottom: 20px;
 }
 /* style search  zero result page*/
 .title_zero_result_page   {
