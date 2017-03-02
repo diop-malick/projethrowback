@@ -83,7 +83,7 @@
 														{l s='Free'}
 													</span>
 												{/if}											
-											<span class="delivery_option_radio hidden">
+											<span class="delivery_option_radio ">
 												<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
 											</span>
 						      			</li>
@@ -93,7 +93,13 @@
 									{foreach $option_list as $key => $option name=options}
 										<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
 											<div>
-												{if $smarty.foreach.options.iteration == 3}
+												{if $option.unique_carrier}
+													{foreach $option.carrier_list as $carrier}														
+														{assign var=name value=$carrier.instance->name}
+														{break}
+													{/foreach}													
+												{/if}												
+												{if $name == 'Retrait en magasin'}
 													<p style="color:#ec4040">
 														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement Paypal à l’étape suivante!
 													</p>
@@ -117,131 +123,124 @@
 																{/if}
 															{/if}
 														</p>
+														<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control hidden">						
+															<option value="rem">Retrait en magasin</option>																
+														</select>
 													</div>
-												{elseif $smarty.foreach.options.iteration == 1}													
+												{elseif $name == 'Livraison à domicile'}													
 													<div class="addresses clearfix">
 														<p style="color:#ec4040">
 															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
 														</p>
-														<br>
-														{if isset($addresses)}
-															<div class="row hidden">
-																<div class="col-xs-12 col-sm-6">
-																	<div class="address_delivery select form-group selector1">
-																		<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
-																		<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+														<br>														
+														<div class="row hidden">
+															<div class="col-xs-12 col-sm-6">
+																<div class="address_delivery select form-group selector1">
+																	<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
+																	<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+																		{if isset($addresses)}
 																			{foreach from=$addresses key=k item=address}
 																				<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
 																					{$address.alias|escape:'html':'UTF-8'}
 																				</option>
 																				{break}
 																			{/foreach}
-																		</select>
-																	</div>																
-																</div>
-															</div> <!-- end row -->
-															<br>
-															<div class="row addresses">															
-																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
-																	<span class="waitimage"></span>
-																	<ul class="address item box" id="address_delivery">
-																	
-																	</ul>
-																</div>
+																		{/if}
+																	</select>
+																</div>																
+															</div>
+														</div> <!-- end row -->
+														<br>
+														<div class="row addresses">															
+															<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
+																<span class="waitimage"></span>
+																<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
+																
+																</ul>
+															</div>
 
-															</div> <!-- end row -->	
-														{else}
+														</div> <!-- end row -->	
+														{if !isset($addresses)}
 															<div class="row none">
-																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>						<span class="waitimage"></span>		
-																	<ul style="padding: 24px" class="address item box" id="address_delivery">
-																		Aucune adresse principale à afficher
-																	</ul>
+																<div class="col-sm-12">															
+																	<p class="address_add submit" style="text-align: center">
+																		<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+																			<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
+																		</a>
+																	</p>	
 																</div>																
 															</div> <!-- end row -->
-															<p class="address_add submit" style="text-align: right">
-																<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																	<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
-																</a>
-															</p>												
-														{/if}
-														<hr>
-														<h3>Livraison recommandée</h3>
-														<p><strong>Si vous souhaitez recevoir vos produits dans les 48h, cochez cette case</strong></p>
-														<div class="checkbox">
-															<label for="recyclable">
-																<input type="checkbox" name="expresso" id="expresso" value="1"/>
-																+ X € d'achat à rajouter à vos frais.
-															</label>
+														{/if}														
+														<div class="express {if !isset($addresses)}hidden{/if}">
+															<hr>
+															<h3>Livraison recommandée</h3>
+															<p><strong>Si vous souhaitez recevoir vos produits dans les 48h, cochez cette case</strong></p>
+															<div class="checkbox">
+																<label for="recyclable">
+																	<input type="checkbox" name="express" id="express" value="1"/>
+																	+ X € d'achat à rajouter à vos frais.
+																</label>
+															</div>
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
-												{elseif $smarty.foreach.options.iteration == 2}													
+												{elseif $name == 'Livraison à une autre adresse'}													
 													<div class="addresses clearfix">
 														<p style="color:#ec4040">
 															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
 														</p>
 														<br>
-														{if isset($addresses)}
-															{if $addresses|@count gt 1}
-																<div class="row">
-																	<div class="col-xs-12 col-sm-6">
-																		<div class="address_delivery select form-group selector1">
-																			<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
-																			<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-																				{foreach from=$addresses key=k item=address name=addresses}
-																					{if $smarty.foreach.addresses.iteration > 1}
-																						<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
-																							{$address.alias|escape:'html':'UTF-8'}
-																						</option>
-																						{if $smarty.foreach.addresses.iteration == 3}
-																							{assign var=maxAddresses value=true}
-																							{break}
-																						{/if}
-																					{/if }
-																				{/foreach}
-																			</select><span class="waitimage"></span>
-																		</div>																
-																	</div>																	
-																</div> <!-- end row -->
-																<br>
-																<div class="row addresses">
-																	<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
-																		<ul class="address item box" id="address_delivery">
-																		
-																		</ul>
-																	</div>
-																</div> <!-- end row -->
-															{else}
-																<div class="row none">
-																	<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>						<span class="waitimage"></span>		
-																		<ul style="padding: 24px" class="address item box" id="address_delivery">
-																			Aucune adresse secondaire à afficher
-																		</ul>
-																	</div>																
-																</div> <!-- end row -->
-															{/if}
-															<p class="address_add submit {if $maxAddresses}hidden{/if}" style="text-align: right">
-																<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																	<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
-																</a>
-															</p>
-														{else}
-															<div class="row restricted">
-																<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>						<span class="waitimage"></span>		
-																	<ul style="padding: 24px" class="address item box" id="address_delivery">
-																		Veuillez ajouter une addresse principale
-																	</ul>
+														<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
+															<div class="col-xs-12 col-sm-6">
+																<div class="address_delivery select form-group selector1">
+																	<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
+																	<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+																		{if isset($addresses) && $addresses|@count gt 1}
+																			{foreach from=$addresses key=k item=address name=addresses}
+																				{if $smarty.foreach.addresses.iteration > 1}
+																					<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
+																						{$address.alias|escape:'html':'UTF-8'}
+																					</option>
+																					{if $smarty.foreach.addresses.iteration == 3}
+																						{assign var=maxAddresses value=true}
+																						{break}
+																					{/if}
+																				{/if }
+																			{/foreach}
+																		{/if}
+																	</select>
 																</div>																
+															</div>																	
+														</div> <!-- end row -->
+														<br>
+														<div class="row addresses">
+															<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
+																<span class="waitimage"></span>
+																<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
+																
+																</ul>
+															</div>
+														</div> <!-- end row -->
+														
+															<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}">
+																															
 															</div> <!-- end row -->
-														{/if}														
-														<hr>
-														<h3>Livraison recommandée</h3>
-														<p><strong>Si vous souhaitez recevoir vos produits dans les 48h, cochez cette case</strong></p>
-														<div class="checkbox">
-															<label for="recyclable">
-																<input type="checkbox" name="expresso" id="expresso" value="1"/>
-																+ X € d'achat à rajouter à vos frais.
-															</label>
+																								
+														<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
+															<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+																<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
+															</a>
+														</p>
+														<div class="express {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
+															<hr>
+															<h3>Livraison recommandée</h3>
+															<p><strong>Si vous souhaitez recevoir vos produits dans les 48h, cochez cette case</strong></p>
+															<div class="checkbox">
+																<label for="recyclable">
+																	<input type="checkbox" name="express" id="express" value="1"/>
+																	+ X € d'achat à rajouter à vos frais.
+																</label>
+															</div>
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
@@ -596,9 +595,7 @@
 {addJsDef addressMultishippingUrl=$smarty.capture.addressUrl|cat:$smarty.capture.default}
 {capture name=addressUrlAdd}{$smarty.capture.addressUrl|cat:'&id_address='}{/capture}
 {addJsDef addressUrlAdd=$smarty.capture.addressUrlAdd}
-{if isset($formatedAddressFieldsValuesList)}
-	{addJsDef formatedAddressFieldsValuesList=$formatedAddressFieldsValuesList}
-{/if}
+{addJsDef formatedAddressFieldsValuesList=$formatedAddressFieldsValuesList}
 {addJsDef opc=$opc|boolval}
 {capture}<h3 class="page-subheading">{l s='Your billing address' js=1}</h3>{/capture}
 {addJsDefL name=titleInvoice}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
@@ -628,14 +625,14 @@
 	  tabidentify: 'tab', // The tab groups identifier
 	  activate: function() {	  	
 	  	$('input[type=radio]',this).trigger('click');
-	  	initMap();	  	
+	  	initMap();
 	  }
 	});	
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
 		$('button.standard-checkout').removeAttr('disabled');
 		event.stopPropagation();		
-	});	
+	});
 	function initMap(){
 		if(document.getElementById('map')){
 			var latLong = {
@@ -654,6 +651,6 @@
 			});
 		}		
 	}
-	
+	ajaxAddressSetup(); 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnIXYJYTobkgB_9Nr1AEeGn84d_KPM74c&callback=initMap&language=fr&region=SN" async defer></script>

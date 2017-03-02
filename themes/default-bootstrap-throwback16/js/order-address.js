@@ -23,10 +23,9 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 $(document).ready(function(){
-
 	if (typeof formatedAddressFieldsValuesList !== 'undefined')
 		updateAddressesDisplay(true);
-	else
+	else if($('form[name=carrier_area]').length)
 		ajaxAddressSetup();
 
 	$(document).on('change', 'select[name=id_address_delivery], select[name=id_address_invoice]', function(){

@@ -132,9 +132,8 @@ class AddressController extends AddressControllerCore
     }
 
      public function displayAjax()
-    {
-    	if(Tools::getValue('modify')){
-    		$this->processSubmitAddress();
+    {         
+    	if(Tools::isSubmit('submitAddress')){            
     		$customer = $this->context->customer;
 	        if (Validate::isLoadedObject($customer)) {
 	            /* Getting customer addresses */
@@ -148,6 +147,7 @@ class AddressController extends AddressControllerCore
 	                    unset($customerAddresses[$i]);
 	                }
 	                $tmpAddress = new Address($address['id_address']);
+                    $formatedAddressFieldsValuesList[$address['id_address']]['alias'] = $address['alias'];
 	                $formatedAddressFieldsValuesList[$address['id_address']]['ordered_fields'] = AddressFormat::getOrderedAddressFields($address['id_country']);
 	                $formatedAddressFieldsValuesList[$address['id_address']]['formated_fields_values'] = AddressFormat::getFormattedAddressFieldsValues(
 	                    $tmpAddress,
@@ -158,7 +158,9 @@ class AddressController extends AddressControllerCore
 	            //parent::displayAjax();
 	            $return = array(
 	                'formatedAddressFieldsValuesList' => $formatedAddressFieldsValuesList,
+                    'id_address' => Tools::getValue('id_address')
 	            );
+                
 	            $this->ajaxDie(Tools::jsonEncode($return));
 	        }
     	}else{

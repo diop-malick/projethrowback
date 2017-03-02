@@ -34,17 +34,15 @@ $(document).ready(function(){
 	if (typeof cart_gift != 'undefined' && cart_gift && $('input#gift').is(':checked'))
 		$('p#gift_div').show();
 
-	$(document).on('change', 'input.delivery_option_radio', function(){
-		var key = $(this).data('key');
-		var id_address = parseInt($(this).data('id_address'));
-		if (orderProcess == 'order' && key && id_address)
-			updateExtraCarrier(key, id_address);
-		else if(orderProcess == 'order-opc' && typeof updateCarrierSelectionAndGift !== 'undefined')
-			updateCarrierSelectionAndGift();
-	});
-
-	$(document).on('submit', 'form[name=carrier_area]', function(){
-		return acceptCGV();
+	
+	$(document).on('submit', 'form[name=carrier_area]', function(e){
+		if(acceptCGV()){
+			$('.resp-tab-content').not('.resp-tab-content-active').each(function(){
+				$('#id_address_delivery',this).empty();
+			});
+			return true;
+		}		
+		return false;
 	});
 
 	
@@ -76,12 +74,17 @@ function acceptCGV()
 
 function ajaxAddressSetup()
 {
+
+	if (typeof formatedAddressFieldsValuesList === 'undefined'){		
+		$('.resp-tab-content:last-of-type').addClass('hidden');
+		$('h2.resp-accordion:last-of-type').addClass('hidden');
+	}
 	$('.resp-tab-content').each(function(){
 		var tab = this;	
 		$('.addresses a',tab).click(function(event){
 			var $link = $(this);
 			event.preventDefault();
-			$('.addresses .waitimage',tab).show();			
+			$('.addresses .waitimage',tab).show();				
 			$.ajax({
 				url: $link.attr('href') ,
 				type: 'GET',
@@ -91,9 +94,8 @@ function ajaxAddressSetup()
 				data: {
 					processAddress: true,
 					ajax: 'true',					
-					token: static_token
 				},
-				success: function(data) {
+				success: function(data) {					
 					$('.addresses .waitimage',tab).hide();
 					var $box = $('.box',data);
 					$('#address',tab).html($box).removeClass('hidden');
@@ -101,27 +103,44 @@ function ajaxAddressSetup()
 					$('#address .submit2',tab).prepend('<a class="btn btn-default button button-medium reset-form"><span><i class="icon-chevron-left left"></i> Annuler</span></a>');
 					$('#address .submit2 .reset-form',tab).click(function(){
 						resetForm(tab);
-					});
-					if($('.addresses .none',tab).length){							
-						$('#address .submit2 .reset-form',tab).addClass('hidden');
-					}
+					});					
 					$('#address form',tab).submit(function(event){
 						event.preventDefault();
-						var $form = $( this );
+						var $form = $( this );						
 						$.ajax({
 							type: 'POST',
 							headers: { "cache-control": "no-cache" },
 							async: true,
 							cache: false,
 							dataType : "json",
-							url: $form.attr('action') +  '&ajax=true&modify=true' ,
+							url: $form.attr('action') +  '&ajax=true&submitAddress=true' ,
 							data : $form.serialize(),							
-							success: function(data) {
+							success: function(data) {								
 								if(data.formatedAddressFieldsValuesList){
-									formatedAddressFieldsValuesList = data.formatedAddressFieldsValuesList;	
-									updateAddressesDisplay(true);							
-								}
-								resetForm(tab);						
+									formatedAddressFieldsValuesList = data.formatedAddressFieldsValuesList;
+									$('.resp-tab-content:last-of-type').removeClass('hidden');
+									$('h2.resp-accordion:last-of-type').removeClass('hidden');
+									$('.express',tab).removeClass('hidden');
+									$('.addresses .address',tab).removeClass('hidden');
+									if(data.id_address == 0){
+										var address = formatedAddressFieldsValuesList[Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1]];
+										$('.addresses .none',tab).removeClass('none').addClass('hidden');
+										$('#id_address_delivery',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
+										if($('#id_address_delivery option',tab).length >= 2){
+											$('.addresses .address_add a',tab).addClass('hidden');
+										}
+									}else{
+										$('#id_address_delivery option[value=' + data.id_address + ']',tab).html(data.formatedAddressFieldsValuesList[data.id_address]['alias']).attr("selected","selected");
+										$('#id_address_delivery',tab).trigger('change');
+									}
+								}								
+								resetForm(tab);
+								$(tab).trigger('resize');
+								if(!$('.resp-tab-content-active #id_address_delivery option').length){
+							  		$('button.standard-checkout').attr('disabled','disabled');
+							  	}else{
+							  		$('button.standard-checkout').removeAttr('disabled');
+							  	}
 							}
 							
 						});
@@ -131,12 +150,12 @@ function ajaxAddressSetup()
 					bindStateInputAndUpdate();				
 					bindZipcode();
 					bindCheckbox();
-					/*$.validate({
+					$.validate({
 				            lang : 'fr',
 				            modules : 'html5,sanitize,toggleDisabled,security',
 				            form : '#address form',
 
-				    });	*/
+				    });
 					$("#firstname").focus();				
 							
 				}

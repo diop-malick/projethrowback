@@ -221,7 +221,8 @@ class ParentOrderControllerCore extends FrontController
         } else {
             $id_zone = (int)Country::getIdZone((int)Tools::getCountry());
         }
-
+        
+                
         if (Tools::getIsset('delivery_option')) {
             if ($this->validateDeliveryOption(Tools::getValue('delivery_option'))) {
                 $this->context->cart->setDeliveryOption(Tools::getValue('delivery_option'));
@@ -246,6 +247,7 @@ class ParentOrderControllerCore extends FrontController
                 }
             }
         }
+
 
         Hook::exec('actionCarrierProcess', array('cart' => $this->context->cart));
 
