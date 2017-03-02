@@ -99,11 +99,7 @@
 														{break}
 													{/foreach}													
 												{/if}												
-												{if $name == 'Retrait en magasin'}
-													<p style="color:#ec4040">
-														<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement Paypal à l’étape suivante!
-													</p>
-													<br>
+												{if $name == 'Retrait en magasin'}													
 													<p>Où nous trouver</p>													
 													<div class="clearfix">
 		             									<div id="map" style="width:100%;height:18em;background:#ececec;float:left;max-width:36em;margin:0 12px 12px 0" ></div>
@@ -165,7 +161,7 @@
 																<div class="col-sm-12">															
 																	<p class="address_add submit" style="text-align: center">
 																		<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																			<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
+																			<span>Ajouter votre première adresse<i class="icon-chevron-right right"></i></span>
 																		</a>
 																	</p>	
 																</div>																
@@ -228,7 +224,7 @@
 																								
 														<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
 															<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
+																<span>Ajouter une adresse secondaire<i class="icon-chevron-right right"></i></span>
 															</a>
 														</p>
 														<div class="express {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
