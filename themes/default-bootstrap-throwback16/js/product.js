@@ -229,7 +229,7 @@ $(document).ready(function()
 		$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 		$('#add_to_cart button').removeClass('active').addClass('disabled');
 		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
-		// $('.attribute_list .btn').removeClass('active').addClass('disabled');		
+		$('.attribute_list .btn').removeClass('active').addClass('disabled');		
 	}
 
 	
