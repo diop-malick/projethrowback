@@ -23,6 +23,42 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
+function getProductAttribute(id)
+{
+	// get every attributes values
+	request = '';
+	//create a temporary 'tab_attributes' array containing the choices of the customer
+	var tab_attributes = [];
+	//var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
+	//var attribute_anchor_separator = '-';
+	
+	var	radio_choice = parseInt($('#attributes input[type=radio]:checked').val());
+
+	
+	 
+
+	for (var i in attributesCombinations[id]){
+		  var list_attribute = attributesCombinations[id][i]['list'];
+		  tab = list_attribute.split(',');
+		  if (typeof(tab[0]) !== 'undefined')
+		   taille_attribute = parseInt(tab[0].replace(/'/g,""));
+		if (typeof(tab[1]) !== 'undefined')
+		   color_attribute = parseInt(tab[1].replace(/'/g,""));
+		  
+		  
+		  if( taille_attribute==radio_choice && color_attribute==7 )
+				return(i);
+	}
+	
+}
+
+$(document).on('click', '.attribute_radio', function(e){
+	e.preventDefault();
+	var id = $(this).attr('id');
+	console.log(getProductAttribute(id));
+	//console.log(id);
+});
+
 // The button to increment the product value
 $(document).on('click', '.product_quantity_up', function(e){
 	e.preventDefault();

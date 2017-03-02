@@ -220,7 +220,7 @@ $(document).ready(function()
 
 	// CHRONO
 	if (typeof available_date !== 'undefined' && available_date) {
-		console.log(available_date);
+		//console.log(available_date);
 		$('#clock').countdown(available_date, function(event) {		
 			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
 		});
@@ -1132,6 +1132,7 @@ function getProductAttribute()
 	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
 		tab_attributes.push($(this).val());
 	});
+	console.log(tab_attributes);
 
 	// build new request
 	for (var i in attributesCombinations)

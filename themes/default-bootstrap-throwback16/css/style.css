@@ -449,10 +449,13 @@ font-size: 17px;
     /*z-index: 45;*/
   }
   .reduction-text{
-    color:#f13340;;
+    color:#f13340;
   }
   .dispo-text{
-        color:#000;
+        color:#2e7a3a;
+  }
+  .not-dispo-text{
+    color:#8B0000;
   }
   .icone-active{
     color: #000;

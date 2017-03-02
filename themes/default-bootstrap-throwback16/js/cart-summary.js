@@ -62,11 +62,10 @@ function showElemntsToModify(line) {
 				quantity_update = quantity_current - quantity_change;
 				downQuantity(line, quantity_update);
 			}
-			
-
-			console.log(quantity_change);
-			
-
+			/*
+			else
+				upQuantity(line, 1);
+			*/	
 			$( ".attributes_line_"+line+" .current_qty_"+line).empty().append(quantity_change);
 			hideElemntsToModify(line);
 

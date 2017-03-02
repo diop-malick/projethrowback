@@ -8,7 +8,7 @@ class ParentOrderController extends ParentOrderControllerCore
         foreach($products as $product){
                $product = new Product ($product['id_product'], $this->context->language->id);
 
-               $combinations[$product->id] = $product->getAttributesGroups($this->context->language->id);
+               $combinations[$product->id] = $product->getAttributeCombinations($this->context->language->id);
            }
        }
        return $combinations;
@@ -18,17 +18,30 @@ class ParentOrderController extends ParentOrderControllerCore
         parent::_assignSummaryInformations();  
 
         $summary = $this->context->cart->getSummaryDetails();
-
-        //$products = new Product ($summary['products'], $this->context->language->id);
-       // $attributes_groups = $products->getAttributesGroups($this->context->language->id);
-        //$this->product = new Product($id_product, true, $this->context->language->id, $this->context->shop->id);
-
+    
+		$combinations = array();
         $groups = array();
         $prod['id_product']=0;
         foreach ($summary['products'] as  $prod) {
         	//var_dump($prod['id_product']);
         	$product = new Product($prod['id_product'], true, $this->context->language->id, $this->context->shop->id);
         	$attributes_groups = $product->getAttributesGroups($this->context->language->id);
+
+        	//$combinations[$prod['id_product']] = $product->getAttributeCombinations($this->context->language->id);
+
+        	$attributes_combinations[$prod['id_product']] = $product->getAttributesInformationsByProduct($prod['id_product']);
+        	
+	        if (is_array($attributes_combinations[$prod['id_product']]) && count($attributes_combinations[$prod['id_product']])) {
+	            foreach ($attributes_combinations[$prod['id_product']] as &$ac) {
+	                foreach ($ac as &$val) {
+	                    $val = str_replace(Configuration::get('PS_ATTRIBUTE_ANCHOR_SEPARATOR'), '_', Tools::link_rewrite(str_replace(array(',', '.'), '-', $val)));
+	                }
+	            }
+	        } else {
+	            $attributes_combinations[$prod['id_product']] = array();
+	        }
+
+        	
         	
         	if (is_array($attributes_groups) && $attributes_groups) {
 
@@ -61,6 +74,12 @@ class ParentOrderController extends ParentOrderControllerCore
 			                    $groups[$prod['id_product']][$row['id_attribute_group']]['attributes_quantity'][$row['id_attribute']] = 0;
 			            }
 			                $groups[$prod['id_product']][$row['id_attribute_group']]['attributes_quantity'][$row['id_attribute']] += (int)$row['quantity'];
+
+
+			                $combinations[$prod['id_product']][$row['id_product_attribute']]['attributes_values'][$row['id_attribute_group']] = $row['attribute_name'];
+                			$combinations[$prod['id_product']][$row['id_product_attribute']]['attributes'][] = (int)$row['id_attribute'];
+                
+
 		       
 		            } //end foreach attributes
 
@@ -74,15 +93,30 @@ class ParentOrderController extends ParentOrderControllerCore
 		                }
 		             
 		            }
-		            $prod['id_product']++;
+		           
+		          foreach ($combinations[$prod['id_product']] as $id_product_attribute => $comb) {
+	                $attribute_list = '';
+	                foreach ($comb['attributes'] as $id_attribute) {
+	                    $attribute_list .= '\''.(int)$id_attribute.'\',';
+	                }
+	                $attribute_list = rtrim($attribute_list, ',');
+	                $combinations[$prod['id_product']][$id_product_attribute]['list'] = $attribute_list;
+	            }   
+	            
             }
+
+
+
+            
+            
             
         } //end foreach products
 
         
-//print_r($groups);exit;
+	//var_dump($attributes_combinations);exit;
           
          $this->context->smarty->assign('groups', $groups); 
+         $this->context->smarty->assign('combinations', $combinations);
     }
 
     public function setMedia()

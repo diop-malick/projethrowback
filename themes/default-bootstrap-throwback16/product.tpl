@@ -407,7 +407,7 @@
 					{if !$PS_CATALOG_MODE}
 								<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 									<label for="quantity_wanted">{l s='Quantity'}</label>
-									<input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+									<input type="text" readonly min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 									<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 										<!-- <span><i class="icon-minus"></i></span> -->
 										<img src="{$base_dir}/img/icones/size_down.png"/>
