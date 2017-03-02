@@ -14,11 +14,11 @@
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
 	<div class="primary_block row">
-		
+
 		{if !$content_only}
-			<div class="container">
+			<!--<div class="container">
 				<div class="top-hr"></div>
-			</div>
+			</div> -->
 		{/if}
 		{if isset($adminActionDisplay) && $adminActionDisplay}
 			<div id="admin-action" class="container">
@@ -130,12 +130,12 @@
 		<div class="pb-my-right-column col-xs-12 col-md-6">
 
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
-			
+
 			<!-- FORM -->
 			<!-- add to cart form-->
 			<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 
-				<div id="rigth-row-1" class="row">					
+				<div id="rigth-row-1" class="row">
 					<!-- TITRE  -->
 					<div class="col-md-7 text-left">
 
@@ -146,7 +146,7 @@
 							{if $product->online_only}
 								<p class="online_only">{l s='Online only'}</p>
 							{/if}
-							
+
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
 								<label>{l s='Reference:'} </label>
@@ -158,38 +158,38 @@
 							<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
 							<section>
 								<ul id="idTab2" class="bullet">
-								{foreach from=$features item=feature}      
-								{if $feature.id_feature eq "8"}      
+								{foreach from=$features item=feature}
+								{if $feature.id_feature eq "8"}
 									<li>
 									{if isset($feature.value)}
 											<span>{$feature.name|escape:'html':'UTF-8'}</span>
 											<span>{$feature.value|escape:'html':'UTF-8'}</span>
 									{/if}
-									</li>    
+									</li>
 								{/if}
-								{if $feature.id_feature eq "9"}      
+								{if $feature.id_feature eq "9"}
 									<li>
 									{if isset($feature.value)}
 											<span>{$feature.name|escape:'html':'UTF-8'}</span>
 											<span>{$feature.value|escape:'html':'UTF-8'}</span>
 									{/if}
-									</li>    
+									</li>
 								{/if}
-								<!-- {if $feature.id_feature eq "11"}      
+								<!-- {if $feature.id_feature eq "11"}
 									<li>
 									{if isset($feature.value)}
 											<span>{$feature.name|escape:'html':'UTF-8'}</span>
 											<span>{$feature.value|escape:'html':'UTF-8'}</span>
 									{/if}
-									</li>    
+									</li>
 								{/if}  -->
 								{/foreach}
 								</ul>
 							</section>
-							<!-- // FEATURES -->							
+							<!-- // FEATURES -->
 
 							<!-- STOCK -->
-							
+
 							{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
 							<!--
 							<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
@@ -197,9 +197,9 @@
 								<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
 								<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span>
 							</p>
-							-->						
+							-->
 							{/if}
-							
+
 							<!-- // STOCK -->
 
 							<!-- AVAILABILITY or doesntExist -->
@@ -209,21 +209,21 @@
 								<span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
 							</p>
 							-->
-							
+
 							{if $PS_STOCK_MANAGEMENT}
 							<!--
 								{if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
 								<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
 								-->
 							{/if}
-							
+
 
 
 							<!-- Out of stock hook -->
 							<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 								{$HOOK_PRODUCT_OOS}
 							</div>
-							
+
 							<!-- social sharing -->
 							{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 
@@ -290,9 +290,9 @@
 							{/if} {*close if for show price*}
 							{hook h="displayProductPriceBlock" product=$product type="weight" hook_origin='product_sheet'}
 	                        {hook h="displayProductPriceBlock" product=$product type="after_price"}
-																		
+
 						</div> <!-- end content_prices -->
-						
+
 						<!-- FALG New -->
 						{if $product->new && $product->new == 1 && ($product->quantity > 0) &&$product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 							<img src="{$base_dir}/img/icones/new.png"/>
@@ -312,16 +312,16 @@
 						<!-- FEATURES from `ps_feature_lang` table - genre : 10  -->
 							<section>
 								<ul id="idTab2" class="bullet">
-								{foreach from=$features item=feature}      
-									{if $feature.id_feature eq "10"}      
+								{foreach from=$features item=feature}
+									{if $feature.id_feature eq "10"}
 										<li>
 										{if isset($feature.value)}
 												<!-- <span>{$feature.name|escape:'html':'UTF-8'}</span> -->
 												<!-- <span>{$feature.value|escape:'html':'UTF-8'}</span> -->
 												<img src="{$base_dir}/img/icones/sexe.png"/>
 										{/if}
-										</li>    
-									{/if}   
+										</li>
+									{/if}
 								{/foreach}
 								</ul>
 							</section>
@@ -349,7 +349,7 @@
 					</div>
 					<!-- // PRICE  -->
 				</div> <!-- // rigth-row-1 -->
-				
+
 				<div class="clear"></div>
 				<!-- <div class="clearfix visible-sm"></div> -->
 
@@ -392,18 +392,18 @@
 					</div>
 					<!-- // full description -->
 				</div> <!-- // rigth-row-2 -->
-					
+
 				<!-- rigth-row-3 -->
 				<div id="rigth-row-3" class="row">
-					
+
 					<div class="col-md-8 text-left">
 					<!-- quantity wanted -->
-						
 
-					
+
+
 
 					<div class="clearfix"></div>
-						
+
 					{if !$PS_CATALOG_MODE}
 								<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 									<label for="quantity_wanted">{l s='Quantity'}</label>
@@ -495,7 +495,7 @@
 					</p>
 
 					<!-- box Chrno -->
-						<div class="row box-cart-chrono" id="availability_date" {if !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>						
+						<div class="row box-cart-chrono" id="availability_date" {if !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>
 							<script type="text/javascript">
 							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
 							</script>
@@ -503,11 +503,11 @@
 							    <div class="panel-body">
 							    	<span id="clock"></span>
 							    </div>
-							</div>														
-						</div>					
+							</div>
+						</div>
 
 					<!-- Cart button -->
-					<!-- <div class="box-info-product"> --> 
+					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
 						<div class="row box-cart-bottom">
 							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
@@ -518,7 +518,7 @@
 								</p>
 							</div>
 							{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-						</div> <!-- end box-cart-bottom -->					
+						</div> <!-- end box-cart-bottom -->
 					<!-- </div>  --><!-- end box-info-product -->
 
 					</div> <!-- end col -->
@@ -529,7 +529,7 @@
 
 			{/if}
 
-		</div> 
+		</div>
 
 		<!-- center infos -->
 		<!-- <div class="pb-center-column col-xs-12 col-sm-4"> -->
@@ -545,7 +545,7 @@
 					<!-- </li> -->
 				<!-- </ul> -->
 			<!-- {/if} -->
-			
+
 		<!-- </div> -->
 		<!-- end center infos-->
 
@@ -554,7 +554,7 @@
 
 		<!-- </div>   -->
 		<!-- end pb-right-column -->
-		
+
 
 	</div> <!-- end primary_block -->
 
@@ -626,9 +626,9 @@
 		{/if}
 
 
-		<!-- TODO : Fiche technique / caractéristique  -->		
+		<!-- TODO : Fiche technique / caractéristique  -->
 		{if isset($features) && $features}
-			<!-- Data sheet -->			 
+			<!-- Data sheet -->
 			<!-- <section class="page-product-box">
 				<h3 class="page-product-heading">{l s='Data sheet'}</h3>
 				<table class="table-data-sheet">
@@ -669,7 +669,7 @@
 		{assign var=cms_content_3 value=CMS::getCMSContent(3, true, true)}
 		{assign var=cms_content_5 value=CMS::getCMSContent(5, true, true)}
 
-		
+
 		<div class="container">
 
 		<!-- CMS page TABS -->
@@ -797,13 +797,13 @@
 					</div>
 				</div>
 			</section>
-			<!--end Accessories -->			
+			<!--end Accessories -->
 		{elseif isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}
-			<!-- ZONE PUSH - Produit même catégorie -->	
+			<!-- ZONE PUSH - Produit même catégorie -->
 			{$HOOK_PRODUCT_FOOTER}
 		{/if}
 
-	
+
 
 		<!-- description & features -->
 		{if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
@@ -989,12 +989,12 @@
 
 
 <!-- assign defined limited quantity variable to product.js  -->
-{foreach from=$features item=feature}      
-	{if $feature.id_feature eq "11"}      
+{foreach from=$features item=feature}
+	{if $feature.id_feature eq "11"}
 		{if isset($feature.value)}
 			{addJsDef quantityLimitedAvailable=$feature.value}
 		{/if}
-	{/if}   
+	{/if}
 {/foreach}
 
 <!-- assign quantity variable to product.js   -->
