@@ -427,9 +427,11 @@ span.view_scroll_spacer {
     /*min-height: 1px; */
 }
 
-
+/*custom throwback*/
 #attributes fieldset {
-  padding-bottom: 3px; }
+  /*padding-bottom: 3px; */
+}
+
   #attributes fieldset label {
     vertical-align: top;
     display: block; }
@@ -1179,6 +1181,7 @@ Quick View Styles
 
 /*CUSTOM*/
 
+
 .page-product-box .block_content .product_desc  {
 
 }
@@ -1226,6 +1229,7 @@ h3.page-product-heading {
 
 .box-cart-chrono .panel-default {
   background-color: rgb(53, 53, 53);
+  margin:0 !important;
 }
 
 .box-cart-chrono .panel-default > .panel-body > span{

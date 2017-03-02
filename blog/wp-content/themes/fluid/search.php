@@ -22,18 +22,17 @@ get_header();
 					<?php get_search_form(); ?>
 				</header>
 
-				<div id="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>>
+				<div id="content-masonry" class="row" <?php cryout_schema_microdata( 'blog' ); ?>>
 					<?php /* Start the Loop */
 					while ( have_posts() ) : the_post();
 						get_template_part( 'content/content', get_post_format() );
 					endwhile;
 					?>
 				</div><!--content-masonry-->
-				<?php
+				
+				<div class="row text-center"> <?php fluida_pagination(); ?> </div>
 
-				fluida_pagination();
-
-			else :
+			<?php else :
 
 				get_template_part( 'content/content', 'notfound' );
 				?><div id="content-masonry"></div><?php

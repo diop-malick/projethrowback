@@ -449,6 +449,8 @@ a:visited {
 	min-height: 400px;
 	clear: both;
 	overflow: hidden;
+	    margin-top: 50px;
+
 }
 
 #content-masonry {
@@ -1594,7 +1596,7 @@ article.hentry .post-thumbnail-container > a.responsive-featured-image {
 
 .fluida-magazine-two #content-masonry article.hentry {
 	float: left;
-	width: 48%;
+	/*width: 48%;*/
 	margin-bottom: 1.5em;
 }
 

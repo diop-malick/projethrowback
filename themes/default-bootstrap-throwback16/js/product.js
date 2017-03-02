@@ -226,6 +226,13 @@ $(document).ready(function()
 		});
 	}
 
+	// COLAPSE
+	$('.collapse').on('shown.bs.collapse', function(){
+		$(this).parent().find(".fa-caret-right").removeClass("fa-caret-right").addClass("fa-caret-down");
+		}).on('hidden.bs.collapse', function(){
+		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-right");
+	});
+
 });
 
 //find a specific price rule, based on pre calculated dom display array
