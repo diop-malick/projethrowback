@@ -544,7 +544,7 @@ class ProductControllerCore extends FrontController
                 $attribute_list = rtrim($attribute_list, ',');
                 $combinations[$id_product_attribute]['list'] = $attribute_list;
             }
-
+            
             $this->context->smarty->assign(array(
                 'groups' => $groups,
                 'colors' => (count($colors)) ? $colors : false,

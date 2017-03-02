@@ -661,6 +661,84 @@
 		{/if}
 
 
+
+
+		<!-- CMS page  -->
+
+		{assign var=cms_content_1 value=CMS::getCMSContent(1, true, true)}
+		{assign var=cms_content_3 value=CMS::getCMSContent(3, true, true)}
+		{assign var=cms_content_5 value=CMS::getCMSContent(5, true, true)}
+
+		
+		<div class="container">
+
+		<!-- CMS page TABS -->
+		<!-- <div id="tabs_container"> -->
+		<div class="tabbable col-md-6">
+		   <ul id="myTabs" class="nav nav-tabs nav-justified" role="tablist">
+		      <li class="active" ><a href="#tab1" data-toggle="tab">CMS 1</a></li>
+		      <li><a href="#tab2" data-toggle="tab">CMS 3</a></li>
+		      <li><a href="#tab3" data-toggle="tab">CMS 4</a></li>
+		   </ul>
+		<!-- Tab panes -->
+			<div class="tab-content">
+			   <div class="tab-pane active" id="tab1">{$cms_content_1.content}</div>
+			   <div class="tab-pane" id="tab2">{$cms_content_3.content}</div>
+			   <div class="tab-pane" id="tab3">{$cms_content_5.content}</div>
+			</div>
+		</div>
+
+		<!-- CMS page Acordion -->
+		  <div class="panel-group col-md-6" id="accordion">
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse0">{l s='Description'}</a>
+		        </h4>
+		      </div>
+		      <div id="collapse0" class="panel-collapse collapse in">
+		        <div class="panel-body">
+		        	<div  class="rte text-justify">{$product->description}</div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{l s='Paiement'}</a>
+		        </h4>
+		      </div>
+		      <div id="collapse1" class="panel-collapse collapse">
+		        <div class="panel-body">{$cms_content_1.content}</div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">{l s='Livraison'}</a>
+		        </h4>
+		      </div>
+		      <div id="collapse2" class="panel-collapse collapse">
+		        <div class="panel-body">{$cms_content_5.content}</div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">{l s='Services'}</a>
+		        </h4>
+		      </div>
+		      <div id="collapse3" class="panel-collapse collapse">
+		        <div class="panel-body">{$cms_content_3.content}</div>
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+
+
+
+
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
 			<section class="page-product-box">
