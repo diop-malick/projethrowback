@@ -253,22 +253,18 @@
 						<!-- FALG New -->
 						{if $product->new && $product->new == 1 && ($product->quantity > 0) &&$product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 							<img src="{$base_dir}/img/icones/new.png"/>
-						{elseif isset($product->date_add) && $product->date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-						<!-- MC comming soon -->
-						<!-- <img id="availability_datechrono" src="{$base_dir}/img/icones/chrono.png"/> -->
-						{elseif isset($product->available_date)}
-
-						<!-- MCT coming soon -->
-						<!-- <p id="availability_datechrono" {if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-							<img src="{$base_dir}/img/icones/chrono.png"/>
-						</p> -->
-
 						{/if}
 
 
 					</div>
 					<!-- // PRICE  -->
 				</div> <!-- // rigth-row-1 -->
+
+				<div class="row">
+					<div class="col-md-12">
+						<hr>						
+					</div>					
+				</div>
 				
 				<div class="clear"></div>
 				<!-- <div class="clearfix visible-sm"></div> -->
@@ -277,7 +273,8 @@
 					<div class="col-md-12">
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
-								<label>{l s='Reference:'} </label>
+								<!-- {l s='Reference:'} -->
+								{l s='Ref '}
 								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 							</p>
 							<!-- // REFERENCE -->
@@ -293,6 +290,7 @@
 
 						<!-- Flag GENRE -->
 						<!-- features from `ps_feature_lang` table - genre : 10  -->
+						<div class="row">
 							<section>
 								<ul id="idTab2" class="bullet">
 								{foreach from=$features item=feature}      
@@ -308,37 +306,42 @@
 								{/foreach}
 								</ul>
 							</section>
+						</div>
 						<!-- // Flag GENRE -->
 
 						<div class="clearfix"></div>
 
 						<!-- COLOR  -->
-							<div class="product_attributes clearfix">
+							<div class="row product_attributes clearfix">
 								{if isset($groups)}
 								<!-- attributes -->
-								<div id="attributes">
+								<div class="customattributes">
 								{foreach from=$groups key=id_attribute_group item=group}
 											{if ($group.group_type == 'color') && $group.attributes|@count}
 												<fieldset class="attribute_fieldset">
-												<div class="form-group row attribute_list">
+												<div class="form-group attribute_list">
 													<label class="col-md-4 attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
 													{assign var="groupName" value="group_$id_attribute_group"}
 													<div class="col-md-8">
 														<ul id="color_to_pick_list" class="clearfix">
+														<label class="btn"> <!-- to disable attributes for comming soon -->
 																		{assign var="default_colorpicker" value=""}
 																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																			{assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-																			<li{if $group.default == $id_attribute} class="selected"{/if}>
-																				<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
+																			
+																			<li class="img-circle {if $group.default == $id_attribute} selected {/if}">
+																				<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="img-circle color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
 																					{if $img_color_exists}
 																						<img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
 																					{/if}
 																				</a>
 																			</li>
+																			
 																			{if ($group.default == $id_attribute)}
 																				{$default_colorpicker = $id_attribute}
 																			{/if}
 																		{/foreach}
+														</label>
 														</ul>
 														<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
 													</div>
@@ -356,20 +359,22 @@
 					
 						<!-- QUANTITY  -->
 						{if !$PS_CATALOG_MODE}
-									<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+							<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 										<label class="col-md-4" for="quantity_wanted">{l s='Quantity'}</label>
 										<div class="col-md-8">
 										<input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 										<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-											<!-- <span><i class="icon-minus"></i></span> -->
-											<img src="{$base_dir}/img/icones/size_down.png"/>
+											<span><i class="icon-minus"></i></span>
+											<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
+
 										</a>
 										<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-											<!-- <span><i class="icon-plus"></i></span> -->
-											<img src="{$base_dir}/img/icones/size_up.png"/>
+											<span><i class="icon-plus"></i></span>
+											<!-- <img src="{$base_dir}/img/icones/size_up.png"/> -->
+
 										</a>
 										</div>
-									</div>
+							</div>
 						{/if}
 						<!-- // QUANTITY  -->
 				
@@ -380,7 +385,7 @@
 
 								{if isset($groups)}
 									<!-- attributes -->
-									<div id="attributes">
+									<div class="customattributes">
 										<div class="clearfix"></div>
 										{foreach from=$groups key=id_attribute_group item=group}
 											{if $group.attributes|@count}
@@ -389,24 +394,32 @@
 													<div class="attribute_list">
 														{if ($group.group_type == 'select')}
 														<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-													{assign var="groupName" value="group_$id_attribute_group"}
+														{assign var="groupName" value="group_$id_attribute_group"}
 															<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
 																{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																	<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'html':'UTF-8'}">{$group_attribute|escape:'html':'UTF-8'}</option>
 																{/foreach}
 															</select>
 														{elseif ($group.group_type == 'radio')}
-														<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-													{assign var="groupName" value="group_$id_attribute_group"}
-															<ul>
-																{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																	<li>
-																		<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
-																		<input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
-																		<span>{$group_attribute|escape:'html':'UTF-8'}</span>
-																	</li>
-																{/foreach}
-															</ul>
+															<div class="row">
+																<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
+																{assign var="groupName" value="group_$id_attribute_group"}
+															</div>
+															<div class="row">
+																<ul>
+																	<span class="btn"> <!-- to disable attributes for comming soon -->
+																	{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																		<li>
+																			<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
+																			<label for="radio_{$id_attribute|intval}">
+																			<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
+																			{$group_attribute|escape:'html':'UTF-8'}
+																			</label>
+																		</li>
+																	{/foreach}
+																</span>
+																</ul>
+															</div>														
 														{/if}
 													</div> <!-- end attribute_list -->
 												</fieldset>
@@ -440,18 +453,21 @@
 					</p>
 
 					<!-- box Chrno -->
-						<div class="row box-cart-chrono" id="availability_date" {if !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->date_add) || $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} style="display: none;"{/if}>						
+					{if $product->available_for_order && isset($product->date_add) && $product->date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+						<div class="row box-cart-chrono" id="availability_date" >						
 							<script type="text/javascript">
 							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
 							</script>
 							<div class="panel panel-default">
 							    <div class="panel-body">
 							    	<span id="clock"></span>
-							    	<img id="availability_datechrono" src="{$base_dir}/img/icones/chrono.png"/>
+							    	<img src="{$base_dir}/img/icones/chrono.png"/>
 							    </div>
 							</div>														
 						</div>
-						<div class="clearfix"></div>			
+					{/if}
+					
+					<div class="clearfix"></div>			
 
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> --> 
