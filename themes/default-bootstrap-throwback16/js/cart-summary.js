@@ -24,6 +24,56 @@
 */
 
 $(document).ready(function(){
+	/*----------------------------------- update panier ------------------------------------------------------------*/
+function hideElemntsToModify(line) {
+	$( ".attributes_line_"+line ).show();
+	$( ".quantity_"+line ).hide();
+	$( ".attributes_to_modify_"+line ).hide();
+	$( ".buttons_line_"+line ).hide();
+}
+function showElemntsToModify(line) {
+	$( ".attributes_line_"+line ).hide();
+	$( ".quantity_"+line ).show();
+	$( ".attributes_to_modify_"+line ).show();
+	$( ".buttons_line_"+line ).show();
+}
+	 $( ".edit a" ).on( "click", function(e) {
+		e.preventDefault();
+		var line = $(this).attr('id');
+		var radio_choice = $( ".attributes_to_modify_"+line+ " input[type='radio']:checked").val();
+		var quantity_current = parseInt($( "#quantity_wanted_"+line).val());
+		showElemntsToModify(line)
+
+		$( ".buttons_cancel_line_"+line ).on( "click", function(e) {
+			e.preventDefault();
+			hideElemntsToModify(line);
+		});
+
+		$('.update_line').off('click').on('click', function(e){
+			e.preventDefault();
+			var quantity_change = $( "#quantity_wanted_"+line).val();
+			
+			if(quantity_change > quantity_current){
+				quantity_update = quantity_change - quantity_current;
+				upQuantity(line, quantity_update);
+				
+			}
+			else if(quantity_change < quantity_current){
+				quantity_update = quantity_current - quantity_change;
+				downQuantity(line, quantity_update);
+			}
+			
+
+			console.log(quantity_change);
+			
+
+			$( ".attributes_line_"+line+" .current_qty_"+line).empty().append(quantity_change);
+			hideElemntsToModify(line);
+
+		});
+	});
+	
+	/*----------------------------------- update panier ------------------------------------------------------------*/
 	$('.cart_quantity_up').off('click').on('click', function(e){
 		e.preventDefault();
 		upQuantity($(this).attr('id').replace('cart_quantity_up_', ''));
@@ -699,6 +749,7 @@ function downQuantity(id, qty)
 {
 	var val = $('input[name=quantity_' + id + ']').val();
 	var newVal = val;
+	/*
 	if(typeof(qty) == 'undefined' || !qty)
 	{
 		qty = 1;
@@ -706,7 +757,7 @@ function downQuantity(id, qty)
 	}
 	else if (qty < 0)
 		qty = -qty;
-
+	*/
 	var customizationId = 0;
 	var productId = 0;
 	var productAttributeId = 0;
@@ -721,9 +772,9 @@ function downQuantity(id, qty)
 		customizationId = parseInt(ids[2]);
 	if (typeof(ids[3]) !== 'undefined')
 		id_address_delivery = parseInt(ids[3]);
-
+/*
 	if (newVal > 0 || $('#product_' + id + '_gift').length)
-	{
+	{*/
 		$.ajax({
 			type: 'POST',
 			headers: { "cache-control": "no-cache" },
@@ -795,12 +846,12 @@ function downQuantity(id, qty)
 					alert("TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: " + XMLHttpRequest + "\n" + 'Text status: ' + textStatus);
 			}
 		});
-
+/*
 	}
 	else
 	{
 		deleteProductFromSummary(id);
-	}
+	} */
 }
 
 function updateCartSummary(json)
@@ -1036,7 +1087,7 @@ function updateCustomizedDatas(json)
 
 function updateHookShoppingCart(html)
 {
-	$('#HOOK_SHOPPING_CART').html(html);
+	//$('#HOOK_SHOPPING_CART').html(html);
 	if (typeof initCrossSellingbxSlider !== 'undefined')
 		initCrossSellingbxSlider();
 }

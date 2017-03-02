@@ -1,6 +1,11 @@
 /************************************************************
 				styles intégrés
 ************************************************************/
+body {
+    
+    font-size: 13px !important;
+    color: #777 !important;
+}
 
 /*margin top colum center and hesder*/
 #category .columns-container{
@@ -432,6 +437,9 @@ font-size: 17px;
 
 
   /******** Panier ********************/
+  .margin-top-10{
+    margin-top:10px;
+  }
   .page-product-box a {
     color: #777 !important;
     text-decoration: none !important;
@@ -443,6 +451,12 @@ font-size: 17px;
     padding: 0;
     position: relative;
     /*z-index: 45;*/
+  }
+  .reduction-text{
+    color:#f13340;;
+  }
+  .dispo-text{
+        color:#000;
   }
   .icone-active{
     color: #000;
