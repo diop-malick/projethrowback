@@ -14,8 +14,72 @@ class OrderController extends OrderControllerCore
     {
         // Update carrier selected on preProccess in order to fix a bug of
         // block cart when it's hooked on leftcolumn
-        if ($this->step == OrderController::STEP_PAYMENT && Tools::isSubmit('processCarrier')) {
+        if ($this->step == OrderController::STEP_PAYMENT && Tools::isSubmit('processCarrier')) {            
             $this->processCarrier();
+        }
+    }
+
+    /**
+     * Order process controller
+     */
+    public function autoStep()
+    {
+        if ($this->step >= 2 && (!$this->context->cart->id_address_delivery || !$this->context->cart->id_address_invoice)) {
+            Tools::redirect('index.php?controller=order&step=1');
+        }
+
+        if ($this->step > 2 && !$this->context->cart->isVirtualCart()) {
+            $redirect = false;
+            if (count($this->context->cart->getDeliveryOptionList()) == 0) {
+                $redirect = true;
+            }
+
+             if (Tools::getValue('id_address_delivery') && Tools::getValue('id_address_delivery') != "rem") {                    
+                $this->processAddress();
+                $delivery_option = array(Tools::getValue('id_address_delivery') => Tools::getValue('delivery_option'));                
+            }else{
+                $delivery_option = $this->context->cart->getDeliveryOption();
+            }
+
+          
+            
+            if (is_array($delivery_option)) {
+                $carrier = explode(',', $delivery_option[(int)$this->context->cart->id_address_delivery]);
+            }
+
+            if (!$redirect && !$this->context->cart->isMultiAddressDelivery()) {
+                foreach ($this->context->cart->getProducts() as $product) {
+                    $carrier_list = Carrier::getAvailableCarrierList(new Product($product['id_product']), null, $this->context->cart->id_address_delivery);
+                    foreach ($carrier as $id_carrier) {
+                        if (!in_array($id_carrier, $carrier_list)) {
+                            $redirect = true;
+                        } else {
+                            $redirect = false;
+                            break;
+                        }
+                    }
+                    if ($redirect) {
+                        break;
+                    }
+                }
+            }
+            
+            if ($redirect) {
+                Tools::redirect('index.php?controller=order&step=1');
+            }
+        }
+
+        $delivery = new Address((int)$this->context->cart->id_address_delivery);
+        $invoice = new Address((int)$this->context->cart->id_address_invoice);
+
+        if ($delivery->deleted || $invoice->deleted) {
+            if ($delivery->deleted) {
+                unset($this->context->cart->id_address_delivery);
+            }
+            if ($invoice->deleted) {
+                unset($this->context->cart->id_address_invoice);
+            }
+            Tools::redirect('index.php?controller=order&step=-1');
         }
     }
 
@@ -27,8 +91,11 @@ class OrderController extends OrderControllerCore
         global $orderTotal;
         
         //Assign Adress Core
-        parent::_assignAddress();
-        parent::processAddressFormat();
+        $addressDelivery = new Address((int)$this->context->cart->id_address_delivery);
+        if(Validate::isLoadedObject($addressDelivery)){
+            parent::_assignAddress();
+            parent::processAddressFormat();
+        }        
 
 
         // Assign carrier core
@@ -67,10 +134,7 @@ class OrderController extends OrderControllerCore
             'idSelectedCountry' => (int)$this->id_country,
             'idSelectedState' => (int)$addressDelivery->id_state,
             
-        ));
-
-
-        
+        ));        
        
     }
 
@@ -78,18 +142,19 @@ class OrderController extends OrderControllerCore
     {
         parent::setMedia();
         
-        if ($this->step == OrderController::STEP_DELIVERY) {
-            $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
-        }
         
         $this->addCSS(_THEME_CSS_DIR_.'tabs.css');       
         $this->addJS(array(
-            _THEME_JS_DIR_.'tabs.js',
-            _THEME_JS_DIR_.'order-address.js',
+            _THEME_JS_DIR_.'tabs.js',            
             _THEME_JS_DIR_.'tools/vatManagement.js',
             _THEME_JS_DIR_.'tools/statesManagement.js',
+            _THEME_JS_DIR_.'order-address.js',
            
         ));
+
+        if ($this->step == OrderController::STEP_DELIVERY) {
+            $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
+        }
        
     }
  }

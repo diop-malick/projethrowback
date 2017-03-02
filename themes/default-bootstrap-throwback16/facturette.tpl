@@ -69,7 +69,7 @@
 		</div>
 	</div>
 </div>
-<div class="row text-center">	
+<div class="row text-center processService">	
 	{if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
