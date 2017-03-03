@@ -407,32 +407,8 @@ font-size: 17px;
 .box-info-product p {
   margin-bottom: 7px; 
 }
-.box-cart-bottom .exclusive {
-  background: url(../img/custom/Add-to-cart.png) no-repeat 90%;
-  padding: 0;
-  position: relative;
-  /*position: absolute;*/
-  display: block;
-  background-color: rgb(53, 53, 53);
-  width: 100%;
-  height: 70px;
-  z-index: 66;
-}
-/* throwback > customize */
-    .box-cart-bottom .exclusive span {
-    font-size: 21.261px;
-    /*font-family: "Futura";*/
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-right: 15px;
-    /*line-height: 1.143;*/
-    text-align: center;
-    /*position: absolute;*/
-    /*left: 910.922px;*/
-    /*top: 705.999px;*/
-    /*z-index: 67;*/
-  } 
+
+
 
 
   /******** Panier ********************/

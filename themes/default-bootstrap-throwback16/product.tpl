@@ -321,7 +321,7 @@
 											{if ($group.group_type == 'color') && $group.attributes|@count}
 												<fieldset class="attribute_fieldset">
 												<div class="form-group attribute_list">
-													<label class="col-md-4 attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
+													<label class="col-md-4 attribute_label">{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
 													{assign var="groupName" value="group_$id_attribute_group"}
 													<div class="col-md-8">
 														<ul id="color_to_pick_list" class="clearfix">
@@ -654,28 +654,28 @@
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
 				<div class="col-row">
-				<section>
-					<ul id="idTab2" class="bullet">
-						{foreach from=$features item=feature}      
-								{if $feature.id_feature eq "8"}      
-									<li>
-									{if isset($feature.value)}
-											<span>{$feature.name|escape:'html':'UTF-8'}</span>
-											<span>{$feature.value|escape:'html':'UTF-8'}</span>
+					<section>
+						<ul id="idTab2" class="bullet">
+							{foreach from=$features item=feature}      
+									{if $feature.id_feature eq "8"}      
+										<li>
+										{if isset($feature.value)}
+												<span>{$feature.name|escape:'html':'UTF-8'}</span>
+												<span>{$feature.value|escape:'html':'UTF-8'}</span>
+										{/if}
+										</li>    
 									{/if}
-									</li>    
-								{/if}
-								{if $feature.id_feature eq "9"}      
-									<li>
-									{if isset($feature.value)}
-											<span>{$feature.name|escape:'html':'UTF-8'}</span>
-											<span>{$feature.value|escape:'html':'UTF-8'}</span>
+									{if $feature.id_feature eq "9"}      
+										<li>
+										{if isset($feature.value)}
+												<span>{$feature.name|escape:'html':'UTF-8'}</span>
+												<span>{$feature.value|escape:'html':'UTF-8'}</span>
+										{/if}
+										</li>    
 									{/if}
-									</li>    
-								{/if}
-						{/foreach}
-					</ul>
-				</section>
+							{/foreach}
+						</ul>
+					</section>
 				<!-- social sharing -->
 				{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 				</div>
@@ -683,10 +683,14 @@
 
 				<!-- full description - -->
 				<div class="col-row">
-					{if isset($product) && $product->description}
-						<!-- <h3 class="page-product-heading">{l s='More info'}</h3> -->
-						<div  class="rte text-justify">{$product->description}</div>
-					{/if}
+				<!-- short_description_block -->
+						{if $product->description_short || $packItems|@count > 0}
+						<div id="short_description_block">
+							{if $product->description_short}
+								<div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
+							{/if}
+						</div>
+						{/if}
 				</div>
 				<!-- // full description -->
 
@@ -698,22 +702,18 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
-			          <i class="fa fa-caret-down" aria-hidden="true"></i>
+			          <span class="pull-right"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
 			          	{l s='Description'}
 			          </a>
 			        </h4>
 			      </div>
 			      <div id="collapse0" class="panel-collapse collapse in">
 			        <div class="panel-body">
-				        <!-- short_description_block -->
-						{if $product->description_short || $packItems|@count > 0}
-						<div id="short_description_block">
-							{if $product->description_short}
-								<div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
-							{/if}
-						</div>
+					    {if isset($product) && $product->description}
+							<!-- <h3 class="page-product-heading">{l s='More info'}</h3> -->
+							<div  class="rte text-justify">{$product->description}</div>
 						{/if}
-						<!-- // short_description_block -->
+					<!-- // short_description_block -->
 			        </div>
 			      </div>
 			    </div>
@@ -721,7 +721,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-			          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
 			          	{l s='Paiement'}
 			          </a>
 			        </h4>
@@ -734,7 +734,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-			          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
 			          	{l s='Livraison'}
 			          </a>
 			        </h4>
@@ -747,7 +747,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-			          	<i class="fa fa-caret-right" aria-hidden="true"></i>
+			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
 			          	{l s='Services'}
 			          </a>
 			        </h4>

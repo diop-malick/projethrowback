@@ -170,9 +170,19 @@ a.fancybox-nav {
     background: #fbfbfb;
 }
 
-#thumbs_list li a:hover,
-#thumbs_list li a.shown {
-    border-color: #dbdbdb;
+#thumbs_list li a:hover
+/*,#thumbs_list li a.shown */
+{
+    border-color: #dbdbdb;    
+}
+
+#thumbs_list li a.shown img {
+  /*-webkit-filter: blur(5px);*/
+    filter: blur(5px);
+    /*filter: grayscale(100%);*/
+    opacity: 0.4;
+    /*background-color: #000;*/
+
 }
 
 #thumbs_list li img {
