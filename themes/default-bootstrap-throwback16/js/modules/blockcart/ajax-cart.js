@@ -345,18 +345,23 @@ var ajaxCart = {
 					if (idCombination)
 						$(jsonData.products).each(function(){
 							if (this.id != undefined && this.id == parseInt(idProduct) && this.idCombination == parseInt(idCombination))
-								if (contentOnly)
-									window.parent.ajaxCart.updateLayer(this);
-								else
-									ajaxCart.updateLayer(this);
+								if(addedFromProductPage){
+									if (contentOnly)
+										window.parent.ajaxCart.updateLayer(this);
+									else
+										ajaxCart.updateLayer(this);
+								}
+								
 						});
 					else
 						$(jsonData.products).each(function(){
 							if (this.id != undefined && this.id == parseInt(idProduct))
-								if (contentOnly)
-									window.parent.ajaxCart.updateLayer(this);
-								else
-									ajaxCart.updateLayer(this);
+								if(addedFromProductPage){
+									if (contentOnly)
+										window.parent.ajaxCart.updateLayer(this);
+									else
+										ajaxCart.updateLayer(this);
+								}
 						});
 					if (contentOnly)
 						parent.$.fancybox.close();
@@ -629,6 +634,8 @@ var ajaxCart = {
 					if (this.hasAttributes) content += '</dd>';
 
 					$('.cart_block dl.products').append(content);
+
+					$('input[name=price_add]').val((parseFloat(this.price_float) > 0 ? this.priceByLine : freeProductTranslation));
 				}
 				//else update the product's line
 				else
@@ -808,6 +815,7 @@ var ajaxCart = {
 		$('.ajax_cart_tax_cost').text(jsonData.taxCost);
 		$('.cart_block_wrapping_cost').text(jsonData.wrappingCost);
 		$('.ajax_block_cart_total').text(jsonData.total);
+		$('input[name=total_add]').val(jsonData.total);
 		$('.ajax_block_products_total').text(jsonData.productTotal);
 		$('.ajax_total_price_wt').text(jsonData.total_price_wt);
 

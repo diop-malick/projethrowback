@@ -52,8 +52,6 @@
 	</div>
 	{hook h="displayShoppingCartFooter"}
 
-	
-
 {elseif $PS_CATALOG_MODE}
 	<p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
 {else}
@@ -102,7 +100,7 @@
 						{assign var="split_size" value=","|explode:$attributes}
 						{assign var="sizing" value=$split_size[0]|trim}
 						
-						 {$combinations[$product.id_product]|print_r} 
+						{* {$combinations[$product.id_product]|print_r}  *} 
 
 						{$attributeCombinaison[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $combinations[$product.id_product]}
 
@@ -110,7 +108,7 @@
 
 						{$qtyLimitedAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.stock_quantity}
 
-				<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
+				<form id="buy_block_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 						<div id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
@@ -154,7 +152,7 @@
 																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
 																		 
 																		<div class="attribute_list">
-																			{$group.default|var_dump}
+																			
 																			{if ($group.group_type == 'radio')}
 																				<ul>
 																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
@@ -166,12 +164,19 @@
 																						</li>
 																					{/foreach}
 																				</ul>
+																			{elseif ($group.group_type == 'color')}
+																				<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																				<input type="hidden" name="color_default" value="{$group.default|intval}" />
+																				</div>
 																			{/if}
 																		</div> <!-- end attribute_list -->
 																	</fieldset>
 																	{/if}
 																{/foreach}
 															</div>
+														</div>
+														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																<input type="hidden" name="combinaison_default" value="" />
 														</div>
 													{/if}
 												</div>
@@ -230,12 +235,12 @@
 								</div>
 								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 										<div class="col-md-6 text-right">
-											<button id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
+											<button class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
 											<span>{l s='VALIDER'}</span>
 											</button>
 										</div>
 										<div class="col-md-6">
-											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" type="submit">
+											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} cancel-line" type="submit">
 											<span>{l s='ANNULER'}</span>
 											</button>
 										</div>
@@ -246,12 +251,12 @@
 								<div class="row">
 									
 									<div class="col-md-6 edit">
-										<a id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
 									<div class="col-md-6 delete">
 										<a
-											id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
+											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"
 											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$product.id_customization|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
@@ -286,8 +291,12 @@
 									</span>
 								</div>
 						</div>
+					
+																
+														
 						{/foreach}
-
+						<input type="hidden" class="my" name="price_add" value="" />
+						<input type="hidden" class="you" name="total_add" value="" />
 						<div class="row line_product">
 								<div class="col-md-8">
 									<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
