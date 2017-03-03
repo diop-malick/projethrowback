@@ -175,14 +175,24 @@ a.fancybox-nav {
 {
     border-color: #dbdbdb;    
 }
+#thumbs_list li a.shown {
+  background:#000000;
+
+}
+#thumbs_list li a img {
+-moz-transition: opacity 0.9s;
+-webkit-transition: opacity 0.9s;
+-o-transition: opacity 0.9s
+}
 
 #thumbs_list li a.shown img {
   /*-webkit-filter: blur(5px);*/
-    filter: blur(5px);
-    /*filter: grayscale(100%);*/
-    opacity: 0.4;
-    /*background-color: #000;*/
-
+    /*filter: blur(5px);*/
+    /*opacity: 0.4;*/
+    opacity:0.8;
+-moz-transition: opacity 0.7s;
+-webkit-transition: opacity 0.7s;
+-o-transition: opacity 0.7
 }
 
 #thumbs_list li img {
@@ -1366,7 +1376,6 @@ h3.page-product-heading {
 }
 
 #availability_date .panel {
-    /*background-color: rgb(230, 231, 232) !important;*/
 }
 
 
