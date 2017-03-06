@@ -4071,8 +4071,8 @@ a.continue-reading-link {
 	padding: 0 1.2em;
 	font-size: 1em;
 	line-height: 3;
-	-webkit-transition: .3s all ease-in-out;
-	transition: .3s all ease-in-out;
+	background-color:black;
+	color:Lightgrey;
 }
 
 a.continue-reading-link:before {
@@ -4088,6 +4088,10 @@ a.continue-reading-link:before {
 
 a.continue-reading-link:hover:before {
 	left: 100%;
+}
+
+.continue-reading-link:hover:before {
+	
 }
 
 .continue-reading-link span {
