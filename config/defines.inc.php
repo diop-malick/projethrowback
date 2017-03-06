@@ -29,7 +29,7 @@ if (!defined('_PS_MODE_DEV_')) {
 define('_PS_MODE_DEV_', true);
 }
 /* Compatibility warning */
-define('_PS_DISPLAY_COMPATIBILITY_WARNING_', false);
+define('_PS_DISPLAY_COMPATIBILITY_WARNING_', true);
 if (_PS_MODE_DEV_ === true) {
     @ini_set('display_errors', 'on');
     @error_reporting(E_ALL | E_STRICT);
@@ -39,7 +39,7 @@ if (_PS_MODE_DEV_ === true) {
     define('_PS_DEBUG_SQL_', false);
 }
 
-define('_PS_DEBUG_PROFILING_', true);
+define('_PS_DEBUG_PROFILING_', false);
 define('_PS_MODE_DEMO_', false);
 
 $currentDir = dirname(__FILE__);

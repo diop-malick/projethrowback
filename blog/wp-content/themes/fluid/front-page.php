@@ -30,15 +30,15 @@ function fluida_lp_layoutclass () {
 	$fluida_landingpage = cryout_get_option ('fluida_landingpage');
 
 	if ( $fluida_landingpage ) {
-		fluida_lpslider();
-		fluida_lpblocks();
-		fluida_lptext('one');
+		// fluida_lpslider();
+		// fluida_lpblocks();
+		// fluida_lptext('one');
 		fluida_lpboxes(1);
-		fluida_lptext('two');
-		fluida_lpboxes(2);
-		fluida_lptext('three');
-		fluida_lpindex();
-		fluida_lptext('four');
+		// fluida_lptext('two');
+		// fluida_lpboxes(2);
+		// fluida_lptext('three');
+		// fluida_lpindex();
+		// fluida_lptext('four');
 	} else {
 		fluida_lpindex();
 	}

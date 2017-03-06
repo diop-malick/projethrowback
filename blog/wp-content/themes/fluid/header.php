@@ -8,18 +8,16 @@
  */
 
 
-/* BEGIN - intégration WP-PS */
 require_once(dirname(__FILE__).'/../../../../config/config.inc.php');
+// require_once(dirname(__FILE__).'/../../../../config/config.inc.php');
 global $controllerPrestashop;
 $controllerPrestashop = new FrontController();
 $controllerPrestashop->init();
 $controllerPrestashop->setMedia();
 Context::getContext()->smarty->assign(array('meta_title' => html_entity_decode(get_the_title()), 
-                                           'meta_description' => get_post_meta($post->ID,'description',true),
-                                           'meta_keywords' => ''
-                                           ));
-$controllerPrestashop->displayHeader();
-/* End - intégration WP-PS */
+	                                           'meta_description' => get_post_meta($post->ID,'description',true),
+	                                           'meta_keywords' => ''
+	                                         ));
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -35,6 +33,20 @@ $controllerPrestashop->displayHeader();
 </head>
 
 <body <?php body_class(); cryout_schema_microdata( 'body' );?>>
+
+	<!-- BEGIN - intégration WP-PS  -->
+	<?php $controllerPrestashop->displayHeaderBlog(); ?>
+	<!-- End - intégration WP-PS  -->
+
+
+	<!-- Widget RECHERCHE -->
+	<div id="searchform-header">
+		<?php get_search_form(); ?>
+	</div>
+	<!-- // Widget RECHERCHE -->
+
+
+
 	<?php cryout_body_hook(); ?>
 	<?php cryout_breadcrumbs_hook();?>
 

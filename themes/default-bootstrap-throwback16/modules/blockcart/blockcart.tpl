@@ -24,7 +24,7 @@
 													{/if}
 												</span>
 												<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if} ">{l s='(empty)' mod='blockcart'}</span>
-												<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if} ">(0)</span>
+											 
 												<img src="{$base_dir}/img/icones/basket_1.png"/>
 												{if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}
 													<span class="block_cart_expand{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} unvisible{/if}">&nbsp;</span>
