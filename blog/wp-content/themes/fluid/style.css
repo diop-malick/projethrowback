@@ -4072,9 +4072,12 @@ a.continue-reading-link {
 	font-size: 1em;
 	line-height: 3;
 	background-color:black;
-	color:Lightgrey;
+	
 }
 
+.continue-reading-link:before {
+    background-color:Lightgrey !important;
+}
 a.continue-reading-link:before {
 	content: "";
 	position: absolute;
@@ -4090,9 +4093,6 @@ a.continue-reading-link:hover:before {
 	left: 100%;
 }
 
-.continue-reading-link:hover:before {
-	
-}
 
 .continue-reading-link span {
 	position: relative;

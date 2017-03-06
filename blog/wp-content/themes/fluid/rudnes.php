@@ -12,8 +12,4 @@ load_template(TEMPLATEPATH . '/front-page-rudness.php'); //loads index
 
 
 
-<style type="text/css">
-
-</style>
-
 
