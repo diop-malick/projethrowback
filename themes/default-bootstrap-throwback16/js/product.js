@@ -220,11 +220,25 @@ $(document).ready(function()
 
 	// CHRONO
 	if (typeof available_date !== 'undefined' && available_date) {
-		//console.log(available_date);
 		$('#clock').countdown(available_date, function(event) {		
 			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
 		});
+
+		$('#availability_date').fadeIn();
+		$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
+		$('#add_to_cart button').removeClass('active').addClass('disabled');
+		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
+		$('.attribute_list .btn').removeClass('active').addClass('disabled');		
 	}
+
+	
+
+	// COLAPSE
+	$('.collapse').on('shown.bs.collapse', function(){
+		$(this).parent().find(".fa-caret-right").removeClass("fa-caret-right").addClass("fa-caret-down");
+		}).on('hidden.bs.collapse', function(){
+		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-right");
+	});
 
 });
 
@@ -321,6 +335,10 @@ $(document).on('change', '.attribute_select', function(e){
 $(document).on('click', '.attribute_radio', function(e){
 	e.preventDefault();
 	getProductAttribute();
+
+	// CUSTOM RADIO ATTRIBUTE
+	$('.customattributes .attribute_list ul li').removeClass('checked_li');
+	$('.customattributes .attribute_list ul li').has('span.checked').addClass('checked_li');
 });
 
 $(document).on('click', 'button[name=saveCustomization]', function(e){
@@ -463,13 +481,13 @@ function findCombination()
 
 	//create a temporary 'choice' array containing the choices of the customer
 	var choice = [];
-	var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
+	var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
 	if (radio_inputs)
-		radio_inputs = '#attributes .checked > input[type=radio]';
+		radio_inputs = '.customattributes .checked > input[type=radio]';
 	else
-		radio_inputs = '#attributes input[type=radio]:checked';
+		radio_inputs = '.customattributes input[type=radio]:checked';
 
-	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
+	$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
 		choice.push(parseInt($(this).val()));
 	});
 
@@ -544,20 +562,15 @@ function updateDisplay()
 	if (!selectedCombination['unavailable'] && quantityAvailable > 0 && productAvailableForOrder == 1)
 	{
 		// show the choice of quantities
-		// $('#quantity_wanted_p:hidden').show('slow');
 		$('#quantity_wanted_p .btn').removeClass('disabled');
 
 		//show the "add to cart" button ONLY if it was hidden
-		// $('#add_to_cart:hidden').fadeIn(600);
 		$('#add_to_cart button').removeClass('disabled').addClass('active');
 		
 
-
 		//hide the hook out of stock
 		$('#oosHook').hide();
-
-		$('#availability_date').fadeOut();
-		$('#availability_datechrono').fadeOut();
+		
 
 		//availability value management
 		if (stock_management && availableNowValue != '')
@@ -612,7 +625,6 @@ function updateDisplay()
 
 		//hide the choice of quantities
 		if (!allowBuyWhenOutOfStock)
-			// $('#quantity_wanted_p:visible').hide('slow');
 			$('#quantity_wanted_p .btn').addClass('disabled');
 
 		//display that the product is unavailable with theses attributes
@@ -644,15 +656,10 @@ function updateDisplay()
 					$('#availability_date_value').text(selectedCombination['available_date']['date_formatted']);
 					$(this).fadeIn();
 				});
-				
-				$('#availability_datechrono').fadeOut('normal', function(){
-					$('#availability_date_value').text(selectedCombination['available_date']['date_formatted']);
-					$(this).fadeIn();
-				});
+
 			}
 			else if (now.getTime() < time_available.getTime())
 				$('#availability_date').fadeIn();
-			$('#availability_datechrono').fadeIn();
 		}
 		else
 			$('#availability_date').fadeOut();
@@ -660,8 +667,6 @@ function updateDisplay()
 		//show the 'add to cart' button ONLY IF it's possible to buy when out of stock AND if it was previously invisible
 		if (allowBuyWhenOutOfStock && !selectedCombination['unavailable'] && productAvailableForOrder)
 		{
-			// $('#add_to_cart:hidden').fadeIn(600);
-			// $('#add_to_cart button').prop('disabled', false);
 			$('#add_to_cart button').removeClass('disabled').addClass('active');
 
 			if (stock_management && availableLaterValue != '')
@@ -1029,13 +1034,13 @@ function refreshProductImages(id_product_attribute)
 		$('#thumbs_list li').show();
 
 		var choice = [];
-		var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
+		var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
 		if (radio_inputs)
-			radio_inputs = '#attributes .checked > input[type=radio]';
+			radio_inputs = '.customattributes .checked > input[type=radio]';
 		else
-			radio_inputs = '#attributes input[type=radio]:checked';
+			radio_inputs = '.customattributes input[type=radio]:checked';
 
-		$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
+		$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
 			choice.push(parseInt($(this).val()));
 		});
 
@@ -1123,13 +1128,13 @@ function getProductAttribute()
 	request = '';
 	//create a temporary 'tab_attributes' array containing the choices of the customer
 	var tab_attributes = [];
-	var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
+	var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
 	if (radio_inputs)
-		radio_inputs = '#attributes .checked > input[type=radio]';
+		radio_inputs = '.customattributes .checked > input[type=radio]';
 	else
-		radio_inputs = '#attributes input[type=radio]:checked';
+		radio_inputs = '.customattributes input[type=radio]:checked';
 
-	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
+	$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
 		tab_attributes.push($(this).val());
 	});
 	console.log(tab_attributes);

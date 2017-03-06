@@ -272,6 +272,7 @@ class OrderControllerCore extends ParentOrderController
             }
 
             $delivery_option = $this->context->cart->getDeliveryOption();
+           
             if (is_array($delivery_option)) {
                 $carrier = explode(',', $delivery_option[(int)$this->context->cart->id_address_delivery]);
             }

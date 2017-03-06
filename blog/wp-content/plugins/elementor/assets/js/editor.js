@@ -1,4 +1,4 @@
-/*! elementor - v1.2.3 - 14-02-2017 */
+/*! elementor - v1.2.4 - 28-02-2017 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var HandleAddDuplicateBehavior;
 
@@ -1108,7 +1108,6 @@ TemplateLibraryManager = function() {
 	};
 
 	this.showErrorDialog = function( errorMessage ) {
-		errorMessage = '';
 		if ( 'object' === typeof errorMessage ) {
 			var message = '';
 
@@ -4797,6 +4796,11 @@ var HotKeys = function( $ ) {
 				return;
 			}
 
+			// Fix for some keyboard sources that consider alt key as ctrl key
+			if ( ! handler.allowAltKey && event.altKey ) {
+				return;
+			}
+
 			event.preventDefault();
 
 			handler.handle( event );
@@ -6021,6 +6025,7 @@ BaseElementView = Marionette.CompositeView.extend( {
 		if ( 'widget'  === type ) {
 			type = this.model.get( 'widgetType' );
 		}
+
 		return {
 			'data-element_type': type
 		};
@@ -8893,7 +8898,6 @@ SectionView = BaseElementView.extend( {
 		BaseElementView.prototype.initialize.apply( this, arguments );
 
 		this.listenTo( this.collection, 'add remove reset', this._checkIsFull )
-			.listenTo( this.collection, 'remove', this.onCollectionRemove )
 			.listenTo( this.model, 'change:settings:structure', this.onStructureChanged );
 	},
 
@@ -9013,7 +9017,7 @@ SectionView = BaseElementView.extend( {
 		}
 	},
 
-	onCollectionRemove: function() {
+	onRemoveChild: function() {
 		// If it's the last column, please create new one.
 		this._checkIsEmpty();
 
@@ -9225,7 +9229,6 @@ WidgetView = BaseElementView.extend( {
             .remove();
 
         self.$el.imagesLoaded().always( function() {
-
             setTimeout( function() {
                 if ( 1 > self.$el.height() ) {
                     self.handleEmptyWidget();
