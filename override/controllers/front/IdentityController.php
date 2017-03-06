@@ -1,46 +1,54 @@
 <?php
-/*
-* 2007-2016 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2016 PrestaShop SA
-*  @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
 
-class IdentityControllerCore extends FrontController
+class IdentityController extends IdentityControllerCore
 {
-    public $auth = true;
-    public $php_self = 'identity';
-    public $authRedirection = 'identity';
-    public $ssl = true;
 
-    /** @var Customer */
-    protected $customer;
 
-    public function init()
+	/**
+	* syncMailchimp
+	*
+	* Mailchimp API 3.0 – PHP subscription / unsubscription
+	* add and update list members
+	* @link https://rudrastyh.com/api/mailchimp-subscription.html
+	* @link http://stackoverflow.com/questions/30481979/adding-subscribers-to-a-list-using-mailchimps-api-v3
+	*/
+    protected function updateMailchimpSubscriber( $email, $status, $list_id, $api_key, $merge_fields = array('FNAME' => '','LNAME' => '') )
     {
-        parent::init();
-        $this->customer = $this->context->customer;
+        var_dump("MALICK updateMailchimpSubscriber");
+
+        $data = array(
+            'apikey'        => $api_key,
+            'email_address' => $email,
+            'status'        => $status,
+            'merge_fields'  => $merge_fields
+        );
+
+        $memberId = md5(strtolower($data['email_address']));
+        $dataCenter = substr($api_key,strpos($api_key,'-')+1);
+        $url = 'https://' . $dataCenter . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $memberId;
+
+
+		// initialize cURL connection
+        $mch_api = curl_init($url); 
+     
+        curl_setopt($mch_api, CURLOPT_USERPWD, 'user:' . $api_key);
+        curl_setopt($mch_api, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        // curl_setopt($mch_api, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
+        curl_setopt($mch_api, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($mch_api, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($mch_api, CURLOPT_TIMEOUT, 10);
+        // curl_setopt($mch_api, CURLOPT_POST, true);
+        curl_setopt($mch_api, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($mch_api, CURLOPT_POSTFIELDS, json_encode($data) );
+     
+        $result = curl_exec($mch_api);
+        $httpCode = curl_getinfo($mch_api, CURLINFO_HTTP_CODE);
+        curl_close($mch_api);
+
+        return $result;
     }
 
-    /**
+        /**
      * Start forms process
      * @see FrontController::postProcess()
      */
@@ -111,6 +119,41 @@ class IdentityControllerCore extends FrontController
                 } else {
                     $this->errors[] = Tools::displayError('The information cannot be updated.');
                 }
+
+                // overrides > BEGIN - update mailchimps status
+                            
+                $mce_origin_newletter = $origin_newsletter;
+                $mce_current_newletter = Tools::getIsset('newsletter');
+
+                if ($mce_origin_newletter  != $mce_current_newletter) {
+                    
+                    // STATUS > "subscribed" or "unsubscribed" or "cleaned" or "pending"
+
+                    // subscribed ==> unsubscribed
+                    if ($mce_origin_newletter && !$mce_current_newletter) {
+                        $mce_status = 'unsubscribed';
+                        var_dump('subscribed ==> unsubscribed');
+                    } 
+                    // unsubscribed ==> subscribed
+                    elseif (!$mce_origin_newletter && $mce_current_newletter) {
+                        $mce_status = 'pending';
+                        var_dump('unsubscribed ==> subscribed');
+                    }
+
+                    $mce_email = $this->customer->email;
+                    $mce_list_id = '2eca580371';
+                    $mce_api_key = 'bc44fc2b7f5e8f8f1c5c92130f3491cb-us15';
+                    $mce_merge_fields = array(
+                            'FNAME' => $this->customer->firstname,
+                            'LNAME' => $this->customer->lastname
+                    );
+
+                    $mce_result = $this->updateMailchimpSubscriber($mce_email, $mce_status, $mce_list_id, $mce_api_key, $mce_merge_fields );
+                    PrestaShopLogger::addLog($mce_result, 1);                  
+                }
+
+                // overrides > END - update mailchimps status
+                // Tools::redirect('index.php?controller=identity');
             }
         } else {
             $_POST = array_map('stripslashes', $this->customer->getFields());
@@ -118,49 +161,5 @@ class IdentityControllerCore extends FrontController
 
         return $this->customer;
     }
-    /**
-     * Assign template vars related to page content
-     * @see FrontController::initContent()
-     */
-    public function initContent()
-    {
-        parent::initContent();
 
-        if ($this->customer->birthday) {
-            $birthday = explode('-', $this->customer->birthday);
-        } else {
-            $birthday = array('-', '-', '-');
-        }
-
-        /* Generate years, months and days */
-        $this->context->smarty->assign(array(
-                'years' => Tools::dateYears(),
-                'sl_year' => $birthday[0],
-                'months' => Tools::dateMonths(),
-                'sl_month' => $birthday[1],
-                'days' => Tools::dateDays(),
-                'sl_day' => $birthday[2],
-                'errors' => $this->errors,
-                'genders' => Gender::getGenders(),
-            ));
-
-        // Call a hook to display more information
-        $this->context->smarty->assign(array(
-            'HOOK_CUSTOMER_IDENTITY_FORM' => Hook::exec('displayCustomerIdentityForm'),
-        ));
-
-        $newsletter = Configuration::get('PS_CUSTOMER_NWSL') || (Module::isInstalled('blocknewsletter') && Module::getInstanceByName('blocknewsletter')->active);
-        $this->context->smarty->assign('newsletter', $newsletter);
-        $this->context->smarty->assign('optin', (bool)Configuration::get('PS_CUSTOMER_OPTIN'));
-
-        $this->context->smarty->assign('field_required', $this->context->customer->validateFieldsRequiredDatabase());
-
-        $this->setTemplate(_PS_THEME_DIR_.'identity.tpl');
-    }
-
-    public function setMedia()
-    {
-        parent::setMedia();
-        $this->addCSS(_THEME_CSS_DIR_.'identity.css');
-    }
 }
