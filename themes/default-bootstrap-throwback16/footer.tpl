@@ -31,3 +31,57 @@
 			
 	</body>
 </html>
+
+<style type="text/css">
+
+@media (max-width: 800px) {
+
+#contact-link a {
+	position:absolute;
+	top:-50px;
+	right:0px;
+}
+
+#social_block {
+    right: 20%;
+  position: absolute;
+  top: -65px;
+    
+}
+
+#block_contact_infos{
+	position: absolute;
+    top: 5px;
+    width: 200px;
+}
+
+}
+
+
+
+@media (max-width: 520px) {
+
+ #contact-link a {
+  border: none;
+  text-shadow: none;
+   position: absolute;
+   top:-140px;
+   right:10px;
+}
+
+#social_block {
+    width: 50%;
+    position: absolute;
+    top: -160px;
+    left:0px;   
+}
+
+ #block_contact_infos{
+	position: absolute;
+    top: 130px;
+    width: 65%;
+}
+
+}
+
+</style>
