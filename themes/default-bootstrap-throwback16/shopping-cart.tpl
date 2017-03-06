@@ -44,14 +44,15 @@
 *}
 {include file="$tpl_dir./errors.tpl"}
 
+<p class="titre-panier">{l s='Mon panier'}</p>
 {if isset($empty)}
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
 		<script>window.location="{$link->getPageLink('order')}";</script>
 	{else}
-	<p class="titre-panier">{l s='Mon panier'}</p>
+	
 	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
 		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
-		Si vous ne disposez pas de compte throwback <a href="$link->getPageLink('my-account', true)|escape:'html':'UTF-8'">créer votre compte</a> rapidement!
+		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
 	</p>
 	<div class"redirect_home">
 		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
@@ -130,13 +131,13 @@
 									<div class="col-md-3">
 									{addJsDef quantityAvailable=$product.quantity_available}
 										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-											<label>{l s='Quantity'}</label>
+											<label>{l s='Quantity'}</label><br>
 											<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
 											<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
-												<img src="{$base_dir}/img/icones/size_down.png"/>
+												<span><i class="icon-minus"></i></span>
 											</a>
 											<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
-												<img src="{$base_dir}/img/icones/size_up.png"/>
+												<span><i class="icon-plus"></i></span>
 											</a>
 										</p>
 										<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
@@ -149,25 +150,29 @@
 											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 												<div class="row">
 													{if isset($groups)}
+													<div class="customattributes">
 														<div id="attributes">
 															<div class="attribute_list">
 																<label class="attribute_label" >{l s='Taille'}</label>
 																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																	{if $group.attributes|@count}
-																	<fieldset class="attribute_fieldset">
+																	<!--<fieldset class="attribute_fieldset">-->
 																		
 																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
 																		 
 																		<div class="attribute_list">
-																			
+																			<span class="btn">
 																			{if ($group.group_type == 'radio')}
 																				<ul>
 																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																						
 																						<li>
+																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
-																							<span>{$group_attribute|escape:'html':'UTF-8'}</span>
+																							{$group_attribute|escape:'html':'UTF-8'}
+
+																							</label>
 																						</li>
 																					{/foreach}
 																				</ul>
@@ -177,14 +182,16 @@
 																				</div>
 																			{/if}
 																		</div> <!-- end attribute_list -->
-																	</fieldset>
+																	<!--</fieldset>-->
 																	{/if}
 																{/foreach}
+																</span>
 															</div>
 														</div>
 														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 																<input type="hidden" name="combinaison_default" value="" />
 														</div>
+													</div>
 													{/if}
 												</div>
 											</div>

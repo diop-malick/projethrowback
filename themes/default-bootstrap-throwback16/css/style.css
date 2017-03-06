@@ -12,13 +12,16 @@ body {
     margin-top: 90px;
   }
 
-#my-account .columns-container , #order .columns-container, #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
+#my-account .columns-container, #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
     margin-top: 160px;
+}
+#order .columns-container {
+    margin-top: 130px;
   }
   
- #order .modal {
+#order .modal {
     margin-top: 200px;
-  }
+}
 
   /*    */
   /*
@@ -556,14 +559,13 @@ border-color: #000;
 }
 /*************************** panier vide ************************/
 .titre-panier{
-  font-size: 20px;
+  font-size: 24px;
   color: #000;
   font-weight: bold;
 }
 .panier-vide{
-  
   text-align: justify;
-  font-size: 20px;
+  font-size: 16px;
   color: #000;
   /*padding: 40px 0px;*/
   margin-bottom: 20px;
