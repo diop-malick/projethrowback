@@ -26,7 +26,7 @@
 $(document).ready(function(){
 	/*----------------------------------- update panier ------------------------------------------------------------*/
 	//new_price = $('dt[data-id="cart_block_product_6_32_0"] .price').text();
-	//console.log(new_price.trim());
+	//console.log(linkCarte);
 	var newPrice ;
 	var newTotal ;
 function hideElemntsToModify(line) {
@@ -87,15 +87,17 @@ function addNewLine(line,idProduct, idCombinaison,qty){
 
 	ajaxCart.add(idProduct, idCombinaison, false, null, parseInt(qty), null);
 	ajaxCart.refresh();
-
+/*
 	newPrice = $('input[name=price_add]').val();
 	 newTotal = $('input[name=total_add]').val();
 	 $( "#total_product_price_"+oldline_price).empty().append(newPrice);
 	 $( "#total_price").empty().append(newTotal);
-	
+*/	
 	deleteProductFromSummary(line,false);
-	replaceClassesId(line , new_ine);
+	//replaceClassesId(line , new_ine);
 	hideElemntsToModify(new_ine);
+
+	window.location=linkCarte+"&update=1";
 	
 	 //$('body').load(window.location.href,'body');
 }

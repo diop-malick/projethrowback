@@ -45,12 +45,19 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($empty)}
+	{if isset($smarty.get.update) && $smarty.get.update =="1"}
+		<script>window.location="{$link->getPageLink('order')}";</script>
+	{else}
 	<p class="titre-panier">{l s='Mon panier'}</p>
-	<p class="panier-vide">{l s='Your shopping cart is empty.'}</p>
+	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
+		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
+		Si vous ne disposez pas de compte throwback <a href="$link->getPageLink('my-account', true)|escape:'html':'UTF-8'">créer votre compte</a> rapidement!
+	</p>
 	<div class"redirect_home">
 		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
 	</div>
 	{hook h="displayShoppingCartFooter"}
+	{/if}
 
 {elseif $PS_CATALOG_MODE}
 	<p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
@@ -362,6 +369,7 @@
 {addJsDef quantityAvailable=$qtyAvailable}
 {addJsDef quantityLimitedAvailable=$qtyLimitedAvailable}
 {addJsDef attributesCombinations=$attributeCombinaison}
+{addJsDef linkCarte=$link->getPageLink('order')}
 
 {/strip}
 {/if}
