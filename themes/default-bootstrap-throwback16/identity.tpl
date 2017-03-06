@@ -32,7 +32,7 @@
             {include file="$tpl_dir./errors.tpl"}
 
             <!-- FIELD SUCESS -->
-            
+
                 <!--
                 <p class="alert alert-success">
                     {l s='Your personal information has been successfully updated.'}
@@ -42,29 +42,29 @@
                 <p class="info-title">
                     {l s=''}
                 </p>
-                
+
         </div>
 
         <!-- FORM -->
 
         <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="form-horizontal std" id="form_data">
-        
+
         <!-- <div class="container"> -->
         <div class="row vertical-center ">
             <div class="col-md-4 text-center">
                 <h4  {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
             </div>
-            <div class="col-md-8 ">               
+            <div class="col-md-8 ">
                     <div class="row form-group">
                             <label for="email" class="col-md-4 text-right control-label required">
                                 {l s='E-mail address'}
                             </label>
                             <div class="col-md-8">
                                 <input class="is_required validate form-control" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly {else}    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" required {/if}
-                                 type="email" name="email" id="email" value="{$smarty.post.email}"  />  
+                                 type="email" name="email" id="email" value="{$smarty.post.email}"  />
                             </div>
                     </div>
-               
+
                     <div class="row required form-group">
                             <label for="old_passwd" class="col-md-4 text-right">
                                 {l s='Current Password'}
@@ -89,10 +89,10 @@
                                 <input class="col-md-8 is_required validate form-control" type="password" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} readonly {else} data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
                             </div>
                     </div>
-                
-            </div>           
+
+            </div>
         </div>
-        
+
         <!-- </div>  -->
         <!-- // container -->
 
@@ -181,8 +181,8 @@
                 </div>
                 <!-- </div> -->
                 <!-- end row -->
-            </div>           
-            <!-- end col -->           
+            </div>
+            <!-- end col -->
         </div>
         <!-- end row -->
 
@@ -192,10 +192,10 @@
             </div>
             <div class="col-md-8">
                 {l s='Adresse form'}
-            </div>           
+            </div>
         </div> -->
 
-        <div class="row vertical-center">             
+        <div class="row vertical-center">
             <div class="col-md-4 text-center">
                 <h4>{l s='Newletter'}</h4>
             </div>
@@ -206,7 +206,10 @@
                 </label>
                 <div class="col-md-8">
                     {if isset($newsletter) && $newsletter}
-                        <div class="checkbox">
+                    <span style="font-family:pt_sansregular,Arial,Verdana,Helvetica,sans-serif;color:#978d8d;font-size:100%;">
+                      {l s='Devenez Client Privilégié grâce à votre adresse email ! Recevez toutes les bonnes affaires et les offres exclusives en vous inscrivant gratuitement à notre Newsletter!'}
+                    </span>
+                        <div class="checkbox"
                             <label for="newsletter">
                                 <input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if}/>
                                 {l s='Sign up for our newsletter!'}
@@ -256,52 +259,54 @@
     				</div>
     			{/if} -->
 
-                
+
         {if isset($HOOK_CUSTOMER_IDENTITY_FORM)}
-        <div class="row">          
+        <div class="row">
     		{$HOOK_CUSTOMER_IDENTITY_FORM}
         </div>
     	{/if}
 
         <div class="row">
-            <div class="col-md-6 pull-left">
-                <ul class="footer_links clearfix">
-                    <li>
-                        <a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)}">
-                            <span>
-                                <i class="icon-chevron-left"></i> {l s='Retour'}
-                            </span>
-                        </a>
-                    </li>
-                   
-                </ul>
-            </div>
-
-            <div class="col-xs-6 text-right">
+            <div class="col-md-12 text-center">
                 <fieldset>
                             <div class="form-group">
                                 <button type="submit" name="submitIdentity" class="btn btn-default button button-medium">
-                                    <span>{l s='Save'}<i class="icon-chevron-right right"></i></span>
+                                    <span>{l s='Save'}<i > ></i></span>
                                 </button>
                             </div>
                 </fieldset>
-            </div>        
+            </div>
         </div>
 
         </form> <!-- .std -->
         {/if}
 
 </div> <!-- // Box -->
+<div>
+
+            <a class="button-exclusive" href="{$link->getPageLink('my-account', true)}">
+                <span>
+                    <i ><&nbsp;</i>{l s='Retour'}
+                </span>
+            </a>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <i class="reglement">{l s='Conformément à la loi "Informatique et Libertés", vous disposez d’un droit d’accès et de rectification aux données vous concernant, et d’opposition à leur traitement. Pour en savoir plus cliquez'}&nbsp;
+      <a href="{$base_dir}index.php?id_cms=14&controller=cms&id_lang=1" target="_blank">ICI.<a>
+      </i>
+      </div>
+</div>
 </div> <!-- // my-account-selfcare -->
 
 
 
 <script>
-    
+
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',
             form : '#form_data'
     });
-    
+
 </script>

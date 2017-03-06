@@ -74,7 +74,7 @@
       text-align: center; }
     #categories_block_left li span.grower.CLOSE:before {
       content: "\f067";
-      color: silver; }
+      color: #333; }
   #categories_block_left li span.grower:hover + a,
   #categories_block_left li a:hover,
   #categories_block_left li a.selected {

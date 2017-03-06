@@ -1,18 +1,18 @@
-
 <!-- COL UserInfo + Cart -->
-<div class="col-md-4 pull-right"> 
+<div class="col-md-4 pull-right">
 	<!-- ROW UserInfo + Cart -->
-	<div class="row"> 
+	<div class="row">
 
 		<!-- MODULE Block UserInfo  NAV  -->
 		<div class="header_user_info col-md-6 text-right">
 		   <div class="dropdown">
 			{if $is_logged}
-				<button class="dropbtn"> 
+				<button class="dropbtn">
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 				      			 <span>{l s='Welcome' mod='blockuserinfo'} {$cookie->customer_firstname}
-				      				<!-- <img src="{$base_dir}/img/icones/icone-mon-compte-on.png"/> -->
-				      				<img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
+				      				 <img  src="{$base_dir}/img/icones/icone-mon-compte-on.png"/>
+											 <!--	<img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/> -->
+				      			<!--	<img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> -->
 				      			</span>
 				      </a>
 			    </button>
@@ -20,13 +20,13 @@
 			      		<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 			      			<span>{l s='View my customer account' mod='blockuserinfo'}</span>
 			      		</a>
-			      	
+
 			      		<a class="logout" href="{$link->getPageLink('index', true, NULL, "mylogout")|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Log me out' mod='blockuserinfo'}">
 						{l s='Sign out' mod='blockuserinfo'}
 						</a>
 			    </div>
 			{else}
-				<button class="dropbtn"> 
+				<button class="dropbtn">
 					<a href="javascript:void(0)">
 						<span>
 							{l s='My espace' mod='blockuserinfo'} <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>

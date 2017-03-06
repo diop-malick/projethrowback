@@ -22,7 +22,7 @@
     <div class="row addresses-lists">
     	<div class="col-xs-12 col-sm-6 col-md-12">
     		<ul class="myaccount-link-list">
-                
+
                 <div class="myacount-block-container">
 	                <li class="col-sm-6">
 	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" title="{l s='Information'}">
@@ -34,7 +34,7 @@
 	                </li>
                 </div>
 
-                               
+
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
 	                <li class="col-sm-6">
@@ -46,7 +46,7 @@
 	                    </a>
 	                </li>
                 </div>
-               
+
                 {else}
                 <div class="myacount-block-container">
                 	<li class="col-sm-6">
@@ -93,7 +93,7 @@
                 			</div>
                 		</a>
                 	</li>
-                </div>   
+                </div>
             </ul>
     	</div>
     {if $voucherAllowed || isset($HOOK_CUSTOMER_ACCOUNT) && $HOOK_CUSTOMER_ACCOUNT !=''}
@@ -108,7 +108,7 @@
     {/if}
     </div>
     <ul class="footer_links clearfix">
-    <li><a class="btn btn-default button button-medium" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left"></i> {l s='Home'}</span></a></li>
+    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i><&nbsp;</i> {l s='Home'}</span></a></li>
     </ul>
 </div>
 

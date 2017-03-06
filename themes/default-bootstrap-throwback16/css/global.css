@@ -8680,7 +8680,7 @@ div.star.star_hover:after {
   /*TODO - Move themeconfiguratro et other module css in global css */
 
   /* Throwback > Banner > Center text */
-    #htmlcontent_home ul li a h3 {
+    #htmlcontent_home ul li a h3, #htmlcontent_homeFooter ul li a h3 {
     position: relative;
     float: left;
     top: -150px;
@@ -8693,6 +8693,8 @@ div.star.star_hover:after {
     text-transform: uppercase;
     line-height: 0.667;
   }
+
+    /* Throwback > footer Banner > Center text */
 
 
   .heading-counter{
