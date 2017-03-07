@@ -17,9 +17,9 @@ get_header();
 
 				<header class="content-search pad-container" <?php cryout_schema_microdata( 'element' ); ?>>
 					<h1 class="page-title" <?php cryout_schema_microdata( 'entry-title' ); ?>>
-						<?php printf( __( 'Votre recherche pour: %s', 'fluida' ), '<strong>' . get_search_query() . '</strong>' ); ?>
+						<?php printf( __( 'Votre recherche pour: "%s"', 'fluida' ), '<strong>' . get_search_query() . '</strong>' ); ?>
 					</h1>
-					<?php get_search_form(); ?>
+					
 				</header>
 
 				<div id="content-masonry" class="row" <?php cryout_schema_microdata( 'blog' ); ?>>
@@ -34,7 +34,7 @@ get_header();
 
 			<?php else :
 
-				get_template_part( 'content/content', 'Contenu non disponible' );
+				get_template_part( 'content/content-notfound',get_post_format()  );
 				?><div id="content-masonry"></div><?php
 
 			endif; ?>

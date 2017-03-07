@@ -448,7 +448,6 @@ a:visited {
 	margin-bottom: 0;
 	min-height: 400px;
 	clear: both;
-	overflow: hidden;
 	    margin-top: 50px;
 
 }
@@ -1089,7 +1088,7 @@ img#wpstats {
 }
 
 #colophon-inside {
-	display: block;
+	
 	float: none;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1105,6 +1104,8 @@ img#wpstats {
 	min-height: 100%;
 	margin: 2em auto 0;
 	max-width: 100%;
+	background-color:red;
+	display: none;
 }
 
 #colophon .widget-container {
@@ -3672,11 +3673,12 @@ nav.sidebarmenu li a:hover {
 --------------------------------------------------------------*/
 
 .searchform {
+
 	display: block;
 	position: relative;
 	overflow: hidden;
 	height: auto;
-	max-width: 300px;
+	max-width: 437px;
 	border: 1px solid transparent;
 }
 
@@ -4840,9 +4842,10 @@ a:after{
 	margin-bottom: 20px;
 }
 .content-search.pad-container {
-	margin-top: 40px;
+	margin-top: -50px;
 
 }
+
 
 
 /* FIN! */
