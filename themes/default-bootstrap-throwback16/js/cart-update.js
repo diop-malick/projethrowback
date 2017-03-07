@@ -45,11 +45,13 @@ function getProductAttribute(id)
 
 $(document).on('click', '.attribute_radio', function(e){
 	e.preventDefault();
-	var id = $(this).attr('id');
+	var ids = $(this).attr('id');
+	var keyTab = ids.split('-');
+	var id = keyTab[0]
+	//console.log(id);
 	var idCombinaison = parseInt(getProductAttribute(id));
 	$('.combinaison_'+id+' input[name=combinaison_default]').val(idCombinaison);
-	//console.log(getProductAttribute(id));
-	//console.log(id);
+	console.log(getProductAttribute(id));
 });
 
 // The button to increment the product value
