@@ -114,7 +114,7 @@ class CmsControllerCore extends FrontController
             } elseif (isset($this->cms_category->meta_title)) {
                 $path = Tools::getFullPath(1, $this->cms_category->meta_title, 'CMS');
             }
-
+            
             $this->context->smarty->assign(array(
                 'cms' => $this->cms,
                 'content_only' => (int)Tools::getValue('content_only'),

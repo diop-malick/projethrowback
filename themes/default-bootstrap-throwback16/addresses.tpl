@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-md-6">
             <ul class="footer_links clearfix">
-                <li><a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i class="icon-chevron-left"></i> {l s='Retour'}</span></a></li>
+                <li><a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i><&nbsp;</i> {l s='Retour'}</span></a></li>
                 <!--
                 <li><a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}"><span><i class="icon-chevron-left"></i> {l s='Home'}</span></a></li>
                 -->
@@ -58,7 +58,7 @@
         </div>
         {/if}
     </div>
-    
+
 
 </div> <!-- end my-account-selfcare -->
 

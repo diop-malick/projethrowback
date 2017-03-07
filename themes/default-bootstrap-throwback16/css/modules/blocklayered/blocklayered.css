@@ -125,7 +125,8 @@
   width: 91%; }
 
 .layered_slider {
-  margin-top: 5px; }
+  margin-top: 10px; 
+font-size: 0.75em}
 
 .layered_input_range_min {
   width: 30px; }

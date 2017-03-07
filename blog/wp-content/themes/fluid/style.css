@@ -454,8 +454,8 @@ a:visited {
 }
 
 #content-masonry {
-	margin-right: -1%;
-	margin-left: -1%;
+	margin-right: 5%;
+	margin-left: 5%;
 }
 
 .sidey {
@@ -1308,6 +1308,7 @@ img#wpstats {
 	margin: 0;
 	padding-bottom: .3em;
 	font-size: 1.3em;
+	margin-left: 5%;
 }
 
 .main .page-title:only-child {
@@ -1550,6 +1551,7 @@ article.hentry .article-inner {
 
 #content-masonry article.hentry .article-inner {
 	padding: 1em 2em 2em;
+	padding-left: 0% !important;
 }
 
 .pad-container {

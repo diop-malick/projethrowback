@@ -3,7 +3,7 @@
 
 								{if isset($blockcart_top) && $blockcart_top}
 								<div class="col-md-6 text-right">
-									
+
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
 										<div class="shopping_cart">
@@ -23,7 +23,8 @@
 														{/if}
 													{/if}
 												</span>
-												<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='(empty)' mod='blockcart'}</span>
+												<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if} ">{l s='(empty)' mod='blockcart'}</span>
+											 
 												<img src="{$base_dir}/img/icones/basket_1.png"/>
 												{if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}
 													<span class="block_cart_expand{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} unvisible{/if}">&nbsp;</span>
@@ -187,7 +188,7 @@
 
 								</div>
 
-								</div> 
+								</div>
 							<!-- //  MODULE Block cart -->
 							</div><!-- // ROW UserInfo + Cart -->
 							</div><!-- // COL UserInfo + Cart -->
@@ -199,7 +200,7 @@
 				{if !$PS_CATALOG_MODE && $active_overlay == 1}
 					<div id="layer_cart">
 						<div class="clearfix">
-							<div class="layer_cart_product col-xs-12 col-md-6">
+							<div class="layer_cart_product col-xs-12 col-xs-6">
 								<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
 								<span class="title">
 									<i class="icon-check"></i>{l s='Product successfully added to your shopping cart' mod='blockcart'}
@@ -209,17 +210,50 @@
 								<div class="layer_cart_product_info">
 									<span id="layer_cart_product_title" class="product-name"></span>
 									<!-- <span id="layer_cart_product_attributes"></span> -->
+									 {assign var="attributes" value=$product.attributes}
+									 {assign var="split_size" value=","|explode:$attributes}
+			 						 {assign var="attribute_size" value=":"|explode:$split_size[0]}
+									 {assign var="attribute_coloris" value=":"|explode:$split_size[1]}
+			 						 {assign var="sizing" value=$attribute_size[1]|trim}
+									 {assign var="coloris" value=$attribute_coloris[1]|trim}
 									<div>
-										<strong class="dark">{l s='Quantity' mod='blockcart'}</strong>
-										<span id="layer_cart_product_quantity"></span>
+										<strong class="dark">{l s='Coloris' mod='blockcart'}&nbsp;:</strong>
+										<span >{$coloris}</span>
 									</div>
 									<div>
-										<strong class="dark">{l s='Total' mod='blockcart'}</strong>
+										<strong class="dark">{l s='Taille' mod='blockcart'}&nbsp;:</strong>
+										<span >{$sizing}</span>
+									</div>
+									<div>
+										<strong class="dark">{l s='Quantity' mod='blockcart'}&nbsp;:</strong>
+										<span id="layer_cart_product_quantity"></span>
+									</div>
+
+										<div class="disponible">
+											<span class="dispo_info">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later|upper}{else}{l s='In Stock'|upper}{/if}{else}{l s='Out of stock'|upper}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'|upper}{else}{l s='In Stock'|upper}{/if}{/if}
+											</span>
+										</div>
+
+
+									<div>
+										<strong class="dark">{l s='Total' mod='blockcart'}&nbsp;:</strong>
 										<span id="layer_cart_product_price"></span>
 									</div>
 								</div>
+								<div class="button-container">
+									<span class="continue btn btn-default button exclusive-medium"title="{l s='Continue shopping' mod='blockcart'}">
+										<span>
+											<i><&nbsp;</i> {l s='Continue shopping' mod='blockcart'}
+										</span>
+									</span>
+									<a class="btn btn-default button button-medium"	href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
+										<span>
+											{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
+										</span>
+									</a>
+								</div>
 							</div>
-							<div class="layer_cart_cart col-xs-12 col-md-6">
+							<div class="layer_cart_cart col-xs-12 col-xs-6 hidden">
 								<span class="title">
 									<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
 									<span class="ajax_cart_product_txt_s {if $cart_qties < 2} unvisible{/if}">
@@ -341,5 +375,3 @@
 				{addJsDefL name=delete_txt}{l s='Delete' mod='blockcart' js=1}{/addJsDefL}
 				{addJsDefL name=toBeDetermined}{l s='To be determined' mod='blockcart' js=1}{/addJsDefL}
 				{/strip}
-	
-

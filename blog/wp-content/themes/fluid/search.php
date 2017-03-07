@@ -17,7 +17,7 @@ get_header();
 
 				<header class="content-search pad-container" <?php cryout_schema_microdata( 'element' ); ?>>
 					<h1 class="page-title" <?php cryout_schema_microdata( 'entry-title' ); ?>>
-						<?php printf( __( 'votre recherche pour: %s', 'fluida' ), '<strong>' . get_search_query() . '</strong>' ); ?>
+						<?php printf( __( 'Votre recherche pour: %s', 'fluida' ), '<strong>' . get_search_query() . '</strong>' ); ?>
 					</h1>
 					<?php get_search_form(); ?>
 				</header>
