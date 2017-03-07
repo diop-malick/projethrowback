@@ -28,8 +28,8 @@
                         </li>
                     {/foreach}
                     <li class="address_update">
-                    <a class="btn btn-default button button-small" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}"><span>{l s='Update'}<i class="icon-chevron-right right"></i></span></a>
-                    <a class="btn btn-default button button-small" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}"><span>{l s='Delete'}<i class="icon-remove right"></i></span></a></li>
+                    <a  class="edit"href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+                    <a  class="cart_quantity_delete" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">X</a></li>
                 </ul>
             </div>
     	{if $smarty.foreach.myLoop.index % 2 && !$smarty.foreach.myLoop.last}
