@@ -103,7 +103,7 @@
             <div class="col-md-8">
             <!-- <div class="row"> -->
                     <div class="row">
-                        <label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Social title'}</label>
+                        <label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Civilité'}</label>
                         <div class="col-md-8">
                             <select id="id_gender" name="id_gender" class="is_required validate select_title" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
                                             <option value="">{l s='Choisir la civilité'}</option>

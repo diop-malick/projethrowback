@@ -32,13 +32,37 @@
 		{assign var="homePhoneExist" value=false}
 		{assign var="mobilePhoneExist" value=false}
 		{assign var="atLeastOneExists" value=false}
+		{assign var="tab" value=array_splice($ordered_adr_fields, 2, 1)}
+		{assign var="tab2" value=array_splice($ordered_adr_fields, 0, 0, $tab)}
+		{assign var="tab3" value=array_splice($ordered_adr_fields, 8, 1)}
+		{assign var="tab4" value=array_splice($ordered_adr_fields, 6, 0, $tab3)}
+
 		{foreach from=$ordered_adr_fields item=field_name}
-			<!-- {if $field_name eq 'company'}
-				<div class="form-group">
-					<label for="company">{l s='Company'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-					<input class="form-control validate" data-validate="{$address_validation.$field_name.validate}" type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'html':'UTF-8'}{/if}{/if}" />
+			 {if $field_name eq 'company'}
+				<div class="row required form-group">
+					<label for="company" class="col-md-4 text-right">{l s='Civilité'} <sup>*</sup></label>
+						<div class="col-md-8">
+					<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+							<option value="">{l s='Choisir la civilité'}</option>
+							<option value="M">{l s='M.'}</option>
+						  <option value="Mme">{l s='Mme'}</option>
+					</select>
+					<input hidden type="text" id="company" name="company"/>
+					</div>
 				</div>
-			{/if} -->
+			{/if}
+<!--
+			<div class="row">
+					<label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Civilité'}</label>
+					<div class="col-md-8">
+							<select id="id_gender" name="id_gender" class="is_required validate select_title" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
+															<option value="">{l s='Choisir la civilité'}</option>
+							{foreach from=$genders key=k item=gender}
+									<option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
+							{/foreach}
+							</select>
+					</div>
+			</div>  -->
 			<!--
 			{if $field_name eq 'vat_number'}
 				<div id="vat_area">
@@ -118,7 +142,7 @@
 					<label for="id_country" class="col-md-4 text-right">{l s='Country'} <sup>*</sup></label>
 					<div class="col-md-8">
 						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" name="id_country">
-						
+
 						{$countries_list}
 						</select>
 					</div>
@@ -137,7 +161,7 @@
 				</div>
 			{/if}
 			-->
-			
+
 			<!-- {if $field_name eq 'phone'}
 				{assign var="homePhoneExist" value=true}
 				<div class="row form-group phone-number">
@@ -159,7 +183,7 @@
 			{/if}
 			{if ($field_name eq 'phone_mobile') || ($field_name eq 'phone_mobile') && !isset($atLeastOneExists) && isset($one_phone_at_least) && $one_phone_at_least}
 				{assign var="atLeastOneExists" value=true}
-				
+
 			{/if}
 		{/foreach}
 
@@ -242,7 +266,7 @@
 		</div>
 
 	</form>
-</div>		
+</div>
 </div>
 </div> <!-- end my-account-selfcare -->
 
@@ -282,4 +306,9 @@
             form : '#add_address'
     });
     $("#firstname").focus();
+</script>
+<script>
+$("#select-civility").change(function() {
+    $("#company").val($(this).val());
+}).change(); // trigger once if needed
 </script>
