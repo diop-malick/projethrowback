@@ -26,6 +26,7 @@
 var countriesNeedIDNumber = [];
 var countriesNeedZipCode = [];
 var states = [];
+var input = '<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide." type="text" name="city" id="city">';
 
 $(document).ready(function(){
 	setCountries();
@@ -46,14 +47,17 @@ function getCity() {
 		cp = $(this).val();
 	
 		var select = '<select class="is_required validate form-control" id="city" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide."  name="city">';
-		var input = '<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide." type="text" name="city" id="city"';
 		var  url_api = "https://vicopo.selfbuild.fr/cherche/"+cp;
 		if( $( '#id_country option:selected' ).text().toLowerCase()=="france" && cp.length==5 ){
 		$.ajax({
 					type: "GET",url: url_api,cache: false,dataType: "json",
 					success: function(json) {
 								count= json.cities.length;
-								if(count==0){console.log("Néant")} 
+								if(count==0){
+									$("#city").remove();
+									$("#ville").append(input);
+									$("#city").attr("placeholder", "Merci de saisir votre ville.");
+								} 
 								else if(count>1){
 										$.each(json.cities, function(index, value) {
 											//console.log(value.city);
@@ -64,10 +68,9 @@ function getCity() {
 								}
 								else{
 									$.each(json.cities, function(index, value) {
-										//console.log(value.city);
-										$("#city").empty();
-										$("#city").replaceWith(input);
-										//$("#city").val(value.city)
+										$("#city").remove();
+										$("#ville").append(input);
+										$("#city").val(value.city);
 									});
 								}
 					},
@@ -141,7 +144,9 @@ function bindStateInputAndUpdate()
 
 	$(document).on('change', '#id_country', function(e)
 	{
-		
+		$("#postcode").empty().val('').focus();
+		$("#city").remove();
+		$("#ville").append(input);
 		updateState();
 		updateNeedIDNumber();
 		updateZipCode();

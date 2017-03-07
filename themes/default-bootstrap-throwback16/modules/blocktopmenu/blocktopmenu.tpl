@@ -9,8 +9,8 @@
 	{/if}
 
 		<div class="cat-title">{l s="Menu" mod="blocktopmenu"}</div>
-		
-			<ul class="sf-menu clearfix menu-content">		
+
+			<ul class="sf-menu clearfix menu-content">
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">

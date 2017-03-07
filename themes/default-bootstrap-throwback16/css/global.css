@@ -2308,11 +2308,11 @@ input[type="button"].btn-block {
 
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {
-  display: none; 
+ display: none;
 }
 
 .tab-content #blocknewproducts.tab-pane {
-  display: block !important; 
+  display: block !important;
 }
 
 .tab-content > .active,
@@ -5753,12 +5753,12 @@ header {
     max-height: 100%; }
     header .banner .row {
       margin: 0px; }
-	  
+
 /* throwback header background */
   header .nav {
-    background: #ececeb; 
+    background: #ececeb;
 	}
-	
+
     header .nav .row {
       margin: 0px; }
     header .nav nav {
@@ -5767,7 +5767,7 @@ header {
     position: relative; }
     header .row > .container {
       position: relative; }
-	 
+
 
       @media (max-width: 992px) {
         header .row #header_logo {
@@ -6006,7 +6006,7 @@ span.exclusive {
 
 
 
- 
+
     @media (max-width: 480px) {
       .button.button-medium span {
         font-size: 15px;
@@ -6052,14 +6052,14 @@ span.exclusive {
 }
 
   .button.button-medium.exclusive span {
-    border-color: #ececeb #ececeb #ececeb #ececeb; 
+    border-color: #ececeb #ececeb #ececeb #ececeb;
   }
 
   .button.button-medium.exclusive:hover {
     background: #f89609;
     border-color: #a6550c #ba6708 #db8600 #ba6708; }
     .button.button-medium.exclusive:hover span {
-      border-color: #fec133; 
+      border-color: #fec133;
   }
 
 .link-button {
@@ -6259,14 +6259,14 @@ table.table_block td {
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1.143;
-  margin-bottom: 0; 
+  margin-bottom: 0;
   /*z-index: 82;*/
   }
 
   .product-name a {
     font-size: 17px;
     line-height: 23px;
-    color: rgb(53, 53, 53); 
+    color: rgb(53, 53, 53);
   }
     .product-name a:hover {
       color: #515151; }
@@ -6306,7 +6306,7 @@ table.table_block td {
 }
 
 .special-price {
-  color: #f13340; 
+  color: #f13340;
 }
 
 .price-percent-reduction {
@@ -6491,7 +6491,7 @@ table.table_block td {
 
 #home-page-tabs {
   border: none;
-  background: #fff; 
+  background: #fff;
 display: none}
   @media (min-width: 768px) {
     #home-page-tabs {
@@ -6666,7 +6666,7 @@ display: none}
   padding: 0 0 15px;
   line-height: normal;
   margin-bottom: 12px;
-  border-bottom: 1px solid #d6d4d4; 
+  border-bottom: 1px solid #d6d4d4;
 }
 
   .page-heading span.heading-counter {
@@ -7147,7 +7147,7 @@ div.star a:hover {
 }
 
 #page .rte em {
-  font-style: italic !important; 
+  font-style: italic !important;
 }
 
 .listcomment {
@@ -7269,8 +7269,8 @@ div.star a:hover {
       position: relative; }
     .footer-container #footer ul.row {
       position: static; }
-	 
-	
+
+
 	.nav .footer-block {
       margin-top: 10px;
 	}
@@ -7282,12 +7282,12 @@ div.star a:hover {
           /* margin-top: 20px;  */
 		}
 	}
-		  
+
     .footer-container #footer a {
       color: #777777; }
-      
+
       .footer-container #footer a:hover {
-        color: #fff; 
+        color: #fff;
       }
 
     .footer-container #footer h4 {
@@ -7316,13 +7316,13 @@ div.star a:hover {
       .footer-container #footer ul li a {
         font-weight: bold;
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4); }
-		
-		
+
+
     .footer-container #footer #block_contact_infos {
       /* border-left: 1px solid #515151;  */
 	}
-	  
-	  
+
+
       @media (max-width: 767px) {
         .footer-container #footer #block_contact_infos {
           border: none; } }
@@ -7357,29 +7357,29 @@ div.star a:hover {
               padding-top: 5px;
           }
       }
-      
+
       .footer-container #footer #social_block ul {
           float: right;
       }
-      
+
       @media (max-width: 767px) {
           .footer-container #footer #social_block ul {
               float: none;
           }
       }
-      
+
       .footer-container #footer #social_block ul li {
           float: left;
           width: 30px;
           text-align: center;
       }
-      
+
       @media (min-width: 768px) and (max-width: 991px) {
           .footer-container #footer #social_block ul li {
               width: 30px;
           }
       }
-      
+
       .footer-container #footer #social_block ul li a {
           display: inline-block;
           color: #908f8f;
@@ -8387,7 +8387,7 @@ div.star.star_hover:after {
 .form-group.form-error input, .form-group.form-error textarea {
   border: 1px solid #f13340;
   /*color: #f13340;*/
-  background: url(../img/icon/form-error.png) 98% 5px no-repeat; 
+  background: url(../img/icon/form-error.png) 98% 5px no-repeat;
 }
 
 .form-group.form-ok input, .form-group.form-ok textarea {
@@ -8688,11 +8688,11 @@ div.star.star_hover:after {
 
 
   /* Throwback CSS Custom */
-  
+
   /*TODO - Move themeconfiguratro et other module css in global css */
 
   /* Throwback > Banner > Center text */
-    #htmlcontent_home ul li a h3 {
+    #htmlcontent_home ul li a h3, #htmlcontent_homeFooter ul li a h3 {
     position: relative;
     float: left;
     top: -150px;
@@ -8706,7 +8706,9 @@ div.star.star_hover:after {
     line-height: 0.667;
   }
 
-  
+    /* Throwback > footer Banner > Center text */
+
+
   .heading-counter{
     position: absolute;
     top : 120px;
@@ -8721,14 +8723,5 @@ div.star.star_hover:after {
   font-weight: bold;
   line-height: 0.889;
   line-height: 0.889;
-  margin: 0 1px 5px 1px; 
+  margin: 0 1px 5px 1px;
   }
-
-
-
-
-
-
-
-
-

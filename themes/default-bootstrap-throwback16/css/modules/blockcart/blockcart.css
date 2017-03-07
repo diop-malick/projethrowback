@@ -1,4 +1,4 @@
-/*******************************************************************
+#layer/*******************************************************************
 					Cart Block Styles
 ********************************************************************/
 
@@ -59,7 +59,7 @@
       font: 600 18px/22px "Open Sans", sans-serif;
       padding-right: 5px; }
     .shopping_cart > a:first-child:before {
-      
+
       font-family: "FontAwesome";
       display: inline-block;
       font-size: 23px;
@@ -172,6 +172,16 @@
         border: solid 1px #358c43;
         background: #2e7a3a;
         color: #fff; }
+      /* Add media queries small  device */
+      @media (max-width: 479px) {
+      /*  .shopping_cart a{
+          display: flex !important;
+         } */
+          .shopping_cart img{
+            width : 30px !important;}
+
+
+        }
 
 /*******************************************************************
 					Cart Block(Header) Styles
@@ -275,15 +285,15 @@
   margin-left: -160px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2; }
-  
+
 #layer_cart {
     background-color: #fff;
     position: absolute;
     display: none;
     z-index: 99;
-    width: 65%;
-    margin-right: 8%;
-    margin-left: 8%;
+  /*  width: 65%;*/
+  /*  margin-right: 8%;*/
+    margin-left: 33%;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -325,8 +335,8 @@
           float: none;
           margin-right: 0;
           margin-bottom: 10px; } }
-    #layer_cart .layer_cart_product .layer_cart_product_info {
-      padding: 38px 0 0 0; }
+  /*  #layer_cart .layer_cart_product .layer_cart_product_info {
+      padding: 38px 0 0 0; } */
       #layer_cart .layer_cart_product .layer_cart_product_info #layer_cart_product_title {
         display: block;
         padding-bottom: 8px; }
@@ -372,9 +382,11 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 0px 30px 20px 30px; }
+      padding: 10px 30px 20px 30px;
+    ;}
       #layer_cart .layer_cart_cart .button-container .btn {
-        margin-bottom: 10px; }
+        margin-bottom: 10px;
+    }
       #layer_cart .layer_cart_cart .button-container span.exclusive-medium {
         margin-right: 5px; }
         #layer_cart .layer_cart_cart .button-container span.exclusive-medium i {
@@ -398,9 +410,19 @@
     #layer_cart .cross:hover {
       color: #515151; }
   #layer_cart .continue {
-    cursor: pointer; }
+    cursor: pointer;
+    line-height: 17px;}
   #layer_cart p {
     padding: 0px; }
+    .disponible {
+      padding-bottom: 7px; }
+      #layer_cart .layer_cart_product .button-container{
+        margin-top: 30px;
+      }
+      .dispo_info{
+        font-weight: bold;
+        color:#333;
+      }
 
 /************************************************************************
 						Layer Cart Caroucel

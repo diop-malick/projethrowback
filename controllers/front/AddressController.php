@@ -322,6 +322,7 @@ class AddressControllerCore extends FrontController
     {
         $id_country = is_null($this->_address)? (int)$this->id_country : (int)$this->_address->id_country;
         $requireFormFieldsList = AddressFormat::getFieldsRequired();
+    
         $ordered_adr_fields = AddressFormat::getOrderedAddressFields($id_country, true, true);
         $ordered_adr_fields = array_unique(array_merge($ordered_adr_fields, $requireFormFieldsList));
 

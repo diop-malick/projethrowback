@@ -132,8 +132,8 @@ class AddressController extends AddressControllerCore
     }
 
      public function displayAjax()
-    {         
-    	if(Tools::isSubmit('submitAddress')){            
+    {
+    	if(Tools::isSubmit('submitAddress')){
     		$customer = $this->context->customer;
 	        if (Validate::isLoadedObject($customer)) {
 	            /* Getting customer addresses */
@@ -160,12 +160,12 @@ class AddressController extends AddressControllerCore
 	                'formatedAddressFieldsValuesList' => $formatedAddressFieldsValuesList,
                     'id_address' => Tools::getValue('id_address')
 	            );
-                
+
 	            $this->ajaxDie(Tools::jsonEncode($return));
 	        }
     	}else{
     		$this->smartyOutputContent(_PS_THEME_DIR_.'address.tpl');
-    	}        
+    	}
     }
  }
 ?>

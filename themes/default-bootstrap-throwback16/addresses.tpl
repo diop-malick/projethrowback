@@ -15,6 +15,8 @@
         	<div class="col-xs-12 col-sm-6 address">
     			<ul class="{if $smarty.foreach.myLoop.last}last_item{elseif $smarty.foreach.myLoop.first}first_item{/if}{if $smarty.foreach.myLoop.index % 2} alternate_item{else} item{/if} box">
                     <li><h3 class="page-subheading">{$address.object.alias}</h3></li>
+                    {assign var="tab" value=array_splice($address.ordered, 1, 1)}
+                    {assign var="tab2" value=array_splice($address.ordered, 0, 0, $tab)}
                     {foreach from=$address.ordered name=adr_loop item=pattern}
                         {assign var=addressKey value=" "|explode:$pattern}
                         <li>
@@ -38,13 +40,13 @@
     	</div>
     </div>
     {else}
-    	<p class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></p>
+    	<p class="alert alert-no-adress">{l s='No addresses are available.'}</p>
     {/if}
 
     <div class="row">
         <div class="col-md-6">
             <ul class="footer_links clearfix">
-                <li><a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i class="icon-chevron-left"></i> {l s='Retour'}</span></a></li>
+                <li><a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i><&nbsp;</i> {l s='Retour'}</span></a></li>
                 <!--
                 <li><a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}"><span><i class="icon-chevron-left"></i> {l s='Home'}</span></a></li>
                 -->
@@ -58,7 +60,7 @@
         </div>
         {/if}
     </div>
-    
+
 
 </div> <!-- end my-account-selfcare -->
 
