@@ -55,8 +55,10 @@ modules/mailalerts/*
 # admin16/export/
 # admin16/import/
 # download/
-# img/
-# upload/
+
+img/*
+
+upload/*
 
 
 ########################### WORDPRESS ###########################
