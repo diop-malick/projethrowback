@@ -649,3 +649,6 @@ border-color: #000;
 .fa-paiement{
   font-size: 4em !important;
 } 
+.open-popup-link{
+  text-decoration:underline ;
+}

@@ -56,15 +56,17 @@
 </div>
 </div>
 <script>
+$(document).ready(function(){
     $('#tabs').easyResponsiveTabs({
       type: 'accordion', //Types: default, vertical, accordion
       width: 'auto', //auto or any width like 600px
       fit: true, // 100% fit in a container
       closed: 'accordion', // Start closed if in accordion view
       tabidentify: 'tab', // The tab groups identifier
-      activate: function() {        
-        
+      activate: function() {    
+         $('button.standard-checkout').removeAttr('disabled');
       }
     }); 
+}); 
     
 </script>

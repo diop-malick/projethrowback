@@ -191,7 +191,7 @@ h2.resp-tab-active {
 	border-bottom: 2px solid #000 !important;
 	border-left: 2px solid #000 !important;
 	border-right: 2px solid #000 !important;
-	height: 100% !important;
+	height: auto !important;
 }
 
 h2.resp-accordion:first-child {
