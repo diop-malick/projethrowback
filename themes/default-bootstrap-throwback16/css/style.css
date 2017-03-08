@@ -2,7 +2,7 @@
 				styles intégrés
 ************************************************************/
 body {
-    
+
     font-size: 13px !important;
     color: #777 !important;
 }
@@ -12,16 +12,24 @@ body {
     margin-top: 90px;
   }
 
+
 #my-account .columns-container, #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
+
     margin-top: 160px;
 }
 #order .columns-container {
     margin-top: 130px;
   }
-  
+
+
 #order .modal {
+
     margin-top: 200px;
 }
+
+  #product .columns-container{
+   margin-top: 160px;
+ }
 
   /*    */
   /*
@@ -138,15 +146,46 @@ body {
 /* Throwback_logo */
 
 header .row #header_logo {
-    /*padding-top: 0px;*/
-    /*TODO  decomment and use transparent image */
+
     margin-top: -70px;
-    /*width: 16.66667%;*/
+
 }
 
 #header_logo .logo-throwback {
     margin: 0 auto;
 }
+
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) {
+   #block_contact_infos span{
+     font-size: 10px;
+   }
+/*  .shopping_cart  img {
+     width: 100%;
+     height: 100%;
+    }*/
+    .header_user_info  img {
+      width: 15px;
+
+    }/*
+    header .row #header_logo {
+      margin-top: -40px !important;
+    }
+
+    .hidden-xs { display: none !important; }*/
+
+  #header .shopping_cart {
+    padding-top: 0px;
+  }
+
+}
+
+
+
+
+
+
 
 /* Filtre
 ====================================  */
@@ -237,7 +276,7 @@ header .row #header_logo {
 }
 */
 /* throwback > customize > Infos perso  */
-#identity .form-error , #account-creation_form .form-error {
+#identity .form-error , #account-creation_form .form-error, #address .form-error {
     float: left !important;
     width: 100%;
 }
@@ -274,6 +313,21 @@ header .row #header_logo {
 }
 .grise{
   color: #777777;
+}
+/*
+.fond-gris{
+  background: #DCDCDC;
+}
+*/
+input[type="text"]:disabled , input[readonly] {
+    background: #dcdcdc;
+}
+
+.my-account-selfcare .button-exclusive{
+color:#333;
+}
+.my-account-selfcare .button-exclusive:hover{
+  text-decoration: underline;
 }
 
 /* Page Liste
@@ -399,12 +453,13 @@ font-size: 17px;
 
 /* throwback > customize */
 .box-info-product {
- 
+
 }
 
 .box-info-product p {
-  margin-bottom: 7px; 
+  margin-bottom: 7px;
 }
+
 
 
 
@@ -486,10 +541,12 @@ font-size: 17px;
     border:1px solid #000;
     padding: 0 5px;
   }
+
   .icone-update{
     font-size: 1.6em !important;
   }
-  .cart_quantity_delete:hover , .cart_quantity_delete:link { 
+  .cart_quantity_delete:hover , .cart_quantity_delete:link {
+
     color: #000;
     text-decoration: none;
 }
@@ -563,7 +620,7 @@ border-color: #000;
   color: #000;
   font-weight: bold;
 }
-.panier-vide{
+.panier-vide , .alert-no-adress{
   text-align: justify;
   font-size: 16px;
   color: #000;
@@ -577,3 +634,9 @@ border-color: #000;
     font-weight: 600;
     color: #333;
 }
+/* reglement loi informatique */
+#identity .reglement {
+    font: 11px sans-serif !important;
+    font-style: italic !important;
+    text-align: center !important;
+  }

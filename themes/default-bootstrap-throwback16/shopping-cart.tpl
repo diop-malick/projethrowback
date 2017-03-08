@@ -146,13 +146,13 @@
 										</p>
 									</div>
 
-									<div class="col-md-5">
+									<div class="col-md-5 product_attributes line_attributes clearfix">
 											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 												<div class="row">
 													{if isset($groups)}
 													<div class="customattributes">
 														<div id="attributes">
-															<div class="attribute_list">
+															<div class="attribute_list custom-attribute">
 																<label class="attribute_label" >{l s='Taille'}</label>
 																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																	{if $group.attributes|@count}
@@ -167,8 +167,8 @@
 																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																						
 																						<li>
-																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
+																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
 																							{$group_attribute|escape:'html':'UTF-8'}
 
@@ -181,11 +181,12 @@
 																				<input type="hidden" name="color_default" value="{$group.default|intval}" />
 																				</div>
 																			{/if}
+																			</span>
 																		</div> <!-- end attribute_list -->
 																	<!--</fieldset>-->
 																	{/if}
 																{/foreach}
-																</span>
+																
 															</div>
 														</div>
 														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
