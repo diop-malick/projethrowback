@@ -87,14 +87,16 @@ function deleteImage($imageDir)
 	//@ is wriiten to avoid warning message and is handled in else condition
 	if ($handle = @opendir($imageDir)) {
 		
-		$output = shell_exec('ls');
-		echo "<pre>$output</pre>";
+		// $output = shell_exec('rm '.$imageDir.'/'.$entry.');
+	// $cmd = "ls";
+		// $output = shell_exec('ls');
+		// echo '<pre>'.$output.'</pre>';
 
 		// echo $imageDir."<BR />";
     	
     	// Si le fichier n'est pas un répertoire…
     	// read directory contents*
-		/*
+		
     	while ($cnt_files != $limit && false !== ($entry = readdir($handle))) { 
         		if ($entry != "." && $entry != "..") { // check if dir is not empty
                 		$cnt_files++;
@@ -108,15 +110,16 @@ function deleteImage($imageDir)
                                 	$cnt_not_found++;
                                 	// echo 'rm '.$imageDir.'/'.$entry."<BR />";
                                 	// chown($imageDir.'/'.$entry,666);
-                                	// $delResult = unlink($imageDir.'/'.$entry); // delete files
-                                	// if($delResult) $cnt_del_file++
+                                	chmod($imageDir.'/'.$entry, 0777);
+                                	$delResult = unlink($imageDir.'/'.$entry); // delete files
+                                	if($delResult) $cnt_del_file++;
                         		} else {
                                 		$cnt_found++;
                        			}
                 		}
         		}
     	}
-    	*/
+    	
     	// close
     	closedir($handle);
 	}
