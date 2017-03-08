@@ -75,7 +75,7 @@ function acceptCGV()
 function ajaxAddressSetup()
 {
 
-	if (typeof formatedAddressFieldsValuesList === 'undefined'){		
+	if (typeof formatedAddressFieldsValuesList === 'undefined' || !formatedAddressFieldsValuesList){		
 		$('.resp-tab-content:last-of-type').addClass('hidden');
 		$('h2.resp-accordion:last-of-type').addClass('hidden');
 	}
