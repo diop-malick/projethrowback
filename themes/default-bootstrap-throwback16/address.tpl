@@ -107,7 +107,7 @@
 				<div class="row required form-group">
 					<label for="id_country" class="col-md-4 text-right">{l s='Country'} <sup>*</sup></label>
 					<div class="col-md-8">
-						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" name="id_country">
+						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre pays.'}" name="id_country">
 
 						{$countries_list}
 						</select>
@@ -161,16 +161,19 @@
 				<input class="is_required validate form-control" data-validate="{$address_validation.postcode.validate}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 			</div>
 		{/if}
-		<!--
+		
+		<!-- etats -->
 		{if !$stateExist}
-			<div class="required id_state form-group unvisible">
-				<label for="id_state">{l s='State'} <sup>*</sup></label>
-				<select name="id_state" id="id_state" class="form-control">
-					<option value="">-</option>
-				</select>
+			<div class="row required id_state form-group unvisible">
+				<label for="id_state" class="col-md-4 text-right">{l s='State'} <sup>*</sup></label>
+				<div class="col-md-8">
+					<select name="id_state" id="id_state" class="select_title" data-validation="required" data-validation-optional="true" data-validation-error-msg="{l s='Merci de sélectionner votre état.'}">
+						<option value="">-</option>
+					</select>
+				</div>
 			</div>
 		{/if}
-		-->
+		
 		{if !$dniExist}
 			<div class="required dni form-group unvisible">
 				<label for="dni">{l s='Identification number'} <sup>*</sup></label>

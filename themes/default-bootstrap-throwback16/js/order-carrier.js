@@ -148,7 +148,7 @@ function ajaxAddressSetup()
 					});
 					setCountries();
 					bindStateInputAndUpdate();				
-					bindZipcode();
+					bindZipcode(tab);
 					bindCheckbox();
 					$.validate({
 				            lang : 'fr',

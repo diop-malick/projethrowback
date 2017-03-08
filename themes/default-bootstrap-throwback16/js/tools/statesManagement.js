@@ -39,48 +39,9 @@ $(document).ready(function(){
 		bindCheckbox();
 	});
 
-	getCity();
+	
 
 });
-function getCity() {
-	$('#postcode').on('input',function(e) {
-		cp = $(this).val();
-	
-		var select = '<select class="is_required validate form-control" id="city" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide."  name="city">';
-		var  url_api = "https://vicopo.selfbuild.fr/cherche/"+cp;
-		if( $( '#id_country option:selected' ).text().toLowerCase()=="france" && cp.length==5 ){
-		$.ajax({
-					type: "GET",url: url_api,cache: false,dataType: "json",
-					success: function(json) {
-								count= json.cities.length;
-								if(count==0){
-									$("#city").remove();
-									$("#ville").append(input);
-									$("#city").attr("placeholder", "Merci de saisir votre ville.");
-								} 
-								else if(count>1){
-										$.each(json.cities, function(index, value) {
-											//console.log(value.city);
-											select += '<option  value=' + value.city + '>' + value.city + '</option>';
-										});
-										select += '</select>';
-										$("#city").replaceWith(select);
-								}
-								else{
-									$.each(json.cities, function(index, value) {
-										$("#city").remove();
-										$("#ville").append(input);
-										$("#city").val(value.city);
-									});
-								}
-					},
-					error: function() {
-					  console.log("Erreur");
-					}
-		});
-	  }
-	});
-}
 
 
 function setCountries()
@@ -128,6 +89,42 @@ function bindZipcode()
 		var char = String.fromCharCode(e.keyCode);
 		if (/[a-zA-Z]/.test(char))
 			$.trim($(this).val($(this).val().toUpperCase()));
+
+		cp = $(this).val();
+		
+		var select = '<select class="is_required validate form-control" id="city" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide."  name="city">';
+		var  url_api = "https://vicopo.selfbuild.fr/cherche/"+cp;
+		if( $( '#id_country option:selected' ).text().toLowerCase()=="france" && cp.length==5 ){
+		$.ajax({
+					type: "GET",url: url_api,cache: false,dataType: "json",
+					success: function(json) {
+								count= json.cities.length;
+								if(count==0){
+									$("#city").remove();
+									$("#ville").append(input);
+									$("#city").attr("placeholder", "Merci de saisir votre ville.");
+								} 
+								else if(count>1){
+										$.each(json.cities, function(index, value) {
+											//console.log(value.city);
+											select += '<option  value=' + value.city + '>' + value.city + '</option>';
+										});
+										select += '</select>';
+										$("#city").replaceWith(select);
+								}
+								else{
+									$.each(json.cities, function(index, value) {
+										$("#city").remove();
+										$("#ville").append(input);
+										$("#city").val(value.city);
+									});
+								}
+					},
+					error: function() {
+					  console.log("Erreur");
+					}
+		});
+	  }
 	});
 }
 
