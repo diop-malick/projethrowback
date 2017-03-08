@@ -51,41 +51,7 @@
 					</div>
 				</div>
 			{/if}
-<!--
-			<div class="row">
-					<label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Civilité'}</label>
-					<div class="col-md-8">
-							<select id="id_gender" name="id_gender" class="is_required validate select_title" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
-															<option value="">{l s='Choisir la civilité'}</option>
-							{foreach from=$genders key=k item=gender}
-									<option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
-							{/foreach}
-							</select>
-					</div>
-			</div>  -->
-			<!--
-			{if $field_name eq 'vat_number'}
-				<div id="vat_area">
-					<div id="vat_number">
-						<div class="form-group">
-							<label for="vat-number">{l s='VAT number'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-							<input type="text" class="form-control validate" data-validate="{$address_validation.$field_name.validate}" id="vat-number" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{else}{if isset($address->vat_number)}{$address->vat_number|escape:'html':'UTF-8'}{/if}{/if}" />
-						</div>
-					</div>
-				</div>
-			{/if}
 
-			{if $field_name eq 'dni'}
-			{assign var="dniExist" value=true}
-			<div class="row required form-group dni">
-				<label for="dni" class="col-md-4">{l s='Identification number'} <sup>*</sup></label>
-				<div class="col-md-8">
-				<input class="form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
-				<span class="form_info">{l s='DNI / NIF / NIE'}</span>
-				</div>
-			</div>
-			{/if}
-			-->
 			{if $field_name eq 'firstname'}
 				<div class="row required form-group">
 					<label for="firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
