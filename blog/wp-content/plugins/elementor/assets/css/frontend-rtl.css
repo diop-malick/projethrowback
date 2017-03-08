@@ -1,4 +1,4 @@
-/*! elementor - v1.2.3 - 14-02-2017 */
+/*! elementor - v1.2.4 - 28-02-2017 */
 @charset "UTF-8";
 .elementor-video-wrapper {
   position: relative;
@@ -977,7 +977,9 @@
 @media (max-width: 767px) {
   .elementor-progress-wrapper {
     height: 25px;
-    line-height: 25px; } }
+    line-height: 25px; }
+  .elementor-progress-text {
+    padding-right: 10px; } }
 
 .elementor-widget-tabs.elementor-tabs-view-vertical .elementor-tabs-wrapper {
   width: 25%;

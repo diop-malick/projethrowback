@@ -1,5 +1,8 @@
 $(document).ready(function() {
 /*************************************** Authentification ***************************/
+    function isFrance() {
+      return ($( '#id_country option:selected' ).text().toLowerCase()=="france");
+    }
     $.formUtils.addValidator({
       name : 'check_password',
       validatorFunction : function(value) {
@@ -34,15 +37,23 @@ $(document).ready(function() {
     $.formUtils.addValidator({
       name : 'check_phone',
       validatorFunction : function(value) {
-        start = value.substr(0, 2);
-		var array = ["01", "02", "03", "04", "05", "06", "07", "09"];
-		return ( value.length == 10  && (parseFloat(value) == parseInt(value)) && !isNaN(value) && array.indexOf(start) >= 0) 
+        if(isFrance()){
+          start = value.substr(0, 2);
+          var array = ["01", "02", "03", "04", "05", "06", "07", "09"];
+          return ( value.length == 10  && (parseFloat(value) == parseInt(value)) && !isNaN(value) && array.indexOf(start) >= 0) ;
+        }
+        else
+          return ( (parseFloat(value) == parseInt(value)) && !isNaN(value) ) ;
+        
       }
     });
     $.formUtils.addValidator({
       name : 'check_cp',
       validatorFunction : function(value) {
-        return ( value.length == 5  && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
+        if(isFrance())
+          return ( value.length == 5  && (parseFloat(value) == parseInt(value)) && !isNaN(value)) 
+        else 
+          return ( (parseFloat(value) == parseInt(value)) && !isNaN(value) );
       }
     });
     

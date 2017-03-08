@@ -23,6 +23,37 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
+function getProductAttribute(id)
+{
+	//var	radio_choice = parseInt($('#attributes input[type=radio]:checked').val());
+	var radio_choice = parseInt($('.attributes_to_modify_'+id+' .checked input[type=radio]').val());
+	var color_choice = parseInt($('.defautColor_'+id+' input[name=color_default]').val());
+	//console.log(radio_choice);
+	for (var i in attributesCombinations[id]){
+		  var list_attribute = attributesCombinations[id][i]['list'];
+		  tab = list_attribute.split(',');
+		  if (typeof(tab[0]) !== 'undefined')
+		   		taille_attribute = parseInt(tab[0].replace(/'/g,""));
+		  if (typeof(tab[1]) !== 'undefined')
+		   		color_attribute = parseInt(tab[1].replace(/'/g,""));
+		  
+		  if( taille_attribute==radio_choice && color_attribute==color_choice )
+				return(i);
+	}
+	//return 0;
+}
+
+$(document).on('click', '.attribute_radio', function(e){
+	e.preventDefault();
+	var ids = $(this).attr('id');
+	var keyTab = ids.split('-');
+	var id = keyTab[0]
+	//console.log(id);
+	var idCombinaison = parseInt(getProductAttribute(id));
+	$('.combinaison_'+id+' input[name=combinaison_default]').val(idCombinaison);
+	console.log(getProductAttribute(id));
+});
+
 // The button to increment the product value
 $(document).on('click', '.product_quantity_up', function(e){
 	e.preventDefault();
@@ -33,7 +64,7 @@ $(document).on('click', '.product_quantity_up', function(e){
 	fieldName = $(this).data('field-qty');
 	var currentVal = parseInt($('input[name='+fieldName+']').val());
 	if (!allowBuyWhenOutOfStock && quantityAvailable[keyTab] > 0) {	
-		console.log(quantityAvailable[keyTab]);
+		//console.log(quantityAvailable[keyTab]);
 		if (typeof quantityLimitedAvailable[keyTab] !== 'undefined' && parseInt(quantityLimitedAvailable[keyTab]) > 0 && parseInt(quantityLimitedAvailable[keyTab]) < parseInt(quantityAvailable[keyTab]) ) {
 			quantityAvailableT = parseInt(quantityLimitedAvailable[keyTab]);
 		} else {

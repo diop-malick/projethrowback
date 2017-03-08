@@ -9,6 +9,7 @@ $fluids = cryout_get_option( array( 'fluida_excerptarchive', 'fluida_excerptstic
 
 ?><?php cryout_before_article_hook(); ?>
 
+<div class="col-md-6">
 <article id="post-<?php the_ID(); ?>" <?php post_class(); cryout_schema_microdata( 'blogpost' ); ?>>
 
 	<?php cryout_featured_hook(); ?>
@@ -28,7 +29,7 @@ $fluids = cryout_get_option( array( 'fluida_excerptarchive', 'fluida_excerptstic
 		<?php cryout_before_inner_hook();
 
 		$mode = 'excerpt'; // default
-		if ( $fluids['fluida_excerptarchive'] == "full" ) { $mode = 'content'; }
+		// if ( $fluids['fluida_excerptarchive'] == "full" ) { $mode = 'content'; }
 		if ( is_sticky() && $fluids['fluida_excerptsticky'] == "full" ) { $mode = 'content'; }
 		if ( $fluids['fluida_excerpthome'] == "full" && ! is_archive() && ! is_search() ) { $mode = 'content'; }
 		if ( false != get_post_format() ) { $mode = 'content'; }
@@ -59,5 +60,6 @@ $fluids = cryout_get_option( array( 'fluida_excerptarchive', 'fluida_excerptstic
 		<?php cryout_after_inner_hook();  ?>
 	</div><!-- .article-inner -->
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>
 
 <?php cryout_after_article_hook(); ?>

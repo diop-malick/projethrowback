@@ -208,21 +208,20 @@ function fluida_lpboxes( $sid = 1 ) {
             fluida_lpbox_output( $box );
         endwhile; ?>
 
-        <div class="clearfix"></div>
-        <div class="text-center"  style="color:red; font-weight:bold">
+	        <div class="clearfix"></div>
+	        <div class="box-pagination text-center">
+		        <?php
+				$big = 999999999; // need an unlikely integer
 
-        <?php
-		$big = 999999999; // need an unlikely integer
-
-		echo paginate_links( array(
-			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-			'format' => '?paged=%#%',
-			'current' => max( 1, get_query_var('paged') ),
-			'total' => $custom_query->max_num_pages
-		) );
-		?>
-		</div>
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $custom_query->max_num_pages
+				) );
+				?>
 			</div>
+		</div>
 		</section><!-- .lp-boxes -->
 <?php endif;
 } //  fluida_lpboxes()

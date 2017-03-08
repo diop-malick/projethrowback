@@ -32,13 +32,37 @@
 		{assign var="homePhoneExist" value=false}
 		{assign var="mobilePhoneExist" value=false}
 		{assign var="atLeastOneExists" value=false}
+		{assign var="tab" value=array_splice($ordered_adr_fields, 2, 1)}
+		{assign var="tab2" value=array_splice($ordered_adr_fields, 0, 0, $tab)}
+		{assign var="tab3" value=array_splice($ordered_adr_fields, 8, 1)}
+		{assign var="tab4" value=array_splice($ordered_adr_fields, 6, 0, $tab3)}
+
 		{foreach from=$ordered_adr_fields item=field_name}
-			<!-- {if $field_name eq 'company'}
-				<div class="form-group">
-					<label for="company">{l s='Company'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-					<input class="form-control validate" data-validate="{$address_validation.$field_name.validate}" type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'html':'UTF-8'}{/if}{/if}" />
+			 {if $field_name eq 'company'}
+				<div class="row required form-group">
+					<label for="company" class="col-md-4 text-right">{l s='Civilité'} <sup>*</sup></label>
+						<div class="col-md-8">
+					<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+							<option value="">{l s='Choisir la civilité'}</option>
+							<option value="M">{l s='M.'}</option>
+						  <option value="Mme">{l s='Mme'}</option>
+					</select>
+					<input hidden type="text" id="company" name="company"/>
+					</div>
 				</div>
-			{/if} -->
+			{/if}
+<!--
+			<div class="row">
+					<label class="col-md-4 text-right">&nbsp;&nbsp;{l s='Civilité'}</label>
+					<div class="col-md-8">
+							<select id="id_gender" name="id_gender" class="is_required validate select_title" {if isset($smarty.get.action) && $smarty.get.action =="newsletter"} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
+															<option value="">{l s='Choisir la civilité'}</option>
+							{foreach from=$genders key=k item=gender}
+									<option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
+							{/foreach}
+							</select>
+					</div>
+			</div>  -->
 			<!--
 			{if $field_name eq 'vat_number'}
 				<div id="vat_area">
@@ -89,7 +113,7 @@
 			{/if}
 			{if $field_name eq 'address2'}
 				<div class="row required form-group">
-					<label for="address2" class="col-md-4 text-right">{l s='Nom voie'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
+					<label for="address2" class="col-md-4 text-right">{l s='Nom voie'}<sup>*</sup>{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 					<div class="col-md-8">
 					<input class="validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -107,7 +131,7 @@
 			{if $field_name eq 'city'}
 				<div class="row required form-group">
 					<label for="city" class="col-md-4 text-right">{l s='City'} <sup>*</sup></label>
-					<div class="col-md-8">
+					<div class="col-md-8" id="ville">
 					<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
 				</div>
@@ -118,7 +142,7 @@
 					<label for="id_country" class="col-md-4 text-right">{l s='Country'} <sup>*</sup></label>
 					<div class="col-md-8">
 						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" name="id_country">
-						
+
 						{$countries_list}
 						</select>
 					</div>
@@ -137,7 +161,7 @@
 				</div>
 			{/if}
 			-->
-			
+
 			<!-- {if $field_name eq 'phone'}
 				{assign var="homePhoneExist" value=true}
 				<div class="row form-group phone-number">
@@ -153,13 +177,13 @@
 				<div class="row form-group {if isset($one_phone_at_least) && $one_phone_at_least}required {/if}">
 					<label for="phone_mobile" class="col-md-4 text-right">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>**</sup>{/if}</label>
 					<div class="col-md-8">
-					<input class="validate form-control" data-validation="check_phone" data-validation-error-msg="{l s='Merci de saisir un numéro de téléphone valide. '}" data-validation-optional="true" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="check_phone" data-validation-error-msg="{l s='Merci de saisir un numéro de téléphone valide. '}" data-validation-optional="true" type="tel" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'html':'UTF-8'}{/if}{/if}" placeholder="Par ex : 0470707070" />
 					</div>
 				</div>
 			{/if}
 			{if ($field_name eq 'phone_mobile') || ($field_name eq 'phone_mobile') && !isset($atLeastOneExists) && isset($one_phone_at_least) && $one_phone_at_least}
 				{assign var="atLeastOneExists" value=true}
-				
+
 			{/if}
 		{/foreach}
 
@@ -242,7 +266,7 @@
 		</div>
 
 	</form>
-</div>		
+</div>
 </div>
 </div> <!-- end my-account-selfcare -->
 
@@ -281,5 +305,10 @@
             modules : 'file,html5,sanitize,toggleDisabled,security',
             form : '#add_address'
     });
-    $("#firstname").focus();
+    $("#select-civility").focus();
+</script>
+<script>
+$("#select-civility").change(function() {
+    $("#company").val($(this).val());
+}).change(); // trigger once if needed
 </script>

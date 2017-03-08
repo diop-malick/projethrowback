@@ -448,12 +448,13 @@ a:visited {
 	margin-bottom: 0;
 	min-height: 400px;
 	clear: both;
-	overflow: hidden;
+	    margin-top: 50px;
+
 }
 
 #content-masonry {
-	margin-right: -1%;
-	margin-left: -1%;
+	margin-right: 5%;
+	margin-left: 5%;
 }
 
 .sidey {
@@ -1087,7 +1088,7 @@ img#wpstats {
 }
 
 #colophon-inside {
-	display: block;
+	
 	float: none;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1103,6 +1104,8 @@ img#wpstats {
 	min-height: 100%;
 	margin: 2em auto 0;
 	max-width: 100%;
+	background-color:red;
+	display: none;
 }
 
 #colophon .widget-container {
@@ -1306,6 +1309,7 @@ img#wpstats {
 	margin: 0;
 	padding-bottom: .3em;
 	font-size: 1.3em;
+	margin-left: 5%;
 }
 
 .main .page-title:only-child {
@@ -1548,6 +1552,7 @@ article.hentry .article-inner {
 
 #content-masonry article.hentry .article-inner {
 	padding: 1em 2em 2em;
+	padding-left: 0% !important;
 }
 
 .pad-container {
@@ -1594,7 +1599,7 @@ article.hentry .post-thumbnail-container > a.responsive-featured-image {
 
 .fluida-magazine-two #content-masonry article.hentry {
 	float: left;
-	width: 48%;
+	/*width: 48%;*/
 	margin-bottom: 1.5em;
 }
 
@@ -3668,11 +3673,12 @@ nav.sidebarmenu li a:hover {
 --------------------------------------------------------------*/
 
 .searchform {
+
 	display: block;
 	position: relative;
 	overflow: hidden;
 	height: auto;
-	max-width: 300px;
+	max-width: 437px;
 	border: 1px solid transparent;
 }
 
@@ -4069,10 +4075,13 @@ a.continue-reading-link {
 	padding: 0 1.2em;
 	font-size: 1em;
 	line-height: 3;
-	-webkit-transition: .3s all ease-in-out;
-	transition: .3s all ease-in-out;
+	background-color:black;
+	
 }
 
+.continue-reading-link:before {
+    background-color:Lightgrey !important;
+}
 a.continue-reading-link:before {
 	content: "";
 	position: absolute;
@@ -4087,6 +4096,7 @@ a.continue-reading-link:before {
 a.continue-reading-link:hover:before {
 	left: 100%;
 }
+
 
 .continue-reading-link span {
 	position: relative;
@@ -4800,9 +4810,44 @@ body.mobile .main {min-height:0;}
 
 .footer-container #footer #social_block {
 	margin-top: 5px;
+	margin-top: 79px;
 }
 a:after{
 	background-color: none !important;
 }
+
+#searchform-header {
+	/*margin-top: -70px; */
+	top: 50px; 
+	z-index: 5004 !important;
+	position: fixed;
+	left: 160px;
+}
+
+.home.blog.fluida-landing-page .header-container {
+	/*z-index: 5003 !important;*/
+}
+
+.home.blog.fluida-landing-page .header-container #header {
+	z-index: 5003 !important;
+	position: fixed;
+}
+
+.lp-boxes .lp-box-overlay {
+    background-color: rgba(53, 53, 53, 0.35) !important;
+}
+
+.box-pagination {
+	color:red; 
+	font-weight:bold;
+	margin-bottom: 20px;
+}
+.content-search.pad-container {
+	margin-top: -50px;
+
+
+}
+
+
 
 /* FIN! */

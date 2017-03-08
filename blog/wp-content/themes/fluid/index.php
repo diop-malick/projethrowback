@@ -25,13 +25,6 @@ get_header();
 				
 				<?php theme_pagination(); ?>
 
-				<style type="text/css">
-
-                #content-masonry {display: none}
-				</style>
-
-
-
 			</div> <!-- content-masonry -->
 			<?php fluida_pagination(); ?>
 

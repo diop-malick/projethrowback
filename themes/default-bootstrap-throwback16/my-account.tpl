@@ -2,27 +2,50 @@
 {capture name=path}{l s='My account'}{/capture}
 
 <div class="my-account-selfcare">
+    
     <!--
     <div class="row">
             <h1 class="page-heading text-center">{l s='Bienvenue dans votre espace personnel'}</h1>
     </div>
     -->
     <h3 class="page-subheading text-center">{l s='Bienvenue dans votre espace personnel'}</h3>
-<!--
+
+
+    <!-- BEGIN ============= MAILCHIMPS PROCESS ========= -->
+    <!-- <p>processMailchimpsInscription : {$processMailchimpsInscription}</p> -->
+    <!-- <p>{$cookie->customer_firstname|escape:'html':'UTF-8'}</p> -->
+    <!-- <p>{$cookie->customer_lastname|escape:'html':'UTF-8'}</p> -->
+    <!-- <p>{$cookie->email|escape:'html':'UTF-8'}</p> -->
+    {if isset($processMailchimpsInscription) && $processMailchimpsInscription}
+        {addJsDef processMailchimpsInscription=$processMailchimpsInscription}
+        {addJsDef customer_firstname=$cookie->customer_firstname}
+        {addJsDef customer_lastname=$cookie->customer_lastname}
+        {addJsDef email=$cookie->email}
+    {/if}
+    <p class=mailchimpsResponse></p>
+    <div class="text-center">
+        <span class="response" id="mce-error-response" style="display:none; color:red;"></span>
+        <span class="response" id="mce-success-response" style="display:none; color:green;"></span>
+    </div>
+    <!-- END ============= MAILCHIMPS PROCESS ========= -->
+
+
+    <!--
     {if isset($account_created)}
     	<p class="alert alert-success">
     		{l s='Your account has been created.'}
     	</p>
     {/if}
--->
+    -->
 
-<!-- TODO : DELETE  with CSS  -->
+    <!-- TODO : DELETE  with CSS  -->
     <!-- <p class=" info-account">{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p> -->
-<div class="container">
+
+    <div class="container">
     <div class="row addresses-lists">
     	<div class="col-xs-12 col-sm-6 col-md-12">
     		<ul class="myaccount-link-list">
-                
+
                 <div class="myacount-block-container">
 	                <li class="col-sm-6">
 	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" title="{l s='Information'}">
@@ -34,7 +57,7 @@
 	                </li>
                 </div>
 
-                               
+
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
 	                <li class="col-sm-6">
@@ -46,7 +69,7 @@
 	                    </a>
 	                </li>
                 </div>
-               
+
                 {else}
                 <div class="myacount-block-container">
                 	<li class="col-sm-6">
@@ -93,7 +116,7 @@
                 			</div>
                 		</a>
                 	</li>
-                </div>   
+                </div>
             </ul>
     	</div>
     {if $voucherAllowed || isset($HOOK_CUSTOMER_ACCOUNT) && $HOOK_CUSTOMER_ACCOUNT !=''}
@@ -108,7 +131,7 @@
     {/if}
     </div>
     <ul class="footer_links clearfix">
-    <li><a class="btn btn-default button button-medium" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left"></i> {l s='Home'}</span></a></li>
+    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i><&nbsp;</i> {l s='Home'}</span></a></li>
     </ul>
 </div>
 

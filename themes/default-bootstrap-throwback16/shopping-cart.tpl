@@ -44,8 +44,22 @@
 *}
 {include file="$tpl_dir./errors.tpl"}
 
+<p class="titre-panier">{l s='Mon panier'}</p>
 {if isset($empty)}
-	<p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+	{if isset($smarty.get.update) && $smarty.get.update =="1"}
+		<script>window.location="{$link->getPageLink('order')}";</script>
+	{else}
+	
+	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
+		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
+		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
+	</p>
+	<div class"redirect_home">
+		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+	</div>
+	{hook h="displayShoppingCartFooter"}
+	{/if}
+
 {elseif $PS_CATALOG_MODE}
 	<p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
 {else}
@@ -80,7 +94,7 @@
 	{* eu-legal *}
 	{hook h="displayBeforeShoppingCartBlock"}
 
-	{assign var="id_customization" value=0}
+	
 
 	<div id="order-detail-content" class="table_block table-responsive">
 		<div class="row">
@@ -88,16 +102,22 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-						{* {$product|var_dump} *}
+						{* {$product|print_r} *}  
 						{assign var="productId" value=$product.id_product}
-						{assign var="attributes" value=$product.attributes}
+						{assign var="attributes" value=$product.attributes_small}
 						{assign var="split_size" value=","|explode:$attributes}
-						{assign var="result_size" value=":"|explode:$split_size[0]}
-						{assign var="sizing" value=$result_size[1]|trim}
+						{assign var="sizing" value=$split_size[0]|trim}
+						
+						{* {$combinations[$product.id_product]|print_r}  *} 
 
+						{$attributeCombinaison[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $combinations[$product.id_product]}
 
-				<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
-						<div id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
+						{$qtyAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.quantity_available}
+
+						{$qtyLimitedAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.stock_quantity}
+
+				<form id="buy_block_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
+						<div id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
 							<div class="col-md-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
 							</div>
@@ -110,60 +130,74 @@
 
 									<div class="col-md-3">
 									{addJsDef quantityAvailable=$product.quantity_available}
-										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" style="display: none">
-											<label>{l s='Quantity'}</label>
-											<input type="number" min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
-											<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
-												<img src="{$base_dir}/img/icones/size_down.png"/>
+										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
+											<label>{l s='Quantity'}</label><br>
+											<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
+											<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
+												<span><i class="icon-minus"></i></span>
 											</a>
-											<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
-												<img src="{$base_dir}/img/icones/size_up.png"/>
+											<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
+												<span><i class="icon-plus"></i></span>
 											</a>
 										</p>
-										<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}">
+										<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 											<label>{l s='Quantity'}</label>
-											<span class="current_qty_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval} size_line">{$product.cart_quantity}</span>
+											<span class="current_qty_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} size_line">{$product.cart_quantity}</span>
 										</p>
 									</div>
 
-									<div class="col-md-5">
-											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" style="display: none">
+									<div class="col-md-5 product_attributes line_attributes clearfix">
+											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 												<div class="row">
 													{if isset($groups)}
+													<div class="customattributes">
 														<div id="attributes">
-															<div class="attribute_list">
+															<div class="attribute_list custom-attribute">
 																<label class="attribute_label" >{l s='Taille'}</label>
 																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																	{if $group.attributes|@count}
-																	<fieldset class="attribute_fieldset">
+																	<!--<fieldset class="attribute_fieldset">-->
 																		
 																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
 																		 
 																		<div class="attribute_list">
-																			
+																			<span class="btn">
 																			{if ($group.group_type == 'radio')}
 																				<ul>
 																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																					
+																						
 																						<li>
-																							<input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
+																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
-																							<span>{$group_attribute|escape:'html':'UTF-8'}</span>
+																							{$group_attribute|escape:'html':'UTF-8'}
+
+																							</label>
 																						</li>
 																					{/foreach}
 																				</ul>
+																			{elseif ($group.group_type == 'color')}
+																				<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																				<input type="hidden" name="color_default" value="{$group.default|intval}" />
+																				</div>
 																			{/if}
+																			</span>
 																		</div> <!-- end attribute_list -->
-																	</fieldset>
+																	<!--</fieldset>-->
 																	{/if}
 																{/foreach}
+																
 															</div>
 														</div>
+														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																<input type="hidden" name="combinaison_default" value="" />
+														</div>
+													</div>
 													{/if}
 												</div>
 											</div>
 
-											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}">
+											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 												<label>{l s='Taille'}</label>
 												<span class="size_line">
 													{$sizing}
@@ -210,18 +244,18 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 margin-top-10">
-										<span class="dispo-text">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}
+										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}not-dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}
 										</span>
 									</div>
 								</div>
-								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" style="display: none">
+								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 										<div class="col-md-6 text-right">
-											<button id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval} update_line" type="submit">
+											<button class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
 											<span>{l s='VALIDER'}</span>
 											</button>
 										</div>
 										<div class="col-md-6">
-											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" type="submit">
+											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} cancel-line" type="submit">
 											<span>{l s='ANNULER'}</span>
 											</button>
 										</div>
@@ -232,14 +266,14 @@
 								<div class="row">
 									
 									<div class="col-md-6 edit">
-										<a id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o fa-2x icone-active" aria-hidden="true"></i></a>
+										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-md-6">
+									<div class="col-md-6 delete">
 										<a
-											id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
+											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"
-											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization=0&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
+											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$product.id_customization|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
 											rel="nofollow"
 											title="{l s='Delete'}">
 											X
@@ -261,7 +295,7 @@
 					</div>
 					<div class="row commande_body">
 						{foreach $products as $product}
-						<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
+						<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
 								<div class="col-md-8">
 									<p class="command-product-name">{$product.name|escape:'html':'UTF-8'}</p>
 								</div>
@@ -272,8 +306,12 @@
 									</span>
 								</div>
 						</div>
+					
+																
+														
 						{/foreach}
-
+						<input type="hidden" class="my" name="price_add" value="" />
+						<input type="hidden" class="you" name="total_add" value="" />
 						<div class="row line_product">
 								<div class="col-md-8">
 									<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
@@ -336,16 +374,10 @@
 {addJsDef allowBuyWhenOutOfStock=false}
 <!-- assign quantity variable to product.js   -->
 
-{foreach $products as $product}		
-	{$qtyAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:$id_customization|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.quantity_available}
-
-	{$qtyLimitedAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:$id_customization|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.stock_quantity}
-{/foreach}
-
 {addJsDef quantityAvailable=$qtyAvailable}
 {addJsDef quantityLimitedAvailable=$qtyLimitedAvailable}
-
-{addJsDef attributesCombinations="test"}
+{addJsDef attributesCombinations=$attributeCombinaison}
+{addJsDef linkCarte=$link->getPageLink('order')}
 
 {/strip}
 {/if}

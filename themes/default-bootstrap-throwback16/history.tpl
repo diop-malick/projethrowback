@@ -117,9 +117,9 @@
 </div>
 <ul class="footer_links clearfix">
 	<li>
-		<a class="btn btn-default button button-medium" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+		<a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
 			<span>
-				<i class="icon-chevron-left"></i> {l s='Retour'}
+				<i><&nbsp</i> {l s='Retour'}
 			</span>
 		</a>
 	</li>
