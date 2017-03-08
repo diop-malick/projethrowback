@@ -84,7 +84,7 @@ function updateAddressesDisplay(first_view)
 
 function updateAddressDisplay(addressType)
 {
-	if (typeof formatedAddressFieldsValuesList == 'undefined' || formatedAddressFieldsValuesList.length <= 0)
+	if (typeof formatedAddressFieldsValuesList == 'undefined' || !formatedAddressFieldsValuesList || formatedAddressFieldsValuesList.length <= 0)
 		return;
 
 	$('.resp-tab-content').each(function(){

@@ -658,3 +658,15 @@ border-color: #000;
     font-style: italic !important;
     text-align: center !important;
   }
+                /*************************** Tunnel commande ************************/
+/*************************** Payment ************************/
+#HOOK_PAYMENT .row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+} 
+.fa-paiement{
+  font-size: 4em !important;
+} 
+.open-popup-link{
+  text-decoration:underline ;
+}
