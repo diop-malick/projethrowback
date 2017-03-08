@@ -461,10 +461,27 @@ font-size: 17px;
 }
 
 
+.page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
+width: auto;
+    margin: 0 auto;
+}
 
+.accessories-block #bxslider{
 
+}
 
   /******** Panier ********************/
+.page-product-box h3,  
+.page-product-box h4 {
+  color: rgb(203, 204, 204);
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+
+}
+
   .margin-top-10{
     margin-top:10px;
   }
@@ -472,6 +489,7 @@ font-size: 17px;
     color: #777 !important;
     text-decoration: none !important;
   }
+
   .img-line {
     background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);

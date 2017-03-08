@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
 The script will read the img/p folder and check for each file if it exists in the database table ps_image.
 In case it doesn't exists then it prints the file and deletes the file.
 
@@ -13,6 +13,8 @@ The query to check the ps_image table will always result in 1 row to ensure that
 
 image id : correspond à ipg/p/i/j/k/l
 e.g: 6127.jpg  == img/p/6/1/2/7/6127.jpg
+
+* @link https://openclassrooms.com/courses/supprimer-des-fichiers-sur-le-serveur-grace-a-php
 */
 
 
@@ -21,9 +23,9 @@ require_once(dirname(__FILE__).'/config/settings.inc.php');
 
 
 // ensure PATH
-echo "Le chemin relatif est : ".realpath('CleanupImageDir.php'); 
+echo "Le chemin absolu est : ".realpath('CleanupImageDir.php'); 
 echo "<br/>";
-echo "Le chemin absolu est : ".$_SERVER['PHP_SELF'];
+echo "Le chemin relatif est : ".$_SERVER['PHP_SELF'];
 echo "<br/><br/>";
 
 
@@ -46,6 +48,7 @@ $cnt_checked=0;
 $cnt_not_found=0;
 $cnt_found=0;
 $cnt_not_exist=0;
+$cnt_del_file=0;
 
 for($ii=1; ($ii<=9) && ($cnt_files != $limit); $ii++)
 {
@@ -73,37 +76,47 @@ for($ii=1; ($ii<=9) && ($cnt_files != $limit); $ii++)
 echo 'files in img/p : '.$cnt_files.'<br/> checked file: '.$cnt_checked.'<br/> not_found: '.$cnt_not_found.'<br/> found: '.$cnt_found;
 echo "<br/>";
 echo 'cnt_not_exist : '.$cnt_not_exist;
+echo 'cnt_del_file : '.$cnt_del_file;
 
 
 function deleteImage($imageDir)
 {
-	global $limit, $pdo, $cnt_files, $cnt_checked, $cnt_not_found, $cnt_found, $cnt_not_exist;
+	global $limit, $pdo, $cnt_files, $cnt_checked, $cnt_not_found, $cnt_found, $cnt_not_exist, $cnt_del_file;
 	
 	// Open a directory
 	//@ is wriiten to avoid warning message and is handled in else condition
 	if ($handle = @opendir($imageDir)) {
 		
+		$output = shell_exec('ls');
+		echo "<pre>$output</pre>";
+
 		// echo $imageDir."<BR />";
     	
-    	while ($cnt_files != $limit && false !== ($entry = readdir($handle))) { // read directory contents
+    	// Si le fichier n'est pas un répertoire…
+    	// read directory contents*
+		/*
+    	while ($cnt_files != $limit && false !== ($entry = readdir($handle))) { 
         		if ($entry != "." && $entry != "..") { // check if dir is not empty
                 		$cnt_files++;
                 		// break filename string : from 10006-fullsize.jpg to [10006][fullsize.jpg]
                 		// pi[0] == imageID
                 		$pi = explode('-',$entry); 
-                		if($pi[0]>0 && !empty($pi[1])) {
+                		// if($pi[0]>0 && !empty($pi[1])) {
+                		if($pi[0]>0) {
                         		$cnt_checked++;
                         		if(!checkExistsDb($pdo,$pi[0])) {
                                 	$cnt_not_found++;
                                 	// echo 'rm '.$imageDir.'/'.$entry."<BR />";
-                                	// this will delete files
-                                	// unlink($imageDir.'/'.$entry);
+                                	// chown($imageDir.'/'.$entry,666);
+                                	// $delResult = unlink($imageDir.'/'.$entry); // delete files
+                                	// if($delResult) $cnt_del_file++
                         		} else {
                                 		$cnt_found++;
                        			}
                 		}
         		}
     	}
+    	*/
     	// close
     	closedir($handle);
 	}

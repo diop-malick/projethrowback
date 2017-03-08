@@ -13,6 +13,7 @@
 
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
+	
 	<div class="primary_block row">
 
 		<!-- {if !$content_only}
@@ -496,34 +497,16 @@
 		</div>
 
 		<!-- center infos -->
+		<!-- TODO - delete corresponding css -->
 		<!-- <div class="pb-center-column col-xs-12 col-sm-4"> -->
-			<!-- {if !$content_only} -->
-			<!-- TODO : imprimer -->
-				<!-- usefull links-->
-				<!-- <ul id="usefull_link_block" class="clearfix no-print"> -->
-					<!-- {if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if} -->
-					<!-- <li class="print"> -->
-						<!-- <a href="javascript:print();"> -->
-							<!-- {l s='Print'} -->
-						<!-- </a> -->
-					<!-- </li> -->
-				<!-- </ul> -->
-			<!-- {/if} -->
-
 		<!-- </div> -->
 		<!-- end center infos-->
-
-		<!-- pb-right-column-->
-		<!-- <div class="pb-right-column col-xs-12 col-sm-4 col-md-3"> -->
-
-		<!-- </div>   -->
-		<!-- end pb-right-column -->
 
 
 	</div> <!-- end primary_block -->
 
 	{if !$content_only}
-{if (isset($quantity_discounts) && count($quantity_discounts) > 0)}
+	{if (isset($quantity_discounts) && count($quantity_discounts) > 0)}
 			<!-- quantity discount -->
 			<section class="page-product-box">
 				<h3 class="page-product-heading">{l s='Volume discounts'}</h3>
@@ -589,26 +572,6 @@
 			</section>
 		{/if}
 
-
-		<!-- TODO : Fiche technique / caractéristique  -->
-		{if isset($features) && $features}
-			<!-- Data sheet -->
-			<!-- <section class="page-product-box">
-				<h3 class="page-product-heading">{l s='Data sheet'}</h3>
-				<table class="table-data-sheet">
-					{foreach from=$features item=feature}
-					<tr class="{cycle values="odd,even"}">
-						{if isset($feature.value)}
-						<td>{$feature.name|escape:'html':'UTF-8'}</td>
-						<td>{$feature.value|escape:'html':'UTF-8'}</td>
-						{/if}
-					</tr>
-					{/foreach}
-				</table>
-			</section>	 -->
-			<!--end Data sheet -->
-		{/if}
-
 		{if isset($packItems) && $packItems|@count > 0}
 		<section id="blockpack">
 			<h3 class="page-product-heading">{l s='Pack content'}</h3>
@@ -635,22 +598,7 @@
 
 
 		<div class="container">
-
-
 			<div class="tabbable col-xs-12 col-md-6">
-
-			   <!-- CMS page TABS -->
-			   <!-- <ul class="nav nav-tabs nav-justified" role="tablist">
-			      <li class="active" ><a href="#tab1" data-toggle="tab">CMS 1</a></li>
-			      <li><a href="#tab2" data-toggle="tab">CMS 3</a></li>
-			      <li><a href="#tab3" data-toggle="tab">CMS 4</a></li>
-			   </ul>
-			   <div class="tab-content">
-				   <div class="tab-pane active" id="tab1">{$cms_content_1.content}</div>
-				   <div class="tab-pane" id="tab2">{$cms_content_3.content}</div>
-				   <div class="tab-pane" id="tab3">{$cms_content_5.content}</div>
-				</div> -->
-
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
 				<div class="col-row">
@@ -710,7 +658,6 @@
 			      <div id="collapse0" class="panel-collapse collapse in">
 			        <div class="panel-body">
 					    {if isset($product) && $product->description}
-							<!-- <h3 class="page-product-heading">{l s='More info'}</h3> -->
 							<div  class="rte text-justify">{$product->description}</div>
 						{/if}
 					<!-- // short_description_block -->
@@ -760,8 +707,6 @@
 		</div>
 
 		<br />
-
-
 
 
 		{if isset($accessories) && $accessories}
@@ -832,112 +777,9 @@
 
 		<!-- description & features -->
 		{if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
-			{if isset($attachments) && $attachments}
-			<!--Download -->
-			<section class="page-product-box">
-				<h3 class="page-product-heading">{l s='Download'}</h3>
-				{foreach from=$attachments item=attachment name=attachements}
-					{if $smarty.foreach.attachements.iteration %3 == 1}<div class="row">{/if}
-						<div class="col-lg-4">
-							<h4><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">{$attachment.name|escape:'html':'UTF-8'}</a></h4>
-							<p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
-							<a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-								<i class="icon-download"></i>
-								{l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
-							</a>
-							<hr />
-						</div>
-					{if $smarty.foreach.attachements.iteration %3 == 0 || $smarty.foreach.attachements.last}</div>{/if}
-				{/foreach}
-			</section>
-			<!--end Download -->
-			{/if}
+
 			{if isset($product) && $product->customizable}
-			<!--Customization -->
-			<section class="page-product-box">
-				<h3 class="page-product-heading">{l s='Product customization'}</h3>
-				<!-- Customizable products -->
-				<form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
-					<p class="infoCustomizable">
-						{l s='After saving your customized product, remember to add it to your cart.'}
-						{if $product->uploadable_files}
-						<br />
-						{l s='Allowed file formats are: GIF, JPG, PNG'}{/if}
-					</p>
-					{if $product->uploadable_files|intval}
-						<div class="customizableProductsFile">
-							<h5 class="product-heading-h5">{l s='Pictures'}</h5>
-							<ul id="uploadable_files" class="clearfix">
-								{counter start=0 assign='customizationField'}
-								{foreach from=$customizationFields item='field' name='customizationFields'}
-									{if $field.type == 0}
-										<li class="customizationUploadLine{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
-											{if isset($pictures.$key)}
-												<div class="customizationUploadBrowse">
-													<img src="{$pic_dir}{$pictures.$key}_small" alt="" />
-														<a href="{$link->getProductDeletePictureLink($product, $field.id_customization_field)|escape:'html':'UTF-8'}" title="{l s='Delete'}" >
-															<img src="{$img_dir}icon/delete.gif" alt="{l s='Delete'}" class="customization_delete_icon" width="11" height="13" />
-														</a>
-												</div>
-											{/if}
-											<div class="customizationUploadBrowse form-group">
-												<label class="customizationUploadBrowseDescription">
-													{if !empty($field.name)}
-														{$field.name}
-													{else}
-														{l s='Please select an image file from your computer'}
-													{/if}
-													{if $field.required}<sup>*</sup>{/if}
-												</label>
-												<input type="file" name="file{$field.id_customization_field}" id="img{$customizationField}" class="form-control customization_block_input {if isset($pictures.$key)}filled{/if}" />
-											</div>
-										</li>
-										{counter}
-									{/if}
-								{/foreach}
-							</ul>
-						</div>
-					{/if}
-					{if $product->text_fields|intval}
-						<div class="customizableProductsText">
-							<h5 class="product-heading-h5">{l s='Text'}</h5>
-							<ul id="text_fields">
-							{counter start=0 assign='customizationField'}
-							{foreach from=$customizationFields item='field' name='customizationFields'}
-								{if $field.type == 1}
-									<li class="customizationUploadLine{if $field.required} required{/if}">
-										<label for ="textField{$customizationField}">
-											{assign var='key' value='textFields_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
-											{if !empty($field.name)}
-												{$field.name}
-											{/if}
-											{if $field.required}<sup>*</sup>{/if}
-										</label>
-										<textarea name="textField{$field.id_customization_field}" class="form-control customization_block_input" id="textField{$customizationField}" rows="3" cols="20">{strip}
-											{if isset($textFields.$key)}
-												{$textFields.$key|stripslashes}
-											{/if}
-										{/strip}</textarea>
-									</li>
-									{counter}
-								{/if}
-							{/foreach}
-							</ul>
-						</div>
-					{/if}
-					<p id="customizedDatas">
-						<input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
-						<input type="hidden" name="submitCustomizedDatas" value="1" />
-						<button class="button btn btn-default button button-small" name="saveCustomization">
-							<span>{l s='Save'}</span>
-						</button>
-						<span id="ajax-loader" class="unvisible">
-							<img src="{$img_ps_dir}loader.gif" alt="loader" />
-						</span>
-					</p>
-				</form>
-				<p class="clear required"><sup>*</sup> {l s='required fields'}</p>
-			</section>
+
 			<!--end Customization -->
 			{/if}
 		{/if}

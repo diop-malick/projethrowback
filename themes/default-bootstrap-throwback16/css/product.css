@@ -475,7 +475,7 @@ span.view_scroll_spacer {
 /*custom throwback*/
 .customattributes fieldset .attribute_label {
   /*padding-bottom: 3px; */
-  height: 37px;
+  /*height: 37px;*/
   vertical-align: middle;
 }
 
@@ -1286,32 +1286,27 @@ Quick View Styles
 
 }
 
+#productscategory_list .product-image.product_image {
+  padding: 0;
+}
+
+
 #productscategory_list .product-image.product_image,
 .accessories-block .product-image.product_image {
 background: none;
 border: none;
+margin-bottom: 20px;
 }
 .page-product-box .block_content .ajax_block_product{
-background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
-background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
-background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
+background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%);
+background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%);
+background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%);
 }
 
-
-.page-product-box h3.page-product-heading {
-color: #555454;
-font-weight: 600;
-font-size: 18px;
-line-height: 20px;
-/*padding: 14px 20px 17px;*/
-margin: 0 0 20px;
-position: relative;
-border: none;
-background: none;
-}
 
 h3.page-product-heading {
-  color: #555454;
+  /*color: #555454;*/
+  color: rgb(203, 204, 204);
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -1320,9 +1315,11 @@ h3.page-product-heading {
   /*padding: 14px 20px 17px;*/
   margin: 0 0 20px;
   position: relative;
-  border: 1px solid #d6d4d4;
-  border-bottom: none;
-  background: #fbfbfb; 
+  /*border: 1px solid #d6d4d4;*/
+  /*border-bottom: none;*/
+  border: none;
+  /*background: #fbfbfb;*/
+  background: none;
 }
 
 

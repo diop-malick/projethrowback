@@ -197,7 +197,11 @@ function blockHover(status)
 			var pcHeight = $(this).parent().outerHeight();
 			var pcPHeight = $(this).parent().find('.button-container').outerHeight() + $(this).parent().find('.comments_note').outerHeight() + $(this).parent().find('.functional-buttons').outerHeight();
 			//$(this).parent().addClass('hovered').css({'height':pcHeight + pcPHeight, 'margin-bottom':pcPHeight * (-1)});
+			
 			$(this).parent().addClass('hovered').css({'height':height_fixed, 'margin-bottom':pcPHeight * (-1)});
+			// $(this).parent().addClass('hovered').transition({ 'height':height_fixed, 'margin-bottom':pcPHeight * (-1), opacity: '0'}, 500);
+			// $(this).parent().addClass('hovered').animate({ 'height':height_fixed, 'margin-bottom':pcPHeight * (-1), opacity: '0'}, 5000, function(){} );
+			
 			$(this).find('.button-container').show();
 		}
 	});

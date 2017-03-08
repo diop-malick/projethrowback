@@ -173,13 +173,13 @@ ul.product_list.grid > li {
 /* Throwback > product container > découpage bloc */
     ul.product_list.grid > li .product-container .product-image-container {
       /*margin-top: 13px !important;*/
-      z-index: 1001;
+      z-index: 1000;
     }
 
 .product-container .row.text-right {
   height: 100px;
   padding-right: 25px;
-  z-index: 1002;
+  z-index: 200;
 }
 
 
@@ -215,10 +215,16 @@ ul.product_list.grid > li {
     ul.product_list.grid > li .product-container .content_price {
       /*padding-bottom: 9px;*/
       line-height: 21px; 
+      z-index: 2000;
     }
     ul.product_list.grid > li .product-container .content_price > img {
       margin-top: 10px;
       z-index: 1005;
+    }
+
+    /* Block accesorie - OVER */
+    #htmlcontent_homeFooter {
+      z-index: 900;
     }
 
 
@@ -258,7 +264,7 @@ ul.product_list.grid > li {
         width: 50%;
         float: left;
         padding: 3px 0 4px 0; }
-        
+
 @media (min-width: 1200px) {
     ul.product_list.grid > li.hovered .product-container {
         border: 1px solid rgba(0, 0, 0, 0.2);
@@ -272,7 +278,7 @@ ul.product_list.grid > li {
         left: -40px;
         padding: 20px;
         /*z-index: 10;*/
-        z-index: 9999999999999;
+        /*z-index: 9999999999999;*/
         text-align: center;
         background: #fff;
         /*height: 430px !important;*/
@@ -301,6 +307,8 @@ ul.product_list.grid > li {
   /* Transition in effect - like overskillshop*/
 
   ul.product_list.grid > li.hovered {
+    z-index: 1000;
+
     -webkit-transition: all 0.4s;
         -moz-transition: all 0.4s;
         -o-transition: all 0.4s;
