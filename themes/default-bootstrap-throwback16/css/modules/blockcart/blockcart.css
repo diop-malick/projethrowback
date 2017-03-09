@@ -173,15 +173,12 @@
         background: #2e7a3a;
         color: #fff; }
       /* Add media queries small  device */
-      @media (max-width: 479px) {
-      /*  .shopping_cart a{
-          display: flex !important;
-         } */
-          .shopping_cart img{
-            width : 30px !important;}
 
-
-        }
+      .panier_vide{
+        font-size: 10px;
+        font-family: "Futura";
+        color: rgb(147, 149, 152);
+      }
 
 /*******************************************************************
 					Cart Block(Header) Styles
@@ -491,5 +488,25 @@
       content: "\f138"; }
   #layer_cart .crossseling #blockcart_list .bx-controls {
     overflow: hidden; }
+
+  @media (max-width: 768px) {
+    #mobil_blockcart {
+      padding: 0 !important;
+      margin-top: -5px;
+    }
+  #picto_panier .visible-xs{
+      display: inline !important;
+    }
+  }
+
+ @media (min-width: 768px) {
+     #picto_panier .hidden-xs {
+       display: inline !important; }
+     }/*
+   @media (max-width: 768px){
+       #picto_panier .visible-xs {
+         display: inline !important;
+         }
+     } */
 
 /*# sourceMappingURL=blockcart.css.map */

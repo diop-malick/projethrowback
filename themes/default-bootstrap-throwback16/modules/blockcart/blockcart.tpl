@@ -2,13 +2,13 @@
 			<!-- MODULE Block cart -->
 
 								{if isset($blockcart_top) && $blockcart_top}
-								<div class="col-md-6 text-right">
+								<div id="mobil_blockcart" class="col-md-6 col-xs-6 text-right">
 
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
-										<div class="shopping_cart">
+										<div class="shopping_cart" id="picto_panier">
 											<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
-												<span class="panier">{l s='Cart' mod='blockcart'}</span>
+												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
 												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>
 												<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='' mod='blockcart'}</span>
@@ -23,9 +23,11 @@
 														{/if}
 													{/if}
 												</span>
-												<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if} ">{l s='(empty)' mod='blockcart'}</span>
-											 
-												<img src="{$base_dir}/img/icones/basket_1.png"/>
+												<span  class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}"><span class="hidden-xs">{l s='(empty)' mod='blockcart'}</span><span class="panier_vide visible-xs">{l s='(0)' mod='blockcart'}</span></span></span>
+
+
+												<img class="hidden-xs" src="{$base_dir}/img/icones/basket_1.png"/>
+												<img  class="visible-xs"src="{$base_dir}/img/icones/mob_basket.png"/>
 												{if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}
 													<span class="block_cart_expand{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} unvisible{/if}">&nbsp;</span>
 													<span class="block_cart_collapse{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'collapsed'} unvisible{/if}">&nbsp;</span>

@@ -24,6 +24,7 @@
 */
 
 var instantSearchQueries = [];
+
 $(document).ready(function()
 {
 	if (typeof blocksearch_type == 'undefined')
@@ -33,13 +34,14 @@ $(document).ready(function()
 	   		return v?'addClass':'removeClass';
 	   }
 
+
 	   $(document).on('input', '.search_query.form-control', function() {
 	       $(this)[tog(this.value)]('x');
 	   }).on('mousemove', '.x', function(e) {
 	       $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
 	   }).on('click', '.onX', function(){
 	       $(this).removeClass('x onX').val('').change();
-				
+
 				 var search_id = $(this).closest("form").attr('id');
 
 				 if ($(this).val() == '') {
@@ -153,7 +155,26 @@ $(document).ready(function()
 
 				}
 		}).keyup();
+
+/*
+		$('#search_query_top').on({
+			focus: function () {
+
+					$("#test").addClass('focused').removeClass('blured');
+			},
+			blur: function () {
+					$("#test").removeClass('focused').addClass( 'blured' );
+					if ($("#test").is( ':focus')) {
+						alert(($("#test").is( ':focus')));
+			 		}else{
+									 alert(($("#test").is( ':focus')));
+	 						 }
+
+			}
+	}); */
+
 });
+
 
 function tryToCloseInstantSearch()
 {
