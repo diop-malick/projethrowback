@@ -16,6 +16,17 @@ class OrderController extends OrderControllerCore
         // block cart when it's hooked on leftcolumn
         if ($this->step == OrderController::STEP_PAYMENT && Tools::isSubmit('processCarrier')) {            
             $this->processCarrier();
+            if (Tools::getValue('id_address_delivery') && Tools::getValue('id_address_delivery') != "rem") 
+                $this->processAddress();
+             if ($this->step == OrderController::STEP_PAYMENT) {
+                $carrier = new Carrier((int)$this->context->cart->id_carrier , (int)$this->context->language->id);
+                $addresse = new Address((int)$this->context->cart->id_address_delivery , (int)$this->context->language->id);
+
+                $this->context->smarty->assign(array(
+                'livraison' => $carrier,
+                'adresse' => $addresse,
+                )); 
+            }
         }
     }
 
@@ -155,7 +166,7 @@ class OrderController extends OrderControllerCore
         if ($this->step == OrderController::STEP_DELIVERY) {
             $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
         }
-       
+
     }
  }
 ?>

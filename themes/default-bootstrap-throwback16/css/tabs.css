@@ -50,6 +50,9 @@ h2.resp-accordion .free {
     background: transparent;
     margin-top: -14px;
 }
+.payment_content{
+    margin-top: -9px;
+}
 
 .resp-tab-content {
     display: none;
