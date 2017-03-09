@@ -480,7 +480,7 @@ span.view_scroll_spacer {
 }
 
 
-#quantity_wanted_p label, .customattributes fieldset label {
+#quantity_wanted_p label, .customattributes fieldset label , .customattributes .custom-attribute .attribute_label {
     /*vertical-align: top;*/
     /*display: block;*/
     font-size: 14px;
@@ -531,6 +531,9 @@ span.view_scroll_spacer {
 
 .product_attributes .btn {
   padding: 0 !important;
+}
+.line_attributes .btn {
+  margin-top: -10px;
 }
 
 .btn .radio input{

@@ -79,5 +79,14 @@
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
+	{else}
+	<a href="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}">
+		<button disabled type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
+			<span>
+				{l s='Payer et terminer'}
+				<i class="icon-chevron-right right"></i>
+			</span>
+		</button>
+	</a>
 	{/if}
 </div>			

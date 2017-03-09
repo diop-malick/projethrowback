@@ -165,6 +165,11 @@ class Cheque extends PaymentModule
 		return $payment_options;
 	}
 
+	public function hookDisplayPaymentTop($params)
+    {
+        return $this->display(__FILE__, 'payment_top.tpl'); 
+    }
+
 	public function hookPaymentReturn($params)
 	{
 		if (!$this->active)

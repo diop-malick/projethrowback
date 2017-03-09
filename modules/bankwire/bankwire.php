@@ -155,6 +155,10 @@ class BankWire extends PaymentModule
 		return $this->display(__FILE__, 'payment.tpl');
 	}
 
+	public function hookDisplayPaymentTop($params)
+    {
+        return $this->display(__FILE__, 'payment_top.tpl'); 
+    }
 	public function hookDisplayPaymentEU($params)
 	{
 		if (!$this->active)

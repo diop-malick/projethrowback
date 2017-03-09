@@ -1,0 +1,11 @@
+diff a/blog/wp-content/themes/fluid/rudnes.php b/blog/wp-content/themes/fluid/rudnes.php	(rejected hunks)
+@@ -12,6 +12,9 @@
+ 
+ 
+ 
++<style type="text/css">
++.fffffff{ddddd}
+ 
++</style>
+ 
+ 
