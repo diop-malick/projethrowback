@@ -53,7 +53,7 @@ $cnt_del_file=0;
 for($ii=1; ($ii<=9) && ($cnt_files != $limit); $ii++)
 {
 	// chemin relatif vers le dossier images - trought browser
-	$beinpath ='malick/p/';  // 'img/p/'
+	$beinpath ='img/p/';
 	$path=$beinpath.$ii;
 	deleteImage($path);
 
