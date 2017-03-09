@@ -431,6 +431,7 @@ a:visited {
 .screen-reader-text {
 	position: absolute;
 	left: -9000px;
+
 }
 
 /*--------------------------------------------------------------
@@ -1563,7 +1564,7 @@ article.hentry .article-inner {
 	padding: 2em;
 	padding-bottom: 2.5em;
 	padding-top: 2.5em;
-	border-top: 5px solid transparent;
+	
 }
 
 article.hentry .post-thumbnail-container {
@@ -3682,7 +3683,7 @@ nav.sidebarmenu li a:hover {
 	border: 1px solid transparent;
 }
 
-.content-search {}
+
 
 .no-results .content-search {
 	padding: 0;
@@ -3694,7 +3695,7 @@ nav.sidebarmenu li a:hover {
 	float: left;
 	position: relative;
 	z-index: 7;
-	height: 3em;
+	height: 2em;
 	width: 100%;
 	padding: 0 3.5em 0 .5em;
 	border: 0;
@@ -3708,14 +3709,17 @@ nav.sidebarmenu li a:hover {
 .searchform::after {
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 	z-index: 5;
 	width: 3em;
 	height: 100%;
-	content: "";
+	
 	-webkit-transition: width .3s ease;
 	transition: width .3s ease;
+
+	
 }
+
 
 .searchform:hover::after {
 	width: 100%;
@@ -3728,7 +3732,7 @@ nav.sidebarmenu li a:hover {
 .searchform .searchsubmit {
 	display: block;
 	position: absolute;
-	right: 0;
+	left: 0;
 	top: 0;
 	z-index: 8;
 	height: 3em;
@@ -3745,21 +3749,20 @@ nav.sidebarmenu li a:hover {
 	transform: rotateY(0);
 	-webkit-transition: .3s all ease-in-out;
 	transition: .3s all ease-in-out;
+
 }
 
-.searchform:hover .searchsubmit {
-	-webkit-transform: rotateY(180deg);
-	-ms-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-}
+
 
 /* ## HEADER SEARCHFORM */
 #access > div > ul > li.menu-search-animated {
 	text-align: center;
+
 }
 
 #access .menu-search-animated {
 	padding: 0 .3em;
+   
 }
 
 #access .menu-search-animated .searchform {
@@ -3786,11 +3789,11 @@ nav.sidebarmenu li a:hover {
 
 #access .menu-search-animated .searchform input[type="search"]:hover,
 #access .menu-search-animated .searchform input[type="search"]:focus {
-	color: inherit;
+	color: white;
 }
 
 #access .menu-main-search .searchform input[type="search"]:focus {
-	background: transparent;
+	background: red;
 }
 
 #access .menu-main-search i.search-icon {
@@ -4822,6 +4825,7 @@ a:after{
 	z-index: 5004 !important;
 	position: fixed;
 	left: 160px;
+	color:red;
 }
 
 .home.blog.fluida-landing-page .header-container {
@@ -4844,10 +4848,21 @@ a:after{
 }
 .content-search.pad-container {
 	margin-top: -50px;
+	margin-left: 30%;
 
 
 }
 
 
 
+
+.searchform .searchsubmit, .searchform:hover input[type="search"], .searchform {};
+
+ .searchsubmit:hover
+  {
+    color:red !important;
+    background-color: yellow !important;
+}
+
 /* FIN! */
+
