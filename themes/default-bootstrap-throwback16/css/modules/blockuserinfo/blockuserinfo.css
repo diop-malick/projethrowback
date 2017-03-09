@@ -30,6 +30,18 @@
 .dropbtn a{
     background-color: #fff !important;
 }
+@media (max-width: 479px) {
+    .header_user_info span{
+      font-size: 10px;
+      font-family: "Futura";
+      color: rgb(147, 149, 152);
+    }
+}
+@media (min-width: 1200px) {
+#icone_mon_compte .hidden-xs{
+  display:inline !important;
+  }
+}
 
 
 /*# sourceMappingURL=blockuserinfo.css.map */
