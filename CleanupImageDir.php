@@ -53,20 +53,21 @@ $cnt_del_file=0;
 for($ii=1; ($ii<=9) && ($cnt_files != $limit); $ii++)
 {
 	// chemin relatif vers le dossier images - trought browser
-	$path='img/p/'.$ii;
+	$beinpath ='malick/p/';  // 'img/p/'
+	$path=$beinpath.$ii;
 	deleteImage($path);
 
 	for($jj=0; ($jj<=9) && ($cnt_files != $limit); $jj++)
 	{	
-		$path='img/p/'.$ii.'/'.$jj;
+		$path=$beinpath.$ii.'/'.$jj;
 		deleteImage($path);
 		for($kk=0; ($kk<=9) && ($cnt_files != $limit); $kk++)
 		{
-			$path='img/p/'.$ii.'/'.$jj.'/'.$kk;
+			$path=$beinpath.$ii.'/'.$jj.'/'.$kk;
 			deleteImage($path);
 			for($ll=0; ($ll<=9) && ($cnt_files != $limit); $ll++)
 			{
-				$path='img/p/'.$ii.'/'.$jj.'/'.$kk.'/'.$ll;
+				$path=$beinpath.$ii.'/'.$jj.'/'.$kk.'/'.$ll;
 				deleteImage($path);
 			}	
 		}
@@ -110,9 +111,9 @@ function deleteImage($imageDir)
                                 	$cnt_not_found++;
                                 	// echo 'rm '.$imageDir.'/'.$entry."<BR />";
                                 	// chown($imageDir.'/'.$entry,666);
-                                	chmod($imageDir.'/'.$entry, 0777);
-                                	$delResult = unlink($imageDir.'/'.$entry); // delete files
-                                	if($delResult) $cnt_del_file++;
+                                	// chmod($imageDir.'/'.$entry, 0777);
+                                	echo unlink($imageDir.'/'.$entry); // delete files
+                                	// if($delResult ==1) $cnt_del_file++;
                         		} else {
                                 		$cnt_found++;
                        			}
