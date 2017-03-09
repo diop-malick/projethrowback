@@ -314,6 +314,15 @@ header .row #header_logo {
 .grise{
   color: #777777;
 }
+/*
+.fond-gris{
+  background: #DCDCDC;
+}
+*/
+input[type="text"]:disabled , input[readonly] {
+    background: #dcdcdc;
+}
+
 .my-account-selfcare .button-exclusive{
 color:#333;
 }
@@ -611,7 +620,7 @@ border-color: #000;
   color: #000;
   font-weight: bold;
 }
-.panier-vide{
+.panier-vide , .alert-no-adress{
   text-align: justify;
   font-size: 16px;
   color: #000;
@@ -631,3 +640,15 @@ border-color: #000;
     font-style: italic !important;
     text-align: center !important;
   }
+                /*************************** Tunnel commande ************************/
+/*************************** Payment ************************/
+#HOOK_PAYMENT .row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+} 
+.fa-paiement{
+  font-size: 4em !important;
+} 
+.open-popup-link{
+  text-decoration:underline ;
+}

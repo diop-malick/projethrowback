@@ -22,13 +22,21 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="paiement_block col-sm-9">
-    <div id="HOOK_TOP_PAYMENT">{$HOOK_TOP_PAYMENT}</div>
+<div class="container clearfix">
+<div class="row  clearfix">
+<div class="paiement_block col-sm-9  clearfix">
+<div id ="tabs">
+    <ul id="HOOK_TOP_PAYMENT" class="resp-tabs-list tab">
+        {$HOOK_TOP_PAYMENT}
+    </ul>
+    
+
     {if $HOOK_PAYMENT}        
         {if $opc}
             <div id="opc_payment_methods-content">
         {/if}
-        <div id="HOOK_PAYMENT">
+
+        <div id="HOOK_PAYMENT" class="resp-tabs-container tab">
             {$HOOK_PAYMENT}
         </div>
         {if $opc}
@@ -37,15 +45,28 @@
     {else}
         <p class="alert alert-warning">{l s='No payment modules have been installed.'}</p>
     {/if}
-    {if !$opc}
-    <p class="cart_navigation clearfix">
-        <a href="{$link->getPageLink('order', true, NULL, "step=2")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
-            <i class="icon-chevron-left"></i>
-            {l s='Continue shopping'}
-        </a>
-    </p>
-    {/if}
+    
 </div> <!-- end opc_payment_methods -->
+
+</div>
+
 <div class="cart_navigation clearfix  col-sm-3">
     {include file="$tpl_dir./facturette.tpl"}
 </div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+    $('#tabs').easyResponsiveTabs({
+      type: 'accordion', //Types: default, vertical, accordion
+      width: 'auto', //auto or any width like 600px
+      fit: true, // 100% fit in a container
+      closed: 'accordion', // Start closed if in accordion view
+      tabidentify: 'tab', // The tab groups identifier
+      activate: function() {    
+         $('button.standard-checkout').removeAttr('disabled');
+      }
+    }); 
+}); 
+    
+</script>

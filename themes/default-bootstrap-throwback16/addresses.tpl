@@ -40,7 +40,7 @@
     	</div>
     </div>
     {else}
-    	<p class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></p>
+    	<p class="alert alert-no-adress">{l s='No addresses are available.'}</p>
     {/if}
 
     <div class="row">

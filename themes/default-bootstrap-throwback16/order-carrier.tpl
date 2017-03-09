@@ -83,7 +83,7 @@
 														{l s='Free'}
 													</span>
 												{/if}											
-											<span class="delivery_option_radio ">
+											<span class="delivery_option_radio hidden">
 												<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
 											</span>
 						      			</li>
