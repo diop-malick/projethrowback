@@ -30,19 +30,44 @@
 	</div>
 </div>
 <div class="row commande_body">
-	{foreach $products as $product}		
-		{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
-		{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
-		<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
-			<div class="col-md-8">
-				<p class="command-product-name">{$name|escape:'html':'UTF-8'}</p>
-			</div>
+	<div  class="detail-articles">
+		{if isset($livraison) }
+			{$livraison->delay}
+		{/if}
 
-			<div class="col-md-4 text-right">
-					{if !$priceDisplay}{displayPrice price=$product.total_wt}{else}{displayPrice price=$total}{/if}
+		<button class="accordion"> {l s='Détails des articles'|upper}</button>
+			<div class="panel">
+				{foreach $products as $product}		
+					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
+					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
+					{assign var="attributes" value=$product.attributes_small}
+					{assign var="split_size" value=","|explode:$attributes}
+					{assign var="sizing" value=$split_size[0]|trim}
+					{assign var="color" value=$split_size[1]|trim}
+					<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande facturette-tc">
+						<div class="col-md-8">
+							<span class="command-product-name">{$name|escape:'html':'UTF-8'}</span>
+						</div>
+
+						<div class="col-md-4 text-right">
+								{if !$priceDisplay}{displayPrice price=$product.total_wt}{else}{displayPrice price=$total}{/if}
+						</div>
+					</div>
+
+					<div class="row attributes">
+						<div class="col-md-4 no-padding">
+							{l s='Couleur'}: {$color}
+						</div>
+						<div class="col-md-4 no-padding">
+							{l s='Taille'}: {$sizing}
+						</div>
+						<div class="col-md-4 no-padding">
+							{l s='Quantité'}: {$product.cart_quantity}
+						</div>
+					</div>
+				{/foreach}
 			</div>
-		</div>
-	{/foreach}
+	</div>
 	{if isset($shippingCost) }
 		<div class="row line_product">
 			<div class="col-md-8">
@@ -59,7 +84,7 @@
 		<br>
 	{else}
 		{assign var=shippingCost value=0}
-	{/if}	
+	{/if}
 	<div class="row line_product">
 		<div class="col-md-8">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
@@ -69,6 +94,46 @@
 		</div>
 	</div>
 </div>
+<br>
+
+{if isset($livraison) }
+	<div class="row commande_title text-center">
+		<div class="col-md-12">
+			{l s='VOTRE LIVRAISON'}
+		</div>
+	</div>
+	<div class="row commande_body">
+		 {$livraison->name}
+		 <hr>
+		 	{if $livraison->name == 'Retrait en magasin'}
+				 <div class="row">
+				 		<div class="col-md-12">			
+							TRHOWBACK SHOP		
+						</div>
+						<div class="col-md-12">			
+							67 Rue de la Belleville		
+						</div>
+						<div class="col-md-12">			
+							75020 Paris
+						</div>
+				 	</div>
+			
+			{else if isset($adresse) }
+				 	<div class="row">
+				 		<div class="col-md-12">			
+							{$adresse->company} {$adresse->firstname} {$adresse->lastname}		
+						</div>
+						<div class="col-md-12">			
+							{$adresse->address1} {$adresse->address2} {$adresse->other}		
+						</div>
+						<div class="col-md-12">			
+							{$adresse->postcode} {$adresse->city} {$adresse->country}	
+						</div>
+				 	</div>
+			{/if}
+	</div>
+	{* {$livraison|var_dump} *}
+{/if}
 <div class="row text-center processService">	
 	{if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
 		<input type="hidden" name="step" value="3" />
@@ -89,4 +154,15 @@
 		</button>
 	</a>
 	{/if}
-</div>			
+</div>	
+<script type="text/javascript">
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	for (i = 0; i < acc.length; i++) {
+		acc[i].onclick = function(){
+			    this.classList.toggle("active");
+			    this.nextElementSibling.classList.toggle("show");
+			    return false;
+		}
+	}
+</script>		

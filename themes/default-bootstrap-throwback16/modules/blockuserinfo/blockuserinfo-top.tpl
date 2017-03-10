@@ -1,18 +1,21 @@
 <!-- COL UserInfo + Cart -->
-<div class="col-md-4 pull-right">
+<div class="col-md-4 col-xs-4 pull-right">
 	<!-- ROW UserInfo + Cart -->
 	<div class="row">
 
 		<!-- MODULE Block UserInfo  NAV  -->
-		<div class="header_user_info col-md-6 text-right">
+		<div class="header_user_info col-md-6 col-xs-6 text-right">
 		   <div class="dropdown">
 			{if $is_logged}
 				<button class="dropbtn">
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
-				      			 <span>{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}
-				      				 <img src="{$base_dir}/img/icones/icone-mon-compte-on.png"/> 
-				      				<!--<img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> -->
+				      			 <span id="icone_mon_compte"><span  class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
+
+				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-on.png"/>
+											 <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
+
+
 				      			</span>
 				      </a>
 			    </button>
@@ -44,7 +47,8 @@
 				<button class="dropbtn">
 					<a href="javascript:void(0)">
 						<span>
-							{l s='My espace' mod='blockuserinfo'} <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
+							<span  class="hidden-xs">{l s='My espace' mod='blockuserinfo'} <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/></span>
+							 																			<img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
 						</span>
 					</a>
 		    	</button>

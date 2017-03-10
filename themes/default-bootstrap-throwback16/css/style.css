@@ -18,7 +18,7 @@ body {
     margin-top: 160px;
 }
 #order .columns-container {
-    margin-top: 130px;
+    margin-top: 160px;
   }
 
 
@@ -159,21 +159,15 @@ header .row #header_logo {
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
    #block_contact_infos span{
-     font-size: 10px;
+     font-size: 10px !important;
+     font-family: "Futura";
+     color: rgba(147, 149, 152, 0.749);
+      left: 39.252px;
    }
-/*  .shopping_cart  img {
-     width: 100%;
-     height: 100%;
-    }*/
-    .header_user_info  img {
-      width: 15px;
+   #block_contact_infos {
+     margin-left: -23px !important;
+   }
 
-    }/*
-    header .row #header_logo {
-      margin-top: -40px !important;
-    }
-
-    .hidden-xs { display: none !important; }*/
 
   #header .shopping_cart {
     padding-top: 0px;
@@ -217,6 +211,7 @@ header .row #header_logo {
   padding: 0;
   font-weight: bold;
   background: #000;
+  border-radius: 10px !important;
   /*background: rgb(53, 53, 53);*/
   /*background-image: -webkit-gradient(linear, left 0%, left 100%, from(#43b754), to(#42ac52));*/
   /*background-image: -webkit-linear-gradient(top, #43b754, 0%, #42ac52, 100%);*/
@@ -225,10 +220,10 @@ header .row #header_logo {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF43B754', endColorstr='#FF42AC52', GradientType=0);
   border: 1px solid;
-  border-color: #ececeb #ececeb #ececeb #ececeb;
+  /*border-color: #ececeb #ececeb #ececeb #ececeb;*/
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  border-radius: 0; }
+  }
 
   .button.button-medium span {
     display: block;
@@ -517,7 +512,7 @@ font-size: 17px;
 
   .commande_body{
     background: #fafafa;
-    padding: 15px;
+    padding: 5px;
   }
   .commande_button{
     background: #000;
@@ -641,6 +636,80 @@ border-color: #000;
     text-align: center !important;
   }
                 /*************************** Tunnel commande ************************/
+
+/********************************** Accordeon facturette *********************************/
+.commande_body .attributes{
+  font-size: 12px;
+}
+.commande_body .facturette-tc{
+  margin-bottom: 10px;
+}
+.commande_body .no-padding{
+  /*
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  */
+}
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #ddd;
+    color: #777 !important;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    margin-bottom:15px;
+    border: none;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.panel.show {
+    display: block;
+}
+
+div.panel {
+    padding: 0 1px;
+    background-color: #fafafa !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 0.9;
+    max-height: 500px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
+  font-size : 15px;
+}
+
+button.accordion:after {
+    *content: '\0025BC';
+  content: '+';
+    font-weight: 900;
+    font-size: 150%;
+    color: #000;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+  content: '-';
+}
+
 /*************************** Payment ************************/
 #HOOK_PAYMENT .row{
     margin-left: 0px !important;

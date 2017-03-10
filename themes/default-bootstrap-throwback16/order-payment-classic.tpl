@@ -24,7 +24,7 @@
 *}
 <div class="container clearfix">
 <div class="row  clearfix">
-<div class="paiement_block col-sm-9  clearfix">
+<div class="paiement_block col-sm-9 payment_content  clearfix">
 <div id ="tabs">
     <ul id="HOOK_TOP_PAYMENT" class="resp-tabs-list tab">
         {$HOOK_TOP_PAYMENT}
