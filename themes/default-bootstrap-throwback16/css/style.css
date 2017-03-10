@@ -1,6 +1,17 @@
 /************************************************************
 				styles intégrés
 ************************************************************/
+
+/*fixe footer*/
+
+html {
+  height: 85%;
+}
+.columns-container {
+min-height: 80%;
+}
+
+
 body {
 
     font-size: 13px !important;
