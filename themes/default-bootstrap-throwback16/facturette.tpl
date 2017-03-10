@@ -32,8 +32,8 @@
 <div class="row commande_body">
 	<div  class="detail-articles">
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-			<div class="panel">
-				{foreach $products as $product}		
+			<div class="panel2">
+				{foreach $products as $product}
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
 					{assign var="attributes" value=$product.attributes_small}
@@ -74,8 +74,8 @@
 					<span id="total_price">{displayPrice price=$shippingCost}</span>
 				{else}
 					<span id="total_price" style="color:#40ec40">GRATUIT</span>
-				{/if}		
-			</div>			
+				{/if}
+			</div>
 		</div>
 		<br>
 	{else}
@@ -85,8 +85,8 @@
 		<div class="col-md-8">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 		</div>
-		<div class="col-md-4 text-right total">			
-			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>			
+		<div class="col-md-4 text-right total">
+			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>
 		</div>
 	</div>
 </div>
@@ -103,34 +103,34 @@
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
-				 		<div class="col-md-12">			
-							TRHOWBACK SHOP		
+				 		<div class="col-md-12">
+							TRHOWBACK SHOP
 						</div>
-						<div class="col-md-12">			
-							67 Rue de la Belleville		
+						<div class="col-md-12">
+							67 Rue de la Belleville
 						</div>
-						<div class="col-md-12">			
+						<div class="col-md-12">
 							75020 Paris
 						</div>
 				 	</div>
-			
+
 			{else if isset($adresse) }
 				 	<div class="row">
-				 		<div class="col-md-12">			
-							{$adresse->company} {$adresse->firstname} {$adresse->lastname}		
+				 		<div class="col-md-12">
+							{$adresse->company} {$adresse->firstname} {$adresse->lastname}
 						</div>
-						<div class="col-md-12">			
-							{$adresse->address1} {$adresse->address2} {$adresse->other}		
+						<div class="col-md-12">
+							{$adresse->address1} {$adresse->address2} {$adresse->other}
 						</div>
-						<div class="col-md-12">			
-							{$adresse->postcode} {$adresse->city} {$adresse->country}	
+						<div class="col-md-12">
+							{$adresse->postcode} {$adresse->city} {$adresse->country}
 						</div>
 				 	</div>
 			{/if}
 	</div>
 	{* {$livraison|var_dump} *}
 {/if}
-<div class="row text-center processService">	
+<div class="row text-center processService">
 	{if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
@@ -150,7 +150,7 @@
 		</button>
 	</a>
 	{/if}
-</div>	
+</div>
 <script type="text/javascript">
 	var acc = document.getElementsByClassName("accordion");
 	var i;
@@ -161,4 +161,4 @@
 			    return false;
 		}
 	}
-</script>		
+</script>

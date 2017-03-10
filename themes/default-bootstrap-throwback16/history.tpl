@@ -115,7 +115,7 @@
 		<p class="alert alert-warning">{l s='You have not placed any orders.'}</p>
 	{/if}
 </div>
-<ul class="footer_links clearfix">
+<ul class="footer_links clearfix" id="page-commande">
 	<li>
 		<a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
 			<span>

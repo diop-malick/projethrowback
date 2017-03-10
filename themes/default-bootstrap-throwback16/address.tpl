@@ -161,7 +161,7 @@
 				<input class="is_required validate form-control" data-validate="{$address_validation.postcode.validate}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 			</div>
 		{/if}
-		
+
 		<!-- etats -->
 		{if !$stateExist}
 			<div class="row required id_state form-group unvisible">
@@ -173,7 +173,7 @@
 				</div>
 			</div>
 		{/if}
-		
+
 		{if !$dniExist}
 			<div class="required dni form-group unvisible">
 				<label for="dni">{l s='Identification number'} <sup>*</sup></label>
