@@ -172,14 +172,15 @@ ul.product_list.grid > li {
 
 /* Throwback > product container > découpage bloc */
     ul.product_list.grid > li .product-container .product-image-container {
-      margin-top: -30px !important;
-      z-index: 1000;
+      margin-top: -40px !important;
+      /*z-index: 1000;*/
     }
 
 .product-container .row.text-right {
   height: 100px;
   padding-right: 25px;
-  z-index: 200;
+  /*z-index: 200;*/
+  position: relative;
 }
 
 
@@ -225,6 +226,8 @@ ul.product_list.grid > li {
     /* Block accesorie - OVER */
     #htmlcontent_homeFooter {
       z-index: 900;
+      /*TODO check repercution*/
+      margin-bottom: -60px! important;
     }
 
 
