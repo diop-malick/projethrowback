@@ -46,11 +46,11 @@ $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_03e9618cc6e69fe15a
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_98b3009e61879600839e1ee486bb3282'] = 'Fermer la fenêtre';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_544c3bd0eac526113a9c66542be1e5bc'] = 'Produit ajouté au panier avec succès';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_694e8d1f2ee056f98ee488bdc4982d73'] = 'Quantité';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_300225ee958b6350abc51805dab83c24'] = 'Continuer mes achats';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7e0bf6d67701868aac3116ade8fea957'] = 'Voir mon panier';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_e5694b7726ceaf2f057e5f06cf86209e'] = 'Il y a [1]%d[/1] produits dans votre panier.';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_fc86c43dbffcadc193832a310f7a444a'] = 'Il y a 1 produit dans votre panier.';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_db205f01b4fd580fb5daa9072d96849d'] = 'Total produits';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_21034ae6d01a83e702839a72ba8a77b0'] = '(HT)';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_1f87346a16cf80c372065de3c54c86d9'] = 'TTC';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_f4e8b53a114e5a17d051ab84d326cae5'] = 'Frais de port';
-$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_300225ee958b6350abc51805dab83c24'] = 'Continuer mes achats';
-$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7e0bf6d67701868aac3116ade8fea957'] = 'Voir mon panier';

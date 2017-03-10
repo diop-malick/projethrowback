@@ -149,7 +149,10 @@ class IdentityController extends IdentityControllerCore
                     );
 
                     $mce_result = $this->updateMailchimpSubscriber($mce_email, $mce_status, $mce_list_id, $mce_api_key, $mce_merge_fields );
-                    // PrestaShopLogger::addLog($mce_result, 1);                  
+                    // PrestaShopLogger::addLog($mce_result, 1);
+
+                    // send mail unsubcription 
+                    // Mail::Send(intval($cookie->id_lang), 'contact', 'Sujet du mail', array('{email}' => $from, '{customer_firstname}' => $customer_firstname, '{customer_lastname}' => $customer_lastname, '{company}' => $company), 'serviceadministratif@xxx.com', 'Service administratif', $from);                  
                 }
 
                 // overrides > END - update mailchimps status
