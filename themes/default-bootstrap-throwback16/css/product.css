@@ -884,10 +884,11 @@ margin-right: 25px;
 .bx-wrapper .bx-pager {
   top: 90%;
 }
-.bx-wrapper .bx-pager.bx-default-pager a {
+
+#productscategory_list .bx-wrapper .bx-pager.bx-default-pager a {
   background: #777 !important;
 }
-.bx-wrapper .bx-pager.bx-default-pager a.active {
+#productscategory_list .bx-wrapper .bx-pager.bx-default-pager a.active {
   background: #000 !important;
 }
 
