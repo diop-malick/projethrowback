@@ -13,7 +13,7 @@ body {
   }
 
 
-#my-account .columns-container, #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
+#my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
 
     margin-top: 160px;
 }
@@ -471,7 +471,7 @@ width: auto;
 }
 
   /******** Panier ********************/
-.page-product-box h3,  
+.page-product-box h3,
 .page-product-box h4 {
   color: rgb(203, 204, 204);
   text-transform: uppercase;
