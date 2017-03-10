@@ -22,11 +22,14 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+{$order|var_dump}
 <div class="box">
-    <p>{l s='Your order on' mod='cashondelivery'} <span class="bold">{$shop_name}</span> {l s='is complete.' mod='cashondelivery'}
+    <p>{l s='Merci pour votre commande' mod='cashondelivery'} <span class="bold">{$shop_name}</span>
         <br />
-        {l s='You have chosen the cash on delivery method.' mod='cashondelivery'}
-        <br /><span class="bold">{l s='Your order will be sent very soon.' mod='cashondelivery'}</span>
-        <br />{l s='For any questions or for further information, please contact our' mod='cashondelivery'} <a href="{$link->getPageLink('contact-form', true)|escape:'html'}">{l s='customer support' mod='cashondelivery'}</a>.
+        {l s='Votre commande a bien été enregistrée, elle sera traitée par nos équipes après votre passage en boutique pour son règlement.' mod='cashondelivery'}
+        <br /><span class="bold">{l s='Un email de confirmation vous a été envoyé à l’adresse' mod='cashondelivery'}</span>
+        <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur Throwbacksneakers.com pour d’autres instants shopping !' mod='cashondelivery'}
+        <br />{l s='Après réception de votre colis, vous avez un délai de 7 jours pour faire des réclamations (échange ou retour).' mod='cashondelivery'}
+        <br />{l s='En savoir plus sur les conditions de' mod='cashondelivery'} <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='Retours et remboursement' mod='cashondelivery'}</a>.
     </p>
 </div>
