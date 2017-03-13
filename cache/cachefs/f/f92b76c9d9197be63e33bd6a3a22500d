@@ -1,0 +1,1 @@
+a:1:{s:202:"AVG(1 - (IF(IFNULL(product_attribute_shop.wholesale_price, 0) = 0, product_shop.wholesale_price,product_attribute_shop.wholesale_price) / (IFNULL(product_attribute_shop.price, 0) + product_shop.price)))";s:16:"0.52535269162229";}
