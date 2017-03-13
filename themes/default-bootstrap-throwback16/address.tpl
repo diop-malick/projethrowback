@@ -36,21 +36,32 @@
 		{assign var="tab2" value=array_splice($ordered_adr_fields, 0, 0, $tab)}
 		{assign var="tab3" value=array_splice($ordered_adr_fields, 8, 1)}
 		{assign var="tab4" value=array_splice($ordered_adr_fields, 6, 0, $tab3)}
+		{assign var="tab_civility" value=array({l s='M.'}, {l s='Mme'})}
 
 		{foreach from=$ordered_adr_fields item=field_name}
 			 {if $field_name eq 'company'}
-				<div class="row required form-group">
-					<label for="company" class="col-md-4 text-right">{l s='Civilité'} <sup>*</sup></label>
-						<div class="col-md-8">
-					<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
-							<option value="">{l s='Choisir la civilité'}</option>
-							<option value="M">{l s='M.'}</option>
-						  <option value="Mme">{l s='Mme'}</option>
-					</select>
-					<input hidden type="text" id="company" name="company"/>
-					</div>
-				</div>
-			{/if}
+			 <div class="row required form-group">
+			 <label for="company" class="col-md-4 text-right">{l s='Civilité'} <sup>*</sup></label>
+				 <div class="col-md-8">
+			 	 	<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+					 <option value="">{l s='Choisir la civilité'}</option>
+					 {if isset($address->company) && $address->company}
+					 <option value="{$address->company}" selected="selected">{$address->company}</option>
+					 {foreach from=$tab_civility item=civility}
+					 {if isset($address->company) && $address->company!= $civility}
+					 <option  value="{$civility}"  {if isset($smarty.post.company) && $smarty.post.company} selected="selected"{/if}>{$civility}</option>
+					 {/if}
+					 {/foreach}
+					 {else}
+					 {foreach from=$tab_civility item=civility}
+					 <option  value="{$civility}" {if isset($smarty.post.company) && $smarty.post.company} selected="selected"{/if}>{$civility}</option>
+					 {/foreach}
+					 {/if}
+			 </select>
+			 <input hidden type="text" id="company" name="company"/>
+			 </div>
+		</div>
+		{/if}
 
 			{if $field_name eq 'firstname'}
 				<div class="row required form-group">
