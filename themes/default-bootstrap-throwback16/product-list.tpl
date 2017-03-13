@@ -124,16 +124,12 @@
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
 									</div>
 								</div>
-								{if isset($size_list) && $size_list}
+								{if isset($groups) && $groups}
 								<div class=qv-size>
-									{foreach from=$size_list key=k item=v}
-										{if $k > 0 && $k==$product.id_product }
-											
-												{foreach from=$v item=p}
-													{foreach from=$p item=t}
-														<span class="size-list">{$t}</span>
-													{/foreach}
-
+									{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+										{if ($group.group_type == 'radio')}
+												{foreach from=$group.attributes key=id_attribute item=group_attribute}
+														<span class="size-list">{$group_attribute|escape:'html':'UTF-8'}</span>
 												{/foreach}
 										{/if}
 									{/foreach}
