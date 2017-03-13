@@ -1,11 +1,21 @@
 /*throwback > customize*/
 
+.dropdown-content {
+    width: 80%;
+}
+
+
 .header_user_info {
     /*z-index: 124;*/
+}
+.dropdown-menu {
+  margin:0;
 }
 
 .header_user_info a {
     font-size: 13px;
+    width: 100%;
+    /*padding: 3px 20px;*/
     /*font-family: "Futura";*/
     color: rgb(147, 149, 152);
     font-weight: bold;
@@ -25,7 +35,7 @@
 
 .header_user_info a:hover,
 .header_user_info a.active {
-    background: #2b2b2b;
+    color: #2b2b2b;
 }
 .dropbtn a{
     background-color: #fff !important;

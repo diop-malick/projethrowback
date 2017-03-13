@@ -13,8 +13,13 @@ display: flex;
 align-items: center;
 }
 
+.my-account-selfcare .redirect_home {
+    margin-left: 15px !important;
+}
 
-
+/*#my-account-selfcare .button.button-medium {*/
+    /*margin-left: 15px !important;*/
+/*}*/
 /*.my-account-selfcare .page-heading p.info-account {
   margin: 0 0 0 0;
   padding: 0px 0px 17px 0px;
