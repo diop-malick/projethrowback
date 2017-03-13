@@ -26,7 +26,7 @@
 
 class Size
 {
-    public function getProductAttributeCombinations2($products , $langId , $shopId)
+   public function getProductAttributeCombinations2($products , $langId , $shopId)
     {
         //$tab = array();
         $combinations = array();
@@ -112,5 +112,4 @@ class Size
 
         return($groups);
     }
-    
 }
