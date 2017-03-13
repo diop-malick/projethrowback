@@ -36,8 +36,10 @@
 		{/if}
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
+
 			<div class="panel panel2">
 				{foreach $products as $product}
+
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
 					{assign var="attributes" value=(isset($product.attributes_small))?$product.attributes_small:$product.product_name}
@@ -79,8 +81,8 @@
 					<span id="total_price">{displayPrice price=$shippingCost}</span>
 				{else}
 					<span id="total_price" style="color:#40ec40">GRATUIT</span>
-				{/if}
-			</div>
+				{/if}		
+			</div>			
 		</div>
 		<br>
 	{else}
@@ -90,8 +92,8 @@
 		<div class="col-md-8">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 		</div>
-		<div class="col-md-4 text-right total">
-			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>
+		<div class="col-md-4 text-right total">			
+			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>			
 		</div>
 	</div>
 </div>
@@ -107,36 +109,41 @@
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
-				 		<div class="col-md-12">
-							TRHOWBACK SHOP
+				 		<div class="col-md-12">			
+							TRHOWBACK SHOP		
 						</div>
-						<div class="col-md-12">
-							67 Rue de la Belleville
+						<div class="col-md-12">			
+							67 Rue de la Belleville		
 						</div>
-						<div class="col-md-12">
+						<div class="col-md-12">			
 							75020 Paris
 						</div>
 				 	</div>
-
+			
 			{else if isset($adresse) }
 				 	<div class="row">
-				 		<div class="col-md-12">
-							{$adresse->company} {$adresse->firstname} {$adresse->lastname}
+				 		<div class="col-md-12">			
+							{$adresse->company} {$adresse->firstname} {$adresse->lastname}		
 						</div>
-						<div class="col-md-12">
-							{$adresse->address1} {$adresse->address2} {$adresse->other}
+						<div class="col-md-12">			
+							{$adresse->address1} {$adresse->address2} {$adresse->other}		
 						</div>
-						<div class="col-md-12">
-							{$adresse->postcode} {$adresse->city} {$adresse->country}
+						<div class="col-md-12">			
+							{$adresse->postcode} {$adresse->city} {$adresse->country}	
 						</div>
 				 	</div>
 			{/if}
-	</div>
+	</div>	
 {/if}
+<<<<<<< HEAD
 
 <div class="row text-center processService">
 	{if $current_step == "shipping"}
 
+=======
+<div class="row text-center processService">	
+	{if $current_step == "shipping"}
+>>>>>>> 3d5633e900f257b0caead0467cd3778fd25832b3
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
@@ -155,7 +162,7 @@
 		</button>
 	</a>
 	{/if}
-</div>
+</div>	
 <script type="text/javascript">
 	var acc = document.getElementsByClassName("accordion");
 	var i;
@@ -166,4 +173,4 @@
 			    return false;
 		}
 	}
-</script>
+</script>		
