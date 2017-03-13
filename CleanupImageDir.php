@@ -23,10 +23,10 @@ require_once(dirname(__FILE__).'/config/settings.inc.php');
 
 
 // ensure PATH
-echo "Le chemin absolu est : ".realpath('CleanupImageDir.php'); 
-echo "<br/>";
-echo "Le chemin relatif est : ".$_SERVER['PHP_SELF'];
-echo "<br/><br/>";
+// echo "Le chemin absolu est : ".realpath('CleanupImageDir.php'); 
+// echo "<br/>";
+// echo "Le chemin relatif est : ".$_SERVER['PHP_SELF'];
+// echo "<br/><br/>";
 
 
 $pdo = new PDO( 'mysql:host='._DB_SERVER_.';dbname='._DB_NAME_, _DB_USER_, _DB_PASSWD_ );
@@ -112,6 +112,8 @@ function deleteImage($imageDir)
                                 	// echo 'rm '.$imageDir.'/'.$entry."<BR />";
                                 	// chown($imageDir.'/'.$entry,666);
                                 	// chmod($imageDir.'/'.$entry, 0777);
+                                	// mkdir('malick/'.$imageDir, 0777, true);
+                                	// copy( $imageDir.'/'.$entry, 'malick/'.$imageDir.'/'.$entry )
                                 	echo unlink($imageDir.'/'.$entry); // delete files
                                 	// if($delResult ==1) $cnt_del_file++;
                         		} else {
