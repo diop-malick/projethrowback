@@ -22,6 +22,9 @@ body {
 #category .columns-container{
     margin-top: 120px;
   }
+ #manufacturer .columns-container{
+    margin-top: 165px;
+  }
 
 
 #my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
