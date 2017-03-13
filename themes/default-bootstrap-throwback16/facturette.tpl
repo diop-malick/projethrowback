@@ -36,7 +36,7 @@
 		{/if}
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-			<div class="panel2">
+			<div class="panel panel2">
 				{foreach $products as $product}
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
