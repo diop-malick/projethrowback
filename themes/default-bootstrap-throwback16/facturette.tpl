@@ -135,15 +135,10 @@
 			{/if}
 	</div>	
 {/if}
-<<<<<<< HEAD
 
 <div class="row text-center processService">
 	{if $current_step == "shipping"}
 
-=======
-<div class="row text-center processService">	
-	{if $current_step == "shipping"}
->>>>>>> 3d5633e900f257b0caead0467cd3778fd25832b3
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
