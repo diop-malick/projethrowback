@@ -81,7 +81,8 @@
 
 #languages-block-top ul li.selected,
 #languages-block-top ul li:hover a {
-    background: #484848;
+    background: rgb(147, 149, 152);
+
 }
 
 
