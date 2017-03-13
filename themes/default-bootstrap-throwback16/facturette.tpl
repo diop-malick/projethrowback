@@ -135,7 +135,7 @@
 {/if}
 
 <div class="row text-center processService">
-	{if $current_step == "delivery"}
+	{if $current_step == "shipping"}
 
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
