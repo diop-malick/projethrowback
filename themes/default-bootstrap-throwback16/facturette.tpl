@@ -36,11 +36,14 @@
 		{/if}
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-			<div class="panel">
-				{foreach $products as $product}		
+
+			<div class="panel panel2">
+				{foreach $products as $product}
+
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
-					{assign var="attributes" value=$product.attributes_small}
+					{assign var="attributes" value=(isset($product.attributes_small))?$product.attributes_small:$product.product_name}
+					{assign var="quantity" value=(isset($product.cart_quantity))?$product.cart_quantity:$product.product_quantity}
 					{assign var="split_size" value=","|explode:$attributes}
 					{assign var="sizing" value=$split_size[0]|trim}
 					{assign var="color" value=$split_size[1]|trim}
@@ -62,7 +65,7 @@
 							{l s='Taille'}: {$sizing}
 						</div>
 						<div class="col-md-4 no-padding">
-							{l s='Quantité'}: {$product.cart_quantity}
+							{l s='Quantité'}: {$quantity}
 						</div>
 					</div>
 				{/foreach}
@@ -95,7 +98,6 @@
 	</div>
 </div>
 <br>
-
 {if isset($livraison) }
 	<div class="row commande_title text-center">
 		<div class="col-md-12">
@@ -131,11 +133,12 @@
 						</div>
 				 	</div>
 			{/if}
-	</div>
-	{* {$livraison|var_dump} *}
+	</div>	
 {/if}
-<div class="row text-center processService">	
-	{if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
+
+<div class="row text-center processService">
+	{if $current_step == "shipping"}
+
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
@@ -144,7 +147,7 @@
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
-	{else}
+	{else if $current_step == "payment"}
 	<a href="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}">
 		<button disabled type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
 			<span>

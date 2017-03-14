@@ -25,7 +25,7 @@
 $(document).ready(function() {
 	if (!!$.prototype.bxSlider)
 		$('#bxslider1').bxSlider({
-			minSlides: 2,
+			minSlides: 4,
 			maxSlides: 6,
 			slideWidth: 178,
 			slideMargin: 20,
@@ -36,4 +36,8 @@ $(document).ready(function() {
 			infiniteLoop:false,
 			hideControlOnEnd: true
 		});
+
+	// slider = $('.bxslider1').bxSlider();
+	// var slideQty = slider.getSlideCount();
+	// console.log(slideQty);
 });
