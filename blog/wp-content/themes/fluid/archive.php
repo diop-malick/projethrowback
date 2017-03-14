@@ -22,6 +22,7 @@ get_header(); ?>
 			<?php cryout_before_content_hook(); ?>
 
 			<?php if ( have_posts() ) : ?>
+			$args = array_merge( $wp_query->query, array( 'posts_per_page' => 4 ) )
 
 				<header class="page-header pad-container" <?php cryout_schema_microdata( 'element' ); ?>>
 					<?php
