@@ -37,6 +37,7 @@
 				<div id="opc_delivery_methods-overlay" class="opc-overlay" style="display: none;"></div>
 {/if}
 <div class="container clearfix">
+<h1>{l s='Choisissez votre lieu de livraison'}</h1>
 	<div class="row">
 		<div class="order_carrier_content box col-sm-9">
 			{if isset($virtual_cart) && $virtual_cart}
@@ -51,6 +52,7 @@
 				{if isset($isVirtualCart) && $isVirtualCart}
 					<p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
 				{else}
+
 					<div class="delivery_options_address" id="tabs">
 						{if isset($delivery_option_list)}
 							{foreach $delivery_option_list as $id_address => $option_list}
@@ -65,30 +67,32 @@
 													{/foreach}
 												{/if}
 											</span>
-											<span class="delivery_option_price">												
-												{if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
-													<span class="delivery_option_price">
-														{if $use_taxes == 1}
-															{if $priceDisplay == 1}
-																{convertPrice price=$option.total_price_without_tax}{if $display_tax_label} {l s='(tax excl.)'}{/if}
-															{else}
-																{convertPrice price=$option.total_price_with_tax}{if $display_tax_label} {l s='(tax incl.)'}{/if}
-															{/if}
-														{else}
-															{convertPrice price=$option.total_price_without_tax}
-														{/if}
-													</span>
+											{if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
+											<span class="delivery_option_price">
+												{if $use_taxes == 1}
+													{if $priceDisplay == 1}
+														{convertPrice price=$option.total_price_without_tax}{if $display_tax_label} {l s='(tax excl.)'}{/if}
+													{else}
+														{convertPrice price=$option.total_price_with_tax}{if $display_tax_label} {l s='(tax incl.)'}{/if}
+													{/if}
 												{else}
-													<span class="delivery_option_price free">
-														{l s='Free'}
-													</span>
-												{/if}											
+													{convertPrice price=$option.total_price_without_tax}
+												{/if}
+											</span>
+											{else}
+											<span class="delivery_option_price free">
+												{l s='Free'}
+											</span>
+											{/if}											
 											<span class="delivery_option_radio hidden">
 												<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
-											</span>
+											</span>											
 						      			</li>
 							      	{/foreach}							      	
 					      		</ul>
+
+
+
 								<div class="delivery_options resp-tabs-container tab">									
 									{foreach $option_list as $key => $option name=options}
 										<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
@@ -96,21 +100,39 @@
 												{if $option.unique_carrier}
 													{foreach $option.carrier_list as $carrier}														
 														{assign var=name value=$carrier.instance->name}
+														{assign var=carrierid value=$carrier.instance->id}
 														{break}
 													{/foreach}													
-												{/if}												
-												{if $name == 'Retrait en magasin'}													
-													<p>Où nous trouver</p>													
+												{/if}
+
+												<h1>{$carrierid}</h1>
+												
+												{*********************************************************
+												Retrait en Magansin / id transporteur = 50
+												@ author:         Babacar
+												@ maintainer:     Malick
+												**********************************************************}
+												{* 
+												{if $name == 'Retrait en magasin'}
+												*}
+
+												{if $carrierid == 58}
+													<p>{l s='Où nous trouver'}</p>													
 													<div class="clearfix">
-		             									<div id="map" style="width:100%;height:18em;background:#ececec;float:left;max-width:36em;margin:0 12px 12px 0" ></div>
-		             									<p style="line-height: 1.5em" class="shop-info">
-															<strong>Adresse :</strong><br>
-															67 rue de Belleville 75019 Paris<br><br>
-															<strong>Horaires :</strong><br>														
-															Du Mardi au Vendredi de 11H à 13H30 / de 15H à 19H30<br>
-															Samedi de 11H à 19H30<br>
-															Dimanche 14h - 19H<br><br>
-															<strong>Tel :</strong> +33(0)9 50 64 02 96<br><br>
+		             									<div id="map" ></div>
+		             									<p class="shop-info">
+															<strong>{l s='Adresse :'}</strong>
+															<br>
+															67 rue de Belleville 75019 Paris
+															<br><br>
+															<strong>{l s='Horaires :'}</strong><br>
+															{l s='Du Mardi au Vendredi de 11H à 13H30 / de 15H à 19H30'}								
+															<br>
+															{l s='Samedi de 11H à 19H30'}
+															<br>
+															{l s='Dimanche 14h - 19H'}
+															<br><br>
+															<strong>{l s='Tel :'}</strong> +33(0)9 50 64 02 96<br><br>
 														</p>
 														<p>
 															{if $option.unique_carrier}													
@@ -123,11 +145,19 @@
 															<option value="rem">Retrait en magasin</option>																
 														</select>
 													</div>
+
+												{* ********************************************************
+												Livraison à domicile
+												@ author:         Babacar
+												@ maintainer:     Malick
+												********************************************************* *}
 												{elseif $name == 'Livraison à domicile'}													
 													<div class="addresses clearfix">
+														{*
 														<p style="color:#ec4040">
 															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
 														</p>
+														*}
 														<br>														
 														<div class="row hidden">
 															<div class="col-xs-12 col-sm-6">
@@ -154,10 +184,9 @@
 																
 																</ul>
 															</div>
-
-														</div> <!-- end row -->	
+														</div> <!-- end row -->															
 														{if !isset($addresses)}
-															<div class="row none">
+														<div class="row none">
 																<div class="col-sm-12">															
 																	<p class="address_add submit" style="text-align: center">
 																		<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
@@ -165,8 +194,8 @@
 																		</a>
 																	</p>	
 																</div>																
-															</div> <!-- end row -->
-														{/if}														
+														</div> <!-- end row -->
+														{/if}																												
 														<div class="express {if !isset($addresses)}hidden{/if}">
 															<hr>
 															<h3>Livraison recommandée</h3>
@@ -180,6 +209,12 @@
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
+
+												{* ********************************************************
+												Livraison à une autre adresse
+												@ author:         Babacar
+												@ maintainer:     Malick
+												********************************************************* *}
 												{elseif $name == 'Livraison à une autre adresse'}													
 													<div class="addresses clearfix">
 														<p style="color:#ec4040">
@@ -212,15 +247,14 @@
 														<div class="row addresses">
 															<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
 																<span class="waitimage"></span>
-																<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
-																
+																<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">																
 																</ul>
 															</div>
 														</div> <!-- end row -->
 														
-															<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}">
+														<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}">
 																															
-															</div> <!-- end row -->
+														</div> <!-- end row -->
 																								
 														<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
 															<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
@@ -240,6 +274,11 @@
 														</div>
 													</div> <!-- end addresses -->													
 													<div id="address" class="hidden clearfix"></div>
+												
+												{* ********************************************************
+												XXXXXX
+												********************************************************* *}
+
 												{else}
 													{if !$advanced_payment_api && ((!empty($delivery_option) && (!isset($isVirtualCart) || !$isVirtualCart)) OR $delivery->id || $invoice->id) && !$opc}
 														<div class="order_delivery clearfix row">
@@ -310,141 +349,6 @@
 														</div>
 													{/if}
 										        {/if}
-												{if !$option.unique_carrier}
-													<table class="delivery_option_carrier{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} selected{/if} resume table table-bordered{if $option.unique_carrier} hide{/if}">
-														<tr>
-															{if !$option.unique_carrier}
-																<td rowspan="{$option.carrier_list|@count}" class="delivery_option_radio first_item">
-																	<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if} />
-																</td>
-															{/if}
-															{assign var="first" value=current($option.carrier_list)}
-															<td class="delivery_option_logo{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
-																{if $first.logo}
-																	<img class="order_carrier_logo" src="{$first.logo|escape:'htmlall':'UTF-8'}" alt="{$first.instance->name|escape:'htmlall':'UTF-8'}"/>
-																{elseif !$option.unique_carrier}
-																	{$first.instance->name|escape:'htmlall':'UTF-8'}
-																{/if}
-															</td>
-															<td class="{if $option.unique_carrier}first_item{/if}{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
-																<input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
-																{if isset($first.instance->delay[$cookie->id_lang])}
-																	<i class="icon-info-sign"></i>
-																	{strip}
-																		{$first.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
-																		&nbsp;
-																		{if count($first.product_list) <= 1}
-																			({l s='For this product:'}
-																		{else}
-																			({l s='For these products:'}
-																		{/if}
-																	{/strip}
-																	{foreach $first.product_list as $product}
-																		{if $product@index == 4}
-																			<acronym title="
-																		{/if}
-																		{strip}
-																			{if $product@index >= 4}
-																				{$product.name|escape:'htmlall':'UTF-8'}
-																				{if isset($product.attributes) && $product.attributes}
-																					{$product.attributes|escape:'htmlall':'UTF-8'}
-																				{/if}
-																				{if !$product@last}
-																					,&nbsp;
-																				{else}
-																					">&hellip;</acronym>)
-																				{/if}
-																			{else}
-																				{$product.name|escape:'htmlall':'UTF-8'}
-																				{if isset($product.attributes) && $product.attributes}
-																					{$product.attributes|escape:'htmlall':'UTF-8'}
-																				{/if}
-																				{if !$product@last}
-																					,&nbsp;
-																				{else}
-																					)
-																				{/if}
-																			{/if}
-																		{/strip}
-																	{/foreach}
-																{/if}
-															</td>
-															<td rowspan="{$option.carrier_list|@count}" class="delivery_option_price">
-																<div class="delivery_option_price">
-																	{if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
-																		{if $use_taxes == 1}
-																			{if $priceDisplay == 1}
-																				{convertPrice price=$option.total_price_without_tax}{if $display_tax_label} {l s='(tax excl.)'}{/if}
-																			{else}
-																				{convertPrice price=$option.total_price_with_tax}{if $display_tax_label} {l s='(tax incl.)'}{/if}
-																			{/if}
-																		{else}
-																			{convertPrice price=$option.total_price_without_tax}
-																		{/if}
-																	{else}
-																		{l s='Free'}
-																	{/if}
-																</div>
-															</td>
-														</tr>
-														{foreach $option.carrier_list as $carrier}
-															{if $carrier@iteration != 1}
-															<tr>
-																<td class="delivery_option_logo{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
-																	{if $carrier.logo}
-																		<img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}"/>
-																	{elseif !$option.unique_carrier}
-																		{$carrier.instance->name|escape:'htmlall':'UTF-8'}
-																	{/if}
-																</td>
-																<td class="{if $option.unique_carrier} first_item{/if}{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
-																	<input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
-																	{if isset($carrier.instance->delay[$cookie->id_lang])}
-																		<i class="icon-info-sign"></i>
-																		{strip}
-																			{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
-																			&nbsp;
-																			{if count($first.product_list) <= 1}
-																				({l s='For this product:'}
-																			{else}
-																				({l s='For these products:'}
-																			{/if}
-																		{/strip}
-																		{foreach $carrier.product_list as $product}
-																			{if $product@index == 4}
-																				<acronym title="
-																			{/if}
-																			{strip}
-																				{if $product@index >= 4}
-																					{$product.name|escape:'htmlall':'UTF-8'}
-																					{if isset($product.attributes) && $product.attributes}
-																						{$product.attributes|escape:'htmlall':'UTF-8'}
-																					{/if}
-																					{if !$product@last}
-																						,&nbsp;
-																					{else}
-																						">&hellip;</acronym>)
-																					{/if}
-																				{else}
-																					{$product.name|escape:'htmlall':'UTF-8'}
-																					{if isset($product.attributes) && $product.attributes}
-																						{$product.attributes|escape:'htmlall':'UTF-8'}
-																					{/if}
-																					{if !$product@last}
-																						,&nbsp;
-																					{else}
-																						)
-																					{/if}
-																				{/if}
-																			{/strip}
-																		{/foreach}
-																	{/if}
-																</td>
-															</tr>
-															{/if}
-														{/foreach}
-													</table>
-												{/if}
 											</div>
 										</div> <!-- end delivery_option -->
 									{/foreach}
@@ -486,6 +390,7 @@
 								{/foreach}
 							{/if}
 						</div> <!-- end delivery_options_address -->
+
 						<div id="extra_carrier" style="display: none;"></div>
 						{if $opc}
 							<p class="carrier_title">{l s='Leave a message'}</p>
@@ -541,6 +446,7 @@
 						{/if}
 						{/if}
 					{/if}
+
 					{if $conditions && $cms_id && (! isset($advanced_payment_api) || !$advanced_payment_api)}
 						{if $opc}
 							<hr style="" />
@@ -557,11 +463,15 @@
 		                    </div>
 		                {/if}
 					{/if}
+
 				</div> <!-- end delivery_options_address -->
+
 		{if !$opc}				
+				
 				<div class="cart_navigation clearfix  col-sm-3" style="padding:8px;">
 					{include file="$tpl_dir./facturette.tpl"}
 				</div>
+
 			</div>
 		</div>
 	</form>
