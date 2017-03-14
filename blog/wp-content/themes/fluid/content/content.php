@@ -10,7 +10,7 @@ $fluids = cryout_get_option( array( 'fluida_excerptarchive', 'fluida_excerptstic
 ?><?php cryout_before_article_hook(); ?>
 
 <div class="col-md-6">
-<article id="post-<?php the_ID(); ?>" <?php post_class(); cryout_schema_microdata( 'blogpost' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php cryout_featured_hook(); ?>
 	<div class="article-inner">
