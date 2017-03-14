@@ -43,7 +43,7 @@
 						{if isset($categoryProduct.new) && $categoryProduct.new == 1}
 							<img src="{$base_dir}/img/icones/new.png"/>
 						<!-- Picto Comming soon -->
-						{elseif ($categoryProduct.quantity > 0) || !$categoryProduct.available_for_order || $PS_CATALOG_MODE || !isset($categoryProduct.available_date) || $categoryProduct.available_date < $smarty.now|date_format:'%Y-%m-%d'}
+						{elseif $categoryProduct.available_date > $smarty.now|date_format:'%Y-%m-%d'}
 							<img src="{$base_dir}/img/icones/chrono.png"/>
 						{/if}
 						</div>

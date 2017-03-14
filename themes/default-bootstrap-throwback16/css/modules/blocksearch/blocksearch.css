@@ -199,6 +199,11 @@ form#searchbox2 input#search_query_block {
 
 }
 
+.redirect_home {
+    display: block !important;
+    margin: 0 auto !important;
+}
+
 /*
 #test.focused{
 margin-left: 200px;

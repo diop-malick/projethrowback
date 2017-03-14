@@ -5,7 +5,7 @@
 
 
 <!-- Block Newsletter module-->
-<div style="display:none">
+<!-- <div style="display:none">
 	<div id="mc_embed_signup" class="row">
     		<div class="thumbnail center well well-lg text-center">
     		<div id="mc_embed_signup_header">
@@ -14,7 +14,6 @@
             </div>    
                 <form id="mc-embedded-subscribe-form">
                     <div class="input-prepend">
-                    <!-- <span class="add-on"><i class="icon-envelope"></i></span> -->
                         <input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" value="" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
                     </div>
                     <br />
@@ -26,7 +25,7 @@
               </form>
             </div>    
 	</div>
-</div>
+</div> -->
 <!-- Block Newsletter module-->
 
 <!-- Newletter fancyBox -->
@@ -55,17 +54,37 @@
 	<div class="row">
 		
 		<div class="col-md-8">
+
 			<div id="newsletter_block_left" class=" block inline">
 				<div class="block_content">
-					<!-- Link to Trigger the modal NEWLETTER -->
-					<div id="contact-link" class="text-center">
+					
+                    <!-- Link to Trigger the modal NEWLETTER -->
+					<!-- <div id="contact-link" class="text-center">
 						<a id="displaynewsletter" href="#mc_embed_signup" title="{l s='Newsletter' mod='blockcontact'}">
 						<i class="fa fa-envelope"></i>{l s=' Newsletter' mod='blocknewletter'}
 						</a>
-					</div>
+					</div> -->
+
+                    <!-- NEWLETTER -->
+                            
+                            <form id="mc-embedded-subscribe-form">
+                                <div class="news-footer">
+                                    <i class="fa fa-envelope"></i>
+                                    <input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <input type="submit" value="OK" class="btn button-default" name="submitNewsletter" />              
+                                    <input type="hidden" name="action" value="0"/>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <span class="response" id="mce-error-response" style="display:none; color:red"></span>
+                                <span class="response" id="mce-success-response" style="display:none; color:green"></span>
+                            </div>
+
 				</div>
 			</div>
-		</div>		
+		</div>	
+
 
 
 

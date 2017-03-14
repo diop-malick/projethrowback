@@ -108,11 +108,6 @@ class CashOnDelivery extends PaymentModule
 		);
 	}
 
-	public function hookDisplayPaymentTop($params)
-    {
-        return $this->display(__FILE__, 'payment_top.tpl'); 
-    }
-
 	public function hookPaymentReturn($params)
 	{
 		if (!$this->active)

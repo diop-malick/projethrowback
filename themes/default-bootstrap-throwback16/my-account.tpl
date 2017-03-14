@@ -2,7 +2,7 @@
 {capture name=path}{l s='My account'}{/capture}
 
 <div class="my-account-selfcare">
-    
+
     <!--
     <div class="row">
             <h1 class="page-heading text-center">{l s='Bienvenue dans votre espace personnel'}</h1>
@@ -131,7 +131,7 @@
     {/if}
     </div>
     <ul class="footer_links clearfix">
-    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i><&nbsp;</i> {l s='Home'}</span></a></li>
+    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span id="retour-accueil"><i><&nbsp;</i> {l s='Home'}</span></a></li>
     </ul>
 </div>
 

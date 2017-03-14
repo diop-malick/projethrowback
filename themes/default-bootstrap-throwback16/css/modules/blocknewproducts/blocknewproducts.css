@@ -1,3 +1,9 @@
 
 
+.products_block .bx-wrapper .product-box .s_title_block img {
+display: inline !important;
+margin-right: 25px;
+}
+
+
 /*# sourceMappingURL=blocknewproducts.css.map */

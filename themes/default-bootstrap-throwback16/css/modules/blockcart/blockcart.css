@@ -185,7 +185,8 @@
 ********************************************************************/
 #header .cart_block {
   position: absolute;
-  top: 95px;
+  
+  /*top: 95px;*/
   right: 0;
   z-index: 100;
   display: none;

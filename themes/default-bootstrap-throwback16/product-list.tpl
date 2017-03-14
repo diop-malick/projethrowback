@@ -38,9 +38,11 @@
 						{hook h='displayProductListReviews' product=$product}
 						</div>
 					{/if}
-					<p class="product-desc" itemprop="description">
+
+					<!-- <p class="product-desc" itemprop="description">
 						{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}
-					</p>
+					</p> -->
+					
 					{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 					<div class="content_price">
 						{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
@@ -98,6 +100,8 @@
 						<a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
 							<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
 						</a>
+
+						<!-- quick view prestashop // TODO - DELETE -->
 						{if isset($quick_view) && $quick_view}
 							<div class="quick-view-wrapper-mobile">
 							<a class="quick-view-mobile" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
@@ -108,26 +112,24 @@
 							<span>{l s='Quick view'}</span>
 						</a>
 						{/if}
+						<!-- // quick view prestashop -->
+
 						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 								<div class="row">
 									<div class="col-md-6">
 										<span class="qv-reference">{$product.reference|upper}</span>
 									</div>
-									<div class="col-md-6 qv-dispo text-right">
+									<div class="col-md-6 qv-dispo">
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
 									</div>
 								</div>
-								{if isset($size_list) && $size_list}
+								{if isset($groups) && $groups}
 								<div class=qv-size>
-									{foreach from=$size_list key=k item=v}
-										{if $k > 0 && $k==$product.id_product }
-											
-												{foreach from=$v item=p}
-													{foreach from=$p item=t}
-														<span class="size-list">{$t}</span>
-													{/foreach}
-
+									{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+										{if ($group.group_type == 'radio')}
+												{foreach from=$group.attributes key=id_attribute item=group_attribute}
+														<span class="size-list">{$group_attribute|escape:'html':'UTF-8'}</span>
 												{/foreach}
 										{/if}
 									{/foreach}

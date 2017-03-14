@@ -1,6 +1,17 @@
 /************************************************************
 				styles intégrés
 ************************************************************/
+
+/*fixe footer*/
+
+html {
+  height: 85%;
+}
+.columns-container {
+min-height: 80%;
+}
+
+
 body {
 
     font-size: 13px !important;
@@ -13,7 +24,7 @@ body {
   }
 
 
-#my-account .columns-container, #identity .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
+#my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
 
     margin-top: 160px;
 }
@@ -318,11 +329,16 @@ input[type="text"]:disabled , input[readonly] {
     background: #dcdcdc;
 }
 
-.my-account-selfcare .button-exclusive{
-color:#333;
+.my-account-selfcare .button-exclusive, #page-commande .button-exclusive{
+  color:#333;
+  font-size: 17px;
 }
-.my-account-selfcare .button-exclusive:hover{
+
+.my-account-selfcare .button-exclusive:hover, #page-commande .button-exclusive:hover{
   text-decoration: underline;
+}
+#retour-accueil {
+  margin-left: 15px;
 }
 
 /* Page Liste
@@ -346,6 +362,7 @@ color:#333;
   border-radius: 2px;
   padding: 5px 15px;
   color:#000 !important;
+  font-weight: bold;
 }
 .size-list:hover{
   border: 1px solid rgb(214, 157, 50);
@@ -456,10 +473,27 @@ font-size: 17px;
 }
 
 
+.page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
+width: auto;
+    margin: 0 auto;
+}
 
+.accessories-block #bxslider{
 
+}
 
   /******** Panier ********************/
+.page-product-box h3,
+.page-product-box h4 {
+  color: rgb(203, 204, 204);
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+
+}
+
   .margin-top-10{
     margin-top:10px;
   }
@@ -467,6 +501,7 @@ font-size: 17px;
     color: #777 !important;
     text-decoration: none !important;
   }
+
   .img-line {
     background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);
@@ -651,6 +686,7 @@ border-color: #000;
   */
 }
 /* Style the buttons that are used to open and close the accordion panel */
+
 button.accordion {
     background-color: #ddd;
     color: #777 !important;
@@ -670,18 +706,18 @@ button.accordion.active, button.accordion:hover {
 }
 
 /* Style the accordion panel. Note: hidden by default */
-div.panel {
+div.panel2 {
     padding: 0 18px;
     background-color: white;
     display: none;
 }
 
 /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
-div.panel.show {
+div.panel2.show {
     display: block;
 }
 
-div.panel {
+div.panel2 {
     padding: 0 1px;
     background-color: #fafafa !important;
     max-height: 0;
@@ -690,7 +726,7 @@ div.panel {
     opacity: 0;
 }
 
-div.panel.show {
+div.panel2.show {
     opacity: 0.9;
     max-height: 500px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
   font-size : 15px;
@@ -714,10 +750,10 @@ button.accordion.active:after {
 #HOOK_PAYMENT .row{
     margin-left: 0px !important;
     margin-right: 0px !important;
-} 
+}
 .fa-paiement{
   font-size: 4em !important;
-} 
+}
 .open-popup-link{
   text-decoration:underline ;
 }
