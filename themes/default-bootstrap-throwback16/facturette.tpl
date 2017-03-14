@@ -148,14 +148,15 @@
 			</span>
 		</button>
 	{else if $current_step == "payment"}
-	<a href="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}">
+	<form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
+	<input type="hidden" name="confirm" value="1" />
 		<button disabled type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
 			<span>
 				{l s='Payer et terminer'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
-	</a>
+	</form>
 	{/if}
 </div>	
 <script type="text/javascript">
