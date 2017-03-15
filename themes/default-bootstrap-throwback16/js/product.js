@@ -224,7 +224,7 @@ $(document).ready(function()
 
 	// CHRONO
 	if (typeof available_date !== 'undefined' && available_date) {
-		$('#clock').countdown(available_date, function(event) {		
+		$('#clock').countdown(available_date, function(event) {
 			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
 		});
 
@@ -232,16 +232,19 @@ $(document).ready(function()
 		$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 		$('#add_to_cart button').removeClass('active').addClass('disabled');
 		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
-		$('.attribute_list .btn').removeClass('active').addClass('disabled');		
+		$('.attribute_list .btn').removeClass('active').addClass('disabled');
 	}
 
-	
+	// Align button add_to_cart with image if no chrono
+	if (!$('#clock').length ) {
+    $('#add_to_cart').css('margin-top', '77px');
+}
 
 	// COLAPSE
 	$('.collapse').on('shown.bs.collapse', function(){
-		$(this).parent().find(".fa-caret-right").removeClass("fa-caret-right").addClass("fa-caret-down");
+		$(this).parent().find(".fa-caret-left").removeClass("fa-caret-left").addClass("fa-caret-down");
 		}).on('hidden.bs.collapse', function(){
-		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-right");
+		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-left");
 	});
 
 });
@@ -387,8 +390,8 @@ $(document).on('click', '.product_quantity_up', function(e){
 	fieldName = $(this).data('field-qty');
 	var currentVal = parseInt($('input[name='+fieldName+']').val());
 	// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
-	if (!allowBuyWhenOutOfStock && quantityAvailable > 0) {	
-	// if limited quantity per ordder is defined and < of available stock, this limit is used in increment button	
+	if (!allowBuyWhenOutOfStock && quantityAvailable > 0) {
+	// if limited quantity per ordder is defined and < of available stock, this limit is used in increment button
 		if (typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable > 0 && quantityLimitedAvailable < quantityAvailable) {
 			quantityAvailableT = quantityLimitedAvailable;
 			// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
@@ -570,11 +573,11 @@ function updateDisplay()
 
 		//show the "add to cart" button ONLY if it was hidden
 		$('#add_to_cart button').removeClass('disabled').addClass('active');
-		
+
 
 		//hide the hook out of stock
 		$('#oosHook').hide();
-		
+
 
 		//availability value management
 		if (stock_management && availableNowValue != '')
