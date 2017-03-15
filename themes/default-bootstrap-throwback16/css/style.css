@@ -28,7 +28,7 @@ body {
 
     margin-top: 160px;
 }
-#order .columns-container {
+#order .columns-container , #password .columns-container  {
     margin-top: 160px;
   }
 

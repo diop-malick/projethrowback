@@ -106,8 +106,14 @@
 						{assign var="productId" value=$product.id_product}
 						{assign var="attributes" value=$product.attributes_small}
 						{assign var="split_size" value=","|explode:$attributes}
-						{assign var="sizing" value=$split_size[0]|trim}
-						{assign var="coloring" value=$split_size[1]|trim}
+
+						{if isset($split_size[0]) }
+								{assign var="sizing" value=$split_size[0]|trim}
+						{/if}
+						
+						{if isset($split_size[1]) }
+								{assign var="coloring" value=$split_size[1]|trim}
+						{/if}
 						
 						{* {$combinations[$product.id_product]|print_r}  *} 
 
@@ -199,20 +205,24 @@
 											</div>
 										<div class="row">
 										<div class="col-md-6">
+											{if isset($sizing)}
 											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 												<label>{l s='Taille'}</label>
 												<span class="size_line">
 													{$sizing}
 												</span>
 											</p>
+											{/if}
 										</div>
 										<div class="col-md-6">
+											{if isset($coloring)}
 											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 												<label>{l s='Couleur'}</label>
 												<span class="size_line">
-													{$coloring}
+														{$coloring}
 												</span>
 											</p>
+											{/if}
 										</div>
 										</div>
 									</div>

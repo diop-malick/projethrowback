@@ -1,6 +1,6 @@
 
 <!-- Hide breadcrump in myaccount  -->
-{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'identity' or {$smarty.get.controller} eq 'order' or {$smarty.get.controller} eq 'history' or {$smarty.get.controller} eq 'addresses' or {$smarty.get.controller} eq 'address'}
+{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'identity' or {$smarty.get.controller} eq 'order' or {$smarty.get.controller} eq 'history' or {$smarty.get.controller} eq 'addresses' or {$smarty.get.controller} eq 'address' or {$smarty.get.controller} eq 'password'}
 
 <!-- TODO -->
 {else}
