@@ -29,7 +29,7 @@ get_header();
 			<?php fluida_pagination(); ?>
 
 		<?php else :
-			get_template_part( 'content/content', 'notfound' );
+			get_template_part( 'content/content-notfound', get_post_format() );
 		endif; ?>
 
 		<?php cryout_after_content_hook(); ?>

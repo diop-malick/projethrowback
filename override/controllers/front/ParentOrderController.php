@@ -41,8 +41,6 @@ class ParentOrderController extends ParentOrderControllerCore
 	            $attributes_combinations[$prod['id_product']] = array();
 	        }
 
-        	
-        	
         	if (is_array($attributes_groups) && $attributes_groups) {
 
 		         foreach ($attributes_groups as $k => $row) {
@@ -105,16 +103,8 @@ class ParentOrderController extends ParentOrderControllerCore
 	            
             }
 
-
-
-            
-            
-            
         } //end foreach products
 
-        
-	//var_dump($attributes_combinations);exit;
-          
          $this->context->smarty->assign('groups', $groups); 
          $this->context->smarty->assign('combinations', $combinations);
     }

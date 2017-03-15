@@ -362,6 +362,7 @@ input[type="text"]:disabled , input[readonly] {
   border-radius: 2px;
   padding: 5px 15px;
   color:#000 !important;
+  font-weight: bold;
 }
 .size-list:hover{
   border: 1px solid rgb(214, 157, 50);

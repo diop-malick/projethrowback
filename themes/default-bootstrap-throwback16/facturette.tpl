@@ -36,8 +36,10 @@
 		{/if}
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-			<div class="panel2">
-				{foreach $products as $product}		
+
+			<div class="panel panel2">
+				{foreach $products as $product}
+
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
 					{assign var="attributes" value=(isset($product.attributes_small))?$product.attributes_small:$product.product_name}
@@ -133,8 +135,10 @@
 			{/if}
 	</div>	
 {/if}
-<div class="row text-center processService">	
+
+<div class="row text-center processService">
 	{if $current_step == "shipping"}
+
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
@@ -144,14 +148,15 @@
 			</span>
 		</button>
 	{else if $current_step == "payment"}
-	<a href="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}">
+	<form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
+	<input type="hidden" name="confirm" value="1" />
 		<button disabled type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
 			<span>
 				{l s='Payer et terminer'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
-	</a>
+	</form>
 	{/if}
 </div>	
 <script type="text/javascript">
