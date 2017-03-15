@@ -562,8 +562,14 @@ span.view_scroll_spacer {
   }
 
 .customattributes .attribute_list ul li {
-  margin-right: 10px;
+/*  margin-right: 10px;
+  margin-top: 10px; */
+  margin-right: 1.39em;
   margin-top: 10px;
+  width: 15%;
+}
+.customattributes .attribute_list  ul li:nth-child(5n){
+  margin-right: 0px !important;
 }
 
 .customattributes .attribute_list ul li > label {
@@ -1412,5 +1418,7 @@ background: none;
 #tabbable_product  {
   margin-left: -2.3125em;
 }
-
+#add_to_cart, #btn-attributes-size{
+  width:96% !important;
+}
 /*# sourceMappingURL=product.css.map */

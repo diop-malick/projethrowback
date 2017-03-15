@@ -231,7 +231,10 @@ $(document).ready(function()
 		$('.attribute_list .btn').removeClass('active').addClass('disabled');
 	}
 
-
+	// Align button add_to_cart with image if no chrono
+	if (!$('#clock').length ) {
+    $('#add_to_cart').css('margin-top', '77px');
+}
 
 	// COLAPSE
 	$('.collapse').on('shown.bs.collapse', function(){
