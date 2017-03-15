@@ -671,7 +671,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
 			          	{l s='Paiement'}
 			          </a>
 			        </h4>
@@ -684,7 +684,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
 			          	{l s='Livraison'}
 			          </a>
 			        </h4>
@@ -697,7 +697,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
 			          	{l s='Services'}
 			          </a>
 			        </h4>
