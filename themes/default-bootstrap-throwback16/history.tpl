@@ -115,12 +115,12 @@
 		<p class="alert alert-warning">{l s='You have not placed any orders.'}</p>
 	{/if}
 </div>
-<ul class="footer_links clearfix" id="page-commande">
-	<li>
-		<a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-			<span>
-				<i><&nbsp</i> {l s='Retour'}
-			</span>
-		</a>
-	</li>
-</ul>
+
+<a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+    <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">
+        <span>
+            <i class="icon-chevron-left left"></i>
+                {l s='Retour'}                
+        </span>
+    </button>
+</a>

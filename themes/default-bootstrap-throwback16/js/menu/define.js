@@ -11,7 +11,7 @@ function fullPage() {
 	$('#homepage-slider').removeClass('col-xs-9').addClass('col-xs-12').css("width", "100%").css("float", "left");
 	$('#toggleMenu').removeClass('mini').addClass('maxi');
 
-    $('.breadcrumb').css("margin-left", "0");
+    $('.breadcrumb').css("margin-left", "-0.7500em");
 	}
 	$('#toggleMenu').removeClass('mini').addClass('maxi');
 }
@@ -31,7 +31,7 @@ function minimizePage() {
 	$('#homepage-slider').removeClass('col-xs-12').addClass('col-xs-9').css("width", "75%").css("float", "right");
 
 
-    $('.breadcrumb').css("margin-left", "25.5%");
+    $('.breadcrumb').css("margin-left", "24.5%");
 	}
 	$('#toggleMenu').removeClass('maxi').addClass('mini');
 }

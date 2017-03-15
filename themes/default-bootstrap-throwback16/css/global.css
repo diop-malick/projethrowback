@@ -7066,13 +7066,13 @@ ul.step {
         color: 444;
         text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
         border: 1px solid;
-        border-color: #ededed; 
+        border-color: #ededed;
       }
       ul.step li.step_done a:before {
         font: normal normal normal 14px/1 FontAwesome;
       font-size: 150%;
       content: "\f00c";
-        color: #40ec40;       
+        color: #40ec40;
         right: 16px;
         position: absolute;
       }
@@ -7201,7 +7201,7 @@ div.star a:hover {
     z-index: 2;
     color: #333; }
     .breadcrumb a.home {
-      font-size: 17px;
+    /*  font-size: 17px; */
       color: #777777;
       width: 38px;
       text-align: center;
@@ -7221,7 +7221,7 @@ div.star a:hover {
         vertical-align: -1px; }
       .breadcrumb a.home:before {
         border: none; }
-    .breadcrumb a:after {
+  /*  .breadcrumb a:after {
       display: inline-block;
       content: ".";
       position: absolute;
@@ -7237,8 +7237,8 @@ div.star a:hover {
       z-index: -1;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
-      transform: rotate(45deg); }
-    .breadcrumb a:before {
+      transform: rotate(45deg); } */
+  /*  .breadcrumb a:before {
       display: inline-block;
       content: ".";
       position: absolute;
@@ -7254,7 +7254,7 @@ div.star a:hover {
       z-index: -1;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
-      transform: rotate(45deg); }
+      transform: rotate(45deg); } */
     .breadcrumb a:hover {
       color: #777777; }
 
@@ -8740,7 +8740,7 @@ div.star.star_hover:after {
   right: 20%;
   position: absolute;
   top: -65px;
-    
+
 }
 
 #block_contact_infos{
@@ -8764,7 +8764,7 @@ div.star.star_hover:after {
     width: 50%;
     position: absolute;
     top: -160px;
-    left:0px;   
+    left:0px;
 }
 
  #block_contact_infos{
@@ -8774,4 +8774,3 @@ div.star.star_hover:after {
 }
 
 }
-
