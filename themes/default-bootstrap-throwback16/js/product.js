@@ -178,10 +178,14 @@ $(document).ready(function()
 				'closeEffect'   : 'elastic'
 			});
 		}
-		else if (contentOnly) {
+		else 
+		if (contentOnly) {
 			$('#buy_block').attr('target', '_top');
 		}
 	}
+	// $('#thumbs_list a.fancybox').click(function(e) {
+	// 	    e.preventDefault();
+	// 	  });
 
 	// THROWBACK CUSTOM
 	// http://bxslider.com/examples/carousel-demystified#example1
