@@ -155,8 +155,8 @@ $(document).ready(function()
 
 				}
 		}).keyup();
-
 /*
+
 		$('#search_query_top').on({
 			focus: function () {
 
@@ -165,9 +165,9 @@ $(document).ready(function()
 			blur: function () {
 					$("#test").removeClass('focused').addClass( 'blured' );
 					if ($("#test").is( ':focus')) {
-						alert(($("#test").is( ':focus')));
+
 			 		}else{
-									 alert(($("#test").is( ':focus')));
+
 	 						 }
 
 			}

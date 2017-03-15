@@ -13,7 +13,7 @@
 
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
-	
+
 	<div class="primary_block row">
 
 		<!-- {if !$content_only}
@@ -598,7 +598,7 @@
 
 
 		<div class="container">
-			<div class="tabbable col-xs-12 col-md-6">
+			<div class="tabbable col-xs-12 col-md-6" id="tabbable_product">
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
 				<div class="col-row">
@@ -625,7 +625,9 @@
 						</ul>
 					</section>
 				<!-- social sharing -->
+				<div data-easyshare data-easyshare-url="https://vps365425.ovh.net/throwback16/index.php">
 				{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+			</div>
 				</div>
 				<!-- // FEATURES -->
 
@@ -643,6 +645,7 @@
 				<!-- // full description -->
 
 			</div>
+
 
 		<!-- CMS page Acordion -->
 			<div class="panel-group col-xs-12 col-md-6" id="accordion">
@@ -899,3 +902,5 @@
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
 {/strip}
 {/if}
+
+<script src="/throwback16/themes/default-bootstrap-throwback16/js/jquery.kyco.easyshare.min.js"></script>
