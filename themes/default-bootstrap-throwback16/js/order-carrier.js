@@ -53,16 +53,25 @@ $(document).ready(function(){
 	  fit: true, // 100% fit in a container
 	  closed: 'accordion', // Start closed if in accordion view
 	  tabidentify: 'tab', // The tab groups identifier
-	  activate: function() {	  	
+	  activate: function() {	// Callback function, gets called if tab is switched  	
 	  	$('input[type=radio]',this).trigger('click');
 	  	initMap();
 	  }
-	});	
+	});
 
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
 		$('button.standard-checkout').removeAttr('disabled');
-		event.stopPropagation();		
+		event.stopPropagation();
+	});
+
+	// COLAPSE TABS
+	$('.collapse').on('shown.bs.collapse', function(){
+		$(this).parent().find(".resp-arrow").addClass("resp-arrow-active");		
+		// $(this).find('input[type=radio]').first().addClass("test");
+		$('input[type=radio]', this).first().click();
+		}).on('hidden.bs.collapse', function(){
+		$('.resp-arrow').removeClass("resp-arrow-active");
 	});
 
 	ajaxAddressSetup(); 	
@@ -116,13 +125,13 @@ function initMap() {
 
 function ajaxAddressSetup()
 {
-
 	if (typeof formatedAddressFieldsValuesList === 'undefined' || !formatedAddressFieldsValuesList){		
 		$('.resp-tab-content:last-of-type').addClass('hidden');
 		$('h2.resp-accordion:last-of-type').addClass('hidden');
 	}
 	$('.resp-tab-content').each(function(){
 		var tab = this;	
+		// Ajouter adresse
 		$('.addresses a',tab).click(function(event){
 			var $link = $(this);
 			event.preventDefault();

@@ -1,0 +1,50 @@
+#accordion .panel-default {
+    border-color: #ddd;
+}
+
+#accordion .panel-default > .panel-heading {
+    background-color: #f5f5f5 !important;
+    background: #eee !important;
+    /*background-color: #eee*/
+}
+
+#accordion {
+    margin-bottom: 25px;
+}
+
+#accordion .resp-arrow:before {
+    width: 30px;
+    height: 30px;
+}
+
+#accordion .resp-arrow-active.resp-arrow:before {
+    content: "\f00c";
+    font-family: "fontawesome";
+    text-indent: 1px;
+    border: 2px solid;
+    color: #000;
+}
+
+#accordion .resp-tab-content-active {
+    border: none !important;
+}
+
+#accordion .resp-tab-content {
+    padding: 0 !important;
+}
+
+#accordion {
+    margin-right: 0;
+}
+
+#order #accordion .panel-default > .panel-heading .panel-title {
+    font-size: 14px;
+    /*font-family: "Futura";*/
+        font-weight: 700 !important;
+    color: rgb(53, 53, 53);
+    text-transform: uppercase;
+    line-height: 1.58;
+    -moz-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
+    -webkit-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
+    -ms-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
+}

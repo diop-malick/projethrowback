@@ -26,6 +26,10 @@ body {
     margin-top: 165px;
   }
 
+   #module-hipay_professional-redirect .columns-container{
+    margin-top: 165px;
+  }
+
 
 #my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
 
@@ -366,6 +370,8 @@ input[type="text"]:disabled , input[readonly] {
   padding: 5px 15px;
   color:#000 !important;
   font-weight: bold;
+  float: left;
+  margin: 5px;
 }
 .size-list:hover{
   border: 1px solid rgb(214, 157, 50);

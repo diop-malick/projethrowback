@@ -163,8 +163,11 @@ class OrderController extends OrderControllerCore
            
         ));
 
-        if ($this->step == OrderController::STEP_DELIVERY) {
+        // Adding CSS style sheet       
+        if ($this->step == OrderController::STEP_DELIVERY || $this->step == OrderController::STEP_PAYMENT) {
             $this->addJS(_THEME_JS_DIR_.'order-carrier.js');
+            $this->addJS(_THEME_JS_DIR_.'order-custom.js');
+            $this->addCSS(_THEME_CSS_DIR_.'order-custom.css');
         }
 
     }
