@@ -15,7 +15,7 @@
 <div class="container clearfix">
 <h1>{l s='Choisissez votre lieu de livraison'}</h1>
 	<div class="row">
-		<div class="order carrier content box col-sm-9">
+		<div class="order col-sm-9">
 			{if isset($virtual_cart) && $virtual_cart}
 				<input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
 		        <p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
@@ -53,9 +53,13 @@ Retrait en Magansin / id transporteur = 50
 					          	<div class="delivery_options resp-tabs-container tab">									
 									{foreach $option_list as $key => $option name=options}
 										
+
 											{if $option.unique_carrier}
-												{foreach $option.carrier_list as $carrier}														
-													{if $carrier.instance->id == 58 }
+												{foreach $option.carrier_list as $carrier}
+													{assign var=mycarrername value=$carrier.instance->name}
+													{assign var=mycarrierid value=$carrier.instance->id}
+
+													{if $mycarrername == 'Retrait en magasin'}
 													<div class="delivery_option item">
 														<!-- <h1>{$carrier.instance->name}</h1> -->
 														<br>
