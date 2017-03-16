@@ -3,7 +3,6 @@ $(document).ready(function(){
 	// COLAPSE TABS
 	$('.collapse').on('shown.bs.collapse', function(){
 		$(this).parent().find(".resp-arrow").addClass("resp-arrow-active");		
-		console.log(this.id);
 		if(this.id=="collapse0"){
 			$('button.standard-checkout').removeClass('hidden');
 		}
