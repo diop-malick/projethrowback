@@ -28,7 +28,7 @@ class PasswordController extends PasswordControllerCore
 {
     public function postProcess()
     {
-        define('MAX_LIMIT', '360');
+        //define('MAX_LIMIT', '360');
 
         if (Tools::isSubmit('email')) {
             if (!($email = trim(Tools::getValue('email'))) || !Validate::isEmail($email)) {
@@ -70,7 +70,7 @@ class PasswordController extends PasswordControllerCore
                     $this->errors[] = Tools::displayError('Customer account not found');
                 } elseif (!$customer->active) {
                     $this->errors[] = Tools::displayError('You cannot regenerate the password for this account.');
-                } elseif ((strtotime($customer->last_passwd_gen.'+'.MAX_LIMIT.' minutes') - time()) > 0) {
+                } elseif ((strtotime($customer->last_passwd_gen.'+'.($min_time = (int)Configuration::get('PS_PASSWD_TIME_FRONT')).' minutes') - time()) > 0) {
                     //Tools::redirect('index.php?controller=authentication&error_regen_pwd');
                     $this->errors[] = Tools::displayError("Le lien n'est plus valable");
                 } else {
