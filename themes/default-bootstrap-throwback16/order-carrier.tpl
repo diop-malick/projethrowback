@@ -15,7 +15,7 @@
 <div class="container clearfix">
 <h1>{l s='Choisissez votre lieu de livraison'}</h1>
 	<div class="row">
-		<div class="order_carrier_content box col-sm-9">
+		<div class="order carrier content box col-sm-9">
 			{if isset($virtual_cart) && $virtual_cart}
 				<input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
 		        <p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
@@ -28,7 +28,6 @@
 				{if isset($isVirtualCart) && $isVirtualCart}
 					<p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
 				{else}
-
 				<div class="row delivery_options_address panel-group" id="accordion">			    
 {*********************************************************
 Retrait en Magansin / id transporteur = 50
@@ -539,32 +538,7 @@ Livraison À une autre adresse
 			      </div> <!-- end collapse -->
 			    </div> <!-- end Panel -->
 
-			    <style type="text/css" media="screen">
-			  	#accordion .panel-default {
-			  		border-color: #ddd;
-			  	}
-			  	#accordion  .panel-default > .panel-heading {
-			  		background-color: #f5f5f5;
-			  		/*background-color: #eee*/
-			  	}
 
-			  	#accordion {
-			  		margin-bottom: 25px;
-			  	}
-
-			  	#accordion .resp-tab-content-active {
-			  		border: none !important;
-			  	}
-
-			  	#accordion .resp-tab-content {
-			  		padding: 0 !important;
-			  	}
-
-			  	#accordion {
-			  		margin-right: 0;
-			  	}
-			  	
-			  </style>
 
 		</div> <!-- end row delivery_options_address -->
 
