@@ -12,7 +12,7 @@
 
 				      			 <span id="icone_mon_compte"><span  class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
 
-				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-on.png"/>
+				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
 											 <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
 
 
