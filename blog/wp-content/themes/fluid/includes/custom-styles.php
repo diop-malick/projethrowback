@@ -210,10 +210,10 @@ body 										{ color: <?php echo esc_html( $fluida_sitetext ); ?>;
 #access ul.sub-menu > li.current-menu-ancestor > a
 											{ border-color: <?php echo esc_html( $fluida_submenutext ) ?>; }
 .searchform .searchsubmit, .searchform:hover input[type="search"], .searchform input[type="search"]:focus
-											{ color: <?php echo esc_html( $fluida_contentbackground ) ?>; background-color: transparent; }
+											{ color: <?php echo "#000" ?>;  }
 #access > div > ul > li:hover				{ background-color: <?php echo esc_html( $fluida_menutext ) ?>; }
 .searchform::after, .searchform input[type="search"]:focus, .searchform .searchsubmit:hover
-											{ background-color: <?php echo esc_html( $fluida_accent1 ) ?>; }
+											{ background-color: <?php echo "#fff"?>; }
 
 article.hentry, #primary, .searchform, .main > div:not(#content-masonry),
 .main > header, .main > nav#nav-below, .pagination span, .pagination a,

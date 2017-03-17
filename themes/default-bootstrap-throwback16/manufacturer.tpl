@@ -27,9 +27,9 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if !isset($errors) OR !sizeof($errors)}
-	<h1 class="page-heading product-listing">
-		{l s='List of products by manufacturer'}&nbsp;{$manufacturer->name|escape:'html':'UTF-8'}
-	</h1>
+	<!-- <h1 class="page-heading product-listing"> -->
+		<!-- {l s='List of products by manufacturer'}&nbsp;{$manufacturer->name|escape:'html':'UTF-8'} -->
+	<!-- </h1> -->
 	{if !empty($manufacturer->description) || !empty($manufacturer->short_description)}
 		<div class="description_box rte">
 			{if !empty($manufacturer->short_description)}
@@ -58,10 +58,12 @@
 				{include file="./product-sort.tpl"}
 				{include file="./nbr-product-page.tpl"}
 			</div>
+	    	{* 
 	    	<div class="top-pagination-content clearfix">
 	        	{include file="./product-compare.tpl"}
 	            {include file="$tpl_dir./pagination.tpl" no_follow=1}
-	        </div>
+	         </div> 
+	         *}
 		</div>
 
 		{include file="./product-list.tpl" products=$products}

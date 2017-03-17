@@ -12,19 +12,17 @@
 
 				      			 <span id="icone_mon_compte"><span  class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
 
-				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-on.png"/>
+				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
 											 <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
 
 
 				      			</span>
 				      </a>
 			    </button>
-			    <div class="dropdown-content">
+			    <div class="dropdown-content pull-right">
 			      		<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account text-left" rel="nofollow">
 			      			<span>{l s='Mon compte' mod='blockuserinfo'}</span>
 			      		</a>
-
-
 
 						<a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" title="{l s='Addresses'} " class="text-left">
                 				<span>{l s='Mes adresses'}</span>
@@ -45,14 +43,17 @@
 			    </div>
 			{else}
 				<button class="dropbtn">
-					<a href="javascript:void(0)">
-						<span>
-							<span  class="hidden-xs">{l s='My espace' mod='blockuserinfo'} <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/></span>
-							 																			<img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
+					<a href="javascript:void(0)">						
+						<span  class="hidden-xs">{l s='My espace' mod='blockuserinfo'} 
+							<img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
+						</span>
+						<span class="visible-xs" >
+							<img src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
 						</span>
 					</a>
 		    	</button>
-		    	<div class="dropdown-content">
+
+		    	<div class="dropdown-content dropdown-menu">
 					<a class="login" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Log in to your customer account' mod='blockuserinfo'}">
 						{l s='Sign in' mod='blockuserinfo'}
 					</a>

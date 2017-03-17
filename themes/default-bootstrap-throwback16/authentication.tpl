@@ -29,6 +29,12 @@
 		</ol>
 	</div>
 	{/if}-->
+	{if ( isset($smarty.get.generate) && $smarty.get.generate =="1") }
+		<p class="alert alert-success">
+			{l s='Veuillez vous connecter avec votre nouveau mot de passe.'}
+		</p>
+
+	{/if}
 	<div class="row" id="center_column">
 	<div id="equalheight">
 		<div class="col-xs-12 col-sm-6">

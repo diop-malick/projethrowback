@@ -33,6 +33,7 @@ a.fancybox-nav {
 /* .pb-left-column ***************************************************************************** */
 .pb-left-column #image-block {
   position: relative;
+  /*float:left;*/
   display: block;
   cursor: pointer;
   padding: 5px;
@@ -109,7 +110,7 @@ a.fancybox-nav {
 #thumbs_list {
     overflow: hidden;
     float: left;
-    width: 480px; /*392px*/
+    width: 93%;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -290,7 +291,10 @@ span.view_scroll_spacer {
     content: "\f138"; }
 
 #view_scroll_left {
-  margin-top: 0; }
+  /*margin-top: 0; */
+float: left;
+}
+
   #view_scroll_left:before {
     content: "\f137";
     padding-right: 2px; }

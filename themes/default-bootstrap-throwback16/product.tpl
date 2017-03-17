@@ -82,11 +82,11 @@
 				<!-- thumbnails -->
 				<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
 					{if isset($images) && count($images) > 2}
-						<span class="view_scroll_spacer">
+						<!-- <span class="view_scroll_spacer"> -->
 							<a id="view_scroll_left" class="" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
 								{l s='Previous'}
 							</a>
-						</span>
+						<!-- </span> -->
 					{/if}
 					<div id="thumbs_list">
 						<ul id="thumbs_list_frame">
@@ -594,9 +594,8 @@
 
 		<!-- CMS page  -->
 
-		{assign var=cms_content_1 value=CMS::getCMSContent(1, true, true)}
-		{assign var=cms_content_3 value=CMS::getCMSContent(3, true, true)}
-		{assign var=cms_content_5 value=CMS::getCMSContent(5, true, true)}
+		{assign var=cms_content_17 value=CMS::getCMSContent(17, true, true)}
+		{assign var=cms_content_18 value=CMS::getCMSContent(18, true, true)}
 
 
 		<div class="container">
@@ -651,6 +650,7 @@
 
 		<!-- CMS page Acordion -->
 			<div class="panel-group col-xs-12 col-md-6" id="accordion">
+			    {if isset($product) && $product->description}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
@@ -662,13 +662,11 @@
 			      </div>
 			      <div id="collapse0" class="panel-collapse collapse in">
 			        <div class="panel-body">
-					    {if isset($product) && $product->description}
 							<div  class="rte text-justify">{$product->description}</div>
-						{/if}
-					<!-- // short_description_block -->
 			        </div>
 			      </div>
 			    </div>
+			    {/if}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
@@ -692,7 +690,7 @@
 			        </h4>
 			      </div>
 			      <div id="collapse2" class="panel-collapse collapse">
-			        <div class="panel-body">{$cms_content_5.content}</div>
+			        <div class="panel-body">{$cms_content_17.content}</div>
 			      </div>
 			    </div>
 			    <div class="panel panel-default">
@@ -705,7 +703,7 @@
 			        </h4>
 			      </div>
 			      <div id="collapse3" class="panel-collapse collapse">
-			        <div class="panel-body">{$cms_content_3.content}</div>
+			        <div class="panel-body">{$cms_content_18.content}</div>
 			      </div>
 			    </div>
 			  </div>

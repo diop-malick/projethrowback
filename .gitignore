@@ -24,6 +24,7 @@ robots.txt
 
 config/settings.inc.php
 config/defines.inc.php
+
 #config/*
 
 #cache/*
@@ -47,8 +48,10 @@ themes/*/cache/*.css
 
 modules/*/config*.xml
 
-modules/hipay_professional/*
+# modules/hipay_professional/*
+modules/hipay_professional/logs/*
 modules/mailalerts/*
+modules/paypal/*
 
 
 # Site content
@@ -69,6 +72,8 @@ upload/*
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
 blog/*.log
+
+blog/wp-config.php
 
 blog/wp-content/plugins/*
 
