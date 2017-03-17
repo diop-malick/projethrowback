@@ -81,7 +81,7 @@
 			{if isset($images) && count($images) > 0}
 				<!-- thumbnails -->
 				<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
-					{if isset($images) && count($images) > 2}
+					{if isset($images) && count($images) > 4}
 						<!-- <span class="view_scroll_spacer"> -->
 							<a id="view_scroll_left" class="" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
 								{l s='Previous'}
@@ -107,7 +107,7 @@
 						{/if}
 						</ul>
 					</div> <!-- end thumbs_list -->
-					{if isset($images) && count($images) > 2}
+					{if isset($images) && count($images) > 4}
 						<a id="view_scroll_right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
 							{l s='Next'}
 						</a>
@@ -142,7 +142,8 @@
 					<div class="col-md-8 text-left">
 
 							<!-- NAME -->
-							<h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
+
+							<h1 itemprop="name">{$product->name|truncate:30|escape:'html':'UTF-8'}</h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}
@@ -638,7 +639,7 @@
 						{if $product->description_short || $packItems|@count > 0}
 						<div id="short_description_block">
 							{if $product->description_short}
-								<div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
+								<div id="short_description_content" class="rte align_justify" itemprop="description"><h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>{$product->description_short}</div>
 							{/if}
 						</div>
 						{/if}
