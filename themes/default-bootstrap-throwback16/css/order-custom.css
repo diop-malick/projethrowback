@@ -51,9 +51,12 @@
 
 /*mention gratuit */
 .delivery_option_price.free {
-    color:#40ec40;
+            color:#40ec40;
+}
+.delivery_option_price {
     font-weight: 900;
-    text-transform: uppercase;
+        text-transform: uppercase;
+
 }
 
 .delivery_option_name {
@@ -69,4 +72,12 @@
 
 .payment_content {
     margin-top: 0;
+}
+
+.row.addresses .box {
+    margin: 0;
+}
+
+#order .address_add.submit {
+    margin-top: 10px;
 }
