@@ -1,6 +1,5 @@
 $(document).ready(function()
 {
-console.log('slider new product');
 	if ($('#bxslider li').length && !!$.prototype.bxSlider)
 		$('#bxslider').bxSlider({
 			minSlides: 2,

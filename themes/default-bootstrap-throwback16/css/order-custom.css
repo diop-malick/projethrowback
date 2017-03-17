@@ -4,7 +4,7 @@
 
 #accordion .panel-default > .panel-heading {
     background-color: #f5f5f5 !important;
-    background: #eee !important;
+    background: #ececeb !important;
     /*background-color: #eee*/
 }
 
@@ -47,4 +47,26 @@
     -moz-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
     -webkit-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
     -ms-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
+}
+
+/*mention gratuit */
+.delivery_option_price.free {
+    color:#40ec40;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.delivery_option_name {
+    width: 65%;   
+    display: inline-block;
+}
+
+.order_carrier_content{
+    border: none;
+    background: transparent;
+    margin-top: 9px;
+}
+
+.payment_content {
+    margin-top: 0;
 }

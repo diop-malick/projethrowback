@@ -164,7 +164,7 @@
 	<input type="hidden" name="confirm" value="1" />
 		<button type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium hidden  commande_button">
 			<span>
-				{l s='Payer et terminer'}
+				{l s='Terminer'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
