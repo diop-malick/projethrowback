@@ -1392,7 +1392,9 @@ h3.page-product-heading {
 #availability_date .panel {
 }
 
-
+#accordion  {
+      padding-right: 0;
+}
 #accordion .panel-default {
 border : none;
 }
