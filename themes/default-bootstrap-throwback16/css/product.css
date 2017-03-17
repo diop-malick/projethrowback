@@ -1419,10 +1419,7 @@ background: none;
     font-weight: 500;
     font-size: 15px;
   }
-/* Align social media and image */
-#tabbable_product  {
-  margin-left: -2.3125em;
-}
+
 #add_to_cart, #btn-attributes-size{
   width:96% !important;
 }
