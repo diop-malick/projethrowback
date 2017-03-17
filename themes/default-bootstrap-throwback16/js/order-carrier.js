@@ -46,6 +46,7 @@ $(document).ready(function(){
 	});
 
 
+// TODO - DELETE
 	// Custom order carrer
 	$('#tabs').easyResponsiveTabs({
 	  type: 'accordion', //Types: default, vertical, accordion
@@ -61,14 +62,15 @@ $(document).ready(function(){
 
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
+		console.log('test mike');
 		$('button.standard-checkout').removeAttr('disabled');
 		event.stopPropagation();
 	});
 
 	// COLAPSE TABS
+	// TODO - MOVE ON ORDER-custom
 	$('.collapse').on('shown.bs.collapse', function(){
 		$(this).parent().find(".resp-arrow").addClass("resp-arrow-active");		
-		// $(this).find('input[type=radio]').first().addClass("test");
 		$('input[type=radio]', this).first().click();
 		}).on('hidden.bs.collapse', function(){
 		$('.resp-arrow').removeClass("resp-arrow-active");

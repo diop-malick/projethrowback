@@ -153,7 +153,7 @@
 
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
-		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
+		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium commande_button">
 			<span>
 				{l s='Valider la livraison'}
 				<i class="icon-chevron-right right"></i>
@@ -164,7 +164,7 @@
 	<input type="hidden" name="confirm" value="1" />
 		<button type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default buttonpayment standard-checkout button-medium hidden  commande_button">
 			<span>
-				{l s='Terminer'}
+				{l s='Valider le paiement'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>

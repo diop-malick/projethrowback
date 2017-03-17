@@ -77,3 +77,7 @@
 .row.addresses .box {
     margin: 0;
 }
+
+#order .address_add.submit {
+    margin-top: 10px;
+}
