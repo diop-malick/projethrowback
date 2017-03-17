@@ -41,7 +41,7 @@
 		{foreach from=$ordered_adr_fields item=field_name}
 			 {if $field_name eq 'company'}
 			 <div class="row required form-group">
-			 <label for="company" class="col-md-4 text-right">{l s='Civilité'} <sup>*</sup></label>
+			 <label for="company" class="col-md-4 text-right required">{l s='Civilité'}</label>
 				 <div class="col-md-8">
 			 	 	<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
 					 <option value="">{l s='Choisir la civilité'}</option>
@@ -65,7 +65,7 @@
 
 			{if $field_name eq 'firstname'}
 				<div class="row required form-group">
-					<label for="firstname" class="col-md-4 text-right">{l s='First name'} <sup>*</sup></label>
+					<label for="firstname" class="col-md-4 text-right required">{l s='First name'}</label>
 					<div class="col-md-8">
 					<input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -73,7 +73,7 @@
 			{/if}
 			{if $field_name eq 'lastname'}
 				<div class="row required form-group">
-					<label for="lastname" class="col-md-4 text-right">{l s='Last name'} <sup>*</sup></label>
+					<label for="lastname" class="col-md-4 text-right required">{l s='Last name'}</label>
 					<div class="col-md-8">
 					<input class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -82,7 +82,7 @@
 
 			{if $field_name eq 'address1'}
 				<div class="row required form-group">
-					<label for="address1" class="col-md-4 text-right">{l s='Numéro voie'} <sup>*</sup></label>
+					<label for="address1" class="col-md-4 text-right required">{l s='Numéro voie'}</label>
 					<div class="col-md-8">
 					<input class="is_required validate form-control" data-validation="check_num_voie" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -90,7 +90,7 @@
 			{/if}
 			{if $field_name eq 'address2'}
 				<div class="row required form-group">
-					<label for="address2" class="col-md-4 text-right">{l s='Nom voie'}<sup>*</sup>{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
+					<label for="address2" class="col-md-4 text-right required">{l s='Nom voie'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 					<div class="col-md-8">
 					<input class="validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -99,7 +99,7 @@
 			{if $field_name eq 'postcode'}
 				{assign var="postCodeExist" value=true}
 				<div class="row required postcode form-group unvisible">
-					<label for="postcode" class="col-md-4 text-right">{l s='Zip/Postal Code'} <sup>*</sup></label>
+					<label for="postcode" class="col-md-4 text-right required">{l s='Zip/Postal Code'}</label>
 					<div class="col-md-8">
 					<input class="is_required validate form-control" data-validation="check_cp" data-validation-error-msg="{l s='Merci de saisir un code postal valide.'}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
@@ -107,7 +107,7 @@
 			{/if}
 			{if $field_name eq 'city'}
 				<div class="row required form-group">
-					<label for="city" class="col-md-4 text-right">{l s='City'} <sup>*</sup></label>
+					<label for="city" class="col-md-4 text-right required">{l s='City'}</label>
 					<div class="col-md-8" id="ville">
 					<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
@@ -116,7 +116,7 @@
 			{/if}
 			{if $field_name eq 'Country:name' || $field_name eq 'country' || $field_name eq 'Country:iso_code'}
 				<div class="row required form-group">
-					<label for="id_country" class="col-md-4 text-right">{l s='Country'} <sup>*</sup></label>
+					<label for="id_country" class="col-md-4 text-right required">{l s='Country'}</label>
 					<div class="col-md-8">
 						<select id="id_country" class="select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre pays.'}" name="id_country">
 
@@ -168,7 +168,7 @@
 
 		{if !$postCodeExist}
 			<div class="required postcode form-group unvisible">
-				<label for="postcode">{l s='Zip/Postal Code'} <sup>*</sup></label>
+				<label class="required" for="postcode">{l s='Zip/Postal Code'}</label>
 				<input class="is_required validate form-control" data-validate="{$address_validation.postcode.validate}" type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'html':'UTF-8'}{/if}{/if}" />
 			</div>
 		{/if}
@@ -176,7 +176,7 @@
 		<!-- etats -->
 		{if !$stateExist}
 			<div class="row required id_state form-group unvisible">
-				<label for="id_state" class="col-md-4 text-right">{l s='State'} <sup>*</sup></label>
+				<label for="id_state" class="col-md-4 text-right required">{l s='State'}</label>
 				<div class="col-md-8">
 					<select name="id_state" id="id_state" class="select_title" data-validation="required" data-validation-optional="true" data-validation-error-msg="{l s='Merci de sélectionner votre état.'}">
 						<option value="">-</option>
@@ -187,7 +187,7 @@
 
 		{if !$dniExist}
 			<div class="required dni form-group unvisible">
-				<label for="dni">{l s='Identification number'} <sup>*</sup></label>
+				<label for="dni">{l s='Identification number'}</label>
 				<input class="is_required form-control" data-validate="{$address_validation.dni.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
 				<span class="form_info">{l s='DNI / NIF / NIE'}</span>
 			</div>
@@ -223,7 +223,7 @@
 
 
 		<div class="row required form-group" id="adress_alias">
-			<label for="alias" class="col-md-4 text-right">{l s='Please assign an address title for future reference.'} <sup>*</sup></label>
+			<label for="alias" class="col-md-4 text-right required">{l s='Please assign an address title for future reference.'}</label>
 			<div class="col-md-8">
 			<input type="text" id="alias" class="is_required validate form-control" data-validate="{$address_validation.alias.validate}" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{elseif isset($address->alias)}{$address->alias|escape:'html':'UTF-8'}{elseif !$select_address}{l s='My address'}{/if}" />
 			</div>

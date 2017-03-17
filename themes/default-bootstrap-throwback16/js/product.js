@@ -243,6 +243,7 @@ $(document).ready(function()
 		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-left");
 	});
 
+
 });
 
 //find a specific price rule, based on pre calculated dom display array
@@ -282,6 +283,15 @@ $(window).bind('hashchange', function(){
 	checkUrl();
 	findCombination();
 });
+
+// hover add_to_cart button disable => message
+$(document).on('mouseover', '#add_to_cart', function(){
+	if($(".btn").hasClass("disabled")){
+		$(".info").addClass("error");
+		$(".info").html("Merci de sélectionner une taille.").fadeIn(100).delay(5000).fadeOut(400);
+		}
+});
+
 
 //hover 'other views' images management
 $(document).on('mouseover', '#views_block li a', function(){

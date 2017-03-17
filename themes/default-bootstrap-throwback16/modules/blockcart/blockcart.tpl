@@ -212,20 +212,28 @@
 								<div class="layer_cart_product_info">
 									<span id="layer_cart_product_title" class="product-name"></span>
 									<!-- <span id="layer_cart_product_attributes"></span> -->
+									{if isset($product.attributes)}
 									 {assign var="attributes" value=$product.attributes}
 									 {assign var="split_size" value=","|explode:$attributes}
-			 						 {assign var="attribute_size" value=":"|explode:$split_size[0]}
+			 						 {if isset($split_size[0]) && $split_size[0]} {assign var="attribute_size" value=":"|explode:$split_size[0]}
+									 {assign var="sizing" value=$attribute_size[1]|trim}{/if}
+									 {if isset($split_size[1]) && $split_size[1]}
 									 {assign var="attribute_coloris" value=":"|explode:$split_size[1]}
-			 						 {assign var="sizing" value=$attribute_size[1]|trim}
 									 {assign var="coloris" value=$attribute_coloris[1]|trim}
+									 {/if}
+									{/if}
+									 {if isset($coloris) && $coloris}
 									<div>
 										<strong class="dark">{l s='Coloris' mod='blockcart'}&nbsp;:</strong>
 										<span >{$coloris}</span>
 									</div>
+									{/if}
+									{if isset($sizing) && $sizing}
 									<div>
 										<strong class="dark">{l s='Taille' mod='blockcart'}&nbsp;:</strong>
 										<span >{$sizing}</span>
 									</div>
+									{/if}
 									<div>
 										<strong class="dark">{l s='Quantity' mod='blockcart'}&nbsp;:</strong>
 										<span id="layer_cart_product_quantity"></span>
