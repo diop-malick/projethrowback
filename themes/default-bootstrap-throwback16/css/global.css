@@ -5847,7 +5847,7 @@ p.info-account {
 
 label {
   color: #333; }
-  label.required:before {
+  label.required:after {
     content: "*";
     color: red;
     font-size: 14px;

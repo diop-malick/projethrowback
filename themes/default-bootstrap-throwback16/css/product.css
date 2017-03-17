@@ -98,7 +98,7 @@ a.fancybox-nav {
 /* miniatures */
 .pb-left-column #views_block {
   margin-top: 10px;
-  margin-left: -2.8em;}
+  margin-left: -1.601em; }
   @media (max-width: 767px) {
     .pb-left-column #views_block {
       width: 280px;
@@ -1370,6 +1370,7 @@ h3.page-product-heading {
 .box-cart-chrono .panel-default {
   background-color: rgb(53, 53, 53);
   margin:0 !important;
+  width: 96% !important;
 }
 
 .box-cart-chrono .panel-default > .panel-body > span{
@@ -1424,5 +1425,16 @@ background: none;
 }
 #add_to_cart, #btn-attributes-size{
   width:96% !important;
+}
+
+.box-cart-bottom .info{
+	margin: 0.203125em 0;
+	line-height: 1.40625;
+	padding: 0;
+	z-index: -9;
+	max-height: 2em;
+}
+.box-cart-bottom  .info.error {
+	color: #F01800;
 }
 /*# sourceMappingURL=product.css.map */

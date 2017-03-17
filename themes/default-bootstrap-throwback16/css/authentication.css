@@ -28,4 +28,8 @@
 #login_form .form-control, #create-account_form .form-control {
   max-width: 271px; }
 
+  .account_creation .submit.clearfix{
+    text-align: center !important;
+  }
+
 /*# sourceMappingURL=authentication.css.map */
