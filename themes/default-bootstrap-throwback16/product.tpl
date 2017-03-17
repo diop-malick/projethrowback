@@ -13,7 +13,7 @@
 
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
-	
+
 	<div class="primary_block row">
 
 		<!-- {if !$content_only}
@@ -409,7 +409,8 @@
 															</div>
 															<div class="row">
 																<ul>
-																	<span class="btn"> <!-- to disable attributes for comming soon -->
+																<span class="btn" id="btn-attributes-size">
+																		 <!-- to disable attributes for comming soon -->
 																	{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																		<li>
 																			<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
@@ -419,7 +420,7 @@
 																			</label>
 																		</li>
 																	{/foreach}
-																</span>
+															</span>
 																</ul>
 															</div>
 														{/if}
@@ -475,7 +476,7 @@
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
 						<div class="row box-cart-bottom">
-							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
+							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="btn exclusive">
 										<span>{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Add to cart'}{/if}</span>
@@ -597,7 +598,7 @@
 
 
 		<div class="container">
-			<div class="tabbable col-xs-12 col-md-6">
+			<div class="tabbable col-xs-12 col-md-6" id="tabbable_product">
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
 				<div class="col-row">
@@ -624,7 +625,9 @@
 						</ul>
 					</section>
 				<!-- social sharing -->
+				<div data-easyshare data-easyshare-url="https://vps365425.ovh.net/throwback16/index.php">
 				{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+			</div>
 				</div>
 				<!-- // FEATURES -->
 
@@ -643,8 +646,10 @@
 
 			</div>
 
+
 		<!-- CMS page Acordion -->
 			<div class="panel-group col-xs-12 col-md-6" id="accordion">
+			    {if isset($product) && $product->description}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
@@ -656,17 +661,29 @@
 			      </div>
 			      <div id="collapse0" class="panel-collapse collapse in">
 			        <div class="panel-body">
-					    {if isset($product) && $product->description}
 							<div  class="rte text-justify">{$product->description}</div>
-						{/if}
 			        </div>
+			      </div>
+			    </div>
+			    {/if}
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h4 class="panel-title">
+			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
+			          	{l s='Paiement'}
+			          </a>
+			        </h4>
+			      </div>
+			      <div id="collapse1" class="panel-collapse collapse">
+			        <div class="panel-body">{$cms_content_1.content}</div>
 			      </div>
 			    </div>
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
 			          	{l s='Livraison'}
 			          </a>
 			        </h4>
@@ -679,7 +696,7 @@
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-			          	<span class="pull-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
 			          	{l s='Services'}
 			          </a>
 			        </h4>
@@ -884,3 +901,5 @@
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
 {/strip}
 {/if}
+
+<script src="/throwback16/themes/default-bootstrap-throwback16/js/jquery.kyco.easyshare.min.js"></script>

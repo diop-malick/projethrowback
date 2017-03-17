@@ -31,20 +31,27 @@
 </div>
 <div class="row commande_body">
 	<div  class="detail-articles">
-		{if isset($livraison) }
-			{$livraison->delay}
-		{/if}
+		
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-			<div class="panel2">
-				{foreach $products as $product}		
+
+			<div class="panel panel2">
+				{foreach $products as $product}
+
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
 					{assign var="attributes" value=(isset($product.attributes_small))?$product.attributes_small:$product.product_name}
 					{assign var="quantity" value=(isset($product.cart_quantity))?$product.cart_quantity:$product.product_quantity}
 					{assign var="split_size" value=","|explode:$attributes}
-					{assign var="sizing" value=$split_size[0]|trim}
-					{assign var="color" value=$split_size[1]|trim}
+
+					{if isset($split_size[0]) }
+						{assign var="sizing" value=$split_size[0]|trim}
+					{/if}
+						
+					{if isset($split_size[1]) }
+						{assign var="color" value=$split_size[1]|trim}
+					{/if}
+					
 					<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande facturette-tc">
 						<div class="col-md-8">
 							<span class="command-product-name">{$name|escape:'html':'UTF-8'}</span>
@@ -56,16 +63,21 @@
 					</div>
 
 					<div class="row attributes">
-						<div class="col-md-4 no-padding">
-							{l s='Couleur'}: {$color}
+						<div class="col-md-5 no-padding">
+							{if isset($color)}
+								{l s='Couleur'}: {$color}
+							{/if}
 						</div>
 						<div class="col-md-4 no-padding">
-							{l s='Taille'}: {$sizing}
+							{if isset($sizing)}
+								{l s='Taille'}: {$sizing}
+							{/if}
 						</div>
-						<div class="col-md-4 no-padding">
+						<div class="col-md-3 no-padding">
 							{l s='Quantité'}: {$quantity}
 						</div>
 					</div>
+					<br>
 				{/foreach}
 			</div>
 	</div>
@@ -104,6 +116,8 @@
 	</div>
 	<div class="row commande_body">
 		 {$livraison->name}
+		 <br>
+		 <strong>{l s='Délai :'}{$livraison->delay}</strong>
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
@@ -133,8 +147,10 @@
 			{/if}
 	</div>	
 {/if}
-<div class="row text-center processService">	
+
+<div class="row text-center processService">
 	{if $current_step == "shipping"}
+
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
 		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
@@ -144,14 +160,15 @@
 			</span>
 		</button>
 	{else if $current_step == "payment"}
-	<a href="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}">
-		<button disabled type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
+	<form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
+	<input type="hidden" name="confirm" value="1" />
+		<button type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium hidden  commande_button">
 			<span>
-				{l s='Payer et terminer'}
+				{l s='Terminer'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>
-	</a>
+	</form>
 	{/if}
 </div>	
 <script type="text/javascript">

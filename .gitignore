@@ -48,8 +48,10 @@ themes/*/cache/*.css
 
 modules/*/config*.xml
 
-modules/hipay_professional/*
+# modules/hipay_professional/*
+modules/hipay_professional/logs/*
 modules/mailalerts/*
+modules/paypal/*
 
 
 # Site content

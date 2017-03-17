@@ -2559,7 +2559,11 @@ bottom:72px !important;
 	text-align: center;
 	-webkit-transition: .5s all ease-in-out;
 	transition: .5s all ease-in-out;
+	background-color:Lightgrey !important;
+	color: white ! important;
 }
+
+.lp-box-readmore:hover {background-color: black !important}
 
 .lp-box-link {
 	display: none;
@@ -3687,7 +3691,12 @@ nav.sidebarmenu li a:hover {
 
 .no-results .content-search {
 	padding: 0;
+
 }
+
+
+.no-results h2 
+{color: black !important;}
 
 /* ## SIDEBAR SEARCH */
 .searchform input[type="search"] {
@@ -4847,7 +4856,7 @@ a:after{
 	margin-bottom: 20px;
 }
 .content-search.pad-container {
-	margin-top: -50px;
+	margin-top: 90px;
 	margin-left: 30%;
 
 
