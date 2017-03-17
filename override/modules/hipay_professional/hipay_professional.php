@@ -12,6 +12,7 @@ class Hipay_ProfessionalOverride extends Hipay_Professional
         /* BEGIN - Custom code */
         // Add Iframe directly on payment Page
         // copied from Redirect::generatePayment
+        
 
         require_once(dirname(__FILE__) . '/../../../modules/hipay_professional/classes/webservice/HipayPayment.php');
         $results = null;
@@ -24,7 +25,7 @@ class Hipay_ProfessionalOverride extends Hipay_Professional
             $description = $results->generateResult->description;
             Tools::displayError('An error occurred while getting transaction informations', $description);
         } else {
-            if (!$this->module->configHipay->payment_form_type) {
+            if (!$object_hipay_professional->configHipay->payment_form_type) {
                 $this->context->smarty->assign(array(
                     'iframe_url' => $results->generateResult->redirectUrl,
                     'cart_id' => $this->context->cart->id,
@@ -59,10 +60,10 @@ class Hipay_ProfessionalOverride extends Hipay_Professional
 
             $this->smarty->assign('hipay_prod', !(bool)$this->configHipay->sandbox_mode);
 
-            return $this->display(dirname(__FILE__), 'views/templates/hook/payment.tpl');
+            echo $this->display(dirname(__FILE__), 'views/templates/hook/payment.tpl');
         }
 
-        return false;
+       return false;
     }
 
 }

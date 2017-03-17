@@ -23,4 +23,5 @@
 .blicon-magnifier
  {color: red; font-weight: bold;}
 
+
 </style>
