@@ -598,7 +598,7 @@
 		{assign var=cms_content_18 value=CMS::getCMSContent(18, true, true)}
 
 
-		<div class="container">
+		<div class="row">
 			<div class="tabbable col-xs-12 col-md-6" id="tabbable_product">
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
