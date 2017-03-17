@@ -31,9 +31,7 @@
 </div>
 <div class="row commande_body">
 	<div  class="detail-articles">
-		{if isset($livraison) }
-			{$livraison->delay}
-		{/if}
+		
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
 
@@ -118,6 +116,8 @@
 	</div>
 	<div class="row commande_body">
 		 {$livraison->name}
+		 <br>
+		 <strong>{l s='Délai :'}{$livraison->delay}</strong>
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
