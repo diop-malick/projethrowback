@@ -43,11 +43,11 @@
 
     <div class="container">
     <div class="row addresses-lists">
-    	<div class="col-xs-12 col-sm-6 col-md-12">
+    	<div class="col-xs-12 col-sm-12 col-md-12">
     		<ul class="myaccount-link-list">
 
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" title="{l s='Information'}">
 	                		<div class="contenu">
 				                <span><i class="icon-user"></i></span>
@@ -60,7 +60,7 @@
 
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                    <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add my first address'}">
 	                    	<div class="contenu">
 			                    <span><i class="icon-building"></i></span>
@@ -72,7 +72,7 @@
 
                 {else}
                 <div class="myacount-block-container">
-                	<li class="col-sm-6">
+                	<li class="col-sm-6 col-xs-12 col-md-6">
                 		<a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" title="{l s='Addresses'}">
                 			<div class="contenu">
                 				<span><i class="icon-building"></i></span>
@@ -84,7 +84,7 @@
                  {/if}
 
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                	<a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='Orders'}">
 	                		<div class="contenu">
 	                			<span><i class="icon-list-ol"></i></span>
@@ -108,7 +108,7 @@
                 {/if}
 
                 <div class="myacount-block-container">
-                	<li class="col-sm-6">
+                	<li class="col-sm-6 col-xs-12 col-md-6">
                 		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}">
                 			<div class="contenu">
                 				<span><i class="fa fa-envelope"></i></span>

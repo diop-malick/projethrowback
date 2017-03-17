@@ -51,7 +51,7 @@
         <!-- <div class="container"> -->
         <div class="row vertical-center ">
             <div class="col-md-4 text-center">
-                <h4  {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
+                <h4 class="title-identity"  {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 ">
                     <div class="row form-group">
@@ -77,7 +77,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8">
-                                 <input class="col-md-8 is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
+                                 <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -85,7 +85,7 @@
                                 {l s='Confirmation'}
                             </label>
                             <div class="col-md-8">
-                                <input class="col-md-8 is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
+                                <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
                             </div>
                     </div>
 
@@ -97,7 +97,7 @@
 
         <div class="row vertical-center">
             <div class="col-md-4 text-center">
-                <h4 {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} class="grise" {/if}>{l s='Votre identité'}</h4>
+                <h4 class="title-identity" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} class="grise" {/if}>{l s='Votre identité'}</h4>
             </div>
             <div class="col-md-8">
             <!-- <div class="row"> -->
@@ -196,7 +196,7 @@
 
         <div class="row vertical-center">
             <div class="col-md-4 text-center">
-                <h4>{l s='Newletter'}</h4>
+                <h4 class="title-identity">{l s='Newletter'}</h4>
             </div>
             <div class="col-md-8">
                 <div class="row">

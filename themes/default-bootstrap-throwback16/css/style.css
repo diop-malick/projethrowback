@@ -348,6 +348,14 @@ input[type="text"]:disabled , input[readonly] {
   margin-left: 15px;
 }
 
+/************************** Adaptation mes infos perso *******************/
+
+@media (max-width: 768px) {
+.title-identity{
+display: none;
+  }
+}
+
 /* Page Liste
 ====================================  */
 #layered_price_range{
