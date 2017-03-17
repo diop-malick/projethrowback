@@ -362,18 +362,39 @@ input[type="text"]:disabled , input[readonly] {
 ====================================  */
 .qv-size{
   float: left;
-  padding-left: 30px;
-  padding-top: 10px
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 10px;
+  /*display: block;  */
+  margin-right: auto;  
+  margin-left: auto; 
 }
-.size-list{
-  border: 1px solid rgb(88, 89, 91);
-  border-radius: 2px;
-  padding: 5px 15px;
-  color:#000 !important;
-  font-weight: bold;
-  float: left;
-  margin: 5px;
+
+.size-list {
+    border: 1px solid rgb(88, 89, 91);
+    border-radius: 2px;
+    color: #000 !important;
+    font-weight: 900;
+    width: 49px;
+    height: 36px;
+    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 5px;
 }
+
+.qv-size li {
+    margin-right: 4%;
+    float: left;
+    margin-top: 10px;
+}
+
+.qv-size li:nth-child(5n) {
+    margin-right: 0px !important;
+}
+
+
+.customattributes .attribute_list ul li > label:hover,
 .size-list:hover{
   border: 1px solid rgb(214, 157, 50);
   color: rgb(214, 157, 50) !important;

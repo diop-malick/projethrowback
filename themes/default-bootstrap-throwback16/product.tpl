@@ -409,18 +409,18 @@
 															</div>
 															<div class="row">
 																<ul>
-																<span class="btn" id="btn-attributes-size">
-																		 <!-- to disable attributes for comming soon -->
-																	{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																	<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																		<li>
 																			<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																			<label for="radio_{$id_attribute|intval}">
-																			<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
-																			{$group_attribute|escape:'html':'UTF-8'}
+																				<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
+																				{assign var=someVar value=" "|explode:$group_attribute}
+																				{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 																			</label>
 																		</li>
-																	{/foreach}
-															</span>
+																		{/foreach}
+																	</span>
 																</ul>
 															</div>
 														{/if}
@@ -435,13 +435,14 @@
 				</div>
 				<!-- // rigth-row-3 -->
 
-				<!-- rigth-row-4 -->
-				<div id="rigth-row-4" class="row">
-					<!-- minimal quantity wanted -->
+				{* rigth-row-4 *}
+				{* minimal quantity wanted *}
+				
+				{* <div id="rigth-row-4" class="row">					
 					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
-				</div>
+				</div> *}
 
 				<!-- rigth-row-5 -->
 				<div id="rigth-row-5" class="row">
@@ -598,7 +599,7 @@
 		{assign var=cms_content_18 value=CMS::getCMSContent(18, true, true)}
 
 
-		<div class="container">
+		<div class="row">
 			<div class="tabbable col-xs-12 col-md-6" id="tabbable_product">
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
