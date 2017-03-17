@@ -240,7 +240,7 @@
 									</div>
 
 										<div class="disponible">
-											<span class="dispo_info">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later|upper}{else}{l s='In Stock'|upper}{/if}{else}{l s='Out of stock'|upper}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'|upper}{else}{l s='In Stock'|upper}{/if}{/if}
+											<span class="dispo_info">{l s='In Stock'|upper}<!--{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later|upper}{else}{l s='In Stock'|upper}{/if}{else}{l s='Out of stock'|upper}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'|upper}{else}{l s='In Stock'|upper}{/if}{/if}-->
 											</span>
 										</div>
 

@@ -98,7 +98,7 @@ a.fancybox-nav {
 /* miniatures */
 .pb-left-column #views_block {
   margin-top: 10px;
-  margin-left: -2.8em;}
+  margin-left: -1.601em; }
   @media (max-width: 767px) {
     .pb-left-column #views_block {
       width: 280px;
