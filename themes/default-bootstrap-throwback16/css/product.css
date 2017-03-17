@@ -98,7 +98,6 @@ a.fancybox-nav {
 /* miniatures */
 .pb-left-column #views_block {
   margin-top: 10px;
-  /*margin-left: -1.601em; */
 }
   @media (max-width: 767px) {
     .pb-left-column #views_block {
@@ -111,7 +110,7 @@ a.fancybox-nav {
 #thumbs_list {
     overflow: hidden;
     float: left;
-    width: 93%;
+    width: 93%;  
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
