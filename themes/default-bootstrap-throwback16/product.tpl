@@ -290,29 +290,27 @@
 					<div class="col-md-6 text-left">
 					<!-- quantity wanted -->
 
-
 						<!-- Flag GENRE -->
-						<!-- features from `ps_feature_lang` table - genre : 10  -->
+						<!-- features from `ps_feature_lang` table : genre : 10  -->
 						<div class="row">
-							<section>
-								<ul id="idTab2" class="bullet">
-								{foreach from=$features item=feature}
-									{if $feature.id_feature eq "10"}
-										<li>
-										{if isset($feature.value)}
-												<!-- <span>{$feature.name|escape:'html':'UTF-8'}</span> -->
-												<!-- <span>{$feature.value|escape:'html':'UTF-8'}</span> -->
-												<img src="{$base_dir}/img/icones/sexe.png"/>
+							<div class="col-md-12">
+								<section>
+									{foreach from=$features item=feature}
+										{if $feature.name eq 'genre'}
+											{if isset($feature.value)}
+												{assign var=gendertype value=$feature.value}
+											{/if}									
 										{/if}
-										</li>
-									{/if}
-								{/foreach}
-								</ul>
-							</section>
+									{/foreach}
+									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
+										<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
+										<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
+										<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
+									</ul>
+								</section>
+							</div>
 						</div>
 						<!-- // Flag GENRE -->
-
-						<div class="clearfix"></div>
 
 						<!-- COLOR  -->
 							<div class="row product_attributes clearfix">
