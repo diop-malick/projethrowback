@@ -62,8 +62,8 @@
 		<div id="page">
 
 		<!-- Header simplified -->
-		<!-- Hide in myaccount  -->
-		{if {$smarty.get.controller} eq 'authentication'}
+		<!-- Hide comlete header in myaccount and -->
+		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'order-confirmation' or (({$smarty.get.controller} eq 'order') && ( ({$smarty.get.step} eq '1') or ({$smarty.get.step} eq '2'))) }
 		<!-- TODO -->
 		{else}
 		<!-- Header complete -->

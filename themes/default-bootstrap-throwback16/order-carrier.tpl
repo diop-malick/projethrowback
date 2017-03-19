@@ -1,3 +1,20 @@
+
+{* TODO - to move *}
+<style type="text/css" media="screen">
+	#order .columns-container , #password .columns-container  {
+    margin-top: 0 !important;
+  }
+  #order #page{
+  min-height: 92.5vh;
+}
+</style>
+{* <pre>{$smarty.get.step} </pre> *}
+{* <pre>{$smarty.server.HTTP_HOST}</pre> *}
+{* <pre>{$smarty.server.REQUEST_URI}</pre> *}
+
+
+{include file="$tpl_dir./header-simple.tpl"}
+
 {if !$opc}
 	{capture name=path}{l s='Shipping:'}{/capture}
 	{assign var='current_step' value='shipping'}
