@@ -9,7 +9,7 @@
     Onglets paiements
     **********************************************************}
     <div class="paiement_block col-sm-9 payment_content  clearfix">
-      <div class="row delivery_options_address panel-group" id="accordion"> 
+      <div class="row panel-group" id="accordion"> 
                 
                 <div class="panel panel-default">
                   <div class="panel-heading">

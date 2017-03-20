@@ -31,9 +31,7 @@
 </div>
 <div class="row commande_body">
 	<div  class="detail-articles">
-		{if isset($livraison) }
-			{$livraison->delay}
-		{/if}
+		
 
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
 
@@ -118,6 +116,8 @@
 	</div>
 	<div class="row commande_body">
 		 {$livraison->name}
+		 <br>
+		 <strong>{l s='Délai :'}{$livraison->delay}</strong>
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
@@ -153,7 +153,7 @@
 
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="back" value="{$back}" />
-		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium  commande_button">
+		<button disabled type="submit" name="processCarrier" style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium commande_button">
 			<span>
 				{l s='Valider la livraison'}
 				<i class="icon-chevron-right right"></i>
@@ -162,9 +162,9 @@
 	{else if $current_step == "payment"}
 	<form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
 	<input type="hidden" name="confirm" value="1" />
-		<button type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default standard-checkout button-medium hidden  commande_button">
+		<button type="submit" name="processPayment"  style="width:100%;display: block" class="button btn btn-default buttonpayment standard-checkout button-medium hidden  commande_button">
 			<span>
-				{l s='Payer et terminer'}
+				{l s='Valider le paiement'}
 				<i class="icon-chevron-right right"></i>
 			</span>
 		</button>

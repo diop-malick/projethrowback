@@ -3,19 +3,9 @@
 
 <div class="my-account-selfcare">
 
-    <!--
-    <div class="row">
-            <h1 class="page-heading text-center">{l s='Bienvenue dans votre espace personnel'}</h1>
-    </div>
-    -->
     <h3 class="page-subheading text-center">{l s='Bienvenue dans votre espace personnel'}</h3>
 
-
-    <!-- BEGIN ============= MAILCHIMPS PROCESS ========= -->
-    <!-- <p>processMailchimpsInscription : {$processMailchimpsInscription}</p> -->
-    <!-- <p>{$cookie->customer_firstname|escape:'html':'UTF-8'}</p> -->
-    <!-- <p>{$cookie->customer_lastname|escape:'html':'UTF-8'}</p> -->
-    <!-- <p>{$cookie->email|escape:'html':'UTF-8'}</p> -->
+    {* BEGIN ============= MAILCHIMPS PROCESS =========  *}
     {if isset($processMailchimpsInscription) && $processMailchimpsInscription}
         {addJsDef processMailchimpsInscription=$processMailchimpsInscription}
         {addJsDef customer_firstname=$cookie->customer_firstname}
@@ -27,19 +17,15 @@
         <span class="response" id="mce-error-response" style="display:none; color:red;"></span>
         <span class="response" id="mce-success-response" style="display:none; color:green;"></span>
     </div>
-    <!-- END ============= MAILCHIMPS PROCESS ========= -->
-
-
-    <!--
+    {* END ============= MAILCHIMPS PROCESS ========= *}
+    
+    {* 
     {if isset($account_created)}
     	<p class="alert alert-success">
     		{l s='Your account has been created.'}
     	</p>
-    {/if}
-    -->
-
-    <!-- TODO : DELETE  with CSS  -->
-    <!-- <p class=" info-account">{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p> -->
+    {/if} 
+    *}
 
     <div class="container">
     <div class="row addresses-lists">
@@ -56,7 +42,6 @@
 		                </a>
 	                </li>
                 </div>
-
 
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
@@ -130,12 +115,6 @@
         </div>
     {/if}
     </div>
-    
-    {* ==================== 
-    <ul class="footer_links clearfix">
-    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span id="retour-accueil"><i><&nbsp;</i> {l s='Home'}</span></a></li>
-    </ul>
-    ================= *}
     
     <a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
         <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">

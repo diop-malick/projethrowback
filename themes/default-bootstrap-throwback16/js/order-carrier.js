@@ -45,30 +45,17 @@ $(document).ready(function(){
 		return false;
 	});
 
-
-	// Custom order carrer
-	$('#tabs').easyResponsiveTabs({
-	  type: 'accordion', //Types: default, vertical, accordion
-	  width: 'auto', //auto or any width like 600px
-	  fit: true, // 100% fit in a container
-	  closed: 'accordion', // Start closed if in accordion view
-	  tabidentify: 'tab', // The tab groups identifier
-	  activate: function() {	// Callback function, gets called if tab is switched  	
-	  	$('input[type=radio]',this).trigger('click');
-	  	initMap();
-	  }
-	});
-
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
+		$(this).parent().addClass('checked');
 		$('button.standard-checkout').removeAttr('disabled');
 		event.stopPropagation();
 	});
 
 	// COLAPSE TABS
+	// TODO - MOVE ON ORDER-custom
 	$('.collapse').on('shown.bs.collapse', function(){
 		$(this).parent().find(".resp-arrow").addClass("resp-arrow-active");		
-		// $(this).find('input[type=radio]').first().addClass("test");
 		$('input[type=radio]', this).first().click();
 		}).on('hidden.bs.collapse', function(){
 		$('.resp-arrow').removeClass("resp-arrow-active");

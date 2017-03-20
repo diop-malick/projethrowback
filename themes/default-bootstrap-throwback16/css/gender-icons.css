@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'gender-icons';
+    src: url('../fonts/gender-icons.eot?-yx55uw');
+    src: url('../fonts/gender-icons.eot?#iefix-yx55uw') format('embedded-opentype'), url('../fonts/gender-icons.woff?-yx55uw') format('woff'), url('../fonts/gender-icons.ttf?-yx55uw') format('truetype'), url('../fonts/gender-icons.svg?-yx55uw#gender-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gender-icon-"],
+[class*=" gender-icon-"] {
+    font-family: 'gender-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.gender-icon-kids:before {
+    content: "\e601";
+}
+
+.gender-icon-male:before {
+    content: "\e602";
+}
+
+.gender-icon-female:before {
+    content: "\e600";
+}
+
+.gender-label-group .gender-label {
+    padding-right: 10px;
+    padding-left: 0px;
+    text-indent: -10px;
+}
+
+.gender-label-group.men .gender-label .men {
+    color: #595B5A;
+}
+
+.gender-label-group.women .gender-label .women {
+    color: #595B5A;
+}
+
+.gender-label-group.kids .gender-label .kids {
+    color: #595B5A;
+}
+
+.gender-label-group .gender-label a {
+    color: #B5BDC1;
+    font-size: 40px;
+}
+
+.gender-label-group .gender-label a i {
+    width: 10px;
+    display: block;
+}
+
+ul.gender-label-group {
+    list-style: none;
+}
+
+.gender-label-group li {
+    display: inline-block;
+}

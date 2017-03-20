@@ -15,20 +15,6 @@
 {assign var="postCodeExist" value=false}
 {assign var="dniExist" value=false}
 {if !isset($email_create)}
-	<!--{if isset($authentification_error)}
-	<div class="alert alert-danger">
-		{if {$authentification_error|@count} == 1}
-			<p>{l s='There\'s at least one error'} :</p>
-			{else}
-			<p>{l s='There are %s errors' sprintf=[$account_error|@count]} :</p>
-		{/if}
-		<ol>
-			{foreach from=$authentification_error item=v}
-				<li>{$v}</li>
-			{/foreach}
-		</ol>
-	</div>
-	{/if}-->
 	{if ( isset($smarty.get.generate) && $smarty.get.generate =="1") }
 		<p class="alert alert-success">
 			{l s='Veuillez vous connecter avec votre nouveau mot de passe.'}
@@ -36,7 +22,7 @@
 
 	{/if}
 	<div class="row" id="center_column">
-	<div id="equalheight">  
+	<div id="equalheight">
 		<div class="col-xs-12 col-sm-6">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box is-customer">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
@@ -420,17 +406,17 @@
 	<!-- FORM -->
 	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="form-horizontal std box">
 		{$HOOK_CREATE_ACCOUNT_TOP}
-		
+
 		<div class="account_creation">
 			<h3 class="page-subheading">{l s='Your personal information'}</h3>
-			
+
 		<div class="row vertical-center">
             <div class="col-md-4 text-center">
                 <h4>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 ">
 	            <div class="row required form-group">
-					<label for="email" class="col-md-4 text-right control-label">{l s='Email'} <sup>*</sup></label>
+					<label for="email" class="col-md-4 text-right control-label required">{l s='Email'}</label>
 					<div class="col-md-8">
 						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" required />
 					</div>
@@ -442,22 +428,22 @@
                             </label>
                             <div class="col-md-8">
                             	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" required />
-                            </div>     
+                            </div>
                 </div>
 
 				<div class="row required password form-group">
-					<label for="passwd" class="col-md-4 text-right control-label">{l s='Password'} <sup>*</sup></label>
+					<label for="passwd" class="col-md-4 text-right control-label required">{l s='Password'}</label>
 					<div class="col-md-8">
 						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
 					</div>
 				</div>
 
 				<div class="row password form-group">
-                            <label for="confirmation" class="col-md-4 text-right control-label">
-                                &nbsp;&nbsp;{l s='Confirmation Pass'}
+                            <label for="confirmation" class="col-md-4 text-right control-label required">
+                                {l s='Confirmation Pass'}
                             </label>
                             <div class="col-md-8">
-                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" required />     
+                           	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" required />
                             </div>
                 </div>
             </div>
@@ -469,7 +455,7 @@
             </div>
             <div class="col-md-8">
 				<div class="row required form-group">
-					<label class="col-md-4 text-right">{l s='Title'}</label>
+					<label class="col-md-4 text-right required">{l s='Title'}</label>
 					<div class="col-md-8">
 						<select id="id_gender" name="id_gender" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
 										<option value="">{l s='Choisir la civilité'}</option>
@@ -481,16 +467,16 @@
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_firstname" class="col-md-4 text-right control-label">{l s='First name'} <sup>*</sup></label>
+					<label for="customer_firstname" class="col-md-4 text-right control-label required">{l s='First name'}</label>
 					<div class="col-md-8">
-						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. Légrandè" />
+						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. Jean – François" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_lastname" class="col-md-4 text-right control-label">{l s='Last name'} <sup>*</sup></label>
+					<label for="customer_lastname" class="col-md-4 text-right control-label required">{l s='Last name'}</label>
 					<div class="col-md-8">
-						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Jean – François" />
+						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Légrandè" />
 					</div>
 				</div>
 
@@ -539,13 +525,13 @@
 						</div>
 					</div>
 			</div>
-         </div>           
-            <!-- end col -->           
+         </div>
+            <!-- end col -->
         </div>
         <!-- end row -->
 
-	
-		<div class="row vertical-center">             
+
+		<div class="row vertical-center">
             <div class="col-md-4 text-center">
                 <h4>{l s='Newletter'}</h4>
             </div>
@@ -566,12 +552,12 @@
 							{if isset($optin) && $optin}
 								<div class="checkbox">
 									<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
-									
+
 									<label for="optin">{l s='Receive special offers from our partners!'}</label>
 									{if array_key_exists('optin', $field_required)}
 										<sup> *</sup>
 									{/if}
-									
+
 								</div>
 							{/if}
 							-->
@@ -702,7 +688,7 @@
 
 		{$HOOK_CREATE_ACCOUNT_FORM}
 
-		
+
 		<div class="submit clearfix">
 			<input type="hidden" name="email_create" value="1" />
 			<input type="hidden" name="is_new_customer" value="1" />
@@ -710,7 +696,7 @@
 			<button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium">
 				<span>{l s='Register'}<i class="icon-chevron-right right"></i></span>
 			</button>
-			
+
 		</div>
 	</form>
 </div> <!-- // my-account-selfcare -->
@@ -755,11 +741,11 @@
 {/strip}
 
 <script>
-	
+
 	$.validate({
 			lang : 'fr',
 			modules : 'html5,sanitize,toggleDisabled,security',
-			
+
 	});
-   	
+
 </script>
