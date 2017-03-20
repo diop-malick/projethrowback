@@ -120,7 +120,7 @@
 									<div class="col-md-6">
 										<span class="qv-reference">{$product.reference|upper}</span>
 									</div>
-									<div class="col-md-6 qv-dispo">
+									<div class="col-md-6">
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
 									</div>
 								</div>
