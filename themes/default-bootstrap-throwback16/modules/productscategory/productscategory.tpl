@@ -3,11 +3,12 @@
 <section class="page-product-box blockproductscategory">
 	
 	<h3 class="productscategory_h3 page-product-heading">
-		{if $categoryProducts|@count == 1}
+		{* {if $categoryProducts|@count == 1}
 			{l s='%s other product in the same category:' sprintf=[$categoryProducts|@count] mod='productscategory'}
 		{else}
 			{l s='%s other products in the same category:' sprintf=[$categoryProducts|@count] mod='productscategory'}
-		{/if}
+		{/if} *}
+		{l s='Vous aimerez également'}
 	</h3>
 
 	<!-- <div class="block products_block accessories-block clearfix"> -->
