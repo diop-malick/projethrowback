@@ -305,6 +305,32 @@ input[type="text"]:disabled , input[readonly] {
   margin-left: 15px;
 }
 
+/************************** Adaptation mes infos perso *******************/
+
+@media (max-width: 768px) {
+.title-identity{
+display: none;
+  }
+}
+
+@media (max-width: 992px) {
+.title-identity{
+display: none;
+  }
+}
+
+/*
+@media (max-width: 767px) {
+    div .text-center { text-align:left !important; }
+}
+*/
+
+/************************** Adaptation form adresse *******************/
+
+@media (max-width: 768px) {
+    label  { float:left !important; }
+}
+
 /* Page Liste
 ====================================  */
 #layered_price_range{
