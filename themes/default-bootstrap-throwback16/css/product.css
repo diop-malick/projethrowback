@@ -111,7 +111,7 @@ a.fancybox-nav {
     overflow: hidden;
     float: left;
     width: 93%;
-    
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -484,7 +484,9 @@ float: left;
   /*height: 37px;*/
   vertical-align: middle;
 }
-
+.titre_description{
+  font-size: 17px !important;
+}
 
 #quantity_wanted_p label, .customattributes fieldset label , .customattributes .custom-attribute .attribute_label {
     /*vertical-align: top;*/

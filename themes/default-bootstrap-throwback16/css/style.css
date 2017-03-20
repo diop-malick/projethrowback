@@ -337,12 +337,12 @@ input[type="text"]:disabled , input[readonly] {
     background: #dcdcdc;
 }
 
-.my-account-selfcare .button-exclusive, #page-commande .button-exclusive{
+.my-account-selfcare .button-exclusive, #page-commande .button-exclusive, .footer_links .button-exclusive, #history .button-exclusive{
   color:#333;
   font-size: 17px;
 }
 
-.my-account-selfcare .button-exclusive:hover, #page-commande .button-exclusive:hover{
+.my-account-selfcare .button-exclusive:hover, #page-commande .button-exclusive:hover, .footer_links .button-exclusive:hover, #history .button-exclusive:hover{
   text-decoration: underline;
 }
 #retour-accueil {
@@ -431,11 +431,13 @@ font-size: 17px;
    font-weight: bold;
    text-transform: uppercase;
 }
-
-#block-history {
-  margin-top: 50px;
+/* Enlever margin top sur la page historique des commandes*/
+/*#block-history {
+ margin-top: 50px;
+}*/
+#block-history .alert{
+  padding: 0 !important;
 }
-
 #rigth-row-5 {
  margin-top: 15px;
 }
@@ -705,7 +707,7 @@ border-color: #000;
  #carrier_area #form .container h1 {
   margin-top: 0;
  }
-}    
+}
 /********************************** Accordeon facturette *********************************/
 .commande_body .attributes{
   font-size: 12px;

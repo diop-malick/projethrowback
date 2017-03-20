@@ -34,7 +34,7 @@
 <!--<p class="info-title">{l s='Here are the orders you\'ve placed since your account was created.'}</p>-->
  <h3 class="page-subheading">{l s='Mes commandes'} <span id="my-details" style="display: none"> > {l s='Détails commandes'}</span></h3>
 {if $slowValidation}
-	<p class="alert alert-warning">{l s='If you have just placed an order, it may take a few minutes for it to be validated. Please refresh this page if your order is missing.'}</p>
+	<p class="alert">{l s='If you have just placed an order, it may take a few minutes for it to be validated. Please refresh this page if your order is missing.'}</p>
 {/if}
 <div class="block-center" id="block-history">
 	{if $orders && count($orders)}
@@ -112,15 +112,15 @@
 		</table>
 		<div id="block-order-detail" class="unvisible">&nbsp;</div>
 	{else}
-		<p class="alert alert-warning">{l s='You have not placed any orders.'}</p>
+		<p class="alert">{l s='You have not placed any orders.'}</p>
 	{/if}
 </div>
 
 <a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-    <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">
+
         <span>
-            <i class="icon-chevron-left left"></i>
-                {l s='Retour'}                
+            <i><</i>
+                {l s='Retour'}
         </span>
-    </button>
+
 </a>

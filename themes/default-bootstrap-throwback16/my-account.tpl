@@ -130,21 +130,22 @@
         </div>
     {/if}
     </div>
-    
-    {* ==================== 
+
+    {* ====================
     <ul class="footer_links clearfix">
     <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span id="retour-accueil"><i><&nbsp;</i> {l s='Home'}</span></a></li>
     </ul>
     ================= *}
-    
+    <div class="col-xs-12 col-sm-6 col-md-12">
     <a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
-        <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">
+
                 <span>
-                    <i class="icon-chevron-left left"></i>
-                    {l s='Home'}                
+                    <i> <</i>
+                    {l s='Home'}
                 </span>
-        </button>
+
     </a>
+  </div>
 </div>
 
 </div> <!-- // my acount-self care -->

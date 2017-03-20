@@ -23,7 +23,7 @@
 }
 
 .sf-contener_opacity .sf-menu {
-    background-color: rgba(53, 53, 53, 0.35) !important; 
+    background-color: rgba(53, 53, 53, 0.35) !important;
 }
 
   @media (max-width: 767px) {
@@ -75,8 +75,8 @@
   color: rgb(255, 255, 255);
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 1.143; 
-  
+  line-height: 1.143;
+
   display: block;
   padding: 17px 20px;
 
@@ -259,5 +259,6 @@ ul.sf-menu li li li.sfHover ul {
       max-width: 100%; }
 #block_top_menu li.category-thumbnail {
   padding-right: 0; }
+
 
 /*# sourceMappingURL=superfish-modified.css.map */
