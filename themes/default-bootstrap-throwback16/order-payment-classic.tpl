@@ -1,7 +1,16 @@
 <div class="container clearfix">
 
+{* <pre>{$smarty.get.step} </pre>
+<pre>{$smarty.server.HTTP_HOST}</pre>
+<pre>{$smarty.server.REQUEST_URI}</pre>
+<pre>
+  {$cart->id_carrier}
+</pre>
+<pre>
+  {$cart->delivery_option}
+</pre> *}
   <div>
-    <h2>{l s='Choisissez votre Mode Paiement'}</h2>
+    <h2>{l s='Choisissez votre mode de paiement'}</h2>
   </div>
   <br>
   <div class="row ">
