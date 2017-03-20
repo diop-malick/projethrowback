@@ -98,7 +98,7 @@ a.fancybox-nav {
 /* miniatures */
 .pb-left-column #views_block {
   margin-top: 10px;
-/*  margin-left: -1.601em;  */}
+}
   @media (max-width: 767px) {
     .pb-left-column #views_block {
       width: 280px;
@@ -110,8 +110,12 @@ a.fancybox-nav {
 #thumbs_list {
     overflow: hidden;
     float: left;
+<<<<<<< HEAD
     width: 93%;
 
+=======
+    width: 93%;  
+>>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -563,6 +567,7 @@ float: left;
       color: #666; }
 
 
+
 /*throwback < customizee*/
   .customattributes .attribute_list ul {
     clear: both;
@@ -571,9 +576,9 @@ float: left;
 .customattributes .attribute_list ul li {
 /*  margin-right: 10px;
   margin-top: 10px; */
-  margin-right: 1.39em;
+  margin-right: 0;
   margin-top: 10px;
-  width: 15%;
+  width: 20%;
 }
 .customattributes .attribute_list  ul li:nth-child(5n){
   margin-right: 0px !important;
@@ -588,7 +593,7 @@ float: left;
     vertical-align: middle;
     line-height: 12px;
     margin-right: 7px;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     border-radius: 2px;
     color: #000;
     font-size: 14px;
@@ -1394,7 +1399,9 @@ h3.page-product-heading {
 #availability_date .panel {
 }
 
-
+#accordion  {
+      padding-right: 0;
+}
 #accordion .panel-default {
 border : none;
 }
@@ -1423,9 +1430,16 @@ background: none;
     font-size: 15px;
   }
 
-#add_to_cart, #btn-attributes-size{
-  width:96% !important;
+#add_to_cart{
+  width: 100% !important;
 }
+
+ @media (min-width: 987px) {
+#btn-attributes-size{
+  width: 105% !important;
+}
+ }
+
 
 .box-cart-bottom .info{
 	margin: 0.203125em 0;

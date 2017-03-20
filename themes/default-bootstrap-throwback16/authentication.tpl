@@ -15,20 +15,6 @@
 {assign var="postCodeExist" value=false}
 {assign var="dniExist" value=false}
 {if !isset($email_create)}
-	<!--{if isset($authentification_error)}
-	<div class="alert alert-danger">
-		{if {$authentification_error|@count} == 1}
-			<p>{l s='There\'s at least one error'} :</p>
-			{else}
-			<p>{l s='There are %s errors' sprintf=[$account_error|@count]} :</p>
-		{/if}
-		<ol>
-			{foreach from=$authentification_error item=v}
-				<li>{$v}</li>
-			{/foreach}
-		</ol>
-	</div>
-	{/if}-->
 	{if ( isset($smarty.get.generate) && $smarty.get.generate =="1") }
 		<p class="alert alert-success">
 			{l s='Veuillez vous connecter avec votre nouveau mot de passe.'}

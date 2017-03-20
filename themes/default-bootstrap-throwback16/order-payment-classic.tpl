@@ -1,7 +1,16 @@
 <div class="container clearfix">
 
+{* <pre>{$smarty.get.step} </pre>
+<pre>{$smarty.server.HTTP_HOST}</pre>
+<pre>{$smarty.server.REQUEST_URI}</pre>
+<pre>
+  {$cart->id_carrier}
+</pre>
+<pre>
+  {$cart->delivery_option}
+</pre> *}
   <div>
-    <h2>{l s='Choisissez votre Mode Paiement'}</h2>
+    <h2>{l s='Choisissez votre mode de paiement'}</h2>
   </div>
   <br>
   <div class="row ">
@@ -16,7 +25,7 @@
                     <h4 class="panel-title">
                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
                       <span class="resp-arrow"></span>
-                        {l s='Paimement en magasin'}
+                        {l s='Paiement en magasin'}
                       </a>
                     </h4>
                   </div>

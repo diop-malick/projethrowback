@@ -255,29 +255,27 @@
 					<div class="col-md-6 text-left">
 					<!-- quantity wanted -->
 
-
 						<!-- Flag GENRE -->
-						<!-- features from `ps_feature_lang` table - genre : 10  -->
+						<!-- features from `ps_feature_lang` table : genre : 10  -->
 						<div class="row">
-							<section>
-								<ul id="idTab2" class="bullet">
-								{foreach from=$features item=feature}
-									{if $feature.id_feature eq "10"}
-										<li>
-										{if isset($feature.value)}
-												<!-- <span>{$feature.name|escape:'html':'UTF-8'}</span> -->
-												<!-- <span>{$feature.value|escape:'html':'UTF-8'}</span> -->
-												<img src="{$base_dir}/img/icones/sexe.png"/>
+							<div class="col-md-12">
+								<section>
+									{foreach from=$features item=feature}
+										{if $feature.name eq 'genre'}
+											{if isset($feature.value)}
+												{assign var=gendertype value=$feature.value}
+											{/if}									
 										{/if}
-										</li>
-									{/if}
-								{/foreach}
-								</ul>
-							</section>
+									{/foreach}
+									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
+										<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
+										<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
+										<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
+									</ul>
+								</section>
+							</div>
 						</div>
 						<!-- // Flag GENRE -->
-
-						<div class="clearfix"></div>
 
 						<!-- COLOR  -->
 							<div class="row product_attributes clearfix">
@@ -448,8 +446,13 @@
 
 				{* rigth-row-4 *}
 				{* minimal quantity wanted *}
+<<<<<<< HEAD
 
 				{* <div id="rigth-row-4" class="row">
+=======
+				
+				{* <div id="rigth-row-4" class="row">					
+>>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
 					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
@@ -727,7 +730,7 @@
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
 			<section class="page-product-box">
-				<h3 class="page-product-heading">{l s='Accessories'}</h3>
+				<h3 class="page-product-heading">{l s='Vous aimerez également'}</h3>
 				<div class="block products_block accessories-block clearfix">
 					<div class="block_content">
 						<ul id="bxslider" class="bxslider clearfix">
