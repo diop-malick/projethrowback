@@ -715,7 +715,7 @@
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
 			<section class="page-product-box">
-				<h3 class="page-product-heading">{l s='Accessories'}</h3>
+				<h3 class="page-product-heading">{l s='Vous aimerez également'}</h3>
 				<div class="block products_block accessories-block clearfix">
 					<div class="block_content">
 						<ul id="bxslider" class="bxslider clearfix">
