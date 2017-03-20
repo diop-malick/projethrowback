@@ -729,7 +729,7 @@
 
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
-			<section class="page-product-box">
+			<section class=" row page-product-box">
 				<h3 class="page-product-heading">{l s='Vous aimerez également'}</h3>
 				<div class="block products_block accessories-block clearfix">
 					<div class="block_content">
