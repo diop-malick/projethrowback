@@ -10,6 +10,22 @@
     **********************************************************}
     <div class="paiement_block col-sm-9 payment_content  clearfix">
       <div class="row panel-group" id="accordion"> 
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                      <span class="resp-arrow"></span>
+                        {l s='Par carte bancaire'}
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body delivery_options">
+                      {hook h='displayPayment' mod='hipay_professional'}
+                    </div> <!-- end panel body -->
+                  </div> <!-- end panel-collapse -->
+                </div> <!-- end panel-default -->
                 
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -27,21 +43,7 @@
                   </div> <!-- end panel-collapse -->
                 </div> <!-- end panel-default -->
 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                      <span class="resp-arrow"></span>
-                        {l s='Par carte bancaire'}
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapse1" class="panel-collapse collapse">
-                    <div class="panel-body delivery_options">
-                      {hook h='displayPayment' mod='hipay_professional'}
-                    </div> <!-- end panel body -->
-                  </div> <!-- end panel-collapse -->
-                </div> <!-- end panel-default -->
+                
                 
       </div> 
       {* end row panel-group *}

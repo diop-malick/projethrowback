@@ -326,11 +326,11 @@ display: none;
 */
 
 /************************** Adaptation form adresse *******************/
-
+/*
 @media (max-width: 768px) {
     label  { float:left !important; }
 }
-
+*/
 /* Page Liste
 ====================================  */
 #layered_price_range{
@@ -366,13 +366,13 @@ display: none;
 }
 
 .qv-size li {
-    margin-right: 4%;
+    margin-right: 5px;
     float: left;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .qv-size li:nth-child(5n) {
-    margin-right: 0px !important;
+    margin-right: 5px !important;
 }
 
 
@@ -384,11 +384,14 @@ display: none;
 .qv-reference{
   color:rgb(88, 89, 91) !important;
   font-weight: bold;
+  float: left;
+  margin-left:20px;
 }
 .qv-dispo{
   color:rgb(53, 53, 53) !important;
   font-weight: bold;
   text-transform: uppercase;
+  margin-right: -15px;
 }
 /* Page produit
 ====================================  */
@@ -632,6 +635,7 @@ border-color: #000;
   font-size: 24px;
   color: #000;
   font-weight: bold;
+  margin-top: 30px;
 }
 .panier-vide , .alert-no-adress{
   text-align: justify;
