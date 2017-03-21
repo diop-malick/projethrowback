@@ -230,7 +230,7 @@ ul.product_list.grid > li {
       margin-bottom: -60px! important;
 
     }
-  
+
 
     @media (min-width: 1200px) {
       ul.product_list.grid > li .product-container .comments_note {
@@ -552,6 +552,6 @@ Product list(Index page) Styles
 .product-container .right-block h5 {
     margin-bottom: 0px;
 }
-
+#min_quantity_message{display:none;}
 
 /*# sourceMappingURL=product_list.css.map */

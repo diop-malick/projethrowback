@@ -14,7 +14,26 @@
     	{foreach from=$multipleAddresses item=address name=myLoop}
         	<div class="col-xs-12 col-sm-6 address">
     			<ul class="{if $smarty.foreach.myLoop.last}last_item{elseif $smarty.foreach.myLoop.first}first_item{/if}{if $smarty.foreach.myLoop.index % 2} alternate_item{else} item{/if} box">
-                    <li><h3 class="page-subheading">{$address.object.alias}</h3></li>
+
+                    <div class="row">
+                      <div class="col-xs-8 col-sm-8 col-md-10">
+                          <h3 class="page-subheading" style="margin-top: 0;">{$address.object.alias}</h3>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-2 pull-right">
+                          {* <li class="address_update"> *}
+                          <div class="row">
+                            <div class="col-xs-6 text-right" style="padding: 0;">
+                              <a  class="edit" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}">
+                                <i class="fa fa-pencil-square-o icone-update icone-active " aria-hidden="true"></i></a>
+                            </div>
+                            <div class="col-xs-6 text-left" style="padding-left: 5px;">
+                                <a  class="cart_quantity_delete" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">X</a>
+                            </div>
+                        </div>
+                            {* </li> *}
+                        </div>
+                    </div>
+
                     {assign var="tab" value=array_splice($address.ordered, 1, 1)}
                     {assign var="tab2" value=array_splice($address.ordered, 0, 0, $tab)}
                     {foreach from=$address.ordered name=adr_loop item=pattern}
@@ -27,9 +46,7 @@
                         {/foreach}
                         </li>
                     {/foreach}
-                    <li class="address_update">
-                    <a  class="edit"href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
-                    <a  class="cart_quantity_delete" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">X</a></li>
+
                 </ul>
             </div>
     	{if $smarty.foreach.myLoop.index % 2 && !$smarty.foreach.myLoop.last}
@@ -43,12 +60,12 @@
     	<p class="alert alert-no-adress">{l s='No addresses are available.'}</p>
     {/if}
 
-    
+
     <div class="row">
         <div class="col-md-6">
 
         <!-- TODO - delete footer_links class style -->
-        {* ==================== 
+        {* ====================
             <ul class="footer_links clearfix">
                 <li><a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i><&nbsp;</i> {l s='Retour'}</span></a></li>
                 <!--
@@ -57,12 +74,12 @@
             </ul>
         ================= *}
             <a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-                <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">
+
                         <span>
-                            <i class="icon-chevron-left left"></i>
-                            {l s='Retour'}                
+                            <i><</i>
+                            {l s='Retour'}
                         </span>
-                </button>
+
             </a>
 
         </div>

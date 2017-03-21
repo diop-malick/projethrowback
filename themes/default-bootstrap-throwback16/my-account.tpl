@@ -18,22 +18,22 @@
         <span class="response" id="mce-success-response" style="display:none; color:green;"></span>
     </div>
     {* END ============= MAILCHIMPS PROCESS ========= *}
-    
-    {* 
+
+    {*
     {if isset($account_created)}
     	<p class="alert alert-success">
     		{l s='Your account has been created.'}
     	</p>
-    {/if} 
+    {/if}
     *}
 
     <div class="container">
     <div class="row addresses-lists">
-    	<div class="col-xs-12 col-sm-6 col-md-12">
+    	<div class="col-xs-12 col-sm-12 col-md-12">
     		<ul class="myaccount-link-list">
 
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" title="{l s='Information'}">
 	                		<div class="contenu">
 				                <span><i class="icon-user"></i></span>
@@ -45,7 +45,7 @@
 
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                    <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add my first address'}">
 	                    	<div class="contenu">
 			                    <span><i class="icon-building"></i></span>
@@ -57,7 +57,7 @@
 
                 {else}
                 <div class="myacount-block-container">
-                	<li class="col-sm-6">
+                	<li class="col-sm-6 col-xs-12 col-md-6">
                 		<a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" title="{l s='Addresses'}">
                 			<div class="contenu">
                 				<span><i class="icon-building"></i></span>
@@ -69,7 +69,7 @@
                  {/if}
 
                 <div class="myacount-block-container">
-	                <li class="col-sm-6">
+	                <li class="col-sm-6 col-xs-12 col-md-6">
 	                	<a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='Orders'}">
 	                		<div class="contenu">
 	                			<span><i class="icon-list-ol"></i></span>
@@ -93,7 +93,7 @@
                 {/if}
 
                 <div class="myacount-block-container">
-                	<li class="col-sm-6">
+                	<li class="col-sm-6 col-xs-12 col-md-6">
                 		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}">
                 			<div class="contenu">
                 				<span><i class="fa fa-envelope"></i></span>
@@ -115,15 +115,23 @@
         </div>
     {/if}
     </div>
-    
+
+
+    {* ====================
+    <ul class="footer_links clearfix">
+    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span id="retour-accueil"><i><&nbsp;</i> {l s='Home'}</span></a></li>
+    </ul>
+    ================= *}
+
     <a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
-        <button type="submit" class="button redirect_home btn btn-default button-medium pull-left">
+
                 <span>
-                    <i class="icon-chevron-left left"></i>
-                    {l s='Home'}                
+                    <i> <</i>
+                    {l s='Home'}
                 </span>
-        </button>
+
     </a>
+  </div>
 </div>
 
 </div> <!-- // my acount-self care -->

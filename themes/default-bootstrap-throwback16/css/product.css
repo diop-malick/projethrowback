@@ -110,7 +110,12 @@ a.fancybox-nav {
 #thumbs_list {
     overflow: hidden;
     float: left;
+<<<<<<< HEAD
+    width: 93%;
+
+=======
     width: 93%;  
+>>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -483,7 +488,9 @@ float: left;
   /*height: 37px;*/
   vertical-align: middle;
 }
-
+.titre_description{
+  font-size: 17px !important;
+}
 
 #quantity_wanted_p label, .customattributes fieldset label , .customattributes .custom-attribute .attribute_label {
     /*vertical-align: top;*/

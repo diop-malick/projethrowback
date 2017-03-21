@@ -404,45 +404,45 @@
 <div class="row my-account-selfcare">
 
 	<!-- FORM -->
-	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="form-horizontal std box">
+	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="form-horizontal box">
 		{$HOOK_CREATE_ACCOUNT_TOP}
 
 		<div class="account_creation">
 			<h3 class="page-subheading">{l s='Your personal information'}</h3>
 
 		<div class="row vertical-center">
-            <div class="col-md-4 text-center">
-                <h4>{l s='Vos Information de connexion'}</h4>
+            <div class="col-md-4 col-xs-0 text-center">
+                <h4  class="title-identity">{l s='Vos Information de connexion'}</h4>
             </div>
-            <div class="col-md-8 ">
+            <div class="col-md-8 col-xs-12">
 	            <div class="row required form-group">
-					<label for="email" class="col-md-4 text-right control-label required">{l s='Email'}</label>
-					<div class="col-md-8">
+					<label for="email" class="col-md-4 col-xs-4 text-right control-label required">{l s='Email'}</label>
+					<div class="col-md-8 col-xs-8">
 						<input type="email" class="is_required validate form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email}{/if}" required />
 					</div>
 				</div>
 
 				<div class="row password form-group">
-                            <label for="confirmation-mail" class="col-md-4 text-right control-label">
+                            <label for="confirmation-mail" class="col-md-4 col-xs-4 text-right control-label">
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-xs-8">
                             	<input class="is_required validate form-control" type="email" data-validation-confirm="email" data-validation="confirmation" data-validation-error-msg="{l s='Adresse mail non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex. contact@throwbacksneakers.fr" required />
                             </div>
                 </div>
 
 				<div class="row required password form-group">
-					<label for="passwd" class="col-md-4 text-right control-label required">{l s='Password'}</label>
-					<div class="col-md-8">
+					<label for="passwd" class="col-md-4 col-xs-4 text-right control-label required">{l s='Password'}</label>
+					<div class="col-md-8 col-xs-8">
 						<input type="password" class="is_required validate form-control" data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères.'}" name="passwd" id="passwd" placeholder="Par ex : throwback1" required />
 					</div>
 				</div>
 
 				<div class="row password form-group">
-                            <label for="confirmation" class="col-md-4 text-right control-label required">
+                            <label for="confirmation" class="col-md-4 col-xs-4 text-right control-label required">
                                 {l s='Confirmation Pass'}
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-xs-8">
                            	 	<input class="is_required validate form-control" type="password" data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" name="confirmation" id="confirmation" placeholder="Par ex : throwback1" required />
                             </div>
                 </div>
@@ -450,13 +450,13 @@
         </div>
 
 		<div class="row vertical-center">
-            <div class="col-md-4 text-center">
-                <h4>{l s='Votre identité'}</h4>
+            <div class="col-md-4 col-xs-0 text-center">
+                <h4 class="title-identity">{l s='Votre identité'}</h4>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-xs-12">
 				<div class="row required form-group">
-					<label class="col-md-4 text-right required">{l s='Title'}</label>
-					<div class="col-md-8">
+					<label class="col-md-4 col-xs-4 text-right required">{l s='Title'}</label>
+					<div class="col-md-8 col-xs-8">
 						<select id="id_gender" name="id_gender" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
 										<option value="">{l s='Choisir la civilité'}</option>
 						{foreach from=$genders key=k item=gender}
@@ -467,24 +467,24 @@
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_firstname" class="col-md-4 text-right control-label required">{l s='First name'}</label>
-					<div class="col-md-8">
+					<label for="customer_firstname" class="col-md-4 col-xs-4 text-right control-label required">{l s='First name'}</label>
+					<div class="col-md-8 col-xs-8">
 						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. Jean – François" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
-					<label for="customer_lastname" class="col-md-4 text-right control-label required">{l s='Last name'}</label>
-					<div class="col-md-8">
+					<label for="customer_lastname" class="col-md-4 col-xs-4 text-right control-label required">{l s='Last name'}</label>
+					<div class="col-md-8 col-xs-8">
 						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Légrandè" />
 					</div>
 				</div>
 
 				<div class="row form-group">
-					<label class="col-md-4 text-right">{l s='Date of Birth'}</label>
-					<div class="col-md-8">
+					<label class="col-md-4 col-xs-4 text-right">{l s='Date of Birth'}</label>
+					<div class="col-md-8 col-xs-8">
 						<div class="row select-date">
-							<div class="col-md-4">
+							<div class="col-md-4 col-xs-4">
 								<select id="days" name="days" class="select_title">
 									<option value="">-</option>
 									{foreach from=$days item=day}
@@ -506,7 +506,7 @@
 									{l s='December'}
 								*}
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4 col-xs-4">
 								<select id="months" name="months" class="select_title">
 									<option value="">-</option>
 									{foreach from=$months key=k item=month}
@@ -514,7 +514,7 @@
 									{/foreach}
 								</select>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4 col-xs-4">
 								<select id="years" name="years" class="select_title">
 									<option value="">-</option>
 									{foreach from=$years item=year}
@@ -532,10 +532,10 @@
 
 
 		<div class="row vertical-center">
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 col-xs-4 text-center">
                 <h4>{l s='Newletter'}</h4>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-xs-8">
             	<div class="row form-group">
             	<label for="newsletter" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
 	            	<div class="col-md-8">

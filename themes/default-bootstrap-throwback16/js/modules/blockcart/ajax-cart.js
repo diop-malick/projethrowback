@@ -351,7 +351,7 @@ var ajaxCart = {
 									else
 										ajaxCart.updateLayer(this);
 								}
-								
+
 						});
 					else
 						$(jsonData.products).each(function(){
@@ -765,7 +765,7 @@ var ajaxCart = {
 				if (error != 'indexOf')
 					errors += $('<div />').html(jsonData.errors[error]).text() + "\n";
 			if (!!$.prototype.fancybox)
-				$.fancybox.open([
+			/*	$.fancybox.open([
 					{
 						type: 'inline',
 						autoScale: true,
@@ -775,11 +775,15 @@ var ajaxCart = {
 				], {
 					padding: 0
 				});
-			else
-				alert(errors);
+			else*/
+
+			$("#min_quantity_message").css('display','block');
+			$(".info_quantity").html(errors)
+				/*alert(errors);*/
 		}
 		else
 		{
+				$("#min_quantity_message").css('display','none');
 			ajaxCart.updateCartEverywhere(jsonData);
 			ajaxCart.hideOldProducts(jsonData);
 			ajaxCart.displayNewProducts(jsonData);
