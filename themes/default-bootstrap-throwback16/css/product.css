@@ -1378,7 +1378,7 @@ h3.page-product-heading {
 .box-cart-chrono .panel-default {
   background-color: rgb(53, 53, 53);
   margin:0 !important;
-  width: 96% !important;
+  /*width: 96% !important;*/
 }
 
 .box-cart-chrono .panel-default > .panel-body > span{
