@@ -153,30 +153,27 @@ Livraison à domicile
 			        				<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">
 			        					<div class="addresses clearfix">
 			        						{* Adresses INFO *}
-			        						<div class="row addresses">
+			        						<br>
+			        						<div class="row addresses">															
 			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
 			        								<span class="waitimage"></span>
-			        								<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
+			        								<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
 
 			        								</ul>
 			        							</div>
-			        						</div>
-											
-											{* Adresses ADD *}
-											{if !isset($addresses)}
-											<div class="row none">
-													<div class="col-sm-12">															
-														<p class="address_add submit" style="text-align: center">
-															<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																<span>Ajouter votre première adresse<i class="icon-chevron-right right"></i></span>
-															</a>
-														</p>	
-													</div>																
-												</div>
-											{/if}
-												
-											
-										</div> <!-- end addresses -->
+			        						</div> <!-- end row -->	
+			        						{if !isset($addresses)}
+			        						<div class="row none">
+			        							<div class="col-sm-12">															
+			        								<p class="address_add submit" style="text-align: center">
+			        									<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+			        										<span>Ajouter votre première adresse<i class="icon-chevron-right right"></i></span>
+			        									</a>
+			        								</p>	
+			        							</div>																
+			        						</div> <!-- end row -->
+			        						{/if}
+			        					</div> <!-- end addresses -->
 									</div> <!-- end delivery_option -->
 								</div> <!-- end delivery_options -->
 							</div> <!-- end delivery_options_address -->
@@ -250,59 +247,58 @@ Livraison À une autre adresse
 			        			<div class="delivery_options resp-tabs-container tab">
 			        				<div class="delivery_option item  resp-tab-content resp-tab-content-active tab">
 			        					<div class="addresses clearfix">
-														<p style="color:#ec4040">
-															<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-														</p>
-														<br>
-														{* Adresses selector *}
-			        										{* TODO - check delete virtual cart	code *}
-														<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
-															<div class="col-xs-12 col-sm-6">
-																<div class="address_delivery select form-group selector1">
-																	<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
-																	<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-																		{if isset($addresses) && $addresses|@count gt 1}
-																			{foreach from=$addresses key=k item=address name=addresses}
-																				{if $smarty.foreach.addresses.iteration > 1}
-																					<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
-																						{$address.alias|escape:'html':'UTF-8'}
-																					</option>
-																					{if $smarty.foreach.addresses.iteration == 3}
-																						{assign var=maxAddresses value=true}
-																						{break}
-																					{/if}
-																				{/if }
-																			{/foreach}
-																		{/if}
-																	</select>
-																</div>																
-															</div>																	
-														</div> <!-- end row -->
-														{* end Adresses selector *}
+			        						<p style="color:#ec4040">
+			        							<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
+			        						</p>
+			        						<br>
+			        						{* Adresses selector *}
+			        						{* TODO - check delete virtual cart	code *}
+			        						<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
+			        							<div class="col-xs-12 col-sm-6">
+			        								<div class="address_delivery select form-group selector1">
+			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
+			        									<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+			        										{if isset($addresses) && $addresses|@count gt 1}
+			        										{foreach from=$addresses key=k item=address name=addresses}
+			        										{if $smarty.foreach.addresses.iteration > 1}
+			        										<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
+			        											{$address.alias|escape:'html':'UTF-8'}
+			        										</option>
+			        										{if $smarty.foreach.addresses.iteration == 3}
+			        										{assign var=maxAddresses value=true}
+			        										{break}
+			        										{/if}
+			        										{/if }
+			        										{/foreach}
+			        										{/if}
+			        									</select>
+			        								</div>																
+			        							</div>																
+			        						</div> <!-- end row -->
+			        						{* end Adresses selector *}
+			        						<br>
 
-														<br>
-														<div class="row addresses">
-															<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
-																<span class="waitimage"></span>
-																<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
-																
-																</ul>
-															</div>
-														</div> <!-- end row -->
-														
-															<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}">
-																															
-															</div> <!-- end row -->
-																								
-														<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
-															<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-																<span>Ajouter une adresse secondaire<i class="icon-chevron-right right"></i></span>
-															</a>
-														</p>
-													</div> <!-- end addresses -->													
-													<div id="address" class="hidden clearfix"></div>
+			        						{* Adresses INFO *}
+			        						<div class="row addresses">
+			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
+			        								<span class="waitimage"></span>
+			        								<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
 
-									</div> <!-- end delivery_option -->
+			        								</ul>
+			        							</div>
+			        						</div>
+
+			        						<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}"></div>
+
+			        						<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
+			        							<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+			        								<span>Ajouter une adresse secondaire<i class="icon-chevron-right right"></i></span>
+			        							</a>
+			        						</p>
+			        					</div> <!-- end addresses -->													
+			        					<div id="address" class="hidden clearfix"></div>
+
+			        				</div> <!-- end delivery_option -->
 								</div> <!-- end delivery_options -->
 							</div> <!-- end delivery_options_address -->
 
