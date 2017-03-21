@@ -22,6 +22,19 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+
+{* custom thorwback - simple header *}
+{* TODO - to move *}
+<style type="text/css" media="screen">
+	#order .columns-container , #password .columns-container  {
+    margin-top: 0 !important;
+  }
+  #order #page{
+  min-height: 92.5vh;
+}
+</style>
+{include file="$tpl_dir./header-simple.tpl"}
+
 {if !$opc}
 	{addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}
 	{addJsDefL name=txtProducts}{l s='products' js=1}{/addJsDefL}

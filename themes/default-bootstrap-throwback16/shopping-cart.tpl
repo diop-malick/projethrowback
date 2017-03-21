@@ -249,7 +249,7 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 margin-top-10">
-										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}not-dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}
+										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='Disponible'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='Disponible'}{/if}{/if}
 										</span>
 									</div>
 								</div>
@@ -270,11 +270,11 @@
 							<div class="col-md-1">
 								<div class="row">
 									
-									<div class="col-md-6 edit">
+									<div class="col-xs-6 text-right" style="padding: 0;">
 										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-md-6 delete">
+									<div class="col-xs-6 text-left" style="padding-left: 5px;">
 										<a
 											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"

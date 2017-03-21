@@ -448,8 +448,8 @@
 				{* minimal quantity wanted *}
 
 
-				{* <div id="rigth-row-4" class="row">
 
+				{* <div id="rigth-row-4" class="row">
 					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
@@ -679,7 +679,8 @@
 			      </div>
 			    </div>
 			    {/if}
-			    <div class="panel panel-default">
+
+			    {* <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -691,7 +692,8 @@
 			      <div id="collapse1" class="panel-collapse collapse">
 			        <div class="panel-body">{$cms_content_1.content}</div>
 			      </div>
-			    </div>
+			    </div> *}
+
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
@@ -726,7 +728,7 @@
 
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
-			<section class="page-product-box">
+			<section class=" row page-product-box">
 				<h3 class="page-product-heading">{l s='Vous aimerez également'}</h3>
 				<div class="block products_block accessories-block clearfix">
 					<div class="block_content">

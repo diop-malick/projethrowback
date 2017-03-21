@@ -3,7 +3,7 @@ $(document).ready(function() {
 		$('#bxslider1').bxSlider({
 			minSlides: 2,
 			maxSlides: 4,
-			slideWidth: 295,
+			slideWidth: 290,
 			slideMargin: 16,
 			// pager: false,
 			// nextText: '',

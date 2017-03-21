@@ -1,6 +1,6 @@
 
 {if count($categoryProducts) > 0 && $categoryProducts !== false}
-<section class="page-product-box blockproductscategory">
+<section class="row page-product-box blockproductscategory">
 	
 	<h3 class="productscategory_h3 page-product-heading">
 		{* {if $categoryProducts|@count == 1}

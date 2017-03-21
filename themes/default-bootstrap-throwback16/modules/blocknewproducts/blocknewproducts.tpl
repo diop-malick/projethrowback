@@ -2,7 +2,7 @@
 
 
 <!-- MODULE Block new products -->
-<section class="page-product-box">
+<section class=" row page-product-box">
     <h4 class="title_block">
           {if {$smarty.get.controller} eq 'order'}
             {l s='Découvrez nos nouveautés' mod='blocknewproducts'}

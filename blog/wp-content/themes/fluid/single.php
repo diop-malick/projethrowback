@@ -47,7 +47,7 @@ get_header();?>
 
 					<nav id="nav-below" class="navigation" role="navigation">
 
-					<div class="accueil"><a href="http://localhost/throwback16/blog"> < Accueil </a> </div>
+					<div class="accueil"><a href="https://vps365425.ovh.net/throwback16/blog"> < Accueil </a> </div>
 					
 
 						<div class="nav-previous" style="right:155px" ><?php previous_post_link( '%link', '<i class="icon-angle-left"></i> <span>Article précédent</span>' ); ?></div>

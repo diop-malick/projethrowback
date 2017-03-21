@@ -4,7 +4,7 @@ $(document).ready(function()
 		$('#bxslider').bxSlider({
 			minSlides: 2,
 			maxSlides: 4,
-			slideWidth: 285,
+			slideWidth: 290,
 			slideMargin: 16,
 			moveSlides:4,
 			controls:false,
