@@ -12,8 +12,13 @@
 
 				      			 <span id="icone_mon_compte"><span  class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
 
-				      				 <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/>
-											 <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
+				      				{* <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
+									{* <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/> *}
+									
+									{* <i class="fa fa-user fa-2x" aria-hidden="true"></i> *}
+									
+									<i class="material-icons"">person</i>
+									{* <i class="material-icons">person_outline</i> *}
 
 
 				      			</span>

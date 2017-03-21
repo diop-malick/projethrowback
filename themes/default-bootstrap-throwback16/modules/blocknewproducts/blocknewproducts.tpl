@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="row text-right s_title_block">
                                         <!-- Picto new product -->
-                                            {if ($accessory.quantity > 0) || !$accessory.available_for_order || $PS_CATALOG_MODE || !isset($accessory.available_date) || $accessory.available_date < $smarty.now|date_format:'%Y-%m-%d'}
+                                            {if $accessory.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
                                                 <img src="{$base_dir}/img/icones/chrono.png"/>
                                             
                                             {elseif isset($accessory.new) && $accessory.new == 1}
