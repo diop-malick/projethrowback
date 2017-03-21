@@ -23,13 +23,22 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-{capture name=path}{l s='Order confirmation'}{/capture}
+<style type="text/css" media="screen">
+	#order-confirmation .columns-container , #password .columns-container  {
+    margin-top: 0 !important;
+  }
+  #order-confirmation #page{
+  min-height: 92.5vh;
+}
+</style>
+{include file="$tpl_dir./header-simple.tpl"}
 
-<h1 class="page-heading">{l s='Order confirmation'}</h1>
+{capture name=path}{l s='Order confirmation'}{/capture}
 
 {assign var='current_step' value='confirmation'}
 {include file="$tpl_dir./order-steps.tpl"}
 
+<h1 class="page-heading">{l s='Order confirmation'}</h1>
 {include file="$tpl_dir./errors.tpl"}
 
 <div class="col-sm-9">

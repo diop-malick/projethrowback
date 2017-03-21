@@ -20,7 +20,6 @@
                           <h3 class="page-subheading" style="margin-top: 0;">{$address.object.alias}</h3>
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-2 pull-right">
-                          {* <li class="address_update"> *}
                           <div class="row">
                             <div class="col-xs-6 text-right" style="padding: 0;">
                               <a  class="edit" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}">
@@ -30,7 +29,6 @@
                                 <a  class="cart_quantity_delete" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">X</a>
                             </div>
                         </div>
-                            {* </li> *}
                         </div>
                     </div>
 
