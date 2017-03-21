@@ -446,13 +446,9 @@
 
 				{* rigth-row-4 *}
 				{* minimal quantity wanted *}
-<<<<<<< HEAD
 
-				{* <div id="rigth-row-4" class="row">
-=======
 				
 				{* <div id="rigth-row-4" class="row">					
->>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
 					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
