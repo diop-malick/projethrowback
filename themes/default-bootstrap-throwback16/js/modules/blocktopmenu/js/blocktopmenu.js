@@ -32,6 +32,16 @@ $(document).ready(function(){
 	mCategoryGrover = $('.sf-contener .cat-title');
 	responsiveMenu();
 	$(window).resize(responsiveMenu);
+
+	// Desactiver les liens catégories cms dans le menu horizontal
+	var catCmsDir = "index.php?id_cms_category";
+	var dir = baseDir + catCmsDir;
+	var els = document.querySelectorAll("a[href^='"+dir+"']");
+for (var i = 0, l = els.length; i < l; i++) {
+  var el = els[i];
+
+  el.style.pointerEvents = "none";
+}
 });
 
 // check resolution

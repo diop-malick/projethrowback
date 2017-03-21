@@ -215,7 +215,7 @@ ul.product_list.grid > li {
     /* Throwback > product container > découpage bloc */
     ul.product_list.grid > li .product-container .content_price {
       /*padding-bottom: 9px;*/
-      line-height: 21px; 
+      line-height: 21px;
       z-index: 2000;
     }
     ul.product_list.grid > li .product-container .content_price > img {
@@ -228,6 +228,7 @@ ul.product_list.grid > li {
       z-index: 900;
       /*TODO check repercution*/
       margin-bottom: -60px! important;
+
     }
 
 
@@ -306,7 +307,7 @@ ul.product_list.grid > li {
         display: block;
     }
 
-  
+
   /* Transition in effect - like overskillshop*/
 
   ul.product_list.grid > li.hovered {
@@ -315,19 +316,19 @@ ul.product_list.grid > li {
     -webkit-transition: all 0.4s;
         -moz-transition: all 0.4s;
         -o-transition: all 0.4s;
-        transition: all 0.4s; 
+        transition: all 0.4s;
   }
   ul.product_list.grid > li.hovered .product-image-container img {
       -webkit-transition: all 0.4s;
       -moz-transition: all 0.4s;
       -o-transition: all 0.4s;
-      transition: all 0.4s; 
+      transition: all 0.4s;
     }
   ul.product_list.grid > li.hovered .product-container {
         -webkit-transition: all 0.4s;
         -moz-transition: all 0.4s;
         -o-transition: all 0.4s;
-        transition: all 0.4s;   
+        transition: all 0.4s;
   }
 
     ul.product_list.grid > li.hovered .product-container .product-image-container .product_img_link {
@@ -353,23 +354,23 @@ ul.product_list.grid > li {
 
 }
 
-  
+
   @media (min-width: 992px) {
       ul.product_list.grid > li.first-in-line {
           clear: left;
       }
   }
-  
+
   @media (min-width: 480px) and (max-width: 991px) {
       ul.product_list.grid > li.first-item-of-tablet-line {
           clear: left;
       }
   }
-  
+
   ul.product_list.grid li.hovered h5 {
       min-height: 30px;
   }
-  
+
   @media (min-width: 1200px) {
       #blockpack ul > li.last-line {
           border: none;
@@ -377,7 +378,7 @@ ul.product_list.grid > li {
           margin-bottom: 0;
       }
   }
-  
+
   @media (min-width: 480px) and (max-width: 767px) {
       #blockpack ul > li.first-item-of-tablet-line {
           clear: none;
@@ -551,8 +552,6 @@ Product list(Index page) Styles
 .product-container .right-block h5 {
     margin-bottom: 0px;
 }
-
+#min_quantity_message{display:none;}
 
 /*# sourceMappingURL=product_list.css.map */
-
-

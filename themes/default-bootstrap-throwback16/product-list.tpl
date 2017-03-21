@@ -120,19 +120,29 @@
 									<div class="col-md-6">
 										<span class="qv-reference">{$product.reference|upper}</span>
 									</div>
-									<div class="col-md-6 qv-dispo">
+									<div class="col-md-6">
 										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
 									</div>
 								</div>
 								{if isset($groups) && $groups}
-								<div class=qv-size>
+								<div class="row qv-size">
+								<ul>
+
 									{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+									
 										{if ($group.group_type == 'radio')}
 												{foreach from=$group.attributes key=id_attribute item=group_attribute}
-														<span class="size-list">{$group_attribute|escape:'html':'UTF-8'}</span>
+												<li>
+														{assign var=someVar value=" "|explode:$group_attribute}
+														<span class="size-list">
+														{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+														</span>
+												</li>
 												{/foreach}
 										{/if}
+										
 									{/foreach}
+									</ul>
 								</div>
 								{/if}
 							</div>

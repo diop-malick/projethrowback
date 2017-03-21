@@ -9,6 +9,7 @@
 
 (function ($) {
 	"use strict";
+	
 
 	var methods = (function () {
 		// private properties and methods go here
@@ -253,5 +254,6 @@
 		hideSuperfishUl: methods.hide,
 		showSuperfishUl: methods.show
 	});
+
 
 })(jQuery);

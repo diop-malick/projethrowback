@@ -98,7 +98,7 @@ a.fancybox-nav {
 /* miniatures */
 .pb-left-column #views_block {
   margin-top: 10px;
-  margin-left: -2.8em;}
+}
   @media (max-width: 767px) {
     .pb-left-column #views_block {
       width: 280px;
@@ -110,7 +110,12 @@ a.fancybox-nav {
 #thumbs_list {
     overflow: hidden;
     float: left;
+<<<<<<< HEAD
     width: 93%;
+
+=======
+    width: 93%;  
+>>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -483,7 +488,9 @@ float: left;
   /*height: 37px;*/
   vertical-align: middle;
 }
-
+.titre_description{
+  font-size: 17px !important;
+}
 
 #quantity_wanted_p label, .customattributes fieldset label , .customattributes .custom-attribute .attribute_label {
     /*vertical-align: top;*/
@@ -560,6 +567,7 @@ float: left;
       color: #666; }
 
 
+
 /*throwback < customizee*/
   .customattributes .attribute_list ul {
     clear: both;
@@ -568,9 +576,9 @@ float: left;
 .customattributes .attribute_list ul li {
 /*  margin-right: 10px;
   margin-top: 10px; */
-  margin-right: 1.39em;
+  margin-right: 0;
   margin-top: 10px;
-  width: 15%;
+  width: 20%;
 }
 .customattributes .attribute_list  ul li:nth-child(5n){
   margin-right: 0px !important;
@@ -585,7 +593,7 @@ float: left;
     vertical-align: middle;
     line-height: 12px;
     margin-right: 7px;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     border-radius: 2px;
     color: #000;
     font-size: 14px;
@@ -1370,6 +1378,7 @@ h3.page-product-heading {
 .box-cart-chrono .panel-default {
   background-color: rgb(53, 53, 53);
   margin:0 !important;
+  width: 96% !important;
 }
 
 .box-cart-chrono .panel-default > .panel-body > span{
@@ -1390,7 +1399,9 @@ h3.page-product-heading {
 #availability_date .panel {
 }
 
-
+#accordion  {
+      padding-right: 0;
+}
 #accordion .panel-default {
 border : none;
 }
@@ -1418,11 +1429,26 @@ background: none;
     font-weight: 500;
     font-size: 15px;
   }
-/* Align social media and image */
-#tabbable_product  {
-  margin-left: -2.3125em;
+
+#add_to_cart{
+  width: 100% !important;
 }
-#add_to_cart, #btn-attributes-size{
-  width:96% !important;
+
+ @media (min-width: 987px) {
+#btn-attributes-size{
+  width: 105% !important;
+}
+ }
+
+
+.box-cart-bottom .info{
+	margin: 0.203125em 0;
+	line-height: 1.40625;
+	padding: 0;
+	z-index: -9;
+	max-height: 2em;
+}
+.box-cart-bottom  .info.error {
+	color: #F01800;
 }
 /*# sourceMappingURL=product.css.map */

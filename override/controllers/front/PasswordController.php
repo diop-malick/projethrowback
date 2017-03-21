@@ -26,10 +26,17 @@
 
 class PasswordController extends PasswordControllerCore
 {
+	
+	public function changeLink($token , $id_customer , $statut , $link_secure=null){
+		
+		$data = $link_secure ?  array('link_active' => $statut , 'link_secure' => pSQL($link_secure) ) : array('link_active' => $statut );
+        $where = 'secure_key = \''.pSQL($token).'\' AND id_customer = '.(int)$id_customer;
+        Db::getInstance()->update('customer' , $data ,$where);
+	}
+
     public function postProcess()
     {
-        //define('MAX_LIMIT', '360');
-
+        
         if (Tools::isSubmit('email')) {
             if (!($email = trim(Tools::getValue('email'))) || !Validate::isEmail($email)) {
                 $this->errors[] = Tools::displayError('Invalid email address.');
@@ -43,16 +50,17 @@ class PasswordController extends PasswordControllerCore
                 } elseif ((strtotime($customer->last_passwd_gen.'+'.($min_time = (int)Configuration::get('PS_PASSWD_TIME_FRONT')).' minutes') - time()) > 0) {
                     $this->errors[] = sprintf(Tools::displayError('You can regenerate your password only every %d minute(s)'), (int)$min_time);
                 } else {
+                	$link_secure = md5(uniqid(rand(), true));
+                	
                     $mail_params = array(
                         '{email}' => $customer->email,
                         '{lastname}' => $customer->lastname,
                         '{firstname}' => $customer->firstname,
-                        '{url}' => $this->context->link->getPageLink('password', true, null, 'token='.$customer->secure_key.'&id_customer='.(int)$customer->id)
+                        '{url}' => $this->context->link->getPageLink('password', true, null, 'token='.$customer->secure_key.'&id_customer='.(int)$customer->id.'&link='.$link_secure)
                     );
                     if (Mail::Send($this->context->language->id, 'password_query', Mail::l('Password query confirmation'), $mail_params, $customer->email, $customer->firstname.' '.$customer->lastname)) {
 
-                        //$customer->last_passwd_gen = date('Y-m-d H:i:s', time());
-                        //$customer->update();
+                       $this->changeLink($customer->secure_key , (int)$customer->id , 0 , $link_secure);
 
                         $this->context->smarty->assign(array('confirmation' => 2, 'customer_email' => $customer->email));
                     } else {
@@ -60,9 +68,9 @@ class PasswordController extends PasswordControllerCore
                     }
                 }
             }
-        } elseif (($token = Tools::getValue('token')) && ($id_customer = (int)Tools::getValue('id_customer'))) {
-            
-            $email = Db::getInstance()->getValue('SELECT `email` FROM '._DB_PREFIX_.'customer c WHERE c.`secure_key` = \''.pSQL($token).'\' AND c.id_customer = '.(int)$id_customer);
+        } elseif (($token = Tools::getValue('token')) && ($id_customer = (int)Tools::getValue('id_customer')) && ($link_secure = Tools::getValue('link'))) {
+
+            $email = Db::getInstance()->getValue('SELECT `email` FROM '._DB_PREFIX_.'customer c WHERE c.`secure_key` = \''.pSQL($token).'\' AND c.id_customer = '.(int)$id_customer.' AND c.link_active = 0 AND c.link_secure = \''.pSQL($link_secure).'\'' );
             if ($email) {
                 $customer = new Customer();
                 $customer->getByemail($email);
@@ -74,13 +82,11 @@ class PasswordController extends PasswordControllerCore
                     //Tools::redirect('index.php?controller=authentication&error_regen_pwd');
                     $this->errors[] = Tools::displayError("Le lien n'est plus valable");
                 } else {
-                            //$customer->last_passwd_gen = date('Y-m-d H:i:s', time());
-                           // $customer->update();
-
+                			$this->changeLink($token , $id_customer , 1);
                             $this->context->smarty->assign(array('confirmation' => 1, 'customer_email' => $customer->email));
                 }
             } else {
-                $this->errors[] = Tools::displayError('We cannot regenerate your password with the data you\'ve submitted.');
+              		 $this->errors[] = Tools::displayError("Le lien n'est pas valable.");
             }
         } elseif (Tools::getValue('token') || Tools::getValue('id_customer')) {
             $this->errors[] = Tools::displayError('We cannot regenerate your password with the data you\'ve submitted.');

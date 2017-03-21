@@ -1,42 +1,13 @@
 
-/* same column heigth */
-/*.custom-equalheight {
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
-  background-color:#efefef;
-}
-#equalheight {
-  overflow: hidden; 
-}*/
-
-
 .my-account-selfcare .logo-simple {
-  margin: 0 auto; /* Center image in block*/
+  margin: 0 auto;
 }
 
-/*.row.vertical-center {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
-.row.vertical-center > .text-center {
-	 display: flex;
-	 flex-direction: column;
-}*/
 
 .my-account-selfcare {
   margin-top: 20px;
 }
 
-/*all colone*/
-/*[class*="col-"] {
-  border: 2px solid red;
-}*/
-/*allrow*/
-/*[class*="row"] {
-  border: 2px solid green;
-}*/
 
 .form-horizontal .row {
 
@@ -46,37 +17,4 @@
 display: flex;
 align-items: center;
 margin-bottom: 20px;
-}
-.vertical-center .text-center {
-/*margin-bottom: 20px;*/
-/*border: 1px solid;*/
-/*border-color: rgb(53, 53, 53);*/
-}
-
-#identity .box {
-	/*margin-top: 5px;*/
-}
-
-/* Aligner colone bootstrap */
-.my-account-selfcare .row {
- /*display: -webkit-box;
- display: -webkit-flex;
- display: -ms-flexbox;
- display: flex;*/
-}
-
-@media (min-width: 992px) {
-	/*.my-account-selfcare .container {
-	  display: table;
-	  width:100%;
-	}
-	.row {*/
-	  /*display: table-row;*/
-	  /*height: 100%;*/
-	  /*width:100%;*/
-	}
-	/*.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-	  display: table-cell;
-	  float: none;
-	}*/
 }

@@ -25,4 +25,4 @@ $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_4b877b
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_c87aacf5673fada1108c9f809d354311'] = 'Déconnexion';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_516e2e47007886c11318d22b4a4a84a0'] = 'Mon espace';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_b6d4223e60986fa4c9af77ee5f7149c5'] = 'Connexion';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_d9776f0775997b2e698c6975420b5c5d'] = 'Insscription';
+$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_d9776f0775997b2e698c6975420b5c5d'] = 'Inscription';

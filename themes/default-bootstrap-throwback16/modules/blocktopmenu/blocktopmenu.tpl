@@ -29,3 +29,8 @@
 </div>
 <!--// Menu Horizontal -->
 {/if}
+{strip}
+{if isset($smarty.server.HTTP_HOST) && $smarty.server.HTTP_HOST}
+{addJsDef baseDir=$smarty.server.HTTP_HOST|escape:'html':'UTF-8'}
+{/if}
+{/strip}

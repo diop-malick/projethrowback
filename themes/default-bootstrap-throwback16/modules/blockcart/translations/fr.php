@@ -23,7 +23,7 @@ $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_c6995d6cc084c192bc
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_e7a6ca4e744870d455a57b644f696457'] = 'Offert !';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_f2a6c498fb90ee345d997f888fce3b18'] = 'Supprimer';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_0c3bf3014aafb90201805e45b5e62881'] = 'Voir mon panier';
-$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_a85eba4c6c699122b2bb1387ea4813ad'] = 'Panier';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_a85eba4c6c699122b2bb1387ea4813ad'] = 'Mon panier';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_068f80c7519d0528fb08e82137a72131'] = 'Produits';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_deb10517653c255364175796ace3553f'] = 'Produit';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_9e65b51e82f2a9b9f72ebe3e083582bb'] = '(vide)';

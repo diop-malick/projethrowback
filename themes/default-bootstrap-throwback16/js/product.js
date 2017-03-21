@@ -161,8 +161,8 @@ $(document).ready(function()
 
 		$('.jqzoom').jqzoom({
 			zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
-			zoomWidth: 458, //zooming div default width(default width value is 200)
-			zoomHeight: 458, //zooming div default width(default height value is 200)
+			zoomWidth: 500, //zooming div default width(default width value is 200)
+			zoomHeight: 500, //zooming div default width(default height value is 200)
 			xOffset: 21, //zooming div default offset(default offset value is 10)
 			yOffset: 0,
 			title: false
@@ -178,7 +178,7 @@ $(document).ready(function()
 				'closeEffect'   : 'elastic'
 			});
 		}
-		else 
+		else
 		if (contentOnly) {
 			$('#buy_block').attr('target', '_top');
 		}
@@ -246,6 +246,26 @@ $(document).ready(function()
 		}).on('hidden.bs.collapse', function(){
 		$(this).parent().find(".fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-left");
 	});
+	// Desactiver le zoom au click sur les vues miniatures
+	$('#thumbs_list_frame li a').on('click', function(event) {
+		var target = event.target ? event.target : event.srcElement;
+		var targetId = target.id;
+		if (targetId.indexOf('thumb') !== -1) {
+			event.preventDefault();
+			return false;
+		} else {
+			$(this).on("click.fb-start");
+			$(this).fancybox({
+				'hideOnContentClick': true,
+				'openEffect': 'elastic',
+				'closeEffect': 'elastic',
+				'live': false,
+				'afterClose': function () {
+					$('.fancybox.shown').unbind('click.fb-start');
+				}
+			});
+		}
+	});
 
 });
 
@@ -286,6 +306,15 @@ $(window).bind('hashchange', function(){
 	checkUrl();
 	findCombination();
 });
+
+// hover add_to_cart button disable => message
+$(document).on('mouseover', '#add_to_cart', function(){
+	if($(".btn").hasClass("disabled")){
+		$(".info").addClass("error");
+		$(".info").html("Merci de sélectionner une taille.").fadeIn(100).delay(5000).fadeOut(400);
+		}
+});
+
 
 //hover 'other views' images management
 $(document).on('mouseover', '#views_block li a', function(){
@@ -635,17 +664,19 @@ function updateDisplay()
 			$('#quantity_wanted_p .btn').addClass('disabled');
 
 		//display that the product is unavailable with theses attributes
+
 		if (!selectedCombination['unavailable'])
 		{
-			$('#availability_value').text(doesntExistNoMore + (globalQuantity > 0 ? ' ' + doesntExistNoMoreBut : ''));
+			$('#availability_value').text(stockepuise);
+
 			if (!allowBuyWhenOutOfStock)
 				$('#availability_value').removeClass('label-success').addClass('label-warning');
 		}
-		else
+		/*else
 		{
 			$('#availability_value').text(doesntExist).removeClass('label-success').addClass('label-warning');
 			$('#oosHook').hide();
-		}
+		}*/
 
 		if ((stock_management == 1 && !allowBuyWhenOutOfStock) || (!stock_management && selectedCombination['unavailable']))
 			$('#availability_statut:hidden').show();
