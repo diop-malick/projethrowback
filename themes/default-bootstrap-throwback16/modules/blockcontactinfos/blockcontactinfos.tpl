@@ -1,7 +1,7 @@
 
 <!-- MODULE Block contact infos -->
-{if {$smarty.get.controller} eq 'authentication' or ( ({$smarty.get.controller} eq 'order') && ( ({$smarty.get.step} eq '1') or ({$smarty.get.step} eq '2')  ) ) }
-
+{* {if {$smarty.get.controller} eq 'authentication' or ( ({$smarty.get.controller} eq 'order') && ( ({$smarty.get.step} eq '1') or ({$smarty.get.step} eq '2')  ) ) } *}
+{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or ({$smarty.get.controller} eq 'order' &&  ((!isset($smarty.get.step) or {$smarty.get.step} neq '0')) ) }
     <div class="col-md-9">
     <section id="block_contact_infos" class="footer-block">
             {if $blockcontactinfos_phone != ''}

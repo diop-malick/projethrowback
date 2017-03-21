@@ -38,7 +38,9 @@
 	<li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
 			<a href="{$link->getPageLink('order', true)}">
-				<em>01.</em> {l s='Summary'}
+				<em>01.</em> 
+				{* {l s='Summary'} *}
+				{l s='Panier'}
 			</a>
 		{elseif  $current_step=='confirmation'}
 			<a><em>01.</em> {l s='Summary'}</a>
