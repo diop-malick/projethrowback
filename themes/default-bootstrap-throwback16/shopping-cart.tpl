@@ -249,7 +249,7 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 margin-top-10">
-										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}not-dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='In Stock'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='In Stock'}{/if}{/if}
+										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='Disponible'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='Disponible'}{/if}{/if}
 										</span>
 									</div>
 								</div>
