@@ -137,12 +137,14 @@ var ajaxCart = {
 				minimalQuantity = 1;
 			if ($(this).prop('disabled') != 'disabled')
 				ajaxCart.add(idProduct, idProductAttribute, false, this, minimalQuantity);
+
 		});
 		//for product page 'add' button...
 		if ($('.cart_block').length) {
 			$(document).off('click', '#add_to_cart button').on('click', '#add_to_cart button', function(e){
 				e.preventDefault();
 				ajaxCart.add($('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null);
+				/*ajaxCart.refresh();*/
 			});
 		}
 
@@ -336,6 +338,7 @@ var ajaxCart = {
 				{
 					if (contentOnly)
 						window.parent.ajaxCart.updateCartInformation(jsonData, addedFromProductPage);
+
 					else
 						ajaxCart.updateCartInformation(jsonData, addedFromProductPage);
 
@@ -765,7 +768,7 @@ var ajaxCart = {
 				if (error != 'indexOf')
 					errors += $('<div />').html(jsonData.errors[error]).text() + "\n";
 			if (!!$.prototype.fancybox)
-			/*	$.fancybox.open([
+			$.fancybox.open([
 					{
 						type: 'inline',
 						autoScale: true,
@@ -775,11 +778,11 @@ var ajaxCart = {
 				], {
 					padding: 0
 				});
-			else*/
+			else
 
-			$("#min_quantity_message").css('display','block');
-			$(".info_quantity").html(errors)
-				/*alert(errors);*/
+		/*	$("#min_quantity_message").css('display','block');
+			$(".info_quantity").html(errors)*/
+				alert(errors);
 		}
 		else
 		{
