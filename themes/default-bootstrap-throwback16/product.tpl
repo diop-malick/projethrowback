@@ -678,7 +678,8 @@
 			      </div>
 			    </div>
 			    {/if}
-			    <div class="panel panel-default">
+			    
+			    {* <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -690,7 +691,8 @@
 			      <div id="collapse1" class="panel-collapse collapse">
 			        <div class="panel-body">{$cms_content_1.content}</div>
 			      </div>
-			    </div>
+			    </div> *}
+
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
