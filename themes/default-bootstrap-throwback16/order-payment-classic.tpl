@@ -75,8 +75,8 @@
   $( document ).ready(function() {
     $('a.popup-cgv').fancybox({
         'type' : 'iframe',
-        'width':'auto',
-        'height':'auto'
+        'width':600,
+        'height':600
       });
   });
 </script>

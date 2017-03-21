@@ -79,7 +79,7 @@
         <hr>
         <div class="row">
         	<div class="col-xs-12">
-        		En validant votre commande, vous acceptez et déclarez avoir pris connaissance des <a href="{$link->getCMSLink('17', 'cgv')|escape:'html'}&content_only=1" class="popup-cgv">conditions générales de vente</a>.
+        		En validant votre commande, vous acceptez et déclarez avoir pris connaissance des <a href="{$link_conditions|escape:'html':'UTF-8'}" class="popup-cgv">conditions générales de vente</a>.
         	</div>
         </div>
 
