@@ -71,12 +71,12 @@
 
 </div> 
 {* end container clearfix *}
-</script>
+<script>
   $( document ).ready(function() {
-    $('a.iframe').fancybox({
+    $('a.popup-cgv').fancybox({
         'type' : 'iframe',
-        'width':600,
-        'height':600
+        'width':'auto',
+        'height':'auto'
       });
   });
 </script>
