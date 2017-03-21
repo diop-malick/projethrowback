@@ -517,9 +517,11 @@ width: auto;
   }
   .dispo-text{
         color:#2e7a3a;
+        text-transform: uppercase;
   }
   .not-dispo-text{
     color:#8B0000;
+    text-transform: uppercase;
   }
   .icone-active{
     color: #000;
