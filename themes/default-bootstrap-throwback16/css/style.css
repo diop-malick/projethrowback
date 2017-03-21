@@ -1,5 +1,5 @@
 /************************************************************
-				styles intégrés
+				styles
 ************************************************************/
 
 /*fixe footer*/
@@ -30,12 +30,10 @@ body {
     margin-top: 165px;
   }
 
-
 #my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
-
     margin-top: 160px;
 }
-#order .columns-container , #password .columns-container  {
+#order .columns-container , #password .columns-container , #order-confirmation .columns-container {
     margin-top: 160px;
   }
 
@@ -623,14 +621,22 @@ width: auto;
     text-decoration: none;
     cursor: pointer;
 }
+@media (min-width: 768px){
+  .modal-dialog {
+        width: 400px !important;
+  }
+}
 .bootbox button{
-  background-color: #000;
-border-color: #000;
+    background-color: #000;
+    border-color: #000;
 }
 
 .bootbox button:hover{
-  background-color: #000;
-border-color: #000;
+    background-color: #000;
+    border-color: #000;
+}
+.modal-footer{
+    text-align: center !important;
 }
 /*************************** panier vide ************************/
 .titre-panier{
@@ -686,16 +692,18 @@ border-color: #000;
 }
 /********************************** Accordeon facturette *********************************/
 .commande_body .attributes{
-  font-size: 12px;
+  font-size: 14px;
 }
 .commande_body .facturette-tc{
   margin-bottom: 10px;
 }
-
+.body_facturette{
+  padding: 5px 0 0 0 !important;
+}
 
 /* Style the buttons that are used to open and close the accordion panel */
 button.accordion {
-    background-color: #ddd;
+    background-color: #ececeb;
     color: #777 !important;
     cursor: pointer;
     padding: 5px;
@@ -709,7 +717,7 @@ button.accordion {
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
+    background-color: #ececeb;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -740,17 +748,18 @@ div.panel2.show {
 }
 
 button.accordion:after {
-    *content: '\0025BC';
-  content: '+';
+    font-family: FontAwesome;
+    content: "\f0d9";
     font-weight: 900;
     font-size: 150%;
-    color: #000;
+    color: #777;
     float: right;
     margin-left: 5px;
 }
 
 button.accordion.active:after {
-  content: '-';
+  font-family: FontAwesome;
+  content: "\f0d7";
 }
 
 /*************************** Payment ************************/
@@ -763,6 +772,16 @@ button.accordion.active:after {
 }
 .open-popup-link{
   text-decoration:underline ;
+}
+
+/*************************** Confirmation *****************************/
+.text-confirmation{
+      background: #fff !important;
+      border: none !important;
+      color: #000;
+}
+.text-confirmation a {
+color: rgb(214, 157, 50);
 }
 
 /*  Breadcrumb(Fil d'ariane) nouvelle maquette */

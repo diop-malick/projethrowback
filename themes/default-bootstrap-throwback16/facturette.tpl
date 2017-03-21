@@ -29,12 +29,9 @@
 		{l s='VOTRE COMMANDE'}
 	</div>
 </div>
-<div class="row commande_body">
+<div class="row commande_body body_facturette">
 	<div  class="detail-articles">
-		
-
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
-
 			<div class="panel panel2">
 				{foreach $products as $product}
 
@@ -64,17 +61,17 @@
 
 					<div class="row attributes">
 						<div class="col-md-12 no-padding">
-						
 							{if isset($color)}
 								{l s='Couleur'}: {$color}
-							{/if} 
 								&nbsp;&nbsp;
+							{/if} 
+								
 							{if isset($sizing)}
 								{l s='Taille'}: {$sizing}
-							{/if}
 								&nbsp;&nbsp;
+							{/if}
+								
 							{l s='Quantité'}: {$quantity}
-
 						</div>
 						
 					</div>
