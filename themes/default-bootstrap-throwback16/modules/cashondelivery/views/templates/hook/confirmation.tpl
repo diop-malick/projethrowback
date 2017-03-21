@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="box">
+<div class="box text-confirmation">
     <p>{l s='Merci pour votre commande' mod='cashondelivery'} <span class="bold">{$shop_name}</span>
         <br />
         {l s='Votre commande a bien été enregistrée, elle sera traitée par nos équipes après votre passage en boutique pour son règlement.' mod='cashondelivery'}
