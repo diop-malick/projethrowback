@@ -48,40 +48,47 @@
 				{assign var=cms_active_tab value=(int)Tools::getValue('id_cms')}
 				{assign var=cms_cat value=Tools::getFullPath(1, $cms->meta_title, 'CMS')}
 
-				<div class="container" >
-					 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}{assign var=cms_categorie value="Nos Services"}
-					  {elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}{assign var=cms_categorie value="Liens légaux"}
-					 {/if}
-					 <h1 class="title">{$cms_categorie}</h1>
-				<!-- CMS page TABS -->
-				<!-- <div id="tabs_container"> -->
-				<div class="tabbable col-md-6" >
-				   <ul class="nav nav-tabs nav-justified" role="tablist">
-						 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
-				      <li {if isset($cms_active_tab) && ($cms_active_tab == 7)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Conditions de Livraison'}</a></li>
-				      <li {if isset($cms_active_tab) && ($cms_active_tab == 8)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Condition de Paiement'}</a></li>
-				      <li {if isset($cms_active_tab) && ($cms_active_tab == 11)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Retour et Remboursements'}</a></li>
-							{elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
-							<li {if isset($cms_active_tab) && ($cms_active_tab == 12)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Mentions légales'}</a></li>
-							<li {if isset($cms_active_tab) && ($cms_active_tab == 14)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Données personnelles et cookies'}</a></li>
-							<li {if isset($cms_active_tab) && ($cms_active_tab == 16)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Conditions générales de vente'}</a></li>
-							{/if}
-					 </ul>
-				<!-- Tab panes -->
-					<div class="tab-content">
-						 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
-					   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 7)}active{/if}" id="tab1">{$cms_content_condition_livraison.content}</div>
-					   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 8)}active{/if}"id="tab2">{$cms_content_condition_paiement.content}</div>
-					   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 11)}active{/if}" id="tab3">{$cms_content_retour_remboursement.content}</div>
-						 {elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
-						 <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 12)}active{/if}" id="tab1">{$cms_content_mention_legale.content}</div>
-					   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 14)}active{/if}"id="tab2">{$cms_content_condition_cookie_et_donnees.content}</div>
-					   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 16)}active{/if}" id="tab3">{$cms_content_condition_de_vente.content}</div>
-						 {/if}
-					</div>
-				</div>
-	</div>
-	<a class="btn btn-cms text-center" href="{$base_dir}">{l s='< CONTINUER VOTRE SHOPPING'}</a>
+				{if isset($cms->id_cms_category) && $cms->id_cms_category == 3}{assign var=cms_categorie value="Nos Services"}
+				 {elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}{assign var=cms_categorie value="Liens légaux"}
+				{/if}
+				{if isset($cms_categorie) && $cms_categorie}
+						<div class="container" >
+
+							 <h1 class="title">{$cms_categorie}</h1>
+						<!-- CMS page TABS -->
+						<!-- <div id="tabs_container"> -->
+						<div class="tabbable col-md-6" >
+						   <ul class="nav nav-tabs nav-justified" role="tablist">
+								 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
+						      <li {if isset($cms_active_tab) && ($cms_active_tab == 7)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Conditions de Livraison'}</a></li>
+						      <li {if isset($cms_active_tab) && ($cms_active_tab == 8)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Condition de Paiement'}</a></li>
+						      <li {if isset($cms_active_tab) && ($cms_active_tab == 11)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Retour et Remboursements'}</a></li>
+									{elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
+									<li {if isset($cms_active_tab) && ($cms_active_tab == 12)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Mentions légales'}</a></li>
+									<li {if isset($cms_active_tab) && ($cms_active_tab == 14)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Données personnelles et cookies'}</a></li>
+									<li {if isset($cms_active_tab) && ($cms_active_tab == 16)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Conditions générales de vente'}</a></li>
+									{/if}
+							 </ul>
+						<!-- Tab panes -->
+							<div class="tab-content">
+								 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
+							   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 7)}active{/if}" id="tab1">{$cms_content_condition_livraison.content}</div>
+							   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 8)}active{/if}"id="tab2">{$cms_content_condition_paiement.content}</div>
+							   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 11)}active{/if}" id="tab3">{$cms_content_retour_remboursement.content}</div>
+								 {elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
+								 <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 12)}active{/if}" id="tab1">{$cms_content_mention_legale.content}</div>
+							   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 14)}active{/if}"id="tab2">{$cms_content_condition_cookie_et_donnees.content}</div>
+							   <div class="tab-pane {if isset($cms_active_tab) && ($cms_active_tab == 16)}active{/if}" id="tab3">{$cms_content_condition_de_vente.content}</div>
+								 {/if}
+							</div>
+						</div>
+			</div>
+			<a class="btn btn-cms text-center" href="{$base_dir}">{l s='< CONTINUER VOTRE SHOPPING'}</a>
+		{else}
+		<div class="rte{if $content_only} content_only{/if}">
+			{$cms->content}
+		</div>
+		{/if}
 {elseif isset($cms_category)}
 	<div class="block-cms">
 		<h1><a href="{if $cms_category->id eq 1}{$base_dir}{else}{$link->getCMSCategoryLink($cms_category->id, $cms_category->link_rewrite)}{/if}">{$cms_category->name|escape:'html':'UTF-8'}</a></h1>
