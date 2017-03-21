@@ -270,11 +270,11 @@
 							<div class="col-md-1">
 								<div class="row">
 									
-									<div class="col-md-6 edit">
+									<div class="col-xs-6 text-right" style="padding: 0;">
 										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-md-6 delete">
+									<div class="col-xs-6 text-left" style="padding-left: 5px;">
 										<a
 											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"

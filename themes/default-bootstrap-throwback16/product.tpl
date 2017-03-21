@@ -678,7 +678,8 @@
 			      </div>
 			    </div>
 			    {/if}
-			    <div class="panel panel-default">
+			    
+			    {* <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
 			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -690,7 +691,8 @@
 			      <div id="collapse1" class="panel-collapse collapse">
 			        <div class="panel-body">{$cms_content_1.content}</div>
 			      </div>
-			    </div>
+			    </div> *}
+
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
 			        <h4 class="panel-title">
@@ -725,7 +727,7 @@
 
 		{if isset($accessories) && $accessories}
 			<!--ZONE PUSH - Accessories -->
-			<section class="page-product-box">
+			<section class=" row page-product-box">
 				<h3 class="page-product-heading">{l s='Vous aimerez également'}</h3>
 				<div class="block products_block accessories-block clearfix">
 					<div class="block_content">
