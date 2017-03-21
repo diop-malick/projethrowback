@@ -138,12 +138,6 @@ Livraison à domicile
 			      </div>
 			      <div id="collapse2" class="panel-collapse collapse">
 			        <div class="panel-body delivery_options">
-
-			        	<div class="row" style="color:#ec4040">
-							<i class="fa fa-warning"></i> Avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-						</div>
-						<br>
-
 			        	<div class="delivery_options_address">
 			        			<div class="delivery_options resp-tabs-container tab">
 			        				<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">			        				
@@ -171,7 +165,7 @@ Livraison à domicile
 			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
 			        								<span class="waitimage"></span>
 			        								<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
-			        									
+
 			        								</ul>
 			        							</div>
 
@@ -250,10 +244,6 @@ Livraison À une autre adresse
 			        			<div class="delivery_options resp-tabs-container tab">
 			        				<div class="delivery_option item  resp-tab-content resp-tab-content-active tab">
 			        					<div class="addresses clearfix">
-			        						<p style="color:#ec4040">
-			        							<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-			        						</p>
-			        						<br>
 			        						{* Adresses selector *}
 			        						{* TODO - check delete virtual cart	code *}
 			        						<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
