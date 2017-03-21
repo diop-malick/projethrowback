@@ -81,7 +81,7 @@
 			{if isset($images) && count($images) > 0}
 				<!-- thumbnails -->
 				<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
-					{if isset($images) && count($images) > 4}
+					{if isset($images) && count($images) > 2}
 						<!-- <span class="view_scroll_spacer"> -->
 							<a id="view_scroll_left" class="" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
 								{l s='Previous'}
@@ -107,7 +107,7 @@
 						{/if}
 						</ul>
 					</div> <!-- end thumbs_list -->
-					{if isset($images) && count($images) > 4}
+					{if isset($images) && count($images) > 2}
 						<a id="view_scroll_right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
 							{l s='Next'}
 						</a>
@@ -264,7 +264,7 @@
 										{if $feature.name eq 'genre'}
 											{if isset($feature.value)}
 												{assign var=gendertype value=$feature.value}
-											{/if}									
+											{/if}
 										{/if}
 									{/foreach}
 									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
@@ -446,13 +446,10 @@
 
 				{* rigth-row-4 *}
 				{* minimal quantity wanted *}
-<<<<<<< HEAD
+
 
 				{* <div id="rigth-row-4" class="row">
-=======
-				
-				{* <div id="rigth-row-4" class="row">					
->>>>>>> 07d62dff24dbe95668f595d508a7438d6ce1e50d
+
 					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
@@ -617,7 +614,7 @@
 			<div class="tabbable col-xs-12 col-md-6" id="tabbable_product">
 				<!-- FEATURES from `ps_feature_lang` table -->
 				<!-- genre : 10 | Sortie : 8  | Modèle originale : 9 -->
-				<div class="col-row">
+				<div class="col-row" id="table_social_media">
 					<section>
 						<ul id="idTab2" class="bullet">
 							{foreach from=$features item=feature}
