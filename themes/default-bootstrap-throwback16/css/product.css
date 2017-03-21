@@ -1427,7 +1427,7 @@ background: none;
   }
 
 #add_to_cart{
-  width: 96% !important;
+  /*width: 96% !important;*/
 }
 
  @media (min-width: 987px) {
