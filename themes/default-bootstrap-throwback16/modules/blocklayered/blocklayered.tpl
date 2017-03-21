@@ -33,9 +33,9 @@
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
-							<div class="layered_{$filter.type} col-lg-3 pull-right" style="display: none;">
+							<div class="layered_{$filter.type} col-lg-3 col-xs-12 pull-right" style="display: none;">
 						{else}
-							<div class="layered_filter col-lg-2 pull-right">
+							<div class="layered_filter col-lg-2 col-xs-4 pull-right">
 						{/if}
                         
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}" class=" layered_filter_ul{if isset($filter.is_color_group) && $filter.is_color_group} color-group{/if}">
@@ -107,14 +107,14 @@
 								{else}
 									{if $filter.filter_type == 1}
 									<li class="nomargin row">
-	                                    <div class="col-xs-6 col-sm-12 col-lg-6 first-item">
+	                                    <div class="col-xs-4 col-sm-12 col-lg-6 first-item">
 	                                    	{l s='From' mod='blocklayered'} 
 	                                    	<input class="layered_{$filter.type}_range layered_input_range_min layered_input_range form-control grey" id="layered_{$filter.type}_range_min" type="text" value="{$filter.values[0]}"/>
 	                                    	<span class="layered_{$filter.type}_range_unit">
 	                                    		{$filter.unit}
 	                                    	</span>
 	                                    </div>
-	                                    <div class="col-xs-6 col-sm-12 col-lg-6">
+	                                    <div class="col-xs-4 col-sm-12 col-lg-6">
 	                                    	{l s='to' mod='blocklayered'} 
 	                                    	<input class="layered_{$filter.type}_range layered_input_range_max layered_input_range form-control grey" id="layered_{$filter.type}_range_max" type="text" value="{$filter.values[1]}"/>
 	                                    	<span class="layered_{$filter.type}_range_unit">
