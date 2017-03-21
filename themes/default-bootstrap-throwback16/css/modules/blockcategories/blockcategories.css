@@ -43,7 +43,21 @@
       display: none; }
 
 #categories_block_left .block_content > ul {
-  border-top: 1px solid #d6d4d4; }
+    border-top: 1px solid #d6d4d4;
+}
+
+@media (min-width: 1200px) {
+    #categories_block_left .block_content > ul {
+        width: 250px;
+    }
+}
+
+@media (max-width: 900px) {
+    #categories_block_left .block_content > ul {
+        width: 180px;
+    }
+}
+
 #categories_block_left li {
   position: relative; }
   #categories_block_left li a {

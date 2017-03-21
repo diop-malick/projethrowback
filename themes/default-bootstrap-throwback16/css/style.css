@@ -346,8 +346,8 @@ display: none;
   padding-right: 5%;
   padding-top: 10px;
   /*display: block;  */
-  margin-right: auto;  
-  margin-left: auto; 
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .size-list {
@@ -824,3 +824,12 @@ color: rgb(214, 157, 50);
   #breadcrumb_product {
      margin-left: -2.5em !important;
     }
+/* Bloc contact infos for Mobile device */
+@media (max-width: 420px) {
+#block_contact_infos {
+    top: 0px !important
+  }
+  .nav .footer-block {
+   margin-top: 0px !important;
+ }
+}

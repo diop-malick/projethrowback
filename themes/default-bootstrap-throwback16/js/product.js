@@ -161,8 +161,8 @@ $(document).ready(function()
 
 		$('.jqzoom').jqzoom({
 			zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
-			zoomWidth: 500, //zooming div default width(default width value is 200)
-			zoomHeight: 500, //zooming div default width(default height value is 200)
+			zoomWidth: 458, //zooming div default width(default width value is 200)
+			zoomHeight: 458, //zooming div default width(default height value is 200)
 			xOffset: 21, //zooming div default offset(default offset value is 10)
 			yOffset: 0,
 			title: false
@@ -309,7 +309,8 @@ $(window).bind('hashchange', function(){
 
 // hover add_to_cart button disable => message
 $(document).on('mouseover', '#add_to_cart', function(){
-	if($(".btn").hasClass("disabled")){
+	var element =  document.getElementById('availability_date');
+	if(  ($(".btn").hasClass("disabled")) && (element == null) ){
 		$(".info").addClass("error");
 		$(".info").html("Merci de sélectionner une taille.").fadeIn(100).delay(5000).fadeOut(400);
 		}
