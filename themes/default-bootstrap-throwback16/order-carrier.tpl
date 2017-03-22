@@ -138,17 +138,28 @@ Livraison à domicile
 			      </div>
 			      <div id="collapse2" class="panel-collapse collapse">
 			        <div class="panel-body delivery_options">
-
-			        	<div class="row" style="color:#ec4040">
-							<i class="fa fa-warning"></i> Avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-						</div>
-						<br>
-
 			        	<div class="delivery_options_address">
 			        			<div class="delivery_options resp-tabs-container tab">
-			        				<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">
+			        				<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">			        				
 			        					<div class="addresses clearfix">
 			        						{* Adresses INFO *}
+			        						<div class="row hidden">
+			        							<div class="col-xs-12 col-sm-6">
+			        								<div class="address_delivery select form-group selector1">
+			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
+			        									<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
+			        										{if isset($addresses)}
+			        										{foreach from=$addresses key=k item=address}
+			        										<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
+			        											{$address.alias|escape:'html':'UTF-8'}
+			        										</option>
+			        										{break}
+			        										{/foreach}
+			        										{/if}
+			        									</select>
+			        								</div>																
+			        							</div>
+			        						</div> <!-- end row -->
 			        						<br>
 			        						<div class="row addresses">															
 			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
@@ -157,19 +168,11 @@ Livraison à domicile
 
 			        								</ul>
 			        							</div>
+
 			        						</div> <!-- end row -->	
-			        						{if !isset($addresses)}
-			        						<div class="row none">
-			        							<div class="col-sm-12">															
-			        								<p class="address_add submit" style="text-align: center">
-			        									<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-			        										<span>Ajouter votre première adresse<i class="icon-chevron-right right"></i></span>
-			        									</a>
-			        								</p>	
-			        							</div>																
-			        						</div> <!-- end row -->
-			        						{/if}
 			        					</div> <!-- end addresses -->
+
+
 									</div> <!-- end delivery_option -->
 								</div> <!-- end delivery_options -->
 							</div> <!-- end delivery_options_address -->
@@ -177,11 +180,10 @@ Livraison à domicile
 						<div class="delivery_options_address">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}
-						          	<div class="delivery_options resp-tabs-container tab">									
-										{foreach $option_list as $key => $option name=options}
-										<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">
+						          	<div class="delivery_options row" style="display: flex; flex-wrap: wrap;">	
 
-											<div>
+										{foreach $option_list as $key => $option name=options}
+																						
 												{if $option.unique_carrier}
 														{foreach $option.carrier_list as $carrier}														
 															{assign var=mycarrername value=$carrier.instance->name}
@@ -196,7 +198,8 @@ Livraison à domicile
 												@ maintainer:     Malick
 												**********************************************************}
 												{if $mycarrername == 'Livraison par Colissimo'}
-												{include file="$tpl_dir./order-carrier-adresses.tpl"}
+													{include file="$tpl_dir./order-carrier-adresses.tpl"}
+
 														
 												{*********************************************************
 												Livraison RECOMMENDE
@@ -204,13 +207,11 @@ Livraison à domicile
 												@ maintainer:     Malick
 												**********************************************************}
 												{elseif $mycarrername == 'Livraison par Colissimo A/R'}
-												{include file="$tpl_dir./order-carrier-adresses.tpl"}
-
+													{include file="$tpl_dir./order-carrier-adresses.tpl"}
+														
 												{/if}
 
-											</div>
-
-										</div> <!-- end delivery_option -->											
+																				
 										{/foreach}
 									</div> <!-- end delivery_options -->
 								{/foreach}
@@ -243,10 +244,6 @@ Livraison À une autre adresse
 			        			<div class="delivery_options resp-tabs-container tab">
 			        				<div class="delivery_option item  resp-tab-content resp-tab-content-active tab">
 			        					<div class="addresses clearfix">
-			        						<p style="color:#ec4040">
-			        							<i class="fa fa-warning"></i> Attention, avec ce mode de livraison vous ne pourrez pas sélectionner le paiement en magasin à l’étape suivante!
-			        						</p>
-			        						<br>
 			        						{* Adresses selector *}
 			        						{* TODO - check delete virtual cart	code *}
 			        						<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
@@ -301,10 +298,10 @@ Livraison À une autre adresse
 						<div class="delivery_options_address">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}
-						          	<div class="delivery_options">	
+						          	<div class="delivery_options row" style="display: flex; flex-wrap: wrap;">	
 
 										{foreach $option_list as $key => $option name=options}
-										<div class="delivery_option item">												
+																						
 												{if $option.unique_carrier}
 														{foreach $option.carrier_list as $carrier}														
 															{assign var=mycarrername value=$carrier.instance->name}
@@ -332,7 +329,7 @@ Livraison À une autre adresse
 														
 												{/if}
 
-										</div> <!-- end delivery_option -->											
+																				
 										{/foreach}
 									</div> <!-- end delivery_options -->
 								{/foreach}

@@ -39,7 +39,6 @@
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
 			<a href="{$link->getPageLink('order', true)}">
 				<em>01.</em> 
-				{* {l s='Summary'} *}
 				{l s='Panier'}
 			</a>
 		{elseif  $current_step=='confirmation'}

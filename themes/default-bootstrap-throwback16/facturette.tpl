@@ -115,7 +115,7 @@
 	<div class="row commande_body">
 		 {$livraison->name}
 		 <br>
-		 <strong>{l s='Délai :'}{$livraison->delay}</strong>
+		 <strong>{l s='Délai : '}{$livraison->delay}</strong>
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">

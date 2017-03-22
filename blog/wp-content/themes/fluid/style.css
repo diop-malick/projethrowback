@@ -4872,6 +4872,11 @@ a:after{
     color:red !important;
     background-color: yellow !important;
 }
+article.hentry .article-inner {
+
+	/*margin-top: 50px;*/
+}
+
 
 /* FIN! */
 
