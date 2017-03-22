@@ -37,7 +37,7 @@
 <ul class="step clearfix" id="order_step">
 	<li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
-			<a href="{$link->getPageLink('order', true)}">
+			<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=0")|escape:'html':'UTF-8'}">
 				<em>01.</em> 
 				{l s='Panier'}
 			</a>
@@ -56,7 +56,7 @@
 	</li>
 	<li class="{if $current_step=='shipping'}step_current{elseif $current_step=='payment'}step_done step_done_last{else}{if $current_step=='confirmation' || $current_step=='payment' }step_done{else}step_todo{/if}{/if} third">
 		{if $current_step=='payment'}
-		<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}">
+		<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=1")|escape:'html':'UTF-8'}">
 			<em>03.</em> {l s='Shipping'}
 		</a>
 		{elseif  $current_step=='confirmation'}
