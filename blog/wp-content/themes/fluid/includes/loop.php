@@ -122,7 +122,7 @@ function fluida_posted_meta() {
 		?>
 
 		<span class="onDate date">
-			<i class="icon-time icon-metas" title="<?php _e( "Date", "fluida" ) ?>"></i>
+			<i class="fa fa-calendar" title="<?php _e( "Date", "fluida" ) ?>"></i>
 			<time class="published" datetime="<?php echo get_the_time( 'c' ) ?>" <?php cryout_schema_microdata( 'time' ) ?>><?php echo $date . ( ( $fluida_meta_date && $fluida_meta_time ) ? ', ' : '' ) . $time ?></time>
 			<time class="updated" datetime="<?php echo get_the_modified_time( 'c' )  ?>" <?php cryout_schema_microdata( 'time-modified' ) ?>><?php echo get_the_modified_date();?></time>
 		</span>
