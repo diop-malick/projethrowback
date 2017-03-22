@@ -46,7 +46,6 @@
 		{else}
 			<span><em>01.</em> {l s='Summary'}</span>
 		{/if}
-		{* <i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i> *}
 	</li>
 	<li class="{if $current_step=='login'}step_current{elseif $current_step=='shipping'}step_done step_done_last{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' }step_done{else}step_todo{/if}{/if} second">			
 		{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping'}
