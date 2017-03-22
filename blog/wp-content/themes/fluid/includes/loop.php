@@ -28,7 +28,7 @@ add_action( 'cryout_post_excerpt_hook', 'fluida_custom_excerpt_more', 10 );
  */
 function fluida_continue_reading_link() {
 	$fluida_excerptcont = cryout_get_option( 'fluida_excerptcont' );
-	return '<a class="continue-reading-link" href="'. esc_url( get_permalink() ) . '"><span>' . wp_kses_post( $fluida_excerptcont ). '</span><i class="icon-angle-right"></i></a>';
+	return '<a class="continue-reading-link" href="'. esc_url( get_permalink() ) . '"><span>' . wp_kses_post( $fluida_excerptcont ). '</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>';
 }
 add_filter( 'the_content_more_link', 'fluida_continue_reading_link' );
 
@@ -201,11 +201,11 @@ function fluida_content_nav( $nav_id ) {
 		<nav id="<?php echo $nav_id; ?>" class="navigation">
 
 			<span class="nav-previous">
-				 <?php next_posts_link( '<i class="icon-angle-left"></i>' . __( 'Older posts', 'fluida' ) ); ?>
+				 <?php next_posts_link( '<i class="fa fa-angle-left" aria-hidden="true"></i>' . __( 'Older posts', 'fluida' ) ); ?>
 			</span>
 
 			<span class="nav-next">
-				<?php previous_posts_link( __( 'Newer posts', 'fluida' ) . '<i class="icon-angle-right"></i>' ); ?>
+				<?php previous_posts_link( __( 'Newer posts', 'fluida' ) . '<i class="fa fa-angle-right" aria-hidden="true"></i>' ); ?>
 			</span>
 
 		</nav><!-- #<?php echo $nav_id; ?> -->
