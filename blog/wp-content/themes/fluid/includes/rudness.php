@@ -244,7 +244,7 @@ function fluida_lpbox_output( $data ) {
 								<div class="lp-box-text-inside"> <?php echo do_shortcode( wp_kses_post( $content ) ); ?> </div>
 							<?php } ?>
 							<?php if( ! empty( $readmore ) ) { ?>
-								<a class="lp-box-readmore" href="<?php if( ! empty( $link ) ) { echo esc_url( $link ); } ?>" <?php echo esc_attr( $target ); ?>> <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> <i class="icon-angle-right"></i></a>
+								<a class="lp-box-readmore" href="<?php if( ! empty( $link ) ) { echo esc_url( $link ); } ?>" <?php echo esc_attr( $target ); ?>> <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<?php } ?>
 						</div>
 					</div>
