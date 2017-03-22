@@ -38,13 +38,14 @@
 	<li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
 			<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=0")|escape:'html':'UTF-8'}">
-				<em>01.</em> 
+				<em>01.</em>
+				{* {l s='Summary'} *}
 				{l s='Panier'}
 			</a>
 		{elseif  $current_step=='confirmation'}
-			<a><em>01.</em> {l s='Summary'}</a>
+			<a><em>01.</em> {l s='Panier'}</a>
 		{else}
-			<span><em>01.</em> {l s='Summary'}</span>
+			<span><em>01.</em> {l s='Panier'}</span>
 		{/if}
 	</li>
 	<li class="{if $current_step=='login'}step_current{elseif $current_step=='shipping'}step_done step_done_last{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' }step_done{else}step_todo{/if}{/if} second">			
