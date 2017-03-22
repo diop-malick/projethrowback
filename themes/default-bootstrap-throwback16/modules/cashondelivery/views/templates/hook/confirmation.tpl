@@ -29,6 +29,6 @@
         <br /><span class="bold">{l s='Un email de confirmation vous a été envoyé à l’adresse' mod='cashondelivery'}</span>
         <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur Throwbacksneakers.com pour d’autres instants shopping !' mod='cashondelivery'}
         <br />{l s='Après réception de votre colis, vous avez un délai de 7 jours pour faire des réclamations (échange ou retour).' mod='cashondelivery'}
-        <br />{l s='En savoir plus sur les conditions de' mod='cashondelivery'} <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='Retours et remboursement' mod='cashondelivery'}</a>.
+        <br />{l s='En savoir plus sur les conditions de' mod='cashondelivery'} <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">{l s='Retours et remboursement' mod='cashondelivery'}</a>.
     </p>
 </div>

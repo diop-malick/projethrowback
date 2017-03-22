@@ -22,9 +22,18 @@ class OrderController extends OrderControllerCore
                 $carrier = new Carrier((int)$this->context->cart->id_carrier , (int)$this->context->language->id);
                 $addresse = new Address((int)$this->context->cart->id_address_delivery , (int)$this->context->language->id);
 
+                $cms = new CMS(Configuration::get('PS_CONDITIONS_CMS_ID'), $this->context->language->id);
+                $link_conditions = $this->context->link->getCMSLink($cms, $cms->link_rewrite, Configuration::get('PS_SSL_ENABLED'));
+                if (!strpos($link_conditions, '?')) {
+                    $link_conditions .= '?content_only=1';
+                } else {
+                    $link_conditions .= '&content_only=1';
+                }
+
                 $this->context->smarty->assign(array(
                 'livraison' => $carrier,
                 'adresse' => $addresse,
+                'link_conditions' => $link_conditions,
                 )); 
             }
         }
