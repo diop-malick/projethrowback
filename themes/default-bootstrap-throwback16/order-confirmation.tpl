@@ -16,12 +16,10 @@
 
 {* {capture name=path}{l s='Order confirmation'}{/capture} *}
 
-{* <h1 class="page-heading">{l s='Order confirmation'}</h1> *}
-
 {assign var='current_step' value='confirmation'}
 {include file="$tpl_dir./order-steps.tpl"}
 
-<h1 class="page-heading">{l s='Order confirmation'}</h1>
+{* <h2>{l s='Order confirmation'}</h2> *}
 {include file="$tpl_dir./errors.tpl"}
 
 <div class="col-sm-9">

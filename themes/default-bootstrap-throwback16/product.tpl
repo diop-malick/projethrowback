@@ -491,7 +491,9 @@
 							<div {if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="btn exclusive">
-										<span>{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Add to cart'}{/if}</span>
+										<i class="material-icons shopping-cart" style="color:#fff; margin-top: -10px; margin-right: .625rem; line-height: inherit;"></i>
+										<span>{l s='Add to cart'}</span>
+										
 									</button>
 								</p>
 							</div>
