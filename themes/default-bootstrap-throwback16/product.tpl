@@ -143,7 +143,7 @@
 
 							<!-- NAME -->
 
-							<h1 itemprop="name">{$product->name|truncate:30:"...":true|escape:'html':'UTF-8'}</h1>
+							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}

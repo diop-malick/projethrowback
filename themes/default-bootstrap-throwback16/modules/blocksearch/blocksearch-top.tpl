@@ -1,7 +1,7 @@
 <div class="row header-top-row"> <!-- Row HEADER -->
 	<div class="container">
 
-		<div class="col-md-4 col-xs-4">
+		<div id ="menu_and_serach" class="col-md-4 col-xs-4">
 			<div class="row">
 				<!-- menu verticale -->
 				<div class="col-md-4 col-xs-4 clearfix menu_vertical hidden">
