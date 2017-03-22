@@ -435,7 +435,7 @@
 .blicon-unlink:before { content: "\e86c"; }
 .blicon-thumbs-up:before { content: "\e86d"; }
 .blicon-thumbs-down:before { content: "\e86e"; }
-.blicon-magnifier:before { content: "\e86f"; }
+.blicon-magnifier:before { content: "\e86f"; color:Grey;}
 .blicon-cross3:before { content: "\e870"; }
 .blicon-menu:before { content: "\e871"; }
 .blicon-list:before { content: "\e872"; }
