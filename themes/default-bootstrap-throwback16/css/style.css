@@ -485,6 +485,9 @@ width: auto;
 }
 
   /******** Panier ********************/
+  .product_title{
+    margin-bottom:20px; 
+  }
 .page-product-box h3,
 .page-product-box h4 {
   color: rgb(203, 204, 204);
@@ -532,9 +535,24 @@ width: auto;
   .row_line_product_commande{
      margin-bottom: 30px;
   }
+  .label-attribute{
+    margin-top: 5px;
+  }
   .size_line{
-    border:1px solid #000;
-    padding: 5px 20px;
+    border: 1px solid #777;
+    display: table-cell;
+    width: 43px;
+    height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 12px;
+    margin-right: 7px;
+    border-radius: 2px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
   }
   .commande_title{
     background: #ececeb;
@@ -623,11 +641,8 @@ width: auto;
     text-decoration: none;
     cursor: pointer;
 }
-@media (min-width: 768px){
-  .modal-dialog {
-        width: 400px !important;
-  }
-}
+
+
 .bootbox button{
     background-color: #000;
     border-color: #000;
@@ -640,6 +655,42 @@ width: auto;
 .modal-footer{
     text-align: center !important;
 }
+
+/************************** Adaptation pannier *******************/
+
+@media (min-width: 768px){
+  .modal-dialog {
+        width: 400px !important;
+  }
+}
+
+@media (max-width: 768px) {
+      .text-right-mobile {
+              text-align: right;
+       } 
+       .text-left-mobile {
+              text-align: left;
+       }
+       .text-center-mobile {
+              text-align: center;
+       } 
+
+       .attribut-product{
+        margin-left: -70px !important;
+       }
+       
+       .size_line {
+          border: none !important;
+       }
+       .command-product-name{
+        padding-left: 10px;
+       }
+       .price-line{
+        padding-right: 10px;
+       }
+
+}
+
 /*************************** panier vide ************************/
 .titre-panier{
   font-size: 24px;
