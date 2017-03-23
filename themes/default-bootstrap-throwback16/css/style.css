@@ -456,7 +456,20 @@ font-size: 17px;
 .box-cart-chrono {
 
 }
-
+/* Disable les attributs ayant une quantité < 0 */
+.li_attribute_list.disabled{
+cursor: not-allowed;
+pointer-events: none;
+opacity: 0.3;
+filter: alpha(opacity=65);
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+/* */
+/* Message quantité limité */
+.info_quantity{
+  color: red !important;
+}
 #short_description_content a,
 .page-product-box .rte a {
   color: #333333;

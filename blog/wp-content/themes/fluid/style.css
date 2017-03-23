@@ -449,7 +449,7 @@ a:visited {
 	margin-bottom: 0;
 	min-height: 400px;
 	clear: both;
-	    margin-top: 50px;
+	    margin-top: 130px;
 
 }
 
@@ -4857,7 +4857,7 @@ a:after{
 }
 .content-search.pad-container {
 	margin-top: 90px;
-	margin-left: 30%;
+	margin-left: 34%;
 
 
 }
@@ -4872,6 +4872,11 @@ a:after{
     color:red !important;
     background-color: yellow !important;
 }
+article.hentry .article-inner {
+
+	/*margin-top: 50px;*/
+}
+
 
 /* FIN! */
 

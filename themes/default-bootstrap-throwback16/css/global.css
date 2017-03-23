@@ -6910,15 +6910,21 @@ ul.footer_links {
       .bottom-pagination-content .product-count {
         clear: left; } }
 
+/* BEGIN - ORDER STEP ========================================= */
 ul.step {
-  margin-bottom: 30px;
-  overflow: hidden; }
-  @media (min-width: 768px) {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
     ul.step {
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-      border-radius: 4px; } }
-  ul.step li {
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+}
+
+ul.step li {
     float: left;
     width: 20%;
     text-align: left;
@@ -6926,170 +6932,274 @@ ul.step {
     border-top-color: #cacaca;
     border-bottom-color: #9a9a9a;
     border-right-color: #b7b7b7;
-    border-left-width: 0px; }
-    @media (max-width: 767px) {
-      ul.step li {
+    border-left-width: 0px;
+}
+
+@media (max-width: 767px) {
+    ul.step li {
         width: 100%;
-        border-left-width: 1px; } }
+        border-left-width: 1px;
+    }
+}
+
+ul.step li a,
+ul.step li span,
+ul.step li.step_current span,
+ul.step li.step_current_end span {
+    display: block;
+    padding: 13px 10px 14px 13px;
+    color: #333;
+    font-size: 17px;
+    line-height: 21px;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
+    position: relative;
+}
+
+@media (max-width: 992px) {
     ul.step li a,
-    ul.step li span, ul.step li.step_current span, ul.step li.step_current_end span {
-      display: block;
-      padding: 13px 10px 14px 13px;
-      color: #333;
-      font-size: 17px;
-      line-height: 21px;
-      font-weight: bold;
-      text-shadow: 1px 1px white;
-      position: relative; }
-      @media (max-width: 992px) {
-        ul.step li a,
-        ul.step li span, ul.step li.step_current span, ul.step li.step_current_end span {
-          font-size: 15px; } }
-      @media (min-width: 992px) {
-        ul.step li a:after,
-        ul.step li span:after, ul.step li.step_current span:after, ul.step li.step_current_end span:after {
-          content: ".";
-          position: absolute;
-          top: 0;
-          right: -31px;
-          z-index: 0;
-          text-indent: -5000px;
-          display: block;
-          width: 31px;
-          height: 52px;
-          margin-top: -2px; } }
-      ul.step li a:focus,
-      ul.step li span:focus, ul.step li.step_current span:focus, ul.step li.step_current_end span:focus {
-        text-decoration: none;
-        outline: none; }
+    ul.step li span,
+    ul.step li.step_current span,
+    ul.step li.step_current_end span {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    ul.step li a:after,
+    ul.step li span:after,
+    ul.step li.step_current span:after,
+    ul.step li.step_current_end span:after {
+        content: ".";
+        position: absolute;
+        top: 0;
+        right: -31px;
+        z-index: 0;
+        text-indent: -5000px;
+        display: block;
+        width: 31px;
+        height: 52px;
+        margin-top: -2px;
+    }
+}
+
+ul.step li a:focus,
+ul.step li span:focus,
+ul.step li.step_current span:focus,
+ul.step li.step_current_end span:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+ul.step li.first {
+    border-left-width: 1px;
+    border-left-color: #b7b7b7;
+}
+
+@media (min-width: 768px) {
     ul.step li.first {
-      border-left-width: 1px;
-      border-left-color: #b7b7b7; }
-      @media (min-width: 768px) {
-        ul.step li.first {
-          -moz-border-radius-topleft: 4px;
-          -webkit-border-top-left-radius: 4px;
-          border-top-left-radius: 4px;
-          -moz-border-radius-bottomleft: 4px;
-          -webkit-border-bottom-left-radius: 4px;
-          border-bottom-left-radius: 4px; } }
-      ul.step li.first span,
-      ul.step li.first a {
-        z-index: 5;
-        padding-left: 13px !important; }
-        @media (min-width: 768px) {
-          ul.step li.first span,
-          ul.step li.first a {
-            -moz-border-radius-topleft: 4px;
-            -webkit-border-top-left-radius: 4px;
-            border-top-left-radius: 4px;
-            -moz-border-radius-bottomleft: 4px;
-            -webkit-border-bottom-left-radius: 4px;
-            border-bottom-left-radius: 4px; } }
-    ul.step li.second span, ul.step li.second a {
-      z-index: 4; }
-    ul.step li.third span, ul.step li.third a {
-      z-index: 3; }
-    ul.step li.four span, ul.step li.four a {
-      z-index: 2; }
-    ul.step li.last span {
-      z-index: 1; }
-    @media (min-width: 768px) {
-      ul.step li.last {
+        -moz-border-radius-topleft: 4px;
+        -webkit-border-top-left-radius: 4px;
+        border-top-left-radius: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+}
+
+ul.step li.first span,
+ul.step li.first a {
+    z-index: 5;
+    padding-left: 13px !important;
+}
+
+@media (min-width: 768px) {
+    ul.step li.first span,
+    ul.step li.first a {
+        -moz-border-radius-topleft: 4px;
+        -webkit-border-top-left-radius: 4px;
+        border-top-left-radius: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+}
+
+ul.step li.second span,
+ul.step li.second a {
+    z-index: 4;
+}
+
+ul.step li.third span,
+ul.step li.third a {
+    z-index: 3;
+}
+
+ul.step li.four span,
+ul.step li.four a {
+    z-index: 2;
+}
+
+ul.step li.last span {
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    ul.step li.last {
         -moz-border-radius-topright: 4px;
         -webkit-border-top-right-radius: 4px;
         border-top-right-radius: 4px;
         -moz-border-radius-bottomright: 4px;
         -webkit-border-bottom-right-radius: 4px;
-        border-bottom-right-radius: 4px; }
-        ul.step li.last span {
-          -moz-border-radius-topright: 4px;
-          -webkit-border-top-right-radius: 4px;
-          border-top-right-radius: 4px;
-          -moz-border-radius-bottomright: 4px;
-          -webkit-border-bottom-right-radius: 4px;
-          border-bottom-right-radius: 4px; } }
-    ul.step li.step_current {
-      font-weight: bold;
-      background: #222;
-      background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000), to(#111));
-      background-image: -webkit-linear-gradient(top, #000, 0%, #111, 100%);
-      background-image: -moz-linear-gradient(top, #000 0%, #111 100%);
-      background-image: linear-gradient(to bottom, #000 0%, #111 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000', endColorstr='#111', GradientType=0);
-      border-color: #000; }
-      ul.step li.step_current span {
-        color: #fff;
-        text-shadow: 1px 1px #208931;
-        border: 1px solid;
-        border-color: #000;
-        position: relative; }
-        @media (min-width: 992px) {
-          ul.step li.step_current span {
-            padding-left: 38px; }
-            ul.step li.step_current span:after {
-              background: url(../img/order-step-a.png) right 0 no-repeat; } }
-    ul.step li.step_current_end {
-      font-weight: bold; }
-    ul.step li.step_todo {
-      background: #ececec;
-      background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ececec), to(#ededed));
-      background-image: -webkit-linear-gradient(top, #ececec, 0%, #ededed, 100%);
-      background-image: -moz-linear-gradient(top, #ececec 0%, #ededed 100%);
-      background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ededed', GradientType=0); }
-      ul.step li.step_todo span {
-        display: block;
-        border: 1px solid;
-        border-color: #ededed;
-        color: #888;
-        position: relative; }
-        @media (min-width: 992px) {
-          ul.step li.step_todo span {
-            padding-left: 38px; }
-            ul.step li.step_todo span:after {
-              background: url(../img/order-step-current.png) right 0 no-repeat; } }
-    ul.step li.step_done {
-      border-color: #ececec;
-      background: #ededed;
-      background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ececec), to(#ededed));
-      background-image: -webkit-linear-gradient(top, #ececec, 0%, #ededed, 100%);
-      background-image: -moz-linear-gradient(top, #ececec 0%, #ededed 100%);
-      background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ededed', GradientType=0); }
-      ul.step li.step_done a {
-        color: 444;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
-        border: 1px solid;
-        border-color: #ededed;
-      }
-      ul.step li.step_done a:before {
-        font: normal normal normal 14px/1 FontAwesome;
-      font-size: 150%;
-      content: "\f00c";
-        color: #40ec40;
-        right: 16px;
-        position: absolute;
-      }
-        @media (min-width: 992px) {
-          ul.step li.step_done a {
-            padding-left: 38px; }
-            ul.step li.step_done a:after {
-              background: url(../img/order-step-done.png) right 0 no-repeat; } }
-    @media (min-width: 992px) {
-      ul.step li.step_done.step_done_last a:after {
-        background: url(../img/order-step-done-last.png) right 0 no-repeat; } }
-    @media (min-width: 992px) {
-      ul.step li#step_end span:after {
-        display: none; } }
+        border-bottom-right-radius: 4px;
+    }
+    ul.step li.last span {
+        -moz-border-radius-topright: 4px;
+        -webkit-border-top-right-radius: 4px;
+        border-top-right-radius: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+}
+
+ul.step li.step_current {
+    font-weight: bold;
+    background: #222;
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000), to(#111));
+    background-image: -webkit-linear-gradient(top, #000, 0%, #111, 100%);
+    background-image: -moz-linear-gradient(top, #000 0%, #111 100%);
+    background-image: linear-gradient(to bottom, #000 0%, #111 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#000', endColorstr='#111', GradientType=0);
+    border-color: #000;
+}
+
+ul.step li.step_current span {
+    color: #fff;
+    text-shadow: 1px 1px #208931;
+    border: 1px solid;
+    border-color: #000;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    ul.step li.step_current span {
+        padding-left: 38px;
+    }
+    ul.step li.step_current span:after {
+        background: url(../img/order-step-a.png) right 0 no-repeat;
+    }
+}
+
+ul.step li.step_current_end {
+    font-weight: bold;
+}
+
+ul.step li.step_todo {
+  border-color: #ececec;
+    background: #ececec;
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ececec), to(#ededed));
+    background-image: -webkit-linear-gradient(top, #ececec, 0%, #ededed, 100%);
+    background-image: -moz-linear-gradient(top, #ececec 0%, #ededed 100%);
+    background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ededed', GradientType=0);
+}
+
+ul.step li.step_todo span {
+    display: block;
+    border: 1px solid;
+    border-color: #ededed;
+    color: #888;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    ul.step li.step_todo span {
+        padding-left: 38px;
+    }
+    ul.step li.step_todo span:after {
+        /*background: url(../img/order-step-current.png) right 0 no-repeat;*/
+         background: url(../img/order-step-done.png) right 0 no-repeat;
+    }
+}
+
+ul.step li.step_done {
+    border-color: #ececec;
+    background: #ededed;
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ececec), to(#ededed));
+    background-image: -webkit-linear-gradient(top, #ececec, 0%, #ededed, 100%);
+    background-image: -moz-linear-gradient(top, #ececec 0%, #ededed 100%);
+    background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ededed', GradientType=0);
+}
+
+ul.step li.step_done a {
+    color: 444;
+    /*text-shadow: 1px 1px rgba(0, 0, 0, 0.3);*/
+    border: 1px solid;
+    border-color: #ededed;
+}
+
+ul.step li.step_done a:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 150%;
+    content: "\f00c";
+    color: #40ec40;
+    right: 16px;
+    position: absolute;
+}
+
+@media (min-width: 992px) {
+    ul.step li.step_done a {
+        padding-left: 38px;
+    }
+    ul.step li.step_done a:after {
+        background: url(../img/order-step-done.png) right 0 no-repeat;
+    }
+}
+
+@media (min-width: 992px) {
+    ul.step li.step_done.step_done_last a:after {
+        background: url(../img/order-step-done-last.png) right 0 no-repeat;
+    }
+}
+
+@media (min-width: 992px) {
+    ul.step li#step_end span:after {
+        display: none;
+    }
+}
+
+ul.step li em {
+    font-style: normal;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
     ul.step li em {
-      font-style: normal; }
-      @media (min-width: 768px) and (max-width: 991px) {
-        ul.step li em {
-          display: none; } }
+        display: none;
+    }
+}
+
+
+/*from 3 suisses*/
+
+ul.step li span,
+ul.step li a {
+    /*line-height: 38px;*/
+    text-transform: uppercase;
+    /*color: #333;*/
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    /*text-decoration: none;*/
+}
+
+/* END - ORDER STEP ========================================= */
+
 
 .rating {
   clear: both;

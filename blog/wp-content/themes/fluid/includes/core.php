@@ -124,8 +124,8 @@ function fluida_pagination( $pages = '', $range = 2, $prefix ='' ) {
 	$pagination = cryout_get_option( 'fluida_pagination' );
 	if ( $pagination && function_exists( 'the_posts_pagination' ) ):
 		the_posts_pagination( array(
-			'prev_text' => '<i class="icon-angle-left"></i>',
-			'next_text' => '<i class="icon-angle-right"></i>',
+			'prev_text' => '<i class=" fa fa-angle-double-left" aria-hidden="true"></i>',
+			'next_text' => '<i class=" fa fa-angle-double-right" aria-hidden="true"></i>',
 			'mid_size' => $range
 		) );
 	else:
@@ -246,7 +246,7 @@ add_filter( 'body_class', 'fluida_mobile_body_class');
 if ( ! function_exists( 'fluida_breadcrumbs' ) ) :
 function fluida_breadcrumbs() {
 	cryout_breadcrumbs(
-		'<i class="icon-angle-right"></i>',						// $separator
+		'<i class="fa fa-angle-right" aria-hidden="true"></i>',						// $separator
 		'<i class="blicon-home2"></i>', 						// $home
 		1,														// $showCurrent
 		'<span class="current">', 								// $before

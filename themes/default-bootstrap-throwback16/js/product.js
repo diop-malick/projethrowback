@@ -82,6 +82,7 @@ if (typeof combinations !== 'undefined' && combinations)
 	var k = 0;
 	for (var i in combinations)
 	{
+
 		globalQuantity += combinations[i]['quantity'];
 		combinationsJS[k] = [];
 		combinationsJS[k]['idCombination'] = parseInt(i);
@@ -266,7 +267,20 @@ $(document).ready(function()
 			});
 		}
 	});
+	// Init attributes
+	var chrono =  document.getElementById('availability_date');
+	if( (chrono == null) ){
+			for (var i in attributesCombinations)
+			{
+				if(combinations[i]['quantity'] == 0)
+				{
+					var attributeId = attributesCombinations[i]['id_attribute'];
+					var id_radio = '#radio_'+ attributeId;
+					$('#radio_'+ attributeId).closest('li').addClass("li_attribute_list").addClass("disabled");
 
+				}
+			}
+		}
 });
 
 //find a specific price rule, based on pre calculated dom display array
@@ -1176,7 +1190,7 @@ function getProductAttribute()
 	$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
 		tab_attributes.push($(this).val());
 	});
-	console.log(tab_attributes);
+
 
 	// build new request
 	for (var i in attributesCombinations)
