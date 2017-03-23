@@ -39,14 +39,30 @@
 
                                         </div>
                                         <div class="row text-right s_title_block">
-                                        <!-- Picto new product -->
-                                            {if $accessory.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+                                            <!-- FALG chrono -->
+                                            {* get chrono caracteristique value *}
+                                            {foreach from=$accessory.features item=feature}
+                                                    {if $feature.name eq 'newcomingsoon'}
+                                                        {if isset($feature.value)}
+                                                            {assign var=comingsoonvalue value=$feature.value}
+                                                        {/if}
+                                                    {/if}
+                                            {/foreach}
+                                            <!-- FALG Comming soon --> 
+                                            {* comingsoon without date *}
+                                            {if $comingsoonvalue eq 'comingsoon'}
+                                                {addJsDef comingsoonvalue=$comingsoonvalue}
+                                                <i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50); margin-right:25px; display:inline-block;">schedule</i>
+                                            <!-- FALG New -->
+                                            <!-- FALG Comming soon -->
+                                            {elseif $accessory.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
                                                 <img src="{$base_dir}/img/icones/chrono.png"/>
-                                            
+                                            <!-- show new flag if date_add is not after now -->
                                             {elseif isset($accessory.new) && $accessory.new == 1}
                                                 <img src="{$base_dir}/img/icones/new.png"/>
-                                            <!-- Picto Comming soon -->
                                             {/if}
+                                            {* reset comming soon value *}
+                                            {assign var=comingsoonvalue value=''}
                                         </div>
 
                                         <div class="row product_desc">

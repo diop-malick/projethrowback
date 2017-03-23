@@ -118,7 +118,7 @@ class PasswordController extends PasswordControllerCore
                                 $customer->last_passwd_gen = date('Y-m-d H:i:s', time());
                                 if ($customer->update()) {
                                     Hook::exec('actionPasswordRenew', array('customer' => $customer, 'password' => $new_pwd));
-                                    Tools::redirect('index.php?controller=authentication&generate=1');
+                                    Tools::redirect('index.php?controller=authentication&back=my-account&generate=1');
                                 }
                             }
 

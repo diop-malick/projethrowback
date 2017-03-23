@@ -143,7 +143,7 @@
 
 							<!-- NAME -->
 
-							<h1 itemprop="name">{$product->name|truncate:30:"...":true|escape:'html':'UTF-8'}</h1>
+							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}
@@ -218,9 +218,28 @@
 
 						</div> <!-- end content_prices -->
 
-						<!-- FALG New -->
-						{if $product->new && $product->new == 1 && ($product->quantity > 0) &&$product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-							<img src="{$base_dir}/img/icones/new.png"/>
+						<!-- FALG chrono -->
+						{* get chrono caracteristique value *}
+						{foreach from=$features item=feature}
+								{if $feature.name eq 'newcomingsoon'}
+											{if isset($feature.value)}
+												{assign var=comingsoonvalue value=$feature.value}
+											{/if}
+										{/if}
+						{/foreach}
+						{* comingsoon without date *}
+						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
+							{if $comingsoonvalue eq 'comingsoon'}
+								{addJsDef comingsoonvalue=$comingsoonvalue}
+								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
+								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
+								{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
+								{* <i class="icon-time fa-3x"></i> *}
+							<!-- FALG New -->
+							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
+								<img src="{$base_dir}/img/icones/new.png"/>
+							
+							{/if}
 						{/if}
 
 
@@ -743,7 +762,7 @@
 										<div class="row text-right s_title_block">
 											<h5 class="product-name">
 													<a href="{$accessoryLink|escape:'html':'UTF-8'}">
-														{$accessory.name|truncate:20:'...':true|escape:'html':'UTF-8'}
+														{$accessory.name|truncate:30:'...':true|escape:'html':'UTF-8'}
 													</a>
 											</h5>
 											{if $accessory.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}

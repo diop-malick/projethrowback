@@ -211,14 +211,14 @@
 				{if !$PS_CATALOG_MODE && $active_overlay == 1}
 					<div id="layer_cart">
 						<div class="clearfix">
-							<div class="layer_cart_product col-xs-12 col-xs-6">
+							<div class="layer_cart_product col-xs-12 col-md-12">
 								<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
 								<span class="title">
 									<i class="icon-check"></i>{l s='Product successfully added to your shopping cart' mod='blockcart'}
 								</span>
-								<div class="product-image-container layer_cart_img">
+								<div class="product-image-container layer_cart_img hidden-xs">
 								</div>
-								<div class="layer_cart_product_info">
+								<div class="layer_cart_product_info hidden-xs">
 									<span id="layer_cart_product_title" class="product-name"></span>
 									<!-- <span id="layer_cart_product_attributes"></span> -->
 									{if isset($product.attributes)}
@@ -260,18 +260,28 @@
 									</div>
 								</div>
 								<div class="button-container">
-									<span class="continue btn btn-default button exclusive-medium"title="{l s='Continue shopping' mod='blockcart'}">
-										<span>
-											<i><&nbsp;</i> {l s='Continue shopping' mod='blockcart'}
-										</span>
-									</span>
-									<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
-										<span>
-											{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
-										</span>
-									</a>
+									<div class = "row">
+										<div class="col-md-6 col-xs-12">
+											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
+												<span>
+													{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
+												</span>
+											</a>
+										</div>
+
+										<div class="col-md-6 col-xs-12">
+											<p class="cart_navigation clearfix">
+												<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+													<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
+												</a>
+											</p>
+
+
+										</div>
+									</div>
 								</div>
 							</div>
+							{*
 							<div class="layer_cart_cart col-xs-12 col-xs-6 hidden">
 								<span class="title">
 									<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
@@ -374,6 +384,7 @@
 									</a>
 								</div>
 							</div>
+							*}
 						</div>
 						<div class="crossseling"></div>
 					</div> <!-- #layer_cart -->
