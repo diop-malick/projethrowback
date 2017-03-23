@@ -147,7 +147,8 @@
 										{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 											{if ($group.group_type == 'radio')}
 													{foreach from=$group.attributes key=id_attribute item=group_attribute}
-													<li>
+														{* {$group.attributes_quantity[$id_attribute]|var_dump} *}
+													<li {if ( $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 														<a href="{$product.link|escape:'html':'UTF-8'}">
 																{assign var=someVar value=" "|explode:$group_attribute}
 																<span class="size-list">
