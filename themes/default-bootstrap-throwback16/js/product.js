@@ -326,11 +326,28 @@ $(window).bind('hashchange', function(){
 });
 
 // hover add_to_cart button disable => message
+var element =  document.getElementById('availability_date');
 $(document).on('mouseover', '#add_to_cart', function(){
-	var element =  document.getElementById('availability_date');
+
 	if(  ($(".btn").hasClass("disabled")) && (element == null) ){
 		$(".info").addClass("error");
-		$(".info").html("Merci de sélectionner une taille.").fadeIn(100).delay(5000).fadeOut(400);
+		$(".info").html("Merci de sélectionner une taille.")
+		}
+		else{
+				$(".info").removeClass("error");
+				$(".info").html("");
+		}
+});
+
+$(document).on('mouseout', '#add_to_cart', function(){
+
+	if( ($(".btn").hasClass("disabled")) && (element == null) ){
+		$(".info").addClass("error");
+		$(".info").html("");
+		}
+		else{
+				$(".info").removeClass("error");
+				$(".info").html("");
 		}
 });
 
