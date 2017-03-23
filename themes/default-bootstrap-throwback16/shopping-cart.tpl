@@ -77,11 +77,9 @@
 	{* eu-legal *}
 	{hook h="displayBeforeShoppingCartBlock"}
 
-	
 
-	<div id="order-detail-content" class="table_block table-responsive">
 		<div class="row">
-				<div class="col-md-9">
+			<div class="col-md-9 col-xs-12">
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
@@ -106,111 +104,145 @@
 
 						{$qtyLimitedAvailable[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $product.stock_quantity}
 
-				<form id="buy_block_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
-						<div id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product line_product_{$product.id_product}">
-							<div class="col-md-2 img-line">
+				<div class="row row_line_product line_product_{$product.id_product}" id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}">
+
+
+							<div class="col-md-2 col-xs-2 img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
 							</div>
 
-							<div class="col-md-9">
-								<p class="product-name"><a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}</a></p>
-								<br><br>
+							<div class="col-md-9 col-xs-7">
+								<p class="product-name product_title text-right-mobile">
+									<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
+									</a>
+								</p>
+								<!--<br><br>-->
 
 								<div class="row">
 
-									<div class="col-md-3">
-									{addJsDef quantityAvailable=$product.quantity_available}
-										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-											<label>{l s='Quantity'}</label><br>
-											<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
-											<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
-												<span><i class="icon-minus"></i></span>
-											</a>
-											<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
-												<span><i class="icon-plus"></i></span>
-											</a>
-										</p>
-										<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-											<label>{l s='Quantity'}</label>
-											<span class="current_qty_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} size_line">{$product.cart_quantity}</span>
-										</p>
-									</div>
+									<div class="col-md-9 col-xs-12 product_attributes line_attributes clearfix">
 
-									<div class="col-md-6 product_attributes line_attributes clearfix">
-											<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-												<div class="row">
-													{if isset($groups)}
-													<div class="customattributes">
-														<div id="attributes">
-															<div class="attribute_list custom-attribute">
-																<label class="attribute_label" >{l s='Taille'}</label>
-																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
-																	{if $group.attributes|@count}
-																	<!--<fieldset class="attribute_fieldset">-->
-																		
-																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
-																		 
-																		<div class="attribute_list">
-																			<span class="btn">
-																			{if ($group.group_type == 'radio')}
-																				<ul>
-																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																						
-																						<li>
-																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
-																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
-																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
-																							{$group_attribute|escape:'html':'UTF-8'}
+										{addJsDef quantityAvailable=$product.quantity_available}
+										<div class="row">
 
-																							</label>
-																						</li>
-																					{/foreach}
-																				</ul>
-																			{elseif ($group.group_type == 'color')}
-																				<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-																				<input type="hidden" name="color_default" value="{$group.default|intval}" />
-																				</div>
+											<div class="col-md-4 col-xs-12">
+												<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
+													<label>{l s='Quantité'}</label><br>
+													<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
+													<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
+														<span><i class="icon-minus"></i></span>
+													</a>
+													<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
+														<span><i class="icon-plus"></i></span>
+													</a>
+												</p>
+											</div>
+
+											<div class="col-md-8 col-xs-12">
+												<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
+														<div class="row">
+															{if isset($groups)}
+															<div class="customattributes">
+																<div id="attributes">
+																	<div class="attribute_list custom-attribute">
+																		<label class="attribute_label" >{l s='Taille'}</label>
+																		{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+																			{if $group.attributes|@count}
+																			<!--<fieldset class="attribute_fieldset">-->
+																				
+																				{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
+																				 
+																				<div class="attribute_list">
+																					<span class="btn">
+																					{if ($group.group_type == 'radio')}
+																						<ul>
+																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																								
+																								<li>
+																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
+																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
+																									{assign var=someVar value=" "|explode:$group_attribute}
+																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																									</label>
+																								</li>
+																							{/foreach}
+																						</ul>
+																					{elseif ($group.group_type == 'color')}
+																						<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																						<input type="hidden" name="color_default" value="{$group.default|intval}" />
+																						</div>
+																					{/if}
+																					</span>
+																				</div> <!-- end attribute_list -->
+																			<!--</fieldset>-->
 																			{/if}
-																			</span>
-																		</div> <!-- end attribute_list -->
-																	<!--</fieldset>-->
-																	{/if}
-																{/foreach}
-																
+																		{/foreach}
+																		
+																	</div>
+																</div>
+																<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																		<input type="hidden" name="combinaison_default" value="" />
+																</div>
 															</div>
-														</div>
-														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-																<input type="hidden" name="combinaison_default" value="" />
+															{/if}
 														</div>
 													</div>
-													{/if}
 												</div>
+										</div>
+										<div class="row attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+
+											<div class="col-md-4 col-xs-4">
+												{if $product.cart_quantity}
+													<div class = "row">
+														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+																<label class="label-attribute ">{l s='Quantité'}</label>
+														</div>
+														<div class="col-md-6 col-xs-6">
+																<div class="current_qty_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} size_line">
+																	{$product.cart_quantity}
+																</div>
+														</div>
+													</div>
+													
+												{/if}
 											</div>
-										<div class="row">
-										<div class="col-md-6">
-											{if isset($sizing)}
-											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-												<label>{l s='Taille'}</label>
-												<span class="size_line">
-													{$sizing}
-												</span>
-											</p>
-											{/if}
+
+											<div class="col-md-4 col-xs-4">
+												{if isset($sizing)}
+													<div class = "row">
+														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+															<label class="label-attribute">{l s='Taille'}</label>
+														</div>
+														<div class="col-md-6 col-xs-6">
+															<div class="size_line">
+																	{$sizing}
+															</div>
+														</div>
+													</div>
+												{/if}
+											</div>
+
+											<div class="col-md-4 col-xs-4">
+												{if isset($coloring)}
+													<div class = "row">
+														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+																<label class="label-attribute">{l s='Couleur'}</label>
+														</div>
+														<div class="col-md-6 col-xs-6">
+																<div class="size_line">
+																	{$coloring}
+																</div>
+														</div>
+													</div>
+												{/if}
+											</div>
+
 										</div>
-										<div class="col-md-6">
-											{if isset($coloring)}
-											<p class="attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-												<label>{l s='Couleur'}</label>
-												<span class="size_line">
-														{$coloring}
-												</span>
-											</p>
-											{/if}
-										</div>
-										</div>
+
 									</div>
 
-									<div class="col-md-3">
+									<div class="col-md-3 col-xs-3">
 										{if !$priceDisplay}
 											<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
 										{else}
@@ -248,18 +280,18 @@
 
 								</div>
 								<div class="row">
-									<div class="col-md-12 margin-top-10">
+									<div class="col-md-12 col-xs-12 margin-top-10">
 										<span class="{if isset($product.available_now) && $product.available_now}dispo-text{else}dispo-text{/if}">{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later}{else}{l s='Disponible'}{/if}{else}{l s='Out of stock'}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'}{else}{l s='Disponible'}{/if}{/if}
 										</span>
 									</div>
 								</div>
 								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-										<div class="col-md-6 text-right">
+										<div class="col-md-6 col-xs-6 text-right">
 											<button class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
 											<span>{l s='VALIDER'}</span>
 											</button>
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6 col-xs-6">
 											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} cancel-line" type="submit">
 											<span>{l s='ANNULER'}</span>
 											</button>
@@ -267,14 +299,14 @@
 								</div>
 							</div>
 
-							<div class="col-md-1">
+							<div class="col-md-1 col-xs-3">
 								<div class="row">
 									
-									<div class="col-xs-6 text-right" style="padding: 0;">
+									<div class="col-md-6 col-xs-6 text-right edit padding-right-5">
 										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-xs-6 text-left" style="padding-left: 5px;">
+									<div class="col-md-6 col-xs-6 text-left delete padding-left-5">
 										<a
 											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"
@@ -288,25 +320,26 @@
 							</div>
 						</div>
 						
-					</form>		
+						
 					{/foreach}
+
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-12">
 					<div class="row commande_title text-center">
-						<div class="col-md-12">
+						<div class="col-md-12 col-xs-12">
 							{l s='VOTRE COMMANDE'}
 						</div>
 					</div>
 					<div class="row commande_body">
 						{foreach $products as $product}
 						<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande">
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									<p class="command-product-name">{$product.name|escape:'html':'UTF-8'}</p>
 								</div>
 
-								<div class="col-md-4 text-right">
-									<span id="total_product_price_{$product.id_product}_{$product.id_product_attribute}_0">
+								<div class="col-md-4 col-xs-4 text-right">
+									<span class="price-line" id="total_product_price_{$product.id_product}_{$product.id_product_attribute}_0">
 										{if !$priceDisplay}{displayPrice price=$product.total_wt}{else}{displayPrice price=$product.total}{/if}
 									</span>
 								</div>
@@ -318,15 +351,15 @@
 						<input type="hidden" class="my" name="price_add" value="" />
 						<input type="hidden" class="you" name="total_add" value="" />
 						<div class="row line_product">
-								<div class="col-md-8">
-									<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
+								<div class="col-md-8 col-xs-8">
+									<p class="command-product-name total">{l s='Total'|upper}</p>
 								</div>
 
-								<div class="col-md-4 text-right total">
+								<div class="col-md-4 col-xs-4 text-right total">
 										{if $use_taxes}
-										<span id="total_price">{displayPrice price=$total_price}</span>
+										<span class="price-line" id="total_price">{displayPrice price=$total_price}</span>
 										{else}
-										<span id="total_price">{displayPrice price=$total_price_without_tax}</span>
+										<span class="price-line" id="total_price">{displayPrice price=$total_price_without_tax}</span>
 										{/if}
 								</div>
 						</div>
@@ -342,18 +375,18 @@
 					</div>
 
 					<div class="row text-center">
-						<div class="col-md-12">	
-						<p class="cart_navigation clearfix">
+						<div class="col-md-12 cart_navigation">	
+						
 							<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
-							<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
-						</a>
-						</p>
+								<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
+							</a>
+						
 						</div>
 					</div>
 				</div>
 
 		</div>
-	</div> <!-- end order-detail-content -->
+	
 
 	{if $show_option_allow_separate_package}
 	<p>

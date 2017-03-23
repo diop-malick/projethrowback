@@ -124,8 +124,8 @@ function fluida_pagination( $pages = '', $range = 2, $prefix ='' ) {
 	$pagination = cryout_get_option( 'fluida_pagination' );
 	if ( $pagination && function_exists( 'the_posts_pagination' ) ):
 		the_posts_pagination( array(
-			'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-			'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+			'prev_text' => '<i class=" fa fa-angle-double-left" aria-hidden="true"></i>',
+			'next_text' => '<i class=" fa fa-angle-double-right" aria-hidden="true"></i>',
 			'mid_size' => $range
 		) );
 	else:
