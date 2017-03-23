@@ -65,7 +65,7 @@
 							<!-- FALG chrono -->
 							{* get chrono caracteristique value *}
 							{foreach from=$product.features item=feature}
-									{if $feature.name eq 'comingsoon'}
+									{if $feature.name eq 'newcomingsoon'}
 										{if isset($feature.value)}
 											{assign var=comingsoonvalue value=$feature.value}
 										{/if}
@@ -73,7 +73,7 @@
 							{/foreach}
 							<!-- FALG Comming soon --> 
 							{* comingsoon without date *}
-							{if $comingsoonvalue eq 'yes'}
+							{if $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50);">schedule</i>
 							<!-- FALG New -->

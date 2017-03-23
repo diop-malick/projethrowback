@@ -221,7 +221,7 @@
 						<!-- FALG chrono -->
 						{* get chrono caracteristique value *}
 						{foreach from=$features item=feature}
-								{if $feature.name eq 'comingsoon'}
+								{if $feature.name eq 'newcomingsoon'}
 											{if isset($feature.value)}
 												{assign var=comingsoonvalue value=$feature.value}
 											{/if}
@@ -229,7 +229,7 @@
 						{/foreach}
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if $comingsoonvalue eq 'yes'}
+							{if $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
 								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
