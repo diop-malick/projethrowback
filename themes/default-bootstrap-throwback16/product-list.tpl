@@ -62,14 +62,31 @@
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
 
+							<!-- FALG chrono -->
+							{* get chrono caracteristique value *}
+							{foreach from=$product.features item=feature}
+									{if $feature.name eq 'comingsoon'}
+										{if isset($feature.value)}
+											{assign var=comingsoonvalue value=$feature.value}
+										{/if}
+									{/if}
+							{/foreach}
+							<!-- FALG Comming soon --> 
+							{* comingsoon without date *}
+							{if $comingsoonvalue eq 'yes'}
+								{addJsDef comingsoonvalue=$comingsoonvalue}
+								<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50);">schedule</i>
 							<!-- FALG New -->
-							<!-- show new flag if date_add is not after now -->
-							{if isset($product.new) && $product.new == 1 && isset($product.date_add) && $product.date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-								<img src="{$base_dir}/img/icones/new.png"/>
 							<!-- FALG Comming soon -->
 							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 								<img src="{$base_dir}/img/icones/chrono.png"/>
+							<!-- show new flag if date_add is not after now -->
+							{elseif isset($product.new) && $product.new == 1}
+								<img src="{$base_dir}/img/icones/new.png"/>
 							{/if}
+							{* reset comming soon value *}
+							{assign var=comingsoonvalue value=''}
+
 							<!-- <p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
 								<img src="{$base_dir}/img/icones/chrono.png"/>
 							</p> -->
