@@ -1004,6 +1004,8 @@ margin-right: 25px;
   font-size: 35px;
   /*font-weight: 600;*/
   line-height: 0.955;
+  color: rgb(214, 157, 50) !important;
+  font-weight: bold !important;
 }
 
     @media (max-width: 991px) {
@@ -1264,6 +1266,31 @@ Quick View Styles
 
 #rigth-row-1, #rigth-row-2, #rigth-row-3 {
 }
+
+
+#rigth-row-3, #rigth-row-4 {
+       /*margin-left: 0; */
+}
+
+
+#rigth-row-1 .content_prices {
+ /*width: 30%;*/
+ /*text-align: center; */
+ /*padding-top: 5px;*/
+ /*padding-right: 0;*/
+}
+
+
+#rigth-row-1 .product_name{
+  font-size: 25px !important;
+  font-weight: normal !important;
+}
+#rigth-row-2 {
+
+}
+#rigth-row-3 {
+}
+
 
 
 /*CUSTOM*/

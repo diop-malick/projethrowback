@@ -1,5 +1,5 @@
 <!-- COL UserInfo + Cart -->
-<div class="col-md-4 col-xs-4 pull-right">
+<div id ="user_info" class="col-md-4 col-xs-4 pull-right" >
 	<!-- ROW UserInfo + Cart -->
 	<div class="row">
 
@@ -14,9 +14,9 @@
 
 				      				{* <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
 									{* <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/> *}
-									
+
 									{* <i class="fa fa-user fa-2x" aria-hidden="true"></i> *}
-									
+
 									<i class="material-icons"">person</i>
 									{* <i class="material-icons">person_outline</i> *}
 
@@ -48,10 +48,12 @@
 			    </div>
 			{else}
 				<button class="dropbtn">
-					<a href="javascript:void(0)">						
-						<span  class="hidden-xs">{l s='My espace' mod='blockuserinfo'} 
+
+					<a href="javascript:void(0)">
+						<span  class="hidden-xs">{l s='My espace' mod='blockuserinfo'}
 							{* <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
-						<i class="material-icons"">person</i>
+						<i class="material-icons">person</i>
+
 						</span>
 						{* <span class="visible-xs" >
 							<img src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
