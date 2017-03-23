@@ -237,6 +237,10 @@ $(document).ready(function()
 		$('#add_to_cart button').removeClass('active').addClass('disabled');
 		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
 		$('.attribute_list .btn').removeClass('active').addClass('disabled');
+		$('.attribute_label').removeClass('active').addClass('btn').addClass('disabled');
+		$('#quantity_wanted_p label').removeClass('active').addClass('btn').addClass('disabled');
+
+		
 	}
 	
 
@@ -328,7 +332,7 @@ $(window).bind('hashchange', function(){
 // hover add_to_cart button disable => message
 $(document).on('mouseover', '#add_to_cart', function(){
 	var element =  document.getElementById('availability_date');
-	if(  ($(".btn").hasClass("disabled")) && (element == null) ){
+	if(  ($(".btn").hasClass("disabled")) && (element == null) && (comingsoonvalue == 'undefined' || comingsoonvalue == null) ){
 		$(".info").addClass("error");
 		$(".info").html("Merci de sélectionner une taille.").fadeIn(100).delay(5000).fadeOut(400);
 		}
