@@ -272,7 +272,7 @@
 										<div class="col-md-6 col-xs-12">
 											<p class="cart_navigation clearfix">
 												<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
-													<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
+													<i><</i>{l s='Continuer mon shopping'}
 												</a>
 											</p>
 

@@ -139,24 +139,19 @@
 
 				<div id="rigth-row-1" class="row">
 					<!-- TITRE  -->
-					<div class="col-md-8 text-left">
-
+					<div class="col-md-8 col-xs-8 text-left">
 							<!-- NAME -->
-
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}
 								<p class="online_only">{l s='Online only'}</p>
 							{/if} -->
-
-
-
 					</div>
 					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-md-4 text-right">
+					<div class="content_prices col-md-4 col-xs-4 text-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -248,7 +243,7 @@
 				</div> <!-- // rigth-row-1 -->
 
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12 col-xs-12">
 						<hr>
 					</div>
 				</div>
@@ -277,7 +272,7 @@
 						<!-- Flag GENRE -->
 						<!-- features from `ps_feature_lang` table : genre : 10  -->
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-12 col-xs-12">
 								<section>
 									{foreach from=$features item=feature}
 										{if $feature.name eq 'genre'}
@@ -415,7 +410,7 @@
 
 								{if isset($groups)}
 									<!-- attributes -->
-									<div class="customattributes">
+									<div class="customattributes groups-attribute">
 										<div class="clearfix"></div>
 										{foreach from=$groups key=id_attribute_group item=group}
 											{if $group.attributes|@count}
