@@ -40,13 +40,30 @@
 							<span class="price">{convertPrice price=$categoryProduct.displayed_price}</span>
 						{/if}
 						</p>
-						<!-- Picto new product -->
-						{if isset($categoryProduct.new) && $categoryProduct.new == 1}
-							<img src="{$base_dir}/img/icones/new.png"/>
-						<!-- Picto Comming soon -->
-						{elseif $categoryProduct.available_date > $smarty.now|date_format:'%Y-%m-%d'}
-							<img src="{$base_dir}/img/icones/chrono.png"/>
-						{/if}
+										<!-- FALG chrono -->
+                                            {* get chrono caracteristique value *}
+                                            {foreach from=$categoryProduct.features item=feature}
+                                                    {if $feature.name eq 'comingsoon'}
+                                                        {if isset($feature.value)}
+                                                            {assign var=comingsoonvalue value=$feature.value}
+                                                        {/if}
+                                                    {/if}
+                                            {/foreach}
+                                            <!-- FALG Comming soon --> 
+                                            {* comingsoon without date *}
+                                            {if $comingsoonvalue eq 'yes'}
+                                                {addJsDef comingsoonvalue=$comingsoonvalue}
+                                                <i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50); margin-right:25px; display:inline-block;">schedule</i>
+                                            <!-- FALG New -->
+                                            <!-- FALG Comming soon -->
+                                            {elseif $categoryProduct.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+                                                <img src="{$base_dir}/img/icones/chrono.png"/>
+                                            <!-- show new flag if date_add is not after now -->
+                                            {elseif isset($categoryProduct.new) && $categoryProduct.new == 1}
+                                                <img src="{$base_dir}/img/icones/new.png"/>
+                                            {/if}
+                                            {* reset comming soon value *}
+                                            {assign var=comingsoonvalue value=''}
 						</div>
 
 

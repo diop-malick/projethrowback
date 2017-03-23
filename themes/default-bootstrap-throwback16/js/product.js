@@ -227,13 +227,17 @@ $(document).ready(function()
 		$('#clock').countdown(available_date, function(event) {
 			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
 		});
-
 		$('#availability_date').fadeIn();
+	}
+	// console.log('comingsoonvalue =' + comingsoonvalue);
+	// Coming soon disable
+	if ((typeof available_date !== 'undefined' && available_date) || (typeof comingsoonvalue !== 'undefined' && comingsoonvalue)) {
 		$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 		$('#add_to_cart button').removeClass('active').addClass('disabled');
 		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
 		$('.attribute_list .btn').removeClass('active').addClass('disabled');
 	}
+	
 
 	// Align button add_to_cart with image if no chrono
 	if (!$('#clock').length ) {
