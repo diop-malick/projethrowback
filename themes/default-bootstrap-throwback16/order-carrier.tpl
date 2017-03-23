@@ -41,85 +41,13 @@
 				{if isset($isVirtualCart) && $isVirtualCart}
 					<p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
 				{else}
-				<div class="row delivery_options_address panel-group" id="accordion">			    
+				<div class="row delivery_options_address panel-group" id="accordion">
+
 {*********************************************************
 Retrait en Magansin / id transporteur = 50
 @ author:         Babacar
 @ maintainer:     Malick
 **********************************************************}
-			    <div class="panel panel-default">
-			    	<div class="panel-heading">
-			    		<h4 class="panel-title">
-			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
-			    				<span class="resp-arrow"></span>
-			    				<span class="delivery_option_name">{l s='Retrait en magasin'}</span>			          
-			    			</a>
-			    			<span class="delivery_option_price free">{l s='Free'}</span>
-			    		</h4>
-			    	</div>
-			      <div id="collapse0" class="panel-collapse collapse">
-			        <div class="panel-body delivery_options">
-			        <div class="delivery_options_address">
-						{if isset($delivery_option_list)}
-							{foreach $delivery_option_list as $id_address => $option_list}
-					          	<div class="delivery_options resp-tabs-container tab">									
-									{foreach $option_list as $key => $option name=options}
-										
-
-											{if $option.unique_carrier}
-												{foreach $option.carrier_list as $carrier}
-													{assign var=mycarrername value=$carrier.instance->name}
-													{assign var=mycarrierid value=$carrier.instance->id}
-
-													{if $mycarrername == 'Retrait en magasin'}
-													<div class="delivery_option item">											
-														<span class="delivery_option_radio hidden">
-															<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
-														</span>
-														<p>{l s='Où nous trouver'}</p>													
-														<div class="clearfix">
-			             									<div id="map" ></div>
-			             									<p class="shop-info">
-																<strong>{l s='Adresse :'}</strong>
-																<br>
-																67 rue de Belleville 75019 Paris
-																<br><br>
-																<strong>{l s='Horaires :'}</strong><br>
-																{l s='Du Mardi au Vendredi de 11H à 13H30 / de 15H à 19H30'}								
-																<br>
-																{l s='Samedi de 11H à 19H30'}
-																<br>
-																{l s='Dimanche 14h - 19H'}
-																<br><br>
-																<strong>{l s='Tel :'}</strong> +33(0)9 50 64 02 96<br><br>
-															</p>
-															<p>
-																{if $option.unique_carrier}													
-																	{if isset($carrier.instance->delay[$cookie->id_lang])}
-																		<strong>{l s='Delivery time:'}</strong>&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
-																	{/if}
-																{/if}
-															</p>
-															<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control hidden">						
-																<option value="rem">Retrait en magasin</option>																
-															</select>
-														</div>
-														</div> <!-- end delivery_option item -->
-													{/if}														
-													{break}
-												{/foreach}													
-											{/if}
-											
-										
-									{/foreach}
-								</div> <!-- end delivery_options -->
-							{/foreach}
-						{/if}
-					</div> <!-- end delivery_options_address -->
-
-			      </div> <!-- end panel body -->
-			      </div> <!-- end panel-collapse -->
-			    </div> <!-- end panel-default -->
 
 {*********************************************************
 Livraison à domicile 
