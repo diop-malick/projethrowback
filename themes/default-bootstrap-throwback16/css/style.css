@@ -512,6 +512,12 @@ width: auto;
 
 }
 
+  .padding-left-5{
+    padding-left: 5px;
+  }
+  .padding-right-5{
+    padding-right: 5px;
+  }
   .margin-top-10{
     margin-top:10px;
   }
@@ -628,6 +634,12 @@ width: auto;
     line-height: 27px;
     z-index: 82;
 }
+.line_attributes .btn {
+  margin-top: -10px;
+}
+.line_attributes .button-minus , .line_attributes .button-plus {
+  margin-top: 1px;
+}
 
 #quantity_wanted_p .btn.button-plus,#quantity_wanted_p .btn.button-minus {
     line-height: 20px;
@@ -701,7 +713,9 @@ width: auto;
        .price-line{
         padding-right: 10px;
        }
-
+       .customattributes{
+        margin-left: 15px;
+       }
 }
 
 /*************************** panier vide ************************/
