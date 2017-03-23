@@ -221,7 +221,7 @@
 						<!-- FALG chrono -->
 						{* get chrono caracteristique value *}
 						{foreach from=$features item=feature}
-								{if $feature.name eq 'newcomingsoon'}
+								{if $feature.name eq 'Type de produit'}
 											{if isset($feature.value)}
 												{assign var=comingsoonvalue value=$feature.value}
 											{/if}
