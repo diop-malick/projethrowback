@@ -143,24 +143,21 @@
 								</div>
 								{if isset($groups) && $groups}
 								<div class="row qv-size">
-								<ul>
-
-									{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
-									
-										{if ($group.group_type == 'radio')}
-												{foreach from=$group.attributes key=id_attribute item=group_attribute}
-												<li>
-												<a href="{$product.link|escape:'html':'UTF-8'}">
-														{assign var=someVar value=" "|explode:$group_attribute}
-														<span class="size-list">
-														{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}	
-														</span>
-												</li>
-												</a>
-												{/foreach}
-										{/if}
-										
-									{/foreach}
+									<ul class="text-center">
+										{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+											{if ($group.group_type == 'radio')}
+													{foreach from=$group.attributes key=id_attribute item=group_attribute}
+													<li>
+														<a href="{$product.link|escape:'html':'UTF-8'}">
+																{assign var=someVar value=" "|explode:$group_attribute}
+																<span class="size-list">
+																{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}	
+																</span>
+														</a>
+													</li>
+													{/foreach}
+											{/if}
+										{/foreach}
 									</ul>
 								</div>
 								{/if}

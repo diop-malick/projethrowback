@@ -123,68 +123,73 @@
 									<div class="col-md-9 col-xs-12 product_attributes line_attributes clearfix">
 
 										{addJsDef quantityAvailable=$product.quantity_available}
-										<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-											<label>{l s='Quantité'}</label><br>
-											<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
-											<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
-												<span><i class="icon-minus"></i></span>
-											</a>
-											<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
-												<span><i class="icon-plus"></i></span>
-											</a>
-										</p>
-										
+										<div class="row">
 
-										<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-												<div class="row">
-													{if isset($groups)}
-													<div class="customattributes">
-														<div id="attributes">
-															<div class="attribute_list custom-attribute">
-																<label class="attribute_label" >{l s='Taille'}</label>
-																{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
-																	{if $group.attributes|@count}
-																	<!--<fieldset class="attribute_fieldset">-->
-																		
-																		{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
-																		 
-																		<div class="attribute_list">
-																			<span class="btn">
-																			{if ($group.group_type == 'radio')}
-																				<ul>
-																					{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																						
-																						<li>
-																							<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
-																							<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
-																							{if ($group_attribute == $sizing)} checked="checked"{/if} />
-																							{$group_attribute|escape:'html':'UTF-8'}
-
-																							</label>
-																						</li>
-																					{/foreach}
-																				</ul>
-																			{elseif ($group.group_type == 'color')}
-																				<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-																				<input type="hidden" name="color_default" value="{$group.default|intval}" />
-																				</div>
-																			{/if}
-																			</span>
-																		</div> <!-- end attribute_list -->
-																	<!--</fieldset>-->
-																	{/if}
-																{/foreach}
-																
-															</div>
-														</div>
-														<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
-																<input type="hidden" name="combinaison_default" value="" />
-														</div>
-													</div>
-													{/if}
-												</div>
+											<div class="col-md-4 col-xs-12">
+												<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
+													<label>{l s='Quantité'}</label><br>
+													<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
+													<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
+														<span><i class="icon-minus"></i></span>
+													</a>
+													<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
+														<span><i class="icon-plus"></i></span>
+													</a>
+												</p>
 											</div>
 
+											<div class="col-md-8 col-xs-12">
+												<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
+														<div class="row">
+															{if isset($groups)}
+															<div class="customattributes">
+																<div id="attributes">
+																	<div class="attribute_list custom-attribute">
+																		<label class="attribute_label" >{l s='Taille'}</label>
+																		{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+																			{if $group.attributes|@count}
+																			<!--<fieldset class="attribute_fieldset">-->
+																				
+																				{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
+																				 
+																				<div class="attribute_list">
+																					<span class="btn">
+																					{if ($group.group_type == 'radio')}
+																						<ul>
+																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																								
+																								<li>
+																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
+																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
+																									{assign var=someVar value=" "|explode:$group_attribute}
+																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																									</label>
+																								</li>
+																							{/foreach}
+																						</ul>
+																					{elseif ($group.group_type == 'color')}
+																						<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																						<input type="hidden" name="color_default" value="{$group.default|intval}" />
+																						</div>
+																					{/if}
+																					</span>
+																				</div> <!-- end attribute_list -->
+																			<!--</fieldset>-->
+																			{/if}
+																		{/foreach}
+																		
+																	</div>
+																</div>
+																<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+																		<input type="hidden" name="combinaison_default" value="" />
+																</div>
+															</div>
+															{/if}
+														</div>
+													</div>
+												</div>
+										</div>
 										<div class="row attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 
 											<div class="col-md-4 col-xs-4">
@@ -281,12 +286,12 @@
 									</div>
 								</div>
 								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
-										<div class="col-md-6 text-right">
+										<div class="col-md-6 col-xs-6 text-right">
 											<button class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
 											<span>{l s='VALIDER'}</span>
 											</button>
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6 col-xs-6">
 											<button class="buttons_modify buttons_cancel_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} cancel-line" type="submit">
 											<span>{l s='ANNULER'}</span>
 											</button>
@@ -297,11 +302,11 @@
 							<div class="col-md-1 col-xs-3">
 								<div class="row">
 									
-									<div class="col-md-6 col-xs-6 text-right" style="padding-right: 5px;">
+									<div class="col-md-6 col-xs-6 text-right edit padding-right-5">
 										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 									</div>
 									
-									<div class="col-md-6 col-xs-6 text-left" style="padding-left: 5px;">
+									<div class="col-md-6 col-xs-6 text-left delete padding-left-5">
 										<a
 											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 											class="cart_quantity_delete"

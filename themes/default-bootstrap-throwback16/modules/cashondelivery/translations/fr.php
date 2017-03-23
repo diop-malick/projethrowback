@@ -17,5 +17,3 @@ $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_64430ad283
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_b7ada96a0da7ee7fb5371cca0b036d5c'] = 'Payer comptant à la livraison';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_536dc7424180872c8c2488ae0286fb53'] = 'Vous payez lors de la livraison de votre commande';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_ea9cf7e47ff33b2be14e6dd07cbcefc6'] = 'Livraison';
-$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_2e2117b7c81aa9ea6931641ea2c6499f'] = 'Votre commande sur';
-$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_75fbf512d744977d62599cc3f0ae2bb4'] = 'est bien enregistrée.';

@@ -540,9 +540,6 @@ float: left;
 .product_attributes .btn {
   padding: 0 !important;
 }
-.line_attributes .btn {
-  margin-top: -10px;
-}
 
 .btn .radio input{
   display: none;

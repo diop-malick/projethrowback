@@ -49,6 +49,7 @@ get_header();?>
 
 					<div class="accueil"><a href="https://vps365425.ovh.net/throwback16/blog"> < Accueil </a> </div>
 					
+					
 
 						<div class="nav-previous" style="right:155px" ><?php previous_post_link( '%link', '<i class="fa fa-angle-left" aria-hidden="true"></i><span>Article précédent</span>' ); ?></div>
 						<div class="nav-next"><?php next_post_link( '%link', '<span>Article suivant</span> <i class="fa fa-angle-right" aria-hidden="true"></i>' ); ?></div>

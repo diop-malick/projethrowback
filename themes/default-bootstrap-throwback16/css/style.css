@@ -342,12 +342,21 @@ display: none;
 ====================================  */
 .qv-size{
   float: left;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 10px;
-  /*display: block;  */
+  padding : 10px 20px 0 40px;
   margin-right: auto;
   margin-left: auto;
+}
+.qv-reference{
+  color:rgb(88, 89, 91) !important;
+  font-weight: bold;
+  float: left;
+  margin-left:40px;
+}
+.qv-dispo{
+  color:rgb(53, 53, 53) !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 20px;
 }
 
 .size-list {
@@ -355,8 +364,8 @@ display: none;
     border-radius: 2px;
     color: #000 !important;
     font-weight: 900;
-    width: 49px;
-    height: 36px;
+    width: 43px;
+    height: 28px;
     display: inline-block;
     display: table-cell;
     vertical-align: middle;
@@ -379,18 +388,7 @@ display: none;
   border: 1px solid rgb(214, 157, 50);
   color: rgb(214, 157, 50) !important;
 }
-.qv-reference{
-  color:rgb(88, 89, 91) !important;
-  font-weight: bold;
-  float: left;
-  margin-left:20px;
-}
-.qv-dispo{
-  color:rgb(53, 53, 53) !important;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-right: -15px;
-}
+
 /* Page produit
 ====================================  */
 
@@ -512,6 +510,12 @@ width: auto;
 
 }
 
+  .padding-left-5{
+    padding-left: 5px;
+  }
+  .padding-right-5{
+    padding-right: 5px;
+  }
   .margin-top-10{
     margin-top:10px;
   }
@@ -628,6 +632,12 @@ width: auto;
     line-height: 27px;
     z-index: 82;
 }
+.line_attributes .btn {
+  margin-top: -10px;
+}
+.line_attributes .button-minus , .line_attributes .button-plus {
+  margin-top: 1px;
+}
 
 #quantity_wanted_p .btn.button-plus,#quantity_wanted_p .btn.button-minus {
     line-height: 20px;
@@ -701,7 +711,9 @@ width: auto;
        .price-line{
         padding-right: 10px;
        }
-
+       .customattributes{
+        margin-left: 15px;
+       }
 }
 
 /*************************** panier vide ************************/
