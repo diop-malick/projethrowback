@@ -83,6 +83,7 @@ $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_8554bbc520a9d2
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_5da618e8e4b89c66fe86e32cdafde142'] = 'A partir de';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_96d4c80bd0b7ccbce555b7d49422c8d9'] = '€';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_3199d0e4fdc235d991b423c73acdcff7'] = 'TTC';
+$_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_efc5b392834c632e4bea3e7661c8358f'] = 'Gratuit (Peut être appliquer après avoir sélectionner une adresse)  ';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_898d22b4259367825dbbbc174f049197'] = 'Choisir un mode de livraison';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_6e55ec92b403f0ab31c29f62c837834a'] = 'Modifier le mode de livraison';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_7ea4eac85d1d1967562869cf1e14b1d0'] = 'Pour choisir Colissimo, cochez une méthode de livraison';
@@ -153,3 +154,4 @@ $_MODULE['<{socolissimo}default-bootstrap-throwback16>configure_warning_b28a5625
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>error_58d256f5c88c3a887c1c3b8c9ee76f4d'] = 'Liste des erreurs Colissimo :';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>error_0557fa923dcee4d0f86b1409f5c2167f'] = 'Retour';
 $_MODULE['<{socolissimo}default-bootstrap-throwback16>redirect_611a8475d4cbe64a9a2f5633a82fe314'] = 'Vous allez être redirigé vers Socolissimo dans quelques instants.Si ce n\'est pas le cas, veuillez cliquez sur le bouton.';
+$_MODULE['<{socolissimo}default-bootstrap-throwback16>socolissimo_iframe_1da9c63ab8644e375c6951f3876071ef'] = 'Veuillez accepter les conditions d\'utilisation avant l\'étape suivante.';
