@@ -232,11 +232,13 @@ $(document).ready(function()
 	}
 	// console.log('comingsoonvalue =' + comingsoonvalue);
 	// Coming soon disable
-	if ((typeof available_date !== 'undefined' && available_date) || (typeof comingsoonvalue !== 'undefined' && comingsoonvalue)) {
+	if ( ((typeof available_date !== 'undefined') && available_date) || ((typeof comingsoon_value !== 'undefined') && comingsoon_value) ) {
 		$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 		$('#add_to_cart button').removeClass('active').addClass('disabled');
 		$('#color_to_pick_list .btn').removeClass('active').addClass('disabled');
 		$('.attribute_list .btn').removeClass('active').addClass('disabled');
+		$('.attribute_label').removeClass('active').addClass('btn').addClass('disabled');
+		$('#quantity_wanted_p label').removeClass('active').addClass('btn').addClass('disabled');
 	}
 	
 
@@ -328,8 +330,7 @@ $(window).bind('hashchange', function(){
 // hover add_to_cart button disable => message
 var element =  document.getElementById('availability_date');
 $(document).on('mouseover', '#add_to_cart', function(){
-
-	if(  ($(".btn").hasClass("disabled")) && (element == null) ){
+	if(  ($(".btn").hasClass("disabled")) && (element == null) && (comingsoonvalue == 'undefined' || comingsoonvalue == null) ){
 		$(".info").addClass("error");
 		$(".info").html("Merci de sélectionner une taille.")
 		}

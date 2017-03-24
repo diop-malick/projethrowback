@@ -216,7 +216,7 @@
 						<!-- FALG chrono -->
 						{* get chrono caracteristique value *}
 						{foreach from=$features item=feature}
-								{if $feature.name eq 'comingsoon'}
+								{if $feature.name eq 'Type de produit'}
 											{if isset($feature.value)}
 												{assign var=comingsoonvalue value=$feature.value}
 											{/if}
@@ -224,7 +224,7 @@
 						{/foreach}
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if $comingsoonvalue eq 'yes'}
+							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
 								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
@@ -341,7 +341,7 @@
 						<!-- QUANTITY  -->
 						{if !$PS_CATALOG_MODE}
 							<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-										<label class="col-md-4" for="quantity_wanted">{l s='Quantity'}</label>
+										<label class="col-md-4 " for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
 										<div class="col-md-8">
 										<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 										<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">

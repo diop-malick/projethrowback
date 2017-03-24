@@ -9,9 +9,11 @@
 <pre>
   {$cart->delivery_option}
 </pre> *}
-  <div>
+
+ {*  <div>
     <h2>{l s='Choisissez votre mode de paiement'}</h2>
-  </div>
+  </div> *}
+
   <br>
   <div class="row ">
     {*********************************************************
@@ -24,30 +26,14 @@
                   <div class="panel-heading">
                     <h4 class="panel-title">
                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                      <span class="resp-arrow"></span>
-                        {l s='Par carte bancaire'}
+                      {* <span class="resp-arrow"></span> *}
+                        {l s='Payer et terminer votre commande'}
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse1" class="panel-collapse collapse">
+                  <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body delivery_options">
                       {hook h='displayPayment' mod='hipay_professional'}
-                    </div> <!-- end panel body -->
-                  </div> <!-- end panel-collapse -->
-                </div> <!-- end panel-default -->
-                
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
-                      <span class="resp-arrow"></span>
-                        {l s='Paimement en magasin'}
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapse0" class="panel-collapse collapse">
-                    <div class="panel-body delivery_options">
-                      {hook h='displayPayment' mod='cashondelivery'}
                     </div> <!-- end panel body -->
                   </div> <!-- end panel-collapse -->
                 </div> <!-- end panel-default -->
