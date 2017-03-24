@@ -42,7 +42,7 @@
 			</p>
 		{/if}
 		<!-- left infos-->
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-6">
+		<div class="pb-left-column col-xs-12 col-sm-4 col-md-7">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
 				{if $product->on_sale}
@@ -129,7 +129,7 @@
 		<!-- end left infos-->
 
 		<!-- right  -->
-		<div class="pb-my-right-column col-xs-12 col-md-6">
+		<div class="pb-my-right-column col-xs-12 col-md-5">
 
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 
@@ -226,10 +226,12 @@
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
-								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
-								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
-								{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
-								{* <i class="icon-time fa-3x"></i> *}
+								<span id="chrono_without_date"></span>
+									{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
+									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
+									{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
+									{* <i class="icon-time fa-3x"></i> *}
+								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
 								<img src="{$base_dir}/img/icones/new.png"/>
@@ -266,7 +268,7 @@
 				<!-- rigth-row-3 -->
 				<div id="rigth-row-3" class="row">
 
-					<div class="col-md-6 text-left">
+					<div class="col-md-12 text-left">
 					<!-- quantity wanted -->
 
 						<!-- Flag GENRE -->
@@ -291,48 +293,76 @@
 						</div>
 						<!-- // Flag GENRE -->
 
-						<!-- COLOR  -->
+						
 							<div class="row product_attributes clearfix">
 								{if isset($groups)}
 								<!-- attributes -->
-								<div class="customattributes">
+								<div id="attributes">
+								<div class="clearfix"></div>
 								{foreach from=$groups key=id_attribute_group item=group}
-											{if ($group.group_type == 'color') && $group.attributes|@count}
-												<fieldset class="attribute_fieldset">
-												<div class="form-group attribute_list">
-													<label class="col-md-4 attribute_label">{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-													{assign var="groupName" value="group_$id_attribute_group"}
-													<div class="col-md-8">
-														<ul id="color_to_pick_list" class="clearfix">
-														<label class="btn"> <!-- to disable attributes for comming soon -->
-																		{assign var="default_colorpicker" value=""}
-																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
+									{if $group.attributes|@count}
+									<fieldset class="col-xs-6 attribute_fieldset {if ($group.group_type == 'color')} pull-left {else}
+										} pull-right {/if}">
+										
+										<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
+										</label>
+										{assign var="groupName" value="group_$id_attribute_group"}
+										
+										<div class="attribute_list row">
 
-																			{assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+											{if ($group.group_type == 'select')}
+													<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
+														{foreach from=$group.attributes key=id_attribute item=group_attribute}
+															<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'html':'UTF-8'}">{$group_attribute|escape:'html':'UTF-8'}</option>
+														{/foreach}
+													</select>
 
-																			<li class="img-circle {if $group.default == $id_attribute} selected {/if}">
-																				<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="img-circle color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
-																					{if $img_color_exists}
-																						<img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
-																					{/if}
-																				</a>
-																			</li>
+													<!-- COLOR  -->
+											{elseif ($group.group_type == 'color')}
+													<ul id="color_to_pick_list" class="clearfix">
+														{assign var="default_colorpicker" value=""}
+														{foreach from=$group.attributes key=id_attribute item=group_attribute}
+															{assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+															<li{if $group.default == $id_attribute} class="selected"{/if}>
+																<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
+																	{if $img_color_exists}
+																		<img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
+																	{/if}
+																</a>
+															</li>
+															{if ($group.default == $id_attribute)}
+																{$default_colorpicker = $id_attribute}
+															{/if}
+														{/foreach}
+													</ul>
+													<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
 
-																			{if ($group.default == $id_attribute)}
-																				{$default_colorpicker = $id_attribute}
-																			{/if}
-																		{/foreach}
-														</label>
+											<!-- TAILLE  -->
+											{elseif ($group.group_type == 'radio')}
+													<div class="rowzz">
+														<ul>
+															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+																{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																<li>
+																	<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
+																	<label for="radio_{$id_attribute|intval}">
+																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
+																		{assign var=someVar value=" "|explode:$group_attribute}
+																		{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																	</label>
+																</li>
+																{/foreach}
+															</span>
 														</ul>
-														<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
 													</div>
-													</div> <!-- end attribute_list -->
-												</fieldset>
-											{/if}
+												{/if}
+											</div> <!-- end attribute_list -->
+										</fieldset>
+									{/if}
 								{/foreach}
-								</div> <!-- end attributes -->
-							{/if}
-							</div> <!-- end product_attributes -->
+							</div> <!-- end attributes -->
+						{/if}
+					</div> <!-- end product_attributes -->
 
 						<!-- end row COLOR  -->
 
@@ -405,11 +435,9 @@
 
 					</div>
 
-					<div class="col-md-6 text-left">
+					{* <div class="col-md-6 text-left">
 							<div class="product_attributes clearfix">
-
 								{if isset($groups)}
-									<!-- attributes -->
 									<div class="customattributes groups-attribute">
 										<div class="clearfix"></div>
 										{foreach from=$groups key=id_attribute_group item=group}
@@ -432,10 +460,9 @@
 															</div>
 															<div class="row">
 																<ul>
-																	<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+																	<span class="btn" id="btn-attributes-size">
 																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																		<li>
-																			<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																			<label for="radio_{$id_attribute|intval}">
 																				<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
 																				{assign var=someVar value=" "|explode:$group_attribute}
@@ -451,10 +478,10 @@
 												</fieldset>
 											{/if}
 										{/foreach}
-									</div> <!-- end attributes -->
+									</div> 
 								{/if}
-							</div> <!-- end product_attributes -->
-					</div>
+							</div> 
+					</div> *}
 				</div>
 				<!-- // rigth-row-3 -->
 
