@@ -142,7 +142,7 @@
 												<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 														<div class="row">
 															{if isset($groups)}
-															<div class="customattributes">
+															<div class="customattributes groups-attribute">
 																<div id="attributes">
 																	<div class="attribute_list custom-attribute">
 																		<label class="attribute_label" >{l s='Taille'}</label>
