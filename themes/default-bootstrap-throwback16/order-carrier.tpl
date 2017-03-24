@@ -54,101 +54,6 @@ Livraison à domicile
 @ author:         Babacar
 @ maintainer:     Malick
 **********************************************************}
-			    <div class="panel panel-default">
-			      <div class="panel-heading">
-			        <h4 class="panel-title">
-			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-			          	<span class="resp-arrow"></span>			          	
-			          	<span class="delivery_option_name">{l s='À votre domicile'}</span>
-			          </a>
-			          <span class="delivery_option_price free">{l s=''}</span>
-			        </h4>
-			      </div>
-			      <div id="collapse2" class="panel-collapse collapse">
-			        <div class="panel-body delivery_options">
-			        	<div class="delivery_options_address">
-			        			<div class="delivery_options resp-tabs-container tab">
-			        				<div class="delivery_option item  resp-tab-content tab resp-tab-content-active">			        				
-			        					<div class="addresses clearfix">
-			        						{* Adresses INFO *}
-			        						<div class="row hidden">
-			        							<div class="col-xs-12 col-sm-6">
-			        								<div class="address_delivery select form-group selector1">
-			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
-			        									<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-			        										{if isset($addresses)}
-			        										{foreach from=$addresses key=k item=address}
-			        										<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
-			        											{$address.alias|escape:'html':'UTF-8'}
-			        										</option>
-			        										{break}
-			        										{/foreach}
-			        										{/if}
-			        									</select>
-			        								</div>																
-			        							</div>
-			        						</div> <!-- end row -->
-			        						<br>
-			        						<div class="row addresses">															
-			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
-			        								<span class="waitimage"></span>
-			        								<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
-
-			        								</ul>
-			        							</div>
-
-			        						</div> <!-- end row -->	
-			        					</div> <!-- end addresses -->
-
-
-									</div> <!-- end delivery_option -->
-								</div> <!-- end delivery_options -->
-							</div> <!-- end delivery_options_address -->
-
-						<div class="delivery_options_address">
-							{if isset($delivery_option_list)}
-								{foreach $delivery_option_list as $id_address => $option_list}
-						          	<div class="delivery_options row" style="display: flex; flex-wrap: wrap;">	
-
-										{foreach $option_list as $key => $option name=options}
-																						
-												{if $option.unique_carrier}
-														{foreach $option.carrier_list as $carrier}														
-															{assign var=mycarrername value=$carrier.instance->name}
-															{assign var=mycarrierid value=$carrier.instance->id}
-															{break}
-														{/foreach}													
-												{/if}
-
-												{*********************************************************
-												Livraison STANDARS / id transporteur = 55
-												@ author:         Babacar
-												@ maintainer:     Malick
-												**********************************************************}
-												{if $mycarrername == 'Livraison par Colissimo'}
-													{include file="$tpl_dir./order-carrier-adresses.tpl"}
-
-														
-												{*********************************************************
-												Livraison RECOMMENDE
-												@ author:         Babacar
-												@ maintainer:     Malick
-												**********************************************************}
-												{elseif $mycarrername == 'Livraison par Colissimo A/R'}
-													{include file="$tpl_dir./order-carrier-adresses.tpl"}
-														
-												{/if}
-
-																				
-										{/foreach}
-									</div> <!-- end delivery_options -->
-								{/foreach}
-							{/if}
-						</div> <!-- end delivery_options_address -->			        	
-
-			        </div>
-			      </div>
-			    </div>
 
 {*********************************************************
 Livraison À une autre adresse
@@ -159,13 +64,13 @@ Livraison À une autre adresse
 			    	<div class="panel-heading">
 			    		<h4 class="panel-title">
 			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-			    				<span class="resp-arrow"></span>			    				
+			    				{* <span class="resp-arrow"></span>			    				 *}
 			    				<span class="delivery_option_name">{l s='À une autre adresse'}</span>
 			    			</a>
 			    			<span class="delivery_option_price free">{l s=''}</span>
 			    		</h4>
 			    	</div>
-			      <div id="collapse3" class="panel-collapse collapse">
+			      <div id="collapse3" class="panel-collapse collapse in">
 			        <div class="panel-body delivery_options">
 			        	
 						<div class="delivery_options_address">
@@ -179,19 +84,19 @@ Livraison À une autre adresse
 			        								<div class="address_delivery select form-group selector1">
 			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
 			        									<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
-			        										{if isset($addresses) && $addresses|@count gt 1}
-			        										{foreach from=$addresses key=k item=address name=addresses}
-			        										{if $smarty.foreach.addresses.iteration > 1}
-			        										<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
-			        											{$address.alias|escape:'html':'UTF-8'}
-			        										</option>
-			        										{if $smarty.foreach.addresses.iteration == 3}
-			        										{assign var=maxAddresses value=true}
-			        										{break}
-			        										{/if}
-			        										{/if }
-			        										{/foreach}
-			        										{/if}
+			        										{* {if isset($addresses) && $addresses|@count gt 1} *}
+				        										{foreach from=$addresses key=k item=address name=addresses}
+				        											{* {if $smarty.foreach.addresses.iteration > 1} *}
+					        											<option value="{$address.id_address|intval}"{if $address.id_address == $cart->id_address_delivery} selected="selected"{/if}>
+					        											{$address.alias|escape:'html':'UTF-8'}
+					        											</option>
+						        										{if $smarty.foreach.addresses.iteration == 3}
+						        										{assign var=maxAddresses value=true}
+						        										{break}
+						        										{/if}
+				        											{* {/if } *}
+			        											{/foreach}
+			        										{* {/if} *}
 			        									</select>
 			        								</div>																
 			        							</div>																
@@ -203,7 +108,7 @@ Livraison À une autre adresse
 			        						<div class="row addresses">
 			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
 			        								<span class="waitimage"></span>
-			        								<ul class="address item box {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}" id="address_delivery">
+			        								<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
 
 			        								</ul>
 			        							</div>
@@ -211,7 +116,7 @@ Livraison À une autre adresse
 
 			        						<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}"></div>
 
-			        						<p class="address_add submit {if isset($addresses) && $addresses|@count gt 2}hidden{/if}" style="text-align: center">
+			        						<p class="address_add submit {if isset($addresses)}hidden{/if}" style="text-align: center">
 			        							<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
 			        								<span>Ajouter une adresse secondaire<i class="icon-chevron-right right"></i></span>
 			        							</a>

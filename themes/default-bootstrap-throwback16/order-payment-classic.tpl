@@ -24,12 +24,12 @@
                   <div class="panel-heading">
                     <h4 class="panel-title">
                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                      <span class="resp-arrow"></span>
+                      {* <span class="resp-arrow"></span> *}
                         {l s='Par carte bancaire'}
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse1" class="panel-collapse collapse">
+                  <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body delivery_options">
                       {hook h='displayPayment' mod='hipay_professional'}
                     </div> <!-- end panel body -->
