@@ -224,7 +224,7 @@
 						{/foreach}
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if $comingsoonvalue eq 'comingsoon'}
+							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
 								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
