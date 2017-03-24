@@ -9,9 +9,11 @@
 <pre>
   {$cart->delivery_option}
 </pre> *}
-  <div>
+
+ {*  <div>
     <h2>{l s='Choisissez votre mode de paiement'}</h2>
-  </div>
+  </div> *}
+
   <br>
   <div class="row ">
     {*********************************************************
@@ -25,7 +27,7 @@
                     <h4 class="panel-title">
                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                       {* <span class="resp-arrow"></span> *}
-                        {l s='Par carte bancaire'}
+                        {l s='Payer et terminer votre commande'}
                       </a>
                     </h4>
                   </div>
