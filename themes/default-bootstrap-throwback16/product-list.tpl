@@ -58,6 +58,7 @@
 							{/if}
 
 							{hook h="displayProductPriceBlock" product=$product type='before_price'}
+							<span>A partir de </span>
 							<span class="price product-price">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
@@ -73,7 +74,7 @@
 							{/foreach}
 							<!-- FALG Comming soon --> 
 							{* comingsoon without date *}
-							{if $comingsoonvalue eq 'comingsoon'}
+							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50); margin-top: 12px;">schedule</i>
 							<!-- FALG New -->
