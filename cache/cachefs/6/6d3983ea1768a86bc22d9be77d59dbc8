@@ -1,0 +1,13 @@
+a:2:{i:0;a:3:{s:13:"id_fancypopup";s:1:"1";s:7:"id_lang";s:1:"1";s:20:"fancypopup_paragraph";s:882:"<div id="fancypopup_popup">
+<div class="fancypopup-newsletter"><form action="{$base_dir}" method="POST"><img class="fancypopup-img" alt="newsletter" src="modules/fancypopup/img/fancypopup_img_1.jpg" />
+<div class="fancypopup-content">
+<h1>Bienvenue sur Throwback Sneakers</h1>
+<label for="newsletter">Inscrivez-vous à notre newsletter et recevez en exclusivité toutes nos actualités, nos dernières offres et promotions. Ne ratez plus nos réassorts et l'arrivée de nouveautés!.</label> <input type="text" name="email" title="Je m'inscris" class="fancypopup-email" placeholder="Saisissez votre email..." /> <span class="fancypopup-msg"></span> <button class="fancypopup-btn-newsletter" name="submitNewsletter" type="submit" title="Je m'inscris"> <span><span>Je m'inscris </span> </span> </button> <input type="hidden" name="action" value="0" /></div>
+</form></div>
+</div>";}i:1;a:3:{s:13:"id_fancypopup";s:1:"1";s:7:"id_lang";s:1:"2";s:20:"fancypopup_paragraph";s:882:"<div id="fancypopup_popup">
+<div class="fancypopup-newsletter"><form action="{$base_dir}" method="POST"><img class="fancypopup-img" alt="newsletter" src="modules/fancypopup/img/fancypopup_img_1.jpg" />
+<div class="fancypopup-content">
+<h1>Bienvenue sur Throwback Sneakers</h1>
+<label for="newsletter">Inscrivez-vous à notre newsletter et recevez en exclusivité toutes nos actualités, nos dernières offres et promotions. Ne ratez plus nos réassorts et l'arrivée de nouveautés!.</label> <input type="text" name="email" title="Je m'inscris" class="fancypopup-email" placeholder="Saisissez votre email..." /> <span class="fancypopup-msg"></span> <button class="fancypopup-btn-newsletter" name="submitNewsletter" type="submit" title="Je m'inscris"> <span><span>Je m'inscris </span> </span> </button> <input type="hidden" name="action" value="0" /></div>
+</form></div>
+</div>";}}

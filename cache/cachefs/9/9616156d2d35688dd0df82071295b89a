@@ -1,0 +1,1 @@
+a:1:{s:63:"IFNULL(SUM(ord.product_quantity), SUM(product_quantity_return))";s:1:"0";}

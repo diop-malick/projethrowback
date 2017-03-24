@@ -39,6 +39,9 @@ $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipay_professional_
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipay_professional_a4cba09ae7638d212e3d36573892c648'] = 'Erreur sur l\'enregistrement de la configuration pour la devise';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipay_professional_db0cdbe0b515cb4397a5e969af623978'] = 'Le code de validation est incorrect. Réessayez.';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipay_professional_e6c866b212c9093c24720baca1849c43'] = 'Erreur API - problème sur le code de validation de contrôle';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_7328fddefd53de471baeb6e2b764f78a'] = 'email@domain.com';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_00d23a76e43b46dae9ec7aa9dcbebb32'] = 'Activé';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_b9f5c797ebbf55adccdd8539a65a0241'] = 'Désactivé';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_f86626c4f58b6470a965a6a18b194756'] = 'WS Login';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_ac664f692e52c3e565b0ea62e413761c'] = 'WS Password';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_526d688f37a86d3c3f27d0c5016eb71d'] = 'Réinitialiser';
@@ -55,9 +58,6 @@ $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_5d712ea89
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_252c8d1e2ede02fb4b2160a3200d0bc8'] = 'Je suis d\'accord avec les termes et conditions';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_d9776f0775997b2e698c6975420b5c5d'] = 'Inscrivez-vous';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayform_76f0ed934de85cc7131910b32ede7714'] = 'Rembourser';
-$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_7328fddefd53de471baeb6e2b764f78a'] = 'email@domain.com';
-$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_00d23a76e43b46dae9ec7aa9dcbebb32'] = 'Activé';
-$_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayforminputs_b9f5c797ebbf55adccdd8539a65a0241'] = 'Désactivé';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayrest_c458c01a024c4d3cd2178284a5bab95f'] = 'Une erreur s\'est produite lors de la tentative de contact avec le service Web';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayuseraccount_74086e9575acbfc9716ce2022d71a172'] = 'Franc suisse';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>hipayuseraccount_3e823fac7473e42888932c7761c224fc'] = 'Euro';
