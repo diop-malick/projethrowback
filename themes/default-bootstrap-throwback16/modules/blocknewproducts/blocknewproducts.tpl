@@ -50,7 +50,7 @@
                                             {/foreach}
                                             <!-- FALG Comming soon --> 
                                             {* comingsoon without date *}
-                                            {if $comingsoonvalue eq 'comingsoon'}
+                                            {if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
                                                 {addJsDef comingsoonvalue=$comingsoonvalue}
                                                 <i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50); margin-right:25px; display:inline-block;">schedule</i>
                                             <!-- FALG New -->

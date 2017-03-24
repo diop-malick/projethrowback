@@ -10,7 +10,7 @@
 											{* 
 											<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow"> 
 											*}
-											<a href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
+											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
 												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">({$cart_qties})</span>
 												<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='' mod='blockcart'}</span>
@@ -183,7 +183,7 @@
 																{/if}
 															</div>
 															<p class="cart-buttons">
-																<a id="button_order_cart" class="btn btn-default button button-small" href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
+																<a id="button_order_cart" class="btn btn-default button button-small" href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
 																	<span>
 																		{l s='Check out' mod='blockcart'}<i class="icon-chevron-right right"></i>
 																	</span>
@@ -262,7 +262,7 @@
 								<div class="button-container">
 									<div class = "row">
 										<div class="col-md-6 col-xs-12">
-											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
+											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 												<span>
 													{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
 												</span>
@@ -272,7 +272,7 @@
 										<div class="col-md-6 col-xs-12">
 											<p class="cart_navigation clearfix">
 												<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
-													<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
+													<i><</i>{l s='Continuer mon shopping'}
 												</a>
 											</p>
 
@@ -377,7 +377,7 @@
 											<i class="icon-chevron-left left"></i>{l s='Continue shopping' mod='blockcart'}
 										</span>
 									</span>
-									<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, "step=0")|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
+									<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 										<span>
 											{l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
 										</span>

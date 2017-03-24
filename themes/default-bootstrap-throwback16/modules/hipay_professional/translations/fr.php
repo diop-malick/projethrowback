@@ -234,3 +234,4 @@ $_MODULE['<{hipay_professional}default-bootstrap-throwback16>refund_5a7bfeec8101
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>refund_6eb7c68e70b500189221e6fa7b094d58'] = 'S\'il vous plaît, faites attention, un seul remboursement est possible par commande.';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>refund_77fd2b4393b379bedd30efcd5df02090'] = 'Partiellement remboursée';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>refund_bc5514514a9517f145796f46ace1ed72'] = 'Totalement remboursée';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>payment_879f6b8877752685a966564d072f498f'] = 'Votre panier est vide';

@@ -5,6 +5,7 @@ $_MODULE = array();
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>product_page_2107f6398c37b4b9ee1e1b5afb5d3b2a'] = 'Envoyer à un ami';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_ajax_22c4733a9ceb239bf825a0cecd1cfaec'] = 'Un ami';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_11cbd9ec2e4b628c371094b6361b9c96'] = 'Votre e-mail a bien été envoyé';
+$_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_6cec0d7f95fa3a4b3254ff11c15df8c3'] = 'Votre e-mail n\'a pu etre envoyé. veuiller remplir le nom et l\'adresse e-mail et essayer a nouveau';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_2107f6398c37b4b9ee1e1b5afb5d3b2a'] = 'Envoyer à un ami';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_d1f092e79827eaffce4a33fa011fde24'] = 'Vous n\'avez pas rempli les champs requis';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_5d6103b662f41b07e10687f03aca8fdc'] = 'Destinataire';

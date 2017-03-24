@@ -278,18 +278,19 @@ ul.product_list.grid > li {
         /*position: relative;*/
         position: absolute;
         top: -40px;
-        right: -40px;
-        left: -40px;
-        padding: 20px;
+        right: -10px;
+        left: -10px;
+        /*padding: 20px;*/
         /*z-index: 10;*/
         /*z-index: 9999999999999;*/
         text-align: center;
         background: #fff;
         /*height: 430px !important;*/
         height: 500px !important;
+        text-align: center;
     }
     ul.product_list.grid > li.hovered .product-image-container img {
-        width: 300px;
+        width: 250px;
         /*height: 300px;*/
     }
     ul.product_list.grid > li.hovered .product-container .content_price {

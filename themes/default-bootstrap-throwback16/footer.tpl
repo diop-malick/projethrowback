@@ -21,14 +21,26 @@
 							<div class="row">
 								{$HOOK_FOOTER}
 							</div>
-						{/if}						
+						{/if}
+					{*	<pre>  {$category->description} </pre> <pre> {$meta_description}  </pre> <pre> {$meta_keywords} </pre>
+						<div>
+							{if {$smarty.get.controller} eq 'index' }
+							T-shirt et polos homme : l'alliance du style et du confort
+						  Un t-shirt et un polo bien portés peuvent être du plus grand effet !
+							{elseif {$smarty.get.controller} eq 'category'}
+							Categorie
+							{elseif {$smarty.get.controller} eq 'product' }
+							Produit
+							{/if}
+						</div> *}
 					</footer>
+
 				</div><!-- #footer -->
 			{/if}
 		</div><!-- #page -->
 {/if}
 
 {include file="$tpl_dir./global.tpl"}
-			
+
 	</body>
 </html>

@@ -64,6 +64,7 @@ class OrderController extends OrderControllerCore
           
             
             if (is_array($delivery_option)) {
+                // DONT TOUCH - dont' add string conversion to hide warning error
                 $carrier = explode(',', $delivery_option[(int)$this->context->cart->id_address_delivery]);
             }
 

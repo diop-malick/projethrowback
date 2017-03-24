@@ -139,24 +139,19 @@
 
 				<div id="rigth-row-1" class="row">
 					<!-- TITRE  -->
-					<div class="col-md-8 text-left">
-
+					<div class="col-md-8 col-xs-8 text-left">
 							<!-- NAME -->
-
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}
 								<p class="online_only">{l s='Online only'}</p>
 							{/if} -->
-
-
-
 					</div>
 					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-md-4 text-right">
+					<div class="content_prices col-md-4 col-xs-4 text-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -248,7 +243,7 @@
 				</div> <!-- // rigth-row-1 -->
 
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12 col-xs-12">
 						<hr>
 					</div>
 				</div>
@@ -277,7 +272,7 @@
 						<!-- Flag GENRE -->
 						<!-- features from `ps_feature_lang` table : genre : 10  -->
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-12 col-xs-12">
 								<section>
 									{foreach from=$features item=feature}
 										{if $feature.name eq 'genre'}
@@ -346,7 +341,7 @@
 						<!-- QUANTITY  -->
 						{if !$PS_CATALOG_MODE}
 							<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-										<label class="col-md-4" for="quantity_wanted">{l s='Quantity'}</label>
+										<label class="col-md-4 " for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
 										<div class="col-md-8">
 										<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 										<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
@@ -415,7 +410,7 @@
 
 								{if isset($groups)}
 									<!-- attributes -->
-									<div class="customattributes">
+									<div class="customattributes groups-attribute">
 										<div class="clearfix"></div>
 										{foreach from=$groups key=id_attribute_group item=group}
 											{if $group.attributes|@count}
