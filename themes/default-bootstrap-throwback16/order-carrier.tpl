@@ -131,39 +131,76 @@ Livraison À une autre adresse
 						<div class="delivery_options_address">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}
-						          	<div class="delivery_options row" style="display: flex; flex-wrap: wrap;">	
+						          	<div class="delivery_options">	
 
 										{foreach $option_list as $key => $option name=options}
-																						
-												{if $option.unique_carrier}
-														{foreach $option.carrier_list as $carrier}														
-															{assign var=mycarrername value=$carrier.instance->name}
-															{assign var=mycarrierid value=$carrier.instance->id}
-															{break}
-														{/foreach}													
-												{/if}
+								<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
+									<div>
+										<table class="resume table table-bordered{if !$option.unique_carrier} hide{/if}">
+											<tr>
+												<td class="delivery_option_radio">
+													<span class="delivery_option_radio">
+													<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
+													</span>
+												</td>
 
-												{*********************************************************
-												Livraison STANDARS / id transporteur = 55
-												@ author:         Babacar
-												@ maintainer:     Malick
-												**********************************************************}
-												{if $mycarrername == 'Livraison par Colissimo'}
-													{include file="$tpl_dir./order-carrier-adresses.tpl"}
+												<td class="delivery_option_logo">
+													{foreach $option.carrier_list as $carrier}
+														{if $carrier.logo}
+															<img class="order_carrier_logo" src="{$carrier.logo|escape:'htmlall':'UTF-8'}" alt="{$carrier.instance->name|escape:'htmlall':'UTF-8'}"/>
+														{elseif !$option.unique_carrier}
+															{$carrier.instance->name|escape:'htmlall':'UTF-8'}
+															{if !$carrier@last} - {/if}
+														{/if}
+													{/foreach}
+												</td>
+												<td>
+													{if $option.unique_carrier}
+														{foreach $option.carrier_list as $carrier}
+															<strong>{$carrier.instance->name|escape:'htmlall':'UTF-8'}</strong>
+														{/foreach}
+														{if isset($carrier.instance->delay[$cookie->id_lang])}
+															<br />{l s='Delivery time:'}&nbsp;{$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
+														{/if}
+													{/if}
+													{if count($option_list) > 1}
+													<br />
+														{if $option.is_best_grade}
+															{if $option.is_best_price}
+																<span class="best_grade best_grade_price best_grade_speed">{l s='The best price and speed'}</span>
+															{else}
+																<span class="best_grade best_grade_speed">{l s='The fastest'}</span>
+															{/if}
+														{elseif $option.is_best_price}
+															<span class="best_grade best_grade_price">{l s='The best price'}</span>
+														{/if}
+													{/if}
+												</td>
+												<td class="delivery_option_price">
+													<div class="delivery_option_price">
+														{if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
+															{if $use_taxes == 1}
+																{if $priceDisplay == 1}
+																	{convertPrice price=$option.total_price_without_tax}{if $display_tax_label} {l s='(tax excl.)'}{/if}
+																{else}
+																	{convertPrice price=$option.total_price_with_tax}{if $display_tax_label} {l s='(tax incl.)'}{/if}
+																{/if}
+															{else}
+																{convertPrice price=$option.total_price_without_tax}
+															{/if}
+														{else}
+															{l s='Free'}
+														{/if}
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div> <!-- end delivery_option -->
+							{/foreach}
 
-														
-												{*********************************************************
-												Livraison RECOMMENDE
-												@ author:         Babacar
-												@ maintainer:     Malick
-												**********************************************************}
-												{elseif $mycarrername == 'Livraison par Colissimo A/R'}
-													{include file="$tpl_dir./order-carrier-adresses.tpl"}
-														
-												{/if}
 
-																				
-										{/foreach}
+
 									</div> <!-- end delivery_options -->
 								{/foreach}
 							{/if}
