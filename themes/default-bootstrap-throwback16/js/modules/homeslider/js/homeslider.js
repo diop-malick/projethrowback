@@ -46,7 +46,7 @@ $(document).ready(function(){
 		$('#homepage-slider').addClass('col-xs-12');
 
 	if (!!$.prototype.bxSlider)
-		$('#homeslider').bxSlider({
+		slider = $('#homeslider').bxSlider({
 
 			useCSS: false,
 			maxSlides: 1,
@@ -61,5 +61,44 @@ $(document).ready(function(){
 			pause: homeslider_pause,
 			controls: false,
 			// auto: true,
+
+			// Executes immediately after each slide transition
+			onSlideAfter: function(currentSlide){
+				$(".homeslider-description").show('slow', function() {
+					
+				});
+				if(slider.getCurrentSlide() == 1){
+					$(".homeslider-description h2").addClass("animated rotateInDownLeft");
+					$(".homeslider-description p").addClass("animated rotateInDownRight");
+				} 
+				else if (slider.getCurrentSlide() == 2) {
+					$(".homeslider-description h2").addClass("animated bounceInLeft");
+					$(".homeslider-description p").addClass("animated bounceInLeft");
+				} else if (slider.getCurrentSlide() == 3) {
+					$(".homeslider-description h2").addClass("animated lightSpeedIn");
+					$(".homeslider-description p").addClass("animated bounceInDown");
+				}
+
+				
+
+        
+        },
+        // Executes immediately before each slide transition.
+        onSlideBefore: function(){
+        	 $(".homeslider-description").fadeOut();
+        if(slider.getCurrentSlide() == 1){
+					$(".homeslider-description h2").removeClass("animated").removeClass("rotateInDownLeft");
+					$(".homeslider-description p").removeClass("animated").removeClass("rotateInDownRight");
+				} 
+				else if (slider.getCurrentSlide() == 1) {
+					$(".homeslider-description h2").removeClass("animated").removeClass("bounceInLeft");
+					$(".homeslider-description p").removeClass("animated").removeClass("bounceInLeft");
+				}
+				else if (slider.getCurrentSlide() == 3) {
+					$(".homeslider-description h2").removeClass("animated").removeClass("lightSpeedIn");
+					$(".homeslider-description p").removeClass("animated").removeClass("flip");
+				}
+        }
+
 		});
 });
