@@ -517,16 +517,21 @@ float: left;
     /*throwback > customize*/
 /* quantity_wanted */
 #quantity_wanted_p input {
-  border-style: solid;
-  border-width: 1px;
+  /*border-style: solid;*/
+  border: 1px solid rgb(88, 89, 91);
+  /*border-width: 1px;*/
   /*border-color: rgb(214, 157, 50);*/
   /*background-color: rgb(255, 255, 255);*/
   /*opacity: 0.502;*/
-  width: 44px;
+  font-weight: 900;
+  display: table-cell;
+  vertical-align: middle;
+  /*margin: 5px*/
+  width: 43px;
   height: 28px;
-  padding: 0 6px;
+  /*padding: 0 6px;*/
   float: left;
-  line-height: 27px;
+  /*line-height: 27px;*/
   z-index: 82;
 }
 
@@ -1427,7 +1432,7 @@ background: none;
 
  @media (min-width: 987px) {
 #btn-attributes-size{
-  width: 105% !important;
+  /*width: 105% !important;*/
 }
  }
 
