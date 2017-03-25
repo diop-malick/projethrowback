@@ -220,9 +220,13 @@
 								</div>
 								<div class="layer_cart_product_info hidden-xs">
 									<span id="layer_cart_product_title" class="product-name"></span>
-									<!-- <span id="layer_cart_product_attributes"></span> -->
+									<span id="layer_cart_product_attributes"></span>
+								
+									{* <pre>{$product.attributes}</pre> *}
+
+									{*}
 									{if isset($product.attributes)}
-									 {assign var="attributes" value=$product.attributes}
+									{assign var="attributes" value=$product.attributes}
 									 {assign var="split_size" value=","|explode:$attributes}
 			 						 {if isset($split_size[0]) && $split_size[0]} {assign var="attribute_size" value=":"|explode:$split_size[0]}
 									 {assign var="sizing" value=$attribute_size[1]|trim}{/if}
@@ -243,6 +247,7 @@
 										<span >{$sizing}</span>
 									</div>
 									{/if}
+									*}
 									<div>
 										<strong class="dark">{l s='Quantity' mod='blockcart'}&nbsp;:</strong>
 										<span id="layer_cart_product_quantity"></span>
