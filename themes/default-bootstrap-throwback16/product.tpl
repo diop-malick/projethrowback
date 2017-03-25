@@ -332,11 +332,11 @@
 								{foreach from=$groups key=id_attribute_group item=group}
 									{if $group.attributes|@count}
 										<fieldset class="row attribute_fieldset">										
-										<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
+										<label class=" attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
 										</label>
 										{assign var="groupName" value="group_$id_attribute_group"}
 										
-										<div class="attribute_list row">
+										<div class="attribute_list ">
 
 											{if ($group.group_type == 'select')}
 													<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
