@@ -354,6 +354,7 @@ var ajaxCart = {
 					if (idCombination)
 						$(jsonData.products).each(function(){
 							if (this.id != undefined && this.id == parseInt(idProduct) && this.idCombination == parseInt(idCombination))
+								// added to seperate add to cart from shopping-cat and product
 								if(addedFromProductPage){
 									if (contentOnly)
 										window.parent.ajaxCart.updateLayer(this);
@@ -365,6 +366,7 @@ var ajaxCart = {
 					else
 						$(jsonData.products).each(function(){
 							if (this.id != undefined && this.id == parseInt(idProduct))
+								// added to seperate add to cart from shopping-cat and product
 								if(addedFromProductPage){
 									if (contentOnly)
 										window.parent.ajaxCart.updateLayer(this);

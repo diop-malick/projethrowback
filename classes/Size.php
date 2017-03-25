@@ -79,6 +79,10 @@ class Size
                   }
                       $groups[$prod['id_product']][$row['id_attribute_group']]['attributes_quantity'][$row['id_attribute']] += (int)$row['quantity'];
 
+                      // FROM 
+                      // https://itinnovator.co/discussion/prestashop-show-product-combination-attributes-with-prices-on-product-page
+                      // price = augmentation ou définitation sur le prix par défaut
+                      $groups[$prod['id_product']][$row['id_attribute_group']]['name_price'][$row['id_attribute']] = (int)$row['price'];
 
                       $combinations[$prod['id_product']][$row['id_product_attribute']]['attributes_values'][$row['id_attribute_group']] = $row['attribute_name'];
                       $combinations[$prod['id_product']][$row['id_product_attribute']]['attributes'][] = (int)$row['id_attribute'];
