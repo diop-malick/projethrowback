@@ -277,12 +277,11 @@ $(document).ready(function()
 	// Disisable not available Attributes 
 var element_availability_date =  document.getElementById('availability_date');
 var element_chrono_without_date =  document.getElementById('chrono_without_date');
-	// console.log(attributesCombinations);
-	if ((element_availability_date == null && element_chrono_without_date == null)) {
+	if ((element_availability_date == null) && (element_chrono_without_date == null) && (typeof combinations !== 'undefined') ) {
 	    for (i = 0; i < combinations.length; i++) {
 	        // console.log(combinations[i]);
-	        console.log(combinations[i]['idsAttributes']);
-	        console.log(combinations[i]['quantity']);
+	        // console.log(combinations[i]['idsAttributes']);
+	        // console.log(combinations[i]['quantity']);
 	        if (combinations[i]['quantity'] == 0) {
 	            var attributeId = combinations[i]['idsAttributes'];
 	            var id_radio = '#radio_' + attributeId;

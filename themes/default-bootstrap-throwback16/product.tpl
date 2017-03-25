@@ -293,17 +293,45 @@
 						</div>
 						<!-- // Flag GENRE -->
 
+					<div class="row">
+						<!-- QUANTITY  -->
+						<div class="col-md-6">
+							{if !$PS_CATALOG_MODE}
+									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<div class="row">
+												<label class="col-xs-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
+												<div class="col-xs-7">
+													<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+													<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+														<span><i class="icon-minus"></i></span>
+														<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
+
+													</a>
+													<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+														<span><i class="icon-plus"></i></span>
+													</a>
+												</div>
+											</div>
+									</div>
+								<!-- Message stock Limit et épuisé -->
+								<div class="form-group row" id="min_quantity_message">
+									<div class="col-md-8">
+										<span class="info_quantity">
+										</span>
+									</div>
+								</div>
+								<!-- Fin de stock Limité -->
+							{/if}
+						</div>
+						<!-- // QUANTITY  -->
 						
-							<div class="row product_attributes clearfix">
-								{if isset($groups)}
-								<!-- attributes -->
-								<div id="attributes">
-								<div class="clearfix"></div>
+						<!-- ATTRIBUTS  -->
+					<div class="col-md-6 product_attributes clearfix">
+						{if isset($groups)}
+							<div id="attributes">
 								{foreach from=$groups key=id_attribute_group item=group}
 									{if $group.attributes|@count}
-									<fieldset class="col-xs-6 attribute_fieldset {if ($group.group_type == 'color')} pull-left {else}
-										} pull-right {/if}">
-										
+										<fieldset class="row attribute_fieldset">										
 										<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
 										</label>
 										{assign var="groupName" value="group_$id_attribute_group"}
@@ -339,7 +367,6 @@
 
 											<!-- TAILLE  -->
 											{elseif ($group.group_type == 'radio')}
-													<div class="rowzz">
 														<ul>
 															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
 																{foreach from=$group.attributes key=id_attribute item=group_attribute}
@@ -354,7 +381,6 @@
 																{/foreach}
 															</span>
 														</ul>
-													</div>
 												{/if}
 											</div> <!-- end attribute_list -->
 										</fieldset>
@@ -363,40 +389,11 @@
 							</div> <!-- end attributes -->
 						{/if}
 					</div> <!-- end product_attributes -->
+				</div>
 
-						<!-- end row COLOR  -->
+						
 
-
-
-						<!-- QUANTITY  -->
-						{if !$PS_CATALOG_MODE}
-							<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-										<label class="col-md-4 " for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
-										<div class="col-md-8">
-										<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
-										<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-											<span><i class="icon-minus"></i></span>
-											<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
-
-										</a>
-										<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-											<span><i class="icon-plus"></i></span>
-											<!-- <img src="{$base_dir}/img/icones/size_up.png"/> -->
-
-										</a>
-										</div>
-							</div>
-							<!-- Message stock Limit et épuisé -->
-							<div class="form-group row" id="min_quantity_message">
-								<div class="col-md-8">
-									<span class="info_quantity">
-									</span>
-								</div>
-							</div>
-							<!-- Fin de stock Limité -->
-						{/if}
 						<!-- STOCK -->
-
 							{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
 							<!--
 							<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
