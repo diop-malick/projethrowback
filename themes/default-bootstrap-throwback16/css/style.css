@@ -33,7 +33,7 @@ body {
 #my-account .columns-container, #identity .columns-container , #cms .columns-container , #address .columns-container , #addresses .columns-container , #history .columns-container , #search .columns-container {
     margin-top: 160px;
 }
-#order .columns-container , #password .columns-container , #order-confirmation .columns-container {
+#order .columns-container , #password .columns-container , #order-confirmation .columns-container , #contact .columns-container {
     margin-top: 160px;
   }
 
