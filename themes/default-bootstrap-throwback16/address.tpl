@@ -3,7 +3,7 @@
 
 <div class="my-account-selfcare new-adress">
 <div class="box">
-	<h3 class="page-subheading">{l s='Ajouter une adresse'}</h3>
+	<h3 class="page-subheading">{if isset($smarty.get.id_address) && $smarty.get.id_address} {l s="Modification d'une adresse"}  {else} {l s='Ajouter une adresse'} {/if}</h3>
 	<div class="text-center">
 	<p class="info-title">
 	<!--
@@ -32,11 +32,26 @@
 		{assign var="homePhoneExist" value=false}
 		{assign var="mobilePhoneExist" value=false}
 		{assign var="atLeastOneExists" value=false}
+
+		{* {$ordered_adr_fields|var_dump} *}
+
 		{assign var="tab" value=array_splice($ordered_adr_fields, 2, 1)}
 		{assign var="tab2" value=array_splice($ordered_adr_fields, 0, 0, $tab)}
+
 		{assign var="tab3" value=array_splice($ordered_adr_fields, 8, 1)}
 		{assign var="tab4" value=array_splice($ordered_adr_fields, 6, 0, $tab3)}
+
+	
+		{if in_array("State:name" , $ordered_adr_fields)}
+			{assign var="tab5" value=array_splice($ordered_adr_fields, 5, 1)}
+			{assign var="tab6" value=array_splice($ordered_adr_fields, 8, 0, $tab5)}
+		
+		{/if}
+		
+		
+
 		{assign var="tab_civility" value=array({l s='M.'}, {l s='Mme'})}
+
 
 		{foreach from=$ordered_adr_fields item=field_name}
 			 {if $field_name eq 'company'}
@@ -141,19 +156,20 @@
 					</div>
 				</div>
 			{/if}
-			<!--
+			
 			{if $field_name eq 'State:name'}
 				{assign var="stateExist" value=true}
+				
 				<div class="row required id_state form-group">
-					<label for="id_state" class="col-md-4 text-right">{l s='State'} <sup>*</sup></label>
-					<div class="col-md-8">
-					<select name="id_state" id="id_state" class="form-control">
-						<option value="">-</option>
-					</select>
+					<label for="id_state" class="col-md-4 col-xs-4 text-right required">{l s='State'} </label>
+					<div class="col-md-8 col-xs-8">
+						<select name="id_state" id="id_state" data-validation="required" class="select_title" data-validation-error-msg="{l s='Merci de sélectionner votre état.'}" >
+							<option value="">{l s="Choisir l'etat"}</option>
+						</select>
 					</div>
 				</div>
 			{/if}
-			-->
+		
 
 			<!-- {if $field_name eq 'phone'}
 				{assign var="homePhoneExist" value=true}
