@@ -496,10 +496,19 @@
 						<div class="row box-cart-chrono" id="availability_date" >
 							<script type="text/javascript">
 							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
+							    var current_date = "{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}";
 							</script>
 							<div class="panel panel-default">
 							    <div class="panel-body">
-							    	<span id="clock"></span>
+							    	{* <span id="clock"> *}
+							    	{* CHORNO *}
+							    	<br>
+									<span id="timer">
+									  <span id="days"></span><span class="chronounity">j</span>
+									  <span id="hours"></span><span class="chronounity">h</span>
+									  <span id="minutes"></span><span class="chronounity">m</span>
+									  <span id="seconds"></span><span class="chronounity">s</span>
+									</span>
 							    	<img src="{$base_dir}/img/icones/chrono.png"/>
 							    </div>
 							</div>
