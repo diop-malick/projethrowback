@@ -141,7 +141,7 @@ a.fancybox-nav {
 
 #thumbs_list li {
     float: left;
-    height: 100px;
+    /*height: 100px;*/
     width: 100px;
     cursor: pointer;
     border: 1px solid #dbdbdb;
