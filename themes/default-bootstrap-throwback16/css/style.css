@@ -52,12 +52,17 @@ body {
   color:#000 !important;
 }
 
-#layered_block_left div.selector {
+/***************** selector *************************/
+#layered_block_left div.selector , #address div.selector {
     width: auto !important;
 }
 
 #layered_block_left div.selector span {
     width: auto !important;
+}
+
+#address div.selector span {
+    display: none !important;
 }
 
 
@@ -246,6 +251,10 @@ header .row #header_logo {
   float: left;
   margin-bottom: 5px;
 }
+.texte-donnnes-perso{
+  font-style: italic;
+  margin-bottom: 10px;
+}
 
 /* throwback > customize > Infos perso  */
 #identity .form-error , #account-creation_form .form-error, #address .form-error {
@@ -421,11 +430,7 @@ font-size: 17px;
 }
 
 /*simplified footer*/
-.footer-container .container .simplified-footer {
-
-}
-
-.simplified-footer span span {
+.footer-container  .simplified-footer span span {
    font-size: 14px;
    line-height: 21px;
    font-weight: bold;
@@ -464,10 +469,7 @@ filter: alpha(opacity=65);
 box-shadow: none;
 }
 /* */
-/* Message quantité limité */
-.info_quantity{
-  color: red !important;
-}
+
 #short_description_content a,
 .page-product-box .rte a {
   color: #333333;
@@ -737,7 +739,7 @@ width: auto;
     color: #333;
 }
 /* reglement loi informatique */
-#identity .reglement {
+#identity .reglement, #authentication .reglement {
     font: 11px sans-serif !important;
     font-style: italic !important;
     text-align: center !important;
