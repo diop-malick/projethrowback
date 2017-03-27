@@ -479,7 +479,18 @@ float: left;
 }
 
 /*custom throwback*/
-.customattributes fieldset .attribute_label {
+
+#attributes .attribute_list ul li {
+    float: left;
+    clear: none;
+}
+
+#attributes .attribute_list ul li > label:hover {
+  border: 1px solid rgb(214, 157, 50);
+  color: rgb(214, 157, 50) !important;
+}
+
+#attributes fieldset .attribute_label {
   /*padding-bottom: 3px; */
   /*height: 37px;*/
   vertical-align: middle;
@@ -488,7 +499,7 @@ float: left;
   font-size: 17px !important;
 }
 
-#quantity_wanted_p label, .customattributes fieldset label , .customattributes .custom-attribute .attribute_label {
+#quantity_wanted_p label, #attributes fieldset label , #attributes .custom-attribute .attribute_label {
     /*vertical-align: top;*/
     /*display: block;*/
     font-size: 14px;
@@ -506,16 +517,21 @@ float: left;
     /*throwback > customize*/
 /* quantity_wanted */
 #quantity_wanted_p input {
-  border-style: solid;
-  border-width: 1px;
+  /*border-style: solid;*/
+  border: 1px solid rgb(88, 89, 91);
+  /*border-width: 1px;*/
   /*border-color: rgb(214, 157, 50);*/
   /*background-color: rgb(255, 255, 255);*/
   /*opacity: 0.502;*/
-  width: 44px;
+  font-weight: 900;
+  display: table-cell;
+  vertical-align: middle;
+  /*margin: 5px*/
+  width: 43px;
   height: 28px;
-  padding: 0 6px;
+  /*padding: 0 6px;*/
   float: left;
-  line-height: 27px;
+  /*line-height: 27px;*/
   z-index: 82;
 }
 
@@ -548,36 +564,36 @@ float: left;
 
 
 
-.customattributes .attribute_list {
+#attributes .attribute_list {
 
   /*width: 100%; */
 }
 
-  .customattributes .attribute_list .form-control {
+  #attributes .attribute_list .form-control {
     max-width: 230px; }
-    .customattributes .attribute_list .form-control option {
+    #attributes .attribute_list .form-control option {
       background: #fff;
       color: #666; }
 
 
 
 /*throwback < customizee*/
-  .customattributes .attribute_list ul {
+  #attributes .attribute_list ul {
     clear: both;
   }
 
-.customattributes .attribute_list ul li {
+#attributes .attribute_list ul li {
 /*  margin-right: 10px;
   margin-top: 10px; */
-  margin-right: 0;
+  margin-right: 1%;
   margin-top: 10px;
-  width: 20%;
+  width: 19%;
 }
-.customattributes .attribute_list  ul li:nth-child(5n){
+#attributes .attribute_list  ul li:nth-child(5n){
   margin-right: 0px !important;
 }
 
-.customattributes .attribute_list ul li > label {
+#attributes .attribute_list ul li > label {
    border:1px solid #777;;
    display: table-cell;
    width: 43px;
@@ -595,27 +611,27 @@ float: left;
     transition: all 0.5s ease 0s;
     cursor: pointer;
 }
-.customattributes .attribute_list ul li.checked_li > label {
+#attributes .attribute_list ul li.checked_li > label {
   border-color: rgb(214, 157, 50);
   }
 
 
-  .customattributes .attribute_list input.attribute_radio {
+  #attributes .attribute_list input.attribute_radio {
     float: left;
     margin-left: 3px;
   }
 
-  .customattributes .attribute_list div.radio,
-  .customattributes .attribute_list div.radio span,
-  .customattributes .attribute_list div.radio input {
+  #attributes .attribute_list div.radio,
+  #attributes .attribute_list div.radio span,
+  #attributes .attribute_list div.radio input {
     /*float: none;*/
     display: none;
   }
 
-  .customattributes .attribute_list #color_to_pick_list {
+  #attributes .attribute_list #color_to_pick_list {
     list-style-type: none; }
 
-    .customattributes .attribute_list #color_to_pick_list li {
+    #attributes .attribute_list #color_to_pick_list li {
         float: left;
         margin: 0 3px 3px 0;
         padding: 1px;
@@ -626,17 +642,17 @@ float: left;
     }
 
 
-      .customattributes .attribute_list #color_to_pick_list li a.color_pick {
+      #attributes .attribute_list #color_to_pick_list li a.color_pick {
         display: block;
         height: 22px;
         width: 22px;
         cursor: pointer; }
-        .customattributes .attribute_list #color_to_pick_list li a.color_pick img {
+        #attributes .attribute_list #color_to_pick_list li a.color_pick img {
           display: block;
           height: 22px;
           width: 22px; }
 
-      .customattributes .attribute_list #color_to_pick_list li.selected {
+      #attributes .attribute_list #color_to_pick_list li.selected {
         /*border: 2px solid #fff;*/
         border-style: solid;
         border-width: 2px;
@@ -935,14 +951,7 @@ margin-right: 25px;
   line-height: 18px;
   font-weight: 700; }
 
-#availability_value,
-#last_quantities {
-  color: #fff;
-  font-weight: 700;
-  line-height: 18px;
-  display: inline-block;
-  padding: 3px 8px 4px;
-  margin-left: 5px; }
+
 
 #last_quantities {
   background: #fe9126;
@@ -956,9 +965,35 @@ margin-right: 25px;
 #pQuantityAvailable {
   display: inline-block; }
 
-#pQuantityAvailable span {
+#pQuantityAvailable span.availability_quantity_value {
+  color: #2e7a3a;
+}
+
+#availability_statut #availability_value.label-warning {  
+  color : #e4752b;
+}
+#last_quantities {
+  color: #fff;
+}
+
+#last_quantities, 
+#availability_statut #availability_value.label-warning,
+#pQuantityAvailable span.availability_quantity_value
+ { 
   font-weight: 700;
-  color: #333; }
+  background: none;
+  border: none;
+  padding: 3px 8px 4px;
+  display: inline-block;
+  text-transform: none;
+  line-height: 18px;
+  margin-left: 5px;
+  margin-top: 10px;
+  }
+
+
+
+
 
 /* box-security */
 .box-security {
@@ -1197,7 +1232,7 @@ Quick View Styles
           border: 1px solid #d6d4d4; } }
 
 
-    #product.content_only div.primary_block div.pb-right-column .customattributes .attribute_list .form-control {
+    #product.content_only div.primary_block div.pb-right-column #attributes .attribute_list .form-control {
       width: 230px; }
     #product.content_only div.primary_block div.pb-right-column .product_attributes,
 
@@ -1414,9 +1449,17 @@ background: none;
     font-size: 15px;
   }
 
+#btn-attributes-size {
+  display: block !important;
+}
+
+.attribute_fieldset {
+  margin-bottom: 10px;
+}
+
  @media (min-width: 987px) {
 #btn-attributes-size{
-  width: 105% !important;
+  /*width: 105% !important;*/
 }
  }
 

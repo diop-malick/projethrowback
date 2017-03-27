@@ -58,7 +58,24 @@
 							{/if}
 
 							{hook h="displayProductPriceBlock" product=$product type='before_price'}
-							<span>A partir de </span>
+							
+
+								<!-- PVE la plus petite -->
+								{* <pre>{$group|var_dump}</pre> *}
+								{* <pre>{$groups[$product.id_product]|var_dump}</pre> *}
+								{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+									{if ($group.group_type == 'radio')}
+										{foreach from=$group.name_price key=id_attribute item=group_attribute}
+											{if $group_attribute > 0} 
+												{* {assign var=priceVar value=$group_attribute} *}
+												{* <pre>{$priceVar|var_dump}</pre>	 *}
+												<span>A partir de </span>
+												{break}
+											{/if}	
+										{/foreach}
+									{/if}
+								{/foreach}
+
 							<span class="price product-price">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
@@ -76,7 +93,8 @@
 							{* comingsoon without date *}
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
-								<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50); margin-top: 12px;">schedule</i>
+								{* <i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50); margin-top: 12px;">schedule</i> *}
+								<img src="{$base_dir}/img/icones/chrono.png"/>
 							<!-- FALG New -->
 							<!-- FALG Comming soon -->
 							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}

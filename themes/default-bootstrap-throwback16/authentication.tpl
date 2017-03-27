@@ -6,10 +6,30 @@
 	{/if}
 {/capture}
 
+{*********************************************************
+HEADER
+**********************************************************}
+<div class="row">
 {include file="$tpl_dir./header-simple.tpl"}
-
+</div>
+{*********************************************************
+TITLE
+**********************************************************}
+<div class="row">
 <h1 class="page-heading authentication">{if !isset($email_create)}{l s='Authentication'}{else}{l s='Create an account'}{/if}</h1>
-{if isset($back) && preg_match("/^http/", $back)}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if}
+</div>
+{*********************************************************
+ORDER STEP
+**********************************************************}
+<div class="row">
+{if isset($back) && preg_match("/^http/", $back)}
+	{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}
+{/if}
+</div>
+
+{*********************************************************
+EROR 
+**********************************************************}
 {include file="$tpl_dir./errors.tpl"}
 <div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 {assign var='stateExist' value=false}
@@ -24,7 +44,7 @@
 	{/if}
 	<div class="row" id="center_column">
 	<div id="equalheight">
-		<div class="col-xs-12 col-sm-6">
+		<div class="col-xs-12 col-sm-6" style="padding-left:0 ">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box is-customer">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
@@ -49,7 +69,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-xs-12 col-sm-6">
+		<div class="col-xs-12 col-sm-6" style="padding-right:0 ">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box be-customer">
 				<h3 class="page-subheading">{l s='Create an account'}</h3>
 				<div class="form_content clearfix">
@@ -402,7 +422,7 @@
 	</div>
 	{/if}-->
 
-<div class="row my-account-selfcare">
+<div class="my-account-selfcare">
 
 	<!-- FORM -->
 	<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="form-horizontal box">

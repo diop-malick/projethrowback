@@ -273,20 +273,23 @@ $(document).ready(function()
 			});
 		}
 	});
-	// Init attributes
-	var chrono =  document.getElementById('availability_date');
-	if( (chrono == null) ){
-			for (var i in attributesCombinations)
-			{
-				if(combinations[i]['quantity'] == 0)
-				{
-					var attributeId = attributesCombinations[i]['id_attribute'];
-					var id_radio = '#radio_'+ attributeId;
-					$('#radio_'+ attributeId).closest('li').addClass("li_attribute_list").addClass("disabled");
+	
+	// Disisable not available Attributes 
+var element_availability_date =  document.getElementById('availability_date');
+var element_chrono_without_date =  document.getElementById('chrono_without_date');
+	if ((element_availability_date == null) && (element_chrono_without_date == null) && (typeof combinations !== 'undefined') ) {
+	    for (i = 0; i < combinations.length; i++) {
+	        // console.log(combinations[i]);
+	        // console.log(combinations[i]['idsAttributes']);
+	        // console.log(combinations[i]['quantity']);
+	        if (combinations[i]['quantity'] == 0) {
+	            var attributeId = combinations[i]['idsAttributes'];
+	            var id_radio = '#radio_' + attributeId;
+	            $('#radio_' + attributeId).closest('li').addClass("li_attribute_list").addClass("disabled");
+	        }
+	    }
+	}
 
-				}
-			}
-		}
 });
 
 //find a specific price rule, based on pre calculated dom display array
@@ -327,10 +330,12 @@ $(window).bind('hashchange', function(){
 	findCombination();
 });
 
+
 // hover add_to_cart button disable => message
-var element =  document.getElementById('availability_date');
+var element_availability_date =  document.getElementById('availability_date');
+var element_chrono_without_date =  document.getElementById('chrono_without_date');
 $(document).on('mouseover', '#add_to_cart', function(){
-	if(  ($(".btn").hasClass("disabled")) && (element == null) && (comingsoonvalue == 'undefined' || comingsoonvalue == null) ){
+	if(  ($(".btn").hasClass("disabled")) && (element_availability_date == null || element_chrono_without_date == null) ){
 		$(".info").addClass("error");
 		$(".info").html("Merci de sélectionner une taille.")
 		}
@@ -340,9 +345,10 @@ $(document).on('mouseover', '#add_to_cart', function(){
 		}
 });
 
+// TODO - why ?? to refactor with previous code
 $(document).on('mouseout', '#add_to_cart', function(){
 
-	if( ($(".btn").hasClass("disabled")) && (element == null) ){
+	if( ($(".btn").hasClass("disabled")) && (element_availability_date == null) ){
 		$(".info").addClass("error");
 		$(".info").html("");
 		}
@@ -410,8 +416,8 @@ $(document).on('click', '.attribute_radio', function(e){
 	getProductAttribute();
 
 	// CUSTOM RADIO ATTRIBUTE
-	$('.customattributes .attribute_list ul li').removeClass('checked_li');
-	$('.customattributes .attribute_list ul li').has('span.checked').addClass('checked_li');
+	$('#attributes .attribute_list ul li').removeClass('checked_li');
+	$('#attributes .attribute_list ul li').has('span.checked').addClass('checked_li');
 });
 
 $(document).on('click', 'button[name=saveCustomization]', function(e){
@@ -554,13 +560,13 @@ function findCombination()
 
 	//create a temporary 'choice' array containing the choices of the customer
 	var choice = [];
-	var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
+	var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
 	if (radio_inputs)
-		radio_inputs = '.customattributes .checked > input[type=radio]';
+		radio_inputs = '#attributes .checked > input[type=radio]';
 	else
-		radio_inputs = '.customattributes input[type=radio]:checked';
+		radio_inputs = '#attributes input[type=radio]:checked';
 
-	$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
+	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
 		choice.push(parseInt($(this).val()));
 	});
 
@@ -625,7 +631,6 @@ function findCombination()
 
 	updateDisplay();
 }
-
 //update display of the availability of the product AND the prices of the product
 function updateDisplay()
 {
@@ -1109,13 +1114,13 @@ function refreshProductImages(id_product_attribute)
 		$('#thumbs_list li').show();
 
 		var choice = [];
-		var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
+		var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
 		if (radio_inputs)
-			radio_inputs = '.customattributes .checked > input[type=radio]';
+			radio_inputs = '#attributes .checked > input[type=radio]';
 		else
-			radio_inputs = '.customattributes input[type=radio]:checked';
+			radio_inputs = '#attributes input[type=radio]:checked';
 
-		$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
+		$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
 			choice.push(parseInt($(this).val()));
 		});
 
@@ -1138,6 +1143,7 @@ function refreshProductImages(id_product_attribute)
 	$('#thumbs_list').trigger('goto', 0);
 	serialScrollFixLock('', '', '', '', 0);
 }
+
 
 function saveCustomization()
 {
@@ -1203,16 +1209,15 @@ function getProductAttribute()
 	request = '';
 	//create a temporary 'tab_attributes' array containing the choices of the customer
 	var tab_attributes = [];
-	var radio_inputs = parseInt($('.customattributes .checked > input[type=radio]').length);
+	var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
 	if (radio_inputs)
-		radio_inputs = '.customattributes .checked > input[type=radio]';
+		radio_inputs = '#attributes .checked > input[type=radio]';
 	else
-		radio_inputs = '.customattributes input[type=radio]:checked';
+		radio_inputs = '#attributes input[type=radio]:checked';
 
-	$('.customattributes select, .customattributes input[type=hidden], ' + radio_inputs).each(function(){
+	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
 		tab_attributes.push($(this).val());
 	});
-
 
 	// build new request
 	for (var i in attributesCombinations)

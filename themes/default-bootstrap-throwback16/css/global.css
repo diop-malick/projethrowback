@@ -2306,7 +2306,10 @@ input[type="button"].btn-block {
 .tabbable:after {
   clear: both; }
 
-.tab-content > .tab-pane,
+/*Custom thorwback - to display default tab content in homepage*/
+.tab-content > .tab-pane {
+ display: block;
+}
 .pill-content > .pill-pane {
  display: none;
 }
@@ -3658,8 +3661,11 @@ td.visible-lg {
   th.visible-lg,
   td.visible-lg {
     display: table-cell !important; } }
+
+/*custom thorwback - to show picto userinfo inline in destop*/
 .hidden-xs {
-  display: block !important; }
+  /*display: block !important; */
+}
 
 tr.hidden-xs {
   display: table-row !important; }
@@ -3678,6 +3684,7 @@ td.hidden-xs {
   th.hidden-xs,
   td.hidden-xs {
     display: none !important; } }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .hidden-xs.hidden-sm {
     display: none !important; }
@@ -6255,7 +6262,7 @@ table.table_block td {
   line-height: 23px;
   color: rgb(53, 53, 53);
   font-weight: bold;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   line-height: 1.143;
   margin-bottom: 0;
   /*z-index: 82;*/
@@ -6282,7 +6289,7 @@ table.table_block td {
   font-size: 16px;
   font-weight: 600;
   font-family: "Helvetica Neue", Open Sans, sans-serif;
-  color: rgb(88, 89, 91);
+  color:rgb(214, 157, 50);
   line-height: 1;
   /*z-index: 85;*/
 }

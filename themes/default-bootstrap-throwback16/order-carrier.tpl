@@ -26,7 +26,7 @@
 				<div id="opc_delivery_methods-overlay" class="opc-overlay" style="display: none;"></div>
 {/if}
 <div class="container clearfix">
-<h1>{l s='Choisissez votre lieu de livraison'}</h1>
+{* <h1>{l s='Choisissez votre lieu de livraison'}</h1> *}
 	<div class="row">
 		<div class="order_carrier_content col-sm-9">
 			{if isset($virtual_cart) && $virtual_cart}
@@ -65,7 +65,7 @@ Livraison À une autre adresse
 			    		<h4 class="panel-title">
 			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
 			    				{* <span class="resp-arrow"></span>			    				 *}
-			    				<span class="delivery_option_name">{l s='À une autre adresse'}</span>
+			    				<span class="delivery_option_name">{l s='Adresse et lieu de livraison'}</span>
 			    			</a>
 			    			<span class="delivery_option_price free">{l s=''}</span>
 			    		</h4>

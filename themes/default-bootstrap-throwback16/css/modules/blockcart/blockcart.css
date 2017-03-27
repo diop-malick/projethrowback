@@ -491,7 +491,13 @@
   #layer_cart .crossseling #blockcart_list .bx-controls {
     overflow: hidden; }
 
-  @media (max-width: 768px) {
+
+@media (max-width: 380px) {
+  #mobil_blockcart {
+        padding-left: 0px !important;
+  }
+}
+  @media (min-width: 380px) and  (max-width: 768px) {
     #mobil_blockcart {
       padding: 0 !important;
       margin-top: -5px;

@@ -42,7 +42,7 @@
 			</p>
 		{/if}
 		<!-- left infos-->
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-6">
+		<div class="pb-left-column col-xs-12 col-sm-4 col-md-7">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
 				{if $product->on_sale}
@@ -129,7 +129,7 @@
 		<!-- end left infos-->
 
 		<!-- right  -->
-		<div class="pb-my-right-column col-xs-12 col-md-6">
+		<div class="pb-my-right-column col-xs-12 col-md-5">
 
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 
@@ -226,10 +226,12 @@
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
-								{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
-								<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
-								{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
-								{* <i class="icon-time fa-3x"></i> *}
+								<span id="chrono_without_date"></span>
+									{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
+									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
+									{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
+									{* <i class="icon-time fa-3x"></i> *}
+								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
 								<img src="{$base_dir}/img/icones/new.png"/>
@@ -266,7 +268,7 @@
 				<!-- rigth-row-3 -->
 				<div id="rigth-row-3" class="row">
 
-					<div class="col-md-6 text-left">
+					<div class="col-md-12 text-left">
 					<!-- quantity wanted -->
 
 						<!-- Flag GENRE -->
@@ -291,125 +293,132 @@
 						</div>
 						<!-- // Flag GENRE -->
 
-						<!-- COLOR  -->
-							<div class="row product_attributes clearfix">
-								{if isset($groups)}
-								<!-- attributes -->
-								<div class="customattributes">
-								{foreach from=$groups key=id_attribute_group item=group}
-											{if ($group.group_type == 'color') && $group.attributes|@count}
-												<fieldset class="attribute_fieldset">
-												<div class="form-group attribute_list">
-													<label class="col-md-4 attribute_label">{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-													{assign var="groupName" value="group_$id_attribute_group"}
-													<div class="col-md-8">
-														<ul id="color_to_pick_list" class="clearfix">
-														<label class="btn"> <!-- to disable attributes for comming soon -->
-																		{assign var="default_colorpicker" value=""}
-																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
-
-																			{assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-
-																			<li class="img-circle {if $group.default == $id_attribute} selected {/if}">
-																				<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="img-circle color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
-																					{if $img_color_exists}
-																						<img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
-																					{/if}
-																				</a>
-																			</li>
-
-																			{if ($group.default == $id_attribute)}
-																				{$default_colorpicker = $id_attribute}
-																			{/if}
-																		{/foreach}
-														</label>
-														</ul>
-														<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
-													</div>
-													</div> <!-- end attribute_list -->
-												</fieldset>
-											{/if}
-								{/foreach}
-								</div> <!-- end attributes -->
-							{/if}
-							</div> <!-- end product_attributes -->
-
-						<!-- end row COLOR  -->
-
-
-
+					<div class="row">
 						<!-- QUANTITY  -->
-						{if !$PS_CATALOG_MODE}
-							<div class="form-group row" id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-										<label class="col-md-4 " for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
-										<div class="col-md-8">
-										<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
-										<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-											<span><i class="icon-minus"></i></span>
-											<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
+						<div class="col-md-6">
+							{if !$PS_CATALOG_MODE}
+									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<div class="row">
+												<label class="col-xs-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
+												<div class="col-xs-7">
+													<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+													<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+														<span><i class="icon-minus"></i></span>
+														<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
 
-										</a>
-										<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-											<span><i class="icon-plus"></i></span>
-											<!-- <img src="{$base_dir}/img/icones/size_up.png"/> -->
-
-										</a>
-										</div>
-							</div>
-							<!-- Message stock Limit et épuisé -->
-							<div class="form-group row" id="min_quantity_message">
-								<div class="col-md-8">
-									<span class="info_quantity">
-									</span>
-								</div>
-							</div>
-							<!-- Fin de stock Limité -->
-						{/if}
-						<!-- STOCK -->
-
-							{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-							<!--
-							<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
-								<span id="quantityAvailable">{$product->quantity|intval}</span>
-								<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
-								<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span>
-							</p>
-							-->
+													</a>
+													<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+														<span><i class="icon-plus"></i></span>
+													</a>
+												</div>
+											</div>
+									</div>
+									<!-- STOCK AVAILABILITY -->	
+									<div class="row">
+										{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
+										<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
+											<span class="availability_quantity_value">{l s='Disponible'}</span>
+											{* <span id="quantityAvailable">{$product->quantity|intval}</span>
+											<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
+											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
+											
+											<!-- Message stock Limit et épuisé -->
+											<p id="min_quantity_message">
+												<span class="availability_quantity_value info_quantity">
+												</span>
+											</p>
+										</p>
+										{/if}
+										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+												{* <span id="availability_label">{l s='Availability:'}</span> *}
+												<span id="availability_value" class="{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">
+												{if $product->quantity <= 0}
+													{if $PS_STOCK_MANAGEMENT && $allow_oosp}
+														{$product->available_later}
+													{else}
+														{l s='This product is no longer in stock'}
+													{/if}
+												{elseif $PS_STOCK_MANAGEMENT}
+													{$product->available_now}
+												{/if}
+												</span>
+										</p>
+									</div>
 							{/if}
-
-							<!-- // STOCK -->
-
-							<!-- AVAILABILITY or doesntExist -->
-							<!--
-							<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-								{*<span id="availability_label">{l s='Availability:'}</span>*}
-								<span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
-							</p>
-
-						-->
-							{if $PS_STOCK_MANAGEMENT}
-							<!--
-								{if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-								<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
-								-->
-							{/if}
-
-
-							<!-- Out of stock hook -->
-							<!-- <div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
-								{$HOOK_PRODUCT_OOS}
-							</div> -->
-
-
+						</div>
 						<!-- // QUANTITY  -->
+						
+						<!-- ATTRIBUTS  -->
+					<div class="col-md-6 product_attributes clearfix">
+						{if isset($groups)}
+							<div id="attributes">
+								{foreach from=$groups key=id_attribute_group item=group}
+									{if $group.attributes|@count}
+										<fieldset class="row attribute_fieldset">										
+										<label class=" attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
+										</label>
+										{assign var="groupName" value="group_$id_attribute_group"}
+										
+										<div class="attribute_list ">
 
+											{if ($group.group_type == 'select')}
+													<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
+														{foreach from=$group.attributes key=id_attribute item=group_attribute}
+															<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'html':'UTF-8'}">{$group_attribute|escape:'html':'UTF-8'}</option>
+														{/foreach}
+													</select>
+
+													<!-- COLOR  -->
+											{elseif ($group.group_type == 'color')}
+													<ul id="color_to_pick_list" class="clearfix">
+														{assign var="default_colorpicker" value=""}
+														{foreach from=$group.attributes key=id_attribute item=group_attribute}
+															{assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+															<li{if $group.default == $id_attribute} class="selected"{/if}>
+																<a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" id="color_{$id_attribute|intval}" name="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}"{if !$img_color_exists && isset($colors.$id_attribute.value) && $colors.$id_attribute.value} style="background:{$colors.$id_attribute.value|escape:'html':'UTF-8'};"{/if} title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}">
+																	{if $img_color_exists}
+																		<img src="{$img_col_dir}{$id_attribute|intval}.jpg" alt="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" title="{$colors.$id_attribute.name|escape:'html':'UTF-8'}" width="20" height="20" />
+																	{/if}
+																</a>
+															</li>
+															{if ($group.default == $id_attribute)}
+																{$default_colorpicker = $id_attribute}
+															{/if}
+														{/foreach}
+													</ul>
+													<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
+
+											<!-- TAILLE  -->
+											{elseif ($group.group_type == 'radio')}
+														<ul>
+															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+																{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																<li>
+																	<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
+																	<label for="radio_{$id_attribute|intval}">
+																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
+																		{assign var=someVar value=" "|explode:$group_attribute}
+																		{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																	</label>
+																</li>
+																{/foreach}
+															</span>
+														</ul>
+												{/if}
+											</div> <!-- end attribute_list -->
+										</fieldset>
+									{/if}
+								{/foreach}
+							</div> <!-- end attributes -->
+						{/if}
+					</div> <!-- end product_attributes -->
+				</div>
+						
 					</div>
 
-					<div class="col-md-6 text-left">
+					{* <div class="col-md-6 text-left">
 							<div class="product_attributes clearfix">
-
 								{if isset($groups)}
-									<!-- attributes -->
 									<div class="customattributes groups-attribute">
 										<div class="clearfix"></div>
 										{foreach from=$groups key=id_attribute_group item=group}
@@ -432,10 +441,9 @@
 															</div>
 															<div class="row">
 																<ul>
-																	<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+																	<span class="btn" id="btn-attributes-size">
 																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																		<li>
-																			<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																			<label for="radio_{$id_attribute|intval}">
 																				<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
 																				{assign var=someVar value=" "|explode:$group_attribute}
@@ -451,10 +459,10 @@
 												</fieldset>
 											{/if}
 										{/foreach}
-									</div> <!-- end attributes -->
+									</div> 
 								{/if}
-							</div> <!-- end product_attributes -->
-					</div>
+							</div> 
+					</div> *}
 				</div>
 				<!-- // rigth-row-3 -->
 
@@ -468,6 +476,51 @@
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
 				</div> *}
+
+
+				<div class="row">
+					
+					
+
+{* PS_STOCK_MANAGEMENT / Enable stock management" in `Preferes > Products > Products Stock". *}
+						{* {if $PS_STOCK_MANAGEMENT}
+							{if !$product->is_virtual}
+								{hook h="displayProductDeliveryTime" product=$product}
+							{/if}
+							<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
+							{/if} *}
+
+						<!-- Out of stock hook -->
+						{* 
+						<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
+							{$HOOK_PRODUCT_OOS}
+						</div> 
+						*}
+						{*}
+						<p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+							<span id="availability_date_label">{l s='Availability date:'}</span>
+							<span id="availability_date_value">{if Validate::isDate($product->available_date)}{dateFormat date=$product->available_date full=false}{/if}</span>
+						</p>
+						*}
+
+						<!-- AVAILABILITY QUANTITY or doesntExist -->
+
+						<!-- availability or doesntExist -->
+						
+						{* 
+						<pre>PS_STOCK_MANAGEMENT : {$PS_STOCK_MANAGEMENT}</pre>
+						<pre>quantity : {$product->quantity}</pre>
+						<pre>available_later : {$product->available_later}</pre>
+						<pre>allow_oosp : {$allow_oosp}</pre>
+						<pre>available_now : {$product->available_now}</pre>
+						<pre>available_for_order : {$product->available_for_order}</pre>
+						<pre>PS_CATALOG_MODE : {$PS_CATALOG_MODE}</pre>
+						*}
+
+						
+
+					</div>
+
 
 				<!-- rigth-row-5 -->
 				<div id="rigth-row-5" class="row">
