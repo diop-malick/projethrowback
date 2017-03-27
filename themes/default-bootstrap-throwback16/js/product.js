@@ -254,7 +254,8 @@ $(document).ready(function()
 	// TODO fixe btn to product image footer
 	if (!$('#clock').length ) {
     	var add_to_cart_heigh = $('#add_to_cart').height();
-    	$('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
+    	// $('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
+    	$('#add_to_cart').css('margin-top',  '60px');
     }
 
 	/* ********************************************************************* 
