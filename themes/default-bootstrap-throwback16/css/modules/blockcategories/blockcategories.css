@@ -48,13 +48,13 @@
 
 @media (min-width: 1200px) {
     #categories_block_left .block_content > ul {
-        width: 250px;
+        width: 220px;
     }
 }
 
 @media (max-width: 900px) {
     #categories_block_left .block_content > ul {
-        width: 180px;
+        width: 140px;
     }
 }
 
