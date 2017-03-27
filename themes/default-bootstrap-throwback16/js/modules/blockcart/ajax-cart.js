@@ -796,7 +796,7 @@ var ajaxCart = {
 		}
 		else
 		{
-				$("#min_quantity_message").css('display','none');
+			$("#min_quantity_message").css('display','none');
 			ajaxCart.updateCartEverywhere(jsonData);
 			ajaxCart.hideOldProducts(jsonData);
 			ajaxCart.displayNewProducts(jsonData);

@@ -277,18 +277,32 @@ $(document).ready(function()
 	// Disisable not available Attributes 
 var element_availability_date =  document.getElementById('availability_date');
 var element_chrono_without_date =  document.getElementById('chrono_without_date');
+// console.log(combinations);
 	if ((element_availability_date == null) && (element_chrono_without_date == null) && (typeof combinations !== 'undefined') ) {
 	    for (i = 0; i < combinations.length; i++) {
 	        // console.log(combinations[i]);
 	        // console.log(combinations[i]['idsAttributes']);
 	        // console.log(combinations[i]['quantity']);
 	        if (combinations[i]['quantity'] == 0) {
-	            var attributeId = combinations[i]['idsAttributes'];
+	            var attributeId = combinations[i]['idsAttributes'][0];
 	            var id_radio = '#radio_' + attributeId;
-	            $('#radio_' + attributeId).closest('li').addClass("li_attribute_list").addClass("disabled");
+	            $(id_radio).closest('li').addClass("li_attribute_list").addClass("disabled");
+	            // console.log(attributeId);
+	            // console.log(id_radio);
 	        }
 	    }
 	}
+
+	// Mention "a parti de " sur les prix 
+	// console.log(combinations);
+	for (var i in combinations) {
+	// console.log(combinations[i]['price']);
+		if (combinations[i]['price'] > 0) {
+			$('#minimal_pve_price').show();
+			break;
+		}
+	}
+
 
 });
 
@@ -409,11 +423,15 @@ $(document).on('change', '.attribute_select', function(e){
 	e.preventDefault();
 	findCombination();
 	getProductAttribute();
+	// hide pve on click & change attributes select
+	$('#minimal_pve_price').hide();
 });
 
 $(document).on('click', '.attribute_radio', function(e){
 	e.preventDefault();
 	getProductAttribute();
+	// hide pve on click & change attributes select
+	$('#minimal_pve_price').hide();
 
 	// CUSTOM RADIO ATTRIBUTE
 	$('#attributes .attribute_list ul li').removeClass('checked_li');
@@ -714,11 +732,11 @@ function updateDisplay()
 			if (!allowBuyWhenOutOfStock)
 				$('#availability_value').removeClass('label-success').addClass('label-warning');
 		}
-		/*else
+		else
 		{
 			$('#availability_value').text(doesntExist).removeClass('label-success').addClass('label-warning');
 			$('#oosHook').hide();
-		}*/
+		}
 
 		if ((stock_management == 1 && !allowBuyWhenOutOfStock) || (!stock_management && selectedCombination['unavailable']))
 			$('#availability_statut:hidden').show();
