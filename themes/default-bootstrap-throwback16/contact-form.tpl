@@ -52,18 +52,19 @@
 	</ul>
 {else}
 	{include file="$tpl_dir./errors.tpl"}
+	<h1 class="text-center">{l s="Besoin d'aide ?"}</h1>
 	<form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
 		<fieldset>
 			<h3 class="page-subheading">{l s='send a message'}</h3>
 			<div class="clearfix">
 				<div class="col-xs-12 col-md-12">
 					 <div class="row">
-						<div class="col-xs-12 col-md-6">
+						<div class="col-xs-12 col-md-4">
 							<div class="row">
-										<div class="col-xs-12 col-md-3">
+										<div class="col-xs-12 col-md-4 padding-class">
 											<label for="email">{l s='Email address'}</label>
 										</div>
-										<div class="col-xs-12 col-md-9">
+										<div class="col-xs-12 col-md-8">
 											{if isset($customerThread.email)}
 												<input class="form-control grey" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
 											{else}
@@ -73,13 +74,13 @@
 							</div>
 								
 						</div>
-						<div class="col-xs-12 col-md-6">
+						<div class="col-xs-12 col-md-4">
 								<div class="form-group selector1">
 									<div class="row">
-											<div class="col-xs-12 col-md-1">
+											<div class="col-xs-12 col-md-3">
 												<label for="id_contact">{l s='Subject Heading'}</label>
 											</div>
-											<div class="col-xs-12 col-md-11">
+											<div class="col-xs-12 col-md-9">
 											
 												{if isset($customerThread.id_contact) && $customerThread.id_contact && $contacts|count}
 														{assign var=flag value=true}
@@ -116,46 +117,23 @@
 										</div>
 									</div>
 						</div>
-						
-					</div>
-					{*
-					{if !$PS_CATALOG_MODE}
-						{if (!isset($customerThread.id_order) || $customerThread.id_order > 0)}
+
+					<div class="col-xs-12 col-md-4">	
+					
 							<div class="form-group selector1">
-								<label>{l s='Order reference'}</label>
-								{if !isset($customerThread.id_order) && isset($is_logged) && $is_logged}
-									<select name="id_order" class="form-control">
-										<option value="0">{l s='-- Choose --'}</option>
-										{foreach from=$orderList item=order}
-											<option value="{$order.value|intval}"{if $order.selected|intval} selected="selected"{/if}>{$order.label|escape:'html':'UTF-8'}</option>
-										{/foreach}
-									</select>
-								{elseif !isset($customerThread.id_order) && empty($is_logged)}
+								<div class="col-xs-12 col-md-5">
+									<label>{l s='Numéro comande'}</label>
+								</div>
+								<div class="col-xs-12 col-md-7">
 									<input class="form-control grey" type="text" name="id_order" id="id_order" value="{if isset($customerThread.id_order) && $customerThread.id_order|intval > 0}{$customerThread.id_order|intval}{else}{if isset($smarty.post.id_order) && !empty($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" />
-								{elseif $customerThread.id_order|intval > 0}
-									<input class="form-control grey" type="text" name="id_order" id="id_order" value="{if isset($customerThread.reference) && $customerThread.reference}{$customerThread.reference|escape:'html':'UTF-8'}{else}{$customerThread.id_order|intval}{/if}" readonly="readonly" />
-								{/if}
+								</div>
+								
 							</div>
-						{/if}
-						{if isset($is_logged) && $is_logged}
-							<div class="form-group selector1">
-								<label class="unvisible">{l s='Product'}</label>
-								{if !isset($customerThread.id_product)}
-									{foreach from=$orderedProductList key=id_order item=products name=products}
-										<select name="id_product" id="{$id_order}_order_products" class="unvisible product_select form-control"{if !$smarty.foreach.products.first} style="display:none;"{/if}{if !$smarty.foreach.products.first} disabled="disabled"{/if}>
-											<option value="0">{l s='-- Choose --'}</option>
-											{foreach from=$products item=product}
-												<option value="{$product.value|intval}">{$product.label|escape:'html':'UTF-8'}</option>
-											{/foreach}
-										</select>
-									{/foreach}
-								{elseif $customerThread.id_product > 0}
-									<input  type="hidden" name="id_product" id="id_product" value="{$customerThread.id_product|intval}" readonly="readonly" />
-								{/if}
-							</div>
-						{/if}
-					{/if}
-					*}
+					
+					</div>
+						
+					</div> <!-- end row -->
+					
 					{*
 					{if $fileupload == 1}
 						<p class="form-group">
@@ -166,15 +144,19 @@
 					{/if}
 					*}
 				</div>
-				<div class="col-xs-12 col-md-12">
+				<div class="col-xs-12 col-md-12 padding-class">
 					<div class="form-group">
 						<!--<label for="message">{l s='Message'}</label>-->
 						<textarea class="form-control" id="message" placeholder="Votre message" name="message">{if isset($message)}{$message|escape:'html':'UTF-8'|stripslashes}{/if}</textarea>
 					</div>
 				</div>
 			</div>
-			<div class="submit">
-				<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<div class="submit">
+						<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+					</div>
+				</div>
 			</div>
 		</fieldset>
 	</form>

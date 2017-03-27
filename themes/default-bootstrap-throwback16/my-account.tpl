@@ -127,7 +127,7 @@
 
                 <span>
                     <i> <</i>
-                    {l s='Home'}
+                    {l s='Continuer mon shopping'}
                 </span>
 
     </a>

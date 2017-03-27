@@ -51,7 +51,7 @@
         <!-- <div class="container"> -->
         <div class="row vertical-center ">
             <div class="col-md-4 col-xs-0 text-center">
-                <h4 class="title-identity"  {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
+                <h4 class="title-identity"  {if ( (isset($smarty.get.action) && $smarty.get.action =="newsletter") || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 col-xs-12">
                     <div class="row form-group">
@@ -59,13 +59,13 @@
                                 {l s='E-mail address'}
                             </label>
                             <div class="col-md-8 col-xs-8">
-                                <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) ) } readonly {else}    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" required {/if}
+                                <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) ) } readonly {else}    data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" required {/if}
                                  type="email" name="email" id="email" value="{$smarty.post.email}"  />
                             </div>
                     </div>
 
                     <div class="row required form-group">
-                            <label for="old_passwd" class="col-md-4 col-xs-4 text-right">
+                            <label for="old_passwd" class="col-md-4 col-xs-4 text-right required">
                                 {l s='Current Password'}
                             </label>
                             <div class="col-md-8 col-xs-8">
@@ -77,7 +77,7 @@
                                 {l s='New Password'}
                             </label>
                             <div class="col-md-8 col-xs-8">
-                                 <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
+                                 <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} readonly {else} data-validation="check_password" data-validation-error-msg="{l s='Votre mot de passe doit comporter entre 6 et 12 caractères, et doit comprendre au moins un chiffre.'}" data-validation-optional="true" {/if} name="passwd" id="passwd" />
                             </div>
                     </div>
                     <div class="row required form-group">
@@ -85,7 +85,7 @@
                                 {l s='Confirmation'}
                             </label>
                             <div class="col-md-8 col-xs-8">
-                                <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
+                                <input class="is_required validate form-control" type="password" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} readonly {else} data-validation-confirm="passwd" data-validation="confirmation" data-validation-error-msg="{l s='Mot de passe non conforme à la première saisie.'}" {/if} name="confirmation" id="confirmation" />
                             </div>
                     </div>
 
@@ -102,9 +102,9 @@
             <div class="col-md-8 col-xs-12">
             <!-- <div class="row"> -->
                     <div class="row">
-                        <label class="col-md-4 col-xs-4 text-right">&nbsp;&nbsp;{l s='Civilité'}</label>
+                        <label class="col-md-4 col-xs-4 text-right required">&nbsp;&nbsp;{l s='Civilité'}</label>
                         <div class="col-md-8 col-xs-8">
-                            <select id="id_gender" name="id_gender" class="is_required validate select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
+                            <select id="id_gender" name="id_gender" class="is_required validate select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} disabled {else} data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}" {/if}>
                                             <option value="">{l s='Choisir la civilité'}</option>
                             {foreach from=$genders key=k item=gender}
                                 <option value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id} selected="selected"{/if}>{$gender->name}</option>
@@ -118,7 +118,7 @@
                             {l s='First name'}
                         </label>
                         <div class="col-md-8 col-xs-8">
-                        <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" {/if} name="firstname" value="{$smarty.post.firstname}" />
+                        <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} readonly {else} data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" type="text" id="firstname" {/if} name="firstname" value="{$smarty.post.firstname}" />
                         </div>
                     </div>
 
@@ -127,7 +127,7 @@
                             {l s='Last name'}
                         </label>
                         <div class="col-md-8 col-xs-8">
-                        <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} readonly {else} data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" {/if} type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+                        <input class="is_required validate form-control" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} readonly {else} data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" {/if} type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
                         </div>
                     </div>
 
@@ -138,8 +138,8 @@
                         <div class="col-md-8 col-xs-8">
                         <div class="row select-date">
                             <div class="col-md-4 col-xs-4">
-                                <select name="days" id="days" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} disabled {/if} >
-                                    <option value="">-</option>
+                                <select name="days" id="days" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} disabled {/if} >
+                                    <option value="">{l s='Jour'}</option>
                                     {foreach from=$days item=v}
                                         <option value="{$v}" {if ($sl_day == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
                                     {/foreach}
@@ -160,16 +160,16 @@
                                     {l s='November'}
                                     {l s='December'}
                                 *}
-                                <select id="months" name="months" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} disabled {/if} >
-                                    <option value="">-</option>
+                                <select id="months" name="months" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} disabled {/if} >
+                                    <option value="">{l s='Mois'}</option>
                                     {foreach from=$months key=k item=v}
                                         <option value="{$k}" {if ($sl_month == $k)}selected="selected"{/if}>{l s=$v}&nbsp;</option>
                                     {/foreach}
                                 </select>
                             </div>
                             <div class="col-md-4 col-xs-4">
-                                <select id="years" name="years" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || isset($smarty.post.newsletter_page) )} disabled {/if} >
-                                    <option value="">-</option>
+                                <select id="years" name="years" class="select_title" {if ( isset($smarty.get.action) && $smarty.get.action =="newsletter" || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} disabled {/if} >
+                                    <option value="">{l s='Année'}</option>
                                     {foreach from=$years item=v}
                                         <option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
                                     {/foreach}

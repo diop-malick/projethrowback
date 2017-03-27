@@ -53,4 +53,11 @@
     .contact-form-box div.uploader span.filename {
       width: 114px; } }
 
+/****** padding adding ******************/
+.padding-class{
+  padding-left: 0px !important;
+}
+#contact{
+  color: #000 !important;
+}
 /*# sourceMappingURL=contact-form.css.map */

@@ -52,12 +52,17 @@ body {
   color:#000 !important;
 }
 
-#layered_block_left div.selector {
+/***************** selector *************************/
+#layered_block_left div.selector , #address div.selector {
     width: auto !important;
 }
 
 #layered_block_left div.selector span {
     width: auto !important;
+}
+
+#address div.selector span {
+    display: none !important;
 }
 
 
@@ -245,6 +250,10 @@ header .row #header_logo {
   padding: 5px;
   float: left;
   margin-bottom: 5px;
+}
+.texte-donnnes-perso{
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 /* throwback > customize > Infos perso  */
@@ -730,7 +739,7 @@ width: auto;
     color: #333;
 }
 /* reglement loi informatique */
-#identity .reglement {
+#identity .reglement, #authentication .reglement {
     font: 11px sans-serif !important;
     font-style: italic !important;
     text-align: center !important;

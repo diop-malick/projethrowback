@@ -31,6 +31,7 @@ ORDER STEP
 EROR 
 **********************************************************}
 {include file="$tpl_dir./errors.tpl"}
+<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 {assign var='stateExist' value=false}
 {assign var="postCodeExist" value=false}
 {assign var="dniExist" value=false}
@@ -73,7 +74,7 @@ EROR
 				<h3 class="page-subheading">{l s='Create an account'}</h3>
 				<div class="form_content clearfix">
 					<p>{l s='Please enter your email address to create an account.'}</p>
-					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
+					
 					<div class="form-group">
 						<label for="email_create" class="control-label">{l s='Email address'}</label>
 						<input type="email" class="is_required validate account_input form-control" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" id="email_create" name="email_create" value="{if isset($smarty.post.email_create)}{$smarty.post.email_create|stripslashes}{/if}" required />
@@ -83,7 +84,7 @@ EROR
 						<button class="btn btn-default button button-medium" type="submit" id="SubmitCreate" name="SubmitCreate">
 							<span>
 								<i class="icon-user left"></i>
-								{l s='Create an account'}
+								{l s='Créer mon compte'}
 							</span>
 						</button>
 						<input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}" />
@@ -129,7 +130,7 @@ EROR
 						<div class="row">
 							<div class="col-xs-4">
 								<select id="days" name="days" class="form-control">
-									<option value="">-</option>
+									<option value="">{l s='Jour'}</option>
 									{foreach from=$days item=day}
 										<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
 									{/foreach}
@@ -151,7 +152,7 @@ EROR
 							</div>
 							<div class="col-xs-4">
 								<select id="months" name="months" class="form-control">
-									<option value="">-</option>
+									<option value="">{l s='Mois'}</option>
 									{foreach from=$months key=k item=month}
 										<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
 									{/foreach}
@@ -159,7 +160,7 @@ EROR
 							</div>
 							<div class="col-xs-4">
 								<select id="years" name="years" class="form-control">
-									<option value="">-</option>
+									<option value="">{l s='Année'}</option>
 									{foreach from=$years item=year}
 										<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
 									{/foreach}
@@ -443,7 +444,7 @@ EROR
 				</div>
 
 				<div class="row password form-group">
-                            <label for="confirmation-mail" class="col-md-4 col-xs-4 text-right control-label">
+                            <label for="confirmation-mail" class="col-md-4 col-xs-4 text-right control-label required">
                                 &nbsp;&nbsp;{l s='Confirmation Email'}
                             </label>
                             <div class="col-md-8 col-xs-8">
@@ -506,7 +507,7 @@ EROR
 						<div class="row select-date">
 							<div class="col-md-4 col-xs-4">
 								<select id="days" name="days" class="select_title">
-									<option value="">-</option>
+									<option value="">{l s='Jour'}</option>
 									{foreach from=$days item=day}
 										<option value="{$day}" {if ($sl_day == $day)} selected="selected"{/if}>{$day}&nbsp;&nbsp;</option>
 									{/foreach}
@@ -528,7 +529,7 @@ EROR
 							</div>
 							<div class="col-md-4 col-xs-4">
 								<select id="months" name="months" class="select_title">
-									<option value="">-</option>
+									<option value="">{l s='Mois'}</option>
 									{foreach from=$months key=k item=month}
 										<option value="{$k}" {if ($sl_month == $k)} selected="selected"{/if}>{l s=$month}&nbsp;</option>
 									{/foreach}
@@ -536,7 +537,7 @@ EROR
 							</div>
 							<div class="col-md-4 col-xs-4">
 								<select id="years" name="years" class="select_title">
-									<option value="">-</option>
+									<option value="">{l s='Année'}</option>
 									{foreach from=$years item=year}
 										<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
 									{/foreach}
@@ -559,6 +560,8 @@ EROR
             	<div class="row form-group">
             	<label for="newsletter" class="col-md-4 text-right">{l s='Inscription à la newletter'} </label>
 	            	<div class="col-md-8">
+						<p>Devenez Client Privilégié grâce à votre adresse email ! Recevez toutes les bonnes affaires 
+et les offres exclusives en vous inscrivant gratuitement à notre Newsletter! </p>
 							{if isset($newsletter) && $newsletter}
 								<div class="checkbox">
 									<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
@@ -708,7 +711,13 @@ EROR
 
 		{$HOOK_CREATE_ACCOUNT_FORM}
 
-
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<i class="reglement">{l s='Conformément à la loi "Informatique et Libertés", vous disposez d’un droit d’accès et de rectification aux données vous concernant, et d’opposition à leur traitement. Pour en savoir plus cliquez'}&nbsp;
+				<a href="{$link->getCMSLink('14', 'donnees-personnelles-et-cookies')|escape:'html'}" target="_blank">ICI.<a>
+				</i>
+				</div>
+		</div>
 		<div class="submit clearfix">
 			<input type="hidden" name="email_create" value="1" />
 			<input type="hidden" name="is_new_customer" value="1" />
