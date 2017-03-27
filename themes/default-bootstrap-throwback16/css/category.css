@@ -74,4 +74,18 @@
         border: 5px solid #333;
         padding: 5px; }
 
+/* Filtre
+====================================  */
+.categ-name{
+    /*padding: 0 ;*/
+}
+
+#category h3.page-heading {
+      float: left;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+
+
 /*# sourceMappingURL=category.css.map */
