@@ -162,6 +162,7 @@ ul.product_list.grid > li {
 
 /* Throwback > background product container */
   ul.product_list.grid > li .product-container {
+        margin-bottom: 20px;
     background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%); /* FF3.6+ */
     background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%); /* Chrome10+,Safari5.1+ */
     background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 80%, rgb(230,231,232) 130%); /* IE10+ */
@@ -172,7 +173,7 @@ ul.product_list.grid > li {
 
 /* Throwback > product container > découpage bloc */
     ul.product_list.grid > li .product-container .product-image-container {
-      margin-top: -40px !important;
+      /*margin-top: -40px !important;*/
       /*z-index: 1000;*/
     }
 
@@ -285,8 +286,7 @@ ul.product_list.grid > li {
         /*z-index: 9999999999999;*/
         text-align: center;
         background: #fff;
-        /*height: 430px !important;*/
-        height: 500px !important;
+        height: 430px !important;
         text-align: center;
     }
     ul.product_list.grid > li.hovered .product-image-container img {
