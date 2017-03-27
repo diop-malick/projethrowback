@@ -141,7 +141,7 @@ a.fancybox-nav {
 
 #thumbs_list li {
     float: left;
-    height: 100px;
+    /*height: 100px;*/
     width: 100px;
     cursor: pointer;
     border: 1px solid #dbdbdb;
@@ -1382,6 +1382,10 @@ h3.page-product-heading {
   width: 100%;
   z-index: 66;
 }
+.box-cart-bottom .exclusive:hover {
+  background-color: black;
+}
+
     .box-cart-bottom .exclusive span {
     font-size: 21.261px;
     color: rgb(255, 255, 255);
