@@ -15,7 +15,9 @@
 						{* {if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity' or {$smarty.get.controller} eq 'order-confirmation' or (({$smarty.get.controller} eq 'order') && ( ({$smarty.get.step} eq '1') or ({$smarty.get.step} eq '2')))} *}
 						{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or ({$smarty.get.controller} eq 'order' &&  ((!isset($smarty.get.step) or {$smarty.get.step} neq '0')) ) }
 							<!-- footer simplified -->
+							<div class="row">
 							{include file="$tpl_dir./footer-simple.tpl"}
+							</div>
 						{else}
 							<!-- footer complete -->
 							<div class="row">

@@ -313,14 +313,37 @@
 												</div>
 											</div>
 									</div>
-								<!-- Message stock Limit et épuisé -->
-								<div class="form-group row" id="min_quantity_message">
-									<div class="col-md-8">
-										<span class="info_quantity">
-										</span>
+									<!-- STOCK AVAILABILITY -->	
+									<div class="row">
+										{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
+										<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
+											<span class="availability_quantity_value">{l s='Disponible'}</span>
+											{* <span id="quantityAvailable">{$product->quantity|intval}</span>
+											<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
+											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
+											
+											<!-- Message stock Limit et épuisé -->
+											<p id="min_quantity_message">
+												<span class="availability_quantity_value info_quantity">
+												</span>
+											</p>
+										</p>
+										{/if}
+										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+												{* <span id="availability_label">{l s='Availability:'}</span> *}
+												<span id="availability_value" class="{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">
+												{if $product->quantity <= 0}
+													{if $PS_STOCK_MANAGEMENT && $allow_oosp}
+														{$product->available_later}
+													{else}
+														{l s='This product is no longer in stock'}
+													{/if}
+												{elseif $PS_STOCK_MANAGEMENT}
+													{$product->available_now}
+												{/if}
+												</span>
+										</p>
 									</div>
-								</div>
-								<!-- Fin de stock Limité -->
 							{/if}
 						</div>
 						<!-- // QUANTITY  -->
@@ -390,46 +413,7 @@
 						{/if}
 					</div> <!-- end product_attributes -->
 				</div>
-
 						
-
-						<!-- STOCK -->
-							{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-							<!--
-							<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
-								<span id="quantityAvailable">{$product->quantity|intval}</span>
-								<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
-								<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span>
-							</p>
-							-->
-							{/if}
-
-							<!-- // STOCK -->
-
-							<!-- AVAILABILITY or doesntExist -->
-							<!--
-							<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-								{*<span id="availability_label">{l s='Availability:'}</span>*}
-								<span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
-							</p>
-
-						-->
-							{if $PS_STOCK_MANAGEMENT}
-							<!--
-								{if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-								<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
-								-->
-							{/if}
-
-
-							<!-- Out of stock hook -->
-							<!-- <div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
-								{$HOOK_PRODUCT_OOS}
-							</div> -->
-
-
-						<!-- // QUANTITY  -->
-
 					</div>
 
 					{* <div class="col-md-6 text-left">
@@ -492,6 +476,51 @@
 						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
 					</p>
 				</div> *}
+
+
+				<div class="row">
+					
+					
+
+{* PS_STOCK_MANAGEMENT / Enable stock management" in `Preferes > Products > Products Stock". *}
+						{* {if $PS_STOCK_MANAGEMENT}
+							{if !$product->is_virtual}
+								{hook h="displayProductDeliveryTime" product=$product}
+							{/if}
+							<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
+							{/if} *}
+
+						<!-- Out of stock hook -->
+						{* 
+						<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
+							{$HOOK_PRODUCT_OOS}
+						</div> 
+						*}
+						{*}
+						<p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+							<span id="availability_date_label">{l s='Availability date:'}</span>
+							<span id="availability_date_value">{if Validate::isDate($product->available_date)}{dateFormat date=$product->available_date full=false}{/if}</span>
+						</p>
+						*}
+
+						<!-- AVAILABILITY QUANTITY or doesntExist -->
+
+						<!-- availability or doesntExist -->
+						
+						{* 
+						<pre>PS_STOCK_MANAGEMENT : {$PS_STOCK_MANAGEMENT}</pre>
+						<pre>quantity : {$product->quantity}</pre>
+						<pre>available_later : {$product->available_later}</pre>
+						<pre>allow_oosp : {$allow_oosp}</pre>
+						<pre>available_now : {$product->available_now}</pre>
+						<pre>available_for_order : {$product->available_for_order}</pre>
+						<pre>PS_CATALOG_MODE : {$PS_CATALOG_MODE}</pre>
+						*}
+
+						
+
+					</div>
+
 
 				<!-- rigth-row-5 -->
 				<div id="rigth-row-5" class="row">

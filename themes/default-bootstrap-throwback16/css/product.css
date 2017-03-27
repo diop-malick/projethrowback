@@ -951,14 +951,7 @@ margin-right: 25px;
   line-height: 18px;
   font-weight: 700; }
 
-#availability_value,
-#last_quantities {
-  color: #fff;
-  font-weight: 700;
-  line-height: 18px;
-  display: inline-block;
-  padding: 3px 8px 4px;
-  margin-left: 5px; }
+
 
 #last_quantities {
   background: #fe9126;
@@ -972,9 +965,35 @@ margin-right: 25px;
 #pQuantityAvailable {
   display: inline-block; }
 
-#pQuantityAvailable span {
+#pQuantityAvailable span.availability_quantity_value {
+  color: #2e7a3a;
+}
+
+#availability_statut #availability_value.label-warning {  
+  color : #e4752b;
+}
+#last_quantities {
+  color: #fff;
+}
+
+#last_quantities, 
+#availability_statut #availability_value.label-warning,
+#pQuantityAvailable span.availability_quantity_value
+ { 
   font-weight: 700;
-  color: #333; }
+  background: none;
+  border: none;
+  padding: 3px 8px 4px;
+  display: inline-block;
+  text-transform: none;
+  line-height: 18px;
+  margin-left: 5px;
+  margin-top: 10px;
+  }
+
+
+
+
 
 /* box-security */
 .box-security {
@@ -1429,6 +1448,14 @@ background: none;
     font-weight: 500;
     font-size: 15px;
   }
+
+#btn-attributes-size {
+  display: block !important;
+}
+
+.attribute_fieldset {
+  margin-bottom: 10px;
+}
 
  @media (min-width: 987px) {
 #btn-attributes-size{

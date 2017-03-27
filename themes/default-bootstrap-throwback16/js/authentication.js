@@ -49,8 +49,10 @@ function submitFunction()
 				{
 
 					$('#noSlide').html(jsonData.page);
+					// thorwback - custom - hide header and step-order showing twice
 					$('#noSlide .simplified-header').hide();
-					$('.page-heading:first').hide();
+					$('#noSlide .page-heading:first').hide();
+					$('#noSlide #order_step').hide();					
 					
 					$(this).fadeIn('slow', function()
 					{

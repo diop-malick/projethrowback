@@ -786,11 +786,13 @@ var ajaxCart = {
 				], {
 					padding: 0
 				});
-			else*/
-
+			else
+				alert(errors);
+			*/
+			// Throwabc kcustom -> Out of stock message instead of popup
 			$("#min_quantity_message").css('display','block');
 			$(".info_quantity").html(errors)
-				/*alert(errors);*/
+				
 		}
 		else
 		{
