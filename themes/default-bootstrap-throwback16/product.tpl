@@ -305,8 +305,6 @@
 													<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 													<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 														<span><i class="icon-minus"></i></span>
-														<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
-
 													</a>
 													<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
 														<span><i class="icon-plus"></i></span>
@@ -903,7 +901,8 @@
 
 <!-- assign defined limited quantity variable to product.js  -->
 {foreach from=$features item=feature}
-	{if $feature.id_feature eq "11"}
+	{* {if $feature.id_feature eq "11"} *}
+	{if $feature.name eq 'Quantité-Commandable'}
 		{if isset($feature.value)}
 			{addJsDef quantityLimitedAvailable=$feature.value}
 		{/if}
