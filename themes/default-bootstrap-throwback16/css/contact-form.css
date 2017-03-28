@@ -57,7 +57,10 @@
 .padding-class{
   padding-left: 0px !important;
 }
-#contact{
+#contact , .link-condition a{
   color: #000 !important;
+}
+.link-condition a{
+  text-decoration: underline;
 }
 /*# sourceMappingURL=contact-form.css.map */

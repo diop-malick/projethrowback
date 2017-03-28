@@ -81,7 +81,7 @@
 
 
 		<div class="row">
-			<div class="col-md-9 col-xs-12">
+			<div class="col-md-8 col-xs-12">
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
@@ -120,11 +120,13 @@
 							<div class="col-md-9 col-xs-7">								
 								<div class="row">
 									<div class="col-xs-10 col-md-11">
+
 										<p class="product-name product_title text-right-mobile">
 											<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
 											</a>
 										</p>
 									</div>
+
 									<!--<br><br>-->
 									<div class="col-xs-2 col-md-1 ">
 										<div class="row">	
@@ -132,6 +134,7 @@
 												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
 											<div class="col-md-6 col-xs-6 text-left delete" style="padding:0;">
+
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 													class="cart_quantity_delete"
@@ -346,7 +349,7 @@
 
 				</div>
 
-				<div class="col-md-3 col-xs-12">
+				<div class="col-md-4 col-xs-12">
 					<div class="row commande_title text-center">
 						<div class="col-md-12 col-xs-12">
 							{l s='VOTRE COMMANDE'}
@@ -440,5 +443,3 @@
 
 {/strip}
 {/if}
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />

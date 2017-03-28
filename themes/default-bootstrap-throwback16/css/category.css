@@ -86,6 +86,14 @@
       font-weight: bold;
       text-transform: uppercase;
   }
+/* ************************************************************************************************
+									Categorie Product_List warning Style
+************************************************************************************************ */
+.product_list  .alert-warning{
+      background-color: #fff !important;
+      border: none !important;
+      color: #333 !important;
+      font-size: 13px;
 
-
+    }
 /*# sourceMappingURL=category.css.map */
