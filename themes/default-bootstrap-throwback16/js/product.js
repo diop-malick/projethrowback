@@ -223,15 +223,10 @@ $(document).ready(function()
 			getProductAttribute();
 	}
 
-	/* ********************************************************************* 
-	* Coming soon CHRONO
-	* ********************************************************************* */
-	if (typeof available_date !== 'undefined' && available_date) {
-		$('#clock').countdown(available_date, function(event) {
-			 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
-		});
-		$('#availability_date').fadeIn();
-	}
+
+
+
+
 	
 
 	/* ********************************************************************* 
@@ -252,7 +247,7 @@ $(document).ready(function()
 	* Custom throwback -> Align button add_to_cart with image if no chronot
 	* ********************************************************************* */
 	// TODO fixe btn to product image footer
-	if (!$('#clock').length ) {
+	if (!$('#timer').length ) {
     	var add_to_cart_heigh = $('#add_to_cart').height();
     	// $('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
     	$('#add_to_cart').css('margin-top',  '60px');
@@ -332,8 +327,66 @@ $(document).ready(function()
 	// 	$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 	// }
 
+	/* ********************************************************************* 
+	* Coming soon CHRONO
+	* ********************************************************************* */
+	if (typeof available_date !== 'undefined' && available_date) {
+		
+		// chrono with jquery countdown
+		// TODO - delete plugin js file
+		
+		// $('#clock').countdown(available_date, function(event) {
+		// 	 $(this).html(event.strftime('%D<span class="chronounity">j</span> %H<span class="chronounity">h</span> %M<span class="chronounity">m</span> %S<span class="chronounity">s</span>'));
+		// });
+
+		// chrono with simple js code
+		var chrono_timer;
+		var chrono_comingsoon_date = new Date(available_date);
+		var chrono_current_server_date = new Date(current_date);
+		var timer_server_current = chrono_current_server_date.getTime();
+		chrono_timer = setInterval(function() {
+		  timeBetweenDates(chrono_comingsoon_date);
+		}, 1000);
+
+		function timeBetweenDates(toDate) {
+		  var dateEntered = toDate;
+		  // increment current server date to go in available date --> step 1000ms = 1s
+		  timer_server_current = timer_server_current + 1000;
+		  var difference = dateEntered.getTime() - timer_server_current;
+
+		  if (difference <= 0) {
+		    // Timer done
+		    clearInterval(chrono_timer);
+
+		  } else {
+		    
+		    var seconds = Math.floor(difference / 1000);
+		    var minutes = Math.floor(seconds / 60);
+		    var hours = Math.floor(minutes / 60);
+		    var days = Math.floor(hours / 24);
+
+		    hours %= 24;
+		    minutes %= 60;
+		    seconds %= 60;
+
+		    $("#days").text(days);
+		    $("#hours").text(hours);
+		    $("#minutes").text(minutes);
+		    $("#seconds").text(seconds);
+		  }
+		}
+
+		$('#availability_date').fadeIn();
+	}
+
 
 });
+
+/* ********************************************************************* 
+* Coming soon CHRONO
+* ********************************************************************* */
+
+
 
 //find a specific price rule, based on pre calculated dom display array
 function findSpecificPrice(){
