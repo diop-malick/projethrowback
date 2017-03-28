@@ -21,7 +21,9 @@
 				<div class="row text-right s_title_block">
 					<!-- PRODUCT NAME -->
 					<h5 itemprop="name" class="product-name">
-						<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)|escape:'html':'UTF-8'}" title="{$categoryProduct.name|htmlspecialchars}">{$categoryProduct.name|truncate:14:'...'|escape:'html':'UTF-8'}</a>
+						<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)|escape:'html':'UTF-8'}" title="{$categoryProduct.name|htmlspecialchars}">
+						{$categoryProduct.name|escape:'html':'UTF-8'}
+						</a>
 					</h5>
 					<!-- PRODUCT PRICE  -->
 					{if $ProdDisplayPrice && $categoryProduct.show_price == 1 && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}

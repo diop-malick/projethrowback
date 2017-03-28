@@ -179,11 +179,7 @@ header .row #header_logo {
 /*# sourceMappingURL=history.css.map */
 
 
-/* Filtre
-====================================  */
-.categ-name{
-    padding: 0 ;
-}
+
 
 /* selfcare
 ====================================  */
@@ -430,11 +426,7 @@ font-size: 17px;
 }
 
 /*simplified footer*/
-.footer-container .container .simplified-footer {
-
-}
-
-.simplified-footer span span {
+.footer-container  .simplified-footer span span {
    font-size: 14px;
    line-height: 21px;
    font-weight: bold;
@@ -473,10 +465,7 @@ filter: alpha(opacity=65);
 box-shadow: none;
 }
 /* */
-/* Message quantité limité */
-.info_quantity{
-  color: red !important;
-}
+
 #short_description_content a,
 .page-product-box .rte a {
   color: #333333;

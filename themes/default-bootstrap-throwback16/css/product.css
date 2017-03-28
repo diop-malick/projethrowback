@@ -141,7 +141,7 @@ a.fancybox-nav {
 
 #thumbs_list li {
     float: left;
-    height: 100px;
+    /*height: 100px;*/
     width: 100px;
     cursor: pointer;
     border: 1px solid #dbdbdb;
@@ -963,32 +963,41 @@ margin-right: 25px;
 
 #availability_statut,
 #pQuantityAvailable {
-  display: inline-block; }
+  display: inline-block; 
+}
 
 #pQuantityAvailable span.availability_quantity_value {
   color: #2e7a3a;
 }
-
+#min_quantity_message .info_quantity, 
 #availability_statut #availability_value.label-warning {  
-  color : #e4752b;
+  color : #e4752b !important;
 }
 #last_quantities {
   color: #fff;
 }
-
-#last_quantities, 
+#last_quantities,
+#min_quantity_message .info_quantity,
 #availability_statut #availability_value.label-warning,
 #pQuantityAvailable span.availability_quantity_value
  { 
-  font-weight: 700;
-  background: none;
+  
   border: none;
-  padding: 3px 8px 4px;
-  display: inline-block;
-  text-transform: none;
+  
+  
+  
   line-height: 18px;
+  
+  }
+
+  #pQuantityAvailable {
   margin-left: 5px;
   margin-top: 10px;
+  padding: 3px 8px 4px;
+  display: inline-block;
+  font-weight: 700;
+  background: none;
+  text-transform: none;
   }
 
 
@@ -1373,6 +1382,10 @@ h3.page-product-heading {
   width: 100%;
   z-index: 66;
 }
+.box-cart-bottom .exclusive:hover {
+  background-color: black;
+}
+
     .box-cart-bottom .exclusive span {
     font-size: 21.261px;
     color: rgb(255, 255, 255);

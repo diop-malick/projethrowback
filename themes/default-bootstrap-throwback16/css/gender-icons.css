@@ -32,7 +32,7 @@
 }
 
 .gender-label-group .gender-label {
-    padding-right: 10px;
+    padding-right: 5px;
     padding-left: 0px;
     text-indent: -10px;
 }
@@ -51,7 +51,7 @@
 
 .gender-label-group .gender-label a {
     color: #B5BDC1;
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .gender-label-group .gender-label a i {

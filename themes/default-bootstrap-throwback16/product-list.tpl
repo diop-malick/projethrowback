@@ -103,12 +103,10 @@
 							{elseif isset($product.new) && $product.new == 1}
 								<img src="{$base_dir}/img/icones/new.png"/>
 							{/if}
-							{* reset comming soon value *}
-							{assign var=comingsoonvalue value=''}
 
-							<!-- <p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
+							{* <p id="availability_datechrono" {if ($product.quantity > 0) || !$product.available_for_order || $PS_CATALOG_MODE || !isset($product.available_date) || $product.available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
 								<img src="{$base_dir}/img/icones/chrono.png"/>
-							</p> -->
+							</p>  *}
 							{hook h="displayProductPriceBlock" product=$product type="price"}
 							{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 							{hook h="displayProductPriceBlock" product=$product type='after_price'}
@@ -156,9 +154,31 @@
 									<div class="col-md-6">
 										<span class="qv-reference">{$product.reference|upper}</span>
 									</div>
-									<div class="col-md-6">
-										<span class="qv-dispo">{if $product.quantity > 0 }{l s='In Stock'}{/if}</span>
+									<div class="col-md-6" >
+										<span class="qv-dispo">
+										{if !(isset($comingsoonvalue) && ($comingsoonvalue eq 'comingsoon')) || $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+											{if $product.quantity > 0}
+												{* show if default declinaison quantity > 0 *}
+												{l s='In Stock'}
+											{else}
+												{* show availability msg only if at leat one of declinaison have quantity > 0 *}
+												{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+													{if ($group.group_type == 'radio')}
+														{foreach from=$group.attributes_quantity key=id_attribute item=group_attribute}
+															{if $group_attribute > 0} 
+																{l s='In Stock'}
+																{break}
+															{/if}	
+														{/foreach}
+													{/if}
+												{/foreach}
+											{/if}
+										{/if}
+										</span>
 									</div>
+								
+								
+
 								</div>
 								{if isset($groups) && $groups}
 								<div class="row qv-size">
@@ -196,6 +216,11 @@
 
 			</div><!-- .product-container> -->
 		</li>
+
+		{* REINITIALISATION *}
+		{* reset comming soon value *}
+		{assign var=comingsoonvalue value=''}
+
 	{/foreach}
 	</ul>
 {addJsDefL name=min_item}{l s='Please select at least one product' js=1}{/addJsDefL}

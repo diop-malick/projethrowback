@@ -159,6 +159,7 @@
 									<p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
 										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
+										<span id="minimal_pve_price" style="display: none">{l s='A partir de '}</span>
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
 												{if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
@@ -304,8 +305,6 @@
 													<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 													<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 														<span><i class="icon-minus"></i></span>
-														<!-- <img src="{$base_dir}/img/icones/size_down.png"/> -->
-
 													</a>
 													<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
 														<span><i class="icon-plus"></i></span>
@@ -323,14 +322,16 @@
 											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
 											
 											<!-- Message stock Limit et épuisé -->
-											<p id="min_quantity_message">
+											<span id="min_quantity_message">
 												<span class="availability_quantity_value info_quantity">
 												</span>
-											</p>
+											</span>
 										</p>
 										{/if}
+
+										{*
 										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-												{* <span id="availability_label">{l s='Availability:'}</span> *}
+												<span id="availability_label">{l s='Availability:'}</span>
 												<span id="availability_value" class="{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">
 												{if $product->quantity <= 0}
 													{if $PS_STOCK_MANAGEMENT && $allow_oosp}
@@ -343,6 +344,14 @@
 												{/if}
 												</span>
 										</p>
+										*}
+
+										{* <div id="rigth-row-4" class="row">
+											<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+												{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
+											</p>
+										</div> *}
+
 									</div>
 							{/if}
 						</div>
@@ -415,54 +424,6 @@
 				</div>
 						
 					</div>
-
-					{* <div class="col-md-6 text-left">
-							<div class="product_attributes clearfix">
-								{if isset($groups)}
-									<div class="customattributes groups-attribute">
-										<div class="clearfix"></div>
-										{foreach from=$groups key=id_attribute_group item=group}
-											{if $group.attributes|@count}
-												<fieldset class="attribute_fieldset">
-
-													<div class="attribute_list">
-														{if ($group.group_type == 'select')}
-														<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-														{assign var="groupName" value="group_$id_attribute_group"}
-															<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
-																{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																	<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'html':'UTF-8'}">{$group_attribute|escape:'html':'UTF-8'}</option>
-																{/foreach}
-															</select>
-														{elseif ($group.group_type == 'radio')}
-															<div class="row">
-																<label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
-																{assign var="groupName" value="group_$id_attribute_group"}
-															</div>
-															<div class="row">
-																<ul>
-																	<span class="btn" id="btn-attributes-size">
-																		{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																		<li>
-																			<label for="radio_{$id_attribute|intval}">
-																				<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
-																				{assign var=someVar value=" "|explode:$group_attribute}
-																				{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
-																			</label>
-																		</li>
-																		{/foreach}
-																	</span>
-																</ul>
-															</div>
-														{/if}
-													</div> <!-- end attribute_list -->
-												</fieldset>
-											{/if}
-										{/foreach}
-									</div> 
-								{/if}
-							</div> 
-					</div> *}
 				</div>
 				<!-- // rigth-row-3 -->
 
@@ -471,11 +432,7 @@
 
 
 
-				{* <div id="rigth-row-4" class="row">
-					<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-						{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
-					</p>
-				</div> *}
+				
 
 
 				<div class="row">
@@ -810,7 +767,8 @@
 										<div class="row text-right s_title_block">
 											<h5 class="product-name">
 													<a href="{$accessoryLink|escape:'html':'UTF-8'}">
-														{$accessory.name|truncate:30:'...':true|escape:'html':'UTF-8'}
+														{* {$accessory.name|truncate:30:'...':true|escape:'html':'UTF-8'} *}
+														{$accessory.name|escape:'html':'UTF-8'}
 													</a>
 											</h5>
 											{if $accessory.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
@@ -944,7 +902,8 @@
 
 <!-- assign defined limited quantity variable to product.js  -->
 {foreach from=$features item=feature}
-	{if $feature.id_feature eq "11"}
+	{* {if $feature.id_feature eq "11"} *}
+	{if $feature.name eq 'Quantité-Commandable'}
 		{if isset($feature.value)}
 			{addJsDef quantityLimitedAvailable=$feature.value}
 		{/if}

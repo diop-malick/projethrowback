@@ -11,7 +11,7 @@
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
 				      			 <span id="icone_mon_compte hidden-xs">
-				      			 	{l s='Bonjour' mod='blockuserinfo'}{$cookie->customer_firstname}
+				      			 	{l s='Bonjour ' mod='blockuserinfo'}{$cookie->customer_firstname}
 				      			 </span>
 				      				{* <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
 									{* <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/> *}
