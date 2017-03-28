@@ -1419,11 +1419,12 @@ h3.page-product-heading {
   color: #fff;
 }
 
+.box-cart-chrono #timer,
 .box-cart-chrono #clock {
     font-size: 21.261px;
     font-weight: 900;
 }
-
+.box-cart-chrono #timer .chronounity,
 .box-cart-chrono #clock .chronounity {
     font-size: 16.261px;
     font-weight: 400;
