@@ -34,7 +34,7 @@ class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$
 
         {if !empty($alias) && ($alias != $search_query) }
           {l s='Aucun article ne correspond à la recherche : '}{$search_query|escape:'html':'UTF-8'}<br/>
-          <span class="lighter">{l s='Nous vous proposons cependant une recherche avec le terme : '}"{$alias|escape:'html':'UTF-8'}"</span>
+          <span class="lighter">{l s='Nous vous proposons cependant une recherche avec le terme : '}"{$alias|escape:'html':'UTF-8'}"({l s='%d results have been found.' sprintf=$nbProducts|intval})</span>
          {else}
               {l s='Search'}:
               {$search_query|escape:'html':'UTF-8'} ({l s='%d results have been found.' sprintf=$nbProducts|intval})
