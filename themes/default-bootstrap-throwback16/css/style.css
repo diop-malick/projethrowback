@@ -61,7 +61,7 @@ body {
     width: auto !important;
 }
 
-#address div.selector span {
+#address div.selector span  , #contact div.selector span{
     display: none !important;
 }
 
