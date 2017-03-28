@@ -64,14 +64,16 @@
 
 		<!-- Header simplified -->
 		<!-- Hide comlete header in myaccount and -->
-		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or 
-		({$smarty.get.controller} eq 'order' &&  ((!isset($smarty.get.step) or {$smarty.get.step} neq '0')) ) }
+		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or
+		({$smarty.get.controller} eq 'order' &&  ({$smarty.get.update} neq '1' && {$smarty.get.step} neq '0') ) }
 		<!-- TODO -->
+
+		
+		
 		{* <pre>{$smarty.get.step} </pre> *}
 		{* <pre>{$smarty.server.HTTP_HOST}</pre> *}
 		{* <pre>{$smarty.server.REQUEST_URI}</pre> *}
 		{* <pre>{$smarty.get.controller}</pre> *}
-		
 
 		{else}
 		<!-- Header complete -->

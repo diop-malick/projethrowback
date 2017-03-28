@@ -173,38 +173,22 @@ function showElemntsToModify(line) {
     });
 
     function lightSelectedElementAttribute(id, id_line_product_attr) {
-        console.log('id line ' + id);
-        console.log('id_line id_attribute ' + id_line_product_attr);
         var id_split = id.split('_');
         id_product_attribute = id_split[1]; 
-        console.log('id_line id_product_attribute ' + id_product_attribute);
-
-        /* ligth selected already attributes */
-        
-        console.log(attributesCombinations);
+        // console.log('id line ' + id);
+        // console.log('id_line id_attribute ' + id_line_product_attr);
+        // console.log('id_line id_product_attribute ' + id_product_attribute);
+        // console.log(attributesCombinations);
+        /* ligth selected already attributes */       
         for (index in attributesCombinations) {
             if (index == id) {
                 selectedAttributeElement = attributesCombinations[index][id_product_attribute]['attributes'][0];
-                console.log(selectedAttributeElement);
-                
+                // console.log(selectedAttributeElement);                
                 // find 'label' element by 'for'
                 var label = id+'-'+selectedAttributeElement;
-                // console.log($('label[for="1226_7413_0_0-145"]'));
-                $('.attribute_list ul li > label[for="' + label + '"]').addClass('li_attribute_list selected btn disabled');
-                
-                
+                $('.attribute_list ul li > label[for="' + label + '"]').addClass('li_attribute_list selected btn disabled');              
                 break;
             }
-
-            // console.log(combinations[i]['idsAttributes']);
-            // console.log(combinations[i]['quantity']);
-            // if (combinations[i]['quantity'] == 0) {
-            //     var attributeId = combinations[i]['idsAttributes'][0];
-            //     var id_radio = '#radio_' + attributeId;
-            //     $(id_radio).closest('li').addClass("li_attribute_list").addClass("disabled");
-            // console.log(attributeId);
-            // console.log(id_radio);
-            // }
         }
     }
 

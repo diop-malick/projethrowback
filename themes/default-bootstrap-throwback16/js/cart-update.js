@@ -12,10 +12,14 @@ $(document).on('click', '.attribute_radio', function(e){
 	// console.log('id :' + id);
 	var idCombinaison = parseInt(getProductAttribute(id));
 	$('.combinaison_'+id+' input[name=combinaison_default]').val(idCombinaison);
+	// console.log('idcombinaison');
 	// console.log(idCombinaison);
 
 	// enable validate button buttons_modify
 	$('.update_line').removeClass('disabled')
+	// ligth selected attributes
+	$('.attribute_list ul li > label').removeClass('selected');
+    $('.attribute_list ul li > label[for="' + ids + '"]').addClass('li_attribute_list selected');              
 });
 
 
@@ -62,6 +66,10 @@ $(document).on('click', '.product_quantity_up', function(e){
 		$('input[name='+fieldName+']').val(quantityAvailableT);
 
 	$('#quantity_wanted').change();
+
+	// enable validate button buttons_modify
+	$('.update_line').removeClass('disabled')
+
 });
 
  // The button to decrement the product value
@@ -75,4 +83,7 @@ $(document).on('click', '.product_quantity_down', function(e){
 		$('input[name='+fieldName+']').val(1);
 
 	$('#quantity_wanted').change();
+
+	// enable validate button buttons_modify
+	$('.update_line').removeClass('disabled')
 });
