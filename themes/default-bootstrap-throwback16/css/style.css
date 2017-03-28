@@ -895,3 +895,9 @@ color: rgb(214, 157, 50);
  }
 }
 
+/************************************************************
+				Product page always display arrow on fancybox zoom
+************************************************************/
+.fancybox-nav span {
+    visibility: visible !important;
+}

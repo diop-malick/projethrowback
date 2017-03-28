@@ -93,6 +93,6 @@
 			</div>
 		{/if}
 	{elseif $category->id}
-		<p class="alert alert-warning">{l s='This category is currently unavailable.'}</p>
+		<p class="alert ">{l s='This category is currently unavailable.'}</p>
 	{/if}
 {/if}
