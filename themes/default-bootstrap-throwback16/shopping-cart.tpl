@@ -79,7 +79,7 @@
 
 
 		<div class="row">
-			<div class="col-md-9 col-xs-12">
+			<div class="col-md-8 col-xs-12">
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
@@ -111,11 +111,37 @@
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
 							</div>
 
-							<div class="col-md-9 col-xs-7">
-								<p class="product-name product_title text-right-mobile">
-									<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
-									</a>
-								</p>
+							<div class="col-md-10 col-xs-10">
+
+								<div class="row">
+									<div class="col-md-9 col-xs-9">
+										<p class="product-name product_title text-right-mobile">
+											<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
+											</a>
+										</p>
+									</div>
+
+									<div class="col-md-3 col-xs-3">
+										<div class="row">
+											<div class="col-md-6 col-xs-6 text-right edit">
+												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+											</div>
+											
+											<div class="col-md-6 col-xs-6 text-left delete">
+												<a
+													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
+													class="cart_quantity_delete"
+													href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$product.id_customization|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
+													rel="nofollow"
+													title="{l s='Delete'}">
+													X
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								
 								<!--<br><br>-->
 
 								<div class="row">
@@ -299,25 +325,7 @@
 								</div>
 							</div>
 
-							<div class="col-md-1 col-xs-3">
-								<div class="row">
-									
-									<div class="col-md-6 col-xs-6 text-right edit padding-right-5">
-										<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
-									</div>
-									
-									<div class="col-md-6 col-xs-6 text-left delete padding-left-5">
-										<a
-											id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
-											class="cart_quantity_delete"
-											href="{$link->getPageLink('cart', true, NULL, "delete=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$product.id_customization|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
-											rel="nofollow"
-											title="{l s='Delete'}">
-											X
-										</a>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 						
 						
@@ -325,7 +333,7 @@
 
 				</div>
 
-				<div class="col-md-3 col-xs-12">
+				<div class="col-md-4 col-xs-12">
 					<div class="row commande_title text-center">
 						<div class="col-md-12 col-xs-12">
 							{l s='VOTRE COMMANDE'}
@@ -419,5 +427,3 @@
 
 {/strip}
 {/if}
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.1.1" data-require="bootstrap-css" />

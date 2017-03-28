@@ -61,9 +61,10 @@ body {
     width: auto !important;
 }
 
-#address div.selector span  , #contact div.selector span{
+#address div.selector span  , #contact div.selector span , div.selector span{
     display: none !important;
 }
+
 
 
 /* Footer
@@ -663,20 +664,6 @@ width: auto;
     cursor: pointer;
 }
 
-
-.bootbox button{
-    background-color: #000;
-    border-color: #000;
-}
-
-.bootbox button:hover{
-    background-color: #000;
-    border-color: #000;
-}
-.modal-footer{
-    text-align: center !important;
-}
-
 /************************** Adaptation pannier *******************/
 
 @media (min-width: 768px){
@@ -907,3 +894,4 @@ color: rgb(214, 157, 50);
    margin-top: 0px !important;
  }
 }
+
