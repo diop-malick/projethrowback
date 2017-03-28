@@ -5,7 +5,7 @@
 			<div class="row">
 				<!-- menu verticale -->
 				<div class="col-md-4 col-xs-4 clearfix menu_vertical hidden">
-					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name == 'index'} maxi {else} mini {/if}">
+					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name != 'category'} maxi {else} mini  {/if}">
 				      <i class="fa fa-bars"></i>
 				    </button>
 				</div>

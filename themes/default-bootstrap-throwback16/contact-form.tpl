@@ -192,8 +192,8 @@
 		</div>
 		
 	</div>
-	<p>
-		{l s="Vous pouvez consulter nos pages services pour en savoir plus sur nos <a>conditions de livraisons</a>, nos <a>conditions de paiment</a> et nos conditions de <a>retours et remboursements</a>"}
+	<p class="link-condition">
+		Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiment</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
 	</p>
 {/if}
 {addJsDefL name='contact_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
