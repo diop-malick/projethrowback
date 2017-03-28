@@ -22,13 +22,13 @@
 {include file="$tpl_dir./errors.tpl"}
 
 <p class="titre-panier">{l s='Mon panier'}</p>
-<p id="cart_title" class="page-heading">{l s='Shopping-cart summary'}
+{* <p id="cart_title" class="page-heading">{l s='Shopping-cart summary'}
 	{if !isset($empty) && !$PS_CATALOG_MODE}
 		<span class="heading-counter" style="position:inherit;">{l s='Your shopping cart contains:'}
 			<span id="summary_products_quantity" >{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span>
 		</span>
 	{/if}
-</p> 
+</p>  *}
 
 {if isset($empty)}
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
@@ -113,7 +113,7 @@
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">
 								{* <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /> *}
 								{* change product image format : from small_default_to_home default *}
-								<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}"/>
+								<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" class="img-responsive" />
 								</a>
 							</div>
 
@@ -227,7 +227,7 @@
 													</div>
 												</div>
 										</div>
-										<div class="row attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+										<div class="row vertical-center attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 
 											<div class="col-md-3 col-xs-3">
 												{if $product.cart_quantity}
