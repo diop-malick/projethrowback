@@ -7,7 +7,8 @@ class FrontController extends FrontControllerCore
         $this->addCSS(_THEME_CSS_DIR_.'menu/vertical-responsive-menu.css');
         $this->addCSS(_THEME_CSS_DIR_.'style.css');
         $this->addJS(_THEME_JS_DIR_.'menu/define.js');
-        $this->addJS(_THEME_JS_DIR_.'global_custom.js');
+        if(isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'cms')
+            $this->addJS(_THEME_JS_DIR_.'global_custom.js');
        
         if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'index' 
             || isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'search' 
