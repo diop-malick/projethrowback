@@ -112,7 +112,9 @@ class ParentOrderController extends ParentOrderControllerCore
     public function setMedia()
     {
         parent::setMedia();
+        $this->addCSS(_THEME_CSS_DIR_.'modal_dialog.css');
         $this->addJS(_THEME_JS_DIR_.'cart-update.js');
+        $this->addJS(_THEME_JS_DIR_.'bootbox.js');
     }
  }
 ?>

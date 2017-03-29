@@ -64,14 +64,16 @@
 
 		<!-- Header simplified -->
 		<!-- Hide comlete header in myaccount and -->
-		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or 
-		({$smarty.get.controller} eq 'order' &&  ((!isset($smarty.get.step) or {$smarty.get.step} neq '0')) ) }
+		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or
+		({$smarty.get.controller} eq 'order' &&  ({$smarty.get.update} neq '1' && {$smarty.get.step} neq '0') ) }
 		<!-- TODO -->
+
+		
+		
 		{* <pre>{$smarty.get.step} </pre> *}
 		{* <pre>{$smarty.server.HTTP_HOST}</pre> *}
 		{* <pre>{$smarty.server.REQUEST_URI}</pre> *}
 		{* <pre>{$smarty.get.controller}</pre> *}
-		
 
 		{else}
 		<!-- Header complete -->
@@ -138,7 +140,7 @@
 						<div id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</div>
 
 
-						{if {$smarty.get.controller} eq 'myaccount' or {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'identity'}
+						{if {$smarty.get.controller} eq 'authentication'}
 							<div id="center_column" class="center_column col-xs-12 col-md-12">
 						{else}
 							{/if}
