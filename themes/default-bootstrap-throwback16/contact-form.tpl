@@ -55,7 +55,7 @@
 	<h1 class="text-center">{l s="Besoin d'aide ?"}</h1>
 	<form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
 		<fieldset>
-			<h3 class="page-subheading">{l s='send a message'}</h3>
+			<h2>{l s='send a message'}</h2>
 			<div class="clearfix">
 				<div class="col-xs-12 col-md-12">
 					 <div class="row">
@@ -64,7 +64,7 @@
 										<div class="col-xs-12 col-md-4 padding-class">
 											<label for="email">{l s='Email address'}</label>
 										</div>
-										<div class="col-xs-12 col-md-8">
+										<div class="col-xs-12 col-md-8 padding-class">
 											{if isset($customerThread.email)}
 												<input class="form-control grey" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
 											{else}
@@ -77,10 +77,10 @@
 						<div class="col-xs-12 col-md-4">
 								<div class="form-group selector1">
 									<div class="row">
-											<div class="col-xs-12 col-md-3">
+											<div class="col-xs-12 col-md-2 padding-class">
 												<label for="id_contact">{l s='Subject Heading'}</label>
 											</div>
-											<div class="col-xs-12 col-md-9">
+											<div class="col-xs-12 col-md-8 padding-class">
 											
 												{if isset($customerThread.id_contact) && $customerThread.id_contact && $contacts|count}
 														{assign var=flag value=true}
@@ -121,10 +121,10 @@
 					<div class="col-xs-12 col-md-4">	
 					
 							<div class="form-group selector1">
-								<div class="col-xs-12 col-md-5">
+								<div class="col-xs-12 col-md-5 padding-class">
 									<label>{l s='Numéro comande'}</label>
 								</div>
-								<div class="col-xs-12 col-md-7">
+								<div class="col-xs-12 col-md-7 padding-class">
 									<input class="form-control grey" type="text" name="id_order" id="id_order" value="{if isset($customerThread.id_order) && $customerThread.id_order|intval > 0}{$customerThread.id_order|intval}{else}{if isset($smarty.post.id_order) && !empty($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" />
 								</div>
 								
@@ -158,43 +158,45 @@
 					</div>
 				</div>
 			</div>
+
+			<h2>{l s='Ou nous contacter'}</h2>
+			<div class="row">
+				<div class="col-xs-12 col-md-4">
+					<p class="shop-info">
+						<strong>{l s='Par téléphone'}</strong><br>
+							+33(0)9 50 64 02 96
+							<br>
+							{l s="Prix d'un appel local"}
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<p class="shop-info">
+						<strong>{l s='Par courrier'}</strong>
+							<br>
+							75019, 67 rue de Belleville 75019 
+							<br>
+							Paris, France
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<p class="shop-info">
+						
+							<strong>{l s='Horaires'}</strong><br>
+							{l s='Le lundi de 14H à 19H'}								
+							<br>
+							{l s='Du mardi au vendredi de 11H à 19H00'}
+							<br>
+							{l s='Le samedi de 10h - 19H'}
+					</p>
+				</div>
+				
+			</div>
+			<p class="link-condition">
+				Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiment</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
+			</p>
 		</fieldset>
 	</form>
-	<h2>{l s='Ou nous contacter'}</h2>
-	<div class="row">
-		<div class="col-xs-12 col-md-4">
-			<p class="shop-info">
-				<strong>{l s='Par téléphone'}</strong><br>
-					 +33(0)9 50 64 02 96
-					<br>
-					{l s="Prix d'un appel local"}
-			</p>
-		</div>
-		<div class="col-xs-12 col-md-4">
-			<p class="shop-info">
-				<strong>{l s='Par courrier'}</strong>
-					<br>
-					75019, 67 rue de Belleville 75019 
-					<br>
-					Paris, France
-			</p>
-		</div>
-		<div class="col-xs-12 col-md-4">
-			<p class="shop-info">
-				
-					<strong>{l s='Horaires'}</strong><br>
-					{l s='Le lundi de 14H à 19H'}								
-					<br>
-					{l s='Du mardi au vendredi de 11H à 19H00'}
-					<br>
-					{l s='Le samedi de 10h - 19H'}
-			</p>
-		</div>
-		
-	</div>
-	<p class="link-condition">
-		Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiment</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
-	</p>
+	
 {/if}
 {addJsDefL name='contact_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='contact_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
