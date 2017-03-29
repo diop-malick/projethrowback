@@ -159,7 +159,8 @@
                                 {foreach from=$product.features item=feature}
                                     {if (isset($feature["id_feature"]) && $feature["id_feature"] eq '11') && $feature["id_feature_value"] eq '41'}
                                         {assign var=quantitylimitperorder value=1}
-                                        </pre>limit : {$quantitylimitperorder}</pre>
+                                        {* </pre>limit : {$quantitylimitperorder}</pre> *}
+                                        {* TODO - show before quantity *}
                                     {/if}
                                  {/foreach}
 
