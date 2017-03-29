@@ -6,6 +6,8 @@ $(document).ready(function(){
 		e.preventDefault();
 		// console.log('create-account_form');
 		submitFunction();
+		$('.alert-danger').empty().hide();
+		$('#identification .authentication').empty().append("Création de compte");
 	});
 	$('.is_customer_param').hide();
 	
