@@ -184,7 +184,7 @@
 																						<ul>
 																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																								
-																								<li>
+																								<li {if ( isset($id_attribute) && $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
 																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
@@ -242,7 +242,8 @@
 														</div>
 														<div class="col-md-6 col-xs-6">
 															<div class="size_line">
-																	{$sizing}
+																	{assign var=someVar value=" "|explode:$sizing}
+																	{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 															</div>
 														</div>
 													</div>

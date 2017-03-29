@@ -77,7 +77,7 @@
 						<div class="col-xs-12 col-md-4">
 								<div class="form-group selector1">
 									<div class="row">
-											<div class="col-xs-12 col-md-2 padding-class">
+											<div class="col-xs-12 col-md-2 objet padding-class">
 												<label for="id_contact">{l s='Subject Heading'}</label>
 											</div>
 											<div class="col-xs-12 col-md-8 padding-class">
