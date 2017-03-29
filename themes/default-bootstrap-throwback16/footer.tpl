@@ -21,7 +21,7 @@
 						{else}
 							<!-- footer complete -->
 							<div class="row">
-								{$HOOK_FOOTER}
+								{$HOOK_FOOTER} 
 							</div>
 						{/if}
 					{*	<pre>  {$category->description} </pre> <pre> {$meta_description}  </pre> <pre> {$meta_keywords} </pre>

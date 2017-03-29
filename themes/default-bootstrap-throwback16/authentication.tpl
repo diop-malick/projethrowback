@@ -15,7 +15,7 @@ HEADER
 {*********************************************************
 TITLE
 **********************************************************}
-<div class="row">
+<div class="row" id="identification">
 <h1 class="page-heading authentication">{if !isset($email_create)}{l s='Authentication'}{else}{l s='Create an account'}{/if}</h1>
 </div>
 {*********************************************************
@@ -490,14 +490,14 @@ EROR
 				<div class="row required form-group">
 					<label for="customer_firstname" class="col-md-4 col-xs-4 text-right control-label required">{l s='First name'}</label>
 					<div class="col-md-8 col-xs-8">
-						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. Jean – François" />
+						<input onkeyup="$('#firstname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un prénom valide.'}" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" placeholder="Par ex. François" />
 					</div>
 				</div>
 
 				<div class="row required form-group">
 					<label for="customer_lastname" class="col-md-4 col-xs-4 text-right control-label required">{l s='Last name'}</label>
 					<div class="col-md-8 col-xs-8">
-						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Légrandè" />
+						<input onkeyup="$('#lastname').val(this.value);" type="text" class="is_required validate form-control" data-validation="check_name" data-validation-error-msg="{l s='Merci de saisir un nom valide.'}" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.customer_lastname)}{$smarty.post.customer_lastname}{/if}" placeholder="Par ex. Legrand" />
 					</div>
 				</div>
 

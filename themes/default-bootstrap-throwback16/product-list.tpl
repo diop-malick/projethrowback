@@ -187,11 +187,11 @@
 											{if ($group.group_type == 'radio')}
 													{foreach from=$group.attributes key=id_attribute item=group_attribute}
 														{* {$group.attributes_quantity[$id_attribute]|var_dump} *}
-													<li {if ( $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
+													<li {if ( isset($id_attribute) && $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 														<a href="{$product.link|escape:'html':'UTF-8'}">
 																{assign var=someVar value=" "|explode:$group_attribute}
 																<span class="size-list">
-																{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}	
+																{if (isset($someVar[0])) } {$someVar[0]|escape:'html':'UTF-8'} {/if} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}	
 																</span>
 														</a>
 													</li>
