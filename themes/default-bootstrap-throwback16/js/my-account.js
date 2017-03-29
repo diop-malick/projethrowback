@@ -1,9 +1,8 @@
 $(document).ready(function() {
 
     /*************************************** My account ***************************/
-    // CHRONO
     if ((typeof processMailchimpsInscription !== 'undefined') && processMailchimpsInscription === '1') {
-        console.log('Data to submit' + email + ' - ' + customer_firstname + ' - ' + customer_lastname);
+        // console.log('Data to submit' + email + ' - ' + customer_firstname + ' - ' + customer_lastname);
 
         $.ajax({
             type: "GET",

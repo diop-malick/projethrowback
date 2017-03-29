@@ -34,6 +34,7 @@ $(document).ready(function(){
 			submitPublishCMS(ad, 1, adtoken);
 		});
 	}
+
 });
 
 function submitPublishCMS(url, redirect, token)

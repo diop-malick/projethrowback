@@ -61,7 +61,7 @@ input[name="search_query"]:focus:-moz-placeholder { color:transparent; }
 /**/
 /* Display reset button on searchbox */
 .search_query.form-control{
-  background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+  background: #fff url(/throwback16/themes/default-bootstrap-throwback16/img/croix.png) no-repeat right -17px center;
 /*  border: 1px solid #999;*/
   padding: 3px 18px 3px 4px;     /* Use the same right padding (18) in jQ! */
   border-radius: 3px;

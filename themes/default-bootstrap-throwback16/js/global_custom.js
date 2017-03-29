@@ -1,4 +1,4 @@
-{*
+/*
 * 2007-2016 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -21,24 +21,26 @@
 *  @copyright  2007-2016 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*}
-{if $blockCategTree && $blockCategTree.children|@count}
-<!-- Block categories module -->
-<div class="container">
-<div id="categories_block_left" class="block">
-	<div class="block_content">
-		<ul class="tree {if $isDhtml}dhtml{/if}">
-			{foreach from=$blockCategTree.children item=child name=blockCategTree}
-				{if $smarty.foreach.blockCategTree.last}
-				{* category-tree-branch.tpl *}
-					{include file="$branche_tpl_path" node=$child last='true'}
-				{else}
-					{include file="$branche_tpl_path" node=$child}
-				{/if}
-			{/foreach}
-		</ul>
-	</div>
-</div>
-</div>
-<!-- /Block categories module -->
-{/if}
+*/
+// Variable globale
+
+$(document).ready(function(){
+	//var node = document.querySelectorAll('a[title="Services"]')
+	var catCmsDir = "index.php?id_cms_category";
+	var dir = baseDir + catCmsDir;
+    var cms_services = baseDir  + 'index.php?id_cms=7&controller=cms&id_lang='+ langue_id;
+    var cms_lien_legaux = baseDir + 'index.php?id_cms=12&controller=cms&id_lang='+ langue_id;
+	//var els = document.querySelectorAll("a[href^='"+dir+"']");   
+    $("a[href^='"+dir+"']").addClass("CategoryCms");
+    var els =  document.getElementsByClassName("CategoryCms");
+	for (var i = 0, l = els.length; i < l; i++) {
+  		var el = els[i];       
+          if (el.href.indexOf("id_cms_category=3") > -1) {
+               el.onclick = function(){el.href = cms_services}();
+          }
+          else if (el.href.indexOf("id_cms_category=4") > -1) {
+               el.onclick = function(){el.href = cms_lien_legaux}();
+          }
+
+	} 
+});

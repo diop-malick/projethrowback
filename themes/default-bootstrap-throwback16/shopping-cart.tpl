@@ -131,10 +131,9 @@
 									<div class="col-xs-2 col-md-1 ">
 										<div class="row">	
 											<div class="col-md-6 col-xs-6 text-right edit" style="padding:0;">
-												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
 											<div class="col-md-6 col-xs-6 text-left delete" style="padding:0;">
-
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 													class="cart_quantity_delete"
@@ -148,6 +147,22 @@
 									</div>
 								</div>
 
+                                {* get LIMIT quantity caracteristique value , add disabled to btn *}
+                                {* <pre>{$product|var_dump}}</pre> *}
+                                {*
+	                                            caractériqtique produit : 
+	                                            id Quantité-Commandable / id: 11
+	                                            id valeur  : 11
+                                *}
+                                {* <pre>{$product->quantity_available}</pre> *}
+                                {* <pre>{$product.features|var_dump}}</pre> *}
+                                {foreach from=$product.features item=feature}
+                                    {if (isset($feature["id_feature"]) && $feature["id_feature"] eq '11') && $feature["id_feature_value"] eq '41'}
+                                        {assign var=quantitylimitperorder value=1}
+                                        </pre>limit : {$quantitylimitperorder}</pre>
+                                    {/if}
+                                 {/foreach}
+
 								<div class="row">
 
 									<div class="col-md-12 col-xs-12 product_attributes line_attributes clearfix">
@@ -159,10 +174,10 @@
 												<p id="quantity_wanted_p" class="quantity_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 													<label>{l s='Quantité'}</label><br>
 													<input type="text" readonly min="1" name="qty" id="quantity_wanted_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="text" value="{$product.cart_quantity}" />
-													<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down">
+													<a href="#" data-field-qty="qty" id="down-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-minus product_quantity_down {if isset($quantitylimitperorder) && $quantitylimitperorder==1}disabled{/if}">
 														<span><i class="icon-minus"></i></span>
 													</a>
-													<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up">
+													<a href="#" data-field-qty="qty" id="up-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" class="btn btn-default button-plus product_quantity_up {if isset($quantitylimitperorder) && $quantitylimitperorder==1}disabled{/if}">
 														<span><i class="icon-plus"></i></span>
 													</a>
 												</p>
@@ -189,7 +204,9 @@
 																						<span class="btn" style="display: inherit;">
 																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																								
+
 																								<li {if ( $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
+
 																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
 																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
@@ -245,6 +262,8 @@
 												{/if}
 											</div>
 
+											
+
 											<div class="col-md-3 col-xs-3">
 												{if isset($sizing)}
 													<div class = "row">
@@ -253,10 +272,15 @@
 														</div>
 														<div class="col-md-6 col-xs-6">
 															<div class="size_line">
-																	{$sizing}
+																
+																	{assign var=someVar value=" "|explode:$sizing}
+																	{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+
+																
 																	{* <pre>{$product->attributes}</pre> *}
 																	{* <pre>{$product->attributes_small}</pre> *}
 																	{* <pre>{$product->stock_quantity}</pre> *}
+
 															</div>
 														</div>
 													</div>
@@ -344,11 +368,18 @@
 							
 						</div>
 						
-						
+						{* RESET limit quantity *}
+						{if isset($quantitylimitperorder)}
+							{assign var=quantitylimitperorder value=""}
+						{/if}
+
 					{/foreach}
 
 				</div>
 
+{* **********************************************************
+* FACTURETTE 
+*************************************************************** *}
 				<div class="col-md-4 col-xs-12">
 					<div class="row commande_title text-center">
 						<div class="col-md-12 col-xs-12">
@@ -421,7 +452,7 @@
 	</p>
 	{/if}
 
-	{* Define the style if it doesn't exist in the PrestaShop version*}
+	{* Define the style if it doesn't exist in the PrestaShop version
 	{* Will be deleted for 1.5 version and more *}
 
 

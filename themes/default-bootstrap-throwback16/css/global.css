@@ -2960,9 +2960,9 @@ a.thumbnail:focus {
     color: #e6e6e6; }
 
 .alert-danger {
-  background-color: #f3515c;
-  border-color: #d4323d;
-  color: #fff; }
+  /*background-color: #f3515c;
+  border-color: #d4323d;*/
+  color: #d4323d; }
   .alert-danger hr {
     border-top-color: #c32933; }
   .alert-danger .alert-link {
