@@ -66,9 +66,10 @@
 	<!-- /Block CMS module -->
 {else}
 	<!-- Block CMS module footer -->
-	<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
-		<h4>{l s='Information' mod='blockcms'}</h4>
-		<ul class="toggle-footer">
+
+	<section class="footer-block col-xs-12 col-sm-2 col-md-5" id="block_various_links_footer"> <!-- Ajouter la class col-md-5 pour les cms sur une ligne) -->
+		{* <h4>{l s='Information' mod='blockcms'}</h4> *}
+		<ul class="list-inline"> <!-- Changer la class "toggle-footer"" en "list-inline" pour l'alignement horizontal -->
 			{if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}
 				<li class="item">
 					<a href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" title="{l s='Specials' mod='blockcms'}">
@@ -121,8 +122,9 @@
 			</li>
 			{/if}
 		</ul>
-		{$footer_text}
+	{*	{$footer_text} *} <!-- N'afficher pas le footer texte -->
 	</section>
+
 	{if $display_poweredby}
 	<section class="bottom-footer col-xs-12">
 		<div>
@@ -132,3 +134,7 @@
 	{/if}
 	<!-- /Block CMS module footer -->
 {/if}
+{strip}
+	{addJsDef langue_id=$cookie->id_lang}
+
+{/strip}

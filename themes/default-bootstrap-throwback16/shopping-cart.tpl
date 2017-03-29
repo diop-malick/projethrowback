@@ -6,15 +6,9 @@
 
 {capture name=path}{l s='Your shopping cart'}{/capture}
 
-{* 
-<h1 id="cart_title" class="page-heading">{l s='Shopping-cart summary'}
-	{if !isset($empty) && !$PS_CATALOG_MODE}
-		<span class="heading-counter">{l s='Your shopping cart contains:'}
-			<span id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span>
-		</span>
-	{/if}
-</h1> 
-*}
+
+
+
 
 {if isset($account_created)}
 	<p class="alert alert-success">
@@ -28,6 +22,14 @@
 {include file="$tpl_dir./errors.tpl"}
 
 <p class="titre-panier">{l s='Mon panier'}</p>
+{* <p id="cart_title" class="page-heading">{l s='Shopping-cart summary'}
+	{if !isset($empty) && !$PS_CATALOG_MODE}
+		<span class="heading-counter" style="position:inherit;">{l s='Your shopping cart contains:'}
+			<span id="summary_products_quantity" >{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span>
+		</span>
+	{/if}
+</p>  *}
+
 {if isset($empty)}
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
 		<script>window.location="{$link->getPageLink('order')}";</script>
@@ -107,27 +109,32 @@
 				<div class="row row_line_product line_product_{$product.id_product}" id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}">
 
 
-							<div class="col-md-2 col-xs-2 img-line">
-								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /></a>
+							<div class="col-md-3 col-xs-2 img-line">
+								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">
+								{* <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /> *}
+								{* change product image format : from small_default_to_home default *}
+								<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" class="img-responsive" />
+								</a>
 							</div>
 
-							<div class="col-md-10 col-xs-10">
-
+							<div class="col-md-9 col-xs-7">								
 								<div class="row">
-									<div class="col-md-9 col-xs-9">
+									<div class="col-xs-10 col-md-11">
+
 										<p class="product-name product_title text-right-mobile">
 											<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
 											</a>
 										</p>
 									</div>
 
-									<div class="col-md-3 col-xs-3">
-										<div class="row">
-											<div class="col-md-6 col-xs-6 text-right edit">
-												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+									<!--<br><br>-->
+									<div class="col-xs-2 col-md-1 ">
+										<div class="row">	
+											<div class="col-md-6 col-xs-6 text-right edit" style="padding:0;">
+												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
-											
-											<div class="col-md-6 col-xs-6 text-left delete">
+											<div class="col-md-6 col-xs-6 text-left delete" style="padding:0;">
+
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 													class="cart_quantity_delete"
@@ -141,12 +148,9 @@
 									</div>
 								</div>
 
-								
-								<!--<br><br>-->
-
 								<div class="row">
 
-									<div class="col-md-9 col-xs-12 product_attributes line_attributes clearfix">
+									<div class="col-md-12 col-xs-12 product_attributes line_attributes clearfix">
 
 										{addJsDef quantityAvailable=$product.quantity_available}
 										<div class="row">
@@ -179,12 +183,15 @@
 																				{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
 																				 
 																				<div class="attribute_list">
-																					<span class="btn">
+																					
 																					{if ($group.group_type == 'radio')}
 																						<ul>
+																						<span class="btn" style="display: inherit;">
 																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
 																								
-																								<li {if ( isset($id_attribute) && $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
+
+																								<li {if ( $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
+
 																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
 																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
 																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
@@ -192,14 +199,20 @@
 																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 																									</label>
 																								</li>
+																								{* <pre>{$id_attribute}</pre> *}
 																							{/foreach}
 																						</ul>
-																					{elseif ($group.group_type == 'color')}
+																						</span>
+																						{* <pre>{$product|var_dump}</pre> *}
+																					
+																					{* todo color not allowed *}
+																					{* {elseif ($group.group_type == 'color')}
 																						<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 																						<input type="hidden" name="color_default" value="{$group.default|intval}" />
-																						</div>
+																						</div> *}
+																					
 																					{/if}
-																					</span>
+																					
 																				</div> <!-- end attribute_list -->
 																			<!--</fieldset>-->
 																			{/if}
@@ -216,9 +229,9 @@
 													</div>
 												</div>
 										</div>
-										<div class="row attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+										<div class="row vertical-center attributes_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 
-											<div class="col-md-4 col-xs-4">
+											<div class="col-md-3 col-xs-3">
 												{if $product.cart_quantity}
 													<div class = "row">
 														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
@@ -234,7 +247,7 @@
 												{/if}
 											</div>
 
-											<div class="col-md-4 col-xs-4">
+											<div class="col-md-3 col-xs-3">
 												{if isset($sizing)}
 													<div class = "row">
 														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
@@ -242,15 +255,22 @@
 														</div>
 														<div class="col-md-6 col-xs-6">
 															<div class="size_line">
+																
 																	{assign var=someVar value=" "|explode:$sizing}
 																	{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+
+																
+																	{* <pre>{$product->attributes}</pre> *}
+																	{* <pre>{$product->attributes_small}</pre> *}
+																	{* <pre>{$product->stock_quantity}</pre> *}
+
 															</div>
 														</div>
 													</div>
 												{/if}
 											</div>
 
-											<div class="col-md-4 col-xs-4">
+											<div class="col-md-3 col-xs-3">
 												{if isset($coloring)}
 													<div class = "row">
 														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
@@ -265,45 +285,47 @@
 												{/if}
 											</div>
 
-										</div>
-
-									</div>
-
-									<div class="col-md-3 col-xs-3">
-										{if !$priceDisplay}
-											<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
-										{else}
-						               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price}</span>
-										{/if}
-										{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
-										<span class="reduction-text">
-											{if !$priceDisplay}
-					            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
-					                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
-					                    			{assign var='symbol' value=$currency->sign}
-					                    		{else}
-					                    			{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price_wt)/$product.price_without_specific_price) * 100 * -1}
-					                    			{assign var='symbol' value='%'}
-					                    		{/if}
-											{else}
-												{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
-													{assign var='priceReduction' value=($product.price - $product.price_without_specific_price)}
-													{assign var='symbol' value=$currency->sign}
+											<div class="col-md-3 col-xs-3">
+												{if !$priceDisplay}
+													<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
 												{else}
-													{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price)/$product.price_without_specific_price) * -100}
-													{assign var='symbol' value='%'}
+								               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price}</span>
 												{/if}
-											{/if}
-											{if $symbol == '%'}
-												&nbsp;{$priceReduction|string_format:"%.2f"|regex_replace:"/[^\d]0+$/":""}{$symbol}&nbsp;
-											{else}
-												&nbsp;{convertPrice price=$priceReduction}&nbsp;
-											{/if}
-										</span>
-										<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
-										
-										{/if}
+												{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
+													<span class="reduction-text">
+														{if !$priceDisplay}
+								            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+								                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
+								                    			{assign var='symbol' value=$currency->sign}
+								                    		{else}
+								                    			{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price_wt)/$product.price_without_specific_price) * 100 * -1}
+								                    			{assign var='symbol' value='%'}
+								                    		{/if}
+														{else}
+															{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
+																{assign var='priceReduction' value=($product.price - $product.price_without_specific_price)}
+																{assign var='symbol' value=$currency->sign}
+															{else}
+																{assign var='priceReduction' value=(($product.price_without_specific_price - $product.price)/$product.price_without_specific_price) * -100}
+																{assign var='symbol' value='%'}
+															{/if}
+														{/if}
+														{if $symbol == '%'}
+															&nbsp;{$priceReduction|string_format:"%.2f"|regex_replace:"/[^\d]0+$/":""}{$symbol}&nbsp;
+														{else}
+															&nbsp;{convertPrice price=$priceReduction}&nbsp;
+														{/if}
+													</span>
+													<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
+												
+												{/if}
+											</div>
+										</div>
+										{* end row atributes *}
+
 									</div>
+
+
 
 								</div>
 								<div class="row">
@@ -314,7 +336,7 @@
 								</div>
 								<div class="row buttons_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 										<div class="col-md-6 col-xs-6 text-right">
-											<button class="buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
+											<button class="btn disabled buttons_modify buttons_modify_line_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} update_line" type="submit">
 											<span>{l s='VALIDER'}</span>
 											</button>
 										</div>

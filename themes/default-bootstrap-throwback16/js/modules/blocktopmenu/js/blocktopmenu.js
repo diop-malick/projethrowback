@@ -32,16 +32,26 @@ $(document).ready(function(){
 	mCategoryGrover = $('.sf-contener .cat-title');
 	responsiveMenu();
 	$(window).resize(responsiveMenu);
-
+/*
 	// Desactiver les liens catégories cms dans le menu horizontal
 	var catCmsDir = "index.php?id_cms_category";
 	var dir = baseDir + catCmsDir;
 	var els = document.querySelectorAll("a[href^='"+dir+"']");
-for (var i = 0, l = els.length; i < l; i++) {
-  var el = els[i];
+	for (var i = 0, l = els.length; i < l; i++) {
+  		var el = els[i];
 
-  el.style.pointerEvents = "none";
-}
+  		el.style.pointerEvents = "none";
+	}
+*/
+ 	/*
+	 var node = document.querySelector('a[title="Services"]')
+	console.log(node);
+	node.onclick = function(){node.href ="http://sn-ecommerce.fr"};
+		console.log(node); */
+/*	$(node).on('click', function(){
+	window.location.href = "http://localhost/throwback16/index.php?id_cms=7&controller=cms&id_lang=1" ;
+	 console.log(window.location.href);
+  }); */
 });
 
 // check resolution

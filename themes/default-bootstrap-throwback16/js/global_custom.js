@@ -22,40 +22,25 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
+// Variable globale
+
 $(document).ready(function(){
-	if (typeof ad !== 'undefined' && ad && typeof adtoken !== 'undefined' && adtoken)
-	{
-		$(document).on('click', 'input[name=publish_button]', function(e){
-			e.preventDefault();
-			submitPublishCMS(ad, 0, adtoken);
-		});
-		$(document).on('click', 'input[name=lnk_view]', function(e){
-			e.preventDefault();
-			submitPublishCMS(ad, 1, adtoken);
-		});
-	}
+	//var node = document.querySelectorAll('a[title="Services"]')
+	var catCmsDir = "index.php?id_cms_category";
+	var dir = baseDir + catCmsDir;
+    var cms_services = baseDir  + 'index.php?id_cms=7&controller=cms&id_lang='+ langue_id;
+    var cms_lien_legaux = baseDir + 'index.php?id_cms=12&controller=cms&id_lang='+ langue_id;
+	//var els = document.querySelectorAll("a[href^='"+dir+"']");   
+    $("a[href^='"+dir+"']").addClass("CategoryCms");
+    var els =  document.getElementsByClassName("CategoryCms");
+	for (var i = 0, l = els.length; i < l; i++) {
+  		var el = els[i];       
+          if (el.href.indexOf("id_cms_category=3") > -1) {
+               el.onclick = function(){el.href = cms_services}();
+          }
+          else if (el.href.indexOf("id_cms_category=4") > -1) {
+               el.onclick = function(){el.href = cms_lien_legaux}();
+          }
 
+	} 
 });
-
-function submitPublishCMS(url, redirect, token)
-{
-	var id_cms = $('#admin-action-cms-id').val();
-
-	$.ajaxSetup({async: false});
-	$.post(url+'/index.php', { 
-			action: 'PublishCMS',
-			id_cms: id_cms, 
-			status: 1, 
-			redirect: redirect,
-			ajax: 1,
-			tab: 'AdminCmsContent',
-			token: token
-		},
-		function(data)
-		{
-			if (data.indexOf('error') === -1)
-				document.location.href = data;
-		}
-	);
-	return true;
-}
