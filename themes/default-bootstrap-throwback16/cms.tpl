@@ -122,7 +122,8 @@
 	</div>
 {/if}
 <br />
-{strip}
+{strip}  
+{addJsDefL name=lang}{$lang_iso|escape:'html':'UTF-8'}{/addJsDefL}
 {if isset($smarty.get.ad) && $smarty.get.ad}
 {addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}
 {/if}
