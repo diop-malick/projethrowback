@@ -32,12 +32,29 @@ $(document).ready(function(){
 		updateAddressesDisplay();
 		if (typeof opc !=='undefined' && opc)
 			updateAddressSelection();
+
+		// hide laoder when select adresse change
+		$('.addresses .waitimage').show();
+		$('.addresses .waitimage').hide();
+        $('#address_invoice_form .waitimage').show();
+        $('#address_invoice_form .waitimage').hide();
+
 	});
+
 	$(document).on('click', 'input[name=same]', function(){
 		updateAddressesDisplay();
 		if (typeof opc !=='undefined' && opc)
 			updateAddressSelection();
 	});
+
+	
+	// hide laoder when select adresse change
+	 $('#addressesAreEquals').click(function(event) {
+	 	console.log("test");
+	 	$('.waitimage').hide();
+	 	$('#address_invoice_form .waitimage').show().delay(5000).hide();
+	 });
+
 });
 
 //update the display of the addresses
@@ -131,7 +148,7 @@ function updateAddresses()
 			},
 			success: function(jsonData)
 			{
-				if (jsonData.hasError)
+				if (jsonData !== null && jsonData.hasError)
 				{
 					var errors = '';
 					for(var error in jsonData.errors)

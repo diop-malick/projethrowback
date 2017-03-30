@@ -1,3 +1,5 @@
+{* TODO - to delete - no used in order-carrier *}
+
 <div class="delivery_option item col-xs-12 col-md-6" style="display: flex; flex-direction: column;">
 <div class="box">	
 	<h3 class="page-subheading">{$mycarrername}</h3>

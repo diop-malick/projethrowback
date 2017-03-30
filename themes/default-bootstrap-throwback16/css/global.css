@@ -1438,7 +1438,9 @@ textarea.form-control {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   float: left;
-  margin-left: -20px; }
+
+  /*margin-left: -20px; */
+}
 
 .radio + .radio,
 .checkbox + .checkbox {
@@ -7910,10 +7912,13 @@ table#cart_summary .gift-icon {
   position: relative;
   bottom: -2px;
   left: 10px; }
+
 .addresses .checkbox.addressesAreEquals {
   clear: both;
   float: left;
-  margin: 15px 0 25px 0; }
+  /*page livraison - checkbox margin*/
+  /*margin: 15px 0 25px 0; */
+}
 
 #order .delivery_option > div,
 #order-opc .delivery_option > div {

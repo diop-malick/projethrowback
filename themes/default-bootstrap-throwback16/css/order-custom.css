@@ -96,6 +96,7 @@
 
 #order .address_add.submit {
     margin-top: 10px;
+    text-align: center;
 }
 
 /*================*/
@@ -116,4 +117,11 @@
     padding-bottom: 5px
 margin-bottom: 5px;
 margin-top: 0;
+}
+
+
+.address_update .btn  {
+    right: 32px !important;
+    border : none !important;
+     background-color: transparent !important; 
 }
