@@ -24,7 +24,7 @@
 *}
 <div class="modulesden-cookies-bar" style="background-color:{$cookie_bar_bg_color};{if $cookie_pos == 0}bottom:0{else}top:0{/if};display:none;">
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-xs-12 col-md-12 col-lg-12">
 			<p>{$cookie_bar_text}
 				{* <a href="{$cookie_bar_link_url}">{$cookie_bar_link_text}</a> *}
 				<a href="{$link->getCMSLink('14', 'donnees-personnelles-et-cookies')|escape:'html'}">{$cookie_bar_link_text}</a>
