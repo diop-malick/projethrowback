@@ -23,11 +23,11 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <div class="box text-confirmation">
-    <p>{l s='Merci pour votre commande'} <span class="bold">{$shop_name}</span>
+    <p>{l s='Merci pour votre commande'} <span class="bold">{$cookie->customer_firstname}</span>
         <br />
-        {l s='Votre commande a bien été enregistrée, elle sera traitée par nos équipes après votre passage en boutique pour son règlement.'}
-        <br /><span class="bold">{l s='Un email de confirmation vous a été envoyé à l’adresse'}</span>
-        <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur Throwbacksneakers.com pour d’autres instants shopping !'}
+        {l s='Votre commande a bien été enregistrée, elle est en cours de traitement par nos équipes.'}
+        <br /><span class="bold">{l s='Un email de confirmation vous a été envoyé à l’adresse'} {$cookie->email}. </span>
+        <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur <a href="{$base_dir}">Throwbacksneakers.com</a> pour d’autres instants shopping !'}
         <br />{l s='Après réception de votre colis, vous avez un délai de 7 jours pour faire des réclamations (échange ou retour).'}
         <br />{l s='En savoir plus sur les conditions de'} <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">{l s='Retours et remboursement'}</a>.
     </p>
