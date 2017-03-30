@@ -34,6 +34,7 @@
 
 {if !$opc && ((!isset($back) || empty($back)) || (isset($back) && preg_match("/[&?]step=/", $back)))}
 <!-- Steps -->
+<div class="wrapper">
 <ul class="step clearfix" id="order_step">
 	<li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
@@ -77,5 +78,6 @@
 		<span><em class="num-step">05.</em> <em class="hidden-xs">{l s='Confirmation'}</em></span>
 	</li>
 </ul>
+</div>
 <!-- /Steps -->
 {/if}
