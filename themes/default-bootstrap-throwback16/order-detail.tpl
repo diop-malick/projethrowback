@@ -74,7 +74,7 @@
 	{/if}
 </div>
 
-<!--
+
 {if count($order_history)}
 <h1 class="page-heading">{l s='Follow your order\'s status step-by-step'}</h1>
 <div class="table_block">
@@ -96,7 +96,7 @@
 	</table>
 </div>
 {/if}
--->
+
 {if isset($followup)}
 <p class="bold">{l s='Click the following link to track the delivery of your order'}</p>
 <a href="{$followup|escape:'html':'UTF-8'}">{$followup|escape:'html':'UTF-8'}</a>

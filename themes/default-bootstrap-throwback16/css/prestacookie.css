@@ -1,0 +1,19 @@
+.modulesden-cookies-bar{
+  border-top: 1px solid #dce1e5;
+  min-height: 42px;
+  padding: 5px 0 5px 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+  left: 0px;
+}
+
+.modulesden-cookies-bar p{
+  margin-bottom: 0px;
+  text-align: center;
+  color:#fff;
+}
+
+.modulesden-cookies-bar p a{
+  color:#fff !important;
+}
