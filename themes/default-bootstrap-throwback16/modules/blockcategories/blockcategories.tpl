@@ -30,6 +30,7 @@
 		<ul class="tree {if $isDhtml}dhtml{/if}">
 			{foreach from=$blockCategTree.children item=child name=blockCategTree}
 				{if $smarty.foreach.blockCategTree.last}
+				{* category-tree-branch.tpl *}
 					{include file="$branche_tpl_path" node=$child last='true'}
 				{else}
 					{include file="$branche_tpl_path" node=$child}

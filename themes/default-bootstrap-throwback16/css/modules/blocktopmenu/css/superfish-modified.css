@@ -49,6 +49,54 @@
   /* float: left; */
   display: inline-block;
   margin-bottom: -3px; }
+
+/*============BEGIN=============== MENU VERTICALE */
+
+#left_column #block_top_menu {
+    z-index: 7000;
+    top: 100px;
+    position: fixed;
+    width: 15%;
+    /*disable to active tomenu like in left colum*/
+    display: none;
+}
+
+#left_column #block_top_menu .sf-menu {
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    background-color: rgba(53, 53, 53, 1);
+}
+
+#left_column #block_top_menu .sf-menu > li {
+    display: block;
+    float: none;
+}
+
+#left_column #block_top_menu .sf-menu > li > ul > li {
+    float: none;
+    width: 100%;
+    text-align: left !important;
+    /*padding-right: 15px; */
+}
+
+#left_column #block_top_menu .sf-menu li ul {
+    position: inherit;
+    padding: 26px 30px 31px;
+    width: 100%;
+    display: block;
+    top: 0;
+    z-index: 99;
+    padding: 12px 0px 18px 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+}
+
+
+/*============END=============== MENU VERTICALE */
+
+
   @media (max-width: 767px) {
     .sf-menu > li {
       float: none;

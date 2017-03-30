@@ -23,7 +23,15 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
+
+/* BUG - PRESTA
+* http://arnaud-merigeau.fr/impossible-de-supprimer-un-produit-du-panier-sous-prestashop/
+*/
+var baseDir ='http://localhost/';
+// set baseDir ='http://vps365425.ovh.net/throwback16/';
+
 $(document).ready(function() {
+
     /*----------------------------------- update panier ------------------------------------------------------------*/
     //new_price = $('dt[data-id="cart_block_product_6_32_0"] .price').text();
     //console.log(linkCarte);
@@ -43,8 +51,11 @@ function showElemntsToModify(line) {
     $( ".buttons_line_"+line ).show();
 }
 
+    // TODO - to delete if ajax update not enabled
     function replaceClassesId(old_line, new_line) {
         //$('.IsBestAnswer').addClass('bestanswer').removeClass('IsBestAnswer');
+        // console.log('old_line :' + old_line);
+        // console.log('new_line :' + new_line);
         $(".attributes_line_" + old_line).addClass("attributes_line_" + new_line).removeClass("attributes_line_" + old_line);
         $(".quantity_" + old_line).addClass("quantity_" + new_line).removeClass("quantity_" + old_line);
         $(".attributes_to_modify_" + old_line).addClass("attributes_to_modify_" + new_line).removeClass("attributes_to_modify_" + old_line);
@@ -53,12 +64,15 @@ function showElemntsToModify(line) {
         $(".current_qty_" + old_line).addClass("current_qty_" + new_line).removeClass("current_qty_" + old_line);
 
         $("#quantity_wanted_" + old_line).attr('id', "quantity_wanted_" + new_line);
-        $("#product_" + old_line).attr('id', "product_" + new_line);
+        $("#product_" + old_line).attr('id', "product_" + new_line);        
         $("#buy_block_" + old_line).attr('id', "buy_block_" + new_line);
 
         $("#edit-" + old_line).attr('id', "edit-" + new_line);
         $("#del-" + old_line).attr('id', "del-" + new_line);
         //$("#quantity_wanted_"+old_line).attr('id',"quantity_wanted_"+new_line);
+        size_update = ".attributes_line_" + new_line + " " + ".size_line";
+        // console.log('size_update :' + size_update);
+        $(size_update).text('M');
 
     }
 
@@ -85,6 +99,9 @@ function showElemntsToModify(line) {
             return parseInt(ids[3]);
     }
 
+    /* ********************************************************************* 
+    * Update line product : delete product -> add product
+    * ********************************************************************* */
     function addNewLine(line, idProduct, idCombinaison, qty) {
         //var old_line = getIdProduct(line)+"_"+getIdProductAttribute(line)+"_"+getIdCustom(line)+"_"+getIdAdressDelivery(line);
         var new_ine = idProduct + "_" + idCombinaison + "_" + getIdCustom(line) + "_" + getIdAdressDelivery(line);
@@ -100,9 +117,10 @@ function showElemntsToModify(line) {
         	 $( "#total_price").empty().append(newTotal);
         */
         deleteProductFromSummary(line, false);
-        //replaceClassesId(line , new_ine);
+        // replaceClassesId(line , new_ine);
         hideElemntsToModify(new_ine);
 
+        // relaod page to get modif
         window.location = linkCarte + "&update=1";
 
         //$('body').load(window.location.href,'body');
@@ -118,12 +136,20 @@ function showElemntsToModify(line) {
         var id_edit = id_line.split('-');
         var line = id_edit[1];
         var id_line_product_attr = id_edit[2];
-        //console.log(line);
+        // console.log(line);
         //var line = $(this).attr('id');
         var quantity_current = parseInt($("#quantity_wanted_" + line).val());
 
         showElemntsToModify(line);
         lightSelectedElementAttribute(line, id_line_product_attr);
+
+        if(parseInt(quantityAvailable[line]) == 1) {
+            // console.log('quantityAvailable[id] =' + quantityAvailable[line]);
+
+            // disable quantity btn if quantity available is 1
+            $('#down-'+line).addClass('disabled');
+            $('#up-'+line).addClass('disabled');
+        }
 
         $('.cancel-line').on("click", function(e) {
             e.preventDefault();

@@ -41,6 +41,8 @@ $(document).ready(function () {
 	})
 	
 
+	// mailchimps inscription - TODO : copy from my-account.js
+
 	
 	function cookieSession_popup() {
 			var session_name = 'fancypopupCookie';

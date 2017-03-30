@@ -156,7 +156,7 @@
 									</div>
 									<div class="col-md-6" >
 										<span class="qv-dispo">
-										{if !(isset($comingsoonvalue) && ($comingsoonvalue eq 'comingsoon')) || $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+										{if ({$comingsoonvalue} neq 'comingsoon') && ($product.date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S')}
 											{if $product.quantity > 0}
 												{* show if default declinaison quantity > 0 *}
 												{l s='In Stock'}

@@ -98,7 +98,9 @@
   display: inline; }
 
 #layered_form .select {
-  width: 165px; }
+  /*comment to disable block form going outside container filter*/
+  /*width: 165px; */
+}
 
 #layered_form .color-option {
   margin-left: 0;

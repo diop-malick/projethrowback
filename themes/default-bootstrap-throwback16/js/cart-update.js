@@ -16,10 +16,19 @@ $(document).on('click', '.attribute_radio', function(e){
 	// console.log(idCombinaison);
 
 	// enable validate button buttons_modify
-	$('.update_line').removeClass('disabled')
+	$('.update_line').removeClass('disabled');
 	// ligth selected attributes
 	$('.attribute_list ul li > label').removeClass('selected');
-    $('.attribute_list ul li > label[for="' + ids + '"]').addClass('li_attribute_list selected');              
+    $('.attribute_list ul li > label[for="' + ids + '"]').addClass('li_attribute_list selected');
+	// reset quatity to 1, when size changed
+    $('#quantity_wanted_'+id).val(1);
+
+    // check if quantity of selected attribute is 1
+    if(parseInt(quantityAvailable[id]) == 1) {
+    	// console.log(quantityAvailable[id]);
+    	// $('#down-'+id).addClass('disabled');
+    	// $('#up-'+id).addClass('disabled');
+    }
 });
 
 
