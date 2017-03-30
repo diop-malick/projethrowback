@@ -145,7 +145,17 @@
 			{/if}
 	</div>	
 {/if}
-
+<br>
+{if $current_step == "confirmation"}
+<div class="row commande_title text-center">
+		<div class="col-md-12">
+			{l s='VOTRE PAIEMENT'}
+		</div>
+	</div>
+	<div class="row commande_body">
+		 {l s='Carte bancaire'}
+	</div>	
+{/if}
 <div class="row text-center processService">
 	{if $current_step == "shipping"}
 
