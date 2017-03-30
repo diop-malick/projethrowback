@@ -6944,7 +6944,8 @@ ul.step li {
 
 @media (max-width: 767px) {
     ul.step li {
-        width: 100%;
+        /*width: 100%;*/
+        /*** No width for li ****/
         border-left-width: 1px;
     }
 }
@@ -7185,7 +7186,13 @@ ul.step li em {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  /**** visible sur tablette ******/
+  /*
     ul.step li em {
+        display: none;
+    }
+    */
+    .num-step {
         display: none;
     }
 }

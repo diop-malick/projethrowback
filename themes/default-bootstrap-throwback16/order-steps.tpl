@@ -38,43 +38,43 @@
 	<li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
 		{if  $current_step=='payment' || $current_step=='shipping' || $current_step=='login'}
 			<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=0")|escape:'html':'UTF-8'}">
-				<em>01.</em>
+				<em class="num-step">01.</em>
 				{* {l s='Summary'} *}
-				{l s='Panier'}
+				<em class="hidden-xs">{l s='Panier'}</em>
 			</a>
 		{elseif  $current_step=='confirmation'}
-			<a><em>01.</em> {l s='Panier'}</a>
+			<a><em class="num-step">01.</em> <em class="hidden-xs">{l s='Panier'}</em></a>
 		{else}
-			<span><em>01.</em> {l s='Panier'}</span>
+			<span><em class="num-step">01.</em> <em class="hidden-xs">{l s='Panier'}</em></span>
 		{/if}
 	</li>
 	<li class="{if $current_step=='login'}step_current{elseif $current_step=='shipping'}step_done step_done_last{else}{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping' }step_done{else}step_todo{/if}{/if} second">			
 		{if $current_step=='confirmation' || $current_step=='payment' || $current_step=='shipping'}
-			<a><em>02.</em> {l s='Sign in'}</a>
+			<a><em class="num-step">02.</em> <em class="hidden-xs">{l s='Sign in'}</em></a>
 		{else}
-			<span><em>02.</em> {l s='Sign in'}</span>
+			<span><em class="num-step">02.</em> <em class="hidden-xs">{l s='Sign in'}</em></span>
 		{/if}
 	</li>
 	<li class="{if $current_step=='shipping'}step_current{elseif $current_step=='payment'}step_done step_done_last{else}{if $current_step=='confirmation' || $current_step=='payment' }step_done{else}step_todo{/if}{/if} third">
 		{if $current_step=='payment'}
 		<a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=1")|escape:'html':'UTF-8'}">
-			<em>03.</em> {l s='Shipping'}
+			<em class="num-step">03.</em> <em class="hidden-xs">{l s='Shipping'}</em>
 		</a>
 		{elseif  $current_step=='confirmation'}
-			<a><em>03.</em> {l s='Shipping'}</a>
+			<a><em class="num-step">03.</em> <em class="hidden-xs">{l s='Shipping'}</em></a>
 		{else}
-			<span><em>03.</em> {l s='Shipping'}</span>
+			<span><em class="num-step">03.</em> <em class="hidden-xs">{l s='Shipping'}</em></span>
 		{/if}
 	</li>
 	<li class="{if $current_step=='payment'}step_current{else}{if $current_step=='confirmation'}step_done step_done_last{else}step_todo{/if}{/if} four">		
 		{if  $current_step=='confirmation'}
-			<a><em>04.</em> {l s='Payment'}</a>
+			<a><em class="num-step">04.</em> <em class="hidden-xs">{l s='Payment'}</em></a>
 		{else}
-			<span><em>04.</em> {l s='Payment'}</span>
+			<span><em class="num-step">04.</em> <em class="hidden-xs">{l s='Payment'}</em></span>
 		{/if}	
 	</li>
 	<li id="step_end" class="{if $current_step=='confirmation'}step_current{else}step_todo{/if} last">
-		<span><em>05.</em> {l s='Confirmation'}</span>
+		<span><em class="num-step">05.</em> <em class="hidden-xs">{l s='Confirmation'}</em></span>
 	</li>
 </ul>
 <!-- /Steps -->
