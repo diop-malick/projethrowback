@@ -603,8 +603,9 @@ width: auto;
     font-weight: bold;
   }
 
+/*TODO - harmoniser toute les gris, : panier, facturette, adresse, titre */
   .commande_body{
-    background: #fafafa;
+    background: #fbfbfb;
     padding: 5px;
   }
   .commande_button{

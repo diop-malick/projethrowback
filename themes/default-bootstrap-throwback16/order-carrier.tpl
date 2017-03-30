@@ -66,7 +66,7 @@
 										********************************************************* *}
 
 			        						{* TODO - check delete virtual cart	code *}
-			        						<div class="row vertical-center">
+			        						<div class="row">
 			        						<div class="col-xs-12 col-sm-6 address">
 			        								<div class="address_delivery select form-group selector1">
 			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
@@ -149,8 +149,9 @@
 											ADRESSE add btn
 										********************************************************* *}
 			        						<p class="address_add submit {if !isset($addresses)}hidden{/if}">
-												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-													<span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
+												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
+													<span>{l s='Add a new address '}</span>
+													<i class="icon-chevron-right right" style="font-size: 15px;"></i>
 												</a>
 											</p>
 
