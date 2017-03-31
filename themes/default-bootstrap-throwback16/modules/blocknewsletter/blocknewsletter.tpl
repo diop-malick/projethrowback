@@ -70,9 +70,9 @@
                             <form id="mc-embedded-subscribe-form">
                                 <div class="news-footer">
                                     <i class="fa fa-envelope"></i>
-                                    <input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}"/>
+                                    <input class="inputNew newsletter-input form-control required email" id="newsletter-input" type="text" name="EMAIL" size="18" placeholder="{l s=' Newsletter ' mod='blocknewsletter'}" data-validation="email" data-validation-error-msg="{l s='Adresse mail saisie incorrecte.'}" required />
                                     <span class="glyphicon glyphicon-remove-circle"></span>
-                                    <input type="submit" value="OK" class="btn button-default" name="submitNewsletter" />              
+                                    <input type="submit" value="OK" class="btn button-default" name="submitNewsletter"  />              
                                     <input type="hidden" name="action" value="0"/>
                                 </div>
                             </form>
@@ -85,6 +85,12 @@
 			</div>
 		</div>	
 
+<script>
 
+    $.validate({
+            lang : 'fr',
+            modules : 'file,html5,sanitize,toggleDisabled,security',
+            
+    });
 
-
+</script>

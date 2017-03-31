@@ -22,8 +22,14 @@
 							<!-- footer complete -->
 							<div class="row">
 								{$HOOK_FOOTER} 
+								{*
+								{if $logged}
+									<a href="#">{l s='Se déconnecter'}</a>
+								{/if}
+								*}
 							</div>
 						{/if}
+
 					{*	<pre>  {$category->description} </pre> <pre> {$meta_description}  </pre> <pre> {$meta_keywords} </pre>
 						<div>
 							{if {$smarty.get.controller} eq 'index' }
