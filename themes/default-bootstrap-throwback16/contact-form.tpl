@@ -61,14 +61,14 @@
 					 <div class="row">
 						<div class="col-xs-12 col-md-4">
 							<div class="row">
-										<div class="col-xs-12 col-md-4 padding-class">
+										<div class="col-xs-12 col-md-4 padding-class text-left-mobile text-right">
 											<label for="email">{l s='Email address'}</label>
 										</div>
 										<div class="col-xs-12 col-md-8 padding-class">
 											{if isset($customerThread.email)}
-												<input class="form-control grey" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
+												<input class="form-control grey margin-selector" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
 											{else}
-												<input class="form-control grey validate" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" />
+												<input class="form-control grey validate margin-selector" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" />
 											{/if}
 										</div>
 							</div>
@@ -77,7 +77,7 @@
 						<div class="col-xs-12 col-md-4">
 								<div class="form-group selector1">
 									<div class="row">
-											<div class="col-xs-12 col-md-2 objet padding-class">
+											<div class="col-xs-12 col-md-2 objet padding-class text-left-mobile text-right">
 												<label for="id_contact">{l s='Subject Heading'}</label>
 											</div>
 											<div class="col-xs-12 col-md-8 padding-class">
@@ -97,7 +97,7 @@
 														{/if}
 												</div>
 												{else}
-													<select id="id_contact" class="form-control" name="id_contact">
+													<select id="id_contact" class="form-control margin-selector" name="id_contact">
 														<option value="0">{l s='-- Choose --'}</option>
 														{foreach from=$contacts item=contact}
 															<option value="{$contact.id_contact|intval}"{if isset($smarty.request.id_contact) && $smarty.request.id_contact == $contact.id_contact} selected="selected"{/if}>{$contact.name|escape:'html':'UTF-8'}</option>
@@ -121,13 +121,14 @@
 					<div class="col-xs-12 col-md-4">	
 					
 							<div class="form-group selector1">
-								<div class="col-xs-12 col-md-5 padding-class">
-									<label>{l s='Numéro comande'}</label>
+								<div class="row">
+									<div class="col-xs-12 col-md-5 padding-class text-left-mobile text-right">
+										<label>{l s='Numéro comande'}</label>
+									</div>
+									<div class="col-xs-12 col-md-7 padding-class">
+										<input class="form-control grey margin-selector" type="text" name="id_order" id="id_order" value="{if isset($customerThread.id_order) && $customerThread.id_order|intval > 0}{$customerThread.id_order|intval}{else}{if isset($smarty.post.id_order) && !empty($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" />
+									</div>
 								</div>
-								<div class="col-xs-12 col-md-7 padding-class">
-									<input class="form-control grey" type="text" name="id_order" id="id_order" value="{if isset($customerThread.id_order) && $customerThread.id_order|intval > 0}{$customerThread.id_order|intval}{else}{if isset($smarty.post.id_order) && !empty($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" />
-								</div>
-								
 							</div>
 					
 					</div>
@@ -160,7 +161,7 @@
 			</div>
 
 			<h2>{l s='Ou nous contacter'}</h2>
-			<div class="row">
+			<div class="row adresse-contact">
 				<div class="col-xs-12 col-md-4">
 					<p class="shop-info">
 						<strong>{l s='Par téléphone'}</strong><br>
@@ -192,7 +193,7 @@
 				
 			</div>
 			<p class="link-condition">
-				Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiment</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
+				Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiement</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
 			</p>
 		</fieldset>
 	</form>
