@@ -23,7 +23,7 @@
             {l s='Your personal information'}
         </h1>
     -->
-    <h3 class="page-subheading">{l s='Your personal information'}</h3>
+    <h3 class="page-subheading">{l s='Your personal information'}<span>&nbsp:&nbsp{l s='vous devez renseigner votre mot de passe pour enregistrer vos modifications'}</span></h3>
         <!-- INFO text -->
 
         <div class="text-center">
