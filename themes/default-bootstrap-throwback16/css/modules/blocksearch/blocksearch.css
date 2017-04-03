@@ -2,16 +2,15 @@
 /* throwback - customize TODO */
 
 .menu_vertical{
-  /*padding: 13px 0 0 0;*/
+
 }
 
 #search_block_top {
-  /*padding-top: 15px; */
+
 }
 
 #search_block_top #searchbox {
-  /*float: left;*/
-  /*width: 80%; */
+
 }
 
 /* throwback - customize TODO */
@@ -186,7 +185,7 @@ form#searchbox2 input#search_query_block {
 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 480px) and (max-width: 768px) {
   #search_block_top .col-xs-8 {padding: 0 !important; }
   input[name="search_query"]::-webkit-input-placeholder { color:transparent; }
   input[name="search_query"]:-moz-placeholder { color:transparent; }

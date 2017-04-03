@@ -1438,7 +1438,9 @@ textarea.form-control {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   float: left;
-  margin-left: -20px; }
+
+  /*margin-left: -20px; */
+}
 
 .radio + .radio,
 .checkbox + .checkbox {
@@ -7121,7 +7123,7 @@ ul.step li.step_current {
 
 ul.step li.step_current span {
     color: #fff;
-    text-shadow: 1px 1px #208931;
+    text-shadow: 1px 1px rgb(53, 53, 53);
     border: 1px solid;
     border-color: #000;
     position: relative;
@@ -7654,14 +7656,28 @@ div.star a:hover {
       line-height: 25px;
       vertical-align: -4px;
       margin-left: 6px; }
-  .cart_navigation .button-exclusive {
+
+
+  .cart_navigation .button-exclusive,
+  .address_add .cart_navigation_adresse {
     border: none;
     background: none;
     padding: 0;
     font-size: 17px;
     font-weight: bold;
     color: #333;
-    margin: 9px 0 0 0; }
+    margin: 9px 0 0 0; 
+  }
+
+  
+  .address_add .cart_navigation_adresse {
+    color: #777 !important;
+  }
+  .address_add .cart_navigation_adresse:hover {
+    color: #333 !important;
+  }
+
+
     .cart_navigation .button-exclusive i {
       color: #777777;
       margin-right: 8px; }
@@ -7953,10 +7969,13 @@ table#cart_summary .gift-icon {
   position: relative;
   bottom: -2px;
   left: 10px; }
+
 .addresses .checkbox.addressesAreEquals {
   clear: both;
   float: left;
-  margin: 15px 0 25px 0; }
+  /*page livraison - checkbox margin*/
+  /*margin: 15px 0 25px 0; */
+}
 
 #order .delivery_option > div,
 #order-opc .delivery_option > div {

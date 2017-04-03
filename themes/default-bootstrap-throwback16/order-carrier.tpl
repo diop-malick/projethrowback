@@ -43,29 +43,12 @@
 				{else}
 				<div class="row delivery_options_address panel-group" id="accordion">
 
-{*********************************************************
-Retrait en Magansin / id transporteur = 50
-@ author:         Babacar
-@ maintainer:     Malick
-**********************************************************}
-
-{*********************************************************
-Livraison à domicile 
-@ author:         Babacar
-@ maintainer:     Malick
-**********************************************************}
-
-{*********************************************************
-Livraison À une autre adresse
-@ author:         Babacar
-@ maintainer:     Malick
-**********************************************************}			    
 			    <div class="panel panel-default">
 			    	<div class="panel-heading">
 			    		<h4 class="panel-title">
 			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
 			    				{* <span class="resp-arrow"></span>			    				 *}
-			    				<span class="delivery_option_name">{l s='Adresse et lieu de livraison'}</span>
+			    				<span class="delivery_option_name">{l s='Adresse et type de livraison'}</span>
 			    			</a>
 			    			<span class="delivery_option_price free">{l s=''}</span>
 			    		</h4>
@@ -77,10 +60,14 @@ Livraison À une autre adresse
 			        			<div class="delivery_options resp-tabs-container tab">
 			        				<div class="delivery_option item  resp-tab-content resp-tab-content-active tab">
 			        					<div class="addresses clearfix">
-			        						{* Adresses selector *}
+
+			        					{* ********************************************************
+											ADRESSE Selector 
+										********************************************************* *}
+
 			        						{* TODO - check delete virtual cart	code *}
-			        						<div class="row address {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}hidden{/if}">
-			        							<div class="col-xs-12 col-sm-6">
+			        						<div class="row">
+			        						<div class="col-xs-12 col-sm-6 address">
 			        								<div class="address_delivery select form-group selector1">
 			        									<label for="id_address_delivery">{if $cart->isVirtualCart()}{l s='Choose a billing address:'}{else}{l s='Choose a delivery address:'}{/if}</label>
 			        									<select name="id_address_delivery" id="id_address_delivery" class="address_select form-control">
@@ -99,28 +86,75 @@ Livraison À une autre adresse
 			        										{* {/if} *}
 			        									</select>
 			        								</div>																
-			        							</div>																
-			        						</div> <!-- end row -->
 			        						{* end Adresses selector *}
 			        						<br>
+				        						<p class="checkbox addressesAreEquals"{if $cart->isVirtualCart()} style="display:none;"{/if}>
+													<input type="checkbox" name="same" id="addressesAreEquals" value="1"{if $cart->id_address_invoice == $cart->id_address_delivery || $addresses|@count == 1} checked="checked"{/if} />
+													<label for="addressesAreEquals">{l s='Use the delivery address as the billing address.'}</label>
+												</p>
+											</div> <!-- end row -->
+											<div class="col-xs-12 col-sm-6">
+												<div id="address_invoice_form" class="select form-group selector1"{if $cart->id_address_invoice == $cart->id_address_delivery} style="display: none;"{/if}>
+													{if $addresses|@count > 1}
+														<label for="id_address_invoice" class="strong">{l s='Choose a billing address:'}</label>
+														<select name="id_address_invoice" id="id_address_invoice" class="address_select form-control">
+														{section loop=$addresses step=-1 name=address}
+															<option value="{$addresses[address].id_address|intval}"{if $addresses[address].id_address == $cart->id_address_invoice && $cart->id_address_delivery != $cart->id_address_invoice} selected="selected"{/if}>
+																{$addresses[address].alias|escape:'html':'UTF-8'}
+															</option>
+														{/section}
+														</select><span class="waitimage"></span>
+													{else}
+														<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+															<span>
+																{l s='Add a new address'}
+																<i class="icon-chevron-right right"></i>
+															</span>
+														</a>
+														{* <span>
+																{l s='Ajouter une nouvelle adresse pour sélectionnez pour sélectionner une adresse de facturation'}
+														</span> *}
+													{/if}
+												</div>
+											</div>
 
-			        						{* Adresses INFO *}
+											</div> <!-- end row selector -->
+
+			        					{* ********************************************************
+											ADRESSE info 
+										********************************************************* *}	
+			        						
 			        						<div class="row addresses">
-			        							<div class="col-sm-12" {if $cart->isVirtualCart()} style="display:none;"{/if}>
+			        							{* DELIVERY ADRESSE *}
+			        							<div class="col-xs-12 col-sm-6" {if $cart->isVirtualCart()} style="display:none;"{/if}>
 			        								<span class="waitimage"></span>
 			        								<ul class="address item box {if !isset($addresses)}hidden{/if}" id="address_delivery">
 
 			        								</ul>
 			        							</div>
+			        							{* INVOICE ADRESSE *}
+			        							<div class="col-xs-12 col-sm-6">
+													<ul class="address alternate_item{if $cart->isVirtualCart()} full_width{/if} box" id="address_invoice">
+													</ul>
+												</div>
 			        						</div>
 
-			        						<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 2)}none{/if}"></div>
+			        						{* ********************************************************
+											ADRESSE form add
+										********************************************************* *}
+			        						
+			        						<div class="row {if !isset($addresses) || (isset($addresses) && $addresses|@count lt 1)}none{/if}"></div>
 
-			        						<p class="address_add submit {if isset($addresses)}hidden{/if}" style="text-align: center">
-			        							<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-			        								<span>Ajouter une adresse secondaire<i class="icon-chevron-right right"></i></span>
-			        							</a>
-			        						</p>
+			        						{* ********************************************************
+											ADRESSE add btn
+										********************************************************* *}
+			        						<p class="address_add submit {if !isset($addresses)}hidden{/if}">
+												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
+													<span>{l s='Add a new address '}</span>
+													<i class="icon-chevron-right right" style="font-size: 15px;"></i>
+												</a>
+											</p>
+
 			        					</div> <!-- end addresses -->													
 			        					<div id="address" class="hidden clearfix"></div>
 
@@ -138,12 +172,15 @@ Livraison À une autre adresse
 									<div>
 										<table class="resume table table-bordered{if !$option.unique_carrier} hide{/if}">
 											<tr>
+
+												<!-- RADIO CHECKBOX -->
 												<td class="delivery_option_radio">
 													<span class="delivery_option_radio">
 													<input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"/>
 													</span>
 												</td>
 
+												<!-- LOGO -->
 												<td class="delivery_option_logo">
 													{foreach $option.carrier_list as $carrier}
 														{if $carrier.logo}
@@ -154,6 +191,7 @@ Livraison À une autre adresse
 														{/if}
 													{/foreach}
 												</td>
+												<!-- DELAI LIVRAISON -->
 												<td>
 													{if $option.unique_carrier}
 														{foreach $option.carrier_list as $carrier}
@@ -176,6 +214,7 @@ Livraison À une autre adresse
 														{/if}
 													{/if}
 												</td>
+												<!-- PRIX-->
 												<td class="delivery_option_price">
 													<div class="delivery_option_price">
 														{if $option.total_price_with_tax && !$option.is_free && (!isset($free_shipping) || (isset($free_shipping) && !$free_shipping))}
