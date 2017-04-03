@@ -12,7 +12,7 @@
 											*}
 											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
-												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">({$cart_qties})</span>
+												(<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>)
 												<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_total{if $cart_qties == 0} unvisible{/if}">
@@ -176,7 +176,7 @@
 																{/if}
 																<div class="cart-prices-line last-line">
 																	<span class="price cart_block_total ajax_block_cart_total">{$total}</span>
-																	<span>{l s='Total' mod='blockcart'}</span>
+																	<span>{l s='Total :' mod='blockcart'}</span>
 																</div>
 																{if $use_taxes && $display_tax_label && $show_tax}
 																	<p>
