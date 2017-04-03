@@ -23,11 +23,10 @@
 							<div class="row">
 								{$HOOK_FOOTER} 
 								
-								
 								{if $logged && isset($newsletter) && $newsletter==1 }
 										<div class="row">
 											<div class="col-md-3 col-md-offset-9">
-												<a href="#" class="link-deconnexion">{l s='Se déconnecter'}</a>
+												<a href="http://ovh.us15.list-manage.com/unsubscribe?u=d56def1fdca3f61da060d5d2a&id=2eca580371" class="link-deconnexion">{l s='Se déconnecter'}</a>
 											 </div>
 										</div>
 								{/if}
