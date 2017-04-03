@@ -45,6 +45,7 @@ $(document).ready(function(){
 		return false;
 	});
 
+	// Active button checkout only if carrer is seleted
 	$('input[type=radio]').click(function(event){
 		$(this).attr("checked","checked");
 		$(this).parent().addClass('checked');
@@ -125,8 +126,8 @@ function initMap() {
 function ajaxAddressSetup()
 {
 	if (typeof formatedAddressFieldsValuesList === 'undefined' || !formatedAddressFieldsValuesList){		
-		$('.resp-tab-content:last-of-type').addClass('hidden');
-		$('h2.resp-accordion:last-of-type').addClass('hidden');
+		// $('.resp-tab-content:last-of-type').addClass('hidden');
+		// $('h2.resp-accordion:last-of-type').addClass('hidden');
 	}
 	$('.resp-tab-content').each(function(){
 		var tab = this;	
@@ -176,7 +177,7 @@ function ajaxAddressSetup()
 										var address = formatedAddressFieldsValuesList[Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1]];
 										$('.addresses .none',tab).removeClass('none').addClass('hidden');
 										$('#id_address_delivery',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
-										if($('#id_address_delivery option',tab).length >= 2){
+										if($('#id_address_delivery option',tab).length >= 1){
 											$('.addresses .address_add a',tab).addClass('hidden');
 										}
 									}else{
