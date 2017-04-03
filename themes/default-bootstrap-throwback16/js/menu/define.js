@@ -62,8 +62,8 @@ function scrollAction(){
 }
 $(document).ready(function() {
     $( ".toggle_menu" ).click(function(e) {
-
          e.preventDefault();
+         $('#left_column #block_top_menu ul.sf-menu').show();
          if ($( "#toggleMenu" ).hasClass("maxi")){
                 minimizePage();
          }

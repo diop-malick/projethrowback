@@ -305,12 +305,12 @@
 
 											<div class="col-md-3 col-xs-3">
 												{if !$priceDisplay}
-													<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price_wt}</span>
+													<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if} price product-price price-prod">{convertPrice price=$product.price_wt}</span>
 												{else}
-								               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if}">{convertPrice price=$product.price}</span>
+								               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if} price product-price price-prod">{convertPrice price=$product.price}</span>
 												{/if}
 												{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
-													<span class="reduction-text">
+													<span class="reduction-text price product-price price-prod">
 														{if !$priceDisplay}
 								            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
 								                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
@@ -342,8 +342,9 @@
 										{* end row atributes *}
 
 									</div>
-
-
+								<!-- loader -->
+									<div id="spin_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
+									</div>
 
 								</div>
 								<div class="row">
@@ -363,6 +364,8 @@
 											<span>{l s='ANNULER'}</span>
 											</button>
 										</div>
+
+										
 								</div>
 							</div>
 

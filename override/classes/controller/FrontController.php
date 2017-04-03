@@ -41,6 +41,13 @@ class FrontController extends FrontControllerCore
         
 
         $this->addjqueryPlugin('fancybox');
+        $this->addJS(_THEME_JS_DIR_.'spin.js');
+
+        $customer = new Customer((int)$this->context->customer->id); 
+       
+	    $this->context->smarty->assign(array(
+	            'newsletter'       => $customer->newsletter,
+	        ));
 
     }
 

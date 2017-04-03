@@ -67,7 +67,8 @@
 							{/if} 
 								
 							{if isset($sizing)}
-								{l s='Taille'}: {$sizing}
+								{assign var=someVar value=" "|explode:$sizing}
+								{l s='Taille'}: {if (isset($someVar[0])) } {$someVar[0]|escape:'html':'UTF-8'} {/if} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 								&nbsp;&nbsp;
 							{/if}
 								
@@ -115,7 +116,7 @@
 	<div class="row commande_body">
 		 {$livraison->name}
 		 <br>
-		 <strong>{l s='Délai : '}{$livraison->delay}</strong>
+		 <strong>{$livraison->delay}</strong>
 		 <hr>
 		 	{if $livraison->name == 'Retrait en magasin'}
 				 <div class="row">
@@ -139,7 +140,8 @@
 							{$adresse->address1} {$adresse->address2} {$adresse->other}		
 						</div>
 						<div class="col-md-12">			
-							{$adresse->postcode} {$adresse->city} {$adresse->country}	
+							{$adresse->postcode} {$adresse->city} <br>
+							{$adresse->country}	
 						</div>
 				 	</div>
 			{/if}
