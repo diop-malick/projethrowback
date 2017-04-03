@@ -492,29 +492,6 @@
     overflow: hidden; }
 
 
-@media (max-width: 380px) {
-  #mobil_blockcart {
-        padding-left: 0px !important;
-  }
-}
-  @media (min-width: 380px) and  (max-width: 768px) {
-    #mobil_blockcart {
-      padding: 0 !important;
-      margin-top: -5px;
-    }
-  #picto_panier .visible-xs{
-      display: inline !important;
-    }
-  }
 
- @media (min-width: 768px) {
-     #picto_panier .hidden-xs {
-       display: inline !important; }
-     }/*
-   @media (max-width: 768px){
-       #picto_panier .visible-xs {
-         display: inline !important;
-         }
-     } */
 
 /*# sourceMappingURL=blockcart.css.map */

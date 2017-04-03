@@ -1,28 +1,17 @@
 <!-- COL UserInfo + Cart -->
-<div id ="user_info" class="col-md-4 col-xs-4 pull-right" >
+<div id ="user_info" class="col-xs-6 col-md-4 pull-right" >
 	<!-- ROW UserInfo + Cart -->
 	<div class="row">
 
 		<!-- MODULE Block UserInfo  NAV  -->
-		<div class="header_user_info col-md-6 col-xs-6 text-right">
+		<div class="col-xs-6 col-md-6 text-right header_user_info">
 		   <div class="dropdown">
 			{if $is_logged}
 				<button class="dropbtn">
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
-				      			 <span id="icone_mon_compte hidden-xs">
-				      			 	{l s='Bonjour ' mod='blockuserinfo'}{$cookie->customer_firstname}
-				      			 </span>
-				      				{* <img class="hidden-xs" src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
-									{* <img class="visible-xs" src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/> *}
-
-									{* <i class="fa fa-user fa-2x" aria-hidden="true"></i> *}
-
-									<i class="material-icons"">person</i>
-									{* <i class="material-icons">person_outline</i> *}
-
-
-				      			
+				      			<span class="hidden-xs">{l s='Bonjour ' mod='blockuserinfo'}{$cookie->customer_firstname}</span>
+								<i class="material-icons"">person</i>			      			
 				      </a>
 			    </button>
 			    <div class="dropdown-content pull-right">

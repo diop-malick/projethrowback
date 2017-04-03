@@ -33,11 +33,15 @@ function minimizePage() {
 	}
 	$('#toggleMenu').removeClass('maxi').addClass('mini');
 }
+
 function scrollAction(){
 	$(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
+
+        // JavaScript API built in for detecting media mobile
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
 	
-        if(scroll>0){
+        if(scroll>0 && !isMobile.matches ){
             // $('#block_top_menu').removeClass('show').addClass('hidden');
             $('.menu_vertical').removeClass('hidden').addClass('show');
             //$('#search_block_top').removeClass('col-sm-4').addClass('col-sm-3');
@@ -73,4 +77,14 @@ $(document).ready(function() {
     }, function () {
         $( this).removeClass('hovered');
     });
+
+    // check mobile device
+    var browser_device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+    console.log(browser_device);
+    console.log(navigator.userAgent);
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        // You are in mobile browser
+        console.log('ok');
+    }
+
 });
