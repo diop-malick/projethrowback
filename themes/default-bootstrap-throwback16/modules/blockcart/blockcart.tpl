@@ -220,6 +220,7 @@
 								</div>
 								<div class="layer_cart_product_info hidden-xs">
 									<span id="layer_cart_product_title" class="product-name"></span>
+									<strong class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
 									<span id="layer_cart_product_attributes"></span>
 								
 									{* <pre>{$product.attributes}</pre> *}
@@ -266,22 +267,20 @@
 								</div>
 								<div class="button-container">
 									<div class = "row">
+									<div class="col-md-6 col-xs-12">
+											<p class="cart_navigation clearfix">
+												<a href="{$smarty.server.REQUEST_URI}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'} ">
+													<i><</i>{l s='Continuer mon shopping'}
+												</a>
+											</p>
+
+										</div>
 										<div class="col-md-6 col-xs-12">
 											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 												<span>
 													{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
 												</span>
 											</a>
-										</div>
-
-										<div class="col-md-6 col-xs-12">
-											<p class="cart_navigation clearfix">
-												<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
-													<i><</i>{l s='Continuer mon shopping'}
-												</a>
-											</p>
-
-
 										</div>
 									</div>
 								</div>
