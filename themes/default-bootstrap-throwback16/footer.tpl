@@ -22,11 +22,16 @@
 							<!-- footer complete -->
 							<div class="row">
 								{$HOOK_FOOTER} 
-								{*
-								{if $logged}
-									<a href="#">{l s='Se déconnecter'}</a>
+								
+								
+								{if $logged && isset($newsletter) && $newsletter==1 }
+										<div class="row">
+											<div class="col-md-3 col-md-offset-9">
+												<a href="#" class="link-deconnexion">{l s='Se déconnecter'}</a>
+											 </div>
+										</div>
 								{/if}
-								*}
+								
 							</div>
 						{/if}
 

@@ -535,7 +535,7 @@ width: auto;
   .margin-top-10{
     margin-top:10px;
   }
-  .page-product-box a {
+  .page-product-box a , .link-deconnexion {
     color: #777 !important;
     text-decoration: none !important;
   }
@@ -551,6 +551,9 @@ width: auto;
   .reduction-text{
     color:#f13340;
   }
+  .price-prod{
+        font-size: 13px !important;
+       }
   .dispo-text{
         color:#2e7a3a;
         text-transform: uppercase;

@@ -90,7 +90,7 @@
     $.validate({
             lang : 'fr',
             modules : 'file,html5,sanitize,toggleDisabled,security',
-            
+            form : '#mc-embedded-subscribe-form'
     });
 
 </script>
