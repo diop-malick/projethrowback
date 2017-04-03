@@ -63,12 +63,29 @@
 .link-condition a{
   text-decoration: underline;
 }
+.adresse-contact strong{
+  font-size: 18px;
+}
 .objet{
-    margin-left:50px;
+    margin-left:30px;
+    margin-right: 10px;
   }
-@media  (max-width: 768px) {
+  /*
+  .margin-selector{
+    margin-left: -20px;
+  }
+  */
+@media  (max-width: 991px) {
   .objet{
     margin-left:0px;
   }
+  .text-left-mobile {
+              text-align: left;
+       }} 
+  /*
+  .margin-selector{
+    margin-left: 0px !important;
+  }
+  */
 }
 /*# sourceMappingURL=contact-form.css.map */

@@ -94,7 +94,7 @@
 									{l s='Details'}<i class="icon-chevron-right right"></i>
 								</span>
 							</a>
-							{*
+							
 							{if isset($opc) && $opc}
 								<a class="link-button" href="{$link->getPageLink('order-opc', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
 							{else}
@@ -104,7 +104,7 @@
 									<i class="icon-refresh"></i>{l s='Reorder'}
 								{/if}
 							</a>
-							*}
+							
 						</td>
 					</tr>
 				{/foreach}
