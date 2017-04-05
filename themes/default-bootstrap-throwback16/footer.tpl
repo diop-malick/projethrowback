@@ -34,17 +34,21 @@
 							</div>
 						{/if}
 
-					{*	<pre>  {$category->description} </pre> <pre> {$meta_description}  </pre> <pre> {$meta_keywords} </pre>
-						<div>
+						
+						<div id="textSEO" class="container text-center">
 							{if {$smarty.get.controller} eq 'index' }
-							T-shirt et polos homme : l'alliance du style et du confort
-						  Un t-shirt et un polo bien portés peuvent être du plus grand effet !
-							{elseif {$smarty.get.controller} eq 'category'}
-							Categorie
-							{elseif {$smarty.get.controller} eq 'product' }
-							Produit
+								{l s='La marque Throwback Sneakers a été créée par et pour des passionnés de la culture Sneaker.  
+									  Notre site Internet créé en 2009 a évolué dans cette direction pour permettre de proposer des produits
+									   forts et emblématiques aux passionnés, mêlant nouveautés Retro, innovation et produits "Deadstock".
+										Les sneakers sont bien plus que des chaussures de sport, elles sont devenues un 
+										incontournable du look sportif, élégant et détendu. Des baskets Nike aux tennis Adidas découvrez notre sélection de sneakers.
+										Throwback Sneakers est un site marchand mais nous vous invitons également à suivre et partager nos articles, discussions et analyses
+										autour de la sneakers à la fois sur notre page Facebook et notre blog.'}
+							{elseif {$smarty.get.controller} eq 'category' or {$smarty.get.controller} eq 'product'  }
+								{$category->description}
+					
 							{/if}
-						</div> *}
+						</div> 
 					</footer>
 
 				</div><!-- #footer -->
