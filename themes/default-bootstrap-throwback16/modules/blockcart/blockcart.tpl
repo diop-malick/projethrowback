@@ -12,7 +12,7 @@
 											*}
 											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
-												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">({$cart_qties})</span>
+												(<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>)
 												<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_total{if $cart_qties == 0} unvisible{/if}">
@@ -137,6 +137,9 @@
 															{/if}
 															{assign var='free_ship' value=count($cart->getDeliveryAddressesWithoutCarriers(true, $errors))}
 															<div class="cart-prices">
+
+															{* shipping info *}
+															{*
 																<div class="cart-prices-line first-line">
 																	<span class="price cart_block_shipping_cost ajax_cart_shipping_cost{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} unvisible{/if}">
 																		{if $shipping_cost_float == 0}
@@ -144,11 +147,14 @@
 																		{else}
 																			{$shipping_cost}
 																		{/if}
-																	</span>
+																	</span> 
+																	
+
 																	<span{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} class="unvisible"{/if}>
 																		{l s='Shipping' mod='blockcart'}
 																	</span>
 																</div>
+																*}
 																{if $show_wrapping}
 																	<div class="cart-prices-line">
 																		{assign var='cart_flag' value='Cart::ONLY_WRAPPING'|constant}
@@ -170,7 +176,7 @@
 																{/if}
 																<div class="cart-prices-line last-line">
 																	<span class="price cart_block_total ajax_block_cart_total">{$total}</span>
-																	<span>{l s='Total' mod='blockcart'}</span>
+																	<span>{l s='Total :' mod='blockcart'}</span>
 																</div>
 																{if $use_taxes && $display_tax_label && $show_tax}
 																	<p>
@@ -220,6 +226,7 @@
 								</div>
 								<div class="layer_cart_product_info hidden-xs">
 									<span id="layer_cart_product_title" class="product-name"></span>
+									<strong class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
 									<span id="layer_cart_product_attributes"></span>
 								
 									{* <pre>{$product.attributes}</pre> *}
@@ -266,22 +273,20 @@
 								</div>
 								<div class="button-container">
 									<div class = "row">
+									<div class="col-md-6 col-xs-12">
+											<p class="cart_navigation clearfix">
+												<a href="{$smarty.server.REQUEST_URI}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'} ">
+													<i><</i>{l s='Continuer mon shopping'}
+												</a>
+											</p>
+
+										</div>
 										<div class="col-md-6 col-xs-12">
 											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 												<span>
 													{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
 												</span>
 											</a>
-										</div>
-
-										<div class="col-md-6 col-xs-12">
-											<p class="cart_navigation clearfix">
-												<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
-													<i><</i>{l s='Continuer mon shopping'}
-												</a>
-											</p>
-
-
 										</div>
 									</div>
 								</div>
