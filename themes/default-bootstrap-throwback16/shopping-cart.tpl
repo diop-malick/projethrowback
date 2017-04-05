@@ -187,11 +187,13 @@
 											<div class="col-md-8 col-xs-12">
 												<div class="attributes_to_modify_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" style="display: none">
 														<div class="row">
-															{if isset($groups)}
+															{if isset($groups) && $groups}
 															<div class="customattributes groups-attribute">
 																<div id="attributes">
 																	<div class="attribute_list custom-attribute">
+																		{if isset($groups[$product.id_product]) && $groups[$product.id_product]}
 																		<label class="attribute_label" >{l s='Taille'}</label>
+																		{/if}
 																		{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																			{if $group.attributes|@count}
 																			<!--<fieldset class="attribute_fieldset">-->
@@ -266,7 +268,7 @@
 											
 
 											<div class="col-md-3 col-xs-3">
-												{if isset($sizing)}
+												{if isset($sizing) && $sizing}
 													<div class = "row">
 														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
 															<label class="label-attribute">{l s='Taille'}</label>
