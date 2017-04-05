@@ -328,6 +328,9 @@
 											</span>
 										</p>
 										{/if}
+										<!-- Message Delivery in France -->	
+										<p id ="fMessage"> {l s='Livraison gratuite en France'} </p>
+									
 
 										{*
 										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>

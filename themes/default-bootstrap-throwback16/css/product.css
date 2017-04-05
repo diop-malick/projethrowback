@@ -1491,4 +1491,11 @@ background: none;
 #table_social_media{
   margin-top: -9px !important;
 }
+
+/* Produc Delivery message zone */
+#fMessage{
+  padding: 3px 8px 4px;
+  margin-left:5px;
+}
+
 /*# sourceMappingURL=product.css.map */
