@@ -242,7 +242,10 @@ $(document).ready(function()
 	* Custom throwback -> Align button add_to_cart with image if no chronot
 	* ********************************************************************* */
 	// TODO fixe btn to product image footer
-	if (!$('#timer').length ) {
+	// JavaScript API built in for detecting media mobile
+    var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+	
+	if (!$('#timer').length && !isMobile.matches ) {
     	var add_to_cart_heigh = $('#add_to_cart').height();
     	// $('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
     	$('#add_to_cart').css('margin-top',  '60px');

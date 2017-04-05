@@ -107,6 +107,16 @@
 							</div>
 						</div>
 					{/if}
+
+					<!-- Logo TOP  on mobile device -->
+					<div class="row visible-xs-logo-mobile" style="display:none;">
+						<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+							<img class="logo img-responsive logo-throwback" src=" {$base_dir}/img/logo-simple.png" alt="{$shop_name|escape:'html':'UTF-8'}"/>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+					<!-- /Logo TOP -->
+
 					<div>
 						<div class="container-fluid">
 						<!-- row Header(search + logo + cart) + row Menu -->

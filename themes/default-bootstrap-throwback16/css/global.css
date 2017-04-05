@@ -2678,12 +2678,9 @@ input[type="button"].btn-block {
     .navbar-inverse .navbar-link:hover {
       color: #fff; }
 
-.breadcrumb {
-  padding: 8px 15px;
-  margin-bottom: 18px;
-  list-style: none;
-  background-color: #f6f6f6;
-  border-radius: 0px; }
+
+ 
+
   .breadcrumb > li {
     display: inline-block; }
     .breadcrumb > li + li:before {
@@ -7333,21 +7330,7 @@ div.star a:hover {
 .header-container {
   background: #fff; }
 
-.breadcrumb {
-  display: inline-block;
-  padding: 0 11px;
-  border: 1px solid #d6d4d4;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 24px;
-  min-height: 6px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1; }
+
   .breadcrumb .navigation-pipe {
     width: 18px;
     display: inline-block;

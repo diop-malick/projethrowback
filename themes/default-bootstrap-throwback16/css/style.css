@@ -49,6 +49,11 @@
 }
 
 @media (max-width: 479px) {
+
+  #order .columns-container, #password .columns-container, #order-confirmation .columns-container, #contact .columns-container {
+    margin-top: 10px !important;
+}
+
     /*row-mainnav-mobile-parent*/
     .header-top-row {
         /*display: block;*/
@@ -177,17 +182,66 @@ nav #block_contact_infos .col-xs-4 {
     }
     .columns-container #columns #left_column {
         width: 100% !important;
-        top: 110px !important;
+        top: 159px !important;
     }
-    .#categories_block_left .block_content > ul {
+    #categories_block_left .block_content > ul {
         width: 100% !important;
     }
 
+  .dropdown:hover .dropdown-content {
+    margin-top: 25px !important;
+  }
    
+   #category .columns-container {
+    margin-top: 0px !important;
+}
 
+.breadcrumb {
+  margin:0px;
+  margin-top: 0px !important;
+  padding: 0px !important;
+  padding-left: 0px !important;
+}
 
   #header .shopping_cart {
     padding-top: 0px;
+  }
+
+
+
+  #breadcrumb_product {
+    margin-left: 0px !important;
+  }
+
+
+  .product-container .row {
+    padding:8px;
+  }
+
+  #product .columns-container {
+    margin-top: 5px !important;
+  }
+
+  .visible-xs-logo-mobile {
+    
+    display: block !important;
+  }
+  .visible-xs-logo-mobile img {
+    margin: 0 auto !important;
+    /*box-shadow: 8px 8px 12px #aaa;*/
+  }
+  .header-top-row {
+    margin-top: 0px !important;
+  }
+
+  .pb-left-column #image-block {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+ 
+
+  .quantity_wanted_p {
+
   }
 
 }
@@ -955,7 +1009,12 @@ width: auto;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 480px) {
+
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+      
       .text-right-mobile {
               text-align: right;
        } 
@@ -1130,6 +1189,13 @@ button.accordion.active:after {
 color: rgb(214, 157, 50);
 }
 
+@media (min-width: 480px) {
+  .breadcrumb {
+margin-bottom: 0px !important;
+  margin-top: 10px !important;
+}
+}
+
 /*  Breadcrumb(Fil d'ariane) nouvelle maquette */
 .breadcrumb {
   display: inline-block;
@@ -1138,13 +1204,13 @@ color: rgb(214, 157, 50);
   font-weight: normal !important;
   font-size: 12px;
   line-height: 24px;
+  list-style: none;
   min-height: 6px;
   -moz-border-radius: 3px;
   -moz-border-radius: 0px !important;
   background-color: #fff !important;
   overflow: hidden;
-  margin-bottom: 0px !important;
-  margin-top: 10px !important;
+  
   position: relative;
   z-index: 1;
   }
@@ -1165,9 +1231,13 @@ color: rgb(214, 157, 50);
   .breadcrumb .navigation_page {
       font-weight: bold !important;
     }
-  #breadcrumb_product {
-     margin-left: -2.5em !important;
+
+    @media (min-width: 480px) {
+        #breadcrumb_product {
+            margin-left: -2.5em !important;
+        }
     }
+
 
 
 /************************************************************
