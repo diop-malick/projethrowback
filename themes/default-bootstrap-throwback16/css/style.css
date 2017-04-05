@@ -140,6 +140,12 @@ body {
     color: #777 !important;
 }
 
+/************************ slider *********************************/
+
+#index #slider_row{
+  margin-top: 120px;
+}
+
 /*margin top colum center and hesder*/
 #category .columns-container{
     margin-top: 120px;
