@@ -1051,3 +1051,9 @@ color: rgb(214, 157, 50);
 .fancybox-nav span {
     visibility: visible !important;
 }
+#textSEO{
+  font-size: 1.1em;
+  font-family: lato,arial,sans-serif;
+  line-height: 1.5;
+  color: #233434;
+}

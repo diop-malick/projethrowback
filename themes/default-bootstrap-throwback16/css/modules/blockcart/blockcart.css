@@ -211,9 +211,9 @@
       color: #9c9b9b; }
   #header .cart_block .cart_block_list .remove_link a,
   #header .cart_block .cart_block_list .ajax_cart_block_remove_link {
-    color: #fff;
+    color: ##9c9b9b;
     outline: none;
-    text-decoration: none; }
+    text-decoration: none; } 
     #header .cart_block .cart_block_list .remove_link a:hover,
     #header .cart_block .cart_block_list .ajax_cart_block_remove_link:hover {
       color: #9c9b9b; }
