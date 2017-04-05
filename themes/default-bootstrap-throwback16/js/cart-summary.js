@@ -230,7 +230,7 @@ function showElemntsToModify(line) {
         // console.log(attributesCombinations);
         /* ligth selected already attributes */       
         for (index in attributesCombinations) {
-            if (index == id) {
+            if (index == id && attributesCombinations[index] != null) {
                 selectedAttributeElement = attributesCombinations[index][id_product_attribute]['attributes'][0];
                 // console.log(selectedAttributeElement);                
                 // find 'label' element by 'for'

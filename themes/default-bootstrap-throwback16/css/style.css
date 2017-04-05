@@ -140,6 +140,12 @@ body {
     color: #777 !important;
 }
 
+/************************ slider *********************************/
+
+#index #slider_row{
+  margin-top: 120px;
+}
+
 /*margin top colum center and hesder*/
 #category .columns-container{
     margin-top: 120px;
@@ -1050,4 +1056,10 @@ color: rgb(214, 157, 50);
 ************************************************************/
 .fancybox-nav span {
     visibility: visible !important;
+}
+#textSEO{
+  font-size: 1.1em;
+  font-family: lato,arial,sans-serif;
+  line-height: 1.5;
+  color: #233434;
 }

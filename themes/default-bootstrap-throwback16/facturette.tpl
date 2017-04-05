@@ -39,14 +39,39 @@
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
 					{assign var="attributes" value=(isset($product.attributes_small))?$product.attributes_small:$product.product_name}
 					{assign var="quantity" value=(isset($product.cart_quantity))?$product.cart_quantity:$product.product_quantity}
-					{assign var="split_size" value=","|explode:$attributes}
+					
 
-					{if isset($split_size[0]) }
-						{assign var="sizing" value=$split_size[0]|trim}
-					{/if}
+					{if {$smarty.get.controller} eq orderconfirmation }
+					
+
+						{assign var="split_size" value="-"|explode:$attributes}
+
+						{if isset($split_size[0]) }
+							{assign var="name" value=$split_size[0]|trim}
+						{/if}
+								
+						{assign var="sizing_ini" value=":"|explode:$split_size[1]}
+						{assign var="color_ini" value=":"|explode:$split_size[2]}
 						
-					{if isset($split_size[1]) }
-						{assign var="color" value=$split_size[1]|trim}
+						{if isset($sizing_ini[1]) }
+								{assign var="sizing" value=$sizing_ini[1]|trim}
+						{/if}
+
+						{if isset($color_ini[1]) }
+								{assign var="color" value=$sizing_ini[2]|trim}
+						{/if}
+
+					{elseif {$smarty.get.controller} eq 'order'}
+
+						{assign var="split_size" value=","|explode:$attributes}
+
+						{if isset($split_size[0]) }
+							{assign var="sizing" value=$split_size[0]|trim}
+						{/if}
+							
+						{if isset($split_size[1]) }
+							{assign var="color" value=$split_size[1]|trim}
+						{/if}
 					{/if}
 					
 					<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande facturette-tc">
@@ -66,7 +91,7 @@
 								&nbsp;&nbsp;
 							{/if} 
 								
-							{if isset($sizing)}
+							{if isset($sizing) && $sizing}
 								{assign var=someVar value=" "|explode:$sizing}
 								{l s='Taille'}: {if (isset($someVar[0])) } {$someVar[0]|escape:'html':'UTF-8'} {/if} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 								&nbsp;&nbsp;

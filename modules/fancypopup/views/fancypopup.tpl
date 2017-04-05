@@ -41,4 +41,10 @@
 <script>
 	fancypopup_SHOW_TIME = {$fancypopup_SHOW_TIME};
 	fancypopup_MODULE_PATH = "{$module_path}";
+
+	$.validate({
+            lang : 'fr',
+            modules : 'file,html5,sanitize,toggleDisabled,security',
+            form : "#form_fancy"
+    });
 </script>

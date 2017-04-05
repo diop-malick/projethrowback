@@ -177,12 +177,17 @@ function ajaxAddressSetup()
 										var address = formatedAddressFieldsValuesList[Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1]];
 										$('.addresses .none',tab).removeClass('none').addClass('hidden');
 										$('#id_address_delivery',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
-										if($('#id_address_delivery option',tab).length >= 1){
-											$('.addresses .address_add a',tab).addClass('hidden');
-										}
+										$('#id_address_invoice',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
+										// if($('#id_address_delivery option',tab).length >= 1){
+										// 	$('.addresses .address_add a',tab).addClass('hidden');
+										// }
 									}else{
 										$('#id_address_delivery option[value=' + data.id_address + ']',tab).html(data.formatedAddressFieldsValuesList[data.id_address]['alias']).attr("selected","selected");
 										$('#id_address_delivery',tab).trigger('change');
+
+										$('#id_address_invoice option[value=' + data.id_address + ']',tab).html(data.formatedAddressFieldsValuesList[data.id_address]['alias']).attr("selected","selected");
+										$('#id_address_invoice',tab).trigger('change');
+
 									}
 								}								
 								resetForm(tab);
