@@ -1,21 +1,55 @@
+
 /************************************************************
-        RESPONSIVE
+        RESPONSIVE - SMART
+************************************************************/
+
+@media (min-width: 480px) and (max-width: 990px) {
+
+#contact-link a {
+  position:absolute;
+  top:-50px;
+  right:0px;
+}
+
+#social_block {
+  right: 20%;
+  position: absolute;
+  top: -65px;
+
+}
+
+#block_contact_infos{
+  position: absolute;
+  top: 5px;
+  width: 200px;}
+
+}
+
+/************************************************************
+        RESPONSIVE - MOBILE
 ************************************************************/
 
 
 /*Responsive Text Align*/
 
-.text-xs-left { text-align: left; }
-.text-xs-right { text-align: right; }
-.text-xs-center { text-align: center; }
-.text-xs-justify { text-align: justify; }
+.text-xs-left {
+    text-align: left;
+}
 
+.text-xs-right {
+    text-align: right;
+}
 
+.text-xs-center {
+    text-align: center;
+}
 
+.text-xs-justify {
+    text-align: justify;
+}
 
 @media (max-width: 479px) {
-
-  /*row-mainnav-mobile-parent*/
+    /*row-mainnav-mobile-parent*/
     .header-top-row {
         /*display: block;*/
         /*width: 100%;*/
@@ -28,52 +62,140 @@
         -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2)
     }
-
-    #menu_and_serach, #search_block_top {
-      height: 50px !important;
+    #menu_and_serach,
+    #search_block_top {
+        height: 50px !important;
     }
-    .menu_vertical ,
+    .menu_vertical,
     #search_block_top,
     .header_user_info,
     #mobil_blockcart {
-      /*width: 25% !important;*/
-      height: 50px !important;
-      margin: 0 !important;
-      /*float: left !important;*/
-      padding: 0 !important;
-      background: 0 !important;
-      /*background-color: #EBEEF0 !important;*/
-      border: 0 !important;
-      border-radius: 0 !important;
-      border-right: 2px solid #B5BDC1 !important;
-      text-align: center !important;
+        /*width: 25% !important;*/
+        height: 50px !important;
+        margin: 0 !important;
+        /*float: left !important;*/
+        padding: 0 !important;
+        background: 0 !important;
+        /*background-color: #EBEEF0 !important;*/
+        border: 0 !important;
+        border-radius: 0 !important;
+        border-right: 2px solid #B5BDC1 !important;
+        text-align: center !important;
     }
     .dropbtn {
-      
-          background: transparent;
+        background: transparent;
     }
     .dropbtn a {
-      background-color: transparent !important;
-          background: transparent;
+        background-color: transparent !important;
+        background: transparent;
     }
     .header_user_info a {
-      color: rgb(147, 149, 152);
+        color: rgb(147, 149, 152);
     }
-
-    #search_block_top {
-
-    }
-
-    #search_block_top, #search_query_top {
-
-    }
-
+    #search_block_top {}
+    #search_block_top,
+    #search_query_top {}
     /*#center_column */
-    
     .columns-container {
-      margin-top: 120px;
+        /*margin-top: 120px;*/
     }
+    #textSEO {
+        font-size: 0.9em !important;
+        background-color: #ececeb;
+        padding-top: 25px;
+        font-family: "Futura" !important;
+        color: rgba(147, 149, 152, 0.749) !important;
+    }
+    #header {
+        position: relative;
+    }
+    #contact-link a {
+        border: none;
+        text-shadow: none;
+        position: absolute;
+        top: -140px;
+        right: 10px;
+    }
+    .footer-container #footer #social_block {
+        width: 100% !important;
+        position: absolute;
+        top: 65px;
+        left: 115px;
+        margin-top: 0px !important;
+    }
+    .nav .footer-block {
+        margin-top: 0px !important;
+    }
+    .footer-container #footer .footer-block {
+        /* margin-top: 20px; */
+    }
+    .footer-container #footer #social_block {}
+    
+    nav #block_contact_infos span {
+       font-size: 10px !important;
+    }
+    nav #block_contact_infos {
+     margin-left: -23px !important;
+   }
+nav #block_contact_infos .col-xs-4 {
+     width: 200px !important;
+   }
+   
+
+    .footer-container #footer #block_contact_infos span {
+        font-size: 14px !important;
+     font-family: "Futura";
+     color: rgba(147, 149, 152, 0.749);
+      left: 39.252px;
+    }
+    .footer-container #footer #block_contact_infos {
+     margin-left: -23px !important;
+   }
+    #footer #newsletter_block_left .block_content {
+        display: block !important;
+        width: 185px;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+    .footer-container #footer #block_contact_infos .text-xs-left {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .footer-container #footer #block_contact_infos {
+        position: absolute;
+        top: 160px;
+        width: 100%;
+        float: none;
+        padding: inherit !important;
+        /*left:125px;*/
+    }
+    .footer-container {
+        height: 220px;
+    }
+    #home-page-tabs #htmlcontent_home ul li {
+        padding: 0;
+    }
+    .columns-container #columns #left_column {
+        width: 100% !important;
+        top: 110px !important;
+    }
+    .#categories_block_left .block_content > ul {
+        width: 100% !important;
+    }
+
+   
+
+
+  #header .shopping_cart {
+    padding-top: 0px;
+  }
+
 }
+
+/************************************************************
+  END  RESPONSIVE
+************************************************************/
+
 
 @media (min-width: 768px) {
     .text-sm-left { text-align: left; }
@@ -144,6 +266,11 @@ body {
 
 #index #slider_row{
   margin-top: 120px;
+}
+@media (max-width: 479px) { 
+#index #slider_row{
+  margin-top: 0px;
+}
 }
 
 /*margin top colum center and hesder*/
@@ -282,7 +409,7 @@ header .row #header_logo {
 
 
 /* Small devices (tablets, 768px and up) */
-@media (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
    #block_contact_infos span{
      font-size: 10px !important;
      font-family: "Futura";
@@ -1041,15 +1168,7 @@ color: rgb(214, 157, 50);
   #breadcrumb_product {
      margin-left: -2.5em !important;
     }
-/* Bloc contact infos for Mobile device */
-@media (max-width: 420px) {
-#block_contact_infos {
-    top: 0px !important
-  }
-  .nav .footer-block {
-   margin-top: 0px !important;
- }
-}
+
 
 /************************************************************
 				Product page always display arrow on fancybox zoom
@@ -1063,3 +1182,8 @@ color: rgb(214, 157, 50);
   line-height: 1.5;
   color: #233434;
 }
+
+/************************************************************
+        Mobile
+************************************************************/
+
