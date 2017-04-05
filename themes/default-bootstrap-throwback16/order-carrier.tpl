@@ -48,7 +48,7 @@
 			    		<h4 class="panel-title">
 			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
 			    				{* <span class="resp-arrow"></span>			    				 *}
-			    				<span class="delivery_option_name">{l s='Adresse et type de livraison'}</span>
+			    				<span class="delivery_option_name">{l s='Livraison à domicile'}</span>
 			    			</a>
 			    			<span class="delivery_option_price free">{l s=''}</span>
 			    		</h4>
@@ -105,15 +105,15 @@
 														{/section}
 														</select><span class="waitimage"></span>
 													{else}
-														<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+														{* <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
 															<span>
 																{l s='Add a new address'}
 																<i class="icon-chevron-right right"></i>
 															</span>
-														</a>
-														{* <span>
-																{l s='Ajouter une nouvelle adresse pour sélectionnez pour sélectionner une adresse de facturation'}
-														</span> *}
+														</a> *}
+														<div style="padding-top: 15px">
+																{l s='Ajouter une nouvelle adresse pour pouvoir le sélectionner comme adresse de facturation'}
+														</div>
 													{/if}
 												</div>
 											</div>
@@ -150,7 +150,8 @@
 										********************************************************* *}
 			        						<p class="address_add submit {if !isset($addresses)}hidden{/if}">
 												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
-													<span>{l s='Add a new address '}</span>
+													<span>{l s='Ajouter une autre adresse'}</span>
+													{* Add a new address *}
 													<i class="icon-chevron-right right" style="font-size: 15px;"></i>
 												</a>
 											</p>
