@@ -28,7 +28,7 @@
 	margin-bottom: 12px;
 	color: white;
 }
-.fancypopup-newsletter h1 {
+.fancypopup-newsletter h1  {
 	margin-top: -4px;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -36,6 +36,14 @@
 	font-size: 26px;
 	font-weight: bold;
 	color: white;
+}
+ .fancypopup-newsletter h2 , .fancypopup-newsletter h3 {
+	margin-top: -4px;
+	font-weight: 900;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	font-size: 18px;
 }
 .fancypopup-btn-newsletter{
 	color: white;
