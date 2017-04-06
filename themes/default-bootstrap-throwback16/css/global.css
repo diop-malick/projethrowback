@@ -7111,7 +7111,7 @@ ul.step li.last span {
 
 ul.step li.step_current {
     font-weight: bold;
-    background: #222;
+    background: #000;
     background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000), to(#111));
     background-image: -webkit-linear-gradient(top, #000, 0%, #111, 100%);
     background-image: -moz-linear-gradient(top, #000 0%, #111 100%);
