@@ -37,7 +37,7 @@
 	
 	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
 		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
-		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
+		{l s='Si vous ne disposez pas de compte throwback'} <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"> {l s='créer votre compte'}</a> {l s='rapidement!'} 
 	</p>
 	<div class"redirect_home">
 		<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
