@@ -40,7 +40,7 @@
 		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
 	</p>
 	<div class"redirect_home">
-		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+		<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
 	</div>
 	{hook h="displayShoppingCartFooter"}
 	{/if}

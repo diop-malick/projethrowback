@@ -83,7 +83,7 @@
 							</div>
 						</div>
 			</div>
-			<a class="btn btn-cms text-center" href="{$base_dir}">{l s='< CONTINUER VOTRE SHOPPING'}</a>
+			<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
 		{else}
 		<div class="rte{if $content_only} content_only{/if}">
 			{$cms->content}

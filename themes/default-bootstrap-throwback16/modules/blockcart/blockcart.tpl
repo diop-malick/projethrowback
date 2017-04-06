@@ -276,7 +276,7 @@
 									<div class="col-md-6 col-xs-12">
 											<p class="cart_navigation clearfix">
 												<a href="{$smarty.server.REQUEST_URI}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'} ">
-													<i><</i>{l s='Continuer mon shopping'}
+													<i><</i>{l s='Continuer mon shopping' mod='blockcart'}
 												</a>
 											</p>
 

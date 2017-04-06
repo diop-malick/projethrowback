@@ -10,7 +10,7 @@
 				<button class="dropbtn">
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
-				      			<span class="hidden-xs">{l s='Bonjour ' mod='blockuserinfo'}{$cookie->customer_firstname}</span>
+				      			<span class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
 								<i class="material-icons"">person</i>			      			
 				      </a>
 			    </button>
@@ -20,11 +20,11 @@
 			      		</a>
 
 						<a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" title="{l s='Addresses'} " class="text-left">
-                				<span>{l s='Mes adresses'}</span>
+                				<span>{l s='Mes adresses' mod='blockuserinfo'}</span>
                 		</a>
 
                 		<a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='Orders'}" class="text-left">
-	                			<span>{l s='Mes commandes'}</span>
+	                			<span>{l s='Mes commandes' mod='blockuserinfo'}</span>
 	                	</a>
 
 	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}" class="text-left">
