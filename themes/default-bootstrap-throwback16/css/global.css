@@ -6981,18 +6981,13 @@ ul.step li {
    }
 
    ul.step li.step_done a:before {
-<<<<<<< HEAD
-    right: 10px !important;
-    margin-top:15px;
-  }
-=======
    right: 0px !important;
    top : 20px;
 
     /*margin-top:15px;*/
     font-size: 70% !important;
   } 
->>>>>>> 702c5adeb051dae48abd3fdac2260f77369eaaf2
+
 }
 
 ul.step li a,
