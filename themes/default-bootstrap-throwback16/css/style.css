@@ -166,7 +166,7 @@ nav #block_contact_infos .col-xs-4 {
    }
     #footer #newsletter_block_left .block_content {
         display: block !important;
-        width: 185px;
+        width: 235px;
         margin-right: auto !important;
         margin-left: auto !important;
     }
@@ -273,6 +273,20 @@ nav #block_contact_infos .col-xs-4 {
     margin-top: 0px !important;
   }
 
+   #breadcrumb_product {
+            margin-left: 0 !important;
+        }
+
+        .rev_slider ul {
+          height: 500px !important
+        }
+        #ev_slider_1_1_wrapper {
+          height: 400px !important;
+        }
+
+        #block_various_links_footer {
+          text-align: center;
+        }
 }
 
 /************************************************************
@@ -1261,11 +1275,6 @@ margin-bottom: 0px !important;
       font-weight: bold !important;
     }
 
-    @media (max-width: 480px) {
-        #breadcrumb_product {
-            margin-left: -2.5em !important;
-        }
-    }
 
 
 
