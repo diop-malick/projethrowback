@@ -5766,6 +5766,7 @@ header {
 /* throwback header background */
   header .nav {
     background: #ececeb;
+    background: radial-gradient(60px at 50% 210%,#fff 103%,rgba(120,120,120,0.4) 108%,rgba(210,210,210,0.6) 180%,#ececeb 260%);
 	}
 
     header .nav .row {
@@ -6985,7 +6986,7 @@ ul.step li {
    ul.step li.step_done a:before {
     right: 10px !important;
     margin-top:15px;
-  } 
+  }
 }
 
 ul.step li a,
@@ -7549,11 +7550,11 @@ div.star a:hover {
           .footer-container #footer #social_block ul li.facebook a:hover {
               color: #435f9f;
           }
-          
+
           .footer-container #footer #social_block ul li.twitter a:hover {
               color: #00aaf0;
           }
-          
+
           .footer-container #footer #social_block ul li.instagram a:hover {
               color: #e95950;
           }
@@ -7666,10 +7667,10 @@ div.star a:hover {
     font-size: 17px;
     font-weight: bold;
     color: #333;
-    margin: 9px 0 0 0; 
+    margin: 9px 0 0 0;
   }
 
-  
+
   .address_add .cart_navigation_adresse {
     color: #777 !important;
   }
@@ -8881,7 +8882,7 @@ div.star.star_hover:after {
   /* Throwback CSS Custom */
   /*TODO - Move themeconfiguratro et other module css in global css */
   /* Throwback > Banner > Center text */
-  
+
   #htmlcontent_home ul li a h3,
   #htmlcontent_homeFooter ul li a h3 {
       position: relative;
@@ -8896,7 +8897,7 @@ div.star.star_hover:after {
       text-transform: uppercase;
       line-height: 0.667;
   }
-  
+
   /* =======BEGIN========= effet sur vol block homepage*/
   #htmlcontent_home ul li img {
       /*opacity: 1;
@@ -8913,7 +8914,7 @@ div.star.star_hover:after {
         -o-transition: all 0.4s;
         transition: all 0.4s;
   }
-  
+
   #htmlcontent_home ul li img:hover {
      /* opacity: 0.8;
       filter: alpha(opacity=80);
@@ -8923,7 +8924,7 @@ div.star.star_hover:after {
 
 
   /* Throwback > footer Banner > Center text */
-  
+
   .heading-counter {
       position: absolute;
       top: 120px;
