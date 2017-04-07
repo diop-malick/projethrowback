@@ -6980,8 +6980,11 @@ ul.step li {
    }
 
    ul.step li.step_done a:before {
-    right: 10px !important;
-    margin-top:15px;
+   right: 0px !important;
+   top : 20px;
+
+    /*margin-top:15px;*/
+    font-size: 70% !important;
   } 
 }
 
@@ -7227,7 +7230,7 @@ ul.step li em {
         display: none;
     }
     */
-    .num-step {
+    .num-step , .point-step {
         display: none;
     }
 }

@@ -61,14 +61,7 @@
 <!-- TODO | redirect_home | not used in csss, check and delete -->
 <div class="redirect_home">
 	<!-- <a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a> -->
-	<a href="{$base_dir}" class="redirect_home text-center">
-	<button type="submit" class="button redirect_home btn btn-default button-medium">
-			<span>
-				<i class="icon-chevron-left left"></i>
-				{l s='CONTINUER VOTRE SHOPPING'}				
-			</span>
-	</button>
-	</a>
+	<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping' mod='blocksearch'}</span></a>
 </div>
 
 <!-- /Block search module -->
