@@ -37,10 +37,10 @@
 	
 	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
 		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
-		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
+		{l s='Si vous ne disposez pas de compte throwback'} <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"> {l s='créer votre compte'}</a> {l s='rapidement!'} 
 	</p>
 	<div class"redirect_home">
-		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+		<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
 	</div>
 	{hook h="displayShoppingCartFooter"}
 	{/if}
@@ -81,7 +81,7 @@
 
 
 		<div class="row">
-			<div class="col-md-8 col-xs-12">
+			<div class="col-xs-12 col-md-8">
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
@@ -109,7 +109,7 @@
 				<div class="row row_line_product line_product_{$product.id_product}" id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}">
 
 
-							<div class="col-md-3 col-xs-2 img-line">
+							<div class="col-xs-3 col-md-3  img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">
 								{* <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /> *}
 								{* change product image format : from small_default_to_home default *}
@@ -117,7 +117,7 @@
 								</a>
 							</div>
 
-							<div class="col-md-9 col-xs-7">								
+							<div class="col-xs-9 col-md-9 ">								
 								<div class="row">
 									<div class="col-xs-10 col-md-11">
 

@@ -139,7 +139,7 @@
 
 				<div id="rigth-row-1" class="row">
 					<!-- TITRE  -->
-					<div class="col-md-8 col-xs-8 text-left">
+					<div class="col-xs-12 col-md-8 text-left text-xs-center">
 							<!-- NAME -->
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
@@ -151,7 +151,7 @@
 					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-md-4 col-xs-4 text-right">
+					<div class="content_prices col-xs-12 col-md-4 text-right text-xs-center">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -296,7 +296,7 @@
 
 					<div class="row">
 						<!-- QUANTITY  -->
-						<div class="col-md-6">
+						<div class="col-xs-8 col-md-6">
 							{if !$PS_CATALOG_MODE}
 									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<div class="row">
@@ -361,7 +361,7 @@
 						<!-- // QUANTITY  -->
 						
 						<!-- ATTRIBUTS  -->
-					<div class="col-md-6 product_attributes clearfix">
+					<div class="col-xs-8  col-md-6 product_attributes clearfix">
 						{if isset($groups)}
 							<div id="attributes">
 								{foreach from=$groups key=id_attribute_group item=group}
@@ -683,7 +683,7 @@
 				<!-- // FEATURES -->
 
 				<!-- full description - -->
-				<div class="col-row">
+				<div class="col-row hidden-xs">
 				<!-- short_description_block -->
 						{if $product->description_short || $packItems|@count > 0}
 						<div id="short_description_block">

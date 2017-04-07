@@ -52,6 +52,8 @@
 					var url_logo_simple = "{$base_dir}img/logo/logo-simple.png";
 		 </script>
 
+		 {addJsDef page_confirm=$link->getCMSLink('21', 'confirmation-newsletter')}
+
 	</head>
 	<body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">
 	{if !isset($content_only) || !$content_only}
@@ -107,6 +109,16 @@
 							</div>
 						</div>
 					{/if}
+
+					<!-- Logo TOP  on mobile device -->
+					<div class="row visible-xs-logo-mobile" style="display:none;">
+						<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+							<img class="logo img-responsive logo-throwback" src="{$url_logo_simple}" alt="{$shop_name|escape:'html':'UTF-8'}"/>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+					<!-- /Logo TOP -->
+
 					<div>
 						<div class="container-fluid">
 						<!-- row Header(search + logo + cart) + row Menu -->
