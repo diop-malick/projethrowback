@@ -329,7 +329,6 @@ $_MODULE['<{paypal}default-bootstrap-throwback16>confirmation_15b0f8e55c6bdfc3d5
 $_MODULE['<{paypal}default-bootstrap-throwback16>confirmation_e6dc7945b557a1cd949bea92dd58963e'] = 'Votre commande vous sera envoyée très prochainement.';
 $_MODULE['<{paypal}default-bootstrap-throwback16>confirmation_0db71da7150c27142eef9d22b843b4a9'] = 'Pour toute question ou information complémentaire merci de contacter notre';
 $_MODULE['<{paypal}default-bootstrap-throwback16>confirmation_64430ad2835be8ad60c59e7d44e4b0b1'] = 'support client';
-<<<<<<< HEAD
 $_MODULE['<{paypal}default-bootstrap-throwback16>express_checkout_payment_eu_dac2693baa5c5c9a5318609ed81c4f2a'] = 'Payer avec Paypal';
 $_MODULE['<{paypal}default-bootstrap-throwback16>express_checkout_payment_dac2693baa5c5c9a5318609ed81c4f2a'] = 'Payez avec PayPal';
 $_MODULE['<{paypal}default-bootstrap-throwback16>express_checkout_payment_83a1a5a403aed4b7ead866d253aef998'] = 'Payez par carte ou par compte PayPal';
