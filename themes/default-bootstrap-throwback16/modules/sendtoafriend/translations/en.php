@@ -3,6 +3,7 @@
 global $_MODULE;
 $_MODULE = array();
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>product_page_2107f6398c37b4b9ee1e1b5afb5d3b2a'] = 'Send to a friend';
+$_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_ajax_22c4733a9ceb239bf825a0cecd1cfaec'] = 'A friend';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_11cbd9ec2e4b628c371094b6361b9c96'] = 'Your e-mail has been sent successfully';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_2107f6398c37b4b9ee1e1b5afb5d3b2a'] = 'Send to a friend';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_d1f092e79827eaffce4a33fa011fde24'] = 'You did not fill required fields';
@@ -22,5 +23,4 @@ $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_e55de03786
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_19f41c3d6db934fb2db1840ddefd2c51'] = 'Friend\'s email';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_2541d938b0a58946090d7abdde0d3890'] = 'send';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_68728c1897e5936032fe21ffb6b10c2e'] = 'Back to product page';
-$_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend_ajax_22c4733a9ceb239bf825a0cecd1cfaec'] = 'A friend';
 $_MODULE['<{sendtoafriend}default-bootstrap-throwback16>sendtoafriend-extra_36fb3f59b4a75949a0db90e7011b21f2'] = 'Your e-mail could not be sent. Please check the e-mail address and try again.';

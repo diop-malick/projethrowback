@@ -43,8 +43,10 @@ $_MODULE['<{blockcart}default-bootstrap-throwback16>crossselling_dd1f775e443ff3b
 $_MODULE['<{blockcart}default-bootstrap-throwback16>crossselling_4351cfebe4b61d8aa5efa1d020710005'] = 'View';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>crossselling_10ac3d04253ef7e1ddc73e6091c0cd55'] = 'Next';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_03e9618cc6e69fe15a57c7377827a804'] = 'To be determined';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_f2ecd8ca225e754e0afeb8a3846bd398'] = 'Total';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_98b3009e61879600839e1ee486bb3282'] = 'Close window';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_544c3bd0eac526113a9c66542be1e5bc'] = 'Product successfully added to your shopping cart';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_6f6cb72d544962fa333e2e34ce64f719'] = 'Size';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7ea6e8fe805994b15eacb96a3a71d633'] = 'Color';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_87aa0330980ddad2f9e66f43d4c2ae57'] = 'Size';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_694e8d1f2ee056f98ee488bdc4982d73'] = 'Quantity';

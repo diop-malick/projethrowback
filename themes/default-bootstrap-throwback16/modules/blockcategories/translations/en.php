@@ -2,6 +2,7 @@
 
 global $_MODULE;
 $_MODULE = array();
+$_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_footer_af1b98adf7f686b84cd0b443e022b7a0'] = 'Categories';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_8f0ed7c57fca428f7e3f8e64d2f00918'] = 'Categories block';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_15a6f5841d9e4d7e62bec3319b4b7036'] = 'Adds a block featuring product categories.';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_23e0d4ecc25de9b2777fdaca3e2f3193'] = 'Maximum depth: Invalid number.';
@@ -28,6 +29,5 @@ $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_cf3fb1
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_5f73e737cedf8f4ccf880473a7823005'] = 'How many footer columns would you like?';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_c9cc8cce247e49bae79f15173ce97354'] = 'Save';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_af1b98adf7f686b84cd0b443e022b7a0'] = 'Categories';
-$_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_footer_af1b98adf7f686b84cd0b443e022b7a0'] = 'Categories';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_admin_63239117f39d923b2e407620fc1fa5b5'] = 'In the default theme, these images will be displayed in the top horizontal menu; but only if the category is one of the first level (see Top horizontal menu module for more info).';
 $_MODULE['<{blockcategories}default-bootstrap-throwback16>blockcategories_admin_eea317348d82718d49f9a79189dc0f93'] = 'Menu thumbnails';
