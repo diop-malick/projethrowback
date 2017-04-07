@@ -16,7 +16,7 @@
     <div class="col-xs-10 col-sm-8 col-md-8 block_contact_infos">
     <section id="block_contact_infos" class="footer-block">
     	<div class="row">
-    		<div class="col-xs-8 col-sm-7 col-md-7 text-xs-right">
+    		<div class="col-md-5 col-xs-8 col-sm-7  text-xs-right">
             {if $blockcontactinfos_address != ''}
     			<i class="icon-map-marker"></i>
     			<span>&nbsp;{$blockcontactinfos_address|escape:'html':'UTF-8'}</span>
@@ -24,7 +24,7 @@
             &nbsp;
             {if $blockcontactinfos_phone != ''}
     			</div>
-    			<div class="col-md-5 col-sm-5 col-xs-4 text-xs-left">
+    			<div class="col-md-6 col-sm-5 col-xs-4 text-xs-left">
 
                 <i class="icon-phone"></i>
                 <span>&nbsp;{$blockcontactinfos_phone|escape:'html':'UTF-8'}</span>
