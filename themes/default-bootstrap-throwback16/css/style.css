@@ -32,6 +32,10 @@
 
 /*Responsive Text Align*/
 
+
+
+@media (max-width: 479px) {
+
 .text-xs-left {
     text-align: left;
 }
@@ -47,8 +51,6 @@
 .text-xs-justify {
     text-align: justify;
 }
-
-@media (max-width: 479px) {
 
   #order .columns-container, #password .columns-container, #order-confirmation .columns-container, #contact .columns-container {
     margin-top: 10px !important;

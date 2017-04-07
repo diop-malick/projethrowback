@@ -40,7 +40,7 @@ function scrollAction(){
 
         // JavaScript API built in for detecting media mobile
         var isMobile = window.matchMedia("only screen and (max-width: 480px)");
-	
+
         if(scroll>0 && !isMobile.matches ){
             // $('#block_top_menu').removeClass('show').addClass('hidden');
             $('.menu_vertical').removeClass('hidden').addClass('show');
