@@ -163,6 +163,8 @@
 								</div> <!-- end delivery_options -->
 							</div> <!-- end delivery_options_address -->
 
+
+
 						<div class="delivery_options_address">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}

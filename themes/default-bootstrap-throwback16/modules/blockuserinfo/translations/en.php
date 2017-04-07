@@ -23,10 +23,3 @@ $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>nav_d4151a9a3959bdd43690
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>nav_b6d4223e60986fa4c9af77ee5f7149c5'] = 'Sign in';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_2cbfb6731610056e1d0aaacde07096c1'] = ' View my customer account';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_2413907c3651f169fa6892bff6b8e1d6'] = 'Hello';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_f4fb90a18f0390d83b0c4bbebeb14599'] = 'My account';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_4b877ba8588b19f1b278510bf2b57ebb'] = 'Log me out';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_c87aacf5673fada1108c9f809d354311'] = 'Sign out';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_516e2e47007886c11318d22b4a4a84a0'] = 'Log in to your customer account';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_d4151a9a3959bdd43690735737034f27'] = 'Log in to your customer account';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_b6d4223e60986fa4c9af77ee5f7149c5'] = 'Sign in';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_d9776f0775997b2e698c6975420b5c5d'] = 'Sign up';

@@ -2,7 +2,7 @@
 			<!-- MODULE Block cart -->
 
 								{if isset($blockcart_top) && $blockcart_top}
-								<div id="mobil_blockcart" class="col-xs-6 col-md-6  text-xs-center text-md-right">
+								<div id="mobil_blockcart" class="col-xs-6 col-sm-6 col-md-6  text-xs-center text-md-right">
 
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
@@ -12,7 +12,7 @@
 											*}
 											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
-												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>
+												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">({$cart_qties})</span>
 												<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='' mod='blockcart'}</span>
 												<span class="ajax_cart_total{if $cart_qties == 0} unvisible{/if}">
@@ -217,7 +217,7 @@
 				{if !$PS_CATALOG_MODE && $active_overlay == 1}
 					<div id="layer_cart">
 						<div class="clearfix">
-							<div class="layer_cart_product col-xs-12 col-md-12">
+							<div class="layer_cart_product col-xs-12 col-sm-12 col-md-12">
 								<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
 								<span class="title">
 									<i class="icon-check"></i>{l s='Product successfully added to your shopping cart' mod='blockcart'}
@@ -273,15 +273,15 @@
 								</div>
 								<div class="button-container">
 									<div class = "row">
-									<div class="col-md-6 col-xs-12">
+									<div class="col-md-6 col-sm-6 col-xs-12">
 											<p class="cart_navigation clearfix">
 												<a href="{$smarty.server.REQUEST_URI}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'} ">
-													<i><</i>{l s='Continuer mon shopping'}
+													<i><</i>{l s='Continuer mon shopping' mod='blockcart'}
 												</a>
 											</p>
 
 										</div>
-										<div class="col-md-6 col-xs-12">
+										<div class="col-md-6 col-sm-6 col-xs-12">
 											<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 												<span>
 													{l s='Proceed to checkout' mod='blockcart'}<i>&nbsp;></i>
