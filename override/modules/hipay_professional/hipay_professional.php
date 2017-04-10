@@ -60,7 +60,7 @@ class Hipay_ProfessionalOverride extends Hipay_Professional
 
             $this->smarty->assign('hipay_prod', !(bool)$this->configHipay->sandbox_mode);
 
-            echo $this->display(dirname(__FILE__), 'views/templates/hook/payment.tpl');
+            return $this->display(dirname(__FILE__), 'views/templates/hook/payment.tpl');
         }
 
        return false;

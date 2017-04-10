@@ -63,7 +63,13 @@ $(document).ready(function(){
 	    $('.resp-arrow').removeClass("resp-arrow-active");
 	});
 
-
+	if(nb_adresses==0)
+		$('#delivery_list').addClass('hidden');
+	else if(nb_adresses > 1){
+		$('#select_invoice_adresse').removeClass("hidden");
+		$('#message_invoice_adresse').addClass("hidden");
+	}
+		
 	ajaxAddressSetup(); 	
 
 });
@@ -181,6 +187,16 @@ function ajaxAddressSetup()
 										// if($('#id_address_delivery option',tab).length >= 1){
 										// 	$('.addresses .address_add a',tab).addClass('hidden');
 										// }
+										$('#delivery_list').removeClass('hidden');
+										if($('#id_address_delivery option',tab).length < 3){
+											$('.address_add').removeClass('hidden');
+											if($('#id_address_delivery option',tab).length > 1){
+												$('#select_invoice_adresse').removeClass("hidden");
+												$('#message_invoice_adresse').addClass("hidden");
+											}
+										}
+										else
+											 $('.address_add').addClass('hidden');
 									}else{
 										$('#id_address_delivery option[value=' + data.id_address + ']',tab).html(data.formatedAddressFieldsValuesList[data.id_address]['alias']).attr("selected","selected");
 										$('#id_address_delivery',tab).trigger('change');
@@ -212,7 +228,7 @@ function ajaxAddressSetup()
 				            form : '#address form',
 
 				    });
-					$("#firstname").focus();				
+					$("#select-civility").focus();				
 							
 				}
 			});		
