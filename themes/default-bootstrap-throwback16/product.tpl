@@ -236,7 +236,7 @@
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
 								<img src="{$base_dir}/img/icones/new.png"/>
-							
+
 							{/if}
 						{/if}
 
@@ -312,7 +312,7 @@
 												</div>
 											</div>
 									</div>
-									<!-- STOCK AVAILABILITY -->	
+									<!-- STOCK AVAILABILITY -->
 									<div class="row">
 										{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
 										<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
@@ -320,7 +320,7 @@
 											{* <span id="quantityAvailable">{$product->quantity|intval}</span>
 											<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
 											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
-											
+
 											<!-- Message stock Limit et épuisé -->
 											<span id="min_quantity_message">
 												<span class="availability_quantity_value info_quantity">
@@ -328,9 +328,9 @@
 											</span>
 										</p>
 										{/if}
-										<!-- Message Delivery in France -->	
+										<!-- Message Delivery in France -->
 										<p id ="fMessage"> {l s='Livraison gratuite en France'} </p>
-									
+
 
 										{*
 										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
@@ -359,18 +359,18 @@
 							{/if}
 						</div>
 						<!-- // QUANTITY  -->
-						
+
 						<!-- ATTRIBUTS  -->
 					<div class="col-xs-8  col-md-6 product_attributes clearfix">
 						{if isset($groups)}
 							<div id="attributes">
 								{foreach from=$groups key=id_attribute_group item=group}
 									{if $group.attributes|@count}
-										<fieldset class="row attribute_fieldset">										
+										<fieldset class="row attribute_fieldset">
 										<label class=" attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;
 										</label>
 										{assign var="groupName" value="group_$id_attribute_group"}
-										
+
 										<div class="attribute_list ">
 
 											{if ($group.group_type == 'select')}
@@ -425,7 +425,7 @@
 						{/if}
 					</div> <!-- end product_attributes -->
 				</div>
-						
+
 					</div>
 				</div>
 				<!-- // rigth-row-3 -->
@@ -435,12 +435,12 @@
 
 
 
-				
+
 
 
 				<div class="row">
-					
-					
+
+
 
 {* PS_STOCK_MANAGEMENT / Enable stock management" in `Preferes > Products > Products Stock". *}
 						{* {if $PS_STOCK_MANAGEMENT}
@@ -451,10 +451,10 @@
 							{/if} *}
 
 						<!-- Out of stock hook -->
-						{* 
+						{*
 						<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 							{$HOOK_PRODUCT_OOS}
-						</div> 
+						</div>
 						*}
 						{*}
 						<p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
@@ -466,8 +466,8 @@
 						<!-- AVAILABILITY QUANTITY or doesntExist -->
 
 						<!-- availability or doesntExist -->
-						
-						{* 
+
+						{*
 						<pre>PS_STOCK_MANAGEMENT : {$PS_STOCK_MANAGEMENT}</pre>
 						<pre>quantity : {$product->quantity}</pre>
 						<pre>available_later : {$product->available_later}</pre>
@@ -477,7 +477,7 @@
 						<pre>PS_CATALOG_MODE : {$PS_CATALOG_MODE}</pre>
 						*}
 
-						
+
 
 					</div>
 
@@ -529,7 +529,7 @@
 									<button type="submit" name="Submit" class="btn exclusive">
 										<i class="material-icons shopping-cart" style="color:#fff; margin-top: -10px; margin-right: .625rem; line-height: inherit;"></i>
 										<span>{l s='Add to cart'}</span>
-										
+
 									</button>
 								</p>
 							</div>
@@ -676,7 +676,7 @@
 						</ul>
 					</section>
 				<!-- social sharing -->
-				<div data-easyshare data-easyshare-url="https://vps365425.ovh.net/throwback16/index.php">
+				<div data-easyshare data-easyshare-url="{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}">
 				{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 			</div>
 				</div>

@@ -95,26 +95,28 @@
 											</div> <!-- end row -->
 											<div class="col-xs-12 col-sm-6">
 												<div id="address_invoice_form" class="select form-group selector1"{if $cart->id_address_invoice == $cart->id_address_delivery} style="display: none;"{/if}>
-													{if $addresses|@count > 1}
-														<label for="id_address_invoice" class="strong">{l s='Choose a billing address:'}</label>
-														<select name="id_address_invoice" id="id_address_invoice" class="address_select form-control">
-														{section loop=$addresses step=-1 name=address}
-															<option value="{$addresses[address].id_address|intval}"{if $addresses[address].id_address == $cart->id_address_invoice && $cart->id_address_delivery != $cart->id_address_invoice} selected="selected"{/if}>
-																{$addresses[address].alias|escape:'html':'UTF-8'}
-															</option>
-														{/section}
-														</select><span class="waitimage"></span>
-													{else}
+													{* {if $addresses|@count > 1} *}
+													  <div id="select_invoice_adresse" class="{if !isset($addresses) || $addresses|@count <= 1}hidden{/if}">
+															<label for="id_address_invoice" class="strong">{l s='Choose a billing address:'}</label>
+															<select name="id_address_invoice" id="id_address_invoice" class="address_select form-control">
+															{section loop=$addresses step=-1 name=address}
+																<option value="{$addresses[address].id_address|intval}"{if $addresses[address].id_address == $cart->id_address_invoice && $cart->id_address_delivery != $cart->id_address_invoice} selected="selected"{/if}>
+																	{$addresses[address].alias|escape:'html':'UTF-8'}
+																</option>
+															{/section}
+															</select><span class="waitimage"></span>
+													  </div>
+												{*	{else} *}
 														{* <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
 															<span>
 																{l s='Add a new address'}
 																<i class="icon-chevron-right right"></i>
 															</span>
 														</a> *}
-														<div style="padding-top: 15px">
+														<div id="message_invoice_adresse" style="padding-top: 15px" class="{if isset($addresses) && $addresses|@count > 1}hidden{/if}">
 																{l s='Ajouter une nouvelle adresse pour pouvoir le sélectionner comme adresse de facturation'}
 														</div>
-													{/if}
+												{*	{/if} *}
 												</div>
 											</div>
 
@@ -133,7 +135,7 @@
 			        								</ul>
 			        							</div>
 			        							{* INVOICE ADRESSE *}
-			        							<div class="col-xs-12 col-sm-6">
+			        							<div class="col-xs-12 col-sm-6 invoice-adresse">
 													<ul class="address alternate_item{if $cart->isVirtualCart()} full_width{/if} box" id="address_invoice">
 													</ul>
 												</div>
@@ -148,7 +150,7 @@
 			        						{* ********************************************************
 											ADRESSE add btn
 										********************************************************* *}
-			        						<p class="address_add submit {if !isset($addresses)}hidden{/if}">
+			        						<p class="address_add submit {if !isset($addresses) ||  $addresses|@count ge 3}hidden{/if}">
 												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
 													<span>{l s='Ajouter une autre adresse'}</span>
 													{* Add a new address *}
@@ -165,7 +167,7 @@
 
 
 
-						<div class="delivery_options_address">
+						<div class="delivery_options_address" id="delivery_list">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}
 						          	<div class="delivery_options">	
@@ -426,6 +428,9 @@
 {if isset($vatnumber_ajax_call) && $vatnumber_ajax_call}
 	{addJsDef vatnumber_ajax_call=$vatnumber_ajax_call}
 {/if}
+
+	{addJsDef nb_adresses=$addresses|count}
+
 {/strip}
 
 {literal}

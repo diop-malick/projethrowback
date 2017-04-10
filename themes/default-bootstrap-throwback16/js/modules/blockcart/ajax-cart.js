@@ -35,8 +35,11 @@ $(document).ready(function(){
 	});
 
 	var current_timestamp = parseInt(new Date().getTime() / 1000);
-	var basket_quantity_tab = $('.ajax_cart_quantity').html().split(/[()]+/).filter(function(e) { return e; });
-	var basket_quantity = basket_quantity_tab[0];
+	if (typeof $('.ajax_cart_quantity').html() != 'undefined')
+		{
+			var basket_quantity_tab = $('.ajax_cart_quantity').html().split(/[()]+/).filter(function(e) { return e; });
+			var basket_quantity = basket_quantity_tab[0];
+		}
 	
 	
 
