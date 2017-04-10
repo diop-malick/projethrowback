@@ -63,6 +63,8 @@ $(document).ready(function(){
 	    $('.resp-arrow').removeClass("resp-arrow-active");
 	});
 
+	if(nb_adresses==0)
+		$('#delivery_list').addClass('hidden');
 
 	ajaxAddressSetup(); 	
 
@@ -181,6 +183,12 @@ function ajaxAddressSetup()
 										// if($('#id_address_delivery option',tab).length >= 1){
 										// 	$('.addresses .address_add a',tab).addClass('hidden');
 										// }
+										console.log($('#id_address_delivery option',tab).length);
+										$('#delivery_list').removeClass('hidden');
+										if($('#id_address_delivery option',tab).length < 3)
+										   $('.address_add').removeClass('hidden');
+										else
+											 $('.address_add').addClass('hidden');
 									}else{
 										$('#id_address_delivery option[value=' + data.id_address + ']',tab).html(data.formatedAddressFieldsValuesList[data.id_address]['alias']).attr("selected","selected");
 										$('#id_address_delivery',tab).trigger('change');

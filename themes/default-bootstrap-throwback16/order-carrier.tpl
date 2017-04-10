@@ -148,7 +148,7 @@
 			        						{* ********************************************************
 											ADRESSE add btn
 										********************************************************* *}
-			        						<p class="address_add submit {if !isset($addresses)}hidden{/if}">
+			        						<p class="address_add submit {if !isset($addresses) ||  $addresses|@count ge 3}hidden{/if}">
 												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
 													<span>{l s='Ajouter une autre adresse'}</span>
 													{* Add a new address *}
@@ -165,7 +165,7 @@
 
 
 
-						<div class="delivery_options_address">
+						<div class="delivery_options_address" id="delivery_list">
 							{if isset($delivery_option_list)}
 								{foreach $delivery_option_list as $id_address => $option_list}
 						          	<div class="delivery_options">	
@@ -426,6 +426,9 @@
 {if isset($vatnumber_ajax_call) && $vatnumber_ajax_call}
 	{addJsDef vatnumber_ajax_call=$vatnumber_ajax_call}
 {/if}
+
+	{addJsDef nb_adresses=$addresses|count}
+
 {/strip}
 
 {literal}
