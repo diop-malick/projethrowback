@@ -65,7 +65,11 @@ $(document).ready(function(){
 
 	if(nb_adresses==0)
 		$('#delivery_list').addClass('hidden');
-
+	else if(nb_adresses > 1){
+		$('#select_invoice_adresse').removeClass("hidden");
+		$('#message_invoice_adresse').addClass("hidden");
+	}
+		
 	ajaxAddressSetup(); 	
 
 });
@@ -183,10 +187,14 @@ function ajaxAddressSetup()
 										// if($('#id_address_delivery option',tab).length >= 1){
 										// 	$('.addresses .address_add a',tab).addClass('hidden');
 										// }
-										console.log($('#id_address_delivery option',tab).length);
 										$('#delivery_list').removeClass('hidden');
-										if($('#id_address_delivery option',tab).length < 3)
-										   $('.address_add').removeClass('hidden');
+										if($('#id_address_delivery option',tab).length < 3){
+											$('.address_add').removeClass('hidden');
+											if($('#id_address_delivery option',tab).length > 1){
+												$('#select_invoice_adresse').removeClass("hidden");
+												$('#message_invoice_adresse').addClass("hidden");
+											}
+										}
 										else
 											 $('.address_add').addClass('hidden');
 									}else{
@@ -220,7 +228,7 @@ function ajaxAddressSetup()
 				            form : '#address form',
 
 				    });
-					$("#firstname").focus();				
+					$("#select-civility").focus();				
 							
 				}
 			});		
