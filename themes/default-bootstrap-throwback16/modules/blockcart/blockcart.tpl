@@ -7,8 +7,8 @@
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
 										<div class="shopping_cart" id="picto_panier">
-											{* 
-											<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow"> 
+											{*
+											<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 											*}
 											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
@@ -31,11 +31,11 @@
 
 												{* <img class="hidden-xs" src="{$base_dir}/img/icones/basket_1.png"/> *}
 												{* <img  class="visible-xs"src="{$base_dir}/img/icones/mob_basket.png"/> *}
-												
+
 												{* <i class="material-icons shopping-cart" style="color:#fff;">shopping-cart</i> *}
 												{* <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> *}
 												<i class="material-icons shopping-cart"></i>
-												
+
 
 												{if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}
 													<span class="block_cart_expand{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} unvisible{/if}">&nbsp;</span>
@@ -147,8 +147,8 @@
 																		{else}
 																			{$shipping_cost}
 																		{/if}
-																	</span> 
-																	
+																	</span>
+
 
 																	<span{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} class="unvisible"{/if}>
 																		{l s='Shipping' mod='blockcart'}
@@ -228,7 +228,7 @@
 									<span id="layer_cart_product_title" class="product-name"></span>
 									<strong class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
 									<span id="layer_cart_product_attributes"></span>
-								
+
 									{* <pre>{$product.attributes}</pre> *}
 
 									{*}

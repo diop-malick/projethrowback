@@ -18,7 +18,7 @@
 						<input type="hidden" name="controller" value="search" />
 						<input type="hidden" name="orderby" value="position" />
 						<input type="hidden" name="orderway" value="desc" />
-						<input class="search_query form-control" type="text" id="search_query_top" name="search_query" placeholder="{l s='Search' mod='blocksearch'}" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
+						<input class="search_query form-control" type="search" id="search_query_top" name="search_query" placeholder="{l s='Search' mod='blocksearch'}" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
 						<button type="submit" name="submit_search" class="btn btn-default button-search" id="test">
 							<span>{l s='Search' mod='blocksearch'}</span>
 						</button>
@@ -37,9 +37,11 @@
 		<!-- Logo TOP -->
 		{* hide on mobile device *}
 		<div class="hidden-xs">
+
 			<div id="header_logo" class="col-md-4 col-sm-4 col-xs-4">
 					<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
 						<img class="logo img-responsive logo-throwback" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"/>
+
 					</a>
 			</div>
 		</div>
