@@ -41,9 +41,9 @@ $(document).ready(function()
 	       $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
 	   }).on('click', '.onX', function(){
 	       $(this).removeClass('x onX').val('').change();
-		   		
-				 
-				 
+
+
+
 				 var search_id = $(this).closest("form").attr('id');
 				 var active_input = $(this).closest("input").attr('id');
 				 $("#"+active_input+"").blur();

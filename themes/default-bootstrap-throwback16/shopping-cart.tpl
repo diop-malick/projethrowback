@@ -1,6 +1,6 @@
 {*
 * 2017 SNE
-* 
+*
 *  @author Abdou Khadre
 *}
 
@@ -34,13 +34,13 @@
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
 		<script>window.location="{$link->getPageLink('order')}";</script>
 	{else}
-	
+
 	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
 		{l s='Pour passer une commande, veuillez vous connecter et ajouter des articles dans votre panier.'}<br>
 		Si vous ne disposez pas de compte throwback <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">créer votre compte</a> rapidement!
 	</p>
 	<div class"redirect_home">
-		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a>
+		<a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' }</a>
 	</div>
 	{hook h="displayShoppingCartFooter"}
 	{/if}
@@ -85,7 +85,7 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-						{* {$product|print_r} *}  
+						{* {$product|print_r} *}
 						{assign var="productId" value=$product.id_product}
 						{assign var="attributes" value=$product.attributes_small}
 						{assign var="split_size" value=","|explode:$attributes}
@@ -93,12 +93,12 @@
 						{if isset($split_size[0]) }
 								{assign var="sizing" value=$split_size[0]|trim}
 						{/if}
-						
+
 						{if isset($split_size[1]) }
 								{assign var="coloring" value=$split_size[1]|trim}
 						{/if}
-						
-						{* {$combinations[$product.id_product]|print_r}  *} 
+
+						{* {$combinations[$product.id_product]|print_r}  *}
 
 						{$attributeCombinaison[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $combinations[$product.id_product]}
 
@@ -117,7 +117,7 @@
 								</a>
 							</div>
 
-							<div class="col-md-9 col-xs-7">								
+							<div class="col-md-9 col-xs-7">
 								<div class="row">
 									<div class="col-xs-10 col-md-11">
 
@@ -129,7 +129,7 @@
 
 									<!--<br><br>-->
 									<div class="col-xs-2 col-md-1 ">
-										<div class="row">	
+										<div class="row">
 											<div class="col-md-6 col-xs-6 text-right edit" style="padding:0;">
 												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
@@ -150,7 +150,7 @@
                                 {* get LIMIT quantity caracteristique value , add disabled to btn *}
                                 {* <pre>{$product|var_dump}}</pre> *}
                                 {*
-	                                            caractériqtique produit : 
+	                                            caractériqtique produit :
 	                                            id Quantité-Commandable / id: 11
 	                                            id valeur  : 11
                                 *}
@@ -197,21 +197,21 @@
 																		{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																			{if $group.attributes|@count}
 																			<!--<fieldset class="attribute_fieldset">-->
-																				
+
 																				{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
-																				 
+
 																				<div class="attribute_list">
-																					
+
 																					{if ($group.group_type == 'radio')}
 																						<ul>
 																						<span class="btn" style="display: inherit;">
 																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																								
+
 
 																								<li {if ( $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 
 																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
-																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" 
+																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}"
 																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
 																									{assign var=someVar value=" "|explode:$group_attribute}
 																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
@@ -222,20 +222,20 @@
 																						</ul>
 																						</span>
 																						{* <pre>{$product|var_dump}</pre> *}
-																					
+
 																					{* todo color not allowed *}
 																					{* {elseif ($group.group_type == 'color')}
 																						<div class="defautColor_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
 																						<input type="hidden" name="color_default" value="{$group.default|intval}" />
 																						</div> *}
-																					
+
 																					{/if}
-																					
+
 																				</div> <!-- end attribute_list -->
 																			<!--</fieldset>-->
 																			{/if}
 																		{/foreach}
-																		
+
 																	</div>
 																</div>
 																<div class="combinaison_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}">
@@ -261,11 +261,11 @@
 																</div>
 														</div>
 													</div>
-													
+
 												{/if}
 											</div>
 
-											
+
 
 											<div class="col-md-3 col-xs-3">
 												{if isset($sizing) && $sizing}
@@ -275,11 +275,11 @@
 														</div>
 														<div class="col-md-6 col-xs-6">
 															<div class="size_line">
-																
+
 																	{assign var=someVar value=" "|explode:$sizing}
 																	{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 
-																
+
 																	{* <pre>{$product->attributes}</pre> *}
 																	{* <pre>{$product->attributes_small}</pre> *}
 																	{* <pre>{$product->stock_quantity}</pre> *}
@@ -337,7 +337,7 @@
 														{/if}
 													</span>
 													<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
-												
+
 												{/if}
 											</div>
 										</div>
@@ -367,13 +367,13 @@
 											</button>
 										</div>
 
-										
+
 								</div>
 							</div>
 
-							
+
 						</div>
-						
+
 						{* RESET limit quantity *}
 						{if isset($quantitylimitperorder)}
 							{assign var=quantitylimitperorder value=""}
@@ -384,7 +384,7 @@
 				</div>
 
 {* **********************************************************
-* FACTURETTE 
+* FACTURETTE
 *************************************************************** *}
 				<div class="col-md-4 col-xs-12">
 					<div class="row commande_title text-center">
@@ -405,9 +405,9 @@
 									</span>
 								</div>
 						</div>
-					
-																
-														
+
+
+
 						{/foreach}
 						<input type="hidden" class="my" name="price_add" value="" />
 						<input type="hidden" class="you" name="total_add" value="" />
@@ -426,7 +426,7 @@
 						</div>
 					</div>
 					<div class="row commande_button text-center">
-						<div class="col-md-12">	
+						<div class="col-md-12">
 							{if !$opc}
 								<a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}"  title="{l s='Proceed to checkout'}">
 									<span class="text_valid_commande">{l s='Valider mon panier'} <i class="icon-chevron-right right"></i></span>
@@ -436,18 +436,18 @@
 					</div>
 
 					<div class="row text-center">
-						<div class="col-md-12 cart_navigation">	
-						
+						<div class="col-md-12 cart_navigation">
+
 							<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
 								<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 							</a>
-						
+
 						</div>
 					</div>
 				</div>
 
 		</div>
-	
+
 
 	{if $show_option_allow_separate_package}
 	<p>
@@ -463,7 +463,7 @@
 
 
 	<div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
-	
+
 {strip}
 {addJsDef deliveryAddress=$cart->id_address_delivery|intval}
 {addJsDefL name=txtProduct}{l s='product' js=1}{/addJsDefL}
