@@ -1,6 +1,6 @@
 
 function fullPage() {
-	if (window.matchMedia("(max-width: 768px)").matches) {
+	if (window.matchMedia("only screen and (min-width: 480px) and  (max-width: 768px)").matches) {
 			$(".block_content").css("display", "none");
 			$('#left_column').hide().css("position", "static");
 			/*$('#center_column').removeClass('col-xs-3').addClass('col-xs-12').css("float", "left");
@@ -18,7 +18,7 @@ function fullPage() {
 
 function minimizePage() {
 
-	if (window.matchMedia("(max-width: 768px)").matches) {
+	if (window.matchMedia("only screen and (min-width: 480px) and (max-width: 768px)").matches) {
 		$(".block_content").css("display", "block");
 		$('#left_column').show().css("position", "fixed").css("top", "96px").css("z-index", "9999").css("width", "90%").css("background-color", "#fff").css("height", "100%");
 		/*$('#center_column').removeClass('col-xs-12').addClass('col-xs-3').css("float", "right");
@@ -40,7 +40,7 @@ function scrollAction(){
 
         // JavaScript API built in for detecting media mobile
         var isMobile = window.matchMedia("only screen and (max-width: 480px)");
-	
+
         if(scroll>0 && !isMobile.matches ){
             // $('#block_top_menu').removeClass('show').addClass('hidden');
             $('.menu_vertical').removeClass('hidden').addClass('show');

@@ -1494,8 +1494,59 @@ background: none;
 
 /* Produc Delivery message zone */
 #fMessage{
-  padding: 3px 8px 4px;
+  padding: 3px 8px 4px 10px;
   margin-left:5px;
 }
+
+/************************************************************
+        RESPONSIVE - MOBILE
+************************************************************/
+@media (max-width: 479px) {
+
+#product_reference {
+  margin-bottom: 5px !important; 
+  text-align: center;
+}
+ul.gender-label-group {
+    text-align: center;
+}
+
+fieldset {
+padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+#quantity_wanted_p input {
+
+}
+#rigth-row-1 .product_name {
+      font-size: 22px !important;
+          /* margin-top: -400px; */
+}
+#rigth-row-5 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+ hr {
+  border-top: 1px solid rgb(203, 204, 204) !important;
+  }
+
+  #table_social_media {
+    margin-top: 0px !important; 
+  }
+  #table_social_media {
+    margin-top: 0 !important!;
+    text-align : center;
+  }
+
+  #table_social_media .btn {
+    padding: 0;
+  }
+
+}
+
+  /************************************************************
+        RESPONSIVE - TAB
+************************************************************/
 
 /*# sourceMappingURL=product.css.map */

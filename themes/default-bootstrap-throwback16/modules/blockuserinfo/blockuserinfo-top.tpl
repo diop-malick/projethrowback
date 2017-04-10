@@ -1,10 +1,10 @@
 <!-- COL UserInfo + Cart -->
-<div id ="user_info" class="col-xs-6 col-md-4 pull-right" >
+<div id ="user_info" class="col-xs-6 col-sm-4 col-md-4 pull-right" >
 	<!-- ROW UserInfo + Cart -->
 	<div class="row">
 
 		<!-- MODULE Block UserInfo  NAV  -->
-		<div class="col-xs-6 col-md-6 text-right header_user_info">
+		<div class="col-xs-6 col-sm-6 col-md-6 text-right header_user_info">
 		   <div class="dropdown">
 			{if $is_logged}
 				<button class="dropbtn">

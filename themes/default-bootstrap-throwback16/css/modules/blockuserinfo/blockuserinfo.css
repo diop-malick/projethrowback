@@ -27,33 +27,49 @@
     /*z-index: 126;*/
 }
 
+/************************************************************
+    RESPONSIVE MOBILE
+************************************************************/
 @media (max-width: 479px) {
     .header_user_info a {
-        font-size: 10px;
+        font-weight: bold;
+        color: #333;
+        display: block;
+        font-size: 13px;
+        line-height: 30px;
+        padding: 0 30px 0 19px;
+        border-bottom: 1px solid #d6d4d4;
     }
+    .header_user_info span {
+        /*font-family: "Futura";*/
+        /*color: rgb(147, 149, 152);*/
+    }
+}
+
+/************************************************************
+    RESPONSIVE TAB
+************************************************************/
+@media (min-width: 480px) {
+    .dropbtn a {
+        background-color: #fff !important;
+    }
+}
+
+
+/************************************************************
+    RESPONSIVE DESK
+************************************************************/
+@media (min-width: 1200px) {
+#icone_mon_compte .hidden-xs{
+  display:inline !important;
+  }
 }
 
 .header_user_info a:hover,
 .header_user_info a.active {
     color: #2b2b2b;
 }
-@media (min-width: 480px) {
-.dropbtn a{
-    background-color: #fff !important;
-}
-}
-@media (max-width: 479px) {
-    .header_user_info span{
-      font-size: 10px;
-      font-family: "Futura";
-      color: rgb(147, 149, 152);
-    }
-}
-@media (min-width: 1200px) {
-#icone_mon_compte .hidden-xs{
-  display:inline !important;
-  }
-}
+
 
 
 /*# sourceMappingURL=blockuserinfo.css.map */
