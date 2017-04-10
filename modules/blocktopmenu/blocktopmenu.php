@@ -595,6 +595,7 @@ class Blocktopmenu extends Module
         $html = '';
 
         foreach ($categories as $key => $category) {
+            if ($category['level_depth'] > 2) return false;
             if ($category['level_depth'] > 1) {
                 $cat = new Category($category['id_category']);
                 $link = Tools::HtmlEntitiesUTF8($cat->getLink());

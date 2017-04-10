@@ -1,19 +1,20 @@
 <div class="row header-top-row"> <!-- Row HEADER -->
 	<div class="container">
 
-		<div id ="menu_and_serach" class="col-xs-6 col-md-4 ">
+		<div id ="menu_and_serach" class="col-xs-6 col-sm-4  col-md-4 ">
 			<div class="row">
 				<!-- menu verticale -->
-				<div class="col-xs-6 col-md-4 clearfix menu_vertical visible-xs">
+				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical visible-xs">
 					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name != 'category'} maxi {else} mini  {/if}">
 				      <i class="fa fa-bars"></i>
 				    </button>
+				    {* <pre>{$page_name}</pre> *}
 				</div>
 				<!-- /menu verticale -->
 
 				<!-- MODULE Block search TOP -->
-				<div id="search_block_top" class="col-xs-6 col-md-8 ">
-					<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
+				<div id="search_block_top" class="col-xs-6 col-sm-8 col-md-8 ">
+					<form class="hidden-xs" id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 						<input type="hidden" name="controller" value="search" />
 						<input type="hidden" name="orderby" value="position" />
 						<input type="hidden" name="orderway" value="desc" />
@@ -23,6 +24,11 @@
 						</button>
 
 					</form>
+
+					<div class="visible-xs">
+						<i class="fa fa-search fa-2x" aria-hidden="true"></i>
+					</div>
+
 				</div>
 			</div>
 			<!-- /MODULE Block search TOP -->
@@ -31,9 +37,11 @@
 		<!-- Logo TOP -->
 		{* hide on mobile device *}
 		<div class="hidden-xs">
-			<div id="header_logo" class="col-md-4 col-xs-4">
-					<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Throwback Sneakers'}">
-						<img class="logo img-responsive logo-throwback" src="{$logo_url}" alt="{l s='Throwback-Sneakers'}"/>
+
+			<div id="header_logo" class="col-md-4 col-sm-4 col-xs-4">
+					<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+						<img class="logo img-responsive logo-throwback" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"/>
+
 					</a>
 			</div>
 		</div>

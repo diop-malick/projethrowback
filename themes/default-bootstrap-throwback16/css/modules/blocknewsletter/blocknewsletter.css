@@ -173,7 +173,8 @@
 
 #footer #newsletter_block_left .newsletter-input {
     float: left;
-    width: 150px;
+    /*width: 150px;*/
+    width: 200px;
     height: 36px;
     background-color: #f5f5f5;
     border: 0;
