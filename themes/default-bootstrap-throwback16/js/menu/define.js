@@ -9,7 +9,7 @@ function fullPage() {
 			$('#left_column').hide().css("position", "static");
 			$('#center_column').removeClass('col-sm-9').addClass('col-sm-12').css("float", "left");
 			$('#homepage-slider').removeClass('col-xs-9').addClass('col-xs-12').css("width", "100%").css("float", "left");
-			$('.footer-container,#textSEO').css("width", "100%").css("float", "left");
+			$('.footer-container,#textSEO').css("width", "100%").css("float", "none");
 			$('#toggleMenu').removeClass('mini').addClass('maxi');
 			$('.breadcrumb').css("margin-left", "-0.7500em");
 		 }
