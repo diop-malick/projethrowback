@@ -308,7 +308,7 @@ $(document).ready(function()
 	/* ********************************************************************* 
 	* Mention "a parti de " sur les prix
 	* ********************************************************************* */
-	 if(combinations!= null){
+	 if(typeof combinations !== 'undefined' && combinations!= null){
 		for (var i in combinations) {
 		// console.log(combinations[i]['price']);
 			if (combinations[i]['price'] > 0) {
