@@ -676,7 +676,7 @@
 						</ul>
 					</section>
 				<!-- social sharing -->
-				<div>
+				<div data-easyshare data-easyshare-url="{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}">
 				{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 			</div>
 				</div>
