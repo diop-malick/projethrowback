@@ -378,4 +378,23 @@ ul.sf-menu li li li.sfHover ul {
 
 /*============END=============== MENU VERTICALE */
 
+
+/*=============BEGIN============== Change menu style desk */
+  @media (min-width: 1200px) {
+  .sf-menu > li > ul > li > a {
+    text-transform: none;
+    font: 600 14px/20px "Open Sans", sans-serif;
+    color:#fff;
+    }
+    .sf-menu > li > ul > li > a:hover {
+    color:#fff;
+    }
+
+    .sf-menu li ul{
+      background-color: rgba(53, 53, 53, 0.35);
+    }
+  }
+
+/*=============END============== Change menu style desk */
+
 /*# sourceMappingURL=superfish-modified.css.map */
