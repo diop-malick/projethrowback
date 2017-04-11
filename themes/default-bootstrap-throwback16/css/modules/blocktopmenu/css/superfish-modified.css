@@ -391,7 +391,8 @@ ul.sf-menu li li li.sfHover ul {
     }
 
     .sf-menu li ul{
-      background-color: rgba(53, 53, 53, 0.35);
+      /*background-color: rgba(53, 53, 53, 0.35);*/
+      background-color:rgba(53, 53, 53, 1);
     }
   }
 
