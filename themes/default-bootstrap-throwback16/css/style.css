@@ -363,6 +363,9 @@ body {
 
 #index #slider_row{
   margin-top: 120px;
+  /** supprimer le scroll causé par le row du slider **/
+  margin-left: 0;
+  margin-right: 0;
 }
 @media (max-width: 479px) { 
 #index #slider_row{
