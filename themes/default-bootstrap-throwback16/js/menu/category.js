@@ -5,5 +5,5 @@ $(document).ready(function() {
 	$('.menu_vertical').removeClass('hidden').addClass('show');
 	$('#categories_block_left').show().css("position", "fixed").css("top", "140px").css("z-index", "5003").css("width", "18%");
 
-	scrollAction();
+	//scrollAction();
 });
