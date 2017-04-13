@@ -245,10 +245,11 @@ $(document).ready(function()
 	// JavaScript API built in for detecting media mobile
     var isMobile = window.matchMedia("only screen and (max-width: 480px)");
 	
-	if (!$('#timer').length && !isMobile.matches ) {
+	if ($('#timer').length && !isMobile.matches ) {
     	var add_to_cart_heigh = $('#add_to_cart').height();
+		console.log("Test")
     	// $('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
-    	$('#add_to_cart').css('margin-top',  '60px');
+    	$('#rigth-row-3').css('min-height',  '283px');
     }
 
 	/* ********************************************************************* 

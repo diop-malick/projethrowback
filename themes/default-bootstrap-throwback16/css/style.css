@@ -118,7 +118,7 @@
         padding-top: 25px;
         font-family: "Futura" !important;
         color: rgba(147, 149, 152, 0.749) !important;
-        text-align: justify;
+        
     }
     #header {
         position: relative;
@@ -810,9 +810,9 @@ font-size: 17px;
 #block-history .alert{
   padding: 0 !important;
 }
-#rigth-row-5 {
+/*#rigth-row-5 {
  margin-top: 15px;
-}
+}*/
 
 .box-cart-chrono {
   color: rgb(199, 200, 200);
@@ -1257,6 +1257,7 @@ margin-bottom: 0px !important;
   -moz-border-radius: 0px !important;
   background-color: #fff !important;
   overflow: hidden;
+  margin-top: 0px !important;
   
   position: relative;
   z-index: 1;
@@ -1277,6 +1278,11 @@ margin-bottom: 0px !important;
   }
   .breadcrumb .navigation_page {
       font-weight: bold !important;
+    }
+
+    #breadcrumb_product {
+      margin-left: -1.28em !important;
+      padding: 0 !important;
     }
 
 

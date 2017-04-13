@@ -141,7 +141,7 @@
 					<!-- TITRE  -->
 					<div class="col-xs-12 col-md-8 text-left text-xs-center">
 							<!-- NAME -->
-							<h1 class="product_name" itemprop="name"> {$product->name|truncate:48:"":true|escape:'html':'UTF-8'} </h1>
+							<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
 
 							<!-- {if $product->online_only}
@@ -438,7 +438,7 @@
 
 
 
-				<div class="row">
+			{*<div class="row"> *}
 
 
 
@@ -479,7 +479,7 @@
 
 
 
-					</div>
+				{*	</div> *}
 
 
 				<!-- rigth-row-5 -->
@@ -505,7 +505,7 @@
 							    <div class="panel-body">
 							    	{* <span id="clock"> *}
 							    	{* CHORNO *}
-							    	<br>
+							    	
 									<span id="timer">
 									  <span id="days"></span><span class="chronounity">j</span>
 									  <span id="hours"></span><span class="chronounity">h</span>
