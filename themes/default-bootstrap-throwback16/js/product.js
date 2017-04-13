@@ -308,14 +308,15 @@ $(document).ready(function()
 	/* ********************************************************************* 
 	* Mention "a parti de " sur les prix
 	* ********************************************************************* */
-	// console.log(combinations);
-	for (var i in combinations) {
-	// console.log(combinations[i]['price']);
-		if (combinations[i]['price'] > 0) {
-			$('#minimal_pve_price').show();
-			break;
+	 if(typeof combinations !== 'undefined' && combinations!= null){
+		for (var i in combinations) {
+		// console.log(combinations[i]['price']);
+			if (combinations[i]['price'] > 0) {
+				$('#minimal_pve_price').show();
+				break;
+			}
 		}
-	}
+	 }
 
 	/* ********************************************************************* 
 	* Disable quantity wanted btn if maximum quantity is defined for product 

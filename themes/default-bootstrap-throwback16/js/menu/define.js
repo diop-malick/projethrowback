@@ -9,7 +9,7 @@ function fullPage() {
 			$('#left_column').hide().css("position", "static");
 			$('#center_column').removeClass('col-sm-9').addClass('col-sm-12').css("float", "left");
 			$('#homepage-slider').removeClass('col-xs-9').addClass('col-xs-12').css("width", "100%").css("float", "left");
-			$('.footer-container').css("width", "100%").css("float", "left");
+			$('.footer-container,#textSEO').css("width", "100%").css("float", "none");
 			$('#toggleMenu').removeClass('mini').addClass('maxi');
 			$('.breadcrumb').css("margin-left", "-0.7500em");
 		 }
@@ -28,7 +28,7 @@ function minimizePage() {
 			$('#left_column').show().css("position", "fixed").css("top", "80px").css("z-index", "5003").css("width", "20%");
 			$('#center_column').removeClass('col-sm-12').addClass('col-sm-9').css("float", "right");
 			$('#homepage-slider').removeClass('col-xs-12').addClass('col-xs-9').css("width", "75%").css("float", "right");
-			$('.footer-container').css("width", "75%").css("float", "right");
+			$('.footer-container,#textSEO').css("width", "75%").css("float", "right");
 			$('.breadcrumb').css("margin-left", "24.5%");
 	}
 	$('#toggleMenu').removeClass('maxi').addClass('mini');
