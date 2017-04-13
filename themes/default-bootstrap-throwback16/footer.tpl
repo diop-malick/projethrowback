@@ -35,7 +35,7 @@
 						{/if}
 
 						
-						<div id="textSEO" class="container text-center">
+						<div id="textSEO" class="container">
 							{if {$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search'  }
 								{l s='La marque Throwback Sneakers a été créée par et pour des passionnés de la culture Sneaker.  
 									  Notre site Internet créé en 2009 a évolué dans cette direction pour permettre de proposer des produits
