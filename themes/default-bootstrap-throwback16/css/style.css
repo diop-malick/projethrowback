@@ -363,6 +363,9 @@ body {
 
 #index #slider_row{
   margin-top: 120px;
+  /** supprimer le scroll causé par le row du slider **/
+  margin-left: 0;
+  margin-right: 0;
 }
 @media (max-width: 479px) { 
 #index #slider_row{
@@ -1097,7 +1100,7 @@ width: auto;
   text-align: justify;
   font-size: 16px;
   color: #000;
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
 }
 /* style search  zero result page*/
 .title_zero_result_page   {
