@@ -33,7 +33,11 @@
 	<div  class="detail-articles">
 		<button class="accordion"> {l s='Détails des articles'|upper}</button>
 			<div class="panel panel2">
+				{assign var="total_reduction" value=0}
 				{foreach $products as $product}
+
+					{* {($product.reduction_formatted|intval)|var_dump} *}
+					{$total_reduction=$total_reduction+($product.reduction_formatted|intval)}
 
 					{assign var=name value=(isset($product.name))?$product.name:$product.product_name}
 					{assign var=total value=(isset($product.total))?$product.total:$product.total_price}
@@ -121,6 +125,18 @@
 		<br>
 	{else}
 		{assign var=shippingCost value=0}
+	{/if}
+	
+	{if $total_reduction }
+	<div class="row line_product">
+			<div class="col-md-8">
+				<p class="command-product-name total"><span>{l s='Réduction'|upper}</span></p>
+			</div>
+			<div class="col-md-4 text-right total">
+					<span id="total_price">{$total_reduction} {$currency->sign}</span>
+			</div>			
+	</div>
+	<br>
 	{/if}
 	<div class="row line_product">
 		<div class="col-md-8">
