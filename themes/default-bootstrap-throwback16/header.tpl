@@ -142,7 +142,7 @@
 
 			<div class="columns-container">
 				<div id="columns" class="container">
-					{if $page_name !='index' && $page_name !='pagenotfound'}
+					{if $page_name !='index' && $page_name !='pagenotfound' && $page_name !='category'}
 						{include file="$tpl_dir./breadcrumb.tpl"}
 					{/if}
 

@@ -1308,11 +1308,11 @@ Quick View Styles
 #rigth-row-1, #rigth-row-2, #rigth-row-3 {
 }
 
-
-#rigth-row-3, #rigth-row-4 {
-       /*margin-left: 0; */
-}
-
+@media (min-width: 1024px) {
+#rigth-row-3 {
+       min-height: 333px;
+  }
+} 
 
 #rigth-row-1 .content_prices {
  /*width: 30%;*/
@@ -1325,6 +1325,8 @@ Quick View Styles
 #rigth-row-1 .product_name{
   font-size: 25px !important;
   font-weight: normal !important;
+  max-height: 54px;   
+  overflow: hidden;
 }
 #rigth-row-2 {
 
@@ -1407,7 +1409,7 @@ h3.page-product-heading {
 
 .box-cart-bottom .exclusive,
 .box-cart-chrono .panel-default {
-  height: 86px;
+  height: 50px;
 }
 
 .box-cart-chrono .panel-default {
@@ -1431,7 +1433,8 @@ h3.page-product-heading {
     text-transform: uppercase;
 }
 
-#availability_date .panel {
+#availability_date .panel-default > .panel-body{
+padding: 0 !important;
 }
 
 #accordion  {
