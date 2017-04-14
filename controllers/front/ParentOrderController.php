@@ -93,7 +93,7 @@ class ParentOrderControllerCore extends FrontController
                 if (Configuration::get('PS_ORDER_PROCESS_TYPE') == 1) {
                     Tools::redirect('index.php?controller=order-opc');
                 }
-                Tools::redirect('index.php?controller=order');
+                Tools::redirect('index.php?controller=order&step=0');
             }
         }
 
