@@ -210,9 +210,10 @@ function ajaxAddressSetup()
 								$(tab).trigger('resize');
 								if(!$('.resp-tab-content-active #id_address_delivery option').length){
 							  		$('button.standard-checkout').attr('disabled','disabled');
-							  	}else{
-							  		$('button.standard-checkout').removeAttr('disabled');
 							  	}
+								  /*else{
+							  		$('button.standard-checkout').removeAttr('disabled');
+							  	}*/
 							}
 							
 						});
