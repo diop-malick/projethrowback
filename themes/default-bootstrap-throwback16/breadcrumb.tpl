@@ -20,18 +20,18 @@
         {if isset($smarty.get.search_query) && isset($smarty.get.results) && $smarty.get.results >= 1 && isset($smarty.server.HTTP_REFERER) && isset($page_name) && $page_name == "product"}
           {capture}{if isset($smarty.get.HTTP_REFERER) && $smarty.get.HTTP_REFERER}{$smarty.get.HTTP_REFERER}{elseif isset($smarty.server.HTTP_REFERER) && $smarty.server.HTTP_REFERER}{$smarty.server.HTTP_REFERER}{/if}{/capture}
           {assign var="split_size" value=$path|strip_tags}
-          {assign var="split_size2" value="{$navigation-pipe}"|explode:$split_size}
+          {assign var="split_size2" value="{$navigationPipe}"|explode:$split_size}
           {assign var="product_name" value=$split_size2[({$split_size2|@count}) - 1]}
-
-            <span class="navigation_page"><span>{l s='VOTRE RECHERCHE'}&nbsp;&nbsp;</span><span class="navigation-pipe">></span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="{$smarty.capture.default|escape:'html':'UTF-8'|secureReferrer|regex_replace:'/[\?|&]content_only=1/':''}" title="{$smarty.get.search_query|upper}" ><span itemprop="title">{$smarty.get.search_query|upper} ({$smarty.get.results} {l s='résultats'})</span></a></span>
-            <span class="navigation-pipe">></span>
+          
+            <span class="navigation_page"><span class="breadcrumb_category">{l s='VOTRE RECHERCHE'}</span><span class="navigation-pipe">-</span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="{$smarty.capture.default|escape:'html':'UTF-8'|secureReferrer|regex_replace:'/[\?|&]content_only=1/':''}" title="{$smarty.get.search_query|upper}" ><span itemprop="title">{$smarty.get.search_query|upper} ({$smarty.get.results} {l s='résultats'})</span></a></span>
+            <span class="navigation-pipe">-</span>
             {if isset($product_name) && $product_name}{$product_name}{/if}</span>
 
         {else}
 		        <span class="navigation_page">{$path|@replace:'<a ': '<span class="breadcrumb_category" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" '|@replace:'data-gg="">': '><span class="breadcrumb_category" itemprop="title">'|@replace:'</a>': '</span></a></span>'}</span>
         {/if}
     {elseif {$smarty.get.controller} eq 'search'}
-            <span class="navigation_page"><span>{l s='RECHERCHE'}</span><span class="navigation-pipe">{$navigationPipe|escape:'html':'UTF-8'}</span>
+            <span class="navigation_page"><span class="breadcrumb_category">{l s='RECHERCHE'}</span><span class="navigation-pipe">{$navigationPipe|escape:'html':'UTF-8'}</span>
             <span itemprop="title">{$smarty.get.search_query|upper}</span>
     {else}
 			{$path}
