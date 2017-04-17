@@ -3,14 +3,24 @@
 
 		<div id ="menu_and_serach" class="col-xs-6 col-sm-4  col-md-4 ">
 			<div class="row">
+
+			{if $page_name neq 'index'}
 				<!-- menu verticale -->
-				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical visible-xs">
+				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical hidden-xs">
 					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name != 'category'} maxi {else} mini  {/if}">
 				      <i class="fa fa-bars"></i>
 				    </button>
 				    {* <pre>{$page_name}</pre> *}
 				</div>
+			{/if}
+
 				<!-- /menu verticale -->
+				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical_mobile visible-xs">
+					<button type="button" class="toggle_menu_mobile">
+				      <i class="fa fa-bars"></i>
+				    </button>
+				</div>
+
 
 				<!-- MODULE Block search TOP -->
 				<div id="search_block_top" class="col-xs-6 col-sm-8 col-md-8 ">
@@ -25,7 +35,7 @@
 
 					</form>
 
-					<div class="visible-xs">
+					<div class="visible-xs mobile-icon">
 						<i class="fa fa-search fa-2x" aria-hidden="true"></i>
 					</div>
 

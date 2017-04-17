@@ -11,7 +11,7 @@ function fullPage() {
 			$('#homepage-slider').removeClass('col-xs-9').addClass('col-xs-12').css("width", "100%").css("float", "left");
 			$('.footer-container,#textSEO').css("width", "100%").css("float", "none");
 			$('#toggleMenu').removeClass('mini').addClass('maxi');
-			$('.breadcrumb').css("margin-left", "-0.7500em");
+			//$('.breadcrumb').css("margin-left", "-0.7500em");
 		 }
 			$('#toggleMenu').removeClass('mini').addClass('maxi');
 	}
@@ -29,7 +29,7 @@ function minimizePage() {
 			$('#center_column').removeClass('col-sm-12').addClass('col-sm-9').css("float", "right");
 			$('#homepage-slider').removeClass('col-xs-12').addClass('col-xs-9').css("width", "75%").css("float", "right");
 			$('.footer-container,#textSEO').css("width", "75%").css("float", "right");
-			$('.breadcrumb').css("margin-left", "24.5%");
+		//	$('.breadcrumb').css("margin-left", "24.5%");
 	}
 	$('#toggleMenu').removeClass('maxi').addClass('mini');
 }
@@ -77,14 +77,5 @@ $(document).ready(function() {
     }, function () {
         $( this).removeClass('hovered');
     });
-
-    // check mobile device
-    var browser_device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
-    console.log(browser_device);
-    console.log(navigator.userAgent);
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        // You are in mobile browser
-        console.log('ok');
-    }
 
 });
