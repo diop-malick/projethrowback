@@ -1,23 +1,19 @@
-
 .my-account-selfcare .logo-simple {
-  margin: 0 auto;
+    margin: 0 auto;
 }
-
 
 .my-account-selfcare {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
-
-.form-horizontal .row {
-
-}
+.form-horizontal .row {}
 
 .vertical-center {
-display: flex;
-align-items: center;
-margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
-.page-subheading span{
-  font : 12px sans-serif;
+
+.page-subheading span {
+    font: 12px sans-serif;
 }

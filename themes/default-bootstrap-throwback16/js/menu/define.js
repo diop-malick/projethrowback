@@ -80,11 +80,11 @@ $(document).ready(function() {
 
     // check mobile device
     var browser_device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
-    console.log(browser_device);
+    // console.log(browser_device);
     console.log(navigator.userAgent);
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         // You are in mobile browser
-        console.log('ok');
+       //  console.log('ok');
     }
 
 });
