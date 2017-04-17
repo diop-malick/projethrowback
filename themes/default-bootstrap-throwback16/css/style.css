@@ -25,10 +25,91 @@
         RESPONSIVE - MOBILE
 ************************************************************/
 
-
-/*Responsive Text Align*/
-
 @media (max-width: 479px) {
+    /*============BEGIN=============== MENU VERTICALE */
+    .show {
+        display: none !important;
+    }
+    .toggle_menu_mobile {
+        display: block;
+        float: left;
+        width: 50px;
+        /* height: 50px; */
+        line-height: 50px;
+        padding: 0;
+        background: none;
+        border: 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    .toggle_menu_mobile i {
+        display: block;
+        font-size: 28px;
+    }
+    .visible-xs-menu-mobile #block_top_menu {
+        z-index: 7000;
+        top: 2px;
+        position: relative;
+        width: 100%;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu {
+        text-align: left;
+        padding: 0;
+        width: 100%;
+        background-color: #fff !important;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li {
+        display: block;
+        float: none;
+        border-bottom: 1px solid #ccc !important;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li > a {
+        color: #000 !important;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li > ul > li {
+        float: none;
+        width: 100%;
+        text-align: left !important;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu li ul {
+        position: inherit;
+        padding: 26px 30px 31px;
+        width: 100%;
+        top: 0;
+        z-index: 99;
+        padding: 12px 0px 18px 10px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li span:after {
+        font-family: "FontAwesome";
+        content: "\f067";
+        font-size: 13px;
+        position: absolute;
+        right: 0;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li span.active:after {
+        content: "\f068";
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li > ul > li > a {
+        font-size: 85%;
+        padding-left: 1.40625em;
+        color: #666;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li.sfHover > a,
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li > a:hover,
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li.sfHoverForce > a {
+        background: #fff;
+        border-bottom-color: #666666;
+        color: #fff;
+    }
+    .visible-xs-menu-mobile #block_top_menu .sf-menu > li span:after {
+        margin-top: 0px;
+    }
+    /*============BEGIN=============== MENU VERTICALE */
     .text-xs-left {
         text-align: left;
     }
@@ -41,25 +122,38 @@
     .text-xs-justify {
         text-align: justify;
     }
+    #my-account .columns-container,
+    #identity .columns-container,
     #order .columns-container,
     #password .columns-container,
+    #cms .columns-container,
+    #address .columns-container,
+    #addresses .columns-container,
+    #history .columns-container,
     #order-confirmation .columns-container,
-    #contact .columns-container {
+    #contact .columns-container,
+    #search .columns-container {
         margin-top: 10px !important;
     }
     #header .block_contact_infos {
         padding-left: 2px;
         padding-right: 0px;
     }
+    #languages-block-top ul li {
+        line-height: 55px;
+        font-size: 50px;
+        height: 20px;
+    }
+    #languages-block-top ul {
+        position: absolute;
+        left: 0;
+        background: #ececeb;
+        z-index: 1000;
+    }
     /*row-mainnav-mobile-parent*/
     .header-top-row {
-        /*display: block;*/
-        /*width: 100%;*/
-        /*background-color: white;*/
         background-color: #ececeb;
-        /*position: absolute;*/
         z-index: 9999;
-        /*top: 114px;*/
         -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2)
@@ -67,23 +161,22 @@
     #menu_and_serach,
     #search_block_top .fa {
         margin-top: 2px;
-        /*height: 50px !important;*/
     }
-    .menu_vertical,
+    .menu_vertical_mobile,
     #search_block_top,
     .header_user_info,
     #mobil_blockcart {
-        /*width: 25% !important;*/
         height: 30px !important;
         margin: 0 !important;
-        /*float: left !important;*/
         padding: 0 !important;
         background: 0 !important;
-        /*background-color: #EBEEF0 !important;*/
         border: 0 !important;
         border-radius: 0 !important;
         border-right: 2px solid #B5BDC1 !important;
         text-align: center !important;
+    }
+    #header #block_top_menu {
+        display: none !important;
     }
     .dropbtn {
         background: transparent;
@@ -98,10 +191,6 @@
     #search_block_top {}
     #search_block_top,
     #search_query_top {}
-    /*#center_column */
-    .columns-container {
-        /*margin-top: 120px;*/
-    }
     #textSEO {
         font-size: 0.9em !important;
         background-color: #ececeb;
@@ -128,9 +217,6 @@
     }
     .nav .footer-block {
         margin-top: 0px !important;
-    }
-    .footer-container #footer .footer-block {
-        /* margin-top: 20px; */
     }
     .footer-container #footer #social_block {}
     nav #block_contact_infos span {
@@ -167,7 +253,6 @@
         width: 100%;
         float: none;
         padding: inherit !important;
-        /*left:125px;*/
     }
     .footer-container {
         height: 220px;
@@ -177,11 +262,12 @@
     }
     .columns-container #columns #left_column {
         width: 100% !important;
-        top: 125px !important;
+        top: 0px !important;
         border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 0px;
         -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        position: inherit !important;
     }
     #left_column #block_top_menu {
         top: 0px !important;
@@ -204,7 +290,13 @@
         padding-left: 0px !important;
     }
     #header .shopping_cart {
-        padding-top: 0px;
+        padding-top: 4px;
+    }
+    #header .shopping_cart span.ajax_cart_no_product {
+        display: inline-block !important;
+    }
+    #header .shopping_cart span.ajax_cart_no_product .panier_vide {
+        font-size: 15px;
     }
     #breadcrumb_product {
         margin-left: 0px !important;
@@ -220,7 +312,6 @@
     }
     .visible-xs-logo-mobile img {
         margin: -15px auto 0 auto !important;
-        /*box-shadow: 8px 8px 12px #aaa;*/
     }
     .header-top-row {
         margin-top: 0px !important;
@@ -236,7 +327,7 @@
     .header_user_info .dropdown-content {
         background-color: #fff;
         width: 180px !important;
-        margin-top: 0px !important;
+        margin-top: 8px !important;
     }
     #breadcrumb_product {
         margin-left: 0 !important;
@@ -250,6 +341,43 @@
     #block_various_links_footer {
         text-align: center;
     }
+    /***** HEADER SIMPLIFIE *******************/
+    .simplified-header .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .simplified-header .secure span,
+    .simplified-header .aide {
+        font-size: 15px !important;
+    }
+    .simplified-header span i.right {
+        vertical-align: 0px;
+        font-size: 1.5em;
+        ;
+    }
+    .simplified-header .vertical-center {
+        margin-bottom: 0px;
+    }
+    /***** SELFACRE  *******************/
+    #authentication #columns .row#center_column,
+    #authentication #columns .row#identification {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    #authentication #center_column #equalheight > div {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 5px !important;
+    }
+
+        #my-account ul.myaccount-link-list li a {
+        height: 60px !important;
+        font: 600 12px/14px "Open Sans", sans-serif !important;
+
+    }
+    .myacount-block-container .contenu {
+    margin-top: 5px !important;
+}
 }
 
 
@@ -370,6 +498,10 @@ body {
     color: #777 !important;
 }
 
+#index #center_column {
+    width: 100% !important;
+}
+
 
 /************************ slider *********************************/
 
@@ -403,18 +535,15 @@ body {
 
 #my-account .columns-container,
 #identity .columns-container,
+#order .columns-container,
+#password .columns-container,
 #cms .columns-container,
 #address .columns-container,
 #addresses .columns-container,
 #history .columns-container,
-#search .columns-container {
-    margin-top: 160px;
-}
-
-#order .columns-container,
-#password .columns-container,
 #order-confirmation .columns-container,
-#contact .columns-container {
+#contact .columns-container,
+#search .columns-container {
     margin-top: 160px;
 }
 
