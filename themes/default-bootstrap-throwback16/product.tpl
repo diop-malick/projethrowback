@@ -16,12 +16,6 @@
 
 	<div class="primary_block row">
 
-		<!-- {if !$content_only}
-			<div class="container">
-				<div class="top-hr"></div>
-			</div>
-		{/if} -->
-
 		{if isset($adminActionDisplay) && $adminActionDisplay}
 			<div id="admin-action" class="container">
 				<p class="alert alert-info">{l s='This product is not visible to your customers.'}
@@ -143,10 +137,6 @@
 							<!-- NAME -->
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
-
-							<!-- {if $product->online_only}
-								<p class="online_only">{l s='Online only'}</p>
-							{/if} -->
 					</div>
 					<!-- // TITRE  -->
 
@@ -228,10 +218,7 @@
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								<span id="chrono_without_date"></span>
-									{* <img src="{$base_dir}/img/icones/chrono.png"/> *}
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
-									{* <i class="material-icons" style="font-size:40px; ">watch_later</i> *}
-									{* <i class="icon-time fa-3x"></i> *}
 								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
@@ -331,30 +318,6 @@
 										<!-- Message Delivery in France -->
 										<p id ="fMessage"> {l s='Livraison gratuite en France'} </p>
 
-
-										{*
-										<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-												<span id="availability_label">{l s='Availability:'}</span>
-												<span id="availability_value" class="{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">
-												{if $product->quantity <= 0}
-													{if $PS_STOCK_MANAGEMENT && $allow_oosp}
-														{$product->available_later}
-													{else}
-														{l s='This product is no longer in stock'}
-													{/if}
-												{elseif $PS_STOCK_MANAGEMENT}
-													{$product->available_now}
-												{/if}
-												</span>
-										</p>
-										*}
-
-										{* <div id="rigth-row-4" class="row">
-											<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-												{l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
-											</p>
-										</div> *}
-
 									</div>
 							{/if}
 						</div>
@@ -440,48 +403,6 @@
 
 			{*<div class="row"> *}
 
-
-
-{* PS_STOCK_MANAGEMENT / Enable stock management" in `Preferes > Products > Products Stock". *}
-						{* {if $PS_STOCK_MANAGEMENT}
-							{if !$product->is_virtual}
-								{hook h="displayProductDeliveryTime" product=$product}
-							{/if}
-							<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
-							{/if} *}
-
-						<!-- Out of stock hook -->
-						{*
-						<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
-							{$HOOK_PRODUCT_OOS}
-						</div>
-						*}
-						{*}
-						<p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-							<span id="availability_date_label">{l s='Availability date:'}</span>
-							<span id="availability_date_value">{if Validate::isDate($product->available_date)}{dateFormat date=$product->available_date full=false}{/if}</span>
-						</p>
-						*}
-
-						<!-- AVAILABILITY QUANTITY or doesntExist -->
-
-						<!-- availability or doesntExist -->
-
-						{*
-						<pre>PS_STOCK_MANAGEMENT : {$PS_STOCK_MANAGEMENT}</pre>
-						<pre>quantity : {$product->quantity}</pre>
-						<pre>available_later : {$product->available_later}</pre>
-						<pre>allow_oosp : {$allow_oosp}</pre>
-						<pre>available_now : {$product->available_now}</pre>
-						<pre>available_for_order : {$product->available_for_order}</pre>
-						<pre>PS_CATALOG_MODE : {$PS_CATALOG_MODE}</pre>
-						*}
-
-
-
-				{*	</div> *}
-
-
 				<!-- rigth-row-5 -->
 				<div id="rigth-row-5" class="row">
 
@@ -547,13 +468,6 @@
 			{/if}
 
 		</div>
-
-		<!-- center infos -->
-		<!-- TODO - delete corresponding css -->
-		<!-- <div class="pb-center-column col-xs-12 col-sm-4"> -->
-		<!-- </div> -->
-		<!-- end center infos-->
-
 
 	</div> <!-- end primary_block -->
 
