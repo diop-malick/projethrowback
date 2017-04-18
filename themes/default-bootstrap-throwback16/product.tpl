@@ -324,7 +324,7 @@
 						<!-- // QUANTITY  -->
 
 						<!-- ATTRIBUTS  -->
-					<div class="col-xs-8  col-md-6 product_attributes clearfix">
+					<div class="col-xs-10 col-md-6 product_attributes clearfix">
 						{if isset($groups)}
 							<div id="attributes">
 								{foreach from=$groups key=id_attribute_group item=group}
