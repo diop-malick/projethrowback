@@ -3,11 +3,6 @@
 <section class="row page-product-box blockproductscategory">
 	
 	<h3 class="productscategory_h3 page-product-heading">
-		{* {if $categoryProducts|@count == 1}
-			{l s='%s other product in the same category:' sprintf=[$categoryProducts|@count] mod='productscategory'}
-		{else}
-			{l s='%s other products in the same category:' sprintf=[$categoryProducts|@count] mod='productscategory'}
-		{/if} *}
 		{l s='Vous aimerez également'}
 	</h3>
 
@@ -67,38 +62,18 @@
                                             {* reset comming soon value *}
                                             {assign var=comingsoonvalue value=''}
 						</div>
-
-
-
 						{else}
 						<br />
 						{/if}
-
-
-
 				</div>
 
 				<div class="row product_desc">
-					<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" class="lnk_img product-image product_image" title="{$categoryProduct.name|htmlspecialchars}">
+					<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" class="lnk_img product-image product_image " title="{$categoryProduct.name|htmlspecialchars}">
 
-					<img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$categoryProduct.name|htmlspecialchars}" />
+					<img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$categoryProduct.name|htmlspecialchars}" class="img-responsive"/>
 
 					</a>
 				</div>
-
-				<!-- bouton ajout panier -->
-
-				<!-- <div class="clearfix" style="margin-top:5px">
-						{if !$PS_CATALOG_MODE && ($categoryProduct.allow_oosp || $categoryProduct.quantity > 0)}
-							<div class="no-print">
-								<a class="exclusive button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$categoryProduct.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$categoryProduct.id_product|intval}" title="{l s='Add to cart' mod='productscategory'}">
-									<span>{l s='Add to cart' mod='productscategory'}</span>
-								</a>
-							</div>
-						{/if}
-				</div> -->
-
-
 				</li>
 			{/foreach}
 			</ul>

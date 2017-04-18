@@ -2,7 +2,7 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span><span class="navigation_page">{l s='My addresses'}</span>{/capture}
 
 <div class="my-account-selfcare">
-    <h3 class="page-subheading">{l s='My addresses'}</h3>
+    <h3 class="page-subheading text-xs-center">{l s='My addresses'}</h3>
     <!--
     <p>{l s='Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.'}</p> -->
     {if isset($multipleAddresses) && $multipleAddresses}
@@ -59,22 +59,12 @@
     {/if}
 
 
-    <div class="row">
-        <div class="col-md-6">
-
-        <!-- TODO - delete footer_links class style -->
-        {* ====================
-            <ul class="footer_links clearfix">
-                <li><a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i><&nbsp;</i> {l s='Retour'}</span></a></li>
-                <!--
-                <li><a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}"><span><i class="icon-chevron-left"></i> {l s='Home'}</span></a></li>
-                -->
-            </ul>
-        ================= *}
+    <div class="row vertical-center">
+        <div class="col-md-6 col-sm-6 col-xs-3 vertical-center ">
             <a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
 
                         <span>
-                            <i><</i>
+                            <i class="icon-chevron-left"></i>
                             {l s='Retour'}
                         </span>
 
@@ -82,8 +72,8 @@
 
         </div>
         {if count($multipleAddresses) < 3}
-        <div class="col-md-6 text-right">
-            <div class="clearfix main-page-indent">
+        <div class="col-md-6 col-sm-6 col-xs-9 text-right pull-right vertical-center">
+            <div class="clearfix">
                 <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-default button button-medium"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>
             </div>
         </div>

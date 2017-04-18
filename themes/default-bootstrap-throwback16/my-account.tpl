@@ -45,7 +45,7 @@
 
                 {if $has_customer_an_address}
                 <div class="myacount-block-container">
-	                <li class="col-sm-6 col-xs-12 col-md-6">
+	                <li class="col-sm-12 col-xs-12 col-md-6">
 	                    <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add my first address'}">
 	                    	<div class="contenu">
 			                    <span><i class="icon-building"></i></span>
@@ -116,13 +116,7 @@
     {/if}
     </div>
 
-
-    {* ====================
-    <ul class="footer_links clearfix">
-    <li><a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span id="retour-accueil"><i><&nbsp;</i> {l s='Home'}</span></a></li>
-    </ul>
-    ================= *}
-
+<div class="col-xs-12 text-xs-left">
     <a class="button-exclusive" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
 
                 <span>
@@ -131,6 +125,8 @@
                 </span>
 
     </a>
+     </div>
+
   </div>
 </div>
 
