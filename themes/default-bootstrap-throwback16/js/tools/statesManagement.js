@@ -93,35 +93,38 @@ function bindZipcode()
 		cp = $(this).val();
 		
 		var select = '<select class="is_required validate form-control" id="city" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide."  name="city">';
-		var  url_api = "https://vicopo.selfbuild.fr/cherche/"+cp;
+		var  url_api = "https://datanova.legroupe.laposte.fr/api/records/1.0/search/?dataset=laposte_hexasmal&q="+cp;
 		if( $( '#id_country option:selected' ).text().toLowerCase()=="france" && cp.length==5 ){
+			
 		$.ajax({
 					type: "GET",url: url_api,cache: false,dataType: "json",
 					success: function(json) {
-								count= json.cities.length;
+								count= json.records.length;
 								if(count==0){
 									$("#city").remove();
 									$("#ville").append(input);
 									$("#city").attr("placeholder", "Merci de saisir votre ville.");
 								} 
 								else if(count>1){
-										$.each(json.cities, function(index, value) {
-											//console.log(value.city);
-											select += '<option  value=' + value.city + '>' + value.city + '</option>';
+										$.each(json.records, function(index, value) {
+											select += '<option  value=' + value.fields.libell_d_acheminement + '>' + value.fields.libell_d_acheminement + '</option>';
 										});
 										select += '</select>';
 										$("#city").replaceWith(select);
 								}
 								else{
-									$.each(json.cities, function(index, value) {
+									$.each(json.records, function(index, value) {
 										$("#city").remove();
 										$("#ville").append(input);
-										$("#city").val(value.city);
+										$("#city").val(value.fields.libell_d_acheminement);
 									});
 								}
+						
 					},
 					error: function() {
-					  console.log("Erreur");
+								$("#city").remove();
+								$("#ville").append(input);
+								$("#city").attr("placeholder", "Merci de saisir votre ville.");
 					}
 		});
 	  }
