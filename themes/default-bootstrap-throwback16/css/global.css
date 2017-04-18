@@ -8029,20 +8029,6 @@ header .row > .container {
     position: relative;
 }
 
-@media (max-width: 992px) {
-    header .row #header_logo {
-        padding-top: 40px;
-    }
-}
-
-@media (max-width: 767px) {
-    header .row #header_logo {
-        padding-top: 15px;
-    }
-    header .row #header_logo img {
-        margin: 0 auto;
-    }
-}
 
 @media (min-width: 767px) {
     header .col-sm-4 + .col-sm-4 + .col-sm-4,
@@ -8324,14 +8310,6 @@ span.exclusive {
 .button.button-small span:hover {
     background: #575757;
     border-color: #303030 #303030 #666666 #444444;
-}
-
-@media (max-width: 480px) {
-    .button.button-medium span {
-        font-size: 15px;
-        padding-right: 7px;
-        padding-left: 7px;
-    }
 }
 
 .button.button-medium span i.left {

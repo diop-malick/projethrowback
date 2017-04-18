@@ -491,11 +491,6 @@ span.view_scroll_spacer {
     text-transform: uppercase;
 }
 
-.pb-center-column #color_picker p {
-    padding-bottom: 5px;
-    font-weight: 700;
-}
-
 #product p#loyalty {
     padding: 17px 0 15px 35px;
     border-top: 1px solid #d6d4d4;
@@ -1152,16 +1147,6 @@ table.table-product-discounts tr th {
     display: inline-block;
 }
 
-/* online_only */
-.pb-center-column p.online_only {
-    font-weight: 700;
-    font-size: 13px;
-    color: #f13340;
-    text-align: left;
-}
-.buttons_bottom_block #wishlist_button {
-    font-weight: 700;
-}
 
 /* SEND TO FRIEND (pop-in) ##################################################################### */
 #send_friend_form {
@@ -1285,42 +1270,8 @@ Quick View Styles
 #product.content_only div.primary_block div.pb-left-column #thumbs_list {
     width: 392px;
 }
-#product.content_only div.primary_block div.pb-center-column {
-    padding: 20px 20px 60px 0px;
-    width: 27.5%;
-    margin-bottom: 0;
-    min-height: 623px;
-    height: 100%;
-}
-@media (max-width: 991px) {
-    #product.content_only div.primary_block div.pb-center-column {
-        min-height: 440px;
-    }
-}
-@media (max-width: 479px) {
-    #product.content_only div.primary_block div.pb-center-column {
-        width: 100%;
-        float: none;
-    }
-}
-#product.content_only div.primary_block div.pb-center-column .product_comments_block_extra {
-    padding-right: 0;
-}
-@media (max-width: 479px) {
-    #product.content_only div.primary_block div.pb-center-column .comments_advices li {
-        display: block;
-    }
-    
-    #product.content_only div.primary_block div.pb-center-column .comments_advices a.reviews {
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
-}
-#product.content_only div.primary_block div.pb-center-column #ShareDiv {
-    position: absolute;
-    bottom: 8px;
-}
+
+
 #product.content_only div.primary_block div.pb-right-column {
     width: 25.5%;
     padding-right: 15px;
@@ -1384,13 +1335,7 @@ Quick View Styles
         width: 82px;
         height: 82px;
     }
-    
-    #product.content_only div.primary_block div.pb-center-column,
-    #product.content_only section.primary_block div.pb-center-column {
-        width: 50%;
-        float: left;
-        padding-left: 35px;
-    }
+
     
     #product.content_only div.primary_block div.pb-right-column,
     #product.content_only section.primary_block div.pb-right-column {

@@ -41,13 +41,7 @@
 
 					<a href="javascript:void(0)">
 						<span class="hidden-xs">{l s='My espace' mod='blockuserinfo'}</span>
-							{* <img src="{$base_dir}/img/icones/icone-mon-compte-off.png"/> *}
 						<i class="material-icons">person</i>
-
-						{* <span class="visible-xs" >
-							<img src="{$base_dir}/img/icones/icone-Mon-compte_MOB.png"/>
-						</span> *}
-
 					</a>
 		    	</button>
 
