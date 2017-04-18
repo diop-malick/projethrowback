@@ -65,6 +65,8 @@ $(document).ready(function(){
 				$("#header .cart_block").stop(true, true).slideUp(450);
 			else if (ajaxCart.nb_total_products > 0 || parseInt(basket_quantity) > 0)
 				$("#header .cart_block").stop(true, true).slideDown(450);
+			else
+				window.location.href = $(this).attr('href');
 			return;
 		}
 		else
