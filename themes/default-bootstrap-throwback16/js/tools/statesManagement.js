@@ -119,7 +119,7 @@ function bindZipcode()
 										$("#city").val(value.fields.libell_d_acheminement);
 									});
 								}
-						
+						$("#city").focus();
 					},
 					error: function() {
 								$("#city").remove();
