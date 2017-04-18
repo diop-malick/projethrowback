@@ -6,21 +6,7 @@
 	<h3 class="page-subheading">{if isset($smarty.get.id_address) && $smarty.get.id_address} {l s="Modification d'une adresse"}  {else} {l s='Ajouter une adresse'} {/if}</h3>
 	<div class="text-center">
 	<p class="info-title">
-	<!--
-		{if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
-			{l s='Modify address'}
-			{if isset($smarty.post.alias)}
-				"{$smarty.post.alias}"
-			{else}
-				{if isset($address->alias)}"{$address->alias|escape:'html':'UTF-8'}"{/if}
-			{/if}
-		{else}
-			{l s='To add a new address, please fill out the form below.'}
-		{/if}
-	</p>
-	-->
 	{include file="$tpl_dir./errors.tpl"}
-	<!--<p class="required"><sup>*</sup>{l s='Required field'}</p>-->
 	</div>
 
 	<div class="text-center">

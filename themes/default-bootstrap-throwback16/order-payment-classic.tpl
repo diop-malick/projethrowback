@@ -1,25 +1,11 @@
 <div class="container clearfix">
 
-{* <pre>{$smarty.get.step} </pre>
-<pre>{$smarty.server.HTTP_HOST}</pre>
-<pre>{$smarty.server.REQUEST_URI}</pre>
-<pre>
-  {$cart->id_carrier}
-</pre>
-<pre>
-  {$cart->delivery_option}
-</pre> *}
-
- {*  <div>
-    <h2>{l s='Choisissez votre mode de paiement'}</h2>
-  </div> *}
-
   <br>
   <div class="row ">
     {*********************************************************
     Onglets paiements
     **********************************************************}
-    <div class="paiement_block col-sm-9 payment_content  clearfix">
+    <div class="paiement_block col-sm-12 col-md-9 payment_content  clearfix">
       <div class="row panel-group" id="accordion"> 
 
                 <div class="panel panel-default">
@@ -48,7 +34,7 @@
     {*********************************************************
     Facturerette
     **********************************************************}
-    <div class="cart_navigation col-sm-3">
+    <div class="cart_navigation col-sm-12 col-md-3">
         {include file="$tpl_dir./facturette.tpl"}
     </div>
 
