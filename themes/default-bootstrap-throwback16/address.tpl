@@ -225,14 +225,6 @@
 		</div>
 
 		<!-- ERROR -->
-		{if !$homePhoneExist}
-			<div class="form-group phone-number">
-				<label for="phone" class="col-md-4 col-xs-12 text-xs-left text-right">{l s='Home phone'}</label>
-				<div class="col-md-8 col-xs-12">
-				<input class="{if isset($one_phone_at_least) && $one_phone_at_least}is_required{/if} validate form-control" data-validate="{$address_validation.phone.validate}" type="tel" id="phone" name="phone" value="{if isset($smarty.post.phone)}{$smarty.post.phone}{else}{if isset($address->phone)}{$address->phone|escape:'html':'UTF-8'}{/if}{/if}"  />
-				</div>
-			</div>
-		{/if}
 		<div class="clearfix"></div>
 		{if !$mobilePhoneExist}
 			<div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
