@@ -7,9 +7,6 @@
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
 										<div class="shopping_cart" id="picto_panier">
-											{*
-											<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
-											*}
 											<a href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 												<span class="panier hidden-xs">{l s='Cart' mod='blockcart'}</span>
 												<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">({$cart_qties})</span>
@@ -27,13 +24,6 @@
 													{/if}
 												</span>
 												<span  class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}"><span class="hidden-xs">{l s='(0)' mod='blockcart'}</span><span class="panier_vide visible-xs">{l s='(0)' mod='blockcart'}</span></span></span>
-
-
-												{* <img class="hidden-xs" src="{$base_dir}/img/icones/basket_1.png"/> *}
-												{* <img  class="visible-xs"src="{$base_dir}/img/icones/mob_basket.png"/> *}
-
-												{* <i class="material-icons shopping-cart" style="color:#fff;">shopping-cart</i> *}
-												{* <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> *}
 												<i class="material-icons shopping-cart"></i>
 
 
@@ -138,23 +128,6 @@
 															{assign var='free_ship' value=count($cart->getDeliveryAddressesWithoutCarriers(true, $errors))}
 															<div class="cart-prices">
 
-															{* shipping info *}
-															{*
-																<div class="cart-prices-line first-line">
-																	<span class="price cart_block_shipping_cost ajax_cart_shipping_cost{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} unvisible{/if}">
-																		{if $shipping_cost_float == 0}
-																			 {if !($page_name == 'order-opc') && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)}{l s='To be determined' mod='blockcart'}{else}{l s='Free shipping!' mod='blockcart'}{/if}
-																		{else}
-																			{$shipping_cost}
-																		{/if}
-																	</span>
-
-
-																	<span{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} class="unvisible"{/if}>
-																		{l s='Shipping' mod='blockcart'}
-																	</span>
-																</div>
-																*}
 																{if $show_wrapping}
 																	<div class="cart-prices-line">
 																		{assign var='cart_flag' value='Cart::ONLY_WRAPPING'|constant}
@@ -228,40 +201,13 @@
 									<span id="layer_cart_product_title" class="product-name"></span>
 									<strong class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
 									<span id="layer_cart_product_attributes"></span>
-
-									{* <pre>{$product.attributes}</pre> *}
-
-									{*}
-									{if isset($product.attributes)}
-									{assign var="attributes" value=$product.attributes}
-									 {assign var="split_size" value=","|explode:$attributes}
-			 						 {if isset($split_size[0]) && $split_size[0]} {assign var="attribute_size" value=":"|explode:$split_size[0]}
-									 {assign var="sizing" value=$attribute_size[1]|trim}{/if}
-									 {if isset($split_size[1]) && $split_size[1]}
-									 {assign var="attribute_coloris" value=":"|explode:$split_size[1]}
-									 {assign var="coloris" value=$attribute_coloris[1]|trim}
-									 {/if}
-									{/if}
-									 {if isset($coloris) && $coloris}
-									<div>
-										<strong class="dark">{l s='Coloris' mod='blockcart'}&nbsp;:</strong>
-										<span >{$coloris}</span>
-									</div>
-									{/if}
-									{if isset($sizing) && $sizing}
-									<div>
-										<strong class="dark">{l s='Taille' mod='blockcart'}&nbsp;:</strong>
-										<span >{$sizing}</span>
-									</div>
-									{/if}
-									*}
 									<div>
 										<strong class="dark">{l s='Quantity' mod='blockcart'}&nbsp;:</strong>
 										<span id="layer_cart_product_quantity"></span>
 									</div>
 
 										<div class="disponible">
-											<span class="dispo_info">{l s='In Stock'|upper}<!--{if $product.quantity_available <= 0}{if isset($product.allow_oosp) && $product.allow_oosp}{if isset($product.available_later) && $product.available_later}{$product.available_later|upper}{else}{l s='In Stock'|upper}{/if}{else}{l s='Out of stock'|upper}{/if}{else}{if isset($product.available_now) && $product.available_now}{l s='Disponible'|upper}{else}{l s='In Stock'|upper}{/if}{/if}-->
+											<span class="dispo_info">{l s='In Stock'|upper}
 											</span>
 										</div>
 
@@ -291,110 +237,6 @@
 									</div>
 								</div>
 							</div>
-							{*
-							<div class="layer_cart_cart col-xs-12 col-xs-6 hidden">
-								<span class="title">
-									<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-									<span class="ajax_cart_product_txt_s {if $cart_qties < 2} unvisible{/if}">
-										{l s='There are [1]%d[/1] items in your cart.' mod='blockcart' sprintf=[$cart_qties] tags=['<span class="ajax_cart_quantity">']}
-									</span>
-									<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-									<span class="ajax_cart_product_txt {if $cart_qties > 1} unvisible{/if}">
-										{l s='There is 1 item in your cart.' mod='blockcart'}
-									</span>
-								</span>
-								<div class="layer_cart_row">
-									<strong class="dark">
-										{l s='Total products' mod='blockcart'}
-										{if $use_taxes && $display_tax_label && $show_tax}
-											{if $priceDisplay == 1}
-												{l s='(tax excl.)' mod='blockcart'}
-											{else}
-												{l s='(tax incl.)' mod='blockcart'}
-											{/if}
-										{/if}
-									</strong>
-									<span class="ajax_block_products_total">
-										{if $cart_qties > 0}
-											{convertPrice price=$cart->getOrderTotal(false, Cart::ONLY_PRODUCTS)}
-										{/if}
-									</span>
-								</div>
-
-								{if $show_wrapping}
-									<div class="layer_cart_row">
-										<strong class="dark">
-											{l s='Wrapping' mod='blockcart'}
-											{if $use_taxes && $display_tax_label && $show_tax}
-												{if $priceDisplay == 1}
-													{l s='(tax excl.)' mod='blockcart'}
-												{else}
-													{l s='(tax incl.)' mod='blockcart'}
-												{/if}
-											{/if}
-										</strong>
-										<span class="price cart_block_wrapping_cost">
-											{if $priceDisplay == 1}
-												{convertPrice price=$cart->getOrderTotal(false, Cart::ONLY_WRAPPING)}
-											{else}
-												{convertPrice price=$cart->getOrderTotal(true, Cart::ONLY_WRAPPING)}
-											{/if}
-										</span>
-									</div>
-								{/if}
-								<div class="layer_cart_row">
-									<strong class="dark{if $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
-										{l s='Total shipping' mod='blockcart'}&nbsp;{if $use_taxes && $display_tax_label && $show_tax}{if $priceDisplay == 1}{l s='(tax excl.)' mod='blockcart'}{else}{l s='(tax incl.)' mod='blockcart'}{/if}{/if}
-									</strong>
-									<span class="ajax_cart_shipping_cost{if $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
-										{if $shipping_cost_float == 0}
-											 {if (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)}{l s='To be determined' mod='blockcart'}{else}{l s='Free shipping!' mod='blockcart'}{/if}
-										{else}
-											{$shipping_cost}
-										{/if}
-									</span>
-								</div>
-								{if $show_tax && isset($tax_cost)}
-									<div class="layer_cart_row">
-										<strong class="dark">{l s='Tax' mod='blockcart'}</strong>
-										<span class="price cart_block_tax_cost ajax_cart_tax_cost">{$tax_cost}</span>
-									</div>
-								{/if}
-								<div class="layer_cart_row">
-									<strong class="dark">
-										{l s='Total' mod='blockcart'}
-										{if $use_taxes && $display_tax_label && $show_tax}
-											{if $priceDisplay == 1}
-												{l s='(tax excl.)' mod='blockcart'}
-											{else}
-												{l s='(tax incl.)' mod='blockcart'}
-											{/if}
-										{/if}
-									</strong>
-									<span class="ajax_block_cart_total">
-										{if $cart_qties > 0}
-											{if $priceDisplay == 1}
-												{convertPrice price=$cart->getOrderTotal(false)}
-											{else}
-												{convertPrice price=$cart->getOrderTotal(true)}
-											{/if}
-										{/if}
-									</span>
-								</div>
-								<div class="button-container">
-									<span class="continue btn btn-default button exclusive-medium" title="{l s='Continue shopping' mod='blockcart'}">
-										<span>
-											<i class="icon-chevron-left left"></i>{l s='Continue shopping' mod='blockcart'}
-										</span>
-									</span>
-									<a class="btn btn-default button button-medium"	href="{$link->getPageLink($order_process, true, NULL, 'step=0')|escape:'html':'UTF-8'}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
-										<span>
-											{l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
-										</span>
-									</a>
-								</div>
-							</div>
-							*}
 						</div>
 						<div class="crossseling"></div>
 					</div> <!-- #layer_cart -->

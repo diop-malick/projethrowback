@@ -208,12 +208,58 @@
         padding: 0 !important;
         /*border: 2px solid #B5BDC1 !important;*/
     }
+
+    #order .columns-container #columns .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    #order .columns-container #columns .row > div[class^="col-"] {
+        padding-left: 0px !important;
+    padding-right: 0px !important;
+    }
+
+    #authentication #columns .order-step-row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    ul.step li span, ul.step li a {
+        font-size: 1.2rem !important;
+    }
 }
 
 @media (max-width: 992px) {
     .title-identity {
         display: none;
     }
+
+      #product .columns-container {
+        margin-top: 5px !important;
+    }
+
+    #my-account .columns-container,
+    #identity .columns-container,
+    #order .columns-container,
+    #password .columns-container,
+    #cms .columns-container,
+    #address .columns-container,
+    #addresses .columns-container,
+    #history .columns-container,
+    #order-confirmation .columns-container,
+    #contact .columns-container,
+    #search .columns-container {
+        margin-top: 10px !important;
+    }
+
+    .page-product-box {
+margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+        #index #slider_row {
+    margin-top: 0 !important;
+}
 }
 
 @media (min-width: 768px) {
@@ -235,9 +281,7 @@
     header .row #header_logo img {
         /*margin: 0 auto;*/
     }
-    #index #slider_row {
-    margin-top: 0 !important;
-}
+
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -294,6 +338,10 @@
 ************************************************************/
 
 @media (max-width: 479px) {
+
+    .breadcrumb {
+            font-size: 10px !important;
+    }
     .button.button-medium span {
         font-size: 14px;
         padding-right: 7px;
@@ -387,19 +435,7 @@
     }
     /*============BEGIN=============== MENU VERTICALE */
 
-    #my-account .columns-container,
-    #identity .columns-container,
-    #order .columns-container,
-    #password .columns-container,
-    #cms .columns-container,
-    #address .columns-container,
-    #addresses .columns-container,
-    #history .columns-container,
-    #order-confirmation .columns-container,
-    #contact .columns-container,
-    #search .columns-container {
-        margin-top: 10px !important;
-    }
+    
     #header .block_contact_infos {
         padding-left: 2px;
         padding-right: 0px;
@@ -570,9 +606,7 @@
     .product-container .row {
         padding: 8px;
     }
-    #product .columns-container {
-        margin-top: 5px !important;
-    }
+  
     .visible-xs-logo-mobile {
         display: block !important;
     }
@@ -655,20 +689,8 @@ padding: 5px  !important;
 
     /***** FP  *******************/
 
-.blockproductscategory {
-margin: 8px  !important;
-}
-.blockproductscategory #productscategory_list .product-name a {
-    font-size: 13px !important;
-    line-height: 17px !important;
-}
-#accordion {
-       padding: 5px  !important;
-       margin: 8px  !important;
-}
-#rigth-row-3 > div > .row {
-     margin: 8px  !important;
-}
+
+
 
 }
 
@@ -1450,12 +1472,7 @@ input[readonly] {
     }
 }
 
-@media (min-width: 480px) {}
-
 @media (min-width: 480px) and (max-width: 768px) {
-    .text-right-mobile {
-        text-align: right;
-    }
     .text-left-mobile {
         text-align: left;
     }

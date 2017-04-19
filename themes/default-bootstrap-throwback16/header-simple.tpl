@@ -2,7 +2,7 @@
     <div class="row vertical-center">
         <div class="col-sm-4 col-md-4 text-left vertical-center">
             <div class="row">
-              <div class="col-xs-12 col-md-8">
+              <div class="col-xs-12 col-md-12 col-md-8">
                 <span class="aide">{l s=' Besoin d\'aide'}</span>
               </div>
               {hook h='displayNav' mod='blockcontactinfos'}

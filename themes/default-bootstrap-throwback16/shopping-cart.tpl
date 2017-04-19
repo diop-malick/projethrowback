@@ -7,9 +7,6 @@
 {capture name=path}{l s='Your shopping cart'}{/capture}
 
 
-
-
-
 {if isset($account_created)}
 	<p class="alert alert-success">
 		{l s='Your account has been created.'}
@@ -17,7 +14,6 @@
 {/if}
 
 {assign var='current_step' value='summary'}
-{* {include file="$tpl_dir./order-steps.tpl"} *}
 
 {include file="$tpl_dir./errors.tpl"}
 
@@ -113,7 +109,6 @@
 
 							<div class="col-xs-3 col-md-3  img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">
-								{* <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" {if isset($smallSize)}width="{$smallSize.width}" height="{$smallSize.height}" {/if} /> *}
 								{* change product image format : from small_default_to_home default *}
 								<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" class="img-responsive" />
 								</a>
@@ -125,7 +120,7 @@
 								<div class="row">
 									<div class="col-xs-10 col-md-11">
 
-										<p class="product-name product_title text-right-mobile">
+										<p class="product-name product_title">
 											<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
 											</a>
 										</p>
@@ -150,21 +145,9 @@
 										</div>
 									</div>
 								</div>
-
-                                {* get LIMIT quantity caracteristique value , add disabled to btn *}
-                                {* <pre>{$product|var_dump}}</pre> *}
-                                {*
-	                                            caractériqtique produit :
-	                                            id Quantité-Commandable / id: 11
-	                                            id valeur  : 11
-                                *}
-                                {* <pre>{$product->quantity_available}</pre> *}
-                                {* <pre>{$product.features|var_dump}}</pre> *}
                                 {foreach from=$product.features item=feature}
                                     {if (isset($feature["id_feature"]) && $feature["id_feature"] eq '11') && $feature["id_feature_value"] eq '41'}
                                         {assign var=quantitylimitperorder value=1}
-                                        {* </pre>limit : {$quantitylimitperorder}</pre> *}
-                                        {* TODO - show before quantity *}
                                     {/if}
                                  {/foreach}
 
@@ -256,7 +239,7 @@
 											<div class="col-md-3 col-xs-3">
 												{if $product.cart_quantity}
 													<div class = "row">
-														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+														<div class="col-md-6 col-xs-6 text-right hidden-xs">
 																<label class="label-attribute ">{l s='Quantité'}</label>
 														</div>
 														<div class="col-md-6 col-xs-6">
@@ -274,7 +257,7 @@
 											<div class="col-md-3 col-xs-3">
 												{if isset($sizing) && $sizing}
 													<div class = "row">
-														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+														<div class="col-md-6 col-xs-6 text-right hidden-xs">
 															<label class="label-attribute">{l s='Taille'}</label>
 														</div>
 														<div class="col-md-6 col-xs-6">
@@ -297,7 +280,7 @@
 											<div class="col-md-3 col-xs-3">
 												{if isset($coloring)}
 													<div class = "row">
-														<div class="col-md-6 col-xs-6 text-right text-right-mobile hidden-xs">
+														<div class="col-md-6 col-xs-6 text-right hidden-xs">
 																<label class="label-attribute">{l s='Couleur'}</label>
 														</div>
 														<div class="col-md-6 col-xs-6">

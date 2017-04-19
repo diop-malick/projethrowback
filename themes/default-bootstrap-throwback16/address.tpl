@@ -6,21 +6,7 @@
 	<h3 class="page-subheading">{if isset($smarty.get.id_address) && $smarty.get.id_address} {l s="Modification d'une adresse"}  {else} {l s='Ajouter une adresse'} {/if}</h3>
 	<div class="text-center">
 	<p class="info-title">
-	<!--
-		{if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
-			{l s='Modify address'}
-			{if isset($smarty.post.alias)}
-				"{$smarty.post.alias}"
-			{else}
-				{if isset($address->alias)}"{$address->alias|escape:'html':'UTF-8'}"{/if}
-			{/if}
-		{else}
-			{l s='To add a new address, please fill out the form below.'}
-		{/if}
-	</p>
-	-->
 	{include file="$tpl_dir./errors.tpl"}
-	<!--<p class="required"><sup>*</sup>{l s='Required field'}</p>-->
 	</div>
 
 	<div class="text-center">
@@ -225,14 +211,6 @@
 		</div>
 
 		<!-- ERROR -->
-		{if !$homePhoneExist}
-			<div class="form-group phone-number">
-				<label for="phone" class="col-md-4 col-xs-12 text-xs-left text-right">{l s='Home phone'}</label>
-				<div class="col-md-8 col-xs-12">
-				<input class="{if isset($one_phone_at_least) && $one_phone_at_least}is_required{/if} validate form-control" data-validate="{$address_validation.phone.validate}" type="tel" id="phone" name="phone" value="{if isset($smarty.post.phone)}{$smarty.post.phone}{else}{if isset($address->phone)}{$address->phone|escape:'html':'UTF-8'}{/if}{/if}"  />
-				</div>
-			</div>
-		{/if}
 		<div class="clearfix"></div>
 		{if !$mobilePhoneExist}
 			<div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
