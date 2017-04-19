@@ -114,12 +114,15 @@ $(document).ready(function()
 		hideFilterValueAction(this);
 	});
 
+	// Sort with redirect
+	/*
 	$(document).off('change', '.selectProductSort').on('change', '.selectProductSort', function(e) {
 		$('.selectProductSort').val($(this).val());
 
 		if($('#layered_form').length > 0)
 			reloadContent('forceSlide');
-	});
+	}); 
+	*/
 
 	$(document).off('change', 'select[name="n"]').on('change', 'select[name="n"]', function(e)
 	{
