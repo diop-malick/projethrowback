@@ -1,10 +1,11 @@
 /********************************************************
-			Right to Left Styles
+            rtl.css / Right to Left Styles
 ********************************************************/
+
 * {
-  direction: rtl !important; }
+    direction: rtl !important;
+}
 
 #page {
-  text-align: right !important; }
-
-/*# sourceMappingURL=rtl.css.map */
+    text-align: right !important;
+}

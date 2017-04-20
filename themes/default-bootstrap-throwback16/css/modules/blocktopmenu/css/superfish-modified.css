@@ -56,7 +56,6 @@
 }
 
 .sf-menu > li {
-    /* float: left; */
     display: inline-block;
     margin-bottom: -3px;
 }
@@ -85,8 +84,6 @@
     }
 }
 
-
-/* throwback > personalization */
 
 .sf-menu > li > a {
     font-size: 14px;
@@ -130,7 +127,6 @@
 
 .sf-menu li li ul {
     position: static;
-    /*display: block !important;*/
     opacity: 1 !important;
     background: none;
     -moz-box-shadow: transparent 0px 0px 0px;
@@ -154,7 +150,6 @@ ul.sf-menu li.sfHover li ul {
 ul.sf-menu li li:hover ul,
 ul.sf-menu li li.sfHover ul {
     left: 200px;
-    /* match ul width */
     top: 0;
 }
 
@@ -183,14 +178,11 @@ ul.sf-menu li li li.sfHover ul {
     float: left;
     width: 50%;
     text-align: left !important;
-    /*padding-right: 15px; */
 }
 
 .sf-menu li ul {
     display: none;
-    /*left: 0;*/
     top: 59px;
-    /* match top ul list item height */
     z-index: 99;
     padding: 12px 0px 18px 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
@@ -426,6 +418,11 @@ ul.sf-menu li li li.sfHover ul {
     color: #fff;
 }
 
+#block_top_menu.sf-contener_opacity {
+  margin-bottom: -112px;
+}
+
+
 @media (max-width: 767px) {
     #left_column #block_top_menu {
         width: 80%;
@@ -436,10 +433,6 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 
-/*============END=============== MENU VERTICALE */
-
-
-/*=============BEGIN============== Change menu style desk */
 
 @media (min-width: 1200px) {
     .sf-menu > li > ul > li > a {
@@ -454,9 +447,3 @@ ul.sf-menu li li li.sfHover ul {
         background-color: rgba(53, 53, 53, 1);
     }
 }
-
-
-/*=============END============== Change menu style desk */
-
-
-/*# sourceMappingURL=superfish-modified.css.map */
