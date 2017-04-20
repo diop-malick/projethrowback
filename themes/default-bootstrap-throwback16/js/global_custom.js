@@ -5,8 +5,8 @@ $(document).ready(function(){
   
 	var catCmsDir = "index.php?id_cms_category";
 	var dir = baseDir + catCmsDir;
-    var cms_services = baseDir  + 'index.php?id_cms=7&controller=cms&id_lang='+ langue_id;
-    var cms_lien_legaux = baseDir + 'index.php?id_cms=12&controller=cms&id_lang='+ langue_id;
+    var cms_services = baseDir  + 'index.php?id_cms=7&controller=cms&id_lang=';
+    var cms_lien_legaux = baseDir + 'index.php?id_cms=12&controller=cms&id_lang=';
     $("a[href^='"+dir+"']").addClass("CategoryCms");
     var els =  document.getElementsByClassName("CategoryCms");
 	for (var i = 0, l = els.length; i < l; i++) {

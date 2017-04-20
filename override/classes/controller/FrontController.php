@@ -7,8 +7,7 @@ class FrontController extends FrontControllerCore
         $this->addCSS(_THEME_CSS_DIR_.'menu/vertical-responsive-menu.css');
         $this->addCSS(_THEME_CSS_DIR_.'style.css');
 
-        if(isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'cms')
-            $this->addJS(_THEME_JS_DIR_.'global_custom.js');
+        $this->addJS(_THEME_JS_DIR_.'global_custom.js');
 
         $this->addJS(_THEME_JS_DIR_.'form-validator/jquery.form-validator.min.js');
         $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');        
