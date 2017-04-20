@@ -19,13 +19,6 @@
     </div>
     {* END ============= MAILCHIMPS PROCESS ========= *}
 
-    {*
-    {if isset($account_created)}
-    	<p class="alert alert-success">
-    		{l s='Your account has been created.'}
-    	</p>
-    {/if}
-    *}
 
     <div class="container">
     <div class="row addresses-lists">

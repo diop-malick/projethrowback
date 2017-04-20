@@ -23,11 +23,6 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 {capture name=path}{l s='Contact'}{/capture}
-{*
-<h1 class="page-heading bottom-indent">
-	{l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}
-</h1>
-*}
 {if isset($confirmation)}
 	<p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
 	<ul class="footer_links clearfix">
@@ -104,15 +99,6 @@
 														{/foreach}
 													</select>
 												</div>
-												
-												{*
-													<p id="desc_contact0" class="desc_contact{if isset($smarty.request.id_contact)} unvisible{/if}">&nbsp;</p>
-													{foreach from=$contacts item=contact}
-														<p id="desc_contact{$contact.id_contact|intval}" class="desc_contact contact-title{if !isset($smarty.request.id_contact) || $smarty.request.id_contact|intval != $contact.id_contact|intval} unvisible{/if}">
-															<i class="icon-comment-alt"></i>{$contact.description|escape:'html':'UTF-8'}
-														</p>
-													{/foreach}
-												*}
 												{/if}
 										</div>
 									</div>
@@ -134,16 +120,6 @@
 					</div>
 						
 					</div> <!-- end row -->
-					
-					{*
-					{if $fileupload == 1}
-						<p class="form-group">
-							<label for="fileUpload">{l s='Attach File'}</label>
-							<input type="hidden" name="MAX_FILE_SIZE" value="{if isset($max_upload_size) && $max_upload_size}{$max_upload_size|intval}{else}2000000{/if}" />
-							<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
-						</p>
-					{/if}
-					*}
 				</div>
 				<div class="col-xs-12 col-md-12 padding-class">
 					<div class="form-group">

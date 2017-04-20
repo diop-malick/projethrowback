@@ -1,27 +1,3 @@
-/*
- * 2007-2016 PrestaShop
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
- *
- *  @author PrestaShop SA <contact@prestashop.com>
- *  @copyright  2007-2016 PrestaShop SA
- *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- *  International Registered Trademark & Property of PrestaShop SA
- */
 
 
 /* BUG - PRESTA
@@ -53,9 +29,6 @@ function showElemntsToModify(line) {
 
     // TODO - to delete if ajax update not enabled
     function replaceClassesId(old_line, new_line) {
-        //$('.IsBestAnswer').addClass('bestanswer').removeClass('IsBestAnswer');
-        // console.log('old_line :' + old_line);
-        // console.log('new_line :' + new_line);
         $(".attributes_line_" + old_line).addClass("attributes_line_" + new_line).removeClass("attributes_line_" + old_line);
         $(".quantity_" + old_line).addClass("quantity_" + new_line).removeClass("quantity_" + old_line);
         $(".attributes_to_modify_" + old_line).addClass("attributes_to_modify_" + new_line).removeClass("attributes_to_modify_" + old_line);
@@ -69,9 +42,7 @@ function showElemntsToModify(line) {
 
         $("#edit-" + old_line).attr('id', "edit-" + new_line);
         $("#del-" + old_line).attr('id', "del-" + new_line);
-        //$("#quantity_wanted_"+old_line).attr('id',"quantity_wanted_"+new_line);
         size_update = ".attributes_line_" + new_line + " " + ".size_line";
-        // console.log('size_update :' + size_update);
         $(size_update).text('M');
 
     }
@@ -110,12 +81,6 @@ function showElemntsToModify(line) {
 
         ajaxCart.add(idProduct, idCombinaison, false, null, parseInt(qty), null);
         ajaxCart.refresh();
-        /*
-        	newPrice = $('input[name=price_add]').val();
-        	 newTotal = $('input[name=total_add]').val();
-        	 $( "#total_product_price_"+oldline_price).empty().append(newPrice);
-        	 $( "#total_price").empty().append(newTotal);
-        */
         deleteProductFromSummary(line, false);
         // replaceClassesId(line , new_ine);
         hideElemntsToModify(new_ine);
@@ -155,20 +120,15 @@ function showElemntsToModify(line) {
     $(".edit a").on("click", function(e) {
         e.preventDefault();
         var id_line = $(this).attr('id');
-        // console.log('id line :' + id_line);
         var id_edit = id_line.split('-');
         var line = id_edit[1];
         var id_line_product_attr = id_edit[2];
-        // console.log(line);
-        //var line = $(this).attr('id');
         var quantity_current = parseInt($("#quantity_wanted_" + line).val());
 
         showElemntsToModify(line);
         lightSelectedElementAttribute(line, id_line_product_attr);
 
         if(parseInt(quantityAvailable[line]) == 1) {
-            // console.log('quantityAvailable[id] =' + quantityAvailable[line]);
-
             // disable quantity btn if quantity available is 1
             $('#down-'+line).addClass('disabled');
             $('#up-'+line).addClass('disabled');
@@ -210,11 +170,6 @@ function showElemntsToModify(line) {
                 }
 
             }
-
-            /*
-            else
-            	upQuantity(line, 1);
-            */
             $(".attributes_line_" + line + " .current_qty_" + line).empty().append(quantity_change);
             hideElemntsToModify(line);
 
@@ -223,16 +178,10 @@ function showElemntsToModify(line) {
 
     function lightSelectedElementAttribute(id, id_line_product_attr) {
         var id_split = id.split('_');
-        id_product_attribute = id_split[1]; 
-        // console.log('id line ' + id);
-        // console.log('id_line id_attribute ' + id_line_product_attr);
-        // console.log('id_line id_product_attribute ' + id_product_attribute);
-        // console.log(attributesCombinations);
-        /* ligth selected already attributes */       
+        id_product_attribute = id_split[1];       
         for (index in attributesCombinations) {
             if (index == id && attributesCombinations[index] != null) {
                 selectedAttributeElement = attributesCombinations[index][id_product_attribute]['attributes'][0];
-                // console.log(selectedAttributeElement);                
                 // find 'label' element by 'for'
                 var label = id+'-'+selectedAttributeElement;
                 $('.attribute_list ul li > label[for="' + label + '"]').addClass('li_attribute_list selected btn disabled');              
@@ -255,7 +204,6 @@ function showElemntsToModify(line) {
     });
     $('.cart_quantity_delete').off('click').on('click', function(e) {
         e.preventDefault();
-        //var ids = $(this).attr('id');
         var id_line = $(this).attr('id');
         var id_delete = id_line.split('-');
         var line = id_delete[1];
@@ -904,12 +852,6 @@ function downQuantity(id, qty) {
                 alert("TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: " + XMLHttpRequest + "\n" + 'Text status: ' + textStatus);
         }
     });
-    /*
-    	}
-    	else
-    	{
-    		deleteProductFromSummary(id,true);
-    	} */
 }
 
 function updateCartSummary(json) {

@@ -152,11 +152,6 @@
         position: absolute;
         top: -65px;
     }
-    #block_contact_infos {
-        /*position: absolute;*/
-        /*top: 5px;*/
-        /*width: 200px;*/
-    }
 }
 
 @media (min-width: 480px) {
@@ -1743,7 +1738,30 @@ button.accordion.active:after {
     text-align: justify;
 }
 
+/*******************************************************
+               Remode addresses.css /  Addresses Styles
+********************************************************/
 
-/************************************************************
-        Mobile
-************************************************************/
+#addresses #center_column .page-heading {
+    /*margin: 0 0 22px; */
+}
+
+#addresses #center_column p {
+    margin: 0 0 13px;
+}
+
+#addresses #center_column p.p-indent {
+    margin: 0 0 27px;
+}
+
+
+/********************************************************
+            rtl.css / Right to Left Styles
+********************************************************/
+* {
+  direction: rtl !important; }
+
+#page {
+  text-align: right !important; }
+
+/*# sourceMappingURL=style.css.map */

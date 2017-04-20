@@ -47,7 +47,6 @@
 			    	<div class="panel-heading">
 			    		<h4 class="panel-title">
 			    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-			    				{* <span class="resp-arrow"></span>			    				 *}
 			    				<span class="delivery_option_name">{l s='Livraison à domicile'}</span>
 			    			</a>
 			    			<span class="delivery_option_price free">{l s=''}</span>
@@ -106,13 +105,6 @@
 															{/section}
 															</select><span class="waitimage"></span>
 													  </div>
-												{*	{else} *}
-														{* <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
-															<span>
-																{l s='Add a new address'}
-																<i class="icon-chevron-right right"></i>
-															</span>
-														</a> *}
 														<div id="message_invoice_adresse" style="padding-top: 15px" class="{if isset($addresses) && $addresses|@count > 1}hidden{/if}">
 																{l s='Ajouter une nouvelle adresse pour pouvoir le sélectionner comme adresse de facturation'}
 														</div>
