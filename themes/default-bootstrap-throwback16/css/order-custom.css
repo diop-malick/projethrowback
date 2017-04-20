@@ -3,21 +3,15 @@
 }
 
 #accordion .panel-default > .panel-heading {
-    /*background-color: #f5f5f5 !important;*/
-    /*background: #ececeb !important;*/
-    /*background-color: #eee*/
-}
-#accordion .panel-default > .panel-heading {
     border-color: #ececec;
     background: #ededed !important;
     background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ececec), to(#ededed)) !important;
     background-image: -webkit-linear-gradient(top, #ececec, 0%, #ededed, 100%) !important;
     background-image: -moz-linear-gradient(top, #ececec 0%, #ededed 100%) !important;
-    background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%) !important ;
+    background-image: linear-gradient(to bottom, #ececec 0%, #ededed 100%) !important;
     background-repeat: repeat-x !important;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ededed', GradientType=0);
 }
-
 
 #accordion {
     margin-bottom: 25px;
@@ -48,15 +42,9 @@
     margin-right: 0;
 }
 
-#accordion .panel-default {
-    /*actived panel*/
-/*border: 2px solid #000 !important;*/
-}
-
 #order #accordion .panel-default > .panel-heading .panel-title {
     font-size: 14px;
-    /*font-family: "Futura";*/
-        font-weight: 700 !important;
+    font-weight: 700 !important;
     color: rgb(53, 53, 53);
     text-transform: uppercase;
     line-height: 1.58;
@@ -65,22 +53,21 @@
     -ms-transform: matrix( 0.99957930419879, 0, 0, 1.00536756120731, 0, 0);
 }
 
-/*mention gratuit */
 .delivery_option_price.free {
-            color:#40ec40;
+    color: #40ec40;
 }
+
 .delivery_option_price {
     font-weight: 900;
-        text-transform: uppercase;
-
+    text-transform: uppercase;
 }
 
 .delivery_option_name {
-    width: 65%;   
+    width: 65%;
     display: inline-block;
 }
 
-.order_carrier_content{
+.order_carrier_content {
     border: none;
     background: transparent;
     margin-top: 9px;
@@ -99,30 +86,17 @@
     text-align: center;
 }
 
-/*================*/
-
-.delivery_option_radio input {
-/*    box-shadow: 0px 3px 6px 0px rgba(1, 1, 1, 0.6);
-    border-color: rgb(255, 255, 255);
-    border-style: solid;
-    border: 1px solid #d6d4d4;
-        border-width: 2px;
-        border-radius: 50%;
-        padding: 1px;
-        width: 26px;
-    height: 26px;*/
-}
 
 /* TODO delete all acordion code*/
+
 #accordion .box .page-subheading {
     padding-bottom: 5px;
-margin-bottom: 5px;
-margin-top: 0;
+    margin-bottom: 5px;
+    margin-top: 0;
 }
 
-
-.address_update .btn  {
+.address_update .btn {
     right: 32px !important;
-    border : none !important;
-     background-color: transparent !important; 
+    border: none !important;
+    background-color: transparent !important;
 }

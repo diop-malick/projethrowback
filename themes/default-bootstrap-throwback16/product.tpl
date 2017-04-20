@@ -35,8 +35,70 @@
 				{$confirmation}
 			</p>
 		{/if}
-		<!-- left infos-->
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-7">
+
+
+		{* ============================================================================ 
+		ENTËTE MOBILE 
+		=================================================================+============= *}
+		<div class="pb-mobile-column visible-xs col-xs-12">
+			<div class="col-xs-12">
+				<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
+			</div>
+			<div class="col-xs-12" style="margin-top: 10px">
+							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
+								<!-- {l s='Reference:'} -->
+								{l s='Ref '}
+								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
+							</p>
+			</div>
+			<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
+			<section>
+									{foreach from=$features item=feature}
+										{if $feature.name eq 'genre'}
+											{if isset($feature.value)}
+												{assign var=gendertype value=$feature.value}
+											{/if}
+										{/if}
+									{/foreach}
+									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
+										<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
+										<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
+										<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
+									</ul>
+								</section>
+				</div>
+				<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
+						<!-- FLAG chrono -->
+						{* get chrono caracteristique value *}
+						{foreach from=$features item=feature}
+								{if $feature.name eq 'Type de produit'}
+											{if isset($feature.value)}
+												{assign var=comingsoonvalue value=$feature.value}
+											{/if}
+										{/if}
+						{/foreach}
+						{* comingsoon without date *}
+						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
+							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
+								{addJsDef comingsoonvalue=$comingsoonvalue}
+								<span id="chrono_without_date"></span>
+									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
+								</span>
+							<!-- FALG New -->
+							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
+								<img src="{$base_dir}img/icones/new.png"/>
+
+							{/if}
+						{/if}
+			</div>	
+		</div>
+		<div class="clearfix visible-xs"></div>
+
+
+		{* ============================================================================ 
+		BLOCK LEFT 
+		=================================================================+============= *}
+		<div class="pb-left-column col-xs-12 col-sm-12 col-md-7">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
 				{if $product->on_sale}
@@ -55,7 +117,7 @@
 						{else}
 							<img id="bigpic" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
 							{if !$content_only}
-								<span class="span_link no-print pull-right">
+								<span class="span_link no-print pull-right hidden-xs hidden-sm">
 								<!-- {l s='View larger'} -->
 								</span>
 							{/if}
@@ -119,11 +181,23 @@
 					</span>
 				</p>
 			{/if}
+
+			<div class="col-xs-12 visible-xs">
+				<!-- short_description_block -->
+						{if $product->description}
+						<div id="short_description_block">
+							{if $product->description_short}
+								<div id="short_description_content" class="rte align_justify" itemprop="description"><h1 class="titre_description" itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>{$product->description}</div>
+							{/if}
+						</div>
+						{/if}
+				</div>
+
 		</div> <!-- end pb-left-column -->
 		<!-- end left infos-->
 
 		<!-- right  -->
-		<div class="pb-my-right-column col-xs-12 col-md-5">
+		<div class="pb-my-right-column col-xs-12 col-sm-12 col-md-5">
 
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 
@@ -133,7 +207,7 @@
 
 				<div id="rigth-row-1" class="row">
 					<!-- TITRE  -->
-					<div class="col-xs-12 col-md-8 text-left text-xs-center">
+					<div class="col-xs-12 col-sm-8 col-md-8 text-left text-xs-left hidden-xs">
 							<!-- NAME -->
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
 							<!-- // NAME -->
@@ -141,7 +215,7 @@
 					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-xs-12 col-md-4 text-right text-xs-center">
+					<div class="content_prices col-xs-12 col-sm-4  col-md-4 text-right text-xs-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -217,12 +291,12 @@
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
-								<span id="chrono_without_date"></span>
+								<span id="chrono_without_date" class="hidden-xs">
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
-								<img src="{$base_dir}/img/icones/new.png"/>
+								<img class="hidden-xs" src="{$base_dir}img/icones/new.png"/>
 
 							{/if}
 						{/if}
@@ -232,16 +306,15 @@
 					<!-- // PRICE  -->
 				</div> <!-- // rigth-row-1 -->
 
-				<div class="row">
+				<div class="row hidden-xs">
 					<div class="col-md-12 col-xs-12">
 						<hr>
 					</div>
 				</div>
 
 				<div class="clear"></div>
-				<!-- <div class="clearfix visible-sm"></div> -->
 
-				<div id="rigth-row-2" class="row">
+				<div id="rigth-row-2" class="row hidden-xs">
 					<div class="col-md-12">
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
@@ -261,7 +334,7 @@
 
 						<!-- Flag GENRE -->
 						<!-- features from `ps_feature_lang` table : genre : 10  -->
-						<div class="row">
+						<div class="row hidden-xs">
 							<div class="col-md-12 col-xs-12">
 								<section>
 									{foreach from=$features item=feature}
@@ -283,7 +356,7 @@
 
 					<div class="row">
 						<!-- QUANTITY  -->
-						<div class="col-xs-8 col-md-6">
+						<div class="col-xs-8 col-sm-6 col-md-6">
 							{if !$PS_CATALOG_MODE}
 									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<div class="row">
@@ -324,7 +397,7 @@
 						<!-- // QUANTITY  -->
 
 						<!-- ATTRIBUTS  -->
-					<div class="col-xs-10 col-md-6 product_attributes clearfix">
+					<div class="col-xs-10 col-sm-6 product_attributes clearfix">
 						{if isset($groups)}
 							<div id="attributes">
 								{foreach from=$groups key=id_attribute_group item=group}
@@ -433,7 +506,7 @@
 									  <span id="minutes"></span><span class="chronounity">m</span>
 									  <span id="seconds"></span><span class="chronounity">s</span>
 									</span>
-							    	<img src="{$base_dir}/img/icones/chrono.png"/>
+							    	<img src="{$base_dir}img/icones/chrono.png"/>
 							    </div>
 							</div>
 						</div>
@@ -612,8 +685,11 @@
 			</div>
 
 
+
+
+
 		<!-- CMS page Acordion -->
-			<div class="panel-group col-xs-12 col-md-6" id="accordion">
+			<div class="panel-group hidden-xs col-xs-12 col-md-6" id="accordion">
 			    {if isset($product) && $product->description}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
@@ -632,19 +708,6 @@
 			    </div>
 			    {/if}
 
-			    {* <div class="panel panel-default">
-			      <div class="panel-heading">
-			        <h4 class="panel-title">
-			          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-			          	<span class="pull-right"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
-			          	{l s='Paiement'}
-			          </a>
-			        </h4>
-			      </div>
-			      <div id="collapse1" class="panel-collapse collapse">
-			        <div class="panel-body">{$cms_content_1.content}</div>
-			      </div>
-			    </div> *}
 
 			    <div class="panel panel-default">
 			      <div class="panel-heading">

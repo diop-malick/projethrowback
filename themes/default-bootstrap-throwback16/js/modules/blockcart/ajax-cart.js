@@ -1,27 +1,4 @@
-/*
-* 2007-2016 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2016 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
+
 $(document).ready(function(){
 	ajaxCart.overrideButtonsInThePage();
 
@@ -65,6 +42,8 @@ $(document).ready(function(){
 				$("#header .cart_block").stop(true, true).slideUp(450);
 			else if (ajaxCart.nb_total_products > 0 || parseInt(basket_quantity) > 0)
 				$("#header .cart_block").stop(true, true).slideDown(450);
+			else
+				window.location.href = $(this).attr('href');
 			return;
 		}
 		else
@@ -73,7 +52,7 @@ $(document).ready(function(){
 
 	$("#header .shopping_cart a:first").hover(
 		function(){
-			if (ajaxCart.nb_total_products > 0 || parseInt(basket_quantity) > 0)
+			if (ajaxCart.nb_total_products > 0 || ($('.ajax_cart_quantity').html() != 0 && $('.ajax_cart_quantity').html() != "(0)")  )
 				$("#header .cart_block").stop(true, true).slideDown(450);
 		},
 		function(){
@@ -783,19 +762,6 @@ var ajaxCart = {
 				if (error != 'indexOf')
 					errors += $('<div />').html(jsonData.errors[error]).text() + "\n";
 			if (!!$.prototype.fancybox)
-			/*	$.fancybox.open([
-					{
-						type: 'inline',
-						autoScale: true,
-						minHeight: 30,
-						content: '<p class="fancybox-error">' + errors + '</p>'
-					}
-				], {
-					padding: 0
-				});
-			else
-				alert(errors);
-			*/
 			// Throwabc kcustom -> Out of stock message instead of popup
 			$("#min_quantity_message").css('display','block');
 			$(".info_quantity").html(errors)

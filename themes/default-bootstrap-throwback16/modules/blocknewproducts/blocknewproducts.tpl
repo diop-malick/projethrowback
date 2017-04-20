@@ -56,10 +56,10 @@
                                             <!-- FALG New -->
                                             <!-- FALG Comming soon -->
                                             {elseif $accessory.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-                                                <img src="{$base_dir}/img/icones/chrono.png"/>
+                                                <img src="{$base_dir}img/icones/chrono.png"/>
                                             <!-- show new flag if date_add is not after now -->
                                             {elseif isset($accessory.new) && $accessory.new == 1}
-                                                <img src="{$base_dir}/img/icones/new.png"/>
+                                                <img src="{$base_dir}img/icones/new.png"/>
                                             {/if}
                                             {* reset comming soon value *}
                                             {assign var=comingsoonvalue value=''}

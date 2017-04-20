@@ -30,9 +30,6 @@
 							<span class="old-price">{displayWtPrice p=$categoryProduct.price_without_reduction}</span>
 							<br>
 							<span class="price special-price">{convertPrice price=$categoryProduct.displayed_price}</span>
-							<!-- {if $categoryProduct.specific_prices.reduction && $categoryProduct.specific_prices.reduction_type == 'percentage'}
-								<span class="price-percent-reduction small">-{$categoryProduct.specific_prices.reduction * 100}%</span>
-							{/if} -->
 						{else}
 							<span class="price">{convertPrice price=$categoryProduct.displayed_price}</span>
 						{/if}
@@ -54,10 +51,10 @@
                                             <!-- FALG New -->
                                             <!-- FALG Comming soon -->
                                             {elseif $categoryProduct.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-                                                <img src="{$base_dir}/img/icones/chrono.png"/>
+                                                <img src="{$base_dir}img/icones/chrono.png"/>
                                             <!-- show new flag if date_add is not after now -->
                                             {elseif isset($categoryProduct.new) && $categoryProduct.new == 1}
-                                                <img src="{$base_dir}/img/icones/new.png"/>
+                                                <img src="{$base_dir}img/icones/new.png"/>
                                             {/if}
                                             {* reset comming soon value *}
                                             {assign var=comingsoonvalue value=''}

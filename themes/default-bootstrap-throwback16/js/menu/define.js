@@ -51,7 +51,7 @@ function scrollAction(){
         }
         else{
             // $('#block_top_menu').removeClass('hidden').addClass('show');
-            $('.menu_vertical').removeClass('show').addClass('hidden');
+            // $('.menu_vertical').removeClass('show').addClass('hidden');
             //$('#search_block_top').removeClass('col-sm-3').addClass('col-sm-4');
             $('header .nav').removeClass('hidden').addClass('show');
             $(".logo-throwback").attr("src",url_logo);
