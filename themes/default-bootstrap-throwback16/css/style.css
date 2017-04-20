@@ -1755,13 +1755,6 @@ button.accordion.active:after {
 }
 
 
-/********************************************************
-            rtl.css / Right to Left Styles
-********************************************************/
-* {
-  direction: rtl !important; }
 
-#page {
-  text-align: right !important; }
 
 /*# sourceMappingURL=style.css.map */
