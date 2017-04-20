@@ -6,40 +6,12 @@ class FrontController extends FrontControllerCore
         parent::setMedia();
         $this->addCSS(_THEME_CSS_DIR_.'menu/vertical-responsive-menu.css');
         $this->addCSS(_THEME_CSS_DIR_.'style.css');
-        $this->addJS(_THEME_JS_DIR_.'menu/define.js');
+
         if(isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'cms')
             $this->addJS(_THEME_JS_DIR_.'global_custom.js');
-       
-        if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'index' 
-            || isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'search' 
-            || isset($this->context->controller->php_self)  && $this->context->controller->php_self == 'order' 
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'my-account'
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'identity'
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'addresses'
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'address'
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'history'
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'contact' 
-            || isset($this->context->controller->php_self) && $this->context->controller->php_self == 'product' 
-            ){
-             $this->addJS(_THEME_JS_DIR_.'menu/home.js');
-             
-        }
-           
-        if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'category')
-            $this->addJS(_THEME_JS_DIR_.'menu/category.js');
-
-        if (isset($this->context->controller->php_self) && $this->context->controller->php_self == 'product') {
-            $this->addJS(_THEME_JS_DIR_.'jquery.countdown-2.0.4/jquery.countdown.min.js');
-            $this->addCSS(_THEME_CSS_DIR_.'gender-icons.css');
-
-        }
-
 
         $this->addJS(_THEME_JS_DIR_.'form-validator/jquery.form-validator.min.js');
-        $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');
-        $this->addCSS(_THEME_CSS_DIR_.'validator.css');
-        $this->addJS(_THEME_JS_DIR_.'validator.js');
-        
+        $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');        
 
         $this->addjqueryPlugin('fancybox');
         $this->addJS(_THEME_JS_DIR_.'spin.js');
