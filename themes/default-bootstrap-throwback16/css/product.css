@@ -1146,7 +1146,6 @@ table.table-product-discounts tr th {
     display: inline-block;
 }
 
-
 /* SEND TO FRIEND (pop-in) ##################################################################### */
 #send_friend_form {
     width: 555px;
@@ -1269,8 +1268,6 @@ Quick View Styles
 #product.content_only div.primary_block div.pb-left-column #thumbs_list {
     width: 392px;
 }
-
-
 #product.content_only div.primary_block div.pb-right-column {
     width: 25.5%;
     padding-right: 15px;
@@ -1334,7 +1331,6 @@ Quick View Styles
         width: 82px;
         height: 82px;
     }
-
     
     #product.content_only div.primary_block div.pb-right-column,
     #product.content_only section.primary_block div.pb-right-column {
@@ -1367,8 +1363,6 @@ Quick View Styles
 #rigth-row-border {
     border-bottom: 1px solid #777;
 }
-
-
 @media (min-width: 1024px) {
     #rigth-row-3 {
         min-height: 333px;
@@ -1380,7 +1374,6 @@ Quick View Styles
     max-height: 54px;
     overflow: hidden;
 }
-
 #productscategory_list .product-image.product_image {
     padding: 0;
 }
@@ -1513,84 +1506,82 @@ h3.page-product-heading {
 /************************************************************
         RESPONSIVE - MOBILE
 ************************************************************/
-
 @media (max-width: 991px) {
     .blockproductscategory {
-margin: 8px  !important;
-}
+        margin: 8px !important;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-#rigth-row-1,
-#rigth-row-2,
-#rigth-row-3,
-#rigth-row-4,
-#rigth-row-5 {
-margin-left: 5px !important;
-    margin-right: 5px !important;
+    #rigth-row-1,
+    #rigth-row-2,
+    #rigth-row-3,
+    #rigth-row-4,
+    #rigth-row-5 {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+    
+    .page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
+        width: auto !important;
+    }
+    
+    #rigth-row-1 .product_name {
+        font-weight: 900 !important;
+        font-size: 24px !important;
+    }
+    
+    #layer_cart {
+        width: 80% !important;
+        margin-right: 0 !important;
+        margin-left: 10% !important;
+        position: fixed;
+    }
+    
+    .panier-vide,
+    .alert-no-adress {
+        font-size: 13px !important;
+    }
 }
-
-.page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
-    width: auto !important;
-}
-#rigth-row-1 .product_name {
-    font-weight: 900 !important;
-    font-size: 24px !important;
-}
-
-#layer_cart {
-    width: 80% !important;
-     margin-right: 0 !important; 
-     margin-left: 10% !important;
-     position: fixed;
-}
-
-.panier-vide, .alert-no-adress {
-    font-size: 13px !important;
-}
-}
-
 @media (max-width: 479px) {
-
     .pb-left-column {
-            z-index: 1000;
+        z-index: 1000;
     }
+    
     .pb-my-right-column {
-         z-index: 10;
+        z-index: 10;
     }
-
-.blockproductscategory #productscategory_list .product-name a {
-    font-size: 13px !important;
-    line-height: 17px !important;
-}
-#accordion {
-       padding: 5px  !important;
-       margin: 8px  !important;
-}
-#rigth-row-3 > div > .row {
-     margin: 8px  !important;
-}
-
-
-#rigth-row-1 .content_prices {
-    margin-top: -588px !important;
-}
-
-#rigth-row-1,
-#rigth-row-2 {
-padding: 5px  !important;
-       margin-left: 0px !important;
+    
+    .blockproductscategory #productscategory_list .product-name a {
+        font-size: 13px !important;
+        line-height: 17px !important;
+    }
+    
+    #accordion {
+        padding: 5px !important;
+        margin: 8px !important;
+    }
+    
+    #rigth-row-3 > div > .row {
+        margin: 8px !important;
+    }
+    
+    #rigth-row-1 .content_prices {
+        margin-top: -588px !important;
+    }
+    
+    #rigth-row-1,
+    #rigth-row-2 {
+        padding: 5px !important;
+        margin-left: 0px !important;
         margin-right: 0px !important;
-            margin-bottom: 10px;
-}
-
-.pb-mobile-column .product_name
-    {
-    font-size: 20px !important;
-    font-weight: 900 !important;
-
-}
-
-
+        margin-bottom: 10px;
+    }
+    
+    .pb-mobile-column .product_name {
+        font-size: 20px !important;
+        font-weight: 900 !important;
+    }
+    
     #product_reference {
         margin-bottom: 0 !important;
     }
@@ -1623,4 +1614,66 @@ padding: 5px  !important;
     }
 }
 
-/*# sourceMappingURL=product.css.map 
+/************************************************************
+        GENDER ICON
+************************************************************/
+
+
+@font-face {
+    font-family: 'gender-icons';
+    src: url('../fonts/gender-icons.eot?-yx55uw');
+    src: url('../fonts/gender-icons.eot?#iefix-yx55uw') format('embedded-opentype'), url('../fonts/gender-icons.woff?-yx55uw') format('woff'), url('../fonts/gender-icons.ttf?-yx55uw') format('truetype'), url('../fonts/gender-icons.svg?-yx55uw#gender-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="gender-icon-"],
+[class*=" gender-icon-"] {
+    font-family: 'gender-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.gender-icon-kids:before {
+    content: "\e601";
+}
+.gender-icon-male:before {
+    content: "\e602";
+}
+.gender-icon-female:before {
+    content: "\e600";
+}
+.gender-label-group .gender-label {
+    padding-right: 5px;
+    padding-left: 0px;
+    text-indent: -10px;
+}
+.gender-label-group.men .gender-label .men {
+    color: #595B5A;
+}
+.gender-label-group.women .gender-label .women {
+    color: #595B5A;
+}
+.gender-label-group.kids .gender-label .kids {
+    color: #595B5A;
+}
+.gender-label-group .gender-label a {
+    color: #B5BDC1;
+    font-size: 36px;
+}
+.gender-label-group .gender-label a i {
+    width: 10px;
+    display: block;
+}
+ul.gender-label-group {
+    list-style: none;
+}
+.gender-label-group li {
+    display: inline-block;
+}
+
+/*# sourceMappingURL=product.css.map
