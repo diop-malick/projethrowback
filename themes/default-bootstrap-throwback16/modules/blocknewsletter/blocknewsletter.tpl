@@ -1,6 +1,6 @@
 <!-- Footer Logo  -->
 <div class="col-md-3">
-    <img src="{$base_dir}img/logo/logo-footer.png" class="footer-logo img-responsive" alt="Throwback logo"/>
+    <img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/logo/logo-footer.png" class="footer-logo img-responsive" alt="Throwback logo"/>
 </div> <!-- // Footer Logo -->
 
 <!-- Newletter fancyBox -->

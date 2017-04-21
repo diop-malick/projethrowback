@@ -49,7 +49,7 @@
 		 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
 		 <script type="text/javascript">
 					var url_logo = "{$logo_url}";
-					var url_logo_simple = "{$base_dir}img/logo/logo-simple.png";
+					var url_logo_simple = "{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/logo/logo-simple.png";
 		 </script>
 
 		 {addJsDef page_confirm=$link->getCMSLink('21', 'confirmation-newsletter')}
