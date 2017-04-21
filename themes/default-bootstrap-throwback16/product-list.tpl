@@ -88,14 +88,14 @@
 							{* comingsoon without date *}
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
-								<img src="{$base_dir}img/icones/chrono.png"/>
+								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/chrono.png"/>
 							<!-- FALG New -->
 							<!-- FALG Comming soon -->
 							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
-								<img src="{$base_dir}img/icones/chrono.png"/>
+								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/chrono.png"/>
 							<!-- show new flag if date_add is not after now -->
 							{elseif isset($product.new) && $product.new == 1}
-								<img src="{$base_dir}img/icones/new.png"/>
+								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/new.png"/>
 							{/if}
 							{hook h="displayProductPriceBlock" product=$product type="price"}
 							{hook h="displayProductPriceBlock" product=$product type="unit_price"}
