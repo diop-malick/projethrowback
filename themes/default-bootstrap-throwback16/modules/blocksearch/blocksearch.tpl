@@ -60,8 +60,7 @@
 </div>
 <!-- TODO | redirect_home | not used in csss, check and delete -->
 <div class="redirect_home">
-	<!-- <a href="{$base_dir}" class=" btn btn-dark text-center">{l s='< CONTINUER VOTRE SHOPPING' mod='blocksearch'}</a> -->
-	<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping' mod='blocksearch'}</span></a>
+	<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}index.php{else}{$base_dir}index.php{/if}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping' mod='blocksearch'}</span></a>
 </div>
 
 <!-- /Block search module -->
