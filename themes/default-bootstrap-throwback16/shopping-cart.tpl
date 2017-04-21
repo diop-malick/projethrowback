@@ -37,7 +37,7 @@
 	</p>
 	<div class"redirect_home">
 
-		<a href="{$base_dir}" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
+		<a href="{$base_dir}index.php" class=" btn btn-dark text-center"><i class="icon-chevron-left left"></i> <span class="text-shoping">{l s='Continuer mon shopping'}</span></a>
 
 	</div>
 	{hook h="displayShoppingCartFooter"}
@@ -425,7 +425,7 @@
 					<div class="row text-center">
 						<div class="col-md-12 cart_navigation">
 
-							<a href="{$base_dir}" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
+							<a href="{$base_dir}index.php" class="button-exclusive btn btn-default continue_shoping" title="{l s='Continue shopping'}">
 								<i class="icon-chevron-left"></i>{l s='Continuer mon shopping'}
 							</a>
 

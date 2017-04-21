@@ -68,17 +68,17 @@
 		<!-- Hide comlete header in myaccount and -->
 		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or
 		({$smarty.get.controller} eq 'order' &&  ({$smarty.get.update} neq '1' && {$smarty.get.step} neq '0') ) }
-		<!-- TODO -->
-
-		
-		{* <pre>{$cart|var_dump} </pre> *}
-		{* <pre>id_carrier : {$cart->id_carrier}</pre>
+		{*
+		<pre>{$cart|var_dump} </pre>
+		<pre>id_carrier : {$cart->id_carrier}</pre>
 		<pre>id_address_delivery : {$cart->id_address_delivery}</pre>
-		<pre>id_address_invoice : {$cart->id_address_invoice}</pre> *}
-		{* <pre>{$smarty.get.step} </pre> *}
-		{* <pre>{$smarty.server.HTTP_HOST}</pre> *}
-		{* <pre>{$smarty.server.REQUEST_URI}</pre> *}
-		{* <pre>{$smarty.get.controller}</pre> *}
+		<pre>id_address_invoice : {$cart->id_address_invoice}</pre> 
+		<pre>{$smarty.get.step} </pre>
+		<pre>{$smarty.server.HTTP_HOST}</pre>
+		<pre>{$smarty.server.REQUEST_URI}</pre>
+		<pre>{$smarty.get.controller}</pre> 
+		*}
+
 
 		{else}
 		<!-- Header complete -->
