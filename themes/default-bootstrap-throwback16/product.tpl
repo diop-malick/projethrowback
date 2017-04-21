@@ -86,7 +86,7 @@
 								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
-								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/new.png"/>
+								<img src="{$base_dir_ssl}img/icones/new.png"/>
 
 							{/if}
 						{/if}
@@ -296,7 +296,7 @@
 								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
-								<img class="hidden-xs" src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/new.png"/>
+								<img class="hidden-xs" src="{$base_dir_ssl}img/icones/new.png"/>
 
 							{/if}
 						{/if}
@@ -506,7 +506,7 @@
 									  <span id="minutes"></span><span class="chronounity">m</span>
 									  <span id="seconds"></span><span class="chronounity">s</span>
 									</span>
-							    	<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/chrono.png"/>
+							    	<img src="{$base_dir_ssl}img/icones/chrono.png"/>
 							    </div>
 							</div>
 						</div>
