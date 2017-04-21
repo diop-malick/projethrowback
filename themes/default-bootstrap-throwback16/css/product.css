@@ -1018,8 +1018,6 @@ table.table-product-discounts tr th {
     color: #515151;
 }
 
-
-}
 .accessories-block div ul li a {
     display: inline-block;
 }
@@ -1605,7 +1603,7 @@ h3.page-product-heading {
     }
     
     #table_social_media {
-        margin-top: 0 !important!;
+        margin-top: 0 !important;
         text-align: center;
     }
     
@@ -1676,4 +1674,4 @@ ul.gender-label-group {
     display: inline-block;
 }
 
-/*# sourceMappingURL=product.css.map
+/*# sourceMappingURL=product.css.map */
