@@ -69,8 +69,16 @@ class AuthController extends AuthControllerCore
                 $this->processCustomerNewsletter($customer);
 
                 $customer->firstname = Tools::ucwords($customer->firstname);
+                /*
                 $customer->birthday = (empty($_POST['years']) ? '' : (int)Tools::getValue('years').'-'.(int)Tools::getValue('months').'-'.(int)Tools::getValue('days'));
                 if (!Validate::isBirthDate($customer->birthday)) {
+                    $this->errors[] = Tools::displayError('Invalid date of birth.');
+                }*/
+                if (Tools::getValue('months') != '' && Tools::getValue('days') != '' && Tools::getValue('years') != '') {
+                $this->customer->birthday = (int)Tools::getValue('years').'-'.(int)Tools::getValue('months').'-'.(int)Tools::getValue('days');
+                } elseif (Tools::getValue('months') == '' && Tools::getValue('days') == '' && Tools::getValue('years') == '') {
+                    $this->customer->birthday = null;
+                } else {
                     $this->errors[] = Tools::displayError('Invalid date of birth.');
                 }
 
@@ -187,21 +195,29 @@ class AuthController extends AuthControllerCore
                 }
             }
         }
-
+    /*
         if (!@checkdate(Tools::getValue('months'), Tools::getValue('days'), Tools::getValue('years')) && !(Tools::getValue('months') == '' && Tools::getValue('days') == '' && Tools::getValue('years') == '')) {
             $this->errors[] = Tools::displayError('Invalid date of birth');
         }
-
+    */
         if (!count($this->errors)) {
             if (Customer::customerExists(Tools::getValue('email'))) {
                 $this->errors[] = Tools::displayError('An account using this email address has already been registered. Please enter a valid password or request a new one. ', false);
             }
 
             $this->processCustomerNewsletter($customer);
-
+            /*
             $customer->birthday = (empty($_POST['years']) ? '' : (int)Tools::getValue('years').'-'.(int)Tools::getValue('months').'-'.(int)Tools::getValue('days'));
             if (!Validate::isBirthDate($customer->birthday)) {
                 $this->errors[] = Tools::displayError('Invalid date of birth');
+            }
+            */
+            if (Tools::getValue('months') != '' && Tools::getValue('days') != '' && Tools::getValue('years') != '') {
+                $this->customer->birthday = (int)Tools::getValue('years').'-'.(int)Tools::getValue('months').'-'.(int)Tools::getValue('days');
+                } elseif (Tools::getValue('months') == '' && Tools::getValue('days') == '' && Tools::getValue('years') == '') {
+                    $this->customer->birthday = null;
+                } else {
+                    $this->errors[] = Tools::displayError('Invalid date of birth.');
             }
 
             if (!count($this->errors)) {
