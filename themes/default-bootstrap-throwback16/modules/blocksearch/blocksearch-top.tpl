@@ -7,7 +7,7 @@
 			{if $page_name == 'category' }
 				<!-- menu verticale -->
 				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical hidden-xs">
-					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name != 'category'} maxi {else} mini  {/if}">
+					<button type="button" id="toggleMenu" class="toggle_menu {if $page_name != 'category'}maxi{else}mini {/if}">
 				      <i class="fa fa-bars"></i>
 				    </button>
 				    {* <pre>{$page_name}</pre> *}
