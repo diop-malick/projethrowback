@@ -28,7 +28,7 @@
 <div class="container clearfix">
 {* <h1>{l s='Choisissez votre lieu de livraison'}</h1> *}
 	<div class="row">
-		<div class="order_carrier_content col-sm-12 col-md-9">
+		<div class="order_carrier_content col-xs-12  col-sm-12 col-md-9">
 			{if isset($virtual_cart) && $virtual_cart}
 				<input id="input_virtual_carrier" class="hidden" type="hidden" name="id_carrier" value="0" />
 		        <p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
@@ -367,7 +367,7 @@
 
 		{if !$opc}				
 				
-				<div class="cart_navigation clearfix  col-sm-12 col-md-12" style="padding:8px;">
+				<div class="cart_navigation clearfix  col-xs-12 col-sm-12 col-md-3" style="padding:8px;">
 					{include file="$tpl_dir./facturette.tpl"}
 				</div>
 
