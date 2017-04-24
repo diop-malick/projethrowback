@@ -229,7 +229,7 @@
 			if (true !== this.options.debug) {
 				return;
 			}
-
+        /*
 			if (typeof console !== 'undefined' && typeof console.log === 'function') {
 				// Modern browsers
 				// Single argument, which is a string
@@ -242,6 +242,7 @@
 				// IE8
 				Function.prototype.call.call(console.log, console, Array.prototype.slice.call(arguments));
 			}
+            */
         },
 
         // find the number to increment in the path.
@@ -362,7 +363,7 @@
 
                     if(hasAtleastOneChild){
                         var pageTitle = '<h2 id="product-page-'+opts.state.currPage+'" class="infinite-scroll-page-title">Page '+opts.state.currPage+'</h2>';
-                        $(pageTitle).insertBefore(frag.firstChild);
+                        /*$(pageTitle).insertBefore(frag.firstChild);*/
                     }
 
 					this._debug('contentSelector', $(opts.contentSelector)[0]);
@@ -563,7 +564,10 @@
 					box.load(desturl + ' ' + opts.itemSelector, undefined, function infscr_ajax_callback(responseText) {
 						instance._loadcallback(box, responseText, desturl);
 					});
-
+                    if ($( "#toggleMenu" ).hasClass("maxi"))
+                        $('.ajax_block_product').removeClass('col-md-4').addClass('col-md-3');
+                    else if ($( "#toggleMenu" ).hasClass("mini"))
+                            $('.ajax_block_product').removeClass('col-md-3').addClass('col-md-4');
 					break;
 
 				case 'html':

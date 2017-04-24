@@ -21,7 +21,8 @@ $(document).ready(function(){
 
 	/* *********************************** category ***************************/
 	if(typeof is_categorie !== 'undefined' && is_categorie!= null){
-		 $('.ajax_block_product').removeClass('col-md-3').addClass('col-md-4');
+		 //$('.ajax_block_product').removeClass('col-md-3').addClass('col-md-4');
+     minimizePage();
 	}
 
    /* *********************************** home  .js ***************************/
@@ -45,9 +46,9 @@ $(document).ready(function(){
       });
 
   } else {
-
-        $('#left_column').hide();
-        $('#center_column').removeClass('col-sm-9').addClass('col-sm-12');
+          // Pas besoin
+        //$('#left_column').hide();
+        //$('#center_column').removeClass('col-sm-9').addClass('col-sm-12');
 
         scrollAction();
     }
