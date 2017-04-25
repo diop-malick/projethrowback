@@ -208,7 +208,7 @@ function showElemntsToModify(line) {
         var id_delete = id_line.split('-');
         var line = id_delete[1];
         bootbox.confirm({
-            message: "Êtes-vous sûre de vouloir supprimer ce produit",
+            message: message_delete,
             buttons: {
                 confirm: {
                     label: 'Oui',

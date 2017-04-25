@@ -933,6 +933,7 @@
 {addJsDefL name=uploading_in_progress}{l s='Uploading in progress, please be patient.' js=1}{/addJsDefL}
 {addJsDefL name='product_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
+{addJsDefL name='message_choice_attribute'}{l s='Merci de sélectionner une taille.'}{/addJsDefL}
 {/strip}
 {/if}
 

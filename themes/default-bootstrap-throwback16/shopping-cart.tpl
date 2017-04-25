@@ -464,6 +464,7 @@
 {addJsDef quantityLimitedAvailable=$qtyLimitedAvailable}
 {addJsDef attributesCombinations=$attributeCombinaison}
 {addJsDef linkCarte=$link->getPageLink('order')}
+{addJsDefL name='message_delete'}{l s='Êtes-vous sûre de vouloir supprimer ce produit ?'}{/addJsDefL}
 
 {/strip}
 {/if}

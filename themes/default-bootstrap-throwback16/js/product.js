@@ -386,7 +386,7 @@ var element_chrono_without_date =  document.getElementById('chrono_without_date'
 $(document).on('mouseover', '#add_to_cart', function(){
 	if(  ($(".btn").hasClass("disabled")) && (element_availability_date == null || element_chrono_without_date == null) ){
 		$(".info").addClass("error");
-		$(".info").html("Merci de sélectionner une taille.")
+		$(".info").html(message_choice_attribute)
 		}
 		else{
 				$(".info").removeClass("error");
