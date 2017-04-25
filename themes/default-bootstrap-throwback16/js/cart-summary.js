@@ -561,7 +561,7 @@ function deleteProductFromSummary(id, del) {
         type: 'POST',
         headers: { "cache-control": "no-cache" },
         url: baseUri + '?rand=' + new Date().getTime(),
-        async: true,
+        async: false,
         cache: false,
         dataType: 'json',
         data: 'controller=cart' + '&ajax=true&delete=true&summary=true' + '&id_product=' + productId + '&ipa=' + productAttributeId + '&id_address_delivery=' + id_address_delivery + ((customizationId !== 0) ? '&id_customization=' + customizationId : '') + '&token=' + static_token + '&allow_refresh=1',
