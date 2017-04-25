@@ -384,6 +384,8 @@ ul.sf-menu li li li.sfHover ul {
 
 #left_column #block_top_menu .sf-menu > li > a {
     color: #000 !important;
+    font-size: 90%;
+    padding: 14px 20px;
 }
 
 #left_column #block_top_menu .sf-menu > li > ul > li {
