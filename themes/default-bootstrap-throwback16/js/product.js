@@ -509,20 +509,15 @@ if (typeof(contentOnly) !== 'undefined' && contentOnly)
 }
 
 // The button to increment the product value
-// TODO - delete console log
 $(document).on('click', '.product_quantity_up', function(e){
 	e.preventDefault();
 	fieldName = $(this).data('field-qty');
 	var currentVal = parseInt($('input[name='+fieldName+']').val());
-	// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
 	if (!allowBuyWhenOutOfStock && quantityAvailable > 0) {
-	// if limited quantity per ordder is defined and < of available stock, this limit is used in increment button
 		if (typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable > 0 && quantityLimitedAvailable < quantityAvailable) {
 			quantityAvailableT = quantityLimitedAvailable;
-			// console.log('quantityLimitedAvailable =' + quantityLimitedAvailable);
 		} else {
 			quantityAvailableT = quantityAvailable;
-			// console.log('quantityAvailable =' + quantityAvailable);
 		}
 	}
 	else
