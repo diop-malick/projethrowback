@@ -31,7 +31,7 @@
 </div>
 <div class="row commande_body body_facturette">
 	<div  class="detail-articles">
-		<button class="accordion"> {l s='Détails des articles'|upper}</button>
+		<button class="accordion"> {l s='DÉTAILS DES ARTICLES'}</button>
 			<div class="panel panel2">
 				{assign var="total_reduction" value=0}
 				{foreach $products as $product}
@@ -112,7 +112,7 @@
 	{if isset($shippingCost) }
 		<div class="row line_product">
 			<div class="col-md-8">
-				<p class="command-product-name total"><span>{l s='Frais de port'|upper}</span></p>
+				<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 			</div>
 			<div class="col-md-4 text-right total">
 				{if $shippingCost > 0}
@@ -130,7 +130,7 @@
 	{if $total_reduction }
 	<div class="row line_product">
 			<div class="col-md-8">
-				<p class="command-product-name total"><span>{l s='Réduction'|upper}</span></p>
+				<p class="command-product-name total"><span>{l s='RÉDUCTION'}</span></p>
 			</div>
 			<div class="col-md-4 text-right total">
 					<span id="total_price">{$total_reduction} {$currency->sign}</span>
