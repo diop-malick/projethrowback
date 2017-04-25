@@ -889,17 +889,20 @@
 {/if}
 
 
-<!-- assign defined limited quantity variable to product.js  -->
+{* =========================================  assign defined limited quantity variable to product.js  / 10 if limit is not defined in BO *}
+{assign var=quantityLimitedAvailableTMP value=10}
 {foreach from=$features item=feature}
-	{* {if $feature.id_feature eq "11"} *}
 	{if $feature.name eq 'Quantité-Commandable'}
 		{if isset($feature.value)}
-			{addJsDef quantityLimitedAvailable=$feature.value}
+			{assign var=quantityLimitedAvailableTMP value=$feature.value}
 		{/if}
 	{/if}
 {/foreach}
+{addJsDef quantityLimitedAvailable=$quantityLimitedAvailableTMP}
 
-<!-- assign quantity variable to product.js   -->
+
+
+{* =========================================  assign quantity variable to product.js   *}
 {if $display_qties == 1 && $product->quantity}
 	{addJsDef quantityAvailable=$product->quantity}
 {else}
