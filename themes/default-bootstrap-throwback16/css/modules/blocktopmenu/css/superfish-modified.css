@@ -334,11 +334,25 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 
-/*custom throwback */
+/* custom throwback */
 
 .sf-menu li li li a:before,
 .sf-menu li li li li a:before {
     content: '' !important;
+}
+/* isoler pour Desk*/
+@media (min-width: 1200px) {
+    .sf-menu > li > ul > li > a {
+        text-transform: none;
+        font: 600 14px/20px "Open Sans", sans-serif;
+        color: #fff;
+    }
+    .sf-menu > li > ul > li > a:hover {
+        color: #fff;
+    }
+    .sf-menu li ul {
+        background-color: rgba(53, 53, 53, 1);
+    }
 }
 
 
@@ -385,6 +399,7 @@ ul.sf-menu li li li.sfHover ul {
     top: 0;
     z-index: 99;
     padding: 12px 0px 18px 10px;
+    background-color: #fff;
     -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
@@ -431,19 +446,4 @@ ul.sf-menu li li li.sfHover ul {
         margin-top: 0px;
     }
 }
-
-
-
-@media (min-width: 1200px) {
-    .sf-menu > li > ul > li > a {
-        text-transform: none;
-        font: 600 14px/20px "Open Sans", sans-serif;
-        color: #fff;
-    }
-    .sf-menu > li > ul > li > a:hover {
-        color: #fff;
-    }
-    .sf-menu li ul {
-        background-color: rgba(53, 53, 53, 1);
-    }
-}
+/*============END=============== MENU VERTICALE */
