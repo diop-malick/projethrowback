@@ -66,7 +66,7 @@
     }
     #order .columns-container #columns .row > div[class^="col-"] {
         padding-left: 0px !important;
-        padding-right: 0px !important;
+        /*padding-right: 0px !important;*/
     }
     #authentication #columns .order-step-row {
         margin-left: 0px !important;

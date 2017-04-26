@@ -44,7 +44,7 @@ EROR
 	{/if}
 	<div class="row" id="center_column">
 	<div id="equalheight">
-		<div class="col-xs-12 col-sm-6" style="padding-left:0 ">
+		<div class="col-xs-12 col-sm-12 col-md-6" style="padding-left:0 ">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="login_form" class="box is-customer">
 				<h3 class="page-subheading">{l s='Already registered?'}</h3>
 				<div class="form_content clearfix">
@@ -69,7 +69,7 @@ EROR
 				</div>
 			</form>
 		</div>
-		<div class="col-xs-12 col-sm-6" style="padding-right:0 ">
+		<div class="col-xs-12 col-sm-12 col-md-6" style="padding-right:0 ">
 			<form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box be-customer">
 				<h3 class="page-subheading">{l s='Create an account'}</h3>
 				<div class="form_content clearfix">
