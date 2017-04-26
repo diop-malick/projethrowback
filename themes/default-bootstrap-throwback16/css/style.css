@@ -843,6 +843,10 @@ input[readonly] {
     pointer-events: none;
 }
 
+.pve_petite{
+    color:red;
+}
+
 
 /*TODO - merge with product attribute*/
 

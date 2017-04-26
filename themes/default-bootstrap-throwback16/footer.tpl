@@ -43,6 +43,8 @@
 										incontournable du look sportif, élégant et détendu. Des baskets Nike aux tennis Adidas découvrez notre sélection de sneakers.
 										Throwback Sneakers est un site marchand mais nous vous invitons également à suivre et partager nos articles, discussions et analyses
 										autour de la sneakers à la fois sur notre page Facebook et notre blog.'}
+							{elseif {$smarty.get.controller} eq 'newproducts'}
+							{l s='Ça vient d\'arriver ! Les Nouveautés sont à l\'honneur sur Throwback Sneaker. Retrouvez toutes les nouveautés des plus grandes marques: Adidas Originals, Nike, Puma New Balance, Asics, Le Coq Sportif. Profitez sans plus tarder de la livraison gratuite en France !'}
 							{elseif {$smarty.get.controller} eq 'category' or {$smarty.get.controller} eq 'product'  }
 								{$category->description}
 					
