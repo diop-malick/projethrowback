@@ -18,13 +18,6 @@
 {include file="$tpl_dir./errors.tpl"}
 
 <p class="titre-panier">{l s='Mon panier'}</p>
-{* <p id="cart_title" class="page-heading">{l s='Shopping-cart summary'}
-	{if !isset($empty) && !$PS_CATALOG_MODE}
-		<span class="heading-counter" style="position:inherit;">{l s='Your shopping cart contains:'}
-			<span id="summary_products_quantity" >{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span>
-		</span>
-	{/if}
-</p>  *}
 
 {if isset($empty)}
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
@@ -83,7 +76,6 @@
 					{assign var='odd' value=0}
 					{assign var='have_non_virtual_products' value=false}
 					{foreach $products as $product}
-						{* {$product|print_r} *}
 						{assign var="productId" value=$product.id_product}
 						{assign var="attributes" value=$product.attributes_small}
 						{assign var="split_size" value=","|explode:$attributes}
@@ -95,8 +87,6 @@
 						{if isset($split_size[1]) }
 								{assign var="coloring" value=$split_size[1]|trim}
 						{/if}
-
-						{* {$combinations[$product.id_product]|print_r}  *}
 
 						{$attributeCombinaison[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $combinations[$product.id_product]}
 
@@ -129,10 +119,10 @@
 									<!--<br><br>-->
 									<div class="col-xs-2 col-md-1 ">
 										<div class="row">
-											<div class="col-md-6 col-xs-6 text-right edit" style="padding:0;">
+											<div class="col-md-6 col-xs-6 text-md-right edit" style="padding:0;">
 												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
-											<div class="col-md-6 col-xs-6 text-left delete" style="padding:0;">
+											<div class="col-md-6 col-xs-6 text-md-left delete" style="padding:0;">
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 													class="cart_quantity_delete"
