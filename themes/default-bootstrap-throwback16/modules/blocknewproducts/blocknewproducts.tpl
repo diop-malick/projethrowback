@@ -4,7 +4,7 @@
 <!-- MODULE Block new products -->
 <section class=" row page-product-box">
     <h4 class="title_block">
-          {if {$smarty.get.controller} eq 'order'}
+          {if {$smarty.get.controller} eq 'order' or {$smarty.get.controller} eq 'search' }
             {l s='Découvrez nos nouveautés' mod='blocknewproducts'}
           {else}{l s='New products' mod='blocknewproducts'}
           {/if}

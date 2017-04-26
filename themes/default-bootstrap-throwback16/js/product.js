@@ -217,14 +217,20 @@ $(document).ready(function()
 	// TODO fixe btn to product image footer
 	// JavaScript API built in for detecting media mobile
     var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+	var imgNew = document.getElementById('rigth-row-1').getElementsByTagName('img');
 	
-	if ($('#timer').length && !isMobile.matches ) {
-    	var add_to_cart_heigh = $('#add_to_cart').height();
-		console.log("Test")
-    	// $('#add_to_cart').css('margin-top', add_to_cart_heigh +'px');
-    	$('#rigth-row-3').css('min-height',  '283px');
-    }
-
+	if (!isMobile.matches) { 
+		var add_to_cart_heigh = $('#add_to_cart').height();
+		if (!$('#timer').length  && imgNew.length ) {			
+			$('#rigth-row-3').css('min-height',  '318px');
+		}
+		else if ($('#timer').length  && !imgNew.length ) {
+			$('#rigth-row-3').css('min-height',  '285px');
+		}
+		else if ($('#timer').length  && imgNew.length ) {
+			$('#rigth-row-3').css('min-height',  '333px');
+		}
+	}
 	/* ********************************************************************* 
 	* COLAPSE Accordeon for product desc/serv/paiement
 	* ********************************************************************* */
@@ -694,7 +700,7 @@ function updateDisplay()
 	{
 
 		// Throwback - custom - the choice of quantities if max quantity per order is defined to 1
-		if (typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable === '1' ) {
+		if ((typeof quantityLimitedAvailable !== 'undefined' && quantityLimitedAvailable === '1') || quantityAvailable == 1 ) {
 			$('#quantity_wanted_p .btn').removeClass('active').addClass('disabled');
 		} else {
 			// show the choice of quantities
