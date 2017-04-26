@@ -23,7 +23,11 @@
 														{/if}
 													{/if}
 												</span>
-												<span  class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}"><span class="hidden-xs">{l s='(0)' mod='blockcart'}</span><span class="panier_vide visible-xs">{l s='(0)' mod='blockcart'}</span></span></span>
+												<span  class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">
+												{* <span class="hidden-xs">{l s='(0)' mod='blockcart'}</span> *}
+												<span class="panier_vide">{l s='(0)' mod='blockcart'}</span>
+												</span>
+												</span>
 												<i class="material-icons shopping-cart"></i>
 
 

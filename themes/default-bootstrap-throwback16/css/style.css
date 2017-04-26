@@ -205,6 +205,11 @@ div.form-error ul li {
         padding-right: 7px;
         padding-left: 7px;
     }
+
+    #order .columns-container #columns .row {
+	margin: 0px;
+    }
+
     /*============BEGIN=============== MENU Hori Mobile */
     #header .block_contact_infos {
         padding-left: 2px;
@@ -319,7 +324,7 @@ div.form-error ul li {
         padding-top: 4px;
     }
     #header .shopping_cart span.ajax_cart_no_product {
-        display: inline-block !important;
+        /*display: inline-block !important;*/
     }
     #header .shopping_cart span.ajax_cart_no_product .panier_vide {
         font-size: 15px;
