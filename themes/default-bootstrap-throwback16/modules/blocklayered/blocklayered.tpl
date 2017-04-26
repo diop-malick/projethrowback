@@ -33,7 +33,7 @@
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
-							<div class="layered_{$filter.type} col-lg-3 col-sm-12 col-xs-12 pull-right" style="display: none;">
+							<div class="layered_{$filter.type} col-lg-12 col-sm-12 col-xs-12 pull-right" style="display: none; padding-right: 0px;">
 						{else}
 							<div class="layered_filter col-lg-2 col-xs-12 col-sm-4 pull-md-right">
 						{/if}

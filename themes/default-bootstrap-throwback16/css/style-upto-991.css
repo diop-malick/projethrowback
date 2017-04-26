@@ -4,7 +4,14 @@
 ************************************************************/
 
 @media (max-width: 991px) {
-
+    .header-top-row {
+        margin-top: 0px !important;
+        background-color: #ececeb;
+        z-index: 9999;
+        -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2)
+    }
     #my-account ul.myaccount-link-list li a {
         height: 60px !important;
         font: 600 12px/14px "Open Sans", sans-serif !important;
@@ -47,9 +54,8 @@
     .rev_slider_wrapper {
         height: 261px !important;
     }
-    .tp-simpleresponsive{
+    .tp-simpleresponsive {
         height: 261px !important;
-        
     }
     header .row #header_logo {
         /*padding-top: 40px;*/
@@ -249,7 +255,14 @@
         border-bottom: 1px solid #ccc !important;
     }
     .visible-xs-menu-mobile #block_top_menu .sf-menu > li > a {
-        color: #000 !important;
+        /*color: #000 !important;*/
+    }
+    .dropbtn {
+        background: transparent;
+    }
+    .dropbtn a {
+        background-color: transparent !important;
+        background: transparent;
     }
     .visible-xs-menu-mobile #block_top_menu .sf-menu > li > ul > li {
         float: none;
