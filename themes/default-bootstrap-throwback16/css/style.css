@@ -210,6 +210,10 @@ div.form-error ul li {
 	margin: 0px;
     }
 
+    #order .columns-container #columns .row .col[] {
+	margin: 0px;
+    }
+
     /*============BEGIN=============== MENU Hori Mobile */
     #header .block_contact_infos {
         padding-left: 2px;
