@@ -4,6 +4,7 @@
 ************************************************************/
 
 @media (max-width: 991px) {
+
     #my-account ul.myaccount-link-list li a {
         height: 60px !important;
         font: 600 12px/14px "Open Sans", sans-serif !important;
@@ -16,6 +17,12 @@
     }
     #product .columns-container {
         margin-top: 5px !important;
+    }
+    #category .columns-container {
+        margin-top: 0px;
+    }
+    header #header_logo {
+        margin-top: 0px;
     }
     #my-account .columns-container,
     #identity .columns-container,
@@ -36,6 +43,13 @@
     }
     #index #slider_row {
         margin-top: 0 !important;
+    }
+    .rev_slider_wrapper {
+        height: 261px !important;
+    }
+    .tp-simpleresponsive{
+        height: 261px !important;
+        
     }
     header .row #header_logo {
         /*padding-top: 40px;*/
@@ -98,10 +112,7 @@
         font-size: 28px;
         color: #777 !important;
     }
-
-
     /*============BEGIN=============== MENU VERTICALE */
-
     .show {
         /*display: none !important;*/
     }
@@ -119,10 +130,10 @@
     .sf-menu {
         display: none;
     }
-        .sf-menu ul {
+    .sf-menu ul {
         position: relative;
     }
-        .sf-menu > li {
+    .sf-menu > li {
         float: none;
         position: relative;
         border-right: none;
@@ -143,21 +154,20 @@
     .sf-menu > li span.active:after {
         content: "\f068";
     }
-     .sf-menu li ul {
+    .sf-menu li ul {
         top: 0;
     }
-
-        .sf-menu > li > ul > li {
+    .sf-menu > li > ul > li {
         width: 50%;
     }
-        .sf-menu > li > ul > li {
+    .sf-menu > li > ul > li {
         width: 100%;
         padding-bottom: 20px;
     }
     .sf-menu > li > ul > li.first-in-line-lg {
         clear: left;
     }
-        .cat-title {
+    .cat-title {
         display: block;
         font: 600 18px/22px "Open Sans", sans-serif;
         text-transform: uppercase;
@@ -185,23 +195,24 @@
     .cat-title.active:after {
         content: "\f068";
     }
-
     .sf-menu > li > ul > li.first-in-line-xs {
         clear: left;
-    }    .sf-menu > li > ul > li.category-thumbnail > div {
+    }
+    .sf-menu > li > ul > li.category-thumbnail > div {
         width: 100%;
         padding-left: 0;
         padding-top: 10px;
         text-align: center;
     }
-        #left_column #block_top_menu {
+    #left_column #block_top_menu {
         width: 80%;
     }
     #left_column #block_top_menu .sf-menu > li span:after {
         margin-top: 0px;
     }
-
-    
+    .visible-xs-logo-mobile {
+        display: block !important;
+    }
     .columns-container #columns #left_column {
         width: 100% !important;
         top: 0px !important;
@@ -211,11 +222,14 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
         position: inherit !important;
     }
-    
-
     /* LOGO Mobile */
     header .visible-xs-logo-mobile {
         margin-top: -30px;
+    }
+    .visible-xs-logo-mobile {
+        /*display: none;
+        height: 50px;
+        margin-top: 15px;*/
     }
     .visible-xs-menu-mobile #block_top_menu {
         z-index: 7000;

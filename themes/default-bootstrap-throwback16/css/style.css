@@ -131,6 +131,10 @@ div.form-error ul li {
     .text-sm-justify {
         text-align: justify;
     }
+
+    .pull-sm-right {
+    	float: right !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -145,6 +149,10 @@ div.form-error ul li {
     }
     .text-md-justify {
         text-align: justify;
+    }
+
+    .pull-md-right {
+    	float: right !important;
     }
 }
 
@@ -341,11 +349,9 @@ div.form-error ul li {
     .product-container .row {
         padding: 8px;
     }
-    .visible-xs-logo-mobile {
-        display: block !important;
-    }
+
     .visible-xs-logo-mobile img {
-        margin: -15px auto 0 auto !important;
+        /*margin: -15px auto 0 auto !important;*/
     }
     .header-top-row {
         margin-top: 0px !important;
@@ -600,7 +606,7 @@ div.selector span {
 
 /* Throwback_logo */
 
-header .row #header_logo {
+header #header_logo {
     margin-top: -70px;
 }
 

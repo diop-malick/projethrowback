@@ -181,13 +181,11 @@ $(document).ready(function() {
 
         blur: function() {
 
-            //console.log($('#header_logo'));
             if (window.matchMedia("(max-width: 420px)").matches) {
                 /* La largeur maximum de l'affichage est 420 px inclus */
                 $('#menu_and_serach').removeClass('col-xs-6').addClass('col-xs-4');
                 $('#header_logo').removeClass('col-xs-3').addClass('col-xs-4');
                 $('#user_info').removeClass('col-xs-3').addClass('col-xs-4');
-                //$("#header_logo").css('marging-left', '45px');
             } else {
                 /* L'affichage est supèrieur à 420px de large */
             }
