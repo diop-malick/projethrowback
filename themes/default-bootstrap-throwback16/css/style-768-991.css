@@ -61,6 +61,12 @@
     ul.step li a {
         font-size: 1.2rem !important;
     }
+    .visible-xs-search-mobile {
+        border: 1px solid #c0c0c0;
+        padding-top: 15px;
+        height: 90px !important;
+margin-top: 15px !important;
+    }
     /*footer */
     #block_various_links_footer {
         text-align: left;
@@ -68,5 +74,4 @@
     #footer #newsletter_block_left .newsletter-input {
         width: 150px !important;
     }
-
 }
