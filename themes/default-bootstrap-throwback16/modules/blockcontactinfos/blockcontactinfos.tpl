@@ -13,7 +13,7 @@
 
 {else}
 
-    <div class="col-xs-10 col-sm-8 col-md-8 block_contact_infos">
+    <div class="col-xs-10 col-sm-4 col-md-8 block_contact_infos">
     <section id="block_contact_infos" class="footer-block">
     	<div class="row">
     		<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 text-xs-left">

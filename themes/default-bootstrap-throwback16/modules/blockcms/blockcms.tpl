@@ -67,7 +67,7 @@
 {else}
 	<!-- Block CMS module footer -->
 
-	<section class="footer-block col-xs-12 col-sm-2 col-md-5" id="block_various_links_footer"> <!-- Ajouter la class col-md-5 pour les cms sur une ligne) -->
+	<section class="footer-block col-xs-12 col-sm-4 col-md-5" id="block_various_links_footer"> <!-- Ajouter la class col-md-5 pour les cms sur une ligne) -->
 		{* <h4>{l s='Information' mod='blockcms'}</h4> *}
 		<ul class="list-inline"> <!-- Changer la class "toggle-footer"" en "list-inline" pour l'alignement horizontal -->
 			{if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}

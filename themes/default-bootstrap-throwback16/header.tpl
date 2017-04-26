@@ -68,6 +68,7 @@
 		<!-- Hide comlete header in myaccount and -->
 		{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or
 		({$smarty.get.controller} eq 'order' &&  ({$smarty.get.update} neq '1' && {$smarty.get.step} neq '0') ) }
+		
 		{*
 		<pre>{$cart|var_dump} </pre>
 		<pre>id_carrier : {$cart->id_carrier}</pre>
@@ -85,7 +86,7 @@
 			<div class="header-container">
 
 				<header id="header">
-					{capture name='displayBanner'}{hook h='displayBanner'}{/capture}
+					{* {capture name='displayBanner'}{hook h='displayBanner'}{/capture}
 					{if $smarty.capture.displayBanner}
 						<div class="banner">
 							<div class="container-fluid">
@@ -96,7 +97,7 @@
 								</div>
 							</div>
 						</div>
-					{/if}
+					{/if} *}
 					{capture name='displayNav'}{hook h='displayNav'}{/capture}
 					{if $smarty.capture.displayNav}
 						<div class="nav">
@@ -131,12 +132,8 @@
 					<div class="clearfix"></div>
 					<div class="col-xs-12 visible-xs-search-mobile" style="display:none; height: 50px; margin-top: 15px;">
 						<form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox2">
-							{* <label for="search_query_block">{l s='Search products:' mod='blocksearch'}</label> *}
 							<div class="block_content clearfix">
 								<div class="conteneur">
-									{* <div class="result_title">
-									 <p>{l s='Nouvelle Recherche' mod='blocksearch'}</p>
-									</div> *}
 									<input type="hidden" name="controller" value="search" />
 									<input type="hidden" name="orderby" value="position" />
 									<input type="hidden" name="orderway" value="desc" />
@@ -146,8 +143,8 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-xs-12 visible-xs visible-xs-menu-mobile">
-					{* {hook h='displayTop' mod='blocktopmenu'} *}
+					<!-- Mobile Menu  -->
+					<div class="col-xs-12 col-sm-12 visible-xs visible-sm visible-xs-menu-mobile">
 					{hook h='leftColumn' mod='blocktopmenu'}
 					</div>
 

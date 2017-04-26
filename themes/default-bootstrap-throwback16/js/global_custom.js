@@ -25,33 +25,31 @@ $(document).ready(function(){
      minimizePage();
 	}
 
-   /* *********************************** home  .js ***************************/
+   /* *********************************** Scrool Header Behavior  ***************************/
 
+   // MOBILE & small TAB 
     if (window.matchMedia("(max-width: 768px)").matches) {
-      $('.menu_vertical').removeClass('hidden').addClass('show');
+        $('.menu_vertical').removeClass('hidden').addClass('show');
 
-        $(window).scroll(function (event) {
-          var scroll_mob = $(window).scrollTop();
-          if(scroll_mob>0){
-              $('header .nav').removeClass('show').addClass('hidden');
-              $(".logo-throwback").attr("src",url_logo_simple);
-              $(".logo-throwback").css("margin-top", "20px");
-        }
-        else{
-              $('header .nav').removeClass('hidden').addClass('show');
-              $(".logo-throwback").attr("src",url_logo_simple);
-              fullPage();
-
-        }
-      });
-
-  } else {
-          // Pas besoin
-        //$('#left_column').hide();
-        //$('#center_column').removeClass('col-sm-9').addClass('col-sm-12');
-
+        $(window).scroll(function(event) {
+            var scroll_mob = $(window).scrollTop();
+            if (scroll_mob > 0) {
+              // TODO to check - désactive on mobile temporally
+                // $('header .nav').removeClass('show').addClass('hidden');
+                // $(".logo-throwback").attr("src", url_logo_simple);
+                // $(".logo-throwback").css("margin-top", "20px");
+            } else {
+                // $('header .nav').removeClass('hidden').addClass('show');
+                // $(".logo-throwback").attr("src", url_logo_simple);
+                fullPage();
+            }
+        });
+    }
+    // TAB  & DESK 
+    else {
         scrollAction();
     }
+
 
     /* *********************************** Define .js ***************************/
 

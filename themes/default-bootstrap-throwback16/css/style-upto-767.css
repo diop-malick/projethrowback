@@ -1,0 +1,94 @@
+@media (max-width: 767px) {
+    header .row #header_logo {
+        /*padding-top: 15px;*/
+    }
+    header .row #header_logo img {
+        /*margin: 0 auto;*/
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .title-identity {
+        display: none;
+    }
+    #mobil_blockcart {
+        padding: 0 !important;
+        margin-top: -5px;
+    }
+    #picto_panier .visible-xs {
+        display: inline !important;
+    }
+    #block_contact_infos span {
+        font-size: 10px !important;
+        font-family: "Futura";
+        color: rgba(147, 149, 152, 0.749);
+        left: 39.252px;
+    }
+    #block_contact_infos {
+        margin-left: -23px !important;
+    }
+    #header .shopping_cart {
+        padding-top: 0px;
+    }
+    #search_block_top .col-xs-8 {
+        padding: 0 !important;
+    }
+    input[name="search_query"]::-webkit-input-placeholder {
+        color: transparent;
+    }
+    input[name="search_query"]:-moz-placeholder {
+        color: transparent;
+    }
+    input[name="search_query"]:focus {
+        width: 120px !important;
+        outline: none !important;
+    }
+    #search_block_top,
+    #search_query_top {
+        height: 20px!important;
+        font-size: 10px !important;
+    }
+    #contact-link a {
+        position: absolute;
+        top: -50px;
+        right: 0px;
+    }
+    #social_block {
+        right: 20%;
+        position: absolute;
+        top: -65px;
+    }
+}
+
+/************************************************************
+  RESPONSIVE - EXTRA SMALL
+  Extra Small devices , for phones (< 768px)
+************************************************************/
+@media (max-width: 768px) {
+    #block-history,
+    .bloc_adresses,
+    .my-account-selfcare.new-adress ,
+    .my-account-selfcare,
+    #authentication #columns .row#center_column,
+    #authentication #columns .row#identification {
+         margin-left: 5px !important;
+          margin-right: 5px !important;
+    }
+
+    #block-history,
+    .bloc_adresses,
+    .my-account-selfcare.new-adress {
+        margin-top: 5px;
+    }
+
+    .simplified-header .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .simplified-header .vertical-center {
+        margin-bottom: 0px;
+    }
+
+}
