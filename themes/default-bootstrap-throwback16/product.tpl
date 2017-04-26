@@ -889,17 +889,20 @@
 {/if}
 
 
-<!-- assign defined limited quantity variable to product.js  -->
+{* =========================================  assign defined limited quantity variable to product.js  / 10 if limit is not defined in BO *}
+{assign var=quantityLimitedAvailableTMP value=10}
 {foreach from=$features item=feature}
-	{* {if $feature.id_feature eq "11"} *}
 	{if $feature.name eq 'Quantité-Commandable'}
 		{if isset($feature.value)}
-			{addJsDef quantityLimitedAvailable=$feature.value}
+			{assign var=quantityLimitedAvailableTMP value=$feature.value}
 		{/if}
 	{/if}
 {/foreach}
+{addJsDef quantityLimitedAvailable=$quantityLimitedAvailableTMP}
 
-<!-- assign quantity variable to product.js   -->
+
+
+{* =========================================  assign quantity variable to product.js   *}
 {if $display_qties == 1 && $product->quantity}
 	{addJsDef quantityAvailable=$product->quantity}
 {else}
@@ -933,6 +936,7 @@
 {addJsDefL name=uploading_in_progress}{l s='Uploading in progress, please be patient.' js=1}{/addJsDefL}
 {addJsDefL name='product_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
+{addJsDefL name='message_choice_attribute'}{l s='Merci de sélectionner une taille.'}{/addJsDefL}
 {/strip}
 {/if}
 

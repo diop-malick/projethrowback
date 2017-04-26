@@ -15,7 +15,7 @@
 			{/if}
 
 				<!-- /menu verticale -->
-				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical_mobile visible-xs">
+				<div class="col-xs-6 col-sm-4 col-md-4 clearfix menu_vertical_mobile visible-xs visible-sm">
 					<button type="button" class="toggle_menu_mobile">
 				      <i class="fa fa-bars"></i>
 				    </button>

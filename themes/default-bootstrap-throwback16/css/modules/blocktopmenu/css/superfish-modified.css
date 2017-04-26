@@ -28,22 +28,11 @@
     background-color: rgba(53, 53, 53, 0.35) !important;
 }
 
-@media (max-width: 767px) {
-    .sf-menu {
-        display: none;
-    }
-}
 
 .sf-menu ul {
     position: absolute;
     top: -999em;
     background: #fff;
-}
-
-@media (max-width: 767px) {
-    .sf-menu ul {
-        position: relative;
-    }
 }
 
 .sf-menu ul li {
@@ -52,38 +41,12 @@
 
 .sf-menu li:hover {
     visibility: inherit;
-    /* fixes IE7 'sticky bug' */
 }
 
 .sf-menu > li {
     display: inline-block;
     margin-bottom: -3px;
 }
-
-@media (max-width: 767px) {
-    .sf-menu > li {
-        float: none;
-        position: relative;
-        border-right: none;
-    }
-    .sf-menu > li span {
-        position: absolute;
-        right: 6px;
-        top: 20px;
-        width: 30px;
-        height: 30px;
-        z-index: 2;
-    }
-    .sf-menu > li span:after {
-        font-family: "FontAwesome";
-        content: "\f067";
-        font-size: 26px;
-    }
-    .sf-menu > li span.active:after {
-        content: "\f068";
-    }
-}
-
 
 .sf-menu > li > a {
     font-size: 14px;
@@ -193,11 +156,6 @@ ul.sf-menu li li li.sfHover ul {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
 }
 
-@media (max-width: 767px) {
-    .sf-menu li ul {
-        top: 0;
-    }
-}
 
 .sf-menu > li > ul > li > a {
     text-transform: uppercase;
@@ -209,30 +167,6 @@ ul.sf-menu li li li.sfHover ul {
     color: #515151;
 }
 
-@media (max-width: 767px) {
-    .sf-menu > li > ul > li {
-        width: 50%;
-    }
-}
-
-@media (max-width: 479px) {
-    .sf-menu > li > ul > li {
-        width: 100%;
-        padding-bottom: 20px;
-    }
-}
-
-@media (min-width: 768px) {
-    .sf-menu > li > ul > li.first-in-line-lg {
-        clear: left;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
-    .sf-menu > li > ul > li.first-in-line-xs {
-        clear: left;
-    }
-}
 
 .sf-menu > li > ul > li.category-thumbnail {
     width: 100% !important;
@@ -248,14 +182,6 @@ ul.sf-menu li li li.sfHover ul {
     width: 33.333%;
 }
 
-@media (max-width: 479px) {
-    .sf-menu > li > ul > li.category-thumbnail > div {
-        width: 100%;
-        padding-left: 0;
-        padding-top: 10px;
-        text-align: center;
-    }
-}
 
 .sf-menu > li > ul > li.category-thumbnail > div:first-child {
     padding-left: 0;
@@ -270,36 +196,6 @@ ul.sf-menu li li li.sfHover ul {
     display: none;
 }
 
-@media (max-width: 767px) {
-    .cat-title {
-        display: block;
-        font: 600 18px/22px "Open Sans", sans-serif;
-        text-transform: uppercase;
-        color: #484848;
-        display: block;
-        padding: 17px 20px;
-        border-bottom: 3px solid #e9e9e9;
-        background: #f6f6f6;
-        position: relative;
-    }
-    .cat-title:hover {
-        background: #333;
-        border-bottom-color: #666666;
-        color: #fff;
-    }
-    .cat-title:after {
-        display: block;
-        font-family: "FontAwesome";
-        content: "\f067";
-        position: absolute;
-        right: 15px;
-        top: 18px;
-        font-size: 26px;
-    }
-    .cat-title.active:after {
-        content: "\f068";
-    }
-}
 
 .sf-menu li.sf-search {
     border: none;
@@ -337,11 +233,25 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 
-/*custom throwback */
+/* custom throwback */
 
 .sf-menu li li li a:before,
 .sf-menu li li li li a:before {
     content: '' !important;
+}
+/* isoler pour Desk*/
+@media (min-width: 1200px) {
+    .sf-menu > li > ul > li > a {
+        text-transform: none;
+        font: 600 14px/20px "Open Sans", sans-serif;
+        color: #fff;
+    }
+    .sf-menu > li > ul > li > a:hover {
+        color: #fff;
+    }
+    .sf-menu li ul {
+        background-color: rgba(53, 53, 53, 1);
+    }
 }
 
 
@@ -373,6 +283,8 @@ ul.sf-menu li li li.sfHover ul {
 
 #left_column #block_top_menu .sf-menu > li > a {
     color: #000 !important;
+    font-size: 90%;
+    padding: 14px 20px;
 }
 
 #left_column #block_top_menu .sf-menu > li > ul > li {
@@ -388,6 +300,7 @@ ul.sf-menu li li li.sfHover ul {
     top: 0;
     z-index: 99;
     padding: 12px 0px 18px 10px;
+    background-color: #fff;
     -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 13px;
@@ -426,27 +339,4 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 
-@media (max-width: 767px) {
-    #left_column #block_top_menu {
-        width: 80%;
-    }
-    #left_column #block_top_menu .sf-menu > li span:after {
-        margin-top: 0px;
-    }
-}
-
-
-
-@media (min-width: 1200px) {
-    .sf-menu > li > ul > li > a {
-        text-transform: none;
-        font: 600 14px/20px "Open Sans", sans-serif;
-        color: #fff;
-    }
-    .sf-menu > li > ul > li > a:hover {
-        color: #fff;
-    }
-    .sf-menu li ul {
-        background-color: rgba(53, 53, 53, 1);
-    }
-}
+/*============END=============== MENU VERTICALE */
