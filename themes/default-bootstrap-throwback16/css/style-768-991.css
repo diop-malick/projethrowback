@@ -1,0 +1,72 @@
+/************************************************************
+  RESPONSIVE - SMALL
+  Small devices (tablets, 768px and up) 
+************************************************************/
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Header  */
+    .block_contact_infos {
+        padding: 0 !important;
+        ;
+        font-size: 10px !important;
+    }
+    #header {
+        position: relative;
+    }
+    .footer-container .simplified-footer span span {
+        font-size: 9px !important;
+    }
+    .account_creation {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    header .row #header_logo {
+        margin-top: -58px !important;
+    }
+    header #header_logo {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .sf-menu > li > a {
+        font-size: 10px !important;
+        font-weight: 900 !important;
+        padding: 17px 10px !important;
+    }
+    #user_info {
+        padding: 0 !important;
+    }
+    #user_info .header_user_info {}
+    .menu_vertical_mobile,
+    /*#search_block_top,*/
+    .header_user_info,
+    #mobil_blockcart {
+        margin: 0 !important;
+        padding: 0 !important;
+        /*border: 2px solid #B5BDC1 !important;*/
+    }
+    #order .columns-container #columns .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    #order .columns-container #columns .row > div[class^="col-"] {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    #authentication #columns .order-step-row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    ul.step li span,
+    ul.step li a {
+        font-size: 1.2rem !important;
+    }
+    /*footer */
+    #block_various_links_footer {
+        text-align: left;
+    }
+    #footer #newsletter_block_left .newsletter-input {
+        width: 150px !important;
+    }
+
+}

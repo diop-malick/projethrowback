@@ -1,15 +1,15 @@
 <!-- Footer Logo  -->
-<div class="col-md-3">
+<div class="col-sm-2 col-md-3">
     <img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/logo/logo-footer.png" class="footer-logo img-responsive" alt="Throwback logo"/>
 </div> <!-- // Footer Logo -->
 
 <!-- Newletter fancyBox -->
-<div class="col-md-4">	
+<div class="col-sm-6 col-md-4">	
 	<div class="row">
 		
-		<div class="col-md-8">
+		<div class="col-sm-8 col-md-8">
 
-			<div id="newsletter_block_left" class=" block inline">
+			<div id="newsletter_block_left" class="block inline">
 				<div class="block_content">
 
                     <!-- NEWLETTER -->
