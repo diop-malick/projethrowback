@@ -123,7 +123,7 @@
 					<label for="city" class="col-md-4 col-xs-12 text-right text-xs-left required">{l s='City'} </label>
 					<div class="col-md-8 col-xs-12" id="ville">
 
-					<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
+					<input class="is_required validate form-control required" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
 				</div>
 				{* if customer hasn't update his layout address, country has to be verified but it's deprecated *}

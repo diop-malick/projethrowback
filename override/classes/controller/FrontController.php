@@ -11,10 +11,10 @@ class FrontController extends FrontControllerCore
         $this->addCSS(_THEME_CSS_DIR_.'style-upto-991.css');
         $this->addCSS(_THEME_CSS_DIR_.'style-992-toUp.css');
 
-        $this->addJS(_THEME_JS_DIR_.'global_custom.js');
-
         $this->addJS(_THEME_JS_DIR_.'form-validator/jquery.form-validator.min.js');
-        $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');        
+        $this->addCSS(_THEME_JS_DIR_.'form-validator/theme-default.css');  
+
+        $this->addJS(_THEME_JS_DIR_.'global_custom.js');      
 
         $this->addjqueryPlugin('fancybox');
         $this->addJS(_THEME_JS_DIR_.'spin.js');
