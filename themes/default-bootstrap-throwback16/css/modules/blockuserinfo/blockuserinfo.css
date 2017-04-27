@@ -40,20 +40,8 @@
         padding: 0 30px 0 19px;
         border-bottom: 1px solid #d6d4d4;
     }
-    .header_user_info span {
-        /*font-family: "Futura";*/
-        /*color: rgb(147, 149, 152);*/
-    }
 }
 
-/************************************************************
-    RESPONSIVE TAB
-************************************************************/
-@media (min-width: 480px) {
-    .dropbtn a {
-        background-color: #fff !important;
-    }
-}
 
 
 /************************************************************

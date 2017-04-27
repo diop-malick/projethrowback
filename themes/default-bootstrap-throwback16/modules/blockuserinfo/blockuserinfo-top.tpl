@@ -1,5 +1,5 @@
 <!-- COL UserInfo + Cart -->
-<div id ="user_info" class="col-xs-6 col-sm-4 col-md-4 pull-right" >
+<div id ="user_info" class="col-xs-6 col-sm-6 col-md-4 pull-right" >
 	<!-- ROW UserInfo + Cart -->
 	<div class="row">
 
