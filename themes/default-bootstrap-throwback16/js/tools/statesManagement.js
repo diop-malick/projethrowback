@@ -122,8 +122,8 @@ function bindZipcode()
 						$("#city").focus();
 					},
 					error: function() {
-								$("#city").remove();
-								$("#ville").append(input);
+								//$("#city").remove();
+								//$("#ville").append(input);
 								$("#city").attr("placeholder", "Merci de saisir votre ville.");
 					}
 		});
