@@ -1,7 +1,7 @@
-a:4:{s:13:"id_fancypopup";s:1:"1";s:7:"id_shop";s:1:"1";s:7:"id_lang";s:1:"1";s:20:"fancypopup_paragraph";s:882:"<div id="fancypopup_popup">
+a:4:{s:13:"id_fancypopup";s:1:"1";s:7:"id_shop";s:1:"1";s:7:"id_lang";s:1:"1";s:20:"fancypopup_paragraph";s:1063:"<div id="fancypopup_popup">
 <div class="fancypopup-newsletter"><form action="{$base_dir}" method="POST"><img class="fancypopup-img" alt="newsletter" src="modules/fancypopup/img/fancypopup_img_1.jpg" />
 <div class="fancypopup-content">
 <h1>Bienvenue sur Throwback Sneakers</h1>
-<label for="newsletter">Inscrivez-vous à notre newsletter et recevez en exclusivité toutes nos actualités, nos dernières offres et promotions. Ne ratez plus nos réassorts et l'arrivée de nouveautés!.</label> <input type="text" name="email" title="Je m'inscris" class="fancypopup-email" placeholder="Saisissez votre email..." /> <span class="fancypopup-msg"></span> <button class="fancypopup-btn-newsletter" name="submitNewsletter" type="submit" title="Je m'inscris"> <span><span>Je m'inscris </span> </span> </button> <input type="hidden" name="action" value="0" /></div>
+<label for="newsletter">Inscrivez-vous à notre newsletter et recevez en exclusivité toutes nos actualités, nos dernières offres et promotions. Ne ratez plus nos réassorts et l'arrivée de nouveautés!.</label> <input type="text" name="email" title="Je m'inscris" class="fancypopup-email" placeholder="Saisissez votre email..." /> <span class="fancypopup-msg"></span><span class="response" id="fc-error-response" style="display: none; color: red;"></span> <span class="response" id="fc-success-response" style="display: none; color: green;"></span> <button class="fancypopup-btn-newsletter" name="submitNewsletter" type="submit" title="Je m'inscris"> <span><span>Je m'inscris </span> </span> </button> <input type="hidden" name="action" value="0" /></div>
 </form></div>
 </div>";}

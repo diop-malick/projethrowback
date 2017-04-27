@@ -19,6 +19,9 @@ $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_b7ada96a0da7ee7
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_536dc7424180872c8c2488ae0286fb53'] = 'You pay for the merchandise upon delivery';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_ea9cf7e47ff33b2be14e6dd07cbcefc6'] = 'Shipping';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_11ebdb16579813b9595a928c6bd4285a'] = 'Thank you for your order';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_faff8afe8729d63ba38121072dcd0e18'] = 'Your order has been registered, it will be processed by ours teams after your payment in store';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_84d8c35f9ea674bf42108db01f992f47'] = ' A confirmation mail will be sent to your e-mail address. ';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_470c61d27c05ba281954097fe774c7da'] = 'We  hope it will give you entire satisfaction and hope to see you again very soon on Throwbacksneakers.com ';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_dfc1d8a858d9b2637d5a154bad22624e'] = 'If you are unhappy with any item that you receipt, you may return it to us within 7 days of receipt.';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_0301f1ebb98e248552ee9632b2370520'] = 'Learn more about conditions';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_e2fd17bf60e10f730387cf8c9a60d0a1'] = 'Retuns and Exchanges';

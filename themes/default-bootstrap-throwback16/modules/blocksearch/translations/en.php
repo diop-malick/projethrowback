@@ -14,4 +14,4 @@ $_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_3a09f4cda480a0
 $_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_cf0f6aa5bea95daefb2a7eb31eb0b4d8'] = 'special caracter';
 $_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_1e88befc7f9cd75054f465800e4ab278'] = 'Search product type or brand';
 $_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_555eb31ea969d381b5570fd08c652db4'] = 'Use simple and general words';
-$_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_8d1bad1e0100b1b0687119aad5382600'] = 'Continue shopping';
+$_MODULE['<{blocksearch}default-bootstrap-throwback16>blocksearch_0d4294e5c07e9434354b1adcfad83279'] = 'Continue my shopping';
