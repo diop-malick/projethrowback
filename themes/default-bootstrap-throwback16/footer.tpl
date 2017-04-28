@@ -58,6 +58,15 @@
 {/if}
 
 {include file="$tpl_dir./global.tpl"}
-
+			{if $page_name == 'index' }
+				<script>
+					$(document).ready(function(){
+						$( ".slidelink a" ).on('click touchstart', function (e) {
+							e.preventDefault();
+							window.location.href = $(this).attr('href');
+						});
+					});
+				</script>
+			{/if}
 	</body>
 </html>
