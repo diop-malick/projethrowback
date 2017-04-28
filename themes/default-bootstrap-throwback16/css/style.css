@@ -131,6 +131,9 @@ div.form-error ul li {
     .text-sm-justify {
         text-align: justify;
     }
+    .pull-sm-right {
+        float: right !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -145,6 +148,9 @@ div.form-error ul li {
     }
     .text-md-justify {
         text-align: justify;
+    }
+    .pull-md-right {
+        float: right !important;
     }
 }
 
@@ -180,6 +186,7 @@ div.form-error ul li {
     }
 }
 
+
 /************************************************************
   END  RESPONSIVE
 ************************************************************/
@@ -198,7 +205,15 @@ div.form-error ul li {
         padding-right: 7px;
         padding-left: 7px;
     }
-    
+
+    #order .columns-container #columns .row {
+	margin: 0px;
+    }
+
+    #order .columns-container #columns .row .col[] {
+	margin: 0px;
+    }
+
     /*============BEGIN=============== MENU Hori Mobile */
     #header .block_contact_infos {
         padding-left: 2px;
@@ -214,13 +229,6 @@ div.form-error ul li {
         left: 0;
         background: #ececeb;
         z-index: 1000;
-    }
-    .header-top-row {
-        background-color: #ececeb;
-        z-index: 9999;
-        -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2)
     }
     #menu_and_serach,
     #search_block_top .fa {
@@ -239,18 +247,9 @@ div.form-error ul li {
         border-right: 2px solid #B5BDC1 !important;
         text-align: center !important;
     }
-    
-    .dropbtn {
-        background: transparent;
-    }
-    .dropbtn a {
-        background-color: transparent !important;
-        background: transparent;
-    }
     .header_user_info a i {
         color: #777 !important;
     }
-
     #header {
         position: relative;
     }
@@ -313,7 +312,6 @@ div.form-error ul li {
     #home-page-tabs #htmlcontent_home ul li {
         padding: 0;
     }
-
     #categories_block_left .block_content > ul {
         width: 100% !important;
     }
@@ -330,7 +328,7 @@ div.form-error ul li {
         padding-top: 4px;
     }
     #header .shopping_cart span.ajax_cart_no_product {
-        display: inline-block !important;
+        /*display: inline-block !important;*/
     }
     #header .shopping_cart span.ajax_cart_no_product .panier_vide {
         font-size: 15px;
@@ -341,14 +339,8 @@ div.form-error ul li {
     .product-container .row {
         padding: 8px;
     }
-    .visible-xs-logo-mobile {
-        display: block !important;
-    }
     .visible-xs-logo-mobile img {
-        margin: -15px auto 0 auto !important;
-    }
-    .header-top-row {
-        margin-top: 0px !important;
+        /*margin: -15px auto 0 auto !important;*/
     }
     .pb-left-column #image-block {
         padding: 0 !important;
@@ -600,7 +592,7 @@ div.selector span {
 
 /* Throwback_logo */
 
-header .row #header_logo {
+header #header_logo {
     margin-top: -70px;
 }
 
@@ -1461,7 +1453,6 @@ button.accordion.active:after {
 .text-shoping {
     font-size: 16px;
 }
-
 
 
 /*******************************************************

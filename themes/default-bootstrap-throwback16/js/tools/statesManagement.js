@@ -101,8 +101,8 @@ function bindZipcode()
 					success: function(json) {
 								count= json.records.length;
 								if(count==0){
-									$("#city").remove();
-									$("#ville").append(input);
+									//$("#city").remove();
+									//$("#ville").append(input);
 									$("#city").attr("placeholder", "Merci de saisir votre ville.");
 								} 
 								else if(count>1){
@@ -122,8 +122,8 @@ function bindZipcode()
 						$("#city").focus();
 					},
 					error: function() {
-								$("#city").remove();
-								$("#ville").append(input);
+								//$("#city").remove();
+								//$("#ville").append(input);
 								$("#city").attr("placeholder", "Merci de saisir votre ville.");
 					}
 		});

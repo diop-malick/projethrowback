@@ -356,12 +356,12 @@
 
 					<div class="row">
 						<!-- QUANTITY  -->
-						<div class="col-xs-8 col-sm-6 col-md-6">
+						<div class="col-xs-12 col-sm-6 col-md-6">
 							{if !$PS_CATALOG_MODE}
 									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<div class="row">
-												<label class="col-xs-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
-												<div class="col-xs-7">
+												<label class="col-xs-4 col-sm-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
+												<div class="col-xs-8 col-sm-7">
 													<input type="text" readonly name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
 													<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 														<span><i class="icon-minus"></i></span>
