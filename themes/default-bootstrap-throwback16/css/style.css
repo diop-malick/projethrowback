@@ -452,7 +452,7 @@ body {
 
 /*margin top colum center and hesder*/
 
-#category .columns-container {
+#category .columns-container, #pagenotfound .columns-container {
     margin-top: 120px;
 }
 
