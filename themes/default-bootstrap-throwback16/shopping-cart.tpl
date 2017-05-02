@@ -22,7 +22,7 @@
 
 {if isset($empty)}
 	{if isset($smarty.get.update) && $smarty.get.update =="1"}
-		<script>window.location="{$link->getPageLink('order')}&step=0";</script>
+		<script>window.location="{$link->getPageLink('order')}?step=0";</script>
 	{else}
 
 	<p class="panier-vide">{l s='Your shopping cart is empty.'}<br>
