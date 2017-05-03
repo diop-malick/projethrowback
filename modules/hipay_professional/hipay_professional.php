@@ -42,7 +42,7 @@ class Hipay_Professional extends PaymentModule
     {
         $this->name = 'hipay_professional';
         $this->tab = 'payments_gateways';
-        $this->version = '1.0.3';
+        $this->version = '1.0.2';
         $this->module_key = 'ab188f639335535838c7ee492a2e89f8';
         $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
         $this->currencies = true;
@@ -1506,12 +1506,6 @@ if (_PS_VERSION_ >= '1.7') {
     Tools::displayError('The module HiPay Professional is not compatible with your PrestaShop');
 }
 
-/*
-require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/forms/HipayForm.php');
-require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayUserAccount.php');
-require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayLogs.php');
-require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayREST.php');
-*/
 
 define("MODULE", "/modules/");
 require_once(_PS_ROOT_DIR_ . MODULE . 'hipay_professional/classes/forms/HipayForm.php');
