@@ -1363,7 +1363,7 @@ Quick View Styles
 }
 @media (min-width: 1024px) {
     #rigth-row-3 {
-        min-height: 333px;
+        min-height: 273px;
     }
 }
 #rigth-row-1 .product_name {

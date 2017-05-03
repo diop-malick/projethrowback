@@ -35,7 +35,8 @@
 
 						
 						<div id="textSEO" class="container">
-							{if {$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search' or ({$smarty.get.controller} eq 'order' AND (int)Tools::getValue('step') == 0 ) }
+
+							{if ({$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search' or ({$smarty.get.controller} eq 'order' AND (int)Tools::getValue('step') == 0 )) AND {$lang_iso} eq 'fr'}
 								{l s='La marque Throwback Sneakers a été créée par et pour des passionnés de la culture Sneaker.  
 									  Notre site Internet créé en 2009 a évolué dans cette direction pour permettre de proposer des produits
 									   forts et emblématiques aux passionnés, mêlant nouveautés Retro, innovation et produits "Deadstock".
@@ -58,6 +59,15 @@
 {/if}
 
 {include file="$tpl_dir./global.tpl"}
-
+			{if $page_name == 'index' }
+				<script>
+					$(document).ready(function(){
+						$( ".slidelink a" ).on('click touchstart', function (e) {
+							e.preventDefault();
+							window.location.href = $(this).attr('href');
+						});
+					});
+				</script>
+			{/if}
 	</body>
 </html>

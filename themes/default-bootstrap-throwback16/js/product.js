@@ -222,14 +222,12 @@ $(document).ready(function()
 	if (!isMobile.matches) { 
 		var add_to_cart_heigh = $('#add_to_cart').height();
 		if (!$('#timer').length  && imgNew.length ) {			
-			$('#rigth-row-3').css('min-height',  '318px');
+			$('#rigth-row-3').css('min-height',  '270px');
 		}
 		else if ($('#timer').length  && !imgNew.length ) {
-			$('#rigth-row-3').css('min-height',  '285px');
+			$('#rigth-row-3').css('min-height',  '236px');
 		}
-		else if ($('#timer').length  && imgNew.length ) {
-			$('#rigth-row-3').css('min-height',  '333px');
-		}
+		
 	}
 	/* ********************************************************************* 
 	* COLAPSE Accordeon for product desc/serv/paiement

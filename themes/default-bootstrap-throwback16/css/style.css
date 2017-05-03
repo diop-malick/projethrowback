@@ -452,7 +452,7 @@ body {
 
 /*margin top colum center and hesder*/
 
-#category .columns-container {
+#category .columns-container, #pagenotfound .columns-container {
     margin-top: 120px;
 }
 
@@ -844,7 +844,7 @@ input[readonly] {
 }
 
 .pve_petite{
-    color:red;
+    color: rgb(214, 157, 50);
 }
 
 
