@@ -1507,8 +1507,7 @@ if (_PS_VERSION_ >= '1.7') {
 }
 
 
-define("MODULE", "/modules/");
-require_once(_PS_ROOT_DIR_ . MODULE . 'hipay_professional/classes/forms/HipayForm.php');
-require_once(_PS_ROOT_DIR_ . MODULE . 'hipay_professional/classes/webservice/HipayUserAccount.php');
-require_once(_PS_ROOT_DIR_ . MODULE . 'hipay_professional/classes/webservice/HipayLogs.php');
-require_once(_PS_ROOT_DIR_ . MODULE . 'hipay_professional/classes/webservice/HipayREST.php');
+require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/forms/HipayForm.php');
+require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayUserAccount.php');
+require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayLogs.php');
+require_once(_PS_ROOT_DIR_ . _MODULE_DIR_ . 'hipay_professional/classes/webservice/HipayREST.php');
