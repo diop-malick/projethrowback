@@ -100,7 +100,7 @@ function mce_success_cb(resp){
         try{
             if (index== -1){
                 $('#fc-'+resp.result+'-response').show();
-                $('#fc-'+resp.result+'-response').html(msg);            
+                $('#fc-'+resp.result+'-response').html(deja_client);          
             } else {
                 err_id = 'fc_tmp_error_msg';
                 html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
