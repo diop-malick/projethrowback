@@ -109,7 +109,7 @@ function showElemntsToModify(line) {
             }).spin(document.getElementById("spin_" + line)); // Place in DOM node called "ajaxContentHolder"
 
         // relaod page to get modif
-        window.location = linkCarte + "&update=1";
+        window.location = linkCarte + "?update=1";
 
         //$('body').load(window.location.href,'body');
     }

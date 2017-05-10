@@ -27,12 +27,12 @@ $(document).ready(function(){
 	
 	// hide laoder when select adresse change
 	 $('#addressesAreEquals').click(function(event) {
-	 	//console.log("test");
+	 	console.log("test");
 	 	$('.waitimage').hide();
 	 	$('#address_invoice_form .waitimage').show().delay(5000).hide(); 
 
 		 // hide zone adresse de facturation
-		 $('.invoice-adresse').hide('fast');
+		 $('.invoice-adresse').show();
 	 });
 
 });
@@ -54,7 +54,7 @@ function updateAddressesDisplay(first_view)
 	if ($('#addressesAreEquals:checked').length === 1 && ($('#multishipping_mode_checkbox:checked').length === 0))
 	{
 		// show zone adresse de facturation
-		$('.invoice-adresse').show('fast');
+		$('.invoice-adresse').hide('fast');
 
 		if ($('#multishipping_mode_checkbox:checked').length === 0) {
 			$('#address_invoice_form:visible').hide('fast');

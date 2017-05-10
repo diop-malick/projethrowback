@@ -452,7 +452,7 @@ body {
 
 /*margin top colum center and hesder*/
 
-#category .columns-container {
+#category .columns-container, #pagenotfound .columns-container {
     margin-top: 120px;
 }
 
@@ -1021,7 +1021,7 @@ input[readonly] {
 }
 
 .price-prod {
-    font-size: 13px !important;
+    font-size: 14px !important;
 }
 
 .dispo-text {

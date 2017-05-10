@@ -7,7 +7,9 @@ $(document).ready(function(){
 	categoryMenu = $('ul.sf-menu');
 	mCategoryGrover = $('.sf-contener .cat-title');
 	responsiveMenu();
-	$(window).resize(responsiveMenu);
+
+	if ($(window).width() <= 767 ) // executerseulemt sur mobile
+		$(window).resize(responsiveMenu);
 });
 
 // check resolution

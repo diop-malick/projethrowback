@@ -27,7 +27,7 @@
         <br />
         {l s='Votre commande a bien été enregistrée, elle est en cours de traitement par nos équipes.' mod='hipay_professional'}
         <br /><span class="bold">{l s='Un email de confirmation vous a été envoyé à l’adresse' mod='hipay_professional'} {$cookie->email}. </span>
-        <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}index.php{else}{$base_dir}index.php{/if}">Throwbacksneakers.com</a> pour d’autres instants shopping !' mod='hipay_professional'}
+        <br />{l s='Nous espérons qu’elle vous apportera entière satisfaction et espérons vous revoir très bientôt sur' mod='hipay_professional' } <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}index.php{else}{$base_dir}index.php{/if}">Throwbacksneakers.com</a> {l s='pour d’autres instants shopping !' mod='hipay_professional'}
         <br />{l s='Après réception de votre colis, vous avez un délai de 7 jours pour faire des réclamations (échange ou retour).' mod='hipay_professional'}
         <br />{l s='En savoir plus sur les conditions de' mod='hipay_professional'} <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">{l s='Retours et remboursement' mod='hipay_professional'}</a>.
     </p>

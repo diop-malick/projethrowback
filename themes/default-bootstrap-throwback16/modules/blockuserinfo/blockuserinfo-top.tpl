@@ -27,7 +27,7 @@
 	                			<span>{l s='Mes commandes' mod='blockuserinfo'}</span>
 	                	</a>
 
-	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}" class="text-left">
+	                	<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}?action=newsletter" title="{l s='Information'}" class="text-left">
                 				<span>{l s='Newsletter'}</span>
                 		</a>
 
