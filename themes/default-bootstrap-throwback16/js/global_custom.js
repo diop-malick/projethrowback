@@ -152,11 +152,13 @@ function scrollAction() {
             $('.menu_vertical').removeClass('hidden').addClass('show');
             $('header .nav').removeClass('show').addClass('hidden');
             $(".logo-throwback").attr("src", url_logo_simple);
-            $("#header_logo").css("margin-top", "-20px");
+            //$("#header_logo").css("margin-top", "-20px");
+            $(".logo-header").addClass('logo-header-simple');
         } else {
             $('header .nav').removeClass('hidden').addClass('show');
             $(".logo-throwback").attr("src", url_logo);
-            $("#header_logo").css("margin-top", "-70px");
+            //$("#header_logo").css("margin-top", "-70px");
+            $(".logo-header").removeClass('logo-header-simple');
             fullPage();
         }
     });
