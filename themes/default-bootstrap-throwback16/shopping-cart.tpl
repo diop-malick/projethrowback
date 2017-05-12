@@ -17,6 +17,10 @@
 
 {include file="$tpl_dir./errors.tpl"}
 
+{if !isset($smarty.get.step) }
+	<script>window.location="{$link->getPageLink('order')}?step=0";</script>
+{/if}
+
 {* text-xs-center *}
 <p class="titre-panier ">{l s='Mon panier'}</p>
 
