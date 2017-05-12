@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 
     var $input = $("#search_query_" + blocksearch_type);
-    console.log($input);
+
 
     var width_ac_results = $input.parent('form').outerWidth();
     if (typeof ajaxsearch != 'undefined' && ajaxsearch) {
