@@ -596,6 +596,10 @@ header #header_logo {
     margin-top: -70px;
 }
 
+.logo-header-simple{
+	margin-top: -20px !important;
+}
+
 #header_logo .logo-throwback {
     margin: 0 auto;
 }

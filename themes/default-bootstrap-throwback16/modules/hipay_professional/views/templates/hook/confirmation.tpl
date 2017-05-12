@@ -32,3 +32,14 @@
         <br />{l s='En savoir plus sur les conditions de' mod='hipay_professional'} <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">{l s='Retours et remboursement' mod='hipay_professional'}</a>.
     </p>
 </div>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout( function() {
+				history.pushState(null, null, baseUri);
+				window.addEventListener('popstate', function(event) {
+						location.assign(baseUri);
+				}, false);
+			},800);
+		});
+</script>

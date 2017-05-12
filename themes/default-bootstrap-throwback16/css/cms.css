@@ -161,4 +161,12 @@ color: #fff;}
   color:#000 !important;
 }
 .tab-pane{  color:#000 !important;}
+
+#cms .tab-content > .tab-pane {
+    display: none !important;
+}
+
+#cms .tab-content>.active {
+    display: block !important;
+}
 /*# sourceMappingURL=cms.css.map */

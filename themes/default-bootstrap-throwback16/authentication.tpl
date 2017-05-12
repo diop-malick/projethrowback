@@ -24,6 +24,7 @@ ORDER STEP
 <div class="row order-step-row">
 {if isset($back) && preg_match("/^http/", $back)}
 	{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}
+	{addJsDef isFromBasket=1}
 {/if}
 </div>
 

@@ -10,6 +10,11 @@ $(document).ready(function(){
 		$('#identification .authentication').empty().append("Création de compte");
 	});
 	$('.is_customer_param').hide();
+
+	 if (window.matchMedia('(min-width: 992px)').matches) {
+		if(typeof isFromBasket !== 'undefined' && isFromBasket)
+			$('#login_form ,  #create-account_form').css("height", "370px").css("padding", "20px 100px");
+    }
 	
 });
 
