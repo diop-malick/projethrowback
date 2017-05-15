@@ -61,3 +61,4 @@ $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_644ecc
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_48e3d5f66961b621c78f709afcd7d437'] = 'Download the file';
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_ffb7e666a70151215b4c55c6268d7d72'] = 'Newsletter';
 $_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_416f61a2ce16586f8289d41117a2554e'] = 'your e-mail';
+$_MODULE['<{blocknewsletter}default-bootstrap-throwback16>blocknewsletter_539f6c487720973aabe9fb6dd27d2326'] = 'Newsletter';

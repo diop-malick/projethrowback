@@ -38,8 +38,6 @@ $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_execution_569fd05bdaf
 $_MODULE['<{bankwire}default-bootstrap-throwback16>infos_c1be305030739396775edaca9813f77d'] = 'This module allows you to accept secure payments by bank wire.';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>infos_60742d06006fde3043c77e6549d71a99'] = 'If the client chooses to pay by bank wire, the order\'s status will change to \'Waiting for Payment.\'';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>infos_5fb4bbf993c23848433caf58e6b2816d'] = 'That said, you must manually confirm the order upon receiving the bank wire.';
-$_MODULE['<{bankwire}default-bootstrap-throwback16>payment_5e1695822fc5af98f6b749ea3cbc9b4c'] = 'Pay by bank wire';
-$_MODULE['<{bankwire}default-bootstrap-throwback16>payment_4e1fb9f4b46556d64db55d50629ee301'] = '(order processing will be longer)';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_88526efe38fd18179a127024aba8c1d7'] = 'Your order on %s is complete.';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_1f8cdc30326f1f930b0c87b25fdac965'] = 'Please send us a bank wire with';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_b2f40690858b404ed10e62bdf422c704'] = 'Amount';
@@ -53,4 +51,6 @@ $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_b9a1cae09e5754
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_ca7e41a658753c87973936d7ce2429a8'] = 'If you have questions, comments or concerns, please contact our';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_66fcf4c223bbf4c7c886d4784e1f62e4'] = 'expert customer support team';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_d15feee53d81ea16269e54d4784fa123'] = 'We noticed a problem with your order. If you think this is an error, feel free to contact our';
+$_MODULE['<{bankwire}default-bootstrap-throwback16>payment_5e1695822fc5af98f6b749ea3cbc9b4c'] = 'Pay by bank wire';
+$_MODULE['<{bankwire}default-bootstrap-throwback16>payment_4e1fb9f4b46556d64db55d50629ee301'] = '(order processing will be longer)';
 $_MODULE['<{bankwire}default-bootstrap-throwback16>payment_return_decce112a9e64363c997b04aa71b7cb8'] = 'customer service department.';
