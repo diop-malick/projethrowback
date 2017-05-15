@@ -237,7 +237,8 @@ $_MODULE['<{hipay_professional}default-bootstrap-throwback16>refund_bc5514514a95
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_11ebdb16579813b9595a928c6bd4285a'] = 'Thank you for your order';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_2284c0a17bb58b0e38fee1a98855e94c'] = 'Your order has been registered, it has already been processed by ours teams';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_84d8c35f9ea674bf42108db01f992f47'] = 'An email of confirmation has been sent  to you at this email address:';
-$_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_b58e50cb63b17a955224c9911d45879e'] = 'We hope that it will bring whole satisfaction to you and hope to see you soon For more shopping';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_811da55cfddaae0ad71590667b93e488'] = 'We hope that it will bring you full satisfaction and hope to see you soon on';
+$_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_a7324e7a185db0ac06683b3c9f74b188'] = ' for other shopping moments!';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_dfc1d8a858d9b2637d5a154bad22624e'] = 'You have 7 days from the date your order is delivered to return or exchange .';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_0301f1ebb98e248552ee9632b2370520'] = 'For more information about our conditions of';
 $_MODULE['<{hipay_professional}default-bootstrap-throwback16>confirmation_e2fd17bf60e10f730387cf8c9a60d0a1'] = 'Refunds and Returns';
