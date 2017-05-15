@@ -44,8 +44,17 @@
 										incontournable du look sportif, élégant et détendu. Des baskets Nike aux tennis Adidas découvrez notre sélection de sneakers.
 										Throwback Sneakers est un site marchand mais nous vous invitons également à suivre et partager nos articles, discussions et analyses
 										autour de la sneakers à la fois sur notre page Facebook et notre blog.'}
-							{elseif {$smarty.get.controller} eq 'newproducts'}
-							{l s='Ça vient d\'arriver ! Les Nouveautés sont à l\'honneur sur Throwback Sneaker. Retrouvez toutes les nouveautés des plus grandes marques: Adidas Originals, Nike, Puma New Balance, Asics, Le Coq Sportif. Profitez sans plus tarder de la livraison gratuite en France !'}
+							{elseif ({$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search' or ({$smarty.get.controller} eq 'order' AND (int)Tools::getValue('step') == 0 )) AND {$lang_iso} eq 'en'}
+								
+									{l s='Throwback Sneakers is a universe created by and for Sneaker Culture fans.
+										Our website created in 2009 has evolved in this direction to allow to offer selected and emblematic products to sneakerheads combining Retro, new innovations and "Deadstock" items.										
+                                        The sneakers are much more than sport footwear, they are now are now considered as essentials in the area of elegant and casual look.
+										Throwback Sneakers is an online shop but we also invite you to follow and share our articles, analyzes and discussions around sneakers on both our Facebook page and blog.'}
+								
+							{elseif {$smarty.get.controller} eq 'newproducts' AND {$lang_iso} eq 'fr'}
+								{l s='Ça vient d\'arriver ! Les Nouveautés sont à l\'honneur sur Throwback Sneaker. Retrouvez toutes les nouveautés des plus grandes marques: Adidas Originals, Nike, Puma New Balance, Asics, Le Coq Sportif. Profitez sans plus tarder de la livraison gratuite en France !'}
+							{elseif {$smarty.get.controller} eq 'newproducts' AND {$lang_iso} eq 'en'}
+							    {l s='Just arrived ! Throwback Sneakers continuously expand her collection with innovative products that are high in demand. Find out what\'s new from the biggest brands: Adidas Originals, Nike, Puma New Balance, Asics, Le Coq Sportif. Take advantage of free delivery in France!'}
 							{elseif {$smarty.get.controller} eq 'category' or {$smarty.get.controller} eq 'product'  }
 								{$category->description}
 					
