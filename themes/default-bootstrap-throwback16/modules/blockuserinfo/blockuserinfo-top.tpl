@@ -4,14 +4,14 @@
 	<div class="row">
 
 		<!-- MODULE Block UserInfo  NAV  -->
-		<div class="col-xs-6 col-sm-6 col-md-6 text-right header_user_info">
+		<div class="col-xs-6 col-sm-6 col-md-7 text-right header_user_info">
 		   <div class="dropdown">
 			{if $is_logged}
 				<button class="dropbtn">
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
 				      			<span class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
-								<i class="material-icons"">person</i>			      			
+								<i class="material-icons">person</i>			      			
 				      </a>
 			    </button>
 			    <div class="dropdown-content pull-right">

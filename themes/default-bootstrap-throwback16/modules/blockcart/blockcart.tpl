@@ -2,7 +2,7 @@
 			<!-- MODULE Block cart -->
 
 								{if isset($blockcart_top) && $blockcart_top}
-								<div id="mobil_blockcart" class="col-xs-6 col-sm-6 col-md-6  text-xs-center text-md-right">
+								<div id="mobil_blockcart" class="col-xs-6 col-sm-6 col-md-5  text-xs-center text-md-right">
 
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
