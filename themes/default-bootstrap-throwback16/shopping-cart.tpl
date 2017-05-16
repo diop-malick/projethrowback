@@ -397,12 +397,16 @@
 								<div class="col-md-8 col-xs-8">
 									<p class="command-product-name total">{l s='Total'|upper}</p>
 								</div>
-
+				{if isset($shippingCost)}
+							{assign var=frais_livraison value=$shippingCost}
+				{else}
+						{assign var=frais_livraison value=0}
+				{/if}
 								<div class="col-md-4 col-xs-4 text-right total">
 										{if $use_taxes}
-										<span class="price-line" id="total_price">{displayPrice price=$total_price}</span>
+										<span class="price-line" id="total_price">{displayPrice price=$total_price-$frais_livraison}</span>
 										{else}
-										<span class="price-line" id="total_price">{displayPrice price=$total_price_without_tax}</span>
+										<span class="price-line" id="total_price">{displayPrice price=$total_price_without_tax-$frais_livraison}</span>
 										{/if}
 								</div>
 						</div>
