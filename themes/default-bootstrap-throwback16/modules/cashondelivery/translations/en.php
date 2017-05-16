@@ -10,6 +10,7 @@ $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_1f87346a16cf
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_52f64bc0164b0e79deaeaaaa7e93f98f'] = 'Please confirm your order by clicking \'I confirm my order\'.';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_569fd05bdafa1712c4f6be5b153b8418'] = 'Other payment methods';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_46b9e3665f187c739c55983f757ccda0'] = 'I confirm my order';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_88526efe38fd18179a127024aba8c1d7'] = 'Your order on %s is complete.';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_8861c5d3fa54b330d1f60ba50fcc4aab'] = 'You have chosen the cash on delivery method.';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_e6dc7945b557a1cd949bea92dd58963e'] = 'Your order will be sent very soon.';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_0db71da7150c27142eef9d22b843b4a9'] = 'For any questions or for further information, please contact our';
@@ -17,3 +18,10 @@ $_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_64430ad283
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_b7ada96a0da7ee7fb5371cca0b036d5c'] = 'Pay with cash on delivery (COD)';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>payment_536dc7424180872c8c2488ae0286fb53'] = 'You pay for the merchandise upon delivery';
 $_MODULE['<{cashondelivery}default-bootstrap-throwback16>validation_ea9cf7e47ff33b2be14e6dd07cbcefc6'] = 'Shipping';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_11ebdb16579813b9595a928c6bd4285a'] = 'Thank you for your order';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_faff8afe8729d63ba38121072dcd0e18'] = 'Your order has been registered, it will be processed by ours teams after your payment in store';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_84d8c35f9ea674bf42108db01f992f47'] = ' A confirmation mail will be sent to your e-mail address. ';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_470c61d27c05ba281954097fe774c7da'] = 'We  hope it will give you entire satisfaction and hope to see you again very soon on Throwbacksneakers.com ';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_dfc1d8a858d9b2637d5a154bad22624e'] = 'If you are unhappy with any item that you receipt, you may return it to us within 7 days of receipt.';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_0301f1ebb98e248552ee9632b2370520'] = 'Learn more about conditions';
+$_MODULE['<{cashondelivery}default-bootstrap-throwback16>confirmation_e2fd17bf60e10f730387cf8c9a60d0a1'] = 'Retuns and Exchanges';

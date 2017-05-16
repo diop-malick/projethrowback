@@ -66,7 +66,7 @@ $(document).ready(function() {
         $input.autocomplete(
                 search_url, {
                     minChars: 3,
-                    max: 10,
+                    max: 5,
                     width: (width_ac_results > 0 ? width_ac_results : 500),
                     selectFirst: false,
                     scroll: false,
@@ -77,7 +77,7 @@ $(document).ready(function() {
                     parse: function(data) {
                         var mytab = [];
                         for (var i = 0; i < data.length; i++)
-                            mytab[mytab.length] = { data: data[i], value: data[i].cname + ' > ' + data[i].pname };
+                            mytab[mytab.length] = { data: data[i], value: '<img src="'+data[i].img+'" alt="'+data[i].pname+'">' + ' ' + data[i].pname };
                         return mytab;
                     },
                     extraParams: {
