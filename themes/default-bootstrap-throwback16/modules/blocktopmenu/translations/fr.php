@@ -18,7 +18,7 @@ $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_b1a23c1a7691
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_298b615220606d42b6ac60269df0d321'] = 'Les modifications s\'appliqueront à la boutique suivante : %s';
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_aef3662e6419ddaaa0a31df70e3b6557'] = 'Les modifications s\'appliqueront au groupe de boutiques suivant : %s';
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_dd25f68471362f6f5f183d6158d67854'] = 'Les modifications seront appliquées à toutes les boutiques';
-$_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_bf24faeb13210b5a703f3ccef792b000'] = 'Tous les fabricants';
+$_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_bf24faeb13210b5a703f3ccef792b000'] = 'Marques';
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_ecf253735ac0cba84a9d2eeff1f1b87c'] = 'Tous les fournisseurs';
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_944d19a34e5fa333a6a0de27e8c971da'] = 'Lien du menu';
 $_MODULE['<{blocktopmenu}default-bootstrap-throwback16>blocktopmenu_eacd852cc1f621763dccbda3f3c15081'] = 'Barre de recherche';

@@ -38,7 +38,8 @@ cache/smarty/compile/*
 cache/tcpdf/*
 !cache/tcpdf/index.php
 cache/purifier/CSS/*
-
+!cache/cachefs/index.php
+cache/cachefs/*
 
 log/*
 
@@ -52,7 +53,7 @@ modules/*/config*.xml
 modules/hipay_professional/logs/*
 modules/mailalerts/*
 modules/paypal/*
-
+modules/gsitemap/*
 
 # Site content
 # The following folders contain product images, virtual products, CSV's, etc.

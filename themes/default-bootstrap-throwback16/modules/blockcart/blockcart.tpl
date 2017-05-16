@@ -2,7 +2,7 @@
 			<!-- MODULE Block cart -->
 
 								{if isset($blockcart_top) && $blockcart_top}
-								<div id="mobil_blockcart" class="col-xs-6 col-sm-6 col-md-6  text-xs-center text-md-right">
+								<div id="mobil_blockcart" class="col-xs-6 col-sm-6 col-md-5  text-xs-center text-md-right">
 
 									<div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 									{/if}
@@ -152,7 +152,7 @@
 																	</div>
 																{/if}
 																<div class="cart-prices-line last-line">
-																	<span class="price cart_block_total ajax_block_cart_total">{$total}</span>
+																	<span class="price cart_block_total ajax_block_cart_total">{convertPrice price=$cart->getOrderTotal(false, $blockcart_cart_flag)}</span>
 																	<span>{l s='Total :' mod='blockcart'}</span>
 																</div>
 																{if $use_taxes && $display_tax_label && $show_tax}
