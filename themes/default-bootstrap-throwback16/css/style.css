@@ -800,6 +800,7 @@ input[readonly] {
     padding: 10px 20px 0 40px;
     margin-right: auto;
     margin-left: auto;
+    max-height: 100px;
 }
 
 .qv-reference {
