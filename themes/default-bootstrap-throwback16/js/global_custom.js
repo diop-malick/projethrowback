@@ -17,9 +17,10 @@ $(document).ready(function() {
     }
 
     /* *********************************** category ***************************/
-    if (typeof is_categorie !== 'undefined' && is_categorie != null && window.matchMedia("(min-width: 991px)").matches) {
+    if (typeof is_categorie !== 'undefined' && is_categorie != null && window.matchMedia("(min-width: 992px)").matches) {
         //$('.ajax_block_product').removeClass('col-md-3').addClass('col-md-4');
-        minimizePage();
+        //minimizePage();
+        fullPage();
     }
 
     /* *********************************** Scrool Header Behavior  ***************************/
