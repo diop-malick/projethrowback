@@ -38,6 +38,17 @@
     header .row #header_logo {
         margin-top: -58px !important;
     }
+
+        header #header_logo {
+        /*margin-top: 0px;*/
+        /*margin-top: -38px;*/
+/*margin-right: 264px;*/
+    }
+        #header_logo .logo-throwback {
+            margin-right: 42.6%  !important;
+    margin-top: 33px  !important;
+        }
+
     header #header_logo {
         padding-left: 0 !important;
         padding-right: 0 !important;
