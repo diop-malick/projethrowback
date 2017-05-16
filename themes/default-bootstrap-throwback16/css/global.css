@@ -8328,6 +8328,8 @@ span.exclusive {
 
 
 .button.button-medium:hover {
+    background: #000;
+    /*
     background: #3aa04c;
     background-image: -webkit-gradient(linear, left 0%, left 100%, from(#3aa04c), to(#3aa04a));
     background-image: -webkit-linear-gradient(top, #3aa04c, 0%, #3aa04a, 100%);
@@ -8336,6 +8338,7 @@ span.exclusive {
     background-repeat: repeat-x;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FF3AA04C', endColorstr='#FF3AA04A', GradientType=0);
     border-color: #196f28 #399a49 #399a49 #258033;
+    */
 }
 .button.button-medium.exclusive {
     background: #000;
