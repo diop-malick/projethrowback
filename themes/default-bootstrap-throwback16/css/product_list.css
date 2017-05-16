@@ -6,6 +6,7 @@ ul.product_list .product-name {
     display: inline-block;
     width: 100%;
     overflow: hidden;
+    padding-top: 15px;
 }
 
 ul.product_list .availability span {
