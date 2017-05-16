@@ -542,6 +542,11 @@ div.selector span {
 
 /* throback footer */
 
+.text-copyright{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 .footer-container {
     background-color: #ececeb;
     padding: 15px 0;
@@ -612,6 +617,7 @@ div.selector span {
 
 .header-top-row {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -819,6 +825,7 @@ input[readonly] {
     padding: 10px 20px 0 40px;
     margin-right: auto;
     margin-left: auto;
+    max-height: 100px;
 }
 
 .qv-reference {

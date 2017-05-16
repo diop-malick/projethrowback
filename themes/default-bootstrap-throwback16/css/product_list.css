@@ -6,6 +6,7 @@ ul.product_list .product-name {
     display: inline-block;
     width: 100%;
     overflow: hidden;
+    padding-top: 15px;
 }
 
 ul.product_list .availability span {
@@ -276,8 +277,7 @@ ul.product_list.grid > li .product-container {
 ul.product_list.grid > li .product-container .product-image-container .content_price {
     position: absolute;
     left: 0;
-    /* bottom: 40px; */
-    bottom: 10px;
+    bottom: 60px;
     width: 100%;
     padding: 9px 0;
     display: none;
@@ -737,6 +737,13 @@ Product list(Index page) Styles
 
 #min_quantity_message {
     display: none;
+}
+
+/******** style price list product ***************/
+
+.product-price{
+    color: #777 !important;
+    font-weight: normal !important;
 }
 
 
