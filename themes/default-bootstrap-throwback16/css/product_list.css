@@ -739,5 +739,12 @@ Product list(Index page) Styles
     display: none;
 }
 
+/******** style price list product ***************/
+
+.product-price{
+    color: #777 !important;
+    font-weight: normal !important;
+}
+
 
 /*# sourceMappingURL=product_list.css.map */
