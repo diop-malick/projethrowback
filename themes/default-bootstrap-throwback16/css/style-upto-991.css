@@ -28,9 +28,7 @@
     #category .columns-container {
         margin-top: 0px;
     }
-    header #header_logo {
-        margin-top: 0px;
-    }
+    
     #my-account .columns-container,
     #identity .columns-container,
     #order .columns-container,
@@ -230,7 +228,7 @@
     }
     /* LOGO Mobile */
     header .visible-xs-logo-mobile {
-        margin-top: -30px;
+        /*margin-top: -30px;*/
     }
     .visible-xs-logo-mobile {
         /*display: none;
