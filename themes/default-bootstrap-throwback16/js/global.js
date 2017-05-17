@@ -187,7 +187,7 @@ function blockHover(status)
 	$(document).off('mouseenter').on('mouseenter', '.product_list.grid li.ajax_block_product .product-container', function(e){
 		if (screenLg)
 		{
-			var height_fixed = 250;
+			var height_fixed = "auto";
 			var pcHeight = $(this).parent().outerHeight();
 			var pcPHeight = $(this).parent().find('.button-container').outerHeight() + $(this).parent().find('.comments_note').outerHeight() + $(this).parent().find('.functional-buttons').outerHeight();
 			//$(this).parent().addClass('hovered').css({'height':pcHeight + pcPHeight, 'margin-bottom':pcPHeight * (-1)});
