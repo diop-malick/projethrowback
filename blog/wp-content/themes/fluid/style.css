@@ -4877,6 +4877,45 @@ article.hentry .article-inner {
 	/*margin-top: 50px;*/
 }
 
+/************************************************************
+  		Responsive blog
+************************************************************/
+
+@media (max-width: 991px) {
+	body {
+    	/*overflow-x: hidden;*/
+    	width: 100%;
+	}
+	#searchform-header{
+		position: absolute; 
+		left: 0; 
+		right: 0; 
+		top:165px;
+		margin-left: auto; 
+		margin-right: auto; 
+		width: 300px;
+	}
+
+	#main{
+		margin-top: 145px;
+	}
+	#user_info{
+		display: none;
+	}
+
+	.menu_vertical_mobile, #search_block_top, .header_user_info, #mobil_blockcart{
+		border-right : none;
+	}
+    
+}
+
+@media (max-width: 599px) {
+	#main{
+		margin-top: 220px; 
+	}
+    
+}
+
 
 /* FIN! */
 

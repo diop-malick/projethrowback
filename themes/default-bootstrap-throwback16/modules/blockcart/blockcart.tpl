@@ -152,7 +152,14 @@
 																	</div>
 																{/if}
 																<div class="cart-prices-line last-line">
-																	<span class="price cart_block_total ajax_block_cart_total">{convertPrice price=$cart->getOrderTotal(false, $blockcart_cart_flag)}</span>
+																	<span class="price cart_block_total ajax_block_cart_total">
+																		{if isset($blockcart_cart_flag)}
+																			{convertPrice price=$cart->getOrderTotal(false, $blockcart_cart_flag)}
+																		{else}
+																			{convertPrice price=$cart->getOrderTotal()}
+																		{/if}
+
+																		</span>
 																	<span>{l s='Total :' mod='blockcart'}</span>
 																</div>
 																{if $use_taxes && $display_tax_label && $show_tax}
