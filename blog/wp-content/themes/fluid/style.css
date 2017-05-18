@@ -4882,6 +4882,10 @@ article.hentry .article-inner {
 ************************************************************/
 
 @media (max-width: 991px) {
+	body {
+    	/*overflow-x: hidden;*/
+    	width: 100%;
+	}
 	#searchform-header{
 		position: absolute; 
 		left: 0; 
@@ -4911,6 +4915,10 @@ article.hentry .article-inner {
 	}
     
 }
+
+@media (max-width: 991px) {
+	
+	}
 
 
 /* FIN! */
