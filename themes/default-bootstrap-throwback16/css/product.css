@@ -1104,10 +1104,10 @@ table.table-product-discounts tr th {
     }
 }
 .our_price_display .price {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 0.955;
     color: rgb(214, 157, 50) !important;
-    font-weight: bold !important;
+    /*font-weight: bold !important;*/
 }
 @media (max-width: 991px) {
     .our_price_display .price {
@@ -1367,7 +1367,7 @@ Quick View Styles
     }
 }
 #rigth-row-1 .product_name {
-    font-size: 25px !important;
+    font-size: 20px !important;
     font-weight: normal !important;
     max-height: 54px;
     overflow: hidden;

@@ -829,15 +829,16 @@ input[readonly] {
 }
 
 .qv-reference {
-    color: rgb(88, 89, 91) !important;
-    font-weight: bold;
+    color: rgb(203, 204, 204) !important;
+    font-weight: 900;
     float: left;
     margin-left: 40px;
+    text-transform: uppercase;
 }
 
 .qv-dispo {
-    color: rgb(53, 53, 53) !important;
-    font-weight: bold;
+    color: #333 !important;
+    font-weight: 900;
     text-transform: uppercase;
     margin-right: 20px;
 }

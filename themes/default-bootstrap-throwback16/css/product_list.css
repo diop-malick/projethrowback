@@ -454,7 +454,7 @@ ul.product_list.grid > li .product-container .functional-buttons div {
 
 @media (min-width: 992px) {
     ul.product_list.grid > li.first-in-line {
-        clear: left;
+        clear: none; /* empecher à la ligne quand on passe à 3 produits par ligne */
     }
 }
 
