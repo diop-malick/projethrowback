@@ -308,7 +308,7 @@
 
 				<div class="row hidden-xs">
 					<div class="col-md-12 col-xs-12">
-						<hr>
+						<hr style="border-color: #dbdbdb;">
 					</div>
 				</div>
 
