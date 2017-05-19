@@ -1910,7 +1910,8 @@ body .main .wp-caption > a {
 .accueil {
 
 position:absolute;
-bottom:72px !important;
+/*bottom:72px !important;*/
+bottom:59px !important;
 
 }
 
@@ -4885,6 +4886,55 @@ article.hentry .article-inner {
 	display: none !important;
 }
 */
+@media (max-width: 360px) {
+	.nav-previous {
+		/*bottom: 100px !important;*/
+		right: : 0 !important;
+		left: 0 !important;
+	}
+
+	.accueil {
+		bottom: 100px !important;
+	}
+}
+
+@media (max-width: 479px) {
+	.footer-container #footer #social_block{
+		position: relative !important;
+		top:0 !important;
+		margin-top: 10px !important;
+	}  
+
+	.content-search.pad-container , .has-post-thumbnail{
+		margin-top: -150px;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+	#social_block {
+        right: 0 !important;
+        position: relative !important;
+        top: 0 !important;
+       	left: 40%;
+    }  
+    #block_various_links_footer{
+    	 text-align: center;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 767px) {
+	.content-search.pad-container , .has-post-thumbnail{
+		margin-top: 160px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.content-search.pad-container , .has-post-thumbnail{
+		margin-top: -60px;
+	}
+} 
+
 @media (max-width: 991px) {
 	body {
     	overflow-x: hidden;
@@ -4901,7 +4951,8 @@ article.hentry .article-inner {
 	}
 
 	#main{
-		margin-top: 145px;
+		/*margin-top: 145px;*/
+		margin-top: 100px;
 	}
 	#user_info{
 		display: none;
@@ -4910,36 +4961,27 @@ article.hentry .article-inner {
 	.menu_vertical_mobile, #search_block_top, .header_user_info, #mobil_blockcart{
 		border-right : none;
 	}
+
+	.content-search.pad-container {
+    	margin-left: 0 !important;
+	}
+
+	.search .header-container , .single .header-container{
+		margin-top: -45px;
+	}
+
+	#breadcrumbs-container , .content-search.no-results .searchform{
+		display: none;
+	}
     
 }
 
 @media (max-width: 599px) {
 	#main{
-		margin-top: 220px; 
+		/*margin-top: 220px;*/
+		margin-top: 160px;
 	}  
 } 
-
-@media (max-width: 479px) {
-	.footer-container #footer #social_block{
-		position: relative !important;
-		top:0 !important;
-		margin-top: 10px !important;
-	}  
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
-	#social_block {
-        right: 0 !important;
-        position: relative !important;
-        top: 0 !important;
-       	left: 40%;
-    }  
-    #block_various_links_footer{
-    	 text-align: center;
-    }
-}  
-
-
 
 /* FIN! */
 
