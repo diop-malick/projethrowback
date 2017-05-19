@@ -7999,8 +7999,15 @@ header .banner .row {
 /* throwback header background */
 
 header .nav {
-    background: #ececeb;
-    background: radial-gradient(60px at 50% 210%, #fff 103%, rgba(120, 120, 120, 0.4) 108%, rgba(210, 210, 210, 0.6) 180%, #ececeb 260%);
+    /* Multiple background and gradient*/
+     background: #ececeb; /* Old browsers */
+    /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
+    background: radial-gradient(52px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center;
+    /*background: radial-gradient(52px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.29) 108%, rgba(210, 210, 210, 0.64) 180%, #ececeb 260%);*/
+
+    /*background-image: url(../img/logo_shadow.png) no-repeat 15px center ;*/
+    /*background-repeat: repeat-x ;*/
+    /* box-shadow: inset 0 -10px 10px -20px #000000; */    
 }
 
 header .nav .row {

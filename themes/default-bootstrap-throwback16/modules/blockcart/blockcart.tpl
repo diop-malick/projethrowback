@@ -28,7 +28,7 @@
 												<span class="panier_vide">{l s='(0)' mod='blockcart'}</span>
 												</span>
 												</span>
-												<i class="material-icons shopping-cart"></i>
+												<span class="icon-fix"><i class="material-icons shopping-cart"></i></span>
 
 
 												{if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}

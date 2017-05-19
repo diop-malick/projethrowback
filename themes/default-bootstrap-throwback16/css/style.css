@@ -1,4 +1,55 @@
 /************************************************************
+  NOT DLETE THIS
+  need for dev 
+************************************************************/
+#header .row {
+   /*border: 1px solid red; */
+}
+#header [class*="col-"] {
+	 /*border: 1px solid yellowgreen; */
+}
+
+/************************************************************
+ Large Desktop custom header modifs
+************************************************************/
+
+@media (min-width: 1024px) {
+
+	#user_info {
+		
+/* padding-left: 6px; */
+	}
+.header_user_info .dropbtn span {}
+.header_user_info .dropbtn .icon-fix, .shopping_cart .icon-fix {
+	 position:relative;
+}
+.shopping_cart .icon-fix i {
+	 position: absolute !important;
+	 top: -16.55px !important;
+	 font-size: 20px;
+	 /* margin-right: 0px; */
+}
+.header_user_info .dropbtn i {
+ position: absolute !important;
+ top: -19.55px !important;
+}
+
+#mobil_blockcart,
+.header_user_info {
+	/* min-height: 27px !important; */
+	padding-top: 6px;
+	padding-left: 15px;
+	margin-right:;
+}
+
+#block_contact_infos .col-lg-contact-info {
+padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+}
+
+/************************************************************
   Default CSS theme for jQuery-Form-Validator.
   @author Victor Jonsson <victorjonsson.se>
 ************************************************************/
@@ -624,7 +675,7 @@ div.selector span {
 /* Throwback_logo */
 
 header #header_logo {
-    margin-top: -70px;
+    margin-top: -75px;
 }
 
 .logo-header-simple{

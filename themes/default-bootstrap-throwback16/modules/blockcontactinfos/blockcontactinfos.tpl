@@ -13,10 +13,10 @@
 
 {else}
 
-    <div class="col-xs-10 col-sm-4 col-md-8 block_contact_infos">
+    <div class="col-xs-10 col-sm-4 col-md-6 block_contact_infos">
     <section id="block_contact_infos" class="footer-block">
     	<div class="row">
-    		<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 text-xs-left">
+    		<div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 text-xs-left col-lg-contact-info">
             {if $blockcontactinfos_address != ''}
     			<i class="icon-map-marker"></i>
     			<span>&nbsp;{$blockcontactinfos_address|escape:'html':'UTF-8'}</span>
@@ -24,7 +24,7 @@
             &nbsp;
             {if $blockcontactinfos_phone != ''}
     			</div>
-    			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-xs-left">
+    			<div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 text-xs-left">
 
                 <i class="icon-phone"></i>
                 <span>&nbsp;{$blockcontactinfos_phone|escape:'html':'UTF-8'}</span>
