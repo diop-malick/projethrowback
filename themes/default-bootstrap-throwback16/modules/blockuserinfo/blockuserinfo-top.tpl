@@ -11,7 +11,7 @@
 					<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='View my customer account' mod='blockuserinfo'}" class="account" rel="nofollow">
 
 				      			<span class="hidden-xs">{l s='Bonjour' mod='blockuserinfo'} {$cookie->customer_firstname}</span>
-								<i class="material-icons">person</i>			      			
+								<span class="icon-fix"><i class="material-icons">person</i></span>		      			
 				      </a>
 			    </button>
 			    <div class="dropdown-content pull-right">
@@ -37,13 +37,13 @@
 						</a>
 			    </div>
 			{else}
-				<button class="dropbtn">
+			<button class="dropbtn">
 
-					<a href="javascript:void(0)">
-						<span class="hidden-xs">{l s='My espace' mod='blockuserinfo'}</span>
-						<i class="material-icons">person</i>
-					</a>
-		    	</button>
+				<a href="javascript:void(0)">
+					<span class="hidden-xs">{l s='My espace' mod='blockuserinfo'}</span>
+					<span class="icon-fix"><i class="material-icons">person</i></span>		      			
+				</a>
+			</button>
 
 		    	<div class="dropdown-content dropdown-menu">
 					<a class="login" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Log in to your customer account' mod='blockuserinfo'}">
