@@ -4880,10 +4880,14 @@ article.hentry .article-inner {
 /************************************************************
   		Responsive blog
 ************************************************************/
-
+/*
+#first-languages .current{
+	display: none !important;
+}
+*/
 @media (max-width: 991px) {
 	body {
-    	/*overflow-x: hidden;*/
+    	overflow-x: hidden;
     	width: 100%;
 	}
 	#searchform-header{
@@ -4912,9 +4916,28 @@ article.hentry .article-inner {
 @media (max-width: 599px) {
 	#main{
 		margin-top: 220px; 
-	}
-    
+	}  
 } 
+
+@media (max-width: 479px) {
+	.footer-container #footer #social_block{
+		position: relative !important;
+		top:0 !important;
+		margin-top: 10px !important;
+	}  
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+	#social_block {
+        right: 0 !important;
+        position: relative !important;
+        top: 0 !important;
+       	left: 40%;
+    }  
+    #block_various_links_footer{
+    	 text-align: center;
+    }
+}  
 
 
 
