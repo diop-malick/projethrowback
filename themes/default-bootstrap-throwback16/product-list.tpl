@@ -138,7 +138,22 @@
 						{/if}
 						<!-- // quick view prestashop -->
 
-						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
+						<div class="clearfix"></div>
+
+						{* todo - DELETE - check if ist really need *}
+						{if isset($product.new) && $product.new == 1}
+							
+						{/if}
+						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
+							
+						{/if}
+					</div>
+					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
+					{hook h="displayProductPriceBlock" product=$product type="weight"}
+				</div>
+
+							<div class="row qv-additionnal-info">
+			{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 								<div class="row">
 									<div class="col-md-6">
@@ -166,9 +181,6 @@
 										{/if}
 										</span>
 									</div>
-								
-								
-
 								</div>
 								{if isset($groups) && $groups}
 								<div class="row qv-size">
@@ -193,18 +205,9 @@
 								{/if}
 							</div>
 						{/if}
-						{if isset($product.new) && $product.new == 1}
-							
-						{/if}
-						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-							
-						{/if}
-					</div>
-					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-					{hook h="displayProductPriceBlock" product=$product type="weight"}
-				</div>
-
+				</div><!-- .product-container> -->
 			</div><!-- .product-container> -->
+
 		</li>
 
 		{* REINITIALISATION *}
