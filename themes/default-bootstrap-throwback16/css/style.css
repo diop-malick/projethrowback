@@ -1,3 +1,5 @@
+
+
 /************************************************************
   NOT DLETE THIS
   need for dev 
@@ -9,6 +11,12 @@
 	 /*border: 1px solid yellowgreen; */
 }
 
+/************************************************************
+  SLIDER 
+************************************************************/
+.tparrows {
+display: none;
+}
 /************************************************************
  Large Desktop custom header modifs
 ************************************************************/
@@ -42,7 +50,7 @@
 	margin-right:;
 }
 
-#block_contact_infos .col-lg-contact-info {
+#header #block_contact_infos .col-lg-contact-info {
 padding-left: 0 !important;
     padding-right: 0 !important;
 }
