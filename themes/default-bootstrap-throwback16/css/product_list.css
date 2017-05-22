@@ -392,6 +392,7 @@ ul.product_list.grid > li .product-container .functional-buttons div {
         /*left: -10px;*/
         text-align: center;
         background: #fff;
+        min-height: 370px;
         /* height: 420px !important; */
         text-align: center;
     }
