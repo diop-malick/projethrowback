@@ -940,4 +940,5 @@
 {/strip}
 {/if}
 
+{* TODO - delete *}
 <script src="/throwback16/themes/default-bootstrap-throwback16/js/jquery.kyco.easyshare.min.js"></script>
