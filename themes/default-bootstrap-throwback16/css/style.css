@@ -880,7 +880,6 @@ input[readonly] {
 ====================================  */
 
 .qv-size {
-    float: left;
     padding: 10px 20px 0 40px;
     margin: 0 auto 10px auto;
 }

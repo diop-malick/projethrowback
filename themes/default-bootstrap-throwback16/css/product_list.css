@@ -251,19 +251,15 @@ ul.product_list.grid > li {
 ul.product_list.grid > li .product-container {
     margin-bottom: 20px;
     background-image: -moz-linear-gradient( 90deg, rgb(255, 255, 255) 80%, rgb(230, 231, 232) 130%);
-    /* FF3.6+ */
     background-image: -webkit-linear-gradient( 90deg, rgb(255, 255, 255) 80%, rgb(230, 231, 232) 130%);
-    /* Chrome10+,Safari5.1+ */
     background-image: -ms-linear-gradient( 90deg, rgb(255, 255, 255) 80%, rgb(230, 231, 232) 130%);
-    /* IE10+ */
     padding: 0;
     position: relative;
-    /*z-index: 45;*/
 }
 
 .product-container .row.text-right {
     height: 100px;
-    padding-right: 25px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -274,12 +270,6 @@ ul.product_list.grid > li .product-container {
     }
 }
 ul.product_list.grid > li .product-container .qv-additionnal-info {
-    /*position: relative;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*bottom: 60px;*/
-    /*width: 100%;*/
-    /*padding: 9px 0;*/
     display: none;
 }
 
@@ -291,15 +281,9 @@ ul.product_list.grid > li .product-container .product-image-container .content_p
     color: #b1b0b0;
 }
 
-
-/* Throwback > customize > title ^rpduct */
-
 ul.product_list.grid > li .product-container h5 {
     padding-left: 25px;
 }
-
-
-/* Throwback > product container > découpage bloc */
 
 ul.product_list.grid > li .product-container .content_price {
     line-height: 21px;
@@ -310,9 +294,6 @@ ul.product_list.grid > li .product-container .content_price > img {
     margin-top: 10px;
     z-index: 1005;
 }
-
-
-/* Block accesorie - OVER */
 
 #htmlcontent_homeFooter {
     z-index: 900;
@@ -388,16 +369,10 @@ ul.product_list.grid > li .product-container .functional-buttons div {
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
         position: absolute;
         top: -40px;
-        /*right: -10px;*/
-        /*left: -10px;*/
         text-align: center;
         background: #fff;
         min-height: 370px;
-        /* height: 420px !important; */
         text-align: center;
-    }
-    ul.product_list.grid > li.hovered .product-image-container img {
-        /* width: 250px; */
     }
     ul.product_list.grid > li.hovered .product-container .qv-additionnal-info {
         display: block;
@@ -411,7 +386,6 @@ ul.product_list.grid > li .product-container .functional-buttons div {
     ul.product_list.grid > li.hovered .product-container .comments_note {
         display: block;
     }
-    /* Transition in effect - like overskillshop*/
     ul.product_list.grid > li.hovered {
         z-index: 1000;
         -webkit-transition: all 0.4s;

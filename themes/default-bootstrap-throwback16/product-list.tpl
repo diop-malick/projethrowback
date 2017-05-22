@@ -29,7 +29,6 @@
 					<h5 itemprop="name">
 						{if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
 						<a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
-							{* {$product.name|truncate:45:'...'|escape:'html':'UTF-8'} *}
 							{$product.name|escape:'html':'UTF-8'}
 						</a>
 					</h5>
@@ -39,10 +38,6 @@
 						{hook h='displayProductListReviews' product=$product}
 						</div>
 					{/if}
-
-					<!-- <p class="product-desc" itemprop="description">
-						{$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}
-					</p> -->
 					
 					{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 					<div class="content_price">
@@ -189,7 +184,6 @@
 										{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 											{if ($group.group_type == 'radio')}
 													{foreach from=$group.attributes key=id_attribute item=group_attribute}
-														{* {$group.attributes_quantity[$id_attribute]|var_dump} *}
 													<li {if ( isset($id_attribute) && $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 														<a href="{$product.link|escape:'html':'UTF-8'}">
 																{assign var=someVar value=" "|explode:$group_attribute}
