@@ -4844,7 +4844,8 @@ a:after{
 
 .home.blog.fluida-landing-page .header-container #header {
 	z-index: 5003 !important;
-	position: fixed;
+	/*position: fixed;*/ 
+	/*remove fixed header on mobile*/
 }
 
 .lp-boxes .lp-box-overlay {
