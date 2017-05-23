@@ -7,7 +7,9 @@
     margin-top: -77px !important;
 	}
 
-	
+#index #header .row {
+	margin-right: 0 !important;
+}	
 
 	#menu_and_serach, #user_info  {
 padding: 0;
@@ -20,11 +22,40 @@ padding: 0;
 	margin: 0 !important;
 }
 #textSEO {
-	margin-top: 50px; 
+	/*position: absolute;*/
+	/*margin-top: 50px; */
+	    padding-top: 110px !important;
 }
 
 #index ul.product_list .product-name {
 	padding: 0;
 	font-size: 13px !important; 
 }
+
+.tab-content h3.page-product-heading {
+	/*text-align: center; */
+	margin-left: 10px;
+}
+#htmlcontent_home ul {
+
+
+}
+/************************************************************
+FOOTER
+************************************************************/
+.footer-container #footer #social_block {
+        /*width: 100% !important;*/
+        position: absolute;
+        top: 65px;
+        left: 138px;
+        margin-top: 0px !important;
+    }
+    .nav .footer-block {
+        margin-top: 0px !important;
+    }
+    .footer-container #footer #social_block {}
+    nav #block_contact_infos span {
+       font-size: 10px !important;
+}
+
 }

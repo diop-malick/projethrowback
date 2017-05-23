@@ -338,20 +338,7 @@ div.form-error ul li {
         top: -140px;
         right: 10px;
     }
-    .footer-container #footer #social_block {
-        width: 100% !important;
-        position: absolute;
-        top: 65px;
-        left: 115px;
-        margin-top: 0px !important;
-    }
-    .nav .footer-block {
-        margin-top: 0px !important;
-    }
-    .footer-container #footer #social_block {}
-    nav #block_contact_infos span {
-        font-size: 10px !important;
-    }
+
     nav #block_contact_infos {
         margin-left: -23px !important;
     }
@@ -605,6 +592,7 @@ div.selector span {
 
 .footer-container #footer #social_block {
     margin-top: 20px;
+    display: block !important;
 }
 
 .footer-container #footer #social_block ul {

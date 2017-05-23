@@ -36,7 +36,7 @@
 							</div>
 						{/if}
 
-						
+						<div class="clearfix"></div>
 						<div id="textSEO" class="container">
 
 							{if ({$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search' or ({$smarty.get.controller} eq 'order' AND (int)Tools::getValue('step') == 0 )) AND {$lang_iso} eq 'fr'}
