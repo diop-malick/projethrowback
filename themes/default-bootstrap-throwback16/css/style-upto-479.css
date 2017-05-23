@@ -20,9 +20,10 @@
     #textSEO {
         padding-top: 110px !important;
     }
-    #index ul.product_list .product-name {
+    ul.product_list .product-name {
         padding: 0;
         font-size: 13px !important;
+        padding-top: 0 !important;
     }
     .tab-content h3.page-product-heading {
         margin-left: 10px;
