@@ -108,6 +108,10 @@ FP
         padding-left: 0px !important;
         text-indent: -10px !important;
     }
+
+    #productscategory_list .product-image.product_image {
+    	padding: 10px !important;
+    }
    
 /* ************************************************************
 FOOTER

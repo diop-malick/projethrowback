@@ -746,7 +746,7 @@
 
 
 		<!-- CMS page Acordion -->
-			<div class="panel-group hidden-xs col-xs-12 col-md-6" id="accordion">
+			<div class="panel-group col-xs-12 col-md-6" id="accordion">
 			    {if isset($product) && $product->description}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
