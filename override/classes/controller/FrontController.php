@@ -6,6 +6,7 @@ class FrontController extends FrontControllerCore
         parent::setMedia();
         $this->addCSS(_THEME_CSS_DIR_.'menu/vertical-responsive-menu.css');
         $this->addCSS(_THEME_CSS_DIR_.'style.css');
+        $this->addCSS(_THEME_CSS_DIR_.'style-upto-479.css');
         $this->addCSS(_THEME_CSS_DIR_.'style-upto-767.css');
         $this->addCSS(_THEME_CSS_DIR_.'style-768-991.css');
         $this->addCSS(_THEME_CSS_DIR_.'style-upto-991.css');

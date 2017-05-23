@@ -1,0 +1,30 @@
+@media (max-width: 479px) {
+	header .row {
+	    
+	}
+
+	header #header_logo {
+    margin-top: -77px !important;
+	}
+
+	
+
+	#menu_and_serach, #user_info  {
+padding: 0;
+}
+.product-container .row.text-right {
+    margin-right: 5px !important;
+}
+
+#homefeatured, #blocknewproducts {
+	margin: 0 !important;
+}
+#textSEO {
+	margin-top: 50px; 
+}
+
+#index ul.product_list .product-name {
+	padding: 0;
+	font-size: 13px !important; 
+}
+}

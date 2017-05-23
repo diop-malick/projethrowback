@@ -349,8 +349,13 @@ ul.product_list.grid > li .product-container .functional-buttons {
     padding: 11px 0 5px;
 }
 
+
+ul.product_list.grid > li .qv.product_img_link {
+        display: none;
+    }
+
 @media (min-width: 1200px) {
-     ul.product_list.grid > li .qv.product_img_link,
+     
     ul.product_list.grid > li .product-container .functional-buttons {
         display: none;
     }
