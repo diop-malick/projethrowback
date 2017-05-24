@@ -75,7 +75,7 @@
 		{if $products}
 			<div class="row">
 			{include file="$tpl_dir./breadcrumb.tpl"}
-			<div class="content_sortPagiBar clearfix col-md-6">
+			<div class="content_sortPagiBar clearfix col-md-6 col-sm-6">
             	<div class="sortPagiBar clearfix">
             		{include file="./product-sort.tpl"}
                 	{include file="./nbr-product-page.tpl"}

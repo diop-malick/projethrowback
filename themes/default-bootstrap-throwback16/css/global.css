@@ -9827,7 +9827,7 @@ div.star a:hover {
 }
 @media (max-width: 767px) {
     .footer-container #footer #social_block {
-        width: 100%;
+        /*width: 100%;*/
         float: left;
         padding-top: 5px;
     }

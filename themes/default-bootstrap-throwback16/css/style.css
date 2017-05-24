@@ -1,3 +1,5 @@
+
+
 /************************************************************
   NOT DLETE THIS
   need for dev 
@@ -10,14 +12,19 @@
 }
 
 /************************************************************
+  SLIDER 
+************************************************************/
+.tparrows {
+display: none;
+}
+/************************************************************
  Large Desktop custom header modifs
 ************************************************************/
 
 @media (min-width: 1024px) {
 
-	#user_info {
-		
-/* padding-left: 6px; */
+	#user_info , #menu_and_serach {
+		margin-top: 14px;
 	}
 .header_user_info .dropbtn span {}
 .header_user_info .dropbtn .icon-fix, .shopping_cart .icon-fix {
@@ -27,7 +34,6 @@
 	 position: absolute !important;
 	 top: -16.55px !important;
 	 font-size: 20px;
-	 /* margin-right: 0px; */
 }
 .header_user_info .dropbtn i {
  position: absolute !important;
@@ -36,15 +42,14 @@
 
 #mobil_blockcart,
 .header_user_info {
-	/* min-height: 27px !important; */
 	padding-top: 6px;
 	padding-left: 15px;
 	margin-right:;
 }
 
-#block_contact_infos .col-lg-contact-info {
-padding-left: 0 !important;
-    padding-right: 0 !important;
+#header #block_contact_infos .col-lg-contact-info {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 }
@@ -99,7 +104,6 @@ span.help {
     font-size: 90%;
     display: block;
 }
-
 
 /* Here you can style the look of the input while server being
   requested when using data-validation="server" */
@@ -257,7 +261,6 @@ div.form-error ul li {
         #header_logo .logo-throwback {
             margin-top: 25px !important;
             display: inline-block !important;
-            /*margin-left: -54% !important;*/
         }
     }
  
@@ -265,7 +268,6 @@ div.form-error ul li {
         #header_logo .logo-throwback {
             margin-top: 25px !important;
             display: inline-block !important;
-            /*margin-left: -54%;*/
         }
     }
 
@@ -336,20 +338,7 @@ div.form-error ul li {
         top: -140px;
         right: 10px;
     }
-    .footer-container #footer #social_block {
-        width: 100% !important;
-        position: absolute;
-        top: 65px;
-        left: 115px;
-        margin-top: 0px !important;
-    }
-    .nav .footer-block {
-        margin-top: 0px !important;
-    }
-    .footer-container #footer #social_block {}
-    nav #block_contact_infos span {
-        font-size: 10px !important;
-    }
+
     nav #block_contact_infos {
         margin-left: -23px !important;
     }
@@ -403,9 +392,6 @@ div.form-error ul li {
     #header .shopping_cart {
         padding-top: 4px;
     }
-    #header .shopping_cart span.ajax_cart_no_product {
-        /*display: inline-block !important;*/
-    }
     #header .shopping_cart span.ajax_cart_no_product .panier_vide {
         font-size: 15px;
     }
@@ -415,17 +401,11 @@ div.form-error ul li {
     .product-container .row {
         padding: 8px;
     }
-    .visible-xs-logo-mobile img {
-        /*margin: -15px auto 0 auto !important;*/
-    }
     .pb-left-column #image-block {
         padding: 0 !important;
         width: 100% !important;
     }
     .quantity_wanted_p {}
-    .dropdown:hover .dropdown-content {
-        /*margin-top: 7px !important;*/
-    }
     .header_user_info .dropdown-content {
         background-color: #fff;
         width: 180px !important;
@@ -486,14 +466,14 @@ div.form-error ul li {
 }
 
 
-/************************************************************
+/* ***********************************************************
   END  RESPONSIVE
-************************************************************/
+*********************************************************** */
 
 
-/************************************************************
+/* ***********************************************************
         styles
-************************************************************/
+*********************************************************** */
 
 
 /*fixe footer*/
@@ -516,7 +496,7 @@ body {
 }
 
 
-/************************ slider *********************************/
+/* *********************** slider ******************************** */
 
 #index #slider_row {
     margin-top: 120px;
@@ -526,7 +506,7 @@ body {
 }
 
 
-/*margin top colum center and hesder*/
+/* margin top colum center and hesder */
 
 #category .columns-container, #pagenotfound .columns-container {
     margin-top: 120px;
@@ -568,8 +548,8 @@ body {
     color: #000 !important;
 }
 
-
-/***************** selector *************************/
+ 
+/* **************** selector ************************ */
 
 #layered_block_left div.selector,
 #address div.selector {
@@ -612,6 +592,7 @@ div.selector span {
 
 .footer-container #footer #social_block {
     margin-top: 20px;
+    display: block !important;
 }
 
 .footer-container #footer #social_block ul {
@@ -653,7 +634,7 @@ div.selector span {
 }
 
 
-/*MAILCHImps NEWLETTER*/
+/* MAILCHImps NEWLETTER */
 
 .footer-container .container #mc_embed_signup {
     background: #fff;
@@ -707,7 +688,6 @@ header #header_logo {
 .vertical-center {
     display: flex;
     align-items: center;
-    /*margin-bottom: 20px;*/
 }
 
 .button.button-medium {
@@ -744,10 +724,6 @@ header #header_logo {
     pointer-events: none !important;
 }
 
-.page-heading.authentication {
-    /*margin-top: 120px;*/
-}
-
 .authentication h1 {
     font: 600 18px/22px "Open Sans", sans-serif;
     color: #fff;
@@ -759,9 +735,6 @@ header #header_logo {
     margin-bottom: 10px;
     overflow: hidden;
 }
-
-
-/* throwback > customize > Inscription  */
 
 .select_title {
     max-width: 100%;
@@ -775,9 +748,6 @@ header #header_logo {
     font-style: italic;
     margin-bottom: 10px;
 }
-
-
-/* throwback > customize > Infos perso  */
 
 #identity .form-error,
 #account-creation_form .form-error,
@@ -811,9 +781,6 @@ header #header_logo {
 .select-date {
     max-width: 300px;
 }
-
-
-/* throwback > customize > my Account  */
 
 .my-account-selfcare {
     color: #000;
@@ -872,11 +839,8 @@ input[readonly] {
 ====================================  */
 
 .qv-size {
-    float: left;
     padding: 10px 20px 0 40px;
-    margin-right: auto;
-    margin-left: auto;
-    max-height: 100px;
+    margin: 0 auto 10px auto;
 }
 
 .qv-reference {
@@ -926,7 +890,6 @@ input[readonly] {
 .custom-attribute .attribute_list li .li_attribute_list.selected {
     background: #F39C11;
     color: white !important;
-    /*border: '1px solid white';*/
     cursor: not-allowed !important;
     pointer-events: none;
 }
@@ -934,9 +897,6 @@ input[readonly] {
 .pve_petite{
     color: rgb(214, 157, 50);
 }
-
-
-/*TODO - merge with product attribute*/
 
 .customattributes #attributes .attribute_list ul li {
     width: 43px !important;
@@ -950,15 +910,9 @@ input[readonly] {
     color: #000;
 }
 
-
-/* Center image in block*/
-
 .simplified-header .simplified-logo {
     margin: 0 auto;
 }
-
-
-/* Vertical text center*/
 
 .simplified-header .vertical-center {
     display: flex;
@@ -979,9 +933,6 @@ input[readonly] {
     vertical-align: -2px;
 }
 
-
-/*simplified footer*/
-
 .footer-container .simplified-footer span span {
     font-size: 14px;
     line-height: 21px;
@@ -990,21 +941,9 @@ input[readonly] {
 }
 
 
-/* Enlever margin top sur la page historique des commandes*/
-
-
-/*#block-history {
- margin-top: 50px;
-}*/
-
 #block-history .alert {
     padding: 0 !important;
 }
-
-
-/*#rigth-row-5 {
- margin-top: 15px;
-}*/
 
 .box-cart-chrono {
     color: rgb(199, 200, 200);
@@ -1012,12 +951,6 @@ input[readonly] {
     text-align: center;
     z-index: 73;
 }
-
-
-/* throwback custom */
-
-.box-cart-chrono {}
-
 
 /* Disable les attributs ayant une quantité < 0 */
 
@@ -1031,8 +964,6 @@ input[readonly] {
 }
 
 
-/* */
-
 #short_description_content a,
 .page-product-box .rte a {
     color: #333333;
@@ -1044,9 +975,6 @@ input[readonly] {
     text-decoration: none;
 }
 
-
-/* throwback > customize */
-
 .box-info-product {}
 
 .box-info-product p {
@@ -1054,7 +982,6 @@ input[readonly] {
 }
 
 .page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
-    /*width: auto;*/
     margin: 0 auto;
 }
 
@@ -1096,12 +1023,8 @@ input[readonly] {
 }
 
 .img-line {
-    /*background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);*/
-    /*background-image: -webkit-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);*/
-    /*background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 50%, rgb(230,231,232) 100%);*/
     padding: 0;
     position: relative;
-    /*z-index: 45;*/
 }
 
 .reduction-text {
@@ -1127,7 +1050,6 @@ input[readonly] {
 }
 
 .row_line_product {
-    /*margin-bottom: 50px;*/
     border-bottom: 1px solid #EBEEF0;
     padding: 15px 0;
     margin: 0;
@@ -1201,7 +1123,6 @@ input[readonly] {
 }
 
 .cart_quantity_delete {
-    /*font-size: 1.725rem;*/
     color: #000;
     border: 1px solid #000;
     padding: 0 5px;
