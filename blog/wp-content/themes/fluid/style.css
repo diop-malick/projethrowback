@@ -4898,29 +4898,35 @@ article.hentry .article-inner {
 */
 @media (min-width: 280px) and (max-width: 479px) {
 
+	#header_logo{
+		 margin-top: -70px !important;
+	}
+
 	#searchform-header{
-		top:115px;
+		top:118px;
 	}
 	.searchform{
 		height: 33px;
 	}
-	#header_logo{
-		 margin-top: -80px !important;
+	.toggle_menu_mobile{
+		margin-top: -5px;	
 	}
-
+	
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
 
-	#searchform-header{
-		top:108px;
-	}
-	.searchform{
-		height: 32px;
-	}
 	#header_logo{
 		 margin-top: -60px !important;
 	}
+
+	#searchform-header{
+		top:110px;
+	}
+	.searchform{
+		height: 40px;
+	}
+	
 
 }
 
@@ -4983,7 +4989,11 @@ article.hentry .article-inner {
 	}  
 
 	.content-search.pad-container , .has-post-thumbnail{
-		margin-top: -150px;
+		margin-top: 200px;
+	}
+
+	.entry-content{
+		margin-top: 100px;
 	}
 }
 
