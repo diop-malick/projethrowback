@@ -21,7 +21,6 @@
 	<script>window.location="{$link->getPageLink('order')}?step=0";</script>
 {/if}
 
-{* text-xs-center *}
 <p class="titre-panier ">{l s='Mon panier'}</p>
 
 {if isset($empty)}
@@ -102,7 +101,7 @@
 				<div class="row row_line_product line_product_{$product.id_product}" id="product_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}">
 
 
-							<div class="col-xs-12 col-md-3  img-line">
+							<div class="col-xs-12 col-sm-3 col-md-3  img-line">
 								<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">
 								{* change product image format : from small_default_to_home default *}
 								<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$product.name|escape:'html':'UTF-8'}" class="img-responsive" />
@@ -110,10 +109,10 @@
 							</div>
 
 
-							<div class="col-xs-12 col-md-9 ">								
+							<div class="col-xs-12 col-sm-9 col-md-9 ">								
 
 								<div class="row">
-									<div class="col-xs-9 col-md-11">
+									<div class="col-xs-9 col-sm-10 col-md-11">
 
 										<p class="product-name product_title">
 											<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute, false, false, true)|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}
@@ -122,7 +121,7 @@
 									</div>
 
 									<!--<br><br>-->
-									<div class="col-xs-3 col-md-1 ">
+									<div class="col-xs-3 col-sm-2 col-md-1 ">
 										<div class="row">
 											<div class="col-md-6 col-xs-6 text-md-right edit" style="padding:0;">
 												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
@@ -234,10 +233,10 @@
 											<div class="col-md-3 col-xs-12">
 												{if $product.cart_quantity}
 													<div class = "row">
-														<div class="col-md-6 col-xs-12 text-sm-right text-md-right text-lg-right">
+														<div class="col-sm-6 col-md-6 col-xs-12 text-sm-right text-md-right text-lg-right">
 																<label class="label-attribute ">{l s='Quantité'}</label>
 														</div>
-														<div class="col-md-6 col-xs-12">
+														<div class="col-md-6 col-sm-6 col-xs-12">
 																<div class="current_qty_{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval} size_line">
 																	{$product.cart_quantity}
 																</div>
@@ -252,10 +251,10 @@
 											<div class="col-md-3 col-xs-12">
 												{if isset($sizing) && $sizing}
 													<div class = "row">
-														<div class="col-md-6 col-xs-12 text-sm-right text-md-right text-lg-right">
+														<div class="col-md-6 col-sm-6 col-xs-12 text-sm-right text-md-right text-lg-right">
 															<label class="label-attribute">{l s='Taille'}</label>
 														</div>
-														<div class="col-md-6 col-xs-12">
+														<div class="col-md-6 col-sm-6 col-xs-12">
 															<div class="size_line">
 
 																	{assign var=someVar value=" "|explode:$sizing}
