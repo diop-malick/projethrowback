@@ -113,15 +113,22 @@
 					{/if}
 
 					<!-- Logo TOP  on mobile device -->
-					<div id="header_logo" class="row visible-xs-logo-mobile" style="display:none;">
-						<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
-							<img class="logo img-responsive logo-throwback" 
-							src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/logo/logo.png" 
-							alt="{$shop_name|escape:'html':'UTF-8'}"/>
-						</a>
-					</div>
 					<div class="clearfix"></div>
+					<div class="visible-xs visible-sm">
+						<div class="container-fluid">
+							<div id="header_logo" class="col-xs-12 col-sm-12 logo-header">
+								<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+									<img class="logo img-responsive logo-throwback" 
+									{* rc="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/logo/logo.png"  *}
+									src="{$logo_url}"
+									alt="{$shop_name|escape:'html':'UTF-8'}"/>
+								</a>
+							</div>
+						</div>
+					</div>
+					
 					<!-- /Logo TOP -->
+					<div class="clearfix"></div>
 
 					<div>
 						<div class="container-fluid">

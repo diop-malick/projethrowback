@@ -1,9 +1,10 @@
 @media (max-width: 767px) {
-    header .row #header_logo {
-        /*padding-top: 15px;*/
-    }
-    header .row #header_logo img {
-        /*margin: 0 auto;*/
+#header_logo {
+    text-align: center;
+}
+
+            header #header_logo {
+
     }
 
 }

@@ -533,8 +533,7 @@ EROR
             	<div class="row form-group">
             	<label for="newsletter" class="col-md-4 col-xs-12 text-xs-left text-right">{l s='Inscription à la newletter'} </label>
 	            	<div class="col-md-8">
-						<p>Devenez Client Privilégié grâce à votre adresse email ! Recevez toutes les bonnes affaires 
-et les offres exclusives en vous inscrivant gratuitement à notre Newsletter! </p>
+						<p>{l s='Devenez Client Privilégié grâce à votre adresse email ! Recevez toutes les bonnes affaires et les offres exclusives en vous inscrivant gratuitement à notre Newsletter!'}</p>
 							{if isset($newsletter) && $newsletter}
 								<div class="checkbox">
 									<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />

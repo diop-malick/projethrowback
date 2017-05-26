@@ -7999,8 +7999,15 @@ header .banner .row {
 /* throwback header background */
 
 header .nav {
-    background: #ececeb;
-    background: radial-gradient(60px at 50% 210%, #fff 103%, rgba(120, 120, 120, 0.4) 108%, rgba(210, 210, 210, 0.6) 180%, #ececeb 260%);
+    /* Multiple background and gradient*/
+     background: #ececeb; /* Old browsers */
+    /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
+    background: radial-gradient(52px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center;
+    /*background: radial-gradient(52px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.29) 108%, rgba(210, 210, 210, 0.64) 180%, #ececeb 260%);*/
+
+    /*background-image: url(../img/logo_shadow.png) no-repeat 15px center ;*/
+    /*background-repeat: repeat-x ;*/
+    /* box-shadow: inset 0 -10px 10px -20px #000000; */    
 }
 
 header .nav .row {
@@ -8328,6 +8335,8 @@ span.exclusive {
 
 
 .button.button-medium:hover {
+    background: #000;
+    /*
     background: #3aa04c;
     background-image: -webkit-gradient(linear, left 0%, left 100%, from(#3aa04c), to(#3aa04a));
     background-image: -webkit-linear-gradient(top, #3aa04c, 0%, #3aa04a, 100%);
@@ -8336,6 +8345,7 @@ span.exclusive {
     background-repeat: repeat-x;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FF3AA04C', endColorstr='#FF3AA04A', GradientType=0);
     border-color: #196f28 #399a49 #399a49 #258033;
+    */
 }
 .button.button-medium.exclusive {
     background: #000;
@@ -9740,7 +9750,7 @@ div.star a:hover {
     color: #777777;
 }
 .footer-container #footer a:hover {
-    color: #fff;
+    color: #000;
 }
 .footer-container #footer h4 {
     font: 600 18px/22px "Open Sans",
@@ -9775,10 +9785,11 @@ div.star a:hover {
 }
 .footer-container #footer ul li a {
     font-weight: bold;
+    /*
     text-shadow: 1px 1px 0px rgba(0,
     0,
     0,
-    0.4);
+    0.4);*/
 }
 @media (max-width: 767px) {
     .footer-container #footer #block_contact_infos {
@@ -9816,7 +9827,7 @@ div.star a:hover {
 }
 @media (max-width: 767px) {
     .footer-container #footer #social_block {
-        width: 100%;
+        /*width: 100%;*/
         float: left;
         padding-top: 5px;
     }

@@ -23,9 +23,8 @@ robots.txt
 
 
 config/settings.inc.php
+config/settings.old.php
 config/defines.inc.php
-
-#config/*
 
 #cache/*
 
@@ -64,6 +63,8 @@ modules/gsitemap/*
 # download/
 
 img/*
+
+img/p/*/index.php
 
 upload/*
 

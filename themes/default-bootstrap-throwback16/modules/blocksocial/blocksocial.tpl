@@ -1,5 +1,5 @@
                 <!-- Block Social -->
-                <section id="social_block" class="col-sm-4 col-md-4 text-right">
+                <section id="social_block" class="col-sm-12 col-xs-12 col-md-4 text-right">
                 	<ul>
                 		{if isset($facebook_url) && $facebook_url != ''}
                 			<li class="facebook">
@@ -8,6 +8,7 @@
                 				</a>
                 			</li>
                 		{/if}
+
                 		{if isset($twitter_url) && $twitter_url != ''}
                 			<li class="twitter">
                 				<a class="_blank" href="{$twitter_url|escape:html:'UTF-8'}">

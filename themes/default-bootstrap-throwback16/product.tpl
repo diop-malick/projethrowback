@@ -44,9 +44,8 @@
 			<div class="col-xs-12">
 				<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
 			</div>
-			<div class="col-xs-12" style="margin-top: 10px">
+			<div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
-								<!-- {l s='Reference:'} -->
 								{l s='Ref '}
 								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 							</p>
@@ -82,18 +81,78 @@
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								<span id="chrono_without_date"></span>
-									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
+									<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
 							<!-- FALG New -->
 							{elseif $product->new && $product->new == 1 && ($product->quantity > 0) && $product->available_for_order }
 								<img src="{$base_dir_ssl}img/icones/new.png"/>
-
 							{/if}
 						{/if}
-			</div>	
-		</div>
-		<div class="clearfix visible-xs"></div>
+				</div>
+				<div class=" col-xs-6 content_prices text-xs-right" style="margin-top: 10px">
+							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
+								<!-- prices -->
+								<div>
+									<p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
+										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
+										{if $priceDisplay >= 0 && $priceDisplay <= 2}
+										<span class ="pve_petite "id="minimal_pve_price" style="display: none">{l s='A partir de '}</span>
+											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
+											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
+												{if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
+											{/if} -->
+											<meta itemprop="priceCurrency" content="{$currency->iso_code}" />
+											{hook h="displayProductPriceBlock" product=$product type="price"}
+										{/if}
+									{/strip}</p>
+									<p id="reduction_percent" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}>{strip}
+										<span id="reduction_percent_display">
+											{if $product->specificPrice && $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}
+										</span>
+									{/strip}</p>
+									<p id="reduction_amount" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'amount' || $product->specificPrice.reduction|floatval ==0} style="display:none"{/if}>{strip}
+										<span id="reduction_amount_display">
+										{if $product->specificPrice && $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|floatval !=0}
+											-{convertPrice price=$productPriceWithoutReduction|floatval-$productPrice|floatval}
+										{/if}
+										</span>
+									{/strip}</p>
+									<p id="old_price"{if (!$product->specificPrice || !$product->specificPrice.reduction)} class="hidden"{/if}>{strip}
+										{if $priceDisplay >= 0 && $priceDisplay <= 2}
+											{hook h="displayProductPriceBlock" product=$product type="old_price"}
+											<span id="old_price_display"><span class="price">{if $productPriceWithoutReduction > $productPrice}{convertPrice price=$productPriceWithoutReduction|floatval}{/if}</span>{if $productPriceWithoutReduction > $productPrice && $tax_enabled && $display_tax_label == 1} {if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if}</span>
+										{/if}
+									{/strip}</p>
+									{if $priceDisplay == 2}
+										<br />
+										<span id="pretaxe_price">{strip}
+											<span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
+										{/strip}</span>
+									{/if}
+								</div> <!-- end prices -->
+								{if $packItems|@count && $productPrice < $product->getNoPackPrice()}
+									<p class="pack_price">{l s='Instead of'} <span style="text-decoration: line-through;">{convertPrice price=$product->getNoPackPrice()}</span></p>
+								{/if}
+								{if $product->ecotax != 0}
+									<p class="price-ecotax">{l s='Including'} <span id="ecotax_price_display">{if $priceDisplay == 2}{$ecotax_tax_exc|convertAndFormatPrice}{else}{$ecotax_tax_inc|convertAndFormatPrice}{/if}</span> {l s='for ecotax'}
+										{if $product->specificPrice && $product->specificPrice.reduction}
+										<br />{l s='(not impacted by the discount)'}
+										{/if}
+									</p>
+								{/if}
+								{if !empty($product->unity) && $product->unit_price_ratio > 0.000000}
+									{math equation="pprice / punit_price" pprice=$productPrice  punit_price=$product->unit_price_ratio assign=unit_price}
+									<p class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'html':'UTF-8'}</p>
+									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
+								{/if}
+							{/if} {*close if for show price*}
+							{hook h="displayProductPriceBlock" product=$product type="weight" hook_origin='product_sheet'}
+	                        {hook h="displayProductPriceBlock" product=$product type="after_price"}
 
+						</div> <!-- end content_prices -->
+
+		</div>  {* end pb_mobile-colum *}
+		<div class="clearfix"></div>
 
 		{* ============================================================================ 
 		BLOCK LEFT 
@@ -210,12 +269,10 @@
 					<div class="col-xs-12 col-sm-8 col-md-8 text-left text-xs-left hidden-xs">
 							<!-- NAME -->
 							<h1 class="product_name" itemprop="name"> {$product->name|truncate:42:"":true:true|escape:'html':'UTF-8'} </h1>
-							<!-- // NAME -->
 					</div>
-					<!-- // TITRE  -->
 
 					<!-- PRICE  -->
-					<div class="content_prices col-xs-12 col-sm-4  col-md-4 text-right text-xs-right">
+					<div class="content_prices hidden-xs col-xs-12 col-sm-4  col-md-4 text-right text-xs-right">
 						<div class="content_prices">
 							{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<!-- prices -->
@@ -308,7 +365,7 @@
 
 				<div class="row hidden-xs">
 					<div class="col-md-12 col-xs-12">
-						<hr>
+						<hr style="border-color: #dbdbdb;">
 					</div>
 				</div>
 
@@ -689,7 +746,7 @@
 
 
 		<!-- CMS page Acordion -->
-			<div class="panel-group hidden-xs col-xs-12 col-md-6" id="accordion">
+			<div class="panel-group col-xs-12 col-md-6" id="accordion">
 			    {if isset($product) && $product->description}
 			    <div class="panel panel-default">
 			      <div class="panel-heading">
@@ -940,4 +997,5 @@
 {/strip}
 {/if}
 
+{* TODO - delete *}
 <script src="/throwback16/themes/default-bootstrap-throwback16/js/jquery.kyco.easyshare.min.js"></script>

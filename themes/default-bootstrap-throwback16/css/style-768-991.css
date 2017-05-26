@@ -5,9 +5,11 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     /* Header  */
+    header #header_logo {
+    margin-top: -81px !important;
+    }
     .block_contact_infos {
         padding: 0 !important;
-        ;
         font-size: 10px !important;
     }
         .menu_vertical_mobile,
@@ -38,6 +40,11 @@
     header .row #header_logo {
         margin-top: -58px !important;
     }
+        #header_logo .logo-throwback {
+            margin-right: 42.9%  !important;
+    margin-top: 33px  !important;
+        }
+
     header #header_logo {
         padding-left: 0 !important;
         padding-right: 0 !important;
@@ -58,7 +65,6 @@
     #mobil_blockcart {
         margin: 0 !important;
         padding: 10px!important;
-        /*border: 2px solid #B5BDC1 !important;*/
     }
     #order .columns-container #columns .row {
         margin-left: 0px !important;
@@ -66,7 +72,6 @@
     }
     #order .columns-container #columns .row > div[class^="col-"] {
         padding-left: 0px !important;
-        /*padding-right: 0px !important;*/
     }
     #authentication #columns .order-step-row {
         margin-left: 0px !important;

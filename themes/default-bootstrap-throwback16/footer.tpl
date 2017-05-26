@@ -10,6 +10,9 @@
 			{if isset($HOOK_FOOTER)}
 				<!-- Footer -->
 				<div class="clearfix"></div>
+				<div class="text-copyright">
+								&copy; 2009-2017 ALL RIGHTS RESERVED
+				</div>
 				<div class="footer-container">
 					<footer id="footer"  class="container">
 						{if {$smarty.get.controller} eq 'authentication' or {$smarty.get.controller} eq 'orderconfirmation' or ({$smarty.get.controller} eq 'order' &&  ((!isset($smarty.get.step) or {$smarty.get.step} neq '0')) ) }
@@ -33,7 +36,7 @@
 							</div>
 						{/if}
 
-						
+						<div class="clearfix"></div>
 						<div id="textSEO" class="container">
 
 							{if ({$smarty.get.controller} eq 'index' or {$smarty.get.controller} eq 'cms'  or {$smarty.get.controller} eq 'search' or ({$smarty.get.controller} eq 'order' AND (int)Tools::getValue('step') == 0 )) AND {$lang_iso} eq 'fr'}

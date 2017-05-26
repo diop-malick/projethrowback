@@ -106,7 +106,7 @@ a.fancybox-nav {
 
 @media (max-width: 767px) {
     .pb-left-column #views_block {
-        width: 280px;
+        /*width: 280px;*/
         margin: 10px auto 0px auto;
     }
 }
@@ -1104,10 +1104,10 @@ table.table-product-discounts tr th {
     }
 }
 .our_price_display .price {
-    font-size: 35px;
+    font-size: 20px;
     line-height: 0.955;
     color: rgb(214, 157, 50) !important;
-    font-weight: bold !important;
+    /*font-weight: bold !important;*/
 }
 @media (max-width: 991px) {
     .our_price_display .price {
@@ -1367,7 +1367,7 @@ Quick View Styles
     }
 }
 #rigth-row-1 .product_name {
-    font-size: 25px !important;
+    font-size: 20px !important;
     font-weight: normal !important;
     max-height: 54px;
     overflow: hidden;
@@ -1538,77 +1538,6 @@ h3.page-product-heading {
     .panier-vide,
     .alert-no-adress {
         font-size: 13px !important;
-    }
-}
-@media (max-width: 479px) {
-    .pb-left-column {
-        z-index: 1000;
-    }
-    
-    .pb-my-right-column {
-        z-index: 10;
-    }
-    
-    .blockproductscategory #productscategory_list .product-name a {
-        font-size: 13px !important;
-        line-height: 17px !important;
-    }
-    
-    #accordion {
-        padding: 5px !important;
-        margin: 8px !important;
-    }
-    
-    #rigth-row-3 > div > .row {
-        margin: 8px !important;
-    }
-    
-    #rigth-row-1 .content_prices {
-        margin-top: -688px !important;
-    }
-    
-    #rigth-row-1,
-    #rigth-row-2 {
-        padding: 5px !important;
-        margin-left: 0px !important;
-        margin-right: 0px !important;
-        margin-bottom: 10px;
-    }
-    
-    .pb-mobile-column .product_name {
-        font-size: 20px !important;
-        font-weight: 900 !important;
-    }
-    
-    #product_reference {
-        margin-bottom: 0 !important;
-    }
-    
-    fieldset {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    
-    #rigth-row-5 {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-    
-    hr {
-        border-top: 1px solid rgb(203, 204, 204) !important;
-    }
-    
-    #table_social_media {
-        margin-top: 0px !important;
-    }
-    
-    #table_social_media {
-        margin-top: 0 !important;
-        text-align: center;
-    }
-    
-    #table_social_media .btn {
-        padding: 0;
     }
 }
 

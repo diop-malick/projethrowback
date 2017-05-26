@@ -91,7 +91,7 @@ function mce_success_cb(resp){
         try{
             if (index== -1){
                 $('#mce-'+resp.result+'-response').show();
-                $('#mce-'+resp.result+'-response').html(msg);            
+                $('#mce-'+resp.result+'-response').html(deja_client);            
             } else {
                 err_id = 'mce_tmp_error_msg';
                 html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
@@ -113,12 +113,12 @@ function mce_success_cb(resp){
                     $(input_id).focus();
                 } else {
                     $('#mce-'+resp.result+'-response').show();
-                    $('#mce-'+resp.result+'-response').html(msg);
+                    $('#mce-'+resp.result+'-response').html(deja_client);
                 }
             }
         } catch(e){
             $('#mce-'+resp.result+'-response').show();
-            $('#mce-'+resp.result+'-response').html(msg);
+            $('#mce-'+resp.result+'-response').html(deja_client);
         }
     }
 }
