@@ -12,6 +12,9 @@
         color: #233434;
         text-align: justify;
     }
+    #columns {
+    padding-top: 23px !important;
+}
 }
 
 
