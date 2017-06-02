@@ -499,11 +499,11 @@
 {* SIZE CONVERTER *}
 {if $lang_iso=='en'}
 <div class="size-converter-wrapper row-fluid" id="size-converter-wrapper">
-<a class="btn text-center white-bg red" id="size-converter-eu" href="#product_tabs_options">EU</a>
+<a class="btn text-center white-bg" id="size-converter-eu" href="#product_tabs_options">EU</a>
 <a class="btn text-center white-bg" id="size-converter-us" href="#product_tabs_options">US</a>
 <a class="btn text-center white-bg" id="size-converter-uk" href="#product_tabs_options">UK</a>
 <a class="btn text-center white-bg" id="size-converter-cm" href="#product_tabs_options">CM</a>
-<a href="#" data-toggle="popover" data-placement="top" title="Size converter">Size Table ?</a>
+<a href="#" data-toggle="popover" data-placement="top" data-trigger="focus" title="Size converter">Size Table ?</a>
 </a>
 </div>
 <div id="popover_content_wrapper" style="display: none">
@@ -596,7 +596,7 @@ $(document).ready(function(){
 																				{if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 																		{else}						
 																			{assign var=size_keywords value="/"|explode:$group_attribute}
-																			<span class="hide_size eu_size" style="display: inline;">
+																			<span class="hide_size eu_size" style="display: none;">
 																				{if isset($size_keywords[0])}
 																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
 																					{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
@@ -606,7 +606,7 @@ $(document).ready(function(){
 																				{/if}
 																			</span>
 
-																			<span class="hide_size us_size" style="display: none;">
+																			<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {/if}>
 																				{if isset($size_keywords[1])}
 																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
 																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
