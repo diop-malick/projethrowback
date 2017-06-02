@@ -8,6 +8,8 @@ split en eur :
 add js for radio
 gérer l'expo 1/2
 
+
+Solution : trim -> explode -> trim
 -->
 
 
@@ -66,13 +68,13 @@ gérer l'expo 1/2
               list($eu_size, $us_size, $uk_size, $cm_size) = split('[/]', $group_attribute);
 
               // Remove country identification
-              list($eu_size_index, $eu_size_value) = preg_split('/\s+/', $eu_size);
-              list($us_size_index, $us_size_value) = preg_split('/\s+/', $us_size);
-              list($uk_size_index, $uk_size_value) = preg_split('/\s+/', $uk_size);
-              list($cm_size_index, $cm_size_value) = preg_split('/\s+/', $cm_size);
+              list($eu_size_index, $eu_size_value) = preg_split('/\s+/', trim($eu_size));
+              list($us_size_index, $us_size_value) = preg_split('/\s+/', trim($us_size));
+              list($uk_size_index, $uk_size_value) = preg_split('/\s+/', trim($uk_size));
+              list($cm_size_value) = preg_split('/\s+/', trim($cm_size));
               ?>
               <span class="hide_size eu_size" style="display: inline;"><?php echo $eu_size_value; ?></span>
-              <span class="hide_size us_size" style="display: none;"><?php echo $us_size; ?></span>
+              <span class="hide_size us_size" style="display: none;"><?php echo $us_size_value; ?></span>
               <span class="hide_size uk_size" style="display: none;"><?php echo $uk_size_value; ?></span>
               <span class="hide_size cm_size" style="display: none;"><?php echo $cm_size_value; ?></span>
 
@@ -104,33 +106,18 @@ gérer l'expo 1/2
       // Remove slash délimiteurs
 
     list($eur_size, $us_size, $uk_size, $cm_size) = split('[/]', $chaine);
-
-    echo "EUR ---> $eur_size<br />\n";
-    echo "US ---> $us_size<br />\n";
-    echo "UK ---> $uk_size<br />\n";
-    echo "CM ---> $cm_size<br />\n";
-
+    
+    var_dump($eur_size, $us_size, $uk_size, $cm_size );
     echo "<br />\n";
 
-    list($eur_size_index, $eur_size_value) = preg_split('/\s+/', $eur_size);
+
+    list($eur_size_index, $eur_size_value) = preg_split('/\s+/', trim($eu_size));
     // scinde la phrase grâce aux virgules et espacements
 // ce qui inclus les " ", \r, \t, \n et \f
-    list($us_size_index, $us_size_value) = preg_split("/[\s,]+/", " ".$us_size." ");
-
-      // $pieces = explode(" ", $eur_size);
+    list($us_size_index, $us_size_value) = preg_split("/[\s,]+/", trim($us_size));
     echo "$eur_size_index = $eur_size_value<br />\n";
     echo "$us_size_index = $us_size_value<br />\n";
-
-echo "<br />\n";
-echo "<br />\n";
-
-
-print_r(" ".$us_size." ");
-
-print_r(split($uk_size));
-$pieces = explode(" ", $uk_size);
-echo $pieces[0]; // piece1
-echo $pieces[1]; // piece2
+    echo "<br />\n";
 
     ?>
   </div>
@@ -153,8 +140,8 @@ echo $pieces[1]; // piece2
 }
 #attributes .attribute_list ul li > label {
     border: 1px solid #777;
-    /*display: table-cell;*/
-    /*width: 43px;*/
+    display: table-cell;
+    width: 43px;
     height: 28px;
     text-align: center;
     vertical-align: middle;
