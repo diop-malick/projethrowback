@@ -701,7 +701,7 @@ $(document).ready(function(){
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
 						<div class="row box-cart-bottom">
-							<div {if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
+							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="btn exclusive">
 										<i class="material-icons shopping-cart" style="color:#fff; margin-top: -10px; margin-right: .625rem; line-height: inherit;"></i>
