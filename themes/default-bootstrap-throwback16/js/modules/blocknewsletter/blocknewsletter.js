@@ -56,7 +56,7 @@ function mce_success_cb(resp){
     $('#mce-error-response').hide();
     if (resp.result=="success"){
         window.location=page_confirm;
-        $('#mce-'+resp.result+'-response').show();
+        //$('#mce-'+resp.result+'-response').show();
         // $('#mce-'+resp.result+'-response').css('color', 'green');
         
         $('#mc_embed_signup_header').hide();
