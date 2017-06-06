@@ -55,8 +55,10 @@ $(document).ready(function(){
 
 	$("#header .shopping_cart a:first").hover(
 		function(){
-			if (ajaxCart.nb_total_products > 0 || ($('.ajax_cart_quantity').html() != 0 && $('.ajax_cart_quantity').html() != "(0)")  )
+			if (ajaxCart.nb_total_products > 0 || ($('.ajax_cart_quantity').html() != 0 && $('.ajax_cart_quantity').html() != "(0)")  ){
+				if(page_name!="order")
 				$("#header .cart_block").stop(true, true).slideDown(450);
+			}
 		},
 		function(){
 			setTimeout(function(){
