@@ -109,7 +109,7 @@
 							</div>
 
 
-							<div class="col-xs-12 col-sm-9 col-md-9 ">								
+							<div class="col-xs-12 col-sm-9 col-md-9 product-attribute-line">								
 
 								<div class="row">
 									<div class="col-xs-9 col-sm-10 col-md-11">
@@ -123,10 +123,10 @@
 									<!--<br><br>-->
 									<div class="col-xs-3 col-sm-2 col-md-1 ">
 										<div class="row">
-											<div class="col-md-6 col-xs-6 text-md-right edit" style="padding:0;">
+											<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
 												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
-											<div class="col-md-6 col-xs-6 text-md-left delete" style="padding:0;">
+											<div class="col-md-6 col-xs-6 text-md-left text-xs-center delete" style="padding:0;">
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
 													class="cart_quantity_delete"
@@ -177,7 +177,6 @@
 																		{/if}
 																		{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																			{if $group.attributes|@count}
-																			<!--<fieldset class="attribute_fieldset">-->
 
 																				{assign var="groupName" value="group_"|cat:$productId|cat:"_"|cat:$product.id_product_attribute}
 
@@ -198,7 +197,6 @@
 																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 																									</label>
 																								</li>
-																								{* <pre>{$id_attribute}</pre> *}
 																							{/foreach}
 																						</ul>
 																						</span>
@@ -213,7 +211,6 @@
 																					{/if}
 
 																				</div> <!-- end attribute_list -->
-																			<!--</fieldset>-->
 																			{/if}
 																		{/foreach}
 

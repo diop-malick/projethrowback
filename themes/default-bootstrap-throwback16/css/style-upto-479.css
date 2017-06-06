@@ -113,6 +113,38 @@ FP
     #productscategory_list .product-image.product_image {
     	padding: 10px !important;
     }
+
+   
+/* ************************************************************
+PANIER
+*********************************************************** */
+    .product-attribute-line {
+        padding: 0;
+    }
+    .product-attribute-line [class*="col-"] {
+     /*border: 1px solid yellowgreen; */
+     padding: 0;
+ }
+ .product-attribute-line .product_title {
+    margin-bottom: 10px !important;
+}
+#order .row_line_product {
+     padding:  0 !important;
+}
+.commande_title {
+    margin-top: 15px !important;
+}
+#quantity_wanted_p {
+    margin-bottom: 5px;
+}
+   #quantity_wanted_p input {
+    float: initial !important;
+
+   }
+   #quantity_wanted_p .btn.button-plus, #quantity_wanted_p .btn.button-minus {
+    float: none !important; 
+}
+
    
 /* ************************************************************
 FOOTER
