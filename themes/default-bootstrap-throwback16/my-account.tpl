@@ -20,7 +20,7 @@
     {* END ============= MAILCHIMPS PROCESS ========= *}
 
     {if isset($smarty.get.action) && $smarty.get.action =="update"}
-		<div class="text-center text-confirmation-update">Vos informations ont été mises à jour avec succès.</div>
+		<div class="text-center text-confirmation-update" style="display:none; color:green;">Vos informations ont été mises à jour avec succès.</div>
 	{/if}
     <div class="container">
     <div class="row addresses-lists">
