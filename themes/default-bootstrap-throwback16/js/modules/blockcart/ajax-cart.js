@@ -29,25 +29,36 @@ $(document).ready(function(){
 	/* roll over cart */
 	var cart_block = new HoverWatcher('#header .cart_block');
 	var shopping_cart = new HoverWatcher('#header .shopping_cart');
-	var is_touch_enabled = false;
+	var is_touch_enabled = true;
+	var is_touch_Mobile = window.matchMedia("only screen and (max-width: 992px)");
+
+		// console.log('test');
+
 
 	if ('ontouchstart' in document.documentElement)
 		is_touch_enabled = true;
+
+			console.log('test');
+
 
 	$(document).on('click', '#header .shopping_cart > a:first', function(e){
 		e.preventDefault();
 		e.stopPropagation();
 
+						console.log('test 2');
 		// Simulate hover when browser says device is touch based
-		if (is_touch_enabled)
+		if (is_touch_enabled && !is_touch_Mobile.matches)
 		{
-			if ($(this).next('.cart_block:visible').length && !cart_block.isHoveringOver())
-				$("#header .cart_block").stop(true, true).slideUp(450);
-			else if (ajaxCart.nb_total_products > 0 || parseInt(basket_quantity) > 0)
-				$("#header .cart_block").stop(true, true).slideDown(450);
-			else
-				window.location.href = $(this).attr('href');
-			return;
+			// Desaciver le layer sur mobile
+
+				if ($(this).next('.cart_block:visible').length && !cart_block.isHoveringOver())
+					$("#header .cart_block").stop(true, true).slideUp(450);
+				else if (ajaxCart.nb_total_products > 0 || parseInt(basket_quantity) > 0)
+					$("#header .cart_block").stop(true, true).slideDown(450);
+				else
+					window.location.href = $(this).attr('href');
+				return;
+
 		}
 		else
 			window.location.href = $(this).attr('href');
@@ -862,6 +873,7 @@ var ajaxCart = {
 
 function HoverWatcher(selector)
 {
+
 	this.hovering = false;
 	var self = this;
 
