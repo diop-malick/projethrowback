@@ -147,7 +147,7 @@ function ajaxAddressSetup()
 							async: true,
 							cache: false,
 							dataType : "json",
-							url: $form.attr('action') +  '&ajax=true&submitAddress=true' ,
+							url: $form.attr('action') +  '?ajax=true&submitAddress=true' ,
 							data : $form.serialize(),							
 							success: function(data) {								
 								if(data.formatedAddressFieldsValuesList){
