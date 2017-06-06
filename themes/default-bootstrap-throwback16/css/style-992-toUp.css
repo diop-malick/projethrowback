@@ -26,6 +26,14 @@
     header .row #header_logo {
         margin-top: -65px !important;
     }
+    .sf-menu > li > ul > li > a {
+        font-size: 13px !important;
+    }
+    .sf-menu > li > ul {
+width: 30% !important;
+right: 15px !important;
+    left: auto !important; 
+    }
 }
 
 
