@@ -12,7 +12,7 @@
 {/capture}
 
 {if isset($confirmation) && $confirmation}
-        <script>window.location="{$link->getPageLink('my-account', true)}";</script>
+        <script>window.location="{$link->getPageLink('my-account', true)}?action=update";</script>
     {else}
 
 <!--{$smarty.get.action}-->

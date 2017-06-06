@@ -33,7 +33,7 @@
 <!--
 <p class="alert alert-success">{l s='Your password has been successfully reset and a confirmation has been sent to your email address:'} {if isset($customer_email)}{$customer_email|escape:'html':'UTF-8'|stripslashes}{/if}</p>
 -->
-	<form action="{$request_uri|escape:'html':'UTF-8'}" method="post" class="std" id="form_newpassword">
+	<form action="{$request_uri}" method="post" class="std" id="form_newpassword">
 	<fieldset>
 		<div class="form-group row">
 			<label for="email" class="col-md-4 text-right">{l s='Email address'}</label>

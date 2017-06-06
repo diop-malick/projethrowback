@@ -68,28 +68,6 @@ class PasswordController extends PasswordControllerCore
                     }
                 }
             }
-        } elseif (($token = Tools::getValue('token')) && ($id_customer = (int)Tools::getValue('id_customer')) && ($link_secure = Tools::getValue('link'))) {
-
-            $email = Db::getInstance()->getValue('SELECT `email` FROM '._DB_PREFIX_.'customer c WHERE c.`secure_key` = \''.pSQL($token).'\' AND c.id_customer = '.(int)$id_customer.' AND c.link_active = 0 AND c.link_secure = \''.pSQL($link_secure).'\'' );
-            if ($email) {
-                $customer = new Customer();
-                $customer->getByemail($email);
-                if (!Validate::isLoadedObject($customer)) {
-                    $this->errors[] = Tools::displayError('Customer account not found');
-                } elseif (!$customer->active) {
-                    $this->errors[] = Tools::displayError('You cannot regenerate the password for this account.');
-                } elseif ((strtotime($customer->last_passwd_gen.'+'.($min_time = (int)Configuration::get('PS_PASSWD_TIME_FRONT')).' minutes') - time()) > 0) {
-                    //Tools::redirect('index.php?controller=authentication&error_regen_pwd');
-                    $this->errors[] = Tools::displayError("Le lien n'est plus valable");
-                } else {
-                			$this->changeLink($token , $id_customer , 1);
-                            $this->context->smarty->assign(array('confirmation' => 1, 'customer_email' => $customer->email));
-                }
-            } else {
-              		 $this->errors[] = Tools::displayError("Le lien n'est pas valable.");
-            }
-        } elseif (Tools::getValue('token') || Tools::getValue('id_customer')) {
-            $this->errors[] = Tools::displayError('We cannot regenerate your password with the data you\'ve submitted.');
         }
         elseif(Tools::isSubmit('email_exist')){
             if (!($email = trim(Tools::getValue('email_exist'))) || !Validate::isEmail($email)) 
@@ -126,6 +104,32 @@ class PasswordController extends PasswordControllerCore
                     
                     }
         }
+        
+         elseif (($token = Tools::getValue('token')) && ($id_customer = (int)Tools::getValue('id_customer')) && ($link_secure = Tools::getValue('link'))) {
+
+            $email = Db::getInstance()->getValue('SELECT `email` FROM '._DB_PREFIX_.'customer c WHERE c.`secure_key` = \''.pSQL($token).'\' AND c.id_customer = '.(int)$id_customer.' AND c.link_active = 0 AND c.link_secure = \''.pSQL($link_secure).'\'' );
+            if ($email) {
+                $customer = new Customer();
+                $customer->getByemail($email);
+                if (!Validate::isLoadedObject($customer)) {
+                    $this->errors[] = Tools::displayError('Customer account not found');
+                } elseif (!$customer->active) {
+                    $this->errors[] = Tools::displayError('You cannot regenerate the password for this account.');
+                } elseif ((strtotime($customer->last_passwd_gen.'+'.($min_time = (int)Configuration::get('PS_PASSWD_TIME_FRONT')).' minutes') - time()) > 0) {
+                    //Tools::redirect('index.php?controller=authentication&error_regen_pwd');
+                    $this->errors[] = Tools::displayError("Le lien n'est plus valable");
+                } else {
+                			$this->changeLink($token , $id_customer , 1);
+                            $this->context->smarty->assign(array('confirmation' => 1, 'customer_email' => $customer->email));
+                }
+            } else {
+              		 $this->errors[] = Tools::displayError("Le lien n'est pas valable.");
+            }
+        } 
+        elseif (Tools::getValue('token') || Tools::getValue('id_customer')) {
+            $this->errors[] = Tools::displayError('We cannot regenerate your password with the data you\'ve submitted.');
+        }
+        
     }
 
 }
