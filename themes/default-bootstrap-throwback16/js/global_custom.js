@@ -125,6 +125,12 @@ $(document).ready(function() {
 });
 
 
+
+setTimeout(function(){
+  $('.text-confirmation-update').remove();
+}, 15000);
+
+
 function fullPage() {
     $('#left_column').hide().css("position", "static");
     $('#center_column').removeClass('col-md-9').addClass('col-md-12').css("float", "left");
