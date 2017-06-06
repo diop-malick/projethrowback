@@ -908,6 +908,16 @@ input[readonly] {
 
 .simplified-header {
     color: #000;
+/*        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;*/
+}
+.simplified-header .container {
+
+}
+#identification {
+  /*margin-top: 40px;*/
 }
 
 .simplified-header .simplified-logo {
