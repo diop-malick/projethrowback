@@ -48,6 +48,7 @@ FP
 #quantity_wanted_p div label {
     width: 100% !important;
     margin-bottom: 5px;
+    text-align: left;
 } 
     .pb-left-column {
         z-index: 1000;

@@ -138,6 +138,7 @@
 						</div>
 					</div>
 
+
 					<!-- Mobile Search  -->
 					<div class="clearfix"></div>
 					<div class="col-xs-12 visible-xs-search-mobile" style="display:none; height: 50px; margin-top: 15px;">
@@ -151,7 +152,7 @@
 									<input type="hidden" name="controller" value="search" />
 									<input type="hidden" name="orderby" value="position" />
 									<input type="hidden" name="orderway" value="desc" />
-									<input class="search_query form-control grey" type="text" id="search_query_block" name="search_query" value="" autofocus/>
+									<input class="search_query form-control grey" type="text" placeholder="Recherche" id="search_query_block" name="search_query" value="{$search_query|escape:'html':'UTF-8'|stripslashes}" autofocus/>
 									<button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
 								</div>
 							</div>
