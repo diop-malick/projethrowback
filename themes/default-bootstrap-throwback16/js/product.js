@@ -475,6 +475,11 @@ $(document).on('click', '.attribute_radio', function(e){
 	// CUSTOM RADIO ATTRIBUTE
 	$('#attributes .attribute_list ul li').removeClass('checked_li');
 	$('#attributes .attribute_list ul li').has('span.checked').addClass('checked_li');
+
+	//Init à qty à 1
+		fieldName = 'qty';
+		$('input[name='+fieldName+']').val(1);
+		$('#quantity_wanted').change();
 });
 
 $(document).on('click', 'button[name=saveCustomization]', function(e){
