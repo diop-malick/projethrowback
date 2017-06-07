@@ -496,95 +496,28 @@
 											<!-- TAILLE  -->
 											{elseif ($group.group_type == 'radio')}
 
-{* SIZE CONVERTER *}
-{if $lang_iso=='en'}
-<div class="size-converter-wrapper row-fluid" id="size-converter-wrapper">
-<a class="btn text-center white-bg" id="size-converter-eu" href="#product_tabs_options">EU</a>
-<a class="btn text-center white-bg" id="size-converter-us" href="#product_tabs_options">US</a>
-<a class="btn text-center white-bg" id="size-converter-uk" href="#product_tabs_options">UK</a>
-<a class="btn text-center white-bg" id="size-converter-cm" href="#product_tabs_options">CM</a>
-<a href="#" data-toggle="popover" data-placement="top" data-trigger="focus" title="Size converter">Size Table ?</a>
-</a>
-</div>
-<div id="popover_content_wrapper" style="display: none">
-  {* <pre>{$group.attributes|@print_r}</pre> *}
-  {foreach from=$group.attributes key=id_attribute item=group_attribute}
-  	<pre>{$group_attribute|escape:'html':'UTF-8'}</pre>
-  {/foreach}
-</div>
-{/if}
+														{* SIZE CONVERTER *}
 
-{literal}
-<script language=javascript>
-<!--
-$(document).ready(function(){
-	$('[data-toggle="popover"]').popover({ 
-    html : true,
-    content: function() {
-      return $('#popover_content_wrapper').html();
-    }
-  }); 
-
-	$("#size-converter-eu").click(function(e){
-	    e.preventDefault();
-	    $(".hide_size").hide();
-	    $(".eu_size").show();
-	});
-	$("#size-converter-us").click(function(e){
-	    e.preventDefault();
-	    $(".hide_size").hide();
-	    $(".us_size").show();
-	});
-	$("#size-converter-uk").click(function(e){
-	    e.preventDefault();
-	    $(".hide_size").hide();
-	    $(".uk_size").show();
-	});
-	$("#size-converter-cm").click(function(e){
-	    e.preventDefault();
-	    $(".hide_size").hide();
-	    $(".cm_size").show();
-	});
-});
-// -->
-</script>
-{/literal}
-
-<style type="text/css">
- {literal}
-.popover.top {
-    width: 350px;
-}
- .popover-content {
- 	width: 100%;
- }
-  #size-converter-wrapper a {
-    padding: 0;
-    margin: 0 10px 0 0;
-    text-decoration: underline !important;
-}
-#size-converter-wrapper a:hover {
-	color: rgb(214, 157, 50) !important;
-	}
-#size-converter-wrapper .red {
-    color: #000 !important;
-}
-#size-converter-wrapper {
-    left: 0;
-}
-.row-fluid:before, .row-fluid:after {
-    display: table;
-    content: "";
-}
-.row-fluid {
-    width: 100%;
-}
-{/literal}
-</style>
+														<div class="size-converter-wrapper row-fluid" id="size-converter-wrapper">
+															<a class="btn text-center white-bg" id="size-converter-eu" href="#product_tabs_options">EU</a>
+															<a class="btn text-center white-bg" id="size-converter-us" href="#product_tabs_options">US</a>
+															<a class="btn text-center white-bg" id="size-converter-uk" href="#product_tabs_options">UK</a>
+															<a class="btn text-center white-bg" id="size-converter-cm" href="#product_tabs_options">CM</a>
+															<a href="#" data-toggle="popover" data-placement="top" data-trigger="focus" title="Size converter">Size Table ?</a>
+															</a>
+														</div>
+														<div id="popover_content_wrapper" style="display: none">
+															{* <pre>{$group.attributes|@print_r}</pre> *}
+															{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																<pre>{$group_attribute|escape:'html':'UTF-8'}</pre>
+															{/foreach}
+														</div>
 
 														<ul>
 															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+															
 																{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																
 																<li>
 																	<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																	<label for="radio_{$id_attribute|intval}">
@@ -595,7 +528,7 @@ $(document).ready(function(){
 																				{$someVar[0]|escape:'html':'UTF-8'}
 																				{if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
 																		{else}						
-																			{assign var=size_keywords value="/"|explode:$group_attribute}
+																			{assign var=size_keywords value=" / "|explode:$group_attribute}
 																			<span class="hide_size eu_size" style="display: none;">
 																				{if isset($size_keywords[0])}
 																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
@@ -626,7 +559,7 @@ $(document).ready(function(){
 										              			{if isset($size_keywords[3])}
 																					{assign var=size_keywords_cm_trimed value=$size_keywords[3]|trim}
 																					{assign var=size_keywords_cm value=" "|explode:$size_keywords_cm_trimed}
-																					{$size_keywords_cm[0]|truncate:2:'':true|escape:'html':'UTF-8'}
+																					{$size_keywords_cm[0]|substr:0:-2|escape:'html':'UTF-8'}
 																				{/if}
 										              		</span>             		
 										              		{/if}

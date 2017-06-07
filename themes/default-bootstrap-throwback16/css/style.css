@@ -1486,5 +1486,37 @@ button.accordion.active:after {
     margin: 0 0 27px;
 }
 
+/*******************************************************
+               Convert Taille
+********************************************************/
+
+.popover.top {
+    width: 350px;
+}
+ .popover-content {
+ 	width: 100%;
+ }
+  #size-converter-wrapper a {
+    padding: 0;
+    margin: 0 10px 0 0;
+    text-decoration: underline !important;
+}
+#size-converter-wrapper a:hover {
+	color: rgb(214, 157, 50) !important;
+	}
+#size-converter-wrapper .red {
+    color: #000 !important;
+}
+#size-converter-wrapper {
+    left: 0;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    content: "";
+}
+.row-fluid {
+    width: 100%;
+}
+
 
 /*# sourceMappingURL=style.css.map */
