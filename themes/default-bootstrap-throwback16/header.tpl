@@ -54,7 +54,7 @@
 
 		 {addJsDef page_confirm=$link->getCMSLink('21', 'confirmation-newsletter')}
 		 {addJsDefL name='deja_client'}{l s='Vous êtes déjà abonné à notre newsletter'}{/addJsDefL}
-		 {addJsDefL name='succes_creation'}{l s='Votre compte a été créé avec succès.'}{/addJsDefL}
+		 {addJsDefL name='succes_creation'}{l s='Votre compte a été créé avec succès. Vous avez presque terminé votre inscription à la newsletter.'}{/addJsDefL}
 
 	</head>
 	<body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">

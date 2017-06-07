@@ -19,12 +19,14 @@ $(document).ready(function() {
     $( ".quantity_"+line ).hide();
     $( ".attributes_to_modify_"+line ).hide();
     $( ".buttons_line_"+line ).hide();
+    $("#edit-"+line+" i").addClass('icone-active');
 }
 function showElemntsToModify(line) {
     $( ".attributes_line_"+line ).hide();
     $( ".quantity_"+line ).show();
     $( ".attributes_to_modify_"+line ).show();
     $( ".buttons_line_"+line ).show();
+    $("#edit-"+line+" i").removeClass('icone-active');
 }
 
     // TODO - to delete if ajax update not enabled
@@ -117,6 +119,14 @@ function showElemntsToModify(line) {
     /* ********************************************************************* 
 	* Edit product LINE
 	* ********************************************************************* */
+    var oldline=0;
+    function setOldLine(line) {
+        oldline=line;
+    }
+    function getOldLine() {
+       return oldline;
+    }
+
     $(".edit a").on("click", function(e) {
         e.preventDefault();
         var id_line = $(this).attr('id');
@@ -125,6 +135,8 @@ function showElemntsToModify(line) {
         var id_line_product_attr = id_edit[2];
         var quantity_current = parseInt($("#quantity_wanted_" + line).val());
 
+        hideElemntsToModify(getOldLine());
+        setOldLine(line);
         showElemntsToModify(line);
         lightSelectedElementAttribute(line, id_line_product_attr);
 
