@@ -3,10 +3,40 @@
   EXTRA SMALL & SMALL
 ************************************************************/
 
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* RESPONSIVE - COMMON - XS & SM - up to 992px
+|* EXTRA SMALL & SMALL
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
 @media (max-width: 991px) {
-    header .header-top-row {
-    
+
+    #search_block_top {
+    /*display: block !important;*/
+    /*width: 400px !important;*/
+    position: absolute;
+    top: 60px;
+    -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    z-index: 5000;
+    box-shadow: 0 1px 9px 4px rgb(189, 183, 171), 0 0 17px 3px rgb(214, 157, 50);
+    background-color: #fff;
 }
+#searchbox .form-control:focus {
+     box-shadow: none !important; 
+}
+#search_block_top #search_query_top {
+        /*height: 50px;*/
+}
+
+
+.search_on_mobile {
+    display: none;
+}
+
 header .row > .container {
     position: relative;
     padding-right: 0px !important;

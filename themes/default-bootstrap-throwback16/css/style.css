@@ -309,11 +309,11 @@ div.form-error ul li {
         z-index: 1000;
     }
     #menu_and_serach,
-    #search_block_top .fa {
+    #search_block_top_mobile .fa {
         margin-top: 2px;
     }
     .menu_vertical_mobile,
-    #search_block_top,
+    #search_block_top_mobile,
     .header_user_info,
     #mobil_blockcart {
         height: 30px !important;
@@ -1455,8 +1455,14 @@ button.accordion.active:after {
     font-weight: bold !important;
 }
 
+@media (min-width: 480px) {
 #breadcrumb_product {
-    margin-left: -1.28em !important;
+      margin-left: -1.28em !important;
+
+}
+}
+
+#breadcrumb_product {
     padding: 0 !important;
 }
 

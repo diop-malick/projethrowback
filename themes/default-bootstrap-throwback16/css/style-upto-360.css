@@ -9,6 +9,10 @@
     width: 320px !important;
 }
 
+#search_block_top {
+     width: 320px !important;
+         left: 15px;
+    }
 
 
 
