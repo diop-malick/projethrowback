@@ -19,12 +19,14 @@ $(document).ready(function() {
     $( ".quantity_"+line ).hide();
     $( ".attributes_to_modify_"+line ).hide();
     $( ".buttons_line_"+line ).hide();
+    $("#edit-"+line+" i").addClass('icone-active');
 }
 function showElemntsToModify(line) {
     $( ".attributes_line_"+line ).hide();
     $( ".quantity_"+line ).show();
     $( ".attributes_to_modify_"+line ).show();
     $( ".buttons_line_"+line ).show();
+    $("#edit-"+line+" i").removeClass('icone-active');
 }
 
     // TODO - to delete if ajax update not enabled
