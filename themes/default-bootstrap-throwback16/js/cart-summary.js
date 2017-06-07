@@ -117,6 +117,14 @@ function showElemntsToModify(line) {
     /* ********************************************************************* 
 	* Edit product LINE
 	* ********************************************************************* */
+    var oldline=0;
+    function setOldLine(line) {
+        oldline=line;
+    }
+    function getOldLine() {
+       return oldline;
+    }
+
     $(".edit a").on("click", function(e) {
         e.preventDefault();
         var id_line = $(this).attr('id');
@@ -125,6 +133,8 @@ function showElemntsToModify(line) {
         var id_line_product_attr = id_edit[2];
         var quantity_current = parseInt($("#quantity_wanted_" + line).val());
 
+        hideElemntsToModify(getOldLine());
+        setOldLine(line);
         showElemntsToModify(line);
         lightSelectedElementAttribute(line, id_line_product_attr);
 
