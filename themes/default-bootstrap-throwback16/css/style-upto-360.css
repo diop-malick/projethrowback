@@ -1,0 +1,15 @@
+/************************************************************
+  RESPONSIVE - COMMON - XS up to 360px
+  EXTRA SMALL galaxy s5
+************************************************************/
+
+@media (max-width: 361px) {
+   
+#thumbs_list {
+    width: 320px !important;
+}
+
+
+
+
+}
