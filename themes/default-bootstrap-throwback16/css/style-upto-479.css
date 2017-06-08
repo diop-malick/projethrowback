@@ -3,6 +3,11 @@
         width: 330px !important;
     }
 
+    #search_block_top {
+     width: 350px !important;
+         left: 15px;
+    }
+
 }
 
 
@@ -11,6 +16,20 @@ FP
 *********************************************************** */
 
 @media (max-width: 479px) {
+
+
+
+    #search_block_top #search_query_top {
+font-size: 15px;
+}
+#search_block_top .btn {
+    padding: 0 !important;
+}
+
+    #product .header-top-row {
+    margin-bottom: 0 !important;
+}
+
     header .row {}
     header #header_logo {
         margin-top: -78px !important;

@@ -138,27 +138,6 @@
 						</div>
 					</div>
 
-
-					<!-- Mobile Search  -->
-					<div class="clearfix"></div>
-					<div class="col-xs-12 visible-xs-search-mobile" style="display:none; height: 50px; margin-top: 15px;">
-						<form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox2">
-							<div class="col-xs-12 text-center ">
-								<label class="visible-sm" for="search_query_block">{l s='Rechercher un produit :' mod='blocksearch'}</label>
-							</div>
-							<div class="col-xs-12">
-							<div class="block_content clearfix">
-								<div class="conteneur">
-									<input type="hidden" name="controller" value="search" />
-									<input type="hidden" name="orderby" value="position" />
-									<input type="hidden" name="orderway" value="desc" />
-									<input class="search_query form-control grey" type="text" placeholder="Recherche" id="search_query_block" name="search_query" value="{$search_query|escape:'html':'UTF-8'|stripslashes}" autofocus/>
-									<button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
-								</div>
-							</div>
-							</div>
-						</form>
-					</div>
 					<!-- Mobile Menu  -->
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm visible-xs-menu-mobile">
 					{hook h='leftColumn' mod='blocktopmenu'}
