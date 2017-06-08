@@ -185,6 +185,11 @@ a.fancybox-nav {
 
 #thumbs_list li a.shown {
     background: #000000;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
 }
 
 #thumbs_list li a img {
