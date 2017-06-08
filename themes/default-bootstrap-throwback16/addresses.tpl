@@ -21,11 +21,11 @@
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-2 pull-right">
                           <div class="row">
-                            <div class="col-xs-6 text-right" style="padding: 0;">
+                            <div class="col-xs-6 text-right up-addr">
                               <a  class="edit" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}">
                                 <i class="fa fa-pencil-square-o icone-update icone-active " aria-hidden="true"></i></a>
                             </div>
-                            <div class="col-xs-6 text-left" style="padding-left: 5px;">
+                            <div class="col-xs-6 text-left del-addr">
                                 <a  class="cart_quantity_delete" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">X</a>
                             </div>
                         </div>
