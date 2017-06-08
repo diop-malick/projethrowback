@@ -1,7 +1,18 @@
+
+@media (min-width: 768px) {
+.simplified-header .aide {
+    font-size: 17px !important;
+}
+    .modal-dialog {
+        width: 400px !important;
+    }
+}
+
 /************************************************************
   RESPONSIVE - SMALL
   Small devices (tablets, 768px and up) 
 ************************************************************/
+
 
 @media (min-width: 768px) and (max-width: 991px) {
     
@@ -11,7 +22,7 @@
 
 
     #search_block_top {
-     width: 700px !important;
+     width: 650px !important;
     }
 #search_block_top #search_query_top {
 font-size: 20px;
@@ -87,7 +98,9 @@ font-size: 20px;
     }
     #order .columns-container #columns .row > div[class^="col-"] {
         padding-left: 0px !important;
+        padding-right: 0px !important;
     }
+
     #authentication #columns .order-step-row {
         margin-left: 0px !important;
         margin-right: 0px !important;
