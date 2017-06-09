@@ -280,7 +280,9 @@
 									<p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
 										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
-										<span class ="pve_petite "id="minimal_pve_price" style="display: none">{l s='A partir de '}</span>
+											{if ($product->base_price|floatval) != $product->price}
+										<span class ="pve_petite "id="minimal_pve_price" >{l s='A partir de '}</span><br>
+											{/if}
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
 												{if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}

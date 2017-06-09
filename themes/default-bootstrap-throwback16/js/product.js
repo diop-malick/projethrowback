@@ -388,13 +388,15 @@ $(window).bind('hashchange', function(){
 var element_availability_date =  document.getElementById('availability_date');
 var element_chrono_without_date =  document.getElementById('chrono_without_date');
 $(document).on('mouseover', '#add_to_cart', function(){
-	if(  ($(".btn").hasClass("disabled")) && (element_availability_date == null || element_chrono_without_date == null) ){
-		$(".info").addClass("error");
-		$(".info").html(message_choice_attribute)
-		}
-		else{
-				$(".info").removeClass("error");
-				$(".info").html("");
+	if ($("#add_to_cart .btn").hasClass("disabled")){
+		if(  ($(".btn").hasClass("disabled")) && (element_availability_date == null || element_chrono_without_date == null) ){
+			$(".info").addClass("error");
+			$(".info").html(message_choice_attribute)
+			}
+			else{
+					$(".info").removeClass("error");
+					$(".info").html("");
+			}
 		}
 });
 
@@ -480,6 +482,21 @@ $(document).on('click', '.attribute_radio', function(e){
 		fieldName = 'qty';
 		$('input[name='+fieldName+']').val(1);
 		$('#quantity_wanted').change();
+
+		 // A continuer
+		//console.log(typeof(ipa_selected));
+		var ipa_selected = $('#idCombination').val();
+		for (var i in combinations){
+			 ipa = Object.values(combinations[i])[0];
+			 price = Object.values(combinations[i])[3];
+				console.log($('#idCombination').val());
+				//console.log(typeof(ipa));
+				
+				if( ipa==parseInt(ipa_selected) ){
+					//console.log(ipa);
+					//break;
+				}	
+		}
 });
 
 $(document).on('click', 'button[name=saveCustomization]', function(e){

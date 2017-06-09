@@ -538,6 +538,10 @@ body {
     margin-top: 160px;
 }
 
+#new-products .columns-container{
+    margin-top: 180px;
+}
+
 #order .modal {
     margin-top: 200px;
 }
@@ -1436,6 +1440,7 @@ button.accordion.active:after {
 
 #breadcrumb_product {
     padding: 0 !important;
+    margin-top: 20px !important;
 }
 
 
