@@ -1908,11 +1908,9 @@ body .main .wp-caption > a {
 }
 
 .accueil {
-
-position:absolute;
-/*bottom:72px !important;*/
-bottom:59px !important;
-
+	position:absolute;
+	/*bottom:72px !important;*/
+	/*bottom:59px !important;*/
 }
 
 
