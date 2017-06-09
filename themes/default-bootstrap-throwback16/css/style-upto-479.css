@@ -8,6 +8,11 @@
          left: 15px;
     }
 
+    .ac_results {
+    width: 400px !important;
+    left: 10px !important;
+}
+
 }
 
 
@@ -17,6 +22,13 @@ FP
 
 @media (max-width: 479px) {
 
+    .header-top-row {
+    margin-bottom: 0 !important;
+}
+
+.ac_results {
+    width: 400px !important;
+}
 
 
     #search_block_top #search_query_top {
@@ -81,7 +93,7 @@ FP
     }
     #accordion {
         padding: 5px !important;
-        margin: 8px !important;
+        /*margin: 8px !important;*/
     }
     #rigth-row-3 > div > .row {
         margin: 8px !important;
@@ -190,6 +202,10 @@ PANIER
         top: 700px !important;
 }
    
+   .titre-panier {
+    margin-bottom: 20px !important;
+    margin-top: 0 !important;
+   }
 /* ************************************************************
 FOOTER
 *********************************************************** */
@@ -205,4 +221,22 @@ FOOTER
     nav #block_contact_infos span {
         font-size: 10px !important;
     }
+
+
+/* ************************************************************
+RECHERCHE
+*********************************************************** */
+#search_block_left {
+    border: 2px solid silver !important;;
+    margin: 2% !important;;
+    padding: 5% !important;
+}
+
+
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* END Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
 }

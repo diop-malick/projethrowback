@@ -20,6 +20,11 @@
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
+    #quantity_wanted_p input {
+        width: 30px !important;
+    }
+
     .sf-menu > li > a {
         font-size: 13px !important;
     }

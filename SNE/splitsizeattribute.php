@@ -30,7 +30,7 @@ Solution : trim -> explode -> trim
       <?php
     $groupattributes = array (
       "33" => "EUR 40 / US 7 / UK 6 / 25CM", 
-      "35" => "EUR 41 / US 8 / UK 7 / 26CM", 
+      "35" => "EUR 41.1/2 / US 8 / UK 7 / 26CM", 
       "37" => "EUR 42.5 / US 9 / UK 8 / 27CM"
       );
 
@@ -65,7 +65,9 @@ Solution : trim -> explode -> trim
               <input type="radio" id="<?php echo "radio_".$id_attribute; ?>" class="attribute_radio hidden" value="<?php echo $id_attribute; ?>" />
               <?php
                     // Remove slash délimiteurs              
-              list($eu_size, $us_size, $uk_size, $cm_size) = split('[/]', $group_attribute);
+              list($eu_size, $us_size, $uk_size, $cm_size) = split('[ / ]', $group_attribute);
+              list($eu_size, $us_size, $uk_size, $cm_size) = explode(" / ", $group_attribute);
+
 
               // Remove country identification
               list($eu_size_index, $eu_size_value) = preg_split('/\s+/', trim($eu_size));

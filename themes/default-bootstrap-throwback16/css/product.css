@@ -134,7 +134,7 @@ a.fancybox-nav {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #thumbs_list {
-        /*width: 294px;*/
+        width: 510px;
     }
 }
 
