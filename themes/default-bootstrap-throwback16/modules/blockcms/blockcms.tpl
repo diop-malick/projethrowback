@@ -107,7 +107,7 @@
 			{/if}
 			<li class="item">
 				<a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}" >
-							{l s='Retour'}
+							{l s='Services'}
 				</a>
 			</li>
 			<li class="item">
