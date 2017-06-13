@@ -121,8 +121,44 @@ $(document).ready(function() {
         }
     });
 
+    /*************************** Convert Taille **************************/
+
+    $('[data-toggle="popover"]').popover({ 
+        html : true,
+        content: function() {
+        return $('#popover_content_wrapper').html();
+        }
+    }); 
+
+	$("#size-converter-eu").click(function(e){
+	    e.preventDefault();
+	    $(".hide_size").hide();
+	    $(".eu_size").show();
+	});
+	$("#size-converter-us").click(function(e){
+	    e.preventDefault();
+	    $(".hide_size").hide();
+	    $(".us_size").show();
+	});
+	$("#size-converter-uk").click(function(e){
+	    e.preventDefault();
+	    $(".hide_size").hide();
+	    $(".uk_size").show();
+	});
+	$("#size-converter-cm").click(function(e){
+	    e.preventDefault();
+	    $(".hide_size").hide();
+	    $(".cm_size").show();
+	});
+
 
 });
+
+
+
+setTimeout(function(){
+  $('.text-confirmation-update').remove();
+}, 15000);
 
 
 function fullPage() {

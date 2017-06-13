@@ -55,18 +55,22 @@ function mce_success_cb(resp){
     $('#mce-success-response').hide();
     $('#mce-error-response').hide();
     if (resp.result=="success"){
-        window.location=page_confirm;
-        $('#mce-'+resp.result+'-response').show();
-        // $('#mce-'+resp.result+'-response').css('color', 'green');
-        
-        $('#mc_embed_signup_header').hide();
-        $('#mc_embed_signup .input-prepend').hide();
-        $('#mc_embed_signup .btn').hide();
 
-        $('#mce-'+resp.result+'-response').html(resp.msg);
-        $('#mc-embedded-subscribe-form').each(function(){
-            this.reset();
-        });
+        if (page_name=="my-account"){
+            $('#mce-'+resp.result+'-response').show();
+            // $('#mce-'+resp.result+'-response').css('color', 'green');
+            
+            $('#mc_embed_signup_header').hide();
+            $('#mc_embed_signup .input-prepend').hide();
+            $('#mc_embed_signup .btn').hide();
+
+            $('#mce-'+resp.result+'-response').html(succes_creation);
+            $('#mc-embedded-subscribe-form').each(function(){
+                this.reset();
+            });
+        }
+        else
+             window.location=page_confirm;
     } else {
         var index = -1;
         var msg;

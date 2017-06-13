@@ -23,8 +23,8 @@
 
 
 				<!-- MODULE Block search TOP -->
-				<div id="search_block_top" class="col-xs-6 col-sm-8 col-md-8 ">
-					<form class="hidden-xs hidden-sm" id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
+				<div id="search_block_top" class="col-xs-6 col-sm-8 col-md-8 search_on_mobile">
+					<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 						<input type="hidden" name="controller" value="search" />
 						<input type="hidden" name="orderby" value="position" />
 						<input type="hidden" name="orderway" value="desc" />
@@ -32,13 +32,13 @@
 						<button type="submit" name="submit_search" class="btn btn-default button-search" id="test">
 							<span>{l s='Search' mod='blocksearch'}</span>
 						</button>
-
 					</form>
+				</div>
 
-					<div class="visible-xs visible-sm mobile-icon">
+				<div id="search_block_top_mobile" class="col-xs-6 visible-xs visible-sm">
+				<div class="mobile-icon">
 						<i class="fa fa-search fa-2x" aria-hidden="true"></i>
-					</div>
-
+				</div>
 				</div>
 			</div>
 			<!-- /MODULE Block search TOP -->

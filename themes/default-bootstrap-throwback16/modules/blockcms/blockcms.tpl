@@ -105,6 +105,17 @@
 				</a>
 			</li>
 			{/if}
+			<li class="item">
+				<a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}" >
+							{l s='Services'}
+				</a>
+			</li>
+			<li class="item">
+				<a href="{$link->getCMSLink('12', 'mentions-legales')|escape:'html'}" >
+							{l s='Liens Légaux'}
+				</a>
+			</li>
+			{*
 			{foreach from=$cmslinks item=cmslink}
 				{if $cmslink.meta_title != ''}
 					<li class="item">
@@ -114,6 +125,7 @@
 					</li>
 				{/if}
 			{/foreach}
+			*}
 			{if isset($show_sitemap) && $show_sitemap}
 			<li>
 				<a href="{$link->getPageLink('sitemap')|escape:'html':'UTF-8'}" title="{l s='Sitemap' mod='blockcms'}">

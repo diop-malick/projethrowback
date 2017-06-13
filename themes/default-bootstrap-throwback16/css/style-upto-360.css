@@ -1,0 +1,24 @@
+/************************************************************
+  RESPONSIVE - COMMON - XS up to 360px
+  EXTRA SMALL galaxy s5
+************************************************************/
+
+@media (max-width: 361px) {
+   
+#thumbs_list {
+    width: 320px !important;
+}
+
+#search_block_top {
+     width: 320px !important;
+         left: 15px;
+    }
+
+    .ac_results {
+    width: 300px !important;
+    left: 10px !important;
+}
+
+
+
+}

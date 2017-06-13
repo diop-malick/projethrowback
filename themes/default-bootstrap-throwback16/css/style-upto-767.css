@@ -1,3 +1,31 @@
+@media (min-width: 480px) and (max-width: 768px) {
+    
+/************************** Adaptation pannier *******************/
+    .text-left-mobile {
+        text-align: left;
+    }
+    .text-center-mobile {
+        text-align: center;
+    }
+    .attribut-product {
+        margin-left: -70px !important;
+    }
+    .size_line {
+        /*border: none !important;*/
+    }
+    .command-product-name {
+        padding-left: 10px;
+    }
+    .price-line {
+        padding-right: 10px;
+    }
+    .groups-attribute {
+        margin-left: 15px;
+    }
+}
+
+
+
 @media (max-width: 767px) {
 #header_logo {
     text-align: center;
@@ -10,6 +38,11 @@
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
+
+    #search_block_top {
+     width: 500px !important;
+    }
+
     .title-identity {
         display: none;
     }

@@ -1,9 +1,35 @@
+
+@media (min-width: 768px) {
+.simplified-header .aide {
+    font-size: 17px !important;
+}
+    .modal-dialog {
+        width: 400px !important;
+    }
+}
+
 /************************************************************
   RESPONSIVE - SMALL
   Small devices (tablets, 768px and up) 
 ************************************************************/
 
+
 @media (min-width: 768px) and (max-width: 991px) {
+    
+    .mobile-icon {
+    padding: 10px !important;
+    }
+
+
+    #search_block_top {
+     width: 650px !important;
+    }
+#search_block_top #search_query_top {
+font-size: 20px;
+}
+#search_block_top .btn {
+    padding: 0 !important;
+}
     /* Header  */
     header #header_logo {
     margin-top: -81px !important;
@@ -13,7 +39,7 @@
         font-size: 10px !important;
     }
         .menu_vertical_mobile,
-    #search_block_top,
+    #search_block_top_mobile,
     .header_user_info,
     #mobil_blockcart {
         height: 50px !important;
@@ -72,7 +98,9 @@
     }
     #order .columns-container #columns .row > div[class^="col-"] {
         padding-left: 0px !important;
+        padding-right: 0px !important;
     }
+
     #authentication #columns .order-step-row {
         margin-left: 0px !important;
         margin-right: 0px !important;

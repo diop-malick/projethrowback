@@ -54,6 +54,7 @@
 
 		 {addJsDef page_confirm=$link->getCMSLink('21', 'confirmation-newsletter')}
 		 {addJsDefL name='deja_client'}{l s='Vous êtes déjà abonné à notre newsletter'}{/addJsDefL}
+		 {addJsDefL name='succes_creation'}{l s='Votre compte a été créé avec succès. Vous avez presque terminé votre inscription à la newsletter.'}{/addJsDefL}
 
 	</head>
 	<body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">
@@ -137,26 +138,6 @@
 						</div>
 					</div>
 
-					<!-- Mobile Search  -->
-					<div class="clearfix"></div>
-					<div class="col-xs-12 visible-xs-search-mobile" style="display:none; height: 50px; margin-top: 15px;">
-						<form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox2">
-							<div class="col-xs-12 text-center ">
-								<label class="visible-sm" for="search_query_block">{l s='Rechercher un produit :' mod='blocksearch'}</label>
-							</div>
-							<div class="col-xs-12">
-							<div class="block_content clearfix">
-								<div class="conteneur">
-									<input type="hidden" name="controller" value="search" />
-									<input type="hidden" name="orderby" value="position" />
-									<input type="hidden" name="orderway" value="desc" />
-									<input class="search_query form-control grey" type="text" id="search_query_block" name="search_query" value="" autofocus/>
-									<button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
-								</div>
-							</div>
-							</div>
-						</form>
-					</div>
 					<!-- Mobile Menu  -->
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm visible-xs-menu-mobile">
 					{hook h='leftColumn' mod='blocktopmenu'}

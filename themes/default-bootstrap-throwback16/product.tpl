@@ -280,7 +280,9 @@
 									<p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
 										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
-										<span class ="pve_petite "id="minimal_pve_price" style="display: none">{l s='A partir de '}</span>
+											{if ($product->base_price|floatval) != $product->price}
+										<span class ="pve_petite "id="minimal_pve_price" >{l s='A partir de '}</span><br>
+											{/if}
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
 												{if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
@@ -415,7 +417,7 @@
 						<!-- QUANTITY  -->
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							{if !$PS_CATALOG_MODE}
-									<div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+									<div id="quantity_wanted_p"{if !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<div class="row">
 												<label class="col-xs-4 col-sm-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
 												<div class="col-xs-8 col-sm-7">
@@ -495,15 +497,74 @@
 
 											<!-- TAILLE  -->
 											{elseif ($group.group_type == 'radio')}
+
+														{* SIZE CONVERTER *}
+
+														<div class="size-converter-wrapper row-fluid" id="size-converter-wrapper">
+															<a class="btn text-center white-bg" id="size-converter-eu" href="#product_tabs_options">EU</a>
+															<a class="btn text-center white-bg" id="size-converter-us" href="#product_tabs_options">US</a>
+															<a class="btn text-center white-bg" id="size-converter-uk" href="#product_tabs_options">UK</a>
+															<a class="btn text-center white-bg" id="size-converter-cm" href="#product_tabs_options">CM</a>
+															<a href="#" data-toggle="popover" data-placement="top" data-trigger="focus" title="Size converter">Size Table ?</a>
+															</a>
+														</div>
+														<div id="popover_content_wrapper" style="display: none">
+															{* <pre>{$group.attributes|@print_r}</pre> *}
+															{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																<pre>{$group_attribute|escape:'html':'UTF-8'}</pre>
+															{/foreach}
+														</div>
+
 														<ul>
 															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
+															
 																{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																
 																<li>
 																	<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																	<label for="radio_{$id_attribute|intval}">
-																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />
-																		{assign var=someVar value=" "|explode:$group_attribute}
-																		{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />		
+
+																		{if $lang_iso=='fr'}
+																				{assign var=someVar value=" "|explode:$group_attribute} 
+																				{$someVar[0]|escape:'html':'UTF-8'}
+																				{if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																		{else}						
+																			{assign var=size_keywords value=" / "|explode:$group_attribute}
+																			<span class="hide_size eu_size" style="display: none;">
+																				{if isset($size_keywords[0])}
+																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
+																					{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
+																					{assign var=size_keywords_eu_sup value="."|explode:$size_keywords_eu[1]}
+																					{$size_keywords_eu_sup[0]|escape:'html':'UTF-8'}
+																					{if isset($size_keywords_eu_sup[1])}<sup>{$size_keywords_eu_sup[1]|escape:'html':'UTF-8'}</sup> {/if}
+																				{/if}
+																			</span>
+
+																			<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {/if}>
+																				{if isset($size_keywords[1])}
+																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
+																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
+																					{$size_keywords_us[1]|escape:'html':'UTF-8'}
+																				{/if}
+																			</span>
+
+										              		<span class="hide_size uk_size" style="display: none;">
+										              			{if isset($size_keywords[2])}
+																					{assign var=size_keywords_uk_trimed value=$size_keywords[2]|trim}
+																					{assign var=size_keywords_uk value=" "|explode:$size_keywords_uk_trimed}
+																					{$size_keywords_uk[1]|escape:'html':'UTF-8'}
+																				{/if}
+										              		</span>
+
+										              		<span class="hide_size cm_size" style="display: none;">
+										              			{if isset($size_keywords[3])}
+																					{assign var=size_keywords_cm_trimed value=$size_keywords[3]|trim}
+																					{assign var=size_keywords_cm value=" "|explode:$size_keywords_cm_trimed}
+																					{$size_keywords_cm[0]|substr:0:-2|escape:'html':'UTF-8'}
+																				{/if}
+										              		</span>             		
+										              		{/if}
 																	</label>
 																</li>
 																{/foreach}
@@ -575,7 +636,7 @@
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
 						<div class="row box-cart-bottom">
-							<div {if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
+							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="btn exclusive">
 										<i class="material-icons shopping-cart" style="color:#fff; margin-top: -10px; margin-right: .625rem; line-height: inherit;"></i>

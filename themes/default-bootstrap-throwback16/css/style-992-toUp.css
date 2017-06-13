@@ -12,16 +12,32 @@
         color: #233434;
         text-align: justify;
     }
+    #columns {
+    padding-top: 23px !important;
+}
 }
 
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
+    #quantity_wanted_p input {
+        width: 30px !important;
+    }
+
     .sf-menu > li > a {
         font-size: 13px !important;
     }
     header .row #header_logo {
         margin-top: -65px !important;
+    }
+    .sf-menu > li > ul > li > a {
+        font-size: 13px !important;
+    }
+    .sf-menu > li > ul {
+width: 30% !important;
+right: 15px !important;
+    left: auto !important; 
     }
 }
 

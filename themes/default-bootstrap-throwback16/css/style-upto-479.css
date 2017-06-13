@@ -1,4 +1,47 @@
+@media (min-width: 362px) and (max-width: 479px) {
+    #thumbs_list {
+        width: 330px !important;
+    }
+
+    #search_block_top {
+     width: 350px !important;
+         left: 15px;
+    }
+
+    .ac_results {
+    width: 400px !important;
+    left: 10px !important;
+}
+
+}
+
+
+/* ***********************************************************
+FP
+*********************************************************** */
+
 @media (max-width: 479px) {
+
+    .header-top-row {
+    margin-bottom: 0 !important;
+}
+
+.ac_results {
+    width: 400px !important;
+}
+
+
+    #search_block_top #search_query_top {
+font-size: 15px;
+}
+#search_block_top .btn {
+    padding: 0 !important;
+}
+
+    #product .header-top-row {
+    margin-bottom: 0 !important;
+}
+
     header .row {}
     header #header_logo {
         margin-top: -78px !important;
@@ -33,10 +76,11 @@
 /* ***********************************************************
 FP
 *********************************************************** */
-    .pb-left-column #views_block {}
-    #thumbs_list {
-        width: 330px !important;
-    }
+#quantity_wanted_p div label {
+    width: 100% !important;
+    margin-bottom: 5px;
+    text-align: left;
+} 
     .pb-left-column {
         z-index: 1000;
     }
@@ -49,7 +93,7 @@ FP
     }
     #accordion {
         padding: 5px !important;
-        margin: 8px !important;
+        /*margin: 8px !important;*/
     }
     #rigth-row-3 > div > .row {
         margin: 8px !important;
@@ -113,7 +157,55 @@ FP
     #productscategory_list .product-image.product_image {
     	padding: 10px !important;
     }
+
    
+/* ************************************************************
+PANIER
+*********************************************************** */
+    .product-attribute-line {
+        padding: 0;
+    }
+    .product-attribute-line [class*="col-"] {
+     padding: 0;
+ }
+ .product-attribute-line .product_title {
+    margin-bottom: 10px !important;
+}
+#order .row_line_product {
+     padding:  0 !important;
+}
+.commande_title {
+    margin-top: 15px !important;
+}
+#quantity_wanted_p {
+    margin-bottom: 5px;
+}
+   #quantity_wanted_p input {
+    float: initial !important;
+
+   }
+   #quantity_wanted_p .btn.button-plus, #quantity_wanted_p .btn.button-minus {
+    float: none !important; 
+}
+
+    #header .cart_block {
+    /*width: 350px !important;
+    position: absolute;
+    left: auto;
+    right: 10px;
+    top: 37px;*/
+}
+#layer_cart {
+        width: 80% !important;
+        margin-right: 10% !important;
+    margin-left: 10% !important;
+        top: 700px !important;
+}
+   
+   .titre-panier {
+    margin-bottom: 20px !important;
+    margin-top: 0 !important;
+   }
 /* ************************************************************
 FOOTER
 *********************************************************** */
@@ -129,4 +221,22 @@ FOOTER
     nav #block_contact_infos span {
         font-size: 10px !important;
     }
+
+
+/* ************************************************************
+RECHERCHE
+*********************************************************** */
+#search_block_left {
+    border: 2px solid silver !important;;
+    margin: 2% !important;;
+    padding: 5% !important;
+}
+
+
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* END Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
 }

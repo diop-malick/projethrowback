@@ -309,11 +309,11 @@ div.form-error ul li {
         z-index: 1000;
     }
     #menu_and_serach,
-    #search_block_top .fa {
+    #search_block_top_mobile .fa {
         margin-top: 2px;
     }
     .menu_vertical_mobile,
-    #search_block_top,
+    #search_block_top_mobile,
     .header_user_info,
     #mobil_blockcart {
         height: 30px !important;
@@ -426,12 +426,16 @@ div.form-error ul li {
     /***** HEADER SIMPLIFIE *******************/
     .simplified-header .secure span,
     .simplified-header .aide {
-        font-size: 15px !important;
+        font-size: 13px !important;
     }
     .simplified-header span i.right {
         vertical-align: 0px;
         font-size: 1.5em;
         ;
+    }
+
+    #block_contact_infos {
+    font-size: 12px !important;
     }
     /***** SELFACRE  *******************/
     #authentication #center_column #equalheight > div {
@@ -532,6 +536,10 @@ body {
 #contact .columns-container,
 #search .columns-container {
     margin-top: 160px;
+}
+
+#new-products .columns-container{
+    margin-top: 180px;
 }
 
 #order .modal {
@@ -908,6 +916,16 @@ input[readonly] {
 
 .simplified-header {
     color: #000;
+/*        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;*/
+}
+.simplified-header .container {
+
+}
+#identification {
+  /*margin-top: 40px;*/
 }
 
 .simplified-header .simplified-logo {
@@ -1192,38 +1210,6 @@ input[readonly] {
 }
 
 
-/************************** Adaptation pannier *******************/
-
-@media (min-width: 768px) {
-    .modal-dialog {
-        width: 400px !important;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 768px) {
-    .text-left-mobile {
-        text-align: left;
-    }
-    .text-center-mobile {
-        text-align: center;
-    }
-    .attribut-product {
-        margin-left: -70px !important;
-    }
-    .size_line {
-        border: none !important;
-    }
-    .command-product-name {
-        padding-left: 10px;
-    }
-    .price-line {
-        padding-right: 10px;
-    }
-    .groups-attribute {
-        margin-left: 15px;
-    }
-}
-
 
 /*************************** panier vide ************************/
 
@@ -1445,9 +1431,16 @@ button.accordion.active:after {
     font-weight: bold !important;
 }
 
+@media (min-width: 480px) {
 #breadcrumb_product {
-    margin-left: -1.28em !important;
+      margin-left: -1.28em !important;
+
+}
+}
+
+#breadcrumb_product {
     padding: 0 !important;
+    margin-top: 20px !important;
 }
 
 
@@ -1474,6 +1467,38 @@ button.accordion.active:after {
 
 #addresses #center_column p.p-indent {
     margin: 0 0 27px;
+}
+
+/*******************************************************
+               Convert Taille
+********************************************************/
+
+.popover.top {
+    width: 350px;
+}
+ .popover-content {
+ 	width: 100%;
+ }
+  #size-converter-wrapper a {
+    padding: 0;
+    margin: 0 10px 0 0;
+    text-decoration: underline !important;
+}
+#size-converter-wrapper a:hover {
+	color: rgb(214, 157, 50) !important;
+	}
+#size-converter-wrapper .red {
+    color: #000 !important;
+}
+#size-converter-wrapper {
+    left: 0;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    content: "";
+}
+.row-fluid {
+    width: 100%;
 }
 
 

@@ -273,6 +273,8 @@ ul.sf-menu li li li.sfHover ul {
     padding: 0;
     width: 100%;
     background-color: #fff !important;
+    overflow: auto;
+    height: 70vh;
 }
 
 #left_column #block_top_menu .sf-menu > li {

@@ -6,9 +6,14 @@
     border: none;
 }
 
+@media (min-width: 992px) {
+   
 #search_block_top .btn {
     padding: 0 0 !important;
 }
+}
+
+
 
 
 /* Icone */
