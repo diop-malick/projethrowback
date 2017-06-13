@@ -525,13 +525,9 @@
 																	<label for="radio_{$id_attribute|intval}">
 																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />		
 
-																		{if $lang_iso=='fr'}
-																				{assign var=someVar value=" "|explode:$group_attribute} 
-																				{$someVar[0]|escape:'html':'UTF-8'}
-																				{if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
-																		{else}						
 																			{assign var=size_keywords value=" / "|explode:$group_attribute}
-																			<span class="hide_size eu_size" style="display: none;">
+																			
+																			<span class="hide_size eu_size" {if $lang_iso=='fr'} style="display: inline;" {else} style="display: none;" {/if}>
 																				{if isset($size_keywords[0])}
 																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
 																					{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
@@ -541,7 +537,7 @@
 																				{/if}
 																			</span>
 
-																			<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {/if}>
+																			<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {else} style="display: none;" {/if}>
 																				{if isset($size_keywords[1])}
 																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
 																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
@@ -564,7 +560,6 @@
 																					{$size_keywords_cm[0]|substr:0:-2|escape:'html':'UTF-8'}
 																				{/if}
 										              		</span>             		
-										              		{/if}
 																	</label>
 																</li>
 																{/foreach}

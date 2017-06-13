@@ -71,7 +71,7 @@
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
 
-							<!-- FALG chrono -->
+							<!-- FLAG chrono -->
 							{* get chrono caracteristique value *}
 							{foreach from=$product.features item=feature}
 									{if $feature.name eq 'Type de produit'}
@@ -80,13 +80,13 @@
 										{/if}
 									{/if}
 							{/foreach}
-							<!-- FALG Comming soon --> 
+							<!-- FLAG Comming soon --> 
 							{* comingsoon without date *}
 							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
 								{addJsDef comingsoonvalue=$comingsoonvalue}
 								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/chrono.png"/>
-							<!-- FALG New -->
-							<!-- FALG Comming soon -->
+							<!-- FLAG New -->
+							<!-- FLAG Comming soon -->
 							{elseif $product.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 								<img src="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}img/icones/chrono.png"/>
 							<!-- show new flag if date_add is not after now -->
@@ -183,6 +183,11 @@
 									</div>
 								</div>
 								{if isset($groups) && $groups}
+
+								{* <pre style="text-align: left;">
+								{$groups[$product.id_product]|print_r}
+								</pre> *}
+
 								<div class="row qv-size">
 									<ul class="text-center">
 										{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
@@ -190,9 +195,23 @@
 													{foreach from=$group.attributes key=id_attribute item=group_attribute}
 													<li {if ( isset($id_attribute) && $group.attributes_quantity[$id_attribute] <=0 )  } class="li_attribute_list disabled" {/if}>
 														<a href="{$product.link|escape:'html':'UTF-8'}">
-																{assign var=someVar value=" "|explode:$group_attribute}
+																{assign var=size_keywords value=" / "|explode:$group_attribute}																
 																<span class="size-list">
-																{if (isset($someVar[0])) } {$someVar[0]|escape:'html':'UTF-8'} {/if} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}	
+																{if $lang_iso=='fr'}
+																		{if isset($size_keywords[0])}
+																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
+																					{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
+																					{assign var=size_keywords_eu_sup value="."|explode:$size_keywords_eu[1]}
+																					{$size_keywords_eu_sup[0]|escape:'html':'UTF-8'}
+																					{if isset($size_keywords_eu_sup[1])}<sup>{$size_keywords_eu_sup[1]|escape:'html':'UTF-8'}</sup> {/if}
+																		{/if}
+																{else}
+																		{if isset($size_keywords[1])}
+																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
+																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
+																					{$size_keywords_us[1]|escape:'html':'UTF-8'}
+																		{/if}
+																{/if}	
 																</span>
 														</a>
 													</li>

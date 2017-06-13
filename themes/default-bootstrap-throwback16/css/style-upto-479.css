@@ -26,6 +26,10 @@ FP
     margin-bottom: 0 !important;
 }
 
+.fancybox-skin {
+/*padding: 5px;*/
+}
+
 .ac_results {
     width: 400px !important;
 }
