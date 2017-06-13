@@ -499,34 +499,36 @@
 											{elseif ($group.group_type == 'radio')}
 
 														{* SIZE CONVERTER *}
-
 														<div class="size-converter-wrapper row-fluid" id="size-converter-wrapper">
 															<a class="btn text-center white-bg" id="size-converter-eu" href="#product_tabs_options">EU</a>
 															<a class="btn text-center white-bg" id="size-converter-us" href="#product_tabs_options">US</a>
 															<a class="btn text-center white-bg" id="size-converter-uk" href="#product_tabs_options">UK</a>
 															<a class="btn text-center white-bg" id="size-converter-cm" href="#product_tabs_options">CM</a>
-															<a href="#" data-toggle="popover" data-placement="top" data-trigger="focus" title="Size converter">Size Table ?</a>
+															
+															{if $product->category == 'puma'}
+																{assign var="sizetable_brand" value='22'}
+															{elseif $product->category == 'adidas'}
+																{assign var="sizetable_brand" value='23'}
+															{elseif $product->category == 'nike'}
+																{assign var="sizetable_brand" value='24'}
+															{elseif $product->category == 'asics'}
+																 {assign var="sizetable_brand" value='25'}
+																 {else}
+																 	{assign var="sizetable_brand" value='26'}
+															{/if}
+															<a class="sizeTable-iframe" href="index.php?id_cms={$sizetable_brand}&controller=cms&content_only=1">Size Table</a>
 															</a>
 														</div>
-														<div id="popover_content_wrapper" style="display: none">
-															{* <pre>{$group.attributes|@print_r}</pre> *}
-															{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																<pre>{$group_attribute|escape:'html':'UTF-8'}</pre>
-															{/foreach}
-														</div>
-
+														{* <pre>{$group.attributes|@print_r}</pre> *}
 														<ul>
-															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->
-															
-																{foreach from=$group.attributes key=id_attribute item=group_attribute}
-																
+															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->															
+																{foreach from=$group.attributes key=id_attribute item=group_attribute}																
 																<li>
-																	<!-- <input type="radio" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" {if ($group.default == $id_attribute)} checked="checked"{/if} /> -->
 																	<label for="radio_{$id_attribute|intval}">
 																		<input type="radio" id="radio_{$id_attribute|intval}" class="attribute_radio hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}" />		
 
 																			{assign var=size_keywords value=" / "|explode:$group_attribute}
-																			
+
 																			<span class="hide_size eu_size" {if $lang_iso=='fr'} style="display: inline;" {else} style="display: none;" {/if}>
 																				{if isset($size_keywords[0])}
 																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
@@ -536,7 +538,6 @@
 																					{if isset($size_keywords_eu_sup[1])}<sup>{$size_keywords_eu_sup[1]|escape:'html':'UTF-8'}</sup> {/if}
 																				{/if}
 																			</span>
-
 																			<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {else} style="display: none;" {/if}>
 																				{if isset($size_keywords[1])}
 																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
@@ -544,7 +545,6 @@
 																					{$size_keywords_us[1]|escape:'html':'UTF-8'}
 																				{/if}
 																			</span>
-
 										              		<span class="hide_size uk_size" style="display: none;">
 										              			{if isset($size_keywords[2])}
 																					{assign var=size_keywords_uk_trimed value=$size_keywords[2]|trim}
@@ -552,7 +552,6 @@
 																					{$size_keywords_uk[1]|escape:'html':'UTF-8'}
 																				{/if}
 										              		</span>
-
 										              		<span class="hide_size cm_size" style="display: none;">
 										              			{if isset($size_keywords[3])}
 																					{assign var=size_keywords_cm_trimed value=$size_keywords[3]|trim}
