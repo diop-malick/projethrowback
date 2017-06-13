@@ -192,10 +192,49 @@
 
 																									<label for="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}">
 																									<input type="radio" id="{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}-{$id_attribute}" class="attribute_radio" name="{$groupName|escape:'html':'UTF-8'}" value="{$id_attribute}"
-																									{if ($group_attribute == $sizing)} checked="checked"{/if} />
-																									{assign var=someVar value=" "|explode:$group_attribute}
-																									{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
+																									{if ($group_attribute == $sizing)} checked="checked"{/if} />																									
+
+																									{assign var=size_keywords value=" / "|explode:$group_attribute}
+
+																									<span class="hide_size eu_size" {if $lang_iso=='fr'} style="display: inline;" {else} style="display: none;" {/if}>
+																										{if isset($size_keywords[0])}
+																											{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
+																											{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
+																											{assign var=size_keywords_eu_sup value="."|explode:$size_keywords_eu[1]}
+																											{$size_keywords_eu_sup[0]|escape:'html':'UTF-8'}
+																											{if isset($size_keywords_eu_sup[1])}<sup>{$size_keywords_eu_sup[1]|escape:'html':'UTF-8'}</sup> {/if}
+																										{/if}
+																									</span>
+
+																									<span class="hide_size us_size" {if $lang_iso=='en'} style="display: inline;" {else} style="display: none;" {/if}>
+																										{if isset($size_keywords[1])}
+																											{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
+																											{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
+																											{$size_keywords_us[1]|escape:'html':'UTF-8'}
+																										{/if}
+																									</span>
+
+																              		<span class="hide_size uk_size" style="display: none;">
+																              			{if isset($size_keywords[2])}
+																											{assign var=size_keywords_uk_trimed value=$size_keywords[2]|trim}
+																											{assign var=size_keywords_uk value=" "|explode:$size_keywords_uk_trimed}
+																											{$size_keywords_uk[1]|escape:'html':'UTF-8'}
+																										{/if}
+																              		</span>
+
+																              		<span class="hide_size cm_size" style="display: none;">
+																              			{if isset($size_keywords[3])}
+																											{assign var=size_keywords_cm_trimed value=$size_keywords[3]|trim}
+																											{assign var=size_keywords_cm value=" "|explode:$size_keywords_cm_trimed}
+																											{$size_keywords_cm[0]|substr:0:-2|escape:'html':'UTF-8'}
+																										{/if}
+																              		</span> 
+
+																									
+
 																									</label>
+
+
 																								</li>
 																							{/foreach}
 																						</ul>
@@ -253,10 +292,24 @@
 														</div>
 														<div class="col-md-6 col-sm-6 col-xs-12">
 															<div class="size_line">
+															{assign var=size_keywords value=" / "|explode:$sizing}																
+																{if $lang_iso=='fr'}
+																		{if isset($size_keywords[0])}
+																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
+																					{assign var=size_keywords_eu value=" "|explode:$size_keywords_eu_trimed}
+																					{assign var=size_keywords_eu_sup value="."|explode:$size_keywords_eu[1]}
+																					{$size_keywords_eu_sup[0]|escape:'html':'UTF-8'}
+																					{if isset($size_keywords_eu_sup[1])}<sup>{$size_keywords_eu_sup[1]|escape:'html':'UTF-8'}</sup> {/if}
+																		{/if}
+																{else}
+																		{if isset($size_keywords[1])}
+																					{assign var=size_keywords_us_trimed value=$size_keywords[1]|trim}
+																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
+																					{$size_keywords_us[1]|escape:'html':'UTF-8'}
+																		{/if}
+																{/if}	
 
-																	{assign var=someVar value=" "|explode:$sizing}
-																	{$someVar[0]|escape:'html':'UTF-8'} {if isset($someVar[1])}<sup>{$someVar[1]|escape:'html':'UTF-8'}</sup> {/if}
-
+																{* <pre>{$sizing|print_r}</pre> *}
 
 																	{* <pre>{$product->attributes}</pre> *}
 																	{* <pre>{$product->attributes_small}</pre> *}

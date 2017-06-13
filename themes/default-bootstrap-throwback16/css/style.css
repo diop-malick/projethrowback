@@ -594,6 +594,9 @@ div.selector span {
 .footer-logo {
     margin: 0 auto;
 }
+#textSEO{
+	display: none;
+}
 
 
 /* social block */
