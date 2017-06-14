@@ -1027,8 +1027,8 @@ function updateCartSummary(json) {
         $('#total_product').html(formatCurrency(json.total_products, currencyFormat, currencySign, currencyBlank));
     else
         $('#total_product').html(formatCurrency(json.total_products_wt, currencyFormat, currencySign, currencyBlank));
-    $('#total_price').html(formatCurrency(json.total_price, currencyFormat, currencySign, currencyBlank));
-    $('#total_price_without_tax').html(formatCurrency(json.total_price_without_tax, currencyFormat, currencySign, currencyBlank));
+    $('#total_price').html(formatCurrency(json.total_products, currencyFormat, currencySign, currencyBlank));
+    $('#total_price_without_tax').html(formatCurrency(json.total_products_wt, currencyFormat, currencySign, currencyBlank));
     $('#total_tax').html(formatCurrency(json.total_tax, currencyFormat, currencySign, currencyBlank));
 
     $('.cart_total_delivery').show();
