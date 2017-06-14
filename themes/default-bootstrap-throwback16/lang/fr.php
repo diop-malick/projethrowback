@@ -2,7 +2,7 @@
 
 global $_LANG;
 $_LANG = array();
-$_LANG['404_44b1d05764b093cb00c25b8228cb87d3'] = 'Page introuvable';
+$_LANG['404_44b1d05764b093cb00c25b8228cb87d3'] = 'Oups, désolais!';
 $_LANG['404_6554aae881e40036cac1f5710a4c52c1'] = 'La page que vous avez demandée n\'existe plus.';
 $_LANG['404_8cf04a9734132302f96da8e113e80ce5'] = 'Accueil';
 $_LANG['404_9bec38acab82302a8cf6fbb9182da21f'] = 'Pour rechercher un produit, saisissez son nom dans le champ ci-dessous';

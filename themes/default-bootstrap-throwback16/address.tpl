@@ -92,7 +92,7 @@
 					<label for="address1" class="col-md-4 col-xs-12 text-right text-xs-left required">{l s='Numéro voie'} </label>
 					<div class="col-md-8 col-xs-12">
 
-					<input class="is_required validate form-control" data-validation="check_num_voie" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="is_required validate form-control" data-validation="check_num_voie" data-validation-error-msg="{l s='Merci de saisir un nombre avec 5 chiffres maximum.'}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -102,7 +102,7 @@
 					<label for="address2" class="col-md-4 col-xs-12 text-right text-xs-left required">{l s='Nom voie'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 					<div class="col-md-8 col-xs-12">
 
-					<input class="validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une adresse valide.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
+					<input class="validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une chaîne de caractère.'}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
 					</div>
 				</div>
 			{/if}
@@ -123,7 +123,7 @@
 					<label for="city" class="col-md-4 col-xs-12 text-right text-xs-left required">{l s='City'} </label>
 					<div class="col-md-8 col-xs-12" id="ville">
 
-					<input class="is_required validate form-control required" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
+					<input class="is_required validate form-control" data-validation="check_alpha_num" data-validation-error-msg="{l s='Merci de saisir une ville valide.'}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}"  />
 					</div>
 				</div>
 				{* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
@@ -284,15 +284,16 @@
 {/if}
 {/strip}
 <script>
-    $.validate({
-            lang : 'fr',
-            modules : 'file,html5,sanitize,toggleDisabled,security',
-            form : '#add_address'
-    });
-    $("#select-civility").focus();
-</script>
-<script>
-$("#select-civility").change(function() {
-    $("#company").val($(this).val());
-}).change(); // trigger once if needed
+
+		$.validate({
+				lang : 'fr',
+				modules : 'file,html5,sanitize,toggleDisabled,security',
+				form : '#add_address'
+		});
+		$("#select-civility").focus();
+
+		$("#select-civility").change(function() {
+			$("#company").val($(this).val());
+		}).change(); // trigger once if needed
+
 </script>
