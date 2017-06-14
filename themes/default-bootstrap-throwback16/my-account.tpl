@@ -89,7 +89,7 @@
 
                 <div class="myacount-block-container">
                 	<li class="col-sm-6 col-xs-12 col-md-6">
-                		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}&action=newsletter" title="{l s='Information'}">
+                		<a href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}?action=newsletter" title="{l s='Information'}">
                 			<div class="contenu">
                 				<span><i class="fa fa-envelope"></i></span>
                 				<span>{l s='Newsletter'}</span>
