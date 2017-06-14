@@ -372,7 +372,7 @@ div.form-error ul li {
         padding: inherit !important;
     }
     .footer-container {
-        height: 220px;
+        height: 250px;
     }
     #home-page-tabs #htmlcontent_home ul li {
         padding: 0;
@@ -463,9 +463,6 @@ div.form-error ul li {
     }
     .simplified-footer > div {
         padding: 5px !important;
-    }
-    .footer-container {
-        height: 130px !important;
     }
 }
 
