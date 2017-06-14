@@ -2442,7 +2442,7 @@ body .main .wp-caption > a {
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
 			width: 100% !important;
 			height: 500px;
-			margin-top: 10% !important;
+			margin-top: 5% !important;
 		}
 		.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 .lp-box-image {
 			height: 500px;
@@ -5009,7 +5009,7 @@ article.hentry .article-inner {
 
 @media (max-width: 360px) {
 	.nav-previous {
-		right: : 0 !important;
+		right: 0 !important;
 		left: 0 !important;
 	}
 
@@ -5025,7 +5025,11 @@ article.hentry .article-inner {
 		position: relative !important;
 		top:0 !important;
 		margin-top: 10px !important;
-	}  
+	} 
+
+	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
+			margin-top: 20% !important;
+		} 
 
 }
 
