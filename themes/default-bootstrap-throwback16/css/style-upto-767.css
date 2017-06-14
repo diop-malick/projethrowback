@@ -1,6 +1,10 @@
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* ------
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
 @media (min-width: 480px) and (max-width: 768px) {
-    
-/************************** Adaptation pannier *******************/
     .text-left-mobile {
         text-align: left;
     }
@@ -9,9 +13,6 @@
     }
     .attribut-product {
         margin-left: -70px !important;
-    }
-    .size_line {
-        /*border: none !important;*/
     }
     .command-product-name {
         padding-left: 10px;
@@ -25,24 +26,23 @@
 }
 
 
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* ------
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
 
 @media (max-width: 767px) {
-#header_logo {
-    text-align: center;
-}
-
-            header #header_logo {
-
+    #header_logo {
+        text-align: center;
     }
-
+    header #header_logo {}
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
-
     #search_block_top {
-     width: 500px !important;
+        width: 500px !important;
     }
-
     .title-identity {
         display: none;
     }
@@ -95,34 +95,34 @@
     }
 }
 
-/************************************************************
-  RESPONSIVE - EXTRA SMALL
-  Extra Small devices , for phones (< 768px)
-************************************************************/
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* RESPONSIVE - EXTRA SMALL 
+|* Extra Small devices , for phones (< 768px)
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
 @media (max-width: 768px) {
     #block-history,
     .bloc_adresses,
-    .my-account-selfcare.new-adress ,
+    .my-account-selfcare.new-adress,
     .my-account-selfcare,
     #authentication #columns .row#center_column,
     #authentication #columns .row#identification {
-         margin-left: 5px !important;
-          margin-right: 5px !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
     }
-
     #block-history,
     .bloc_adresses,
     .my-account-selfcare.new-adress {
         margin-top: 5px;
     }
-
     .simplified-header .row {
         margin-left: 0px;
         margin-right: 0px;
     }
-
     .simplified-header .vertical-center {
         margin-bottom: 0px;
     }
-
 }

@@ -1,44 +1,40 @@
-
 @media (min-width: 768px) {
-.simplified-header .aide {
-    font-size: 17px !important;
-}
+    .simplified-header .aide {
+        font-size: 17px !important;
+    }
     .modal-dialog {
         width: 400px !important;
     }
 }
+
 
 /************************************************************
   RESPONSIVE - SMALL
   Small devices (tablets, 768px and up) 
 ************************************************************/
 
-
 @media (min-width: 768px) and (max-width: 991px) {
-    
     .mobile-icon {
-    padding: 10px !important;
+        padding: 10px !important;
     }
-
-
     #search_block_top {
-     width: 650px !important;
+        width: 650px !important;
     }
-#search_block_top #search_query_top {
-font-size: 20px;
-}
-#search_block_top .btn {
-    padding: 0 !important;
-}
+    #search_block_top #search_query_top {
+        font-size: 20px;
+    }
+    #search_block_top .btn {
+        padding: 0 !important;
+    }
     /* Header  */
     header #header_logo {
-    margin-top: -81px !important;
+        margin-top: -81px !important;
     }
     .block_contact_infos {
         padding: 0 !important;
         font-size: 10px !important;
     }
-        .menu_vertical_mobile,
+    .menu_vertical_mobile,
     #search_block_top_mobile,
     .header_user_info,
     #mobil_blockcart {
@@ -51,7 +47,6 @@ font-size: 20px;
         border-right: 2px solid #B5BDC1 !important;
         text-align: center !important;
     }
-
     #header {
         position: relative;
     }
@@ -66,11 +61,10 @@ font-size: 20px;
     header .row #header_logo {
         margin-top: -58px !important;
     }
-        #header_logo .logo-throwback {
-            margin-right: 42.9%  !important;
-    margin-top: 33px  !important;
-        }
-
+    #header_logo .logo-throwback {
+        margin-right: 42.9% !important;
+        margin-top: 33px !important;
+    }
     header #header_logo {
         padding-left: 0 !important;
         padding-right: 0 !important;
@@ -100,7 +94,6 @@ font-size: 20px;
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-
     #authentication #columns .order-step-row {
         margin-left: 0px !important;
         margin-right: 0px !important;
@@ -113,9 +106,8 @@ font-size: 20px;
         border: 1px solid #c0c0c0;
         padding-top: 15px;
         height: 90px !important;
-margin-top: 15px !important;
+        margin-top: 15px !important;
     }
-    /*footer */
     #block_various_links_footer {
         text-align: left;
     }

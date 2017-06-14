@@ -8562,20 +8562,13 @@ table.table_block td {
     background: #fbfbfb;
 }
 
-/* Throwback > product container > customize name style */
 .product-name {
     font-size: 16px;
-    /* font-family: "Futura", Open Sans, sans-serif; */
-    
     line-height: 23px;
-    /*color: rgb(53, 53, 53);*/
     color: #777;
     font-weight: bold;
-    /* text-transform: uppercase; */
-    
-    line-height: 1.143;
+        line-height: 1.143;
     margin-bottom: 0;
-    /* z-index: 82; */
 }
 .product-name a {
     font-size: 17px;
@@ -8596,14 +8589,12 @@ table.table_block td {
     white-space: nowrap;
 }
 
-/* Throwback > product container > price style */
 .price.product-price {
     font-size: 16px;
     font-weight: 600;
     font-family: "Helvetica Neue", Open Sans, sans-serif;
-    color: rgb(214, 157, 50);
+    color: rgb(214, 157, 50) !important;
     line-height: 1;
-    /* z-index: 85; */
 }
 .old-price {
     color: #6f6f6f;
@@ -8618,7 +8609,6 @@ table.table_block td {
     -moz-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
     -webkit-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
     -ms-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
-    /* z-index: 103; */
 }
 .special-price {
     color: #f13340;

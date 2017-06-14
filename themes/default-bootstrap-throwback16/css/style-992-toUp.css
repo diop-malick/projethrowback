@@ -2,9 +2,8 @@
         RESPONSIVE - MEDIUM
         Medium devices (desktops, 992px and up) 
 ************************************************************/
-@media (min-width: 992px) {
 
-	/* footet   */
+@media (min-width: 992px) {
     #textSEO {
         font-size: 0.9em;
         font-family: lato, arial, sans-serif;
@@ -13,18 +12,14 @@
         text-align: justify;
     }
     #columns {
-    padding-top: 23px !important;
+        padding-top: 23px !important;
+    }
 }
-}
-
-
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
     #quantity_wanted_p input {
         width: 30px !important;
     }
-
     .sf-menu > li > a {
         font-size: 13px !important;
     }
@@ -35,9 +30,9 @@
         font-size: 13px !important;
     }
     .sf-menu > li > ul {
-width: 30% !important;
-right: 15px !important;
-    left: auto !important; 
+        width: 30% !important;
+        right: 15px !important;
+        left: auto !important;
     }
 }
 
@@ -47,9 +42,4 @@ right: 15px !important;
         Large devices (large desktops, 1200px and up)
 ************************************************************/
 
-@media (min-width: 1200px) {
-
-	
-}
-
-
+@media (min-width: 1200px) {}

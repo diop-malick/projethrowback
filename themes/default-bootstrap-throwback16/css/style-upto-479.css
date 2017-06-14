@@ -103,7 +103,6 @@ FP
     }
     #accordion {
         padding: 5px !important;
-        /*margin: 8px !important;*/
     }
     #rigth-row-3 > div > .row {
         margin: 8px !important;
@@ -194,13 +193,6 @@ PANIER
     #quantity_wanted_p .btn.button-minus {
         float: none !important;
     }
-    #header .cart_block {
-        /*width: 350px !important;
-position: absolute;
-left: auto;
-right: 10px;
-top: 37px;*/
-    }
     #layer_cart {
         width: 80% !important;
         margin-right: 10% !important;
@@ -240,7 +232,6 @@ RECHERCHE
 LIVRAISON
 *********************************************************** */
     #order [class*="col-"] {
-        /*padding: 0 !important;*/
         padding-left: 0 !important;
     }
     #order #carrier_area .wrapper {
@@ -265,10 +256,6 @@ LIVRAISON
     #order-opc .delivery_option > div > table.resume td.delivery_option_logo {
         display: none !important
     }
-    /*    #order .row > .container {
-    position: relative;
-    padding-right: 0px !important;
-}*/
     /* ------------------------------------------------------------ *\
 |* ------------------------------------------------------------ *|
 |* END Media Queries
