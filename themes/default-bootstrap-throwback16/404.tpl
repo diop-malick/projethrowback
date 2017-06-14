@@ -28,7 +28,7 @@
 	<p>
 		{l s='We\'re sorry, but the Web address you\'ve entered is no longer available.'}
 	</p>
-
+	{*
 	<h3>{l s='To find a product, please type its name in the field below.'}</h3>
 	<form action="{$link->getPageLink('search')|escape:'html':'UTF-8'}" method="post" class="std">
 		<fieldset>
@@ -39,6 +39,6 @@
 			</div>
 		</fieldset>
 	</form>
-
+	*}
 	<div class="buttons"><a class="btn btn-default button button-medium" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left left"></i>{l s='Continuer mon shopping'}</span></a></div>
 </div>
