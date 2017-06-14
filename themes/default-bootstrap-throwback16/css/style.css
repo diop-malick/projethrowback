@@ -1550,10 +1550,46 @@ button.accordion.active:after {
     text-align: center;
 }
 
+/*******************************************************
+               PANIER  
+********************************************************/
 
 
 #order #attributes .attribute_list .selector  select.attribute_select {
     width: 200px !important;
+}
+
+
+/*******************************************************
+               ZOne de push 
+********************************************************/
+
+.accessories-block .bx-wrapper .bx-pager.bx-default-pager a,
+#productscategory_list .bx-wrapper .bx-pager.bx-default-pager a {
+    background: #777 !important;
+}
+
+.accessories-block .bx-wrapper .bx-pager.bx-default-pager a.active,
+#productscategory_list .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: #000 !important;
+}
+
+.accessories-block .product-name a {
+    font-size: 15px;
+    line-height: 18px;
+    color: #3a3939;
+}
+
+.accessories-block .product-name a:hover {
+    color: #515151;
+}
+
+.accessories-block div ul li a {
+    display: inline-block;
+}
+.accessories-block div ul li.s_title_block a,
+.accessories-block div ul li.s_title_block span {
+    font-weight: 700;
 }
 
 
