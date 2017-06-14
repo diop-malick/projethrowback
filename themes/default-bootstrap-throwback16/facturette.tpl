@@ -79,11 +79,11 @@
 					{/if}
 					
 					<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande facturette-tc">
-						<div class="col-md-8">
+						<div class="col-md-8 col-xs-6">
 							<span class="command-product-name">{$name|escape:'html':'UTF-8'}</span>
 						</div>
 
-						<div class="col-md-4 text-right">
+						<div class="col-md-4 text-right col-xs-6">
 								{if !$priceDisplay}{displayPrice price=$product.total_wt}{else}{displayPrice price=$total}{/if}
 						</div>
 					</div>
