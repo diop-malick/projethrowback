@@ -2,9 +2,9 @@
 
 global $_LANG;
 $_LANG = array();
+$_LANG['404_0d4294e5c07e9434354b1adcfad83279'] = 'Continue shopping';
 $_LANG['404_44b1d05764b093cb00c25b8228cb87d3'] = 'This page is not available';
 $_LANG['404_6554aae881e40036cac1f5710a4c52c1'] = 'We\'re sorry, but the Web address you\'ve entered is no longer available.';
-$_LANG['404_7b19b37e7fc3dfe3c3e1ad5b84c7f565'] = 'Home page';
 $_LANG['404_8cf04a9734132302f96da8e113e80ce5'] = 'Home';
 $_LANG['404_9bec38acab82302a8cf6fbb9182da21f'] = 'To find a product, please type its name in the field below.';
 $_LANG['404_a60852f204ed8028c1c58808b746d115'] = 'Ok';
@@ -886,10 +886,8 @@ $_LANG['shopping-cart_b4f90d226d5212c67236540da6b5c2da'] = 'Last product added';
 $_LANG['shopping-cart_b55197a49e8c4cd8c314bc2aa39d6feb'] = 'Out of stock';
 $_LANG['shopping-cart_be73fba921ce637aff8f56bdc6f4d577'] = 'please, log in and add articles in your shopping cart.';
 $_LANG['shopping-cart_c03073cdd3296d7764d47b234f0c2414'] = 'Create your account';
-$_LANG['shopping-cart_d6bf6fa1b9ec58788836df2f1019cdb0'] = 'Your shopping cart contains:';
 $_LANG['shopping-cart_f2a6c498fb90ee345d997f888fce3b18'] = 'Delete';
 $_LANG['shopping-cart_f5bf48aa40cad7891eb709fcf1fde128'] = 'product';
-$_LANG['shopping-cart_ff578eb1d07934124f4b9339ecfd2bf6'] = 'Shopping-cart summary';
 $_LANG['sitemap_01f7ac959c1e6ebbb2e0ee706a7a5255'] = 'Best sellers';
 $_LANG['sitemap_042fe826ace5f92b2477da18b0e7d0b7'] = 'View a list of my discounts';
 $_LANG['sitemap_0dff7dbe97fdc822935db4663162b9b9'] = 'Manage your personal information';

@@ -3155,6 +3155,12 @@ class BlockLayered extends Module
 			)
 		);
 
+/* TODO - WARNING !!!!! MOVE IN Override - problem = when i move it, ajax call not work */
+		   /* Begin - TS - custom */
+    $groups = Size::getProductAttributeCombinations2($products , $this->context->language->id, $this->context->shop->id);
+    $this->context->smarty->assign('groups', $groups);
+    /* End - TS - custom */
+
 		// Prevent bug with old template where category.tpl contain the title of the category and category-count.tpl do not exists
 		if (file_exists(_PS_THEME_DIR_.'category-count.tpl'))
 			$category_count = $smarty->fetch(_PS_THEME_DIR_.'category-count.tpl');

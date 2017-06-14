@@ -79,6 +79,8 @@ blog/wp-config.php
 
 blog/wp-content/plugins/*
 
+blog/wp-content/*.log
+
 # blog/wp-content/advanced-cache.php
 # blog/wp-content/backup-db/**
 # blog/wp-content/backups/**
