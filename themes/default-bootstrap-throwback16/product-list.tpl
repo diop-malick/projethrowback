@@ -182,12 +182,10 @@
 										</span>
 									</div>
 								</div>
+
+								{* <pre>{$groups[$product.id_product]|print_r}</pre> *}
+								
 								{if isset($groups) && $groups}
-
-								{* <pre style="text-align: left;">
-								{$groups[$product.id_product]|print_r}
-								</pre> *}
-
 								<div class="row qv-size">
 									<ul class="text-center">
 										{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}

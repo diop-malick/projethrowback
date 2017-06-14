@@ -182,7 +182,15 @@
 
 																				<div class="attribute_list">
 
-																					{if ($group.group_type == 'radio')}
+																				{if ($group.group_type == 'select')}
+																				
+																					<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="form-control attribute_select no-print">
+																						{foreach from=$group.attributes key=id_attribute item=group_attribute}
+																							<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'html':'UTF-8'}">{$group_attribute|escape:'html':'UTF-8'}</option>
+																						{/foreach}
+																					</select>	
+																				
+																				{elseif ($group.group_type == 'radio')}
 																						<ul>
 																						<span class="btn" style="display: inherit;">
 																							{foreach from=$group.attributes key=id_attribute item=group_attribute}
@@ -292,7 +300,10 @@
 														</div>
 														<div class="col-md-6 col-sm-6 col-xs-12">
 															<div class="size_line">
-															{assign var=size_keywords value=" / "|explode:$sizing}																
+															{assign var=size_keywords value=" / "|explode:$sizing}
+															{if {$size_keywords|@count} == 1}
+																{$size_keywords[0]|escape:'html':'UTF-8'}
+															{else}
 																{if $lang_iso=='fr'}
 																		{if isset($size_keywords[0])}
 																					{assign var=size_keywords_eu_trimed value=$size_keywords[0]|trim}
@@ -307,10 +318,12 @@
 																					{assign var=size_keywords_us value=" "|explode:$size_keywords_us_trimed}
 																					{$size_keywords_us[1]|escape:'html':'UTF-8'}
 																		{/if}
-																{/if}	
+																{/if}																	
+															{/if}														
+																
 
 																{* <pre>{$sizing|print_r}</pre> *}
-
+																{* <pre>{$size_keywords|@count} </pre> *}
 																	{* <pre>{$product->attributes}</pre> *}
 																	{* <pre>{$product->attributes_small}</pre> *}
 																	{* <pre>{$product->stock_quantity}</pre> *}
