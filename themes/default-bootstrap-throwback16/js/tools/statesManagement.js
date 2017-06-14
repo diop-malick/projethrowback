@@ -87,9 +87,10 @@ function bindZipcode()
 	$(document).on('keyup', 'input[name^=postcode]', function(e)
 	{
 		var char = String.fromCharCode(e.keyCode);
+		/*
 		if (/[a-zA-Z]/.test(char))
 			$.trim($(this).val($(this).val().toUpperCase()));
-
+		*/
 		cp = $(this).val();
 		
 		var select = '<select class="is_required validate form-control" id="city" data-validation="check_alpha_num" data-validation-error-msg="Merci de saisir une ville valide."  name="city">';
@@ -128,6 +129,9 @@ function bindZipcode()
 					}
 		});
 	  }
+	  else{
+		  $("#city").attr("placeholder", "Merci de saisir votre ville.");
+	  }
 	});
 }
 
@@ -145,8 +149,8 @@ function bindStateInputAndUpdate()
 	$(document).on('change', '#id_country', function(e)
 	{
 		$("#postcode").empty().val('').focus();
-		$("#city").remove();
-		$("#ville").append(input);
+		//$("#city").remove();
+		//$("#ville").append(input);
 		updateState();
 		updateNeedIDNumber();
 		updateZipCode();

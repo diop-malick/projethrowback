@@ -80,7 +80,7 @@ $(document).ready(function() {
     $.formUtils.addValidator({
         name: 'check_name',
         validatorFunction: function(value) {
-            var regex = /^[a-zA-Zéèïçà^îù¨ê-]+[ \-']?[[a-zA-Zéèïçà^îù¨ê-]+$/;
+            var regex = /^[a-zA-Zéèïçà^îù¨'-ê ]+[ \-']?[[a-zA-Zéèïçà^îù¨'-ê ]+$/;
             return ((value.length >= 2 && value.length <= 28) && (regex.test(value)))
         }
     });
@@ -96,7 +96,7 @@ $(document).ready(function() {
     $.formUtils.addValidator({
         name: 'check_alpha_num',
         validatorFunction: function(value) {
-            return ((value.length >= 2 && value.length <= 38) && (value.toString().match(/^[A-Za-z0-9éèïçà^îù¨-ê-]+$/)))
+            return ((value.length >= 2 && value.length <= 38) && (value.toString().match(/^[A-Za-z0-9éèïçà^îù¨'-ê- ]+$/)))
         }
     });
     $.formUtils.addValidator({
