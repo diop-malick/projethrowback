@@ -118,7 +118,7 @@ function updateAddresses()
 			url: baseUri + '?rand=' + new Date().getTime(),
 			async: true,
 			cache: false,
-			dataType : "json",
+			dataType : "html",
 			data: {
 				processAddress: true,
 				step: 2,
