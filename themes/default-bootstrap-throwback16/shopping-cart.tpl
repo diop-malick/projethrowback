@@ -124,7 +124,7 @@
 									<div class="col-xs-3 col-sm-2 col-md-1 ">
 										<div class="row">
 											<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
-												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" href="javascript:void(0)"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" class="edit_a"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
 											</div>
 											<div class="col-md-6 col-xs-6 text-md-left text-xs-center delete" style="padding:0;">
 												<a
