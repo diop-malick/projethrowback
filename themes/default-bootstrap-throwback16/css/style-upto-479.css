@@ -74,9 +74,13 @@ font-size: 15px;
     }
     .tab-content h3.page-product-heading {
         margin-left: 10px;
+            margin-top: 10px;
     }
     #htmlcontent_home ul {}
 
+ul.product_list.grid > li .product-container {
+    margin-bottom: 0 !important;
+}
 /* ***********************************************************
 FP
 *********************************************************** */

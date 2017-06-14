@@ -90,10 +90,10 @@ header .row > .container {
         margin-top: 0 !important;
     }
     .rev_slider_wrapper {
-        height: 261px !important;
+        /*height: 261px !important;*/
     }
     .tp-simpleresponsive {
-        height: 261px !important;
+        /*height: 261px !important;*/
     }
     header .row #header_logo {
         /*padding-top: 40px;*/
