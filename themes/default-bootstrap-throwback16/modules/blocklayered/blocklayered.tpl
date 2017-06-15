@@ -97,10 +97,17 @@
 								{/if}
 							{else}
 								{if $filter.filter_type == 0}
+									{*
 									<label for="{$filter.type}">
 										{l s='' mod='blocklayered'}
 									</label> 
+									
 									<span id="layered_{$filter.type}_range"></span>
+									*}
+									<div class="row">
+											<div id="from" class="col-lg-6 col-xs-6 col-sm-6 col-md-6"> </div>
+											<div id="to" class="col-lg-6 col-xs-6 col-sm-6 col-md-6 text-right"></div>	
+									</div>
 									<div class="layered_slider_container">
 										<div class="layered_slider" id="layered_{$filter.type}_slider" data-type="{$filter.type}" data-format="{$filter.format}" data-unit="{$filter.unit}"></div>
 									</div>

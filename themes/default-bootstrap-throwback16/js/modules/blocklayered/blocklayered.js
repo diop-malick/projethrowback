@@ -224,7 +224,9 @@ function initSliders()
 				to = $('#layered_'+slider['type']+'_slider').slider('values', 1)+slider['unit'];
 				break;
 		}
-		$('#layered_'+slider['type']+'_range').html(from+' - '+to);
+		//$('#layered_'+slider['type']+'_range').html(from+' - '+to);
+		$('#from').html(from);
+		$('#to').html(to);
 	});
 }
 
