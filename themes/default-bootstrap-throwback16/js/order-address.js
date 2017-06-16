@@ -27,7 +27,7 @@ $(document).ready(function(){
 	
 	// hide laoder when select adresse change
 	 $('#addressesAreEquals').click(function(event) {
-	 	console.log("test");
+	 	//console.log("test");
 	 	$('.waitimage').hide();
 	 	$('#address_invoice_form .waitimage').show().delay(5000).hide(); 
 

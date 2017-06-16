@@ -142,7 +142,7 @@
 			        						{* ********************************************************
 											ADRESSE add btn
 										********************************************************* *}
-			        						<p class="address_add submit {if !isset($addresses) ||  $addresses|@count ge 3}hidden{/if}">
+			        						<p class="address_add submit {if $addresses|@count ge 3}hidden{/if}">
 												<a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button-exclusive btn btn-default cart_navigation_adresse">
 													<span>{l s='Ajouter une autre adresse'}</span>
 													{* Add a new address *}
