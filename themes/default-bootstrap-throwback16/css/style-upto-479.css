@@ -1,4 +1,26 @@
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* SMALL MOB Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+@media (max-width: 320px) {
+    #header_logo .logo-throwback {
+        margin-top: 40.2px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 361px) {
+    #header_logo .logo-throwback {
+        margin-top: 40.2px !important;
+    }
+}
+
 @media (min-width: 362px) and (max-width: 479px) {
+    #header_logo .logo-throwback {
+        margin-top: 40.2px !important;
+    }
     #thumbs_list {
         width: 330px !important;
     }
@@ -10,36 +32,27 @@
         width: 400px !important;
         left: 10px !important;
     }
-}
-
-@media (max-width: 320px) {
-    #header_logo .logo-throwback {
-        margin-top: 25px !important;
-        display: inline-block !important;
-        margin-right: 0 !important;
-    }
-}
-
-@media (min-width: 321px) and (max-width: 361px) {
-    #header_logo .logo-throwback {
-        margin-top: 25px !important;
-        display: inline-block !important;
-    }
-}
-
-@media (min-width: 362px) and (max-width: 479px) {
-    #header_logo .logo-throwback {
-        margin-top: 25px !important;
-        display: inline-block !important;
+    #languages-block-top div.current {
+        padding: 10px 15px 10px 10px !important;
     }
 }
 
 
-/* ***********************************************************
-FP
-*********************************************************** */
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Mob Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
 
 @media (max-width: 479px) {
+    #header .block_contact_infos {
+        width: 73.33333% !important
+    }
+
+    #header_logo .logo-throwback {
+        display: inline-block !important;
+        margin-bottom: 10px;
+    }
     .toggle_menu_mobile {
         width: 80px !important;
     }
@@ -118,6 +131,17 @@ FP
     }
     #layer_cart .layer_cart_product .title {
         line-height: inherit;
+    }
+    /* ***********************************************************
+Logo
+*********************************************************** */
+    .logo.img-responsive.logo-throwback {
+        width: 90px;
+        height: 105px;
+    }
+    header .nav {
+        /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
+        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     /* ***********************************************************
 Popup newletter
@@ -253,8 +277,6 @@ PANIER
     #order .product-attribute-line .label-attribute {
         font-weight: normal;
     }
-
-
     /* ************************************************************
 FOOTER
 *********************************************************** */
@@ -372,7 +394,7 @@ SELFACRE
         padding: 5px !important;
     }
     #my-account ul.myaccount-link-list li a {
-        text-align: left; 
+        text-align: left !important;
         padding-left: 5px;
     }
     /* ************************************************************
