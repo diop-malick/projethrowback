@@ -449,10 +449,8 @@
 									</span>
 								</div>
 						</div>
-
-
-
 						{/foreach}
+
 						<input type="hidden" class="my" name="price_add" value="" />
 						<input type="hidden" class="you" name="total_add" value="" />
 						<div class="row line_product">
@@ -475,21 +473,26 @@
 						</div>
 
 						{* somme à atteindre pour la gratuité de la livraison *}
+						{* TODO - refresh à la suppression 	d'un article*}
 						{if $total_price < 100}						
 							<div class="row text-center" >
 								<hr style="width: 90%; border-color: #dbdbdb;">
 								<div class="col-xs-12">
 									<p>{displayPrice price=100-($total_price-$frais_livraison)} {l s=' restant pour obtenir la livraison gratuite'} </p>
-									{* <pre>{$total_price}</pre> *}
-									{* <pre>{$frais_livraison}</pre> *}
 								</div>
 							</div>
 						{else}
-							<div class="row text-center" >
+							<div class="row line_product" >
 								<hr style="width: 90%; border-color: #dbdbdb;">
-								<div class="col-xs-12">
+								{* <div class="col-xs-12">
 									<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
+								</div> *}
+								<div class="col-md-8">
+									<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 								</div>
+								<div class="col-md-4 text-right total">
+										<span id="total_price" style="color:#40ec40">GRATUIT</span>
+								</div>		
 							</div>						
 						{/if}
 
