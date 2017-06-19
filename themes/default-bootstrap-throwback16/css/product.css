@@ -1427,9 +1427,11 @@ h3.page-product-heading {
     font-weight: 400;
     text-transform: uppercase;
 }
+/*
 #availability_date .panel-default > .panel-body {
     padding: 0 !important;
 }
+*/
 #accordion {
     padding-right: 0;
 }
