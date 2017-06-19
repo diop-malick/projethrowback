@@ -602,6 +602,8 @@
 
 					<!-- box Chrno -->
 					{if $product->available_for_order && isset($product->date_add) && $product->date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
+					{* Available in *}
+					<div class="row text-center">{l s='Produit disponible dans'}</div>
 						<div class="row box-cart-chrono" id="availability_date" >
 							<script type="text/javascript">
 							    var available_date = "{$product->date_add|date_format:'%Y-%m-%d %H:%M:%S'}";
