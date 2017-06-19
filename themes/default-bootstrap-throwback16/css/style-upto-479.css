@@ -258,11 +258,27 @@ FOOTER
     .nav .footer-block {
         margin-top: 0px !important;
     }
+
+      /* ************************************************************
+TOP NAV
+*********************************************************** */
     nav #block_contact_infos span {
         font-size: 10px !important;
     }
     #languages-block-top {
         min-width: 50px !important;
+    }
+        #languages-block-top div.current:after {
+        padding-left: 2px;
+        font-size: 13px;
+        line-height: 13px;
+        vertical-align: 0;
+    }
+        #languages-block-top div.current .cur-label {
+        display: none;
+    }
+    #languages-block-top ul li {
+        line-height: 18px !important;
     }
     /* ************************************************************
 RECHERCHE
