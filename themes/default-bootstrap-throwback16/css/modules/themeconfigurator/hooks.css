@@ -5,11 +5,21 @@ margin: 0 -5px; }
 padding: 0 5px 10px; 
 }
 
+@media (max-width: 375px) {
+#htmlcontent_home ul li {
+    height: 190px;
+}
+}
+@media (min-width: 376px) and (max-width: 479px) {
+#htmlcontent_home ul li {
+    height: 210px;
+}
+}
+
 @media (max-width: 479px) {
 #htmlcontent_home ul li {
 width: 100%;
     padding: 10px;
-    height: 190px;
     margin-bottom: 0;
 }
 #htmlcontent_home ul li a h3 {

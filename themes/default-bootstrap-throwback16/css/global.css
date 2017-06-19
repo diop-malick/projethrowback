@@ -11423,6 +11423,7 @@ div.star.star_hover:after {
 }
 #htmlcontent_home ul li h3:hover {
     font-size: 30px;
+    top: -175px;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;

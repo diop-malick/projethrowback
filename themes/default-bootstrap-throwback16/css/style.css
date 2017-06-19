@@ -1,58 +1,61 @@
-
-
 /************************************************************
   NOT DLETE THIS
   need for dev 
 ************************************************************/
+
 #header .row {
-   /*border: 1px solid red; */
+    /*border: 1px solid red; */
 }
+
 #header [class*="col-"] {
-	 /*border: 1px solid yellowgreen; */
+    /*border: 1px solid yellowgreen; */
 }
+
 
 /************************************************************
   SLIDER 
 ************************************************************/
+
 .tparrows {
-display: none;
+    display: none;
 }
+
+
 /************************************************************
  Large Desktop custom header modifs
 ************************************************************/
 
 @media (min-width: 1024px) {
+    #user_info,
+    #menu_and_serach {
+        margin-top: 14px;
+    }
+    .header_user_info .dropbtn span {}
+    .header_user_info .dropbtn .icon-fix,
+    .shopping_cart .icon-fix {
+        position: relative;
+    }
+    .shopping_cart .icon-fix i {
+        position: absolute !important;
+        top: -16.55px !important;
+        font-size: 20px;
+    }
+    .header_user_info .dropbtn i {
+        position: absolute !important;
+        top: -19.55px !important;
+    }
+    #mobil_blockcart,
+    .header_user_info {
+        padding-top: 6px;
+        padding-left: 15px;
+        margin-right: ;
+    }
+    #header #block_contact_infos .col-lg-contact-info {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
 
-	#user_info , #menu_and_serach {
-		margin-top: 14px;
-	}
-.header_user_info .dropbtn span {}
-.header_user_info .dropbtn .icon-fix, .shopping_cart .icon-fix {
-	 position:relative;
-}
-.shopping_cart .icon-fix i {
-	 position: absolute !important;
-	 top: -16.55px !important;
-	 font-size: 20px;
-}
-.header_user_info .dropbtn i {
- position: absolute !important;
- top: -19.55px !important;
-}
-
-#mobil_blockcart,
-.header_user_info {
-	padding-top: 6px;
-	padding-left: 15px;
-	margin-right:;
-}
-
-#header #block_contact_infos .col-lg-contact-info {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-
-}
 
 /************************************************************
   Default CSS theme for jQuery-Form-Validator.
@@ -104,6 +107,7 @@ span.help {
     font-size: 90%;
     display: block;
 }
+
 
 /* Here you can style the look of the input while server being
   requested when using data-validation="server" */
@@ -242,236 +246,6 @@ div.form-error ul li {
 }
 
 
-/************************************************************
-  END  RESPONSIVE
-************************************************************/
-
-
-/************************************************************
-        RESPONSIVE - MOBILE
-************************************************************/
-     @media (max-width: 320px) {
-        #header_logo .logo-throwback {
-            margin-top: 25px !important;
-            display: inline-block !important;
-                margin-right: 0 !important;
-        }
-    }
-    @media (min-width: 321px) and (max-width: 361px) {
-        #header_logo .logo-throwback {
-            margin-top: 25px !important;
-            display: inline-block !important;
-        }
-    }
- 
-    @media (min-width: 362px) and (max-width: 479px) {
-        #header_logo .logo-throwback {
-            margin-top: 25px !important;
-            display: inline-block !important;
-        }
-    }
-
-
-
-@media (max-width: 479px) {
-
-    .breadcrumb {
-        font-size: 10px !important;
-    }
-    .button.button-medium span {
-        font-size: 14px;
-        padding-right: 7px;
-        padding-left: 7px;
-    }
-
-    #order .columns-container #columns .row {
-	margin: 0px;
-    }
-
-    #order .columns-container #columns .row .col[] {
-	margin: 0px;
-    }
-
-    /*============BEGIN=============== MENU Hori Mobile */
-    #header .block_contact_infos {
-        padding-left: 2px;
-        padding-right: 0px;
-    }
-    #languages-block-top ul li {
-        line-height: 55px;
-        font-size: 50px;
-        height: 20px;
-    }
-    #languages-block-top ul {
-        position: absolute;
-        left: 0;
-        background: #ececeb;
-        z-index: 1000;
-    }
-    #menu_and_serach,
-    #search_block_top_mobile .fa {
-        margin-top: 2px;
-    }
-    .menu_vertical_mobile,
-    #search_block_top_mobile,
-    .header_user_info,
-    #mobil_blockcart {
-        height: 30px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: 0 !important;
-        border: 0 !important;
-        border-radius: 0 !important;
-        border-right: 2px solid #B5BDC1 !important;
-        text-align: center !important;
-    }
-    .header_user_info a i {
-        color: #777 !important;
-    }
-    #header {
-        position: relative;
-    }
-    #contact-link a {
-        border: none;
-        text-shadow: none;
-        position: absolute;
-        top: -140px;
-        right: 10px;
-    }
-
-    nav #block_contact_infos {
-        margin-left: -23px !important;
-    }
-    nav #block_contact_infos .col-xs-4 {
-        width: 200px !important;
-    }
-    .footer-container #footer #block_contact_infos span {
-        font-size: 14px !important;
-        font-family: "Futura";
-        color: rgba(147, 149, 152, 0.749);
-        left: 39.252px;
-    }
-    .footer-container #footer #block_contact_infos {
-        margin-left: -23px !important;
-    }
-    #footer #newsletter_block_left .block_content {
-        display: block !important;
-        width: 235px;
-        margin-right: auto !important;
-        margin-left: auto !important;
-    }
-    .footer-container #footer #block_contact_infos .text-xs-left {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-    .footer-container #footer #block_contact_infos {
-        position: absolute;
-        top: 160px;
-        width: 100%;
-        float: none;
-        padding: inherit !important;
-    }
-    .footer-container {
-        height: 250px;
-    }
-    #home-page-tabs #htmlcontent_home ul li {
-        padding: 0;
-    }
-    #categories_block_left .block_content > ul {
-        width: 100% !important;
-    }
-    #category .columns-container {
-        margin-top: 0px !important;
-    }
-    .breadcrumb {
-        margin: 0px;
-        margin-top: 0px !important;
-        padding: 0px !important;
-        padding-left: 0px !important;
-    }
-    #header .shopping_cart {
-        padding-top: 4px;
-    }
-    #header .shopping_cart span.ajax_cart_no_product .panier_vide {
-        font-size: 15px;
-    }
-    #breadcrumb_product {
-        margin-left: 0px !important;
-    }
-    .product-container .row {
-        padding: 8px;
-    }
-    .pb-left-column #image-block {
-        padding: 0 !important;
-        width: 100% !important;
-    }
-    .quantity_wanted_p {}
-    .header_user_info .dropdown-content {
-        background-color: #fff;
-        width: 180px !important;
-        margin-top: 8px !important;
-    }
-    #breadcrumb_product {
-        margin-left: 0 !important;
-    }
-    .rev_slider ul {
-        height: 500px !important
-    }
-    #ev_slider_1_1_wrapper {
-        height: 400px !important;
-    }
-    #block_various_links_footer {
-        text-align: center;
-    }
-    /***** HEADER SIMPLIFIE *******************/
-    .simplified-header .secure span,
-    .simplified-header .aide {
-        font-size: 13px !important;
-    }
-    .simplified-header span i.right {
-        vertical-align: 0px;
-        font-size: 1.5em;
-        ;
-    }
-
-    #block_contact_infos {
-    font-size: 12px !important;
-    }
-    /***** SELFACRE  *******************/
-    #authentication #center_column #equalheight > div {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding: 5px !important;
-    }
-    .myacount-block-container .contenu {
-        margin-top: 5px !important;
-    }
-    #mobil_blockcart {
-        padding-left: 0px !important;
-    }
-    #index #slider_row {
-        margin-top: 0px;
-    }
-    #address ul.footer_links li {
-        text-align: center;
-        width: 100%;
-    }
-    #create-account_form,
-    #login_form {
-        height: 320px !important;
-        padding: 5px !important;
-    }
-    .simplified-footer > div {
-        padding: 5px !important;
-    }
-}
-
-
-/* ***********************************************************
-  END  RESPONSIVE
-*********************************************************** */
-
-
 /* ***********************************************************
         styles
 *********************************************************** */
@@ -509,7 +283,8 @@ body {
 
 /* margin top colum center and hesder */
 
-#category .columns-container, #pagenotfound .columns-container {
+#category .columns-container,
+#pagenotfound .columns-container {
     margin-top: 120px;
 }
 
@@ -535,7 +310,7 @@ body {
     margin-top: 160px;
 }
 
-#new-products .columns-container{
+#new-products .columns-container {
     margin-top: 180px;
 }
 
@@ -553,7 +328,7 @@ body {
     color: #000 !important;
 }
 
- 
+
 /* **************** selector ************************ */
 
 #layered_block_left div.selector,
@@ -578,9 +353,9 @@ div.selector span {
 
 /* throback footer */
 
-.text-copyright{
-	text-align: center;
-	margin-bottom: 20px;
+.text-copyright {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .footer-container {
@@ -591,8 +366,9 @@ div.selector span {
 .footer-logo {
     margin: 0 auto;
 }
-#textSEO{
-	display: none;
+
+#textSEO {
+    display: none;
 }
 
 
@@ -667,8 +443,8 @@ header #header_logo {
     margin-top: -75px;
 }
 
-.logo-header-simple{
-	margin-top: -20px !important;
+.logo-header-simple {
+    margin-top: -20px !important;
 }
 
 #header_logo .logo-throwback {
@@ -902,7 +678,7 @@ input[readonly] {
     pointer-events: none;
 }
 
-.pve_petite{
+.pve_petite {
     color: rgb(214, 157, 50);
 }
 
@@ -916,16 +692,16 @@ input[readonly] {
 
 .simplified-header {
     color: #000;
-/*        position: fixed;
+    /*        position: fixed;
     top: 0;
     left: 0;
     width: 100%;*/
 }
-.simplified-header .container {
 
-}
+.simplified-header .container {}
+
 #identification {
-  /*margin-top: 40px;*/
+    /*margin-top: 40px;*/
 }
 
 .simplified-header .simplified-logo {
@@ -958,7 +734,6 @@ input[readonly] {
     text-transform: uppercase;
 }
 
-
 #block-history .alert {
     padding: 0 !important;
 }
@@ -970,6 +745,7 @@ input[readonly] {
     z-index: 73;
 }
 
+
 /* Disable les attributs ayant une quantité < 0 */
 
 .li_attribute_list.disabled {
@@ -980,7 +756,6 @@ input[readonly] {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-
 
 #short_description_content a,
 .page-product-box .rte a {
@@ -1066,8 +841,9 @@ input[readonly] {
 .icone-active {
     color: #000;
 }
-.edit_a{
-    cursor:pointer;
+
+.edit_a {
+    cursor: pointer;
 }
 
 .row_line_product {
@@ -1211,7 +987,6 @@ input[readonly] {
     text-decoration: none;
     cursor: pointer;
 }
-
 
 
 /*************************** panier vide ************************/
@@ -1435,10 +1210,9 @@ button.accordion.active:after {
 }
 
 @media (min-width: 480px) {
-#breadcrumb_product {
-      margin-left: -1.28em !important;
-
-}
+    #breadcrumb_product {
+        margin-left: -1.28em !important;
+    }
 }
 
 #breadcrumb_product {
@@ -1472,6 +1246,7 @@ button.accordion.active:after {
     margin: 0 0 27px;
 }
 
+
 /*******************************************************
                Convert Taille
 ********************************************************/
@@ -1479,27 +1254,35 @@ button.accordion.active:after {
 .popover.top {
     width: 350px;
 }
- .popover-content {
- 	width: 100%;
- }
-  #size-converter-wrapper a {
+
+.popover-content {
+    width: 100%;
+}
+
+#size-converter-wrapper a {
     padding: 0;
     margin: 0 10px 0 0;
     text-decoration: underline !important;
 }
+
 #size-converter-wrapper a:hover {
-	color: rgb(214, 157, 50) !important;
-	}
+    color: rgb(214, 157, 50) !important;
+}
+
 #size-converter-wrapper .red {
     color: #000 !important;
 }
+
 #size-converter-wrapper {
     left: 0;
 }
-.row-fluid:before, .row-fluid:after {
+
+.row-fluid:before,
+.row-fluid:after {
     display: table;
     content: "";
 }
+
 .row-fluid {
     width: 100%;
 }
@@ -1518,6 +1301,7 @@ button.accordion.active:after {
     font-size: 40px;
     /*height: 50px;*/
 }
+
 #sizeTable .sizeTable-body h2 {
     color: #b5bdc1;
     border-bottom: 1px solid #b5bdc1;
@@ -1533,7 +1317,7 @@ button.accordion.active:after {
 }
 
 #sizeTable .table {
-  min-height: 150px;
+    min-height: 150px;
     background: #fff;
     margin-bottom: 0;
 }
@@ -1547,12 +1331,12 @@ button.accordion.active:after {
     text-align: center;
 }
 
+
 /*******************************************************
                PANIER  
 ********************************************************/
 
-
-#order #attributes .attribute_list .selector  select.attribute_select {
+#order #attributes .attribute_list .selector select.attribute_select {
     width: 200px !important;
 }
 
@@ -1584,6 +1368,7 @@ button.accordion.active:after {
 .accessories-block div ul li a {
     display: inline-block;
 }
+
 .accessories-block div ul li.s_title_block a,
 .accessories-block div ul li.s_title_block span {
     font-weight: 700;
