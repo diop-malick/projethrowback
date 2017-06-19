@@ -154,6 +154,7 @@
 		</div>  {* end pb_mobile-colum *}
 		<div class="clearfix"></div>
 
+
 		{* ============================================================================ 
 		BLOCK LEFT 
 		=================================================================+============= *}
@@ -447,8 +448,20 @@
 											</span>
 										</p>
 										{/if}
-										<!-- Message Delivery in France -->
-										<p id ="fMessage"> {l s='Livraison gratuite en France'} </p>
+
+
+										<!-- MESSAGE DELIVERY in France -->
+										{* TODO | test localization & product price*}
+										{if $productPrice >= 100}
+										<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
+										{* Free Shipping (within Europe) *}
+										{elseif false}
+											{* <pre class="row">{$productPrice}</pre> *}
+										{/if}
+										{* <pre class="row">{$cart->_products|@print_r}</pre> *}
+										{* <pre class="row">{$cart->total}</pre> *}
+										{* <pre class="row">{$cart|@print_r}</pre> *}	
+										{* <pre>{convertPrice price=$productPrice|floatval}</pre> *}
 
 									</div>
 							{/if}

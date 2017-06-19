@@ -459,11 +459,12 @@
 								<div class="col-md-8 col-xs-8">
 									<p class="command-product-name total">{l s='Total'|upper}</p>
 								</div>
-				{if isset($shippingCost)}
-							{assign var=frais_livraison value=$shippingCost}
-				{else}
-						{assign var=frais_livraison value=0}
-				{/if}
+								{* frais de livraison *}
+								{if isset($shippingCost)}
+										{assign var=frais_livraison value=$shippingCost}
+									{else}
+											{assign var=frais_livraison value=0}
+									{/if}
 								<div class="col-md-4 col-xs-4 text-right total">
 										{if $use_taxes}
 										<span class="price-line" id="total_price">{displayPrice price=$total_price-$frais_livraison}</span>
@@ -472,6 +473,26 @@
 										{/if}
 								</div>
 						</div>
+
+						{* somme à atteindre pour la gratuité de la livraison *}
+						{if $total_price < 100}						
+							<div class="row text-center" >
+								<hr style="width: 90%; border-color: #dbdbdb;">
+								<div class="col-xs-12">
+									<p>{displayPrice price=100-($total_price-$frais_livraison)} {l s=' restant pour obtenir la livraison gratuite'} </p>
+									{* <pre>{$total_price}</pre> *}
+									{* <pre>{$frais_livraison}</pre> *}
+								</div>
+							</div>
+						{else}
+							<div class="row text-center" >
+								<hr style="width: 90%; border-color: #dbdbdb;">
+								<div class="col-xs-12">
+									<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
+								</div>
+							</div>						
+						{/if}
+
 					</div>
 					<div class="row commande_button text-center">
 						<div class="col-md-12">
