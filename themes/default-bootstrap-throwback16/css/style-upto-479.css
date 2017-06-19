@@ -246,6 +246,15 @@ PANIER
         margin-bottom: 20px !important;
         margin-top: 0 !important;
     }
+    .product-name a {
+        font-size: 17px;
+        font-weight: normal;
+    }
+    #order .product-attribute-line .label-attribute {
+        font-weight: normal;
+    }
+
+
     /* ************************************************************
 FOOTER
 *********************************************************** */
@@ -258,8 +267,7 @@ FOOTER
     .nav .footer-block {
         margin-top: 0px !important;
     }
-
-      /* ************************************************************
+    /* ************************************************************
 TOP NAV
 *********************************************************** */
     nav #block_contact_infos span {
@@ -268,13 +276,13 @@ TOP NAV
     #languages-block-top {
         min-width: 50px !important;
     }
-        #languages-block-top div.current:after {
+    #languages-block-top div.current:after {
         padding-left: 2px;
         font-size: 13px;
         line-height: 13px;
         vertical-align: 0;
     }
-        #languages-block-top div.current .cur-label {
+    #languages-block-top div.current .cur-label {
         display: none;
     }
     #languages-block-top ul li {
@@ -362,6 +370,10 @@ SELFACRE
     }
     .simplified-footer > div {
         padding: 5px !important;
+    }
+    #my-account ul.myaccount-link-list li a {
+        text-align: left; 
+        padding-left: 5px;
     }
     /* ************************************************************
 MENU Hori Mobile
