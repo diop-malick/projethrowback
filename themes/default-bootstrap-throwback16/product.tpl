@@ -629,6 +629,7 @@
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
+					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
 						<div class="row box-cart-bottom">
 							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -642,6 +643,7 @@
 							<div class="info"></div>
 							{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 						</div> <!-- end box-cart-bottom -->
+					{/if}
 					<!-- </div>  --><!-- end box-info-product -->
 
 					</div> <!-- end col -->
