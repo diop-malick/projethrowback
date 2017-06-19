@@ -618,7 +618,7 @@
 									  <span id="minutes"></span><span class="chronounity">m</span>
 									  <span id="seconds"></span><span class="chronounity">s</span>
 									</span>
-							    	<img src="{$base_dir_ssl}img/icones/chrono.png"/>
+							    	{* <img src="{$base_dir_ssl}img/icones/chrono.png"/> *}
 							    </div>
 							</div>
 						</div>
