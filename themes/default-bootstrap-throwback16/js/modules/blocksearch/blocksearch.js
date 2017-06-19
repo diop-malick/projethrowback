@@ -177,17 +177,14 @@ $(document).ready(function() {
     });
 
     $('#search_query_top').on({
-
         blur: function() {
-
-            if (window.matchMedia("(max-width: 420px)").matches) {
-                /* La largeur maximum de l'affichage est 420 px inclus */
-                $('#menu_and_serach').removeClass('col-xs-6').addClass('col-xs-4');
-                $('#header_logo').removeClass('col-xs-3').addClass('col-xs-4');
-                $('#user_info').removeClass('col-xs-3').addClass('col-xs-4');
-            } else {
-                /* L'affichage est supèrieur à 420px de large */
-            }
+            
+            // if (window.matchMedia("(max-width: 420px)").matches) {
+            //     $('#menu_and_serach').removeClass('col-xs-6').addClass('col-xs-4');
+            //     $('#header_logo').removeClass('col-xs-3').addClass('col-xs-4');
+            //     $('#user_info').removeClass('col-xs-3').addClass('col-xs-4');
+            // } else { 
+            // }
 
         }
     });
