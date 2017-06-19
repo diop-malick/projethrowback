@@ -1584,4 +1584,18 @@ ul.gender-label-group {
     display: inline-block;
 }
 
+/********* social sharing ***********************/
+
+.btn-rs{
+    border-color: transparent !important;
+}
+.btn-rs:hover{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.icone-rs{
+    font-size: 30px;
+}
+
 /*# sourceMappingURL=product.css.map */
