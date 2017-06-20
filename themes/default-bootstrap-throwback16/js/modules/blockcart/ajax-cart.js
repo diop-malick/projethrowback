@@ -741,10 +741,16 @@ var ajaxCart = {
 	},
 
 	updateLayer : function(product){
+		
 		$('#layer_cart_product_title').text(product.name);
 		$('#layer_cart_product_attributes').text('');
-		if (product.hasAttributes && product.hasAttributes == true)
+		if (product.hasAttributes && product.hasAttributes == true){
 			$('#layer_cart_product_attributes').html(product.attributes);
+			if (product.attributes == 0) {
+				$('#size_choice').hide();
+			}
+		}
+		
 		$('#layer_cart_product_price').text(product.price);
 		$('#layer_cart_product_quantity').text(product.quantity);
 		$('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="' + product.image + '" alt="' + product.name + '" title="' + product.name + '" />');

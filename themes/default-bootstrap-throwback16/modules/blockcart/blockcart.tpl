@@ -210,7 +210,7 @@
 								</div>
 								<div class="layer_cart_product_info hidden-xs">
 									<span id="layer_cart_product_title" class="product-name"></span>
-									<strong class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
+									<strong id="size_choice" class="dark">{l s='Size' mod='blockcart'}&nbsp;:</strong>
 									<span id="layer_cart_product_attributes"></span>
 									<div>
 										<strong class="dark">{l s='Quantity' mod='blockcart'}&nbsp;:</strong>
