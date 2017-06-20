@@ -283,7 +283,6 @@ $('a.sizeTable-iframe').fancybox({
 	* ********************************************************************* */
 	var element_availability_date =  document.getElementById('availability_date');
 	var element_chrono_without_date =  document.getElementById('chrono_without_date');
-	console.log(combinations);
 	if ((element_availability_date == null) && (element_chrono_without_date == null) && (typeof combinations !== 'undefined') ) {
 	    for (i = 0; i < combinations.length; i++) {
 	        if (combinations[i]['quantity'] == 0) {
