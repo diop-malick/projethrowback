@@ -449,7 +449,7 @@
 											{/foreach}
 										{/if}
 										{if $isColorAttribute == 1}
-											<p id="availability_statut" style="margin-left: 5px; margin-top: 10px;" {if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<p id="availability_statut" style="margin-left: 5px; margin-top: 10px; padding: 3px 8px 4px;" {if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<span id="availability_value" style="color: #e4752b !important;">
 												{if $product->quantity <= 0}
 													{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}
