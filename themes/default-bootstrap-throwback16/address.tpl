@@ -45,8 +45,8 @@
 
 			 <label for="select-civility" class="col-md-4 col-xs-12 text-right text-xs-left required">{l s='Civilité'} </label>
 				 <div class="col-md-8 col-xs-12">
-
-			 	 	<select id="select-civility" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
+				 
+			 	 	<select id="select-civility" name="company" class="is_required validate select_title" data-validation="required" data-validation-error-msg="{l s='Merci de sélectionner votre civilité.'}">
 					 <option value="">{l s='Choisir la civilité'}</option>
 					 {if isset($address->company) && $address->company}
 					 <option value="{$address->company}" selected="selected">{$address->company}</option>
@@ -61,7 +61,7 @@
 					 {/foreach}
 					 {/if}
 			 </select>
-			 <input hidden type="text" id="company" name="company"/>
+
 			 </div>
 		</div>
 		{/if}
