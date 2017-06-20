@@ -332,7 +332,7 @@
 									<p class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'html':'UTF-8'}</p>
 									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 								{/if}
-							{/if} {*close if for show price*}
+							{/if} {* close if for show price *}
 							{hook h="displayProductPriceBlock" product=$product type="weight" hook_origin='product_sheet'}
 	                        {hook h="displayProductPriceBlock" product=$product type="after_price"}
 
@@ -378,11 +378,9 @@
 					<div class="col-md-12">
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
-								<!-- {l s='Reference:'} -->
 								{l s='Ref '}
 								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 							</p>
-							<!-- // REFERENCE -->
 					</div>
 				</div> <!-- // rigth-row-2 -->
 
@@ -412,7 +410,6 @@
 								</section>
 							</div>
 						</div>
-						<!-- // Flag GENRE -->
 
 					<div class="row">
 						<!-- QUANTITY  -->
@@ -448,6 +445,31 @@
 											</span>
 										</p>
 										{/if}
+										<!-- availability or doesntExist -->
+										{if isset($groups)}
+											{foreach from=$groups key=id_attribute_group item=group}
+																				{if $group.attributes|@count}
+																					{if ($group.group_type == 'color')}
+																							{assign var=isColorAttribute value=true}
+																					{/if}
+																				{/if}
+											{/foreach}
+										{/if}
+										{if $isColorAttribute == 1}
+											<p id="availability_statut" style="display: none; margin-left: 5px; margin-top: 10px;" {if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<span id="availability_value" style="color: #e4752b !important;">
+												{if $product->quantity <= 0}
+													{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}
+													{else}
+														{l s='This product is no longer in stock'}
+													{/if}
+												{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}
+												{/if}
+											</span>
+										</p>
+										{/if}
+										
+										
 
 
 										<!-- MESSAGE DELIVERY in France -->

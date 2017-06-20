@@ -3990,7 +3990,7 @@ input[type="button"].btn-block {
 }
 
 .label-warning {
-    background-color: #fe9126;
+    /*background-color: #fe9126;*/
     border: 1px solid #e4752b;
 }
 
