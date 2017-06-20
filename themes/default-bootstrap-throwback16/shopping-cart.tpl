@@ -147,7 +147,7 @@
 												</div>
 											{else}
 													<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
-													<a title="Modification impossible" class="edit_a" style="pointer-events: none; cursor: default;"><i class="fa fa-pencil-square-o icone-update" aria-hidden="true"></i></a>
+													{* <a class="edit_a" style="pointer-events: none; cursor: default;"><i class="fa fa-pencil-square-o icone-update" aria-hidden="true"></i></a> *}
 												</div>
 											{/if}
 											<div class="col-md-6 col-xs-6 text-md-left text-xs-center delete" style="padding:0;">
@@ -490,22 +490,20 @@
 
 						{* somme à atteindre pour la gratuité de la livraison *}
 						{* TODO - refresh à la suppression 	d'un article*}
-						{if $total_price < 100}						
-							<div class="row text-center" >
+						{* {if $total_price < 100}						 *}
+							<div class="row text-center" id="rest_shipping_message" {if $total_price >= 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
 								<div class="col-xs-12">
 									<p>
-									<span class="price-line" id="free_shipping_message_total_price">{displayPrice price=100-($total_price-$frais_livraison)}</span>
+									<span class="price-line" id="rest_shipping_message_total_price">{displayPrice price=100-($total_price-$frais_livraison)}</span>
 									{l s=' restant pour obtenir la livraison gratuite'}
 									</p>
 								</div>
 							</div>
-						{else}
-							<div class="row line_product" >
+						{* {else} *}
+							<div class="row line_product" id="free_shipping_message" {if $total_price < 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
-								{* <div class="col-xs-12">
-									<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
-								</div> *}
+								{* <div class="col-xs-12"> <p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p> </div> *}
 								<div class="col-md-8">
 									<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 								</div>
@@ -513,7 +511,7 @@
 										<span id="total_price" style="color:#40ec40">GRATUIT</span>
 								</div>		
 							</div>						
-						{/if}
+						{* {/if} *}
 
 					</div>
 					<div class="row commande_button text-center">
