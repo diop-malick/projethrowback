@@ -157,7 +157,7 @@
 								</div> <!-- end delivery_options -->
 							</div> <!-- end delivery_options_address -->
 
-						<h4>{l s='Choisissez une option de livraison'}</h4>
+						<label>{l s='Choisissez une option de livraison'}</label>
 						
 
 						<div class="delivery_options_address" id="delivery_list">
