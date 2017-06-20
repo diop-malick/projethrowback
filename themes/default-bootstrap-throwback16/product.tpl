@@ -11,6 +11,14 @@
 		{assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
 	{/if}
 
+	{foreach from=$features item=feature}
+								{if $feature.name eq 'Type de produit'}
+											{if isset($feature.value)}
+												{assign var=comingsoontplvalue value=$feature.value}
+											{/if}
+										{/if}
+	{/foreach}
+
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
 
@@ -68,18 +76,9 @@
 				</div>
 				<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
 						<!-- FLAG chrono -->
-						{* get chrono caracteristique value *}
-						{foreach from=$features item=feature}
-								{if $feature.name eq 'Type de produit'}
-											{if isset($feature.value)}
-												{assign var=comingsoonvalue value=$feature.value}
-											{/if}
-										{/if}
-						{/foreach}
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
-								{addJsDef comingsoonvalue=$comingsoonvalue}
+							{if isset($comingsoontplvalue) && $comingsoontplvalue eq 'comingsoon'}							
 								<span id="chrono_without_date"></span>
 									<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
@@ -332,7 +331,7 @@
 									<p class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'html':'UTF-8'}</p>
 									{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 								{/if}
-							{/if} {*close if for show price*}
+							{/if} {* close if for show price *}
 							{hook h="displayProductPriceBlock" product=$product type="weight" hook_origin='product_sheet'}
 	                        {hook h="displayProductPriceBlock" product=$product type="after_price"}
 
@@ -340,17 +339,11 @@
 
 						<!-- FALG chrono -->
 						{* get chrono caracteristique value *}
-						{foreach from=$features item=feature}
-								{if $feature.name eq 'Type de produit'}
-											{if isset($feature.value)}
-												{assign var=comingsoonvalue value=$feature.value}
-											{/if}
-										{/if}
-						{/foreach}
+						
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
-								{addJsDef comingsoonvalue=$comingsoonvalue}
+							{if isset($comingsoontplvalue) && $comingsoontplvalue == 'comingsoon'}
+								<pre>test : {$comingsoontplvalue}</pre>
 								<span id="chrono_without_date" class="hidden-xs">
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
@@ -378,11 +371,9 @@
 					<div class="col-md-12">
 							<!-- REFERENCE -->
 							<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
-								<!-- {l s='Reference:'} -->
 								{l s='Ref '}
 								<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 							</p>
-							<!-- // REFERENCE -->
 					</div>
 				</div> <!-- // rigth-row-2 -->
 
@@ -412,7 +403,6 @@
 								</section>
 							</div>
 						</div>
-						<!-- // Flag GENRE -->
 
 					<div class="row">
 						<!-- QUANTITY  -->
@@ -448,6 +438,31 @@
 											</span>
 										</p>
 										{/if}
+										<!-- availability or doesntExist -->
+										{if isset($groups)}
+											{foreach from=$groups key=id_attribute_group item=group}
+																				{if $group.attributes|@count}
+																					{if ($group.group_type == 'color')}
+																							{assign var=isColorAttribute value=true}
+																					{/if}
+																				{/if}
+											{/foreach}
+										{/if}
+										{if $isColorAttribute == 1}
+											<p id="availability_statut" style="display: none; margin-left: 5px; margin-top: 10px;" {if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+											<span id="availability_value" style="color: #e4752b !important;">
+												{if $product->quantity <= 0}
+													{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}
+													{else}
+														{l s='This product is no longer in stock'}
+													{/if}
+												{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}
+												{/if}
+											</span>
+										</p>
+										{/if}
+										
+										
 
 
 										<!-- MESSAGE DELIVERY in France -->
@@ -644,7 +659,7 @@
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
-					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' && ! isset($comingsoonvalue)}
+					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' && ! isset($comingsoontplvalue)}
 						<div class="row box-cart-bottom">
 							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -948,6 +963,10 @@
 	{/if}
 </div> <!-- itemscope product wrapper -->
 {strip}
+
+{if isset($comingsoontplvalue) && $comingsoontplvalue eq 'comingsoon'}
+{addJsDef comingsoonvalue=$comingsoontplvalue}
+{/if}
 
 {if isset($smarty.get.ad) && $smarty.get.ad}
 	{addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}

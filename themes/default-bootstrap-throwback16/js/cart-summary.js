@@ -1028,6 +1028,17 @@ function updateCartSummary(json) {
     else
         $('#total_product').html(formatCurrency(json.total_products_wt, currencyFormat, currencySign, currencyBlank));
     $('#total_price').html(formatCurrency(json.total_products, currencyFormat, currencySign, currencyBlank));
+    
+    if(json.total_products >= 100) {
+        $('#free_shipping_message').show();
+        // console.log('GRATUIT - total_products :' + json.total_products);
+    } else {
+        $('#rest_shipping_message_total_price').html(formatCurrency(100-json.total_products, currencyFormat, currencySign, currencyBlank));
+        $('#free_shipping_message').hide();
+        $('#rest_shipping_message').show();
+        // console.log('RESTANT - json.total_products :' + json.total_products);
+    }
+    
     $('#total_price_without_tax').html(formatCurrency(json.total_products_wt, currencyFormat, currencySign, currencyBlank));
     $('#total_tax').html(formatCurrency(json.total_tax, currencyFormat, currencySign, currencyBlank));
 

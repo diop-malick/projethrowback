@@ -84,12 +84,18 @@
 						{assign var="attributes" value=$product.attributes_small}
 						{assign var="split_size" value=","|explode:$attributes}
 
+						{* <pre>{$attributes|print_r}</pre>
+						<pre>{$split_size[0]|print_r}</pre>
+						<pre>{$split_size[1]|print_r}</pre> *}
+
 						{if isset($split_size[0]) }
 								{assign var="sizing" value=$split_size[0]|trim}
 						{/if}
 
 						{if isset($split_size[1]) }
 								{assign var="coloring" value=$split_size[1]|trim}
+								{else}
+								{assign var="coloring" value=null}
 						{/if}
 
 						{$attributeCombinaison[$product.id_product|cat:"_"|cat:$product.id_product_attribute|cat:"_"|cat:($product.id_customization|intval)|cat:"_"|cat:($product.id_address_delivery|intval)] = $combinations[$product.id_product]}
@@ -120,12 +126,30 @@
 										</p>
 									</div>
 
-									<!--<br><br>-->
+										{* Disable Edit option if color is set *}
+										{assign var=isColorAttribute value=false}
+										{if isset($groups)}
+											{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
+																				{if $group.attributes|@count}
+																					{if ($group.group_type == 'color')}
+																							{assign var=isColorAttribute value=true}
+																					{/if}
+																				{/if}
+											{/foreach}
+										{/if}
+
 									<div class="col-xs-3 col-sm-2 col-md-1 ">
+									{* <div class="row"><pre>{$isColorAttribute}</pre></div> *}
 										<div class="row">
-											<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
-												<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" class="edit_a"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
-											</div>
+											{if $isColorAttribute ==! 1}
+												<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
+													<a id="edit-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}" title="Modifier l'article" class="edit_a"><i class="fa fa-pencil-square-o icone-update icone-active" aria-hidden="true"></i></a>
+												</div>
+											{else}
+													<div class="col-md-6 col-xs-6 text-md-right text-xs-center edit" style="padding:0;">
+													{* <a class="edit_a" style="pointer-events: none; cursor: default;"><i class="fa fa-pencil-square-o icone-update" aria-hidden="true"></i></a> *}
+												</div>
+											{/if}
 											<div class="col-md-6 col-xs-6 text-md-left text-xs-center delete" style="padding:0;">
 												<a
 													id="del-{$product.id_product}_{$product.id_product_attribute}_{$product.id_customization|intval}_{$product.id_address_delivery|intval}"
@@ -320,14 +344,6 @@
 																		{/if}
 																{/if}																	
 															{/if}														
-																
-
-																{* <pre>{$sizing|print_r}</pre> *}
-																{* <pre>{$size_keywords|@count} </pre> *}
-																	{* <pre>{$product->attributes}</pre> *}
-																	{* <pre>{$product->attributes_small}</pre> *}
-																	{* <pre>{$product->stock_quantity}</pre> *}
-
 															</div>
 														</div>
 													</div>
@@ -474,19 +490,20 @@
 
 						{* somme à atteindre pour la gratuité de la livraison *}
 						{* TODO - refresh à la suppression 	d'un article*}
-						{if $total_price < 100}						
-							<div class="row text-center" >
+						{* {if $total_price < 100}						 *}
+							<div class="row text-center" id="rest_shipping_message" {if $total_price >= 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
 								<div class="col-xs-12">
-									<p>{displayPrice price=100-($total_price-$frais_livraison)} {l s=' restant pour obtenir la livraison gratuite'} </p>
+									<p>
+									<span class="price-line" id="rest_shipping_message_total_price">{displayPrice price=100-($total_price-$frais_livraison)}</span>
+									{l s=' restant pour obtenir la livraison gratuite'}
+									</p>
 								</div>
 							</div>
-						{else}
-							<div class="row line_product" >
+						{* {else} *}
+							<div class="row line_product" id="free_shipping_message" {if $total_price < 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
-								{* <div class="col-xs-12">
-									<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
-								</div> *}
+								{* <div class="col-xs-12"> <p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p> </div> *}
 								<div class="col-md-8">
 									<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 								</div>
@@ -494,7 +511,7 @@
 										<span id="total_price" style="color:#40ec40">GRATUIT</span>
 								</div>		
 							</div>						
-						{/if}
+						{* {/if} *}
 
 					</div>
 					<div class="row commande_button text-center">
