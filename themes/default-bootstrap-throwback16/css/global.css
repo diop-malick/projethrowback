@@ -11423,6 +11423,8 @@ div.star.star_hover:after {
     line-height: 0.667;
 }
 #htmlcontent_home ul li h3:hover {
+        /* pas de clignotement */
+    /*
     position: absolute;
     font-size: 30px;
     top: -175px;
@@ -11430,6 +11432,7 @@ div.star.star_hover:after {
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
+    */
 }
 #htmlcontent_home ul li img:hover {
     background: #000000;
