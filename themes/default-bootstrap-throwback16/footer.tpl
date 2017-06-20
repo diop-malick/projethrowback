@@ -24,7 +24,7 @@
 							<!-- footer complete -->
 							<div class="row">
 								{$HOOK_FOOTER} 
-								
+							{*	
 								{if $logged && isset($newsletter) && $newsletter==1 }
 										<div class="row">
 											<div class="col-md-3 col-md-offset-9">
@@ -32,7 +32,7 @@
 											 </div>
 										</div>
 								{/if}
-								
+							*}
 							</div>
 						{/if}
 
