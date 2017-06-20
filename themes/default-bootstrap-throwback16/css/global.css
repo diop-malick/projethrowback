@@ -10921,7 +10921,7 @@ table.discount i.icon-remove {
     text-transform: uppercase;
     border-bottom: 1px solid #d6d4d4;
     padding-bottom: 19px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 #pagenotfound .pagenotfound h3 {
     font-weight: bold;
@@ -10950,7 +10950,7 @@ table.discount i.icon-remove {
     }
 }
 #pagenotfound .pagenotfound .buttons {
-    padding: 48px 0 20px 0;
+    /*padding: 48px 0 20px 0;*/
 }
 #pagenotfound .pagenotfound .buttons .button-medium i.left {
     font-size: 17px;
