@@ -11423,6 +11423,7 @@ div.star.star_hover:after {
     line-height: 0.667;
 }
 #htmlcontent_home ul li h3:hover {
+    position: absolute;
     font-size: 30px;
     top: -175px;
     -webkit-transition: all 0.4s;
@@ -11430,7 +11431,14 @@ div.star.star_hover:after {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
-#htmlcontent_home ul li img:hover {}
+#htmlcontent_home ul li img:hover {
+    background: #000000;
+   -webkit-filter: blur(2px);
+   -moz-filter: blur(2px);
+   -o-filter: blur(2px);
+   -ms-filter: blur(2px);
+   filter: blur(2px);
+}
 
 /* ======END========== effet sur vol block homepage*/
 .heading-counter {
