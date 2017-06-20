@@ -11,6 +11,14 @@
 		{assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
 	{/if}
 
+	{foreach from=$features item=feature}
+								{if $feature.name eq 'Type de produit'}
+											{if isset($feature.value)}
+												{assign var=comingsoontplvalue value=$feature.value}
+											{/if}
+										{/if}
+	{/foreach}
+
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
 
@@ -68,18 +76,9 @@
 				</div>
 				<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
 						<!-- FLAG chrono -->
-						{* get chrono caracteristique value *}
-						{foreach from=$features item=feature}
-								{if $feature.name eq 'Type de produit'}
-											{if isset($feature.value)}
-												{assign var=comingsoonvalue value=$feature.value}
-											{/if}
-										{/if}
-						{/foreach}
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
-								{addJsDef comingsoonvalue=$comingsoonvalue}
+							{if isset($comingsoontplvalue) && $comingsoontplvalue eq 'comingsoon'}							
 								<span id="chrono_without_date"></span>
 									<i class="material-icons" style="font-size:30px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
@@ -340,17 +339,11 @@
 
 						<!-- FALG chrono -->
 						{* get chrono caracteristique value *}
-						{foreach from=$features item=feature}
-								{if $feature.name eq 'Type de produit'}
-											{if isset($feature.value)}
-												{assign var=comingsoonvalue value=$feature.value}
-											{/if}
-										{/if}
-						{/foreach}
+						
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
-							{if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
-								{addJsDef comingsoonvalue=$comingsoonvalue}
+							{if isset($comingsoontplvalue) && $comingsoontplvalue == 'comingsoon'}
+								<pre>test : {$comingsoontplvalue}</pre>
 								<span id="chrono_without_date" class="hidden-xs">
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
@@ -666,7 +659,7 @@
 					<!-- Cart button -->
 					<!-- <div class="box-info-product"> -->
 					<!-- TODO - delete corresponding css -->
-					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' && ! isset($comingsoonvalue)}
+					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' && ! isset($comingsoontplvalue)}
 						<div class="row box-cart-bottom">
 							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -970,6 +963,10 @@
 	{/if}
 </div> <!-- itemscope product wrapper -->
 {strip}
+
+{if isset($comingsoontplvalue) && $comingsoontplvalue eq 'comingsoon'}
+{addJsDef comingsoonvalue=$comingsoontplvalue}
+{/if}
 
 {if isset($smarty.get.ad) && $smarty.get.ad}
 	{addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}
