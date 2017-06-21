@@ -212,8 +212,10 @@ body 										{ color: <?php echo esc_html( $fluida_sitetext ); ?>;
 .searchform .searchsubmit, .searchform:hover input[type="search"], .searchform input[type="search"]:focus
 											{ color: <?php echo "#000" ?>;  }
 #access > div > ul > li:hover				{ background-color: <?php echo esc_html( $fluida_menutext ) ?>; }
-.searchform::after, .searchform input[type="search"]:focus, .searchform .searchsubmit:hover
+.searchform::after, .searchform input[type="search"]:focus
 											{ background-color: <?php echo "#fff"?>; }
+.searchform .searchsubmit:hover
+											{ background-color: <?php echo "#000"?>; }
 
 article.hentry, #primary, .searchform, .main > div:not(#content-masonry),
 .main > header, .main > nav#nav-below, .pagination span, .pagination a,
