@@ -22,11 +22,8 @@ robots.txt
 ########################### PRESTASHOP ###########################
 
 
-config/settings.inc.php
-config/settings.old.php
+config/settings.*.php
 config/defines.inc.php
-
-#cache/*
 
 
 cache/class_index.php
@@ -37,13 +34,15 @@ cache/smarty/compile/*
 cache/tcpdf/*
 !cache/tcpdf/index.php
 cache/purifier/CSS/*
-!cache/cachefs/index.php
 cache/cachefs/*
+!cache/cachefs/index.php
 
-log/*
 
 themes/*/cache/*.js
 themes/*/cache/*.css
+
+
+log/*
 
 
 modules/*/config*.xml
@@ -54,18 +53,25 @@ modules/mailalerts/*
 modules/paypal/*
 modules/gsitemap/*
 
+
 # Site content
 # The following folders contain product images, virtual products, CSV's, etc.
-
 # admin16/backups/
 # admin16/export/
 # admin16/import/
 # download/
 
-img/*
 
-img/p/*/index.php
+images
+img/tmp/*
+!img/tmp/index.php
+img/p/*
+!img/p/index.php
+!img/p/*.jpg
 
+
+download/*
+!download/index.php
 upload/*
 
 

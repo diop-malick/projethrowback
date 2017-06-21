@@ -1,0 +1,19 @@
+
+
+# les fichiers de config de l'envirommenet 
+
+# les fichiers images
+
+images
+img/p/*
+!img/p/index.php
+!img/p/*.jpg
+
+# blog
+
+
+blog/wp-content/themes/*
+!blog/wp-content/themes/index.php
+!blog/wp-content/themes/fluid
+
+blog/wp-content/uploads/*
