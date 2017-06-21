@@ -32,6 +32,7 @@ $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_45cfef5aff92533727d5e9a6
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_e5d5d9f40763cfe6549bef705e3529a7'] = 'Le message de paiement n\'est pas valide, veuillez vérifier votre module';
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_ee9dc1e678d54c517f481583c3fb2db8'] = 'Devise invalide';
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_eec39bf42bd135971fb2d838c67d1449'] = 'Opération de remboursement :';
+$_MODULE['<{paypal}default-bootstrap-throwback16>paypal_4fd060ce6ff88adac7b6112a5bf1283c'] = 'Remboursement Braintree confirmé !';
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_2ab62d1a578713d0862b56819295630e'] = 'Remboursement PayPal confirmé !';
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_a64db959966ba8d07c8b5d9493fcc21f'] = 'Erreur de transaction !';
 $_MODULE['<{paypal}default-bootstrap-throwback16>paypal_c5e5dfcc54400e4018e03590067f6ba4'] = 'L\'autorisation de la transaction bancaire a expiré. Pour plus d\'informations, veuillez vous référer aux cas d\'expiration.';
@@ -233,9 +234,6 @@ $_MODULE['<{paypal}default-bootstrap-throwback16>capture_ce64b2ea82cf4fa861a6512
 $_MODULE['<{paypal}default-bootstrap-throwback16>capture_a61a9250ef6cc54f0d7dc8dd0c13da98'] = 'Êtes-vous certain de vouloir capturer ?';
 $_MODULE['<{paypal}default-bootstrap-throwback16>capture_99e64593868df2b7b32231c1ae5ddc04'] = 'Récupérer les fonds';
 $_MODULE['<{paypal}default-bootstrap-throwback16>refund_8ba079f305b81b172792bc0469b6a690'] = 'Remboursement PayPal';
-$_MODULE['<{paypal}default-bootstrap-throwback16>refund_3f8c6ecb084eea3b83d659fab7155e86'] = 'Date de capture';
-$_MODULE['<{paypal}default-bootstrap-throwback16>refund_f0b7cad3b2f0f29dcb4f2cad27cba2f8'] = 'Montant capturé';
-$_MODULE['<{paypal}default-bootstrap-throwback16>refund_4746a3312ea207c919decf4e4ed5bb81'] = 'Résultat de la capture';
 $_MODULE['<{paypal}default-bootstrap-throwback16>refund_e8fdd4382b75b42bfbd96eb7b032cf47'] = 'Informations :';
 $_MODULE['<{paypal}default-bootstrap-throwback16>refund_016e1f278eccd700eaf33f74a501d050'] = 'Paiement accepté';
 $_MODULE['<{paypal}default-bootstrap-throwback16>refund_a8b1cc445942a2e1a7d7cca641c86d67'] = 'Lorsque vous remboursez un produit un remboursement partiel est effectué sauf si vous sélectionnez l\'option \"Générer un bon de réduction\"';

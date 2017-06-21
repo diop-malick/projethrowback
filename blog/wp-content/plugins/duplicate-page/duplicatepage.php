@@ -4,7 +4,7 @@ Plugin Name: Duplicate Page
 Plugin URI: https://wordpress.org/plugins/duplicate-page/
 Description: Duplicate Posts, Pages and Custom Posts using single click.
 Author: mndpsingh287
-Version: 2.2
+Version: 2.3
 Author URI: https://profiles.wordpress.org/mndpsingh287/
 License: GPLv2
 Text Domain: duplicate_page
@@ -215,6 +215,20 @@ if(!class_exists('duplicate_page')):
 				'href' => admin_url().'admin.php?action=dt_duplicate_post_as_draft&amp;post='. $post->ID
 				) );
 			}
+		}
+		public function duplicate_page_adsense() {
+			    $API = "http://www.webdesi9.com/adsense/";
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, $API);
+				curl_setopt($curl, CURLOPT_POST, 1);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($curl, CURLOPT_POSTFIELDS, "ad_token=DUP_3951m8635u6542n3819i69130s9372h5602");
+				$result = curl_exec ($curl); 
+				$data = json_decode($result, true);
+				curl_close ($curl);
+				if(!empty($data) && $data['status'] == 1 && !empty($data['image'])) {
+					return '<a href="'.$data['link'].'" target="_blank" title="Click here"><img src="'.$data['image'].'" width="100%"></a>';
+				}
 		}
 		/*
 		 * Redirect function

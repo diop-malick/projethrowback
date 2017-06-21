@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+use Elementor\Plugin;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Tools {
@@ -14,7 +16,7 @@ class Tools {
 	public function register_admin_menu() {
 		add_submenu_page(
 			Settings::PAGE_ID,
-			__( 'Elementor Tools', 'elementor' ),
+			__( 'Tools', 'elementor' ),
 			__( 'Tools', 'elementor' ),
 			'manage_options',
 			self::PAGE_ID,
@@ -24,6 +26,8 @@ class Tools {
 
 	public function register_settings_fields() {
 		$controls_class_name = __NAMESPACE__ . '\Settings_Controls';
+		$validations_class_name = __NAMESPACE__ . '\Settings_Validations';
+
 		$tools_section = 'elementor_tools_section';
 		add_settings_section(
 			$tools_section,
@@ -62,6 +66,32 @@ class Tools {
 			]
 		);
 
+		$field_id = 'elementor_css_print_method';
+		add_settings_field(
+			$field_id,
+			__( 'CSS Print Method', 'elementor' ),
+			[ $controls_class_name, 'render' ],
+			self::PAGE_ID,
+			$tools_section,
+			[
+				'id' => $field_id,
+				'class' => $field_id,
+				'type' => 'select',
+				'options' => [
+					'external' => __( 'External File', 'elementor' ),
+					'internal' => __( 'Internal Embedding', 'elementor' ),
+				],
+				'desc' => '<div class="elementor-css-print-method-description" data-value="external" style="display: none">' .
+					__( 'Use external CSS files for all generated stylesheets. Choose this setting for better performance (recommended).', 'elementor' ) .
+					'</div>' .
+					'<div class="elementor-css-print-method-description" data-value="internal" style="display: none">' .
+					__( 'Use internal CSS that is embedded in the head of the page. For troubleshooting server configuration conflicts and managing development environments.', 'elementor' ) .
+					'</div>',
+			]
+		);
+
+		register_setting( Tools::PAGE_ID, $field_id, [ $validations_class_name, 'clear_cache' ] );
+
 		$replace_url_section = 'elementor_replace_url_section';
 
 		add_settings_section(
@@ -90,16 +120,47 @@ class Tools {
 				'desc' => __( 'Enter your old and new URLs for your WordPress installation, to update all Elementor data (Relevant for domain transfers or move to \'HTTPS\').', 'elementor' ),
 			]
 		);
+
+		$editor_break_lines_section = 'elementor_editor_break_lines_section';
+
+		add_settings_section(
+			$editor_break_lines_section,
+			__( 'Editor Loader', 'elementor' ),
+			'__return_false',
+			self::PAGE_ID
+		);
+
+		$field_id = 'elementor_editor_break_lines';
+		add_settings_field(
+			$field_id,
+			__( 'Switch front-end editor loader method', 'elementor' ),
+			[ $controls_class_name, 'render' ],
+			self::PAGE_ID,
+			$editor_break_lines_section,
+			[
+				'id' => $field_id,
+				'type' => 'select',
+				'options' => [
+					'' => __( 'Disable', 'elementor' ),
+					1 => __( 'Enable', 'elementor' ),
+				],
+				'desc' => __( 'For troubleshooting server configuration conflicts.', 'elementor' ),
+			]
+		);
+
+		register_setting( Tools::PAGE_ID, $field_id );
 	}
 
 	public function display_settings_page() {
 		?>
 		<div class="wrap">
-			<h2><?php _e( 'Elementor Tools', 'elementor' ); ?></h2>
-			<form method="post" action="">
+			<h2><?php _e( 'Tools', 'elementor' ); ?></h2>
+			<form method="post" action="options.php">
 				<?php
 				settings_fields( self::PAGE_ID );
 				do_settings_sections( self::PAGE_ID );
+
+				submit_button();
 				?>
 			</form>
 		</div><!-- /.wrap -->

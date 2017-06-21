@@ -22,7 +22,6 @@ $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>nav_c87aacf5673fada1108c
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>nav_d4151a9a3959bdd43690735737034f27'] = 'Identifiez-vous';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>nav_b6d4223e60986fa4c9af77ee5f7149c5'] = 'Connexion';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_2cbfb6731610056e1d0aaacde07096c1'] = 'Voir mon compte client';
-$_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_2413907c3651f169fa6892bff6b8e1d6'] = 'Bonjour';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_f4fb90a18f0390d83b0c4bbebeb14599'] = 'Mon compte';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_4440ef58c935f331e5ffc841b74e06e5'] = 'Mes adresses';
 $_MODULE['<{blockuserinfo}default-bootstrap-throwback16>blockuserinfo-top_aa511d347c43edb90649dd98058807a4'] = 'Mes commandes';

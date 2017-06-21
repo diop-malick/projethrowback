@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+use Elementor\PageSettings\Manager as PageSettingsManager;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Editor {
@@ -32,6 +34,7 @@ class Editor {
 		add_action( 'wp_head', 'wp_enqueue_scripts', 1 );
 		add_action( 'wp_head', 'wp_print_styles', 8 );
 		add_action( 'wp_head', 'wp_print_head_scripts', 9 );
+		add_action( 'wp_head', 'wp_site_icon' );
 		add_action( 'wp_head', [ $this, 'editor_head_trigger' ], 30 );
 
 		// Handle `wp_footer`
@@ -40,6 +43,8 @@ class Editor {
 		add_action( 'wp_footer', [ $this, 'wp_footer' ] );
 
 		// Handle `wp_enqueue_scripts`
+		remove_all_actions( 'wp_enqueue_scripts' );
+
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 999999 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ], 999999 );
 
@@ -167,6 +172,8 @@ class Editor {
 		$plugin->frontend->register_scripts();
 		$plugin->frontend->enqueue_scripts();
 
+		$plugin->widgets_manager->enqueue_widgets_scripts();
+
 		wp_register_script(
 			'backbone-marionette',
 			ELEMENTOR_ASSETS_URL . 'lib/backbone/backbone.marionette' . $suffix . '.js',
@@ -226,16 +233,6 @@ class Editor {
 		);
 
 		wp_register_script(
-			'elementor-dialog',
-			ELEMENTOR_ASSETS_URL . 'lib/dialog/dialog' . $suffix . '.js',
-			[
-				'jquery-ui-position',
-			],
-			'3.0.2',
-			true
-		);
-
-		wp_register_script(
 			'jquery-select2',
 			ELEMENTOR_ASSETS_URL . 'lib/select2/js/select2' . $suffix . '.js',
 			[
@@ -273,12 +270,11 @@ class Editor {
 				'backbone-marionette',
 				'backbone-radio',
 				'perfect-scrollbar',
-				'jquery-easing',
+				//'jquery-easing',
 				'nprogress',
 				'tipsy',
 				'imagesloaded',
 				'heartbeat',
-				'elementor-dialog',
 				'jquery-select2',
 				'jquery-simple-dtpicker',
 				'ace',
@@ -295,9 +291,18 @@ class Editor {
 		wp_print_styles( 'editor-buttons' );
 
 		$locked_user = $this->get_locked_user( $post_id );
+
 		if ( $locked_user ) {
 			$locked_user = $locked_user->display_name;
 		}
+
+		$page_title_selector = get_option( 'elementor_page_title_selector' );
+
+		if ( empty( $page_title_selector ) ) {
+			$page_title_selector = 'h1.entry-title';
+		}
+
+		$page_settings_instance = PageSettingsManager::get_page( $post_id );
 
 		$config = [
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -315,6 +320,11 @@ class Editor {
 			'default_schemes' => $plugin->schemes_manager->get_schemes_defaults(),
 			'revisions' => Revisions_Manager::get_revisions(),
 			'revisions_enabled' => ( $post_id && wp_revisions_enabled( get_post() ) ),
+			'page_settings' => [
+				'controls' => $page_settings_instance->get_controls(),
+				'tabs' => $page_settings_instance->get_tabs_controls(),
+				'settings' => $page_settings_instance->get_settings(),
+			],
 			'system_schemes' => $plugin->schemes_manager->get_system_schemes(),
 			'wp_editor' => $this->_get_wp_editor_config(),
 			'post_id' => $post_id,
@@ -332,6 +342,8 @@ class Editor {
 			'introduction' => User::get_introduction(),
 			'viewportBreakpoints' => Responsive::get_breakpoints(),
 			'rich_editing_enabled' => filter_var( get_user_meta( get_current_user_id(), 'rich_editing', true ), FILTER_VALIDATE_BOOLEAN ),
+			'page_title_selector' => $page_title_selector,
+			'tinymceHasCustomConfig' => class_exists( 'Tinymce_Advanced' ),
 			'i18n' => [
 				'elementor' => __( 'Elementor', 'elementor' ),
 				'dialog_confirm_delete' => __( 'Are you sure you want to remove this {0}?', 'elementor' ),
@@ -378,21 +390,34 @@ class Editor {
 				'revision' => __( 'Revision', 'elementor' ),
 				'autosave' => __( 'Autosave', 'elementor' ),
 				'preview' => __( 'Preview', 'elementor' ),
+				'page_settings' => __( 'Page Settings', 'elementor' ),
 				'back_to_editor' => __( 'Back to Editor', 'elementor' ),
 			],
 		];
 
 		echo '<script type="text/javascript">' . PHP_EOL;
 		echo '/* <![CDATA[ */' . PHP_EOL;
-		echo 'var ElementorConfig = ' . wp_json_encode( $config ) . ';' . PHP_EOL;
+		$config_json = wp_json_encode( $config );
+		unset( $config );
+
+		if ( get_option( 'elementor_editor_break_lines' ) ) {
+			// Add new lines to avoid memory limits in some hosting servers that handles th buffer output according to new line characters
+			$config_json = str_replace( '}},"', '}},' . PHP_EOL . '"', $config_json );
+		}
+
+		echo 'var ElementorConfig = ' . $config_json . ';' . PHP_EOL;
 		echo '/* ]]> */' . PHP_EOL;
 		echo '</script>';
 
 		$plugin->controls_manager->enqueue_control_scripts();
+
+		do_action( 'elementor/editor/after_enqueue_scripts' );
 	}
 
 	public function enqueue_styles() {
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		do_action( 'elementor/editor/before_enqueue_styles' );
+
+		$suffix = Utils::is_script_debug() ? '' : '.min';
 
 		$direction_suffix = is_rtl() ? '-rtl' : '';
 
@@ -446,6 +471,8 @@ class Editor {
 		);
 
 		wp_enqueue_style( 'elementor-editor' );
+
+		do_action( 'elementor/editor/after_enqueue_styles' );
 	}
 
 	protected function _get_wp_editor_config() {
@@ -482,6 +509,8 @@ class Editor {
 		foreach ( $this->_editor_templates as $editor_template ) {
 			include $editor_template;
 		}
+
+		do_action( 'elementor/editor/footer' );
 	}
 
 	/**

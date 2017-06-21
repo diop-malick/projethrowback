@@ -11,16 +11,21 @@ class Frontend {
 
 	private $_is_frontend_mode = false;
 	private $_has_elementor_in_page = false;
+	private $_is_excerpt = false;
 
 	public function init() {
-		if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+		if ( Plugin::$instance->editor->is_edit_mode() ) {
+			return;
+		}
+
+		add_filter( 'body_class', [ $this, 'body_class' ] );
+
+		if ( Plugin::$instance->preview->is_preview_mode() ) {
 			return;
 		}
 
 		$this->_is_frontend_mode = true;
-		$this->_has_elementor_in_page = Plugin::$instance->db->has_elementor_in_post( get_the_ID() );
-
-		add_filter( 'body_class', [ $this, 'body_class' ] );
+		$this->_has_elementor_in_page = Plugin::$instance->db->is_built_with_elementor( get_the_ID() );
 
 		if ( $this->_has_elementor_in_page ) {
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
@@ -47,13 +52,19 @@ class Frontend {
 
 	public function body_class( $classes = [] ) {
 		$classes[] = 'elementor-default';
-		if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( get_the_ID() ) ) {
-			$classes[] = 'elementor-page';
+
+		$id = get_the_ID();
+
+		if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
+			$classes[] = 'elementor-page elementor-page-' . $id;
 		}
+
 		return $classes;
 	}
 
 	public function register_scripts() {
+		do_action( 'elementor/frontend/before_register_scripts' );
+
 		$suffix = Utils::is_script_debug() ? '' : '.min';
 
 		wp_register_script(
@@ -87,6 +98,16 @@ class Frontend {
 		);
 
 		wp_register_script(
+			'jquery-swiper',
+			ELEMENTOR_ASSETS_URL . 'lib/swiper/swiper.jquery' . $suffix . '.js',
+			[
+				'jquery',
+			],
+			'3.4.1',
+			true
+		);
+
+		wp_register_script(
 			'jquery-slick',
 			ELEMENTOR_ASSETS_URL . 'lib/slick/slick' . $suffix . '.js',
 			[
@@ -97,21 +118,33 @@ class Frontend {
 		);
 
 		wp_register_script(
+			'elementor-dialog',
+			ELEMENTOR_ASSETS_URL . 'lib/dialog/dialog' . $suffix . '.js',
+			[
+				'jquery-ui-position',
+			],
+			'3.1.1',
+			true
+		);
+
+		wp_register_script(
 			'elementor-frontend',
 			ELEMENTOR_ASSETS_URL . 'js/frontend' . $suffix . '.js',
 			[
 				'elementor-waypoints',
-				'jquery-numerator',
-				'imagesloaded',
-				'jquery-slick',
+
 			],
 			ELEMENTOR_VERSION,
 			true
 		);
+
+		do_action( 'elementor/frontend/after_register_scripts' );
 	}
 
 	public function register_styles() {
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		do_action( 'elementor/frontend/before_register_styles' );
+
+		$suffix = Utils::is_script_debug() ? '' : '.min';
 
 		$direction_suffix = is_rtl() ? '-rtl' : '';
 
@@ -142,6 +175,8 @@ class Frontend {
 			[],
 			ELEMENTOR_VERSION
 		);
+
+		do_action( 'elementor/frontend/after_register_styles' );
 	}
 
 	public function enqueue_scripts() {
@@ -151,17 +186,39 @@ class Frontend {
 
 		wp_enqueue_script( 'elementor-frontend' );
 
-		wp_localize_script(
-			'elementor-frontend',
-			'elementorFrontendConfig', [
-				'isEditMode' => Plugin::$instance->editor->is_edit_mode(),
-				'stretchedSectionContainer' => get_option( 'elementor_stretched_section_container', '' ),
-				'is_rtl' => is_rtl(),
-			]
-		);
+		$elementor_frontend_config = [
+			'isEditMode' => Plugin::$instance->editor->is_edit_mode(),
+			'stretchedSectionContainer' => get_option( 'elementor_stretched_section_container', '' ),
+			'is_rtl' => is_rtl(),
+			'urls' => [
+				'assets' => ELEMENTOR_ASSETS_URL,
+			],
+		];
+
+		$elements_manager = Plugin::$instance->elements_manager;
+
+		$elements_frontend_keys = [
+			'section' => $elements_manager->get_element_types( 'section' )->get_frontend_settings_keys(),
+			'column' => $elements_manager->get_element_types( 'column' )->get_frontend_settings_keys(),
+		];
+
+		$elements_frontend_keys += Plugin::$instance->widgets_manager->get_widgets_frontend_settings_keys();
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) {
+			$elementor_frontend_config['elements'] = [
+				'data' => (object) [],
+				'keys' => $elements_frontend_keys,
+			];
+		}
+
+		wp_localize_script( 'elementor-frontend', 'elementorFrontendConfig', $elementor_frontend_config );
+
+		do_action( 'elementor/frontend/after_enqueue_scripts' );
 	}
 
 	public function enqueue_styles() {
+		do_action( 'elementor/frontend/before_enqueue_styles' );
+
 		wp_enqueue_style( 'elementor-icons' );
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_style( 'elementor-animations' );
@@ -173,6 +230,8 @@ class Frontend {
 			$css_file = new Post_CSS_File( get_the_ID() );
 			$css_file->enqueue();
 		}
+
+		do_action( 'elementor/frontend/after_enqueue_styles' );
 	}
 
 	/**
@@ -190,6 +249,10 @@ class Frontend {
 	}
 
 	public function print_google_fonts() {
+		if ( ! apply_filters( 'elementor/frontend/print_google_fonts', true ) ) {
+			return;
+		}
+
 		// Print used fonts
 		if ( ! empty( $this->google_fonts ) ) {
 			foreach ( $this->google_fonts as &$font ) {
@@ -290,8 +353,10 @@ class Frontend {
 			return '';
 		}
 
-		$css_file = new Post_CSS_File( $post_id );
-		$css_file->enqueue();
+		if ( ! $this->_is_excerpt ) {
+			$css_file = new Post_CSS_File( $post_id );
+			$css_file->enqueue();
+		}
 
 		ob_start();
 
@@ -300,7 +365,7 @@ class Frontend {
 			$with_css = true;
 		}
 
-		if ( $with_css ) {
+		if ( ! empty( $css_file ) && $with_css ) {
 			echo '<style>' . $css_file->get_css() . '</style>';
 		}
 
@@ -322,7 +387,7 @@ class Frontend {
 		return $content;
 	}
 
-	function add_menu_in_admin_bar( \WP_Admin_Bar $wp_admin_bar ) {
+	public function add_menu_in_admin_bar( \WP_Admin_Bar $wp_admin_bar ) {
 		$post_id = get_the_ID();
 		$is_not_builder_mode = ! is_singular() || ! User::is_current_user_can_edit( $post_id ) || 'builder' !== Plugin::$instance->db->get_edit_mode( $post_id );
 
@@ -378,6 +443,16 @@ class Frontend {
 		return $content;
 	}
 
+	public function start_excerpt_flag( $excerpt ) {
+		$this->_is_excerpt = true;
+		return $excerpt;
+	}
+
+	public function end_excerpt_flag( $excerpt ) {
+		$this->_is_excerpt = false;
+		return $excerpt;
+	}
+
 	public function __construct() {
 		// We don't need this class in admin side, but in AJAX requests
 		if ( is_admin() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
@@ -388,5 +463,9 @@ class Frontend {
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 5 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ], 5 );
 		add_filter( 'the_content', [ $this, 'apply_builder_in_content' ] );
+
+		// Hack to avoid enqueue post css wail it's a `the_excerpt` call
+		add_filter( 'get_the_excerpt', [ $this, 'start_excerpt_flag' ], 1 );
+		add_filter( 'get_the_excerpt', [ $this, 'end_excerpt_flag' ], 20 );
 	}
 }
