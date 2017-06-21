@@ -3712,6 +3712,7 @@ nav.sidebarmenu li a:hover {
 	background: transparent;
 	-webkit-transition: color .3s ease;
 	transition: color .3s ease;
+	text-align: center;
 }
 
 .searchform::after {
@@ -4867,10 +4868,10 @@ a:after{
 
 .searchform .searchsubmit, .searchform:hover input[type="search"], .searchform {};
 
- .searchsubmit:hover
+.searchform .searchsubmit:hover
   {
     color:red !important;
-    background-color: yellow !important;
+    background-color: black !important;
 }
 article.hentry .article-inner {
 
