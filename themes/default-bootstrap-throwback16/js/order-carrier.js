@@ -40,8 +40,10 @@ $(document).ready(function(){
 	    $('.resp-arrow').removeClass("resp-arrow-active");
 	});
 
-	if(nb_adresses==0)
+	if(nb_adresses==0){
 		$('#delivery_list').addClass('hidden');
+		$('#delivery_label').addClass('hidden');
+	}
 	else if(nb_adresses > 1){
 		$('#select_invoice_adresse').removeClass("hidden");
 		$('#message_invoice_adresse').addClass("hidden");
@@ -112,6 +114,7 @@ function ajaxAddressSetup()
 		// $('.resp-tab-content:last-of-type').addClass('hidden');
 		// $('h2.resp-accordion:last-of-type').addClass('hidden');
 		$('#delivery_list').addClass('hidden');
+		$('#delivery_label').addClass('hidden');
 	}
 	$('.resp-tab-content').each(function(){
 		var tab = this;	
@@ -166,6 +169,7 @@ function ajaxAddressSetup()
 										// 	$('.addresses .address_add a',tab).addClass('hidden');
 										// }
 										$('#delivery_list').removeClass('hidden');
+										$('#delivery_label').removeClass('hidden');
 										if($('#id_address_delivery option',tab).length < 3){
 											$('.address_add').removeClass('hidden');
 											if($('#id_address_delivery option',tab).length > 1){
