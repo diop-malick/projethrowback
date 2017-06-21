@@ -1382,4 +1382,8 @@ button.accordion.active:after {
 	margin-left: 28px;
 }
 
+#new-products #productsSortForm{
+    margin-top: -60px;
+}
+
 /*# sourceMappingURL=style.css.map */
