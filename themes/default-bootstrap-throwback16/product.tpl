@@ -343,7 +343,7 @@
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
 							{if isset($comingsoontplvalue) && $comingsoontplvalue == 'comingsoon'}
-								<pre>test : {$comingsoontplvalue}</pre>
+								{* <pre>test : {$comingsoontplvalue}</pre> *}
 								<span id="chrono_without_date" class="hidden-xs">
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
 								</span>

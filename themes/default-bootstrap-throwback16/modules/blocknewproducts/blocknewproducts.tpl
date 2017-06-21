@@ -52,7 +52,8 @@
                                             {* comingsoon without date *}
                                             {if isset($comingsoonvalue) && $comingsoonvalue eq 'comingsoon'}
                                                 {addJsDef comingsoonvalue=$comingsoonvalue}
-                                                <i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50); margin-right:25px; display:inline-block;">schedule</i>
+                                                {* <i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50); margin-right:25px; display:inline-block;">schedule</i> *}
+                                                <img src="{$base_dir_ssl}img/icones/chrono.png"/>
                                             <!-- FALG New -->
                                             <!-- FALG Comming soon -->
                                             {elseif $accessory.date_add > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}
