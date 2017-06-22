@@ -84,7 +84,7 @@ blog/*.log
 blog/wp-config.php
 
 blog/wp-content/plugins/*
-
+!blog/wp-content/plugins/elementor
 blog/wp-content/*.log
 
 # blog/wp-content/advanced-cache.php
