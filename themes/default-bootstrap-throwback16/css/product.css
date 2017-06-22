@@ -993,7 +993,9 @@ table.table-product-discounts tr th {
 
 #productscategory_list p.price_display span.price,
 .accessories-block span.price {
-    font-size: 21px
+    font-size: 16px;
+    color: rgb(214, 157, 50) !important;
+    font-family: "Helvetica Neue", "Open Sans", sans-serif;
 }
 
 #productscategory_list .bx-wrapper .content_price img {
@@ -1288,7 +1290,7 @@ Quick View Styles
         width: 100%;
         padding-right: 15px;
     }
-    
+
     #product.content_only div.primary_block div.pb-left-column #image-block,
     #product.content_only div.primary_block div.pb-left-column #views_block,
     #product.content_only section.primary_block div.pb-left-column #image-block,
@@ -1298,25 +1300,25 @@ Quick View Styles
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     #product.content_only div.primary_block div.pb-left-column #thumbs_list li,
     #product.content_only section.primary_block div.pb-left-column #thumbs_list li {
         width: 90px;
         height: 90px;
     }
-    
+
     #product.content_only div.primary_block div.pb-left-column #thumbs_list li img,
     #product.content_only section.primary_block div.pb-left-column #thumbs_list li img {
         width: 82px;
         height: 82px;
     }
-    
+
     #product.content_only div.primary_block div.pb-right-column,
     #product.content_only section.primary_block div.pb-right-column {
         width: 50%;
         float: left;
     }
-    
+
     #product.content_only div.primary_block div.pb-right-column .box-info-product,
     #product.content_only section.primary_block div.pb-right-column .box-info-product {
         border-top-width: 1px;
@@ -1501,23 +1503,23 @@ h3.page-product-heading {
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
-    
+
     .page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
         width: auto !important;
     }
-    
+
     #rigth-row-1 .product_name {
         font-weight: 900 !important;
         font-size: 24px !important;
     }
-    
+
     #layer_cart {
         width: 80% !important;
         margin-right: 0 !important;
         margin-left: 10% !important;
         position: fixed;
     }
-    
+
     .panier-vide,
     .alert-no-adress {
         font-size: 13px !important;
