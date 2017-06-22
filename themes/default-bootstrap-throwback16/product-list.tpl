@@ -236,7 +236,5 @@
 {addJsDefL name=max_item}{l s='You cannot add more than %d product(s) to the product comparison' sprintf=$comparator_max_item js=1}{/addJsDefL}
 {addJsDef comparator_max_item=$comparator_max_item}
 {addJsDef comparedProductsIds=$compared_products}
-	{if $page_name == 'category'}
-		{addJsDef is_categorie=1}
-	{/if}
+
 {/if}
