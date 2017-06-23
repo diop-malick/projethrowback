@@ -37,6 +37,7 @@
         </div>
 
         <!-- FORM -->
+        <h4 class="text-center">{l s='Numero client'}: {$cookie->id_customer}</h4>
 
         <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="form-horizontal std" id="form_data">
 

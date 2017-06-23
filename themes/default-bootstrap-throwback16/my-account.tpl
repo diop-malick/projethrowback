@@ -4,7 +4,6 @@
 <div class="my-account-selfcare">
 
     <h3 class="page-subheading text-center">{l s='Bienvenue dans votre espace personnel'}</h3>
-    <h4 class="text-center">{l s='Numero client'}: {$cookie->id_customer}</h4>
 
     {* BEGIN ============= MAILCHIMPS PROCESS =========  *}
     {if isset($processMailchimpsInscription) && $processMailchimpsInscription}
