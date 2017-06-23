@@ -65,7 +65,7 @@ input[name="search_query"]:focus:-moz-placeholder {
 /* Display reset button on searchbox */
 
 .search_query.form-control {
-    background: #fff url(/throwback16/themes/default-bootstrap-throwback16/img/croix.png) no-repeat right -17px center;
+    background: #fff url(/themes/default-bootstrap-throwback16/img/croix.png) no-repeat right -17px center;
     padding: 3px 18px 3px 4px;
     border-radius: 3px;
     transition: background 0.4s;
