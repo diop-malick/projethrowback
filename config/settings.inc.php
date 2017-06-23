@@ -1,0 +1,17 @@
+<?php
+// sqdsq
+define('_DB_SERVER_', 'throwbacdb.mysql.db');
+define('_DB_NAME_', 'throwbacdb');
+define('_DB_USER_', 'throwbacdb');
+define('_DB_PASSWD_', 'AxI3zpbdb');
+define('_DB_PREFIX_', 'ps_');
+define('_MYSQL_ENGINE_', 'InnoDB');
+define('_PS_CACHING_SYSTEM_', 'CacheMemcached');
+define('_PS_CACHE_ENABLED_', '0');
+define('_COOKIE_KEY_', '6oieZ6mL7N7E6vxPQ9StArGeqkE1fILeiEEs5JaNz9NYLHWqByEzqB4e');
+define('_COOKIE_IV_', 'yNLLN7bZ');
+define('_PS_CREATION_DATE_', '2017-01-29');
+if (!defined('_PS_VERSION_'))
+    define('_PS_VERSION_', '1.6.1.11');
+define('_RIJNDAEL_KEY_', 'nvphOzZfXyA9W7ueQZf1x0ettj5p2rWX');
+define('_RIJNDAEL_IV_', 'MHb4tJr7nCMTUgeVF0SErg==');
