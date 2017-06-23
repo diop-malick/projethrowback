@@ -1385,5 +1385,7 @@ button.accordion.active:after {
 #new-products #productsSortForm{
     margin-top: -60px;
 }
-
+.num-client{
+    margin-top: 6px;
+}
 /*# sourceMappingURL=style.css.map */

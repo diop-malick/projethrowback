@@ -37,8 +37,7 @@
         </div>
 
         <!-- FORM -->
-        <h4 class="text-center">{l s='Numero client'}: {$cookie->id_customer}</h4>
-
+        
         <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="form-horizontal std" id="form_data">
 
         <!-- <div class="container"> -->
@@ -47,6 +46,15 @@
                 <h4 class="title-identity"  {if ( (isset($smarty.get.action) && $smarty.get.action =="newsletter") || ( isset($smarty.post.newsletter_page) && $smarty.post.newsletter_page ) )} class="grise" {/if}>{l s='Vos Information de connexion'}</h4>
             </div>
             <div class="col-md-8 col-xs-12">
+            		<div class="row form-group">
+                            <label for="email" class="col-md-4 col-xs-12 text-xs-left text-right control-label">
+                                {l s='Numero client'}
+                            </label>
+                            <div class="col-md-8 col-xs-12 num-client">
+                               {$cookie->id_customer}
+                            </div>
+                    </div>
+
                     <div class="row form-group">
                             <label for="email" class="col-md-4 col-xs-12 text-xs-left text-right control-label required">
                                 {l s='E-mail address'}
