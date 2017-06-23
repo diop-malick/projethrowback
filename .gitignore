@@ -22,7 +22,7 @@ robots.txt
 ########################### PRESTASHOP ###########################
 
 
-config/settings.*.php
+!config/settings.*.php
 config/defines.inc.php
 
 
