@@ -11,9 +11,6 @@ $("#displaynewsletter").fancybox({
              'autoWidth '        : 'false',
              'minWidth'          : 395,
              'minHeight': 150,
-            // 'type': 'iframe',
-            // 'width': 250,
-            // 'height': '90%',
          });
 
 $.validate({
@@ -25,11 +22,11 @@ $.validate({
     /* mailchimps > form AJX */
     
     $('#mc-embedded-subscribe-form').submit(function(e) {
-      // console.log("mailchimps");
       var $this = $(this);
       $.ajax({
-          type: "GET", // GET & url for json slightly different
-          url: "https://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
+          type: "GET",
+          url: "https://throwback-sneakers.us5.list-manage.com/subscribe/post-json?u=c868b5d04fd4025281ac0527f&amp;id=c85916a60a",
+          // url: "https://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
           data: $this.serialize(),
           dataType    : 'jsonp',
           jsonp       : 'c',
@@ -45,7 +42,6 @@ $.validate({
 });
 
 /* mailchimps > Manage error message */
-
 
 
 err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
