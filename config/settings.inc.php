@@ -1,5 +1,4 @@
 <?php
-// sqdsq
 define('_DB_SERVER_', 'throwbacpresta16.mysql.db');
 define('_DB_NAME_', 'throwbacpresta16');
 define('_DB_USER_', 'throwbacpresta16');

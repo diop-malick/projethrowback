@@ -183,6 +183,9 @@ class AdminImagesControllerCore extends AdminController
             ),
         );
 
+        // https://www.prestashop.com/forums/topic/384738-cant-find-move-images-and-legacy-option/
+        $this->display_move = true;
+
         if ($this->display_move) {
             $this->fields_options['product_images']['fields']['PS_LEGACY_IMAGES'] = array(
                 'title' => $this->l('Use the legacy image filesystem'),

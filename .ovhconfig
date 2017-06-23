@@ -1,3 +1,10 @@
 app.engine=php
+<<<<<<< HEAD
 app.engine.version=5.6
 environment=development
+=======
+app.engine.version=7.0
+http.firewall=none
+environment=production
+container.image=stable
+>>>>>>> 8cd264dc85a522e2abcbbf2142e2a018ae57df5f

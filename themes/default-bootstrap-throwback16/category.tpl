@@ -25,7 +25,7 @@
 {include file="$tpl_dir./errors.tpl"}
 {if isset($category)}
 	{if $category->id AND $category->active}
-    	
+    	{addJsDef is_categorie=1}
     	<div class="row filter-line">
 
 				<div class="container-fluid">
