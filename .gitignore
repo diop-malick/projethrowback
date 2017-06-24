@@ -69,6 +69,10 @@ img/p/*
 !img/p/index.php
 !img/p/*.jpg
 
+SNE/*
+!SNE/db_backup/*
+!SNE/config/settings.inc.php
+!SNE/config/wp-config.php
 
 download/*
 !download/index.php
