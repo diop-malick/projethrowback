@@ -218,7 +218,7 @@
 									</div>
 
 										<div class="disponible">
-											<span class="dispo_info">{l s='In Stock'|upper mod='blockcart'}
+											<span class="dispo_info">{l s='In Stock' mod='blockcart'}
 											</span>
 										</div>
 
