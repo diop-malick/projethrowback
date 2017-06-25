@@ -523,7 +523,11 @@ a:visited {
     margin-bottom: 0;
     min-height: 400px;
     clear: both;
-    margin-top: 200px;
+    /*margin-top: 200px;*/
+}
+
+#container.one-column {
+    margin-top: 152px;
 }
 
 #content-masonry {
@@ -2167,6 +2171,7 @@ body .main .wp-caption > a {
 .lp-staticslider {
     position: relative;
     overflow: hidden;
+    margin-bottom: 15px;
 }
 
 .lp-staticslider::before {
@@ -2557,9 +2562,14 @@ body .main .wp-caption > a {
 -------------------------------------------------------------- */
 
 @media (min-width: 1200px) {
+
     .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
         /*margin-right: 0 ;*/
         /*width: 49% !important;*/
+    }
+
+    .block_top_menu .sf-menu {
+        /*background-color: rgba(53, 53, 53, 0.35) !important;*/
     }
 }
 
@@ -2587,7 +2597,7 @@ body .main .wp-caption > a {
 
 .lp-boxes.lp-boxes-rows-2 .lp-boxes-inside {
     padding: 0 !important;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .lp-boxes.lp-boxes-rows-1 .lp-boxes-margins .lp-box {
@@ -5025,10 +5035,6 @@ a:after {
 .searchform .searchsubmit:hover {
     color: red !important;
     background-color: black !important;
-}
-
-article.hentry .article-inner {
-    /*margin-top: 50px;*/
 }
 
 
