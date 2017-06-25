@@ -114,6 +114,7 @@
     }
     #block_various_links_footer {
         text-align: left;
+            font-size: 9px;
     }
     #footer #newsletter_block_left .newsletter-input {
         width: 150px !important;

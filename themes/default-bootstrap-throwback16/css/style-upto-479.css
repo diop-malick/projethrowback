@@ -7,7 +7,13 @@
 @media (max-width: 320px) {
     #header_logo .logo-throwback {
         margin-top: 40.2px !important;
-        margin-right: 0 !important;
+        /*margin-right: 1.3px !important;*/
+    }
+    header .nav {
+        background: radial-gradient(41px at 50% 170%, #fff 100.5%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+    }
+    #accordion .address_title .page-subheading {
+        font-size: 15px;
     }
 }
 
@@ -15,9 +21,22 @@
     #header_logo .logo-throwback {
         margin-top: 40.2px !important;
     }
+    header .nav {
+        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+    }
+    #accordion .address_title .page-subheading {
+        font-size: 16px;
+    }
 }
 
 @media (min-width: 362px) and (max-width: 479px) {
+    header .nav {
+        /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
+        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+    }
+    #accordion .address_title .page-subheading {
+        font-size: 17px;
+    }
     #header_logo .logo-throwback {
         margin-top: 40.2px !important;
     }
@@ -45,10 +64,13 @@
 \* ------------------------------------------------------------ */
 
 @media (max-width: 479px) {
+    .header-container {
+        position: relative;
+        /*width: 320px;*/
+    }
     #header .block_contact_infos {
         width: 73.33333% !important
     }
-
     #header_logo .logo-throwback {
         display: inline-block !important;
         margin-bottom: 10px;
@@ -97,6 +119,11 @@
         line-height: 30px;
         padding: 0 10px 0 30px;
     }
+    /*delete espace between a gauche*/
+    #top_menu_row,
+    #user_info_cart {
+        margin: 0 !important;
+    }
     #header .shopping_cart {
         padding-top: 4px;
     }
@@ -138,10 +165,6 @@ Logo
     .logo.img-responsive.logo-throwback {
         width: 90px;
         height: 105px;
-    }
-    header .nav {
-        /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
-        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     /* ***********************************************************
 Popup newletter
@@ -429,8 +452,12 @@ MENU Hori Mobile
         background: 0 !important;
         border: 0 !important;
         border-radius: 0 !important;
-        border-right: 2px solid #B5BDC1 !important;
         text-align: center !important;
+    }
+    .menu_vertical_mobile,
+    #search_block_top_mobile,
+    .header_user_info {
+        border-right: 2px solid #B5BDC1 !important;
     }
     #mobil_blockcart .shopping_cart a i {
         color: #777 !important;
