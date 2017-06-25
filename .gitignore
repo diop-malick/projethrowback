@@ -83,6 +83,8 @@ upload/*
 
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
+blog/.htaccess
+
 blog/*.log
 
 blog/wp-config.php
