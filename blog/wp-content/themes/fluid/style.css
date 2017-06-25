@@ -2568,7 +2568,7 @@ body .main .wp-caption > a {
         /*width: 49% !important;*/
     }
 
-    .block_top_menu .sf-menu {
+    #block_top_menu .sf-menu {
         /*background-color: rgba(53, 53, 53, 0.35) !important;*/
     }
 }
