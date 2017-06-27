@@ -3,7 +3,7 @@
 global $_LANG;
 $_LANG = array();
 $_LANG['404_0d4294e5c07e9434354b1adcfad83279'] = 'Continuer mon shopping';
-$_LANG['404_44b1d05764b093cb00c25b8228cb87d3'] = 'Oups, désolais!';
+$_LANG['404_44b1d05764b093cb00c25b8228cb87d3'] = 'Oups, désolés!';
 $_LANG['404_6554aae881e40036cac1f5710a4c52c1'] = 'La page que vous avez demandée n\'existe plus.';
 $_LANG['404_8cf04a9734132302f96da8e113e80ce5'] = 'Accueil';
 $_LANG['404_9bec38acab82302a8cf6fbb9182da21f'] = 'Pour rechercher un produit, saisissez son nom dans le champ ci-dessous';
@@ -30,7 +30,6 @@ $_LANG['addresses_06933067aafd48425d67bcb01bba5cb6'] = 'Mettre à jour';
 $_LANG['addresses_3c7d34ae915c6664189dab2aebb02307'] = 'Ajouter une adresse';
 $_LANG['addresses_56d3db43fb7f323139022a29d57276d8'] = 'Aucune adresse disponible.';
 $_LANG['addresses_729a51874fe901b092899e9e8b31c97a'] = 'Êtes-vous sûr ?';
-$_LANG['addresses_7727eb7488be3ef30da590f1f667181e'] = 'Back';
 $_LANG['addresses_a6d373cdb986fc009a5a040a4c3d8c1d'] = 'Choisissez vos adresses de facturation et de livraison. Ces dernières seront présélectionnées lors de vos commandes. Vous pouvez également ajouter d\'autres adresses, ce qui est particulièrement intéressant pour envoyer des cadeaux ou recevoir votre commande au bureau.';
 $_LANG['addresses_aa5e970d64eb228f31669d3411171f92'] = 'Vos adresses sont listées ci-dessous.';
 $_LANG['addresses_b15e1100a6196acba01ef7aaa5b2a9e5'] = 'Ajouter une nouvelle adresse';

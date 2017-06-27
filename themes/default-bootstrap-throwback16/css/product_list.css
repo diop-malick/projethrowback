@@ -383,6 +383,9 @@ ul.product_list.grid > li .product-container .functional-buttons div {
     #index ul.product_list.grid > li.hovered .product-container {
         position: relative;
     }
+    #category ul.product_list.grid > li.hovered .product-container {
+        position: absolute;
+    }
     ul.product_list.grid > li.hovered .product-container .qv-additionnal-info {
         display: block;
         margin-top: 5px;
@@ -446,11 +449,14 @@ ul.product_list.grid > li .product-container .functional-buttons div {
     ul.product_list.grid > li.first-in-line {
         clear: left; /* empecher à la ligne quand on passe à 3 produits par ligne */
     }
+    #category ul.product_list.grid > .col-md-4.first-in-line {
+        clear: none; 
+    }
 }
 
 @media (min-width: 480px) and (max-width: 991px) {
     ul.product_list.grid > li.first-item-of-tablet-line {
-        clear: left;
+        /*clear: left;*/
     }
 }
 
