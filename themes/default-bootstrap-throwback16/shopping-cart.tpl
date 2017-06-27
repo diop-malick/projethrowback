@@ -504,10 +504,10 @@
 							<div class="row line_product" id="free_shipping_message" {if $total_price < 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
 								{* <div class="col-xs-12"> <p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p> </div> *}
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-6">
 									<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 								</div>
-								<div class="col-md-4 text-right total">
+								<div class="col-md-4 col-xs-6 text-right total">
 										<span id="total_price" style="color:#40ec40">GRATUIT</span>
 								</div>		
 							</div>						

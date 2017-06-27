@@ -30,7 +30,7 @@ function fluida_lp_layoutclass () {
 	$fluida_landingpage = cryout_get_option ('fluida_landingpage');
 
 	if ( $fluida_landingpage ) {
-		// fluida_lpslider();
+		fluida_lpslider();
 		// fluida_lpblocks();
 		// fluida_lptext('one');
 		fluida_lpboxes(1);

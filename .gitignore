@@ -69,6 +69,10 @@ img/p/*
 !img/p/index.php
 !img/p/*.jpg
 
+SNE/*
+!SNE/db_backup/*
+!SNE/config/settings.inc.php
+!SNE/config/wp-config.php
 
 download/*
 !download/index.php
@@ -79,13 +83,20 @@ upload/*
 
 # https://github.com/github/gitignore/blob/master/WordPress.gitignore
 
+blog/.htaccess
+
 blog/*.log
 
 blog/wp-config.php
 
 blog/wp-content/plugins/*
-!blog/wp-content/plugins/elementor
+!blog/wp-content/plugins/elementor/*
+!blog/wp-content/plugins/cryout-serious-slider
 blog/wp-content/*.log
+
+blog/wp-content/uploads/*
+!blog/wp-content/uploads/2017/06
+
 
 # blog/wp-content/advanced-cache.php
 # blog/wp-content/backup-db/**
@@ -94,8 +105,9 @@ blog/wp-content/*.log
 # blog/wp-content/cache/**
 # blog/wp-content/upgrade/**
 
-# blog image
-# blog/wp-content/uploads/**
+
+
+
 
 # blog/wp-content/wp-cache-config.php
 # blog/wp-content/plugins/hello.php

@@ -430,6 +430,7 @@
       .dispo_info{
         font-weight: bold;
         color:#333;
+        text-transform: uppercase;
       }
 
 /************************************************************************
