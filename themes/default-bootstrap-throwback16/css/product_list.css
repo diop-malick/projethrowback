@@ -454,12 +454,6 @@ ul.product_list.grid > li .product-container .functional-buttons div {
     }
 }
 
-@media (min-width: 480px) and (max-width: 991px) {
-    ul.product_list.grid > li.first-item-of-tablet-line {
-        /*clear: left;*/
-    }
-}
-
 ul.product_list.grid li.hovered h5 {
     min-height: 30px;
 }
@@ -678,9 +672,6 @@ Product list(Index page) Styles
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
-
-#index ul.product_list.tab-pane > li {}
-
 
 /* throwback - customize */
 
