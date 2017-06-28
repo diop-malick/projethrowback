@@ -150,7 +150,7 @@ class IdentityController extends IdentityControllerCore
 
                     $mce_result = $this->updateMailchimpSubscriber($mce_email, $mce_status, $mce_list_id, $mce_api_key, $mce_merge_fields );
                     if($mce_status == 'unsubscribed'){
-                 
+                 		$sujet = "DESINSCRIPTION A LA NEWSLETTER DE Throwback Sneakers";
                     	Mail::Send(intval($this->context->cookie->id_lang), 'newsletter_unsubscribed', "Desincription" , array( '{firstname}' => $this->context->cookie->customer_firstname, '{lastname}' => $this->context->cookie->customer_lastname, '{message}' => "Vous vous desinscrit avec succes."), $this->context->cookie->email, NULL, NULL, NULL, NULL, NULL, 'mails/');
                     }
                     // PrestaShopLogger::addLog($mce_result, 1);

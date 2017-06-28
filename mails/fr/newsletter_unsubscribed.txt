@@ -3,7 +3,14 @@
 
 Bonjour {firstname} {lastname}, 
 
-{message} 
+Votre demande de désabonnement à notre newsletter a bien été enregistrée ! Vous ne recevrez plus d’emails à caractère commercial de notre part. 
+Nous sommes désolés qu’elles ne répondent plus à vos attentes.
+
+Si vous changer d’avis, vous pourrez toujours vous réabonner à notre newsletter à tout moment pour profiter de nos offres spéciales.
+
+Merci pour la confiance, à très bientôt sur throwback-sneakers.com!
+
+L’équipe Throwback Sneakers</i>
 
 {shop_name} [{shop_url}] réalisé avec
 PrestaShop(tm) [http://www.prestashop.com/] 
