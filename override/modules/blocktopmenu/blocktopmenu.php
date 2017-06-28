@@ -28,7 +28,8 @@ class BlocktopmenuOverride extends Blocktopmenu
                $cat = new Category($category['id_category']);
                $link = Tools::HtmlEntitiesUTF8($cat->getLink());
            } else {
-               $link = $this->context->link->getPageLink('index');
+               //$link = $this->context->link->getPageLink('index');
+               $link = "#";
            }
 
            /* Whenever a category is not active we shouldnt display it to customer */
