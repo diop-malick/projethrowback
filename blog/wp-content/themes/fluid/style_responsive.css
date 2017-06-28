@@ -34,8 +34,8 @@
 		margin-top: -5px;	
 	}
 
-	.has-post-thumbnail{
-		margin-top: 180px;
+	article.hentry {
+		margin-top: 0px !important;
 	}
 
 	.entry-content{
@@ -79,31 +79,24 @@
 
 @media (min-width: 480px) and (max-width: 599px) {
 
-	.has-post-thumbnail{
-		margin-top: 200px;
+	article.hentry{
+		margin-top: 0px !important;
 	}
 
 	.entry-content{
 		margin-top: 100px;
 	}
 
-	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1{
-		/*margin-top: 60px;*/
-	}
 }
 
 @media (min-width: 600px) and (max-width: 767px) {
 	
-	 .has-post-thumbnail{
-		margin-top: 200px;
+	 article.hentry{
+		margin-top: 0px !important;
 	}
 
 	.entry-content{
 		margin-top: 50px;
-	}
-
-	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1{
-		/*margin-top: 60px;*/
 	}
 
 }
@@ -124,8 +117,8 @@
 		height: auto;
 	}
 
-	 .has-post-thumbnail{
-		margin-top: 200px;
+	 article.hentry{
+		margin-top: 20px !important;
 	}
 
 	.entry-content{
@@ -135,9 +128,6 @@
 	.content-search.pad-container {
 		margin-top: -60px;
 		z-index: -1000;
-	}
-	.entry-title{
-		font-size: 20px !important;
 	}
 
 	.lp-boxes.lp-boxes-rows-2 .lp-box:nth-child(2n+1) {
@@ -171,12 +161,7 @@
 		position: relative !important;
 		top:0 !important;
 		margin-top: 10px !important;
-	} 
-
-	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box.box1 {
-			/*margin-top: 5% !important;*/
-		} 
-
+	}
 }
 
 @media (max-width: 599px) {
@@ -220,6 +205,10 @@
 
 	.content-search.pad-container {
     	margin-left: 0 !important;
+		padding: 0 !important;
+   		padding-bottom: 0 !important;
+    	padding-top: 0 !important;
+		position: absolute !important;
 	}
 
 	.search .header-container , .single .header-container{
@@ -231,16 +220,28 @@
 	}
 
 	.search  #content-masonry {
-		margin-top: 250px;
+		margin-top: 110px;
 	}
 
 	.search  .entry-summary p{
 		display: none;
 	}
+	.entry-title{
+		font-size: 20px !important;
+	}
 
+}
+
+@media (min-width: 992px) {
+	.search #container.one-column{
+		margin-top: 0px;	
+	}
 }
 
 .toggle_menu_mobile, #search_block_top_mobile{
 	display: none !important;
 }
+.content-search.pad-container {
+		box-shadow: none !important;
+	}
 
