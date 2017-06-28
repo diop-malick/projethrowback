@@ -236,6 +236,9 @@
 	.search #container.one-column{
 		margin-top: 0px;	
 	}
+	.content-search.pad-container {
+   	 margin-top: 110px;
+	}
 }
 
 .toggle_menu_mobile, #search_block_top_mobile{
