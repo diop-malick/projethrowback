@@ -1,10 +1,5 @@
 
 
-/* BUG - PRESTA
-* http://arnaud-merigeau.fr/impossible-de-supprimer-un-produit-du-panier-sous-prestashop/
-*/
-var baseDir ='http://localhost/';
-// set baseDir ='http://vps365425.ovh.net/throwback16/';
 
 $(document).ready(function() {
 
