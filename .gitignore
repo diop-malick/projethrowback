@@ -71,8 +71,7 @@ img/p/*
 
 SNE/*
 !SNE/db_backup/*
-!SNE/config/settings.inc.php
-!SNE/config/wp-config.php
+!SNE/config/*
 
 download/*
 !download/index.php
