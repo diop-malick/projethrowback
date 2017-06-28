@@ -3860,7 +3860,7 @@ nav.sidebarmenu li a:hover {
     background: transparent;
     -webkit-transition: color .3s ease;
     transition: color .3s ease;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .searchform::after {
