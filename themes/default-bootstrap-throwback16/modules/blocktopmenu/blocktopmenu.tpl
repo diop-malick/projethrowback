@@ -1,6 +1,6 @@
 {if $MENU != ''}
 <!-- Menu Horizontal -->
-<div class="row">
+<div class="row" id ="top_menu_row">
 
 	{if $page_name == 'index'}
 	<div id="block_top_menu" class="sf-contener sf-contener_opacity clearfix col-lg-12">

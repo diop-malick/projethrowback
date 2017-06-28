@@ -456,7 +456,7 @@ ul.product_list.grid > li .product-container .functional-buttons div {
 
 @media (min-width: 480px) and (max-width: 991px) {
     ul.product_list.grid > li.first-item-of-tablet-line {
-        clear: left;
+        /*clear: left;*/
     }
 }
 
