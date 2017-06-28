@@ -95,7 +95,7 @@ blog/wp-content/plugins/*
 blog/wp-content/*.log
 
 blog/wp-content/uploads/*
-!blog/wp-content/uploads/2017/06
+!blog/wp-content/uploads/2017/06/*
 
 
 # blog/wp-content/advanced-cache.php
@@ -104,9 +104,6 @@ blog/wp-content/uploads/*
 # blog/wp-content/blogs.dir/**
 # blog/wp-content/cache/**
 # blog/wp-content/upgrade/**
-
-
-
 
 
 # blog/wp-content/wp-cache-config.php
