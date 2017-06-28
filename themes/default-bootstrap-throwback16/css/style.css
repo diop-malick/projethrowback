@@ -9,6 +9,11 @@
     display: none;
 }
 
+.fancybox-opened .fancybox-skin {
+    z-index: 50000;
+}
+
+
 
 /************************************************************
  Large Desktop custom header modifs
