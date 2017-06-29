@@ -16,14 +16,14 @@ $(document).ready(function() {
         }
     }
 
-    /* *********************************** category ***************************/
+    /* *********************************** category ************************** */
     if (typeof is_categorie !== 'undefined' && is_categorie != null && window.matchMedia("(min-width: 992px)").matches) {
        // $('.ajax_block_product').removeClass('col-md-3').addClass('col-md-4');
         //minimizePage();
         fullPage();
     }
 
-    /* *********************************** Scrool Header Behavior  ***************************/
+    /* *********************************** Scrool Header Behavior  ************************** */
 
     // MOBILE & small TAB 
     if (window.matchMedia("(max-width: 991px)").matches) {
@@ -49,7 +49,7 @@ $(document).ready(function() {
     }
 
 
-    /* *********************************** Define .js ***************************/
+    /* *********************************** Define .js ************************** */
 
     $(".toggle_menu").click(function(e) {
         e.preventDefault();
@@ -67,7 +67,7 @@ $(document).ready(function() {
         $(this).removeClass('hovered');
     });
 
-    /*************************************** Authentification ***************************/
+    /* ************************************** Authentification ************************** */
     function isFrance() {
         return ($('#id_country option:selected').text().toLowerCase() == "france");
     }
@@ -85,7 +85,7 @@ $(document).ready(function() {
         }
     });
 
-    /*************************************** Adresse ***************************/
+    /* ************************************** Adresse ************************** */
 
     $.formUtils.addValidator({
         name: 'check_num_voie',
@@ -121,7 +121,7 @@ $(document).ready(function() {
         }
     });
 
-    /*************************** Convert Taille **************************/
+    /* ************************** Convert Taille ************************* */
 
     $('[data-toggle="popover"]').popover({ 
         html : true,
