@@ -3,9 +3,7 @@
 
 $(document).ready(function() {
 
-    /*----------------------------------- update panier ------------------------------------------------------------*/
-    //new_price = $('dt[data-id="cart_block_product_6_32_0"] .price').text();
-    //console.log(linkCarte);
+    /* ----------------------------------- update panier ------------------------------------------------------------ */
     var newPrice;
     var newTotal;
 
@@ -69,11 +67,10 @@ function showElemntsToModify(line) {
             return parseInt(ids[3]);
     }
 
-    /* ********************************************************************* 
+    /* ----------------------------------------------------------------------- 
     * Update line product : delete product -> add product
-    * ********************************************************************* */
+    * ----------------------------------------------------------------------- */
     function addNewLine(line, idProduct, idCombinaison, qty) {
-        //var old_line = getIdProduct(line)+"_"+getIdProductAttribute(line)+"_"+getIdCustom(line)+"_"+getIdAdressDelivery(line);
         var new_ine = idProduct + "_" + idCombinaison + "_" + getIdCustom(line) + "_" + getIdAdressDelivery(line);
         var oldline_price = getIdProduct(line) + "_" + getIdProductAttribute(line) + "_" + 0;
 
@@ -110,7 +107,6 @@ function showElemntsToModify(line) {
         // relaod page to get modif
         window.location = linkCarte + "?update=1";
 
-        //$('body').load(window.location.href,'body');
     }
 
     /* ********************************************************************* 
@@ -782,15 +778,6 @@ function upQuantity(id, qty) {
 function downQuantity(id, qty) {
     var val = $('input[name=quantity_' + id + ']').val();
     var newVal = val;
-    /*
-    if(typeof(qty) == 'undefined' || !qty)
-    {
-    	qty = 1;
-    	newVal = val - 1;
-    }
-    else if (qty < 0)
-    	qty = -qty;
-    */
     var customizationId = 0;
     var productId = 0;
     var productAttributeId = 0;
@@ -805,9 +792,6 @@ function downQuantity(id, qty) {
         customizationId = parseInt(ids[2]);
     if (typeof(ids[3]) !== 'undefined')
         id_address_delivery = parseInt(ids[3]);
-    /*
-    	if (newVal > 0 || $('#product_' + id + '_gift').length)
-    	{*/
     $.ajax({
         type: 'POST',
         headers: { "cache-control": "no-cache" },

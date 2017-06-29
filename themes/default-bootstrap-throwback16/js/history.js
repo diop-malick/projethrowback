@@ -1,5 +1,5 @@
 
-//show the order-details with ajax
+// show the order-details with ajax
 function showOrder(mode, var_content, file)
 {
 	$.get(
@@ -11,7 +11,7 @@ function showOrder(mode, var_content, file)
 			{
 				$(this).html(data);
 				$('.footab').footable();
-				/* if return is allowed*/
+				/* if return is allowed */
 				if ($('#order-detail-content .order_cb').length > 0)
 				{
 					//return slip : check or uncheck every checkboxes
@@ -23,12 +23,12 @@ function showOrder(mode, var_content, file)
 								updateOrderLineDisplay(this);
 							});
 					});
-					//return slip : enable or disable 'global' quantity editing
+					// return slip : enable or disable 'global' quantity editing
 					$('#order-detail-content td input[type=checkbox]').click(function()
 					{
 						updateOrderLineDisplay(this);
 					});
-					//return slip : limit quantities
+					// return slip : limit quantities
 					$('#order-detail-content td .order_qte_input').keyup(function()
 					{
 						var maxQuantity = parseInt($(this).parent().find('.order_qte_span').text());

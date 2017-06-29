@@ -2,18 +2,6 @@
 $(document).ready(function(){
 	
 	resizeCatimg();
-
-	/* from menu/category.js */
-	/*
-	if (window.matchMedia("only screen and (min-width:992px)").matches) {
-		//console.log('category');
-		$('#left_column').show();
-		$('#center_column').removeClass('col-md-12').addClass('col-md-9');
-		$('.menu_vertical').removeClass('hidden').addClass('show');
-		$('#categories_block_left').show().css("position", "fixed").css("top", "140px").css("z-index", "5003").css("width", "18%");
-
-	}
-	*/
 	scrollAction();
 
 });

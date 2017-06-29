@@ -8,12 +8,8 @@ $(document).on('click', '.attribute_radio', function(e){
 	var ids = $(this).attr('id');
 	var keyTab = ids.split('-');
 	var id = keyTab[0]
-	// console.log('ids :' + ids);
-	// console.log('id :' + id);
 	var idCombinaison = parseInt(getProductAttribute(id));
 	$('.combinaison_'+id+' input[name=combinaison_default]').val(idCombinaison);
-	// console.log('idcombinaison');
-	// console.log(idCombinaison);
 
 	// enable validate button buttons_modify
 	$('.update_line').removeClass('disabled');
@@ -23,24 +19,15 @@ $(document).on('click', '.attribute_radio', function(e){
 	// reset quatity to 1, when size changed
     $('#quantity_wanted_'+id).val(1);
 
-    // check if quantity of selected attribute is 1
-    if(parseInt(quantityAvailable[id]) == 1) {
-    	// console.log(quantityAvailable[id]);
-    	// $('#down-'+id).addClass('disabled');
-    	// $('#up-'+id).addClass('disabled');
-    }
 });
 
 
 function getProductAttribute(id)
 {
 	var radio_choice = parseInt($('.attributes_to_modify_'+id+' .checked input[type=radio]').val());
-	// console.log(radio_choice);
-	// console.log(attributesCombinations[id]);
 	for (var i in attributesCombinations[id]){
 		  var list_attribute = attributesCombinations[id][i]['list'];
 		  tab = list_attribute.split(',');
-		  // console.log(tab);
 		  if (typeof(tab[0]) !== 'undefined')
 		   		taille_attribute = parseInt(tab[0].replace(/'/g,""));
 		  

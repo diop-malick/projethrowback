@@ -76,7 +76,7 @@ $(document).ready(function() {
                     parse: function(data) {
                         var mytab = [];
                         for (var i = 0; i < data.length; i++)
-                            mytab[mytab.length] = { data: data[i], value: '<img src="'+data[i].img+'" alt="'+data[i].pname+'">' + ' ' + data[i].pname };
+                            mytab[mytab.length] = { data: data[i], value: '<img src="' + data[i].img + '" alt="' + data[i].pname + '">' + ' ' + data[i].pname };
                         return mytab;
                     },
                     extraParams: {
@@ -153,52 +153,20 @@ $(document).ready(function() {
         }
     }).keyup();
 
-    /* Mobile device */
 
     $('#search_query_top').on({
-
-        focus: function() {
-            //$('span').css('cssText', 'color: red !important');
-
-            //console.log($('#header_logo'));
-            if (window.matchMedia("(max-width: 420px)").matches) {
-                /* La largeur maximum de l'affichage est 420 px inclus */
-                // $('#menu_and_serach').removeClass('col-xs-4').addClass('col-xs-6');
-                // $('#header_logo').removeClass('col-xs-4').addClass('col-xs-3');
-                // $('#user_info').removeClass('col-xs-4').addClass('col-xs-3');
-                // $('.ac_results').css('cssText', 'width: 100px !important');
-
-            } else {
-                /* L'affichage est supèrieur à 420px de large */
-
-            }
-
-        }
+        blur: function() {}
     });
 
-    $('#search_query_top').on({
-        blur: function() {
-            
-            // if (window.matchMedia("(max-width: 420px)").matches) {
-            //     $('#menu_and_serach').removeClass('col-xs-6').addClass('col-xs-4');
-            //     $('#header_logo').removeClass('col-xs-3').addClass('col-xs-4');
-            //     $('#user_info').removeClass('col-xs-3').addClass('col-xs-4');
-            // } else { 
-            // }
-
-        }
-    });
-
-/* ------------------------------------------------------------ *\
-|* ------------------------------------------------------------ *|
-|* mobile search 
-|* ------------------------------------------------------------ *|
-\* ------------------------------------------------------------ */
+    /* ------------------------------------------------------------ *\
+    |* ------------------------------------------------------------ *|
+    |* mobile search 
+    |* ------------------------------------------------------------ *|
+    \* ------------------------------------------------------------ */
 
     $('#search_block_top_mobile .mobile-icon').click(function(e) {
         e.preventDefault();
-         $('.visible-xs-menu-mobile .sf-menu').hide();
-        // $('#search_block_top').removeClass('hidden-sm').removeClass('hidden-xs');
+        $('.visible-xs-menu-mobile .sf-menu').hide();
         $('#search_block_top').toggle();
         $('#search_block_top .search_query').focus();
     });
@@ -210,9 +178,9 @@ $(document).ready(function() {
 
     });
 
-    
 
-    
+
+
 
 
 });

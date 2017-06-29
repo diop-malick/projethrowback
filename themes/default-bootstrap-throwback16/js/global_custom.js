@@ -32,13 +32,7 @@ $(document).ready(function() {
         $(window).scroll(function(event) {
             var scroll_mob = $(window).scrollTop();
             if (scroll_mob > 0) {
-                // TODO to check - désactive on mobile temporally
-                // $('header .nav').removeClass('show').addClass('hidden');
-                // $(".logo-throwback").attr("src", url_logo_simple);
-                // $(".logo-throwback").css("margin-top", "20px");
             } else {
-                // $('header .nav').removeClass('hidden').addClass('show');
-                // $(".logo-throwback").attr("src", url_logo_simple);
                 fullPage();
             }
         });

@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-    /*************************************** My account ***************************/
     if ((typeof processMailchimpsInscription !== 'undefined') && processMailchimpsInscription === '1') {
         // console.log('Data to submit' + email + ' - ' + customer_firstname + ' - ' + customer_lastname);
 
@@ -23,8 +22,6 @@ $(document).ready(function() {
     }
 
 });
-
-/***************************************  functions ***************************/
 
 /* mailchimps > Manage error message */
 function mce_success_cb(resp){
