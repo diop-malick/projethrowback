@@ -141,8 +141,13 @@ class IdentityController extends IdentityControllerCore
                     }
 
                     $mce_email = $this->customer->email;
+                    // TEST
                     $mce_list_id = '2eca580371';
                     $mce_api_key = 'bc44fc2b7f5e8f8f1c5c92130f3491cb-us15';
+                    // PROD
+                    // $mce_list_id = '2eca580371';
+                    // $mce_api_key = '';
+
                     $mce_merge_fields = array(
                             'FNAME' => $this->customer->firstname,
                             'LNAME' => $this->customer->lastname

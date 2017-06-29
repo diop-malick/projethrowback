@@ -60,7 +60,7 @@
 
 
     <div class="row vertical-center">
-        <div class="col-md-6 col-sm-6 col-xs-3 vertical-center ">
+        <div class="col-md-6 col-sm-6 col-xs-5 vertical-center ">
             <a class="button-exclusive" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
 
                         <span>
@@ -72,7 +72,7 @@
 
         </div>
         {if count($multipleAddresses) < 3}
-        <div class="col-md-6 col-sm-6 col-xs-9 text-right pull-right vertical-center">
+        <div class="col-md-6 col-sm-6 col-xs-7 text-right pull-right vertical-center">
             <div class="clearfix">
                 <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-default button button-medium"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>
             </div>

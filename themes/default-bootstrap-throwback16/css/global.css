@@ -450,7 +450,7 @@ hr {
     margin-top: 18px;
     margin-bottom: 18px;
     border: 0;
-    border-top: 1px solid #edededeee;
+    border-top: 1px solid #ededed;
 }
 
 .sr-only {
@@ -629,7 +629,7 @@ h4 small,
 .page-header {
     padding-bottom: 8px;
     margin: 36px 0 18px;
-    border-bottom: 1px solid #edededeee;
+    border-bottom: 1px solid #ededed;
 }
 
 ul,
@@ -713,7 +713,7 @@ abbr.initialism {
 blockquote {
     padding: 9px 18px;
     margin: 0 0 18px;
-    border-left: 5px solid #edededeee;
+    border-left: 5px solid #ededed;
 }
 
 blockquote p {
@@ -739,7 +739,7 @@ blockquote small:before {
 blockquote.pull-right {
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid #edededeee;
+    border-right: 5px solid #ededed;
     border-left: 0;
 }
 
@@ -1791,7 +1791,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .form-control[readonly],
 fieldset[disabled] .form-control {
     cursor: not-allowed;
-    background-color: #edededeee;
+    background-color: #ededed;
 }
 
 textarea.form-control {
@@ -2924,7 +2924,7 @@ input[type="button"].btn-block {
     font-weight: normal;
     line-height: 1;
     text-align: center;
-    background-color: #edededeee;
+    background-color: #ededed;
     border: 1px solid #d6d4d4;
     border-radius: 0px;
 }
@@ -3026,7 +3026,7 @@ input[type="button"].btn-block {
 .nav > li > a:hover,
 .nav > li > a:focus {
     text-decoration: none;
-    background-color: #edededeee;
+    background-color: #ededed;
 }
 
 .nav > li.disabled > a {
@@ -3044,7 +3044,7 @@ input[type="button"].btn-block {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-    background-color: #edededeee;
+    background-color: #ededed;
     border-color: #777;
 }
 
@@ -3076,7 +3076,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs > li > a:hover {
-    border-color: #edededeee #edededeee #ddd;
+    border-color: #ededed #ededed #ddd;
 }
 
 .nav-tabs > li.active > a,
@@ -5122,10 +5122,6 @@ td.visible-lg {
 
 
 /* custom thorwback - to show picto userinfo inline in destop */
-
-.hidden-xs {
-    /* display: block !important; */
-}
 
 tr.hidden-xs {
     display: table-row !important;
@@ -8607,6 +8603,7 @@ table.table_block td {
     color: rgb(88, 89, 91);
     text-decoration: line-through;
     line-height: 1.5;
+    transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
     -moz-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
     -webkit-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
     -ms-transform: matrix( 1.06126342609182, 0, 0, 1.06126342609182, 0, 0);
@@ -10980,7 +10977,7 @@ fieldset.customerprivacy label {
 form#sendComment fieldset {
     padding: 10px;
     border: 1px solid #cccccc;
-    background: #edededeee;
+    background: #ededed;
 }
 form#sendComment h3 {
     font-size: 14px;

@@ -6,6 +6,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "GET",
+            // url: "https://throwback-sneakers.us5.list-manage.com/subscribe/post-json?u=c868b5d04fd4025281ac0527f&amp;id=c85916a60a",
             url: "https://ovh.us15.list-manage.com/subscribe/post-json?u=d56def1fdca3f61da060d5d2a&amp;id=2eca580371",
             data: {
                 "EMAIL": email,

@@ -36,7 +36,6 @@
     #header_logo {
         text-align: center;
     }
-    header #header_logo {}
 }
 
 @media (min-width: 480px) and (max-width: 767px) {

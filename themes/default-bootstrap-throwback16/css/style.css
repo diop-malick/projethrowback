@@ -1,15 +1,4 @@
-/************************************************************
-  NOT DLETE THIS
-  need for dev 
-************************************************************/
 
-#header .row {
-    /*border: 1px solid red; */
-}
-
-#header [class*="col-"] {
-    /*border: 1px solid yellowgreen; */
-}
 
 
 /************************************************************
@@ -19,6 +8,11 @@
 .tparrows {
     display: none;
 }
+
+.fancybox-opened .fancybox-skin {
+    z-index: 50000;
+}
+
 
 
 /************************************************************
@@ -30,7 +24,6 @@
     #menu_and_serach {
         margin-top: 14px;
     }
-    .header_user_info .dropbtn span {}
     .header_user_info .dropbtn .icon-fix,
     .shopping_cart .icon-fix {
         position: relative;
@@ -48,7 +41,6 @@
     .header_user_info {
         padding-top: 6px;
         padding-left: 15px;
-        margin-right: ;
     }
     #header #block_contact_infos .col-lg-contact-info {
         padding-left: 0 !important;
@@ -65,7 +57,7 @@
 
 /* Input element having an invalid value */
 
-select.error,
+
 input.error,
 input[type="file"].error {
     border: 1px solid #b94a48;
@@ -692,17 +684,8 @@ input[readonly] {
 
 .simplified-header {
     color: #000;
-    /*        position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;*/
 }
 
-.simplified-header .container {}
-
-#identification {
-    /*margin-top: 40px;*/
-}
 
 .simplified-header .simplified-logo {
     margin: 0 auto;
@@ -768,8 +751,6 @@ input[readonly] {
     text-decoration: none;
 }
 
-.box-info-product {}
-
 .box-info-product p {
     margin-bottom: 7px;
 }
@@ -777,8 +758,6 @@ input[readonly] {
 .page-product-box.blockproductscategory #bxslider1 .product-box .product-image img {
     margin: 0 auto;
 }
-
-.accessories-block #bxslider {}
 
 
 /******** Panier ********************/
@@ -893,7 +872,7 @@ input[readonly] {
 }
 
 
-/*TODO - harmoniser toute les gris, : panier, facturette, adresse, titre */
+/* TODO - harmoniser toute les gris, : panier, facturette, adresse, titre */
 
 .commande_body {
     background: #fbfbfb;
@@ -1157,7 +1136,7 @@ button.accordion.active:after {
 }
 
 
-/*************************** Confirmation *****************************/
+/* ************************** Confirmation **************************** */
 
 .text-confirmation {
     background: #fff !important;
@@ -1181,8 +1160,7 @@ button.accordion.active:after {
     line-height: 24px;
     list-style: none;
     min-height: 6px;
-    -moz-border-radius: 3px;
-    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
     background-color: #fff !important;
     overflow: hidden;
     margin-top: 0px !important;

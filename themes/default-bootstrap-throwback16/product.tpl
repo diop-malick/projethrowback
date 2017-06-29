@@ -1087,6 +1087,3 @@
 {addJsDefL name='message_choice_attribute'}{l s='Merci de sélectionner une taille.'}{/addJsDefL}
 {/strip}
 {/if}
-
-{* TODO - delete *}
-<script src="/throwback16/themes/default-bootstrap-throwback16/js/jquery.kyco.easyshare.min.js"></script>

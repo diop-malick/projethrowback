@@ -7,7 +7,6 @@
 @media (max-width: 320px) {
     #header_logo .logo-throwback {
         margin-top: 40.2px !important;
-        /*margin-right: 1.3px !important;*/
     }
     header .nav {
         background: radial-gradient(41px at 50% 170%, #fff 100.5%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
@@ -93,7 +92,6 @@
     #product .header-top-row {
         margin-bottom: 0 !important;
     }
-    header .row {}
     header #header_logo {
         margin-top: -78px !important;
     }
@@ -139,7 +137,6 @@
         margin-left: 10px;
         margin-top: 10px;
     }
-    #htmlcontent_home ul {}
     ul.product_list.grid > li .product-container {
         margin-bottom: 0 !important;
     }
