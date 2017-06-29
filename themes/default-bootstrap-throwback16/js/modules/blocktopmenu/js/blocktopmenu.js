@@ -10,24 +10,6 @@ $(document).ready(function() {
     if ($(window).width() <= 767) // executerseulemt sur mobile
         $(window).resize(responsiveMenu);
 
-    // Menu lateral on mobile
-    if (window.matchMedia("(max-width: 768px)").matches) {
-        // $('#block_top_menu .sf-menu > li > ul').addClass('menu-mobile clearfix').parent().prepend('<span class="menu-mobile-grover"></span>');
-        $("#block_top_menu .sf-menu .menu-mobile-grover").on('click', function(e) {
-            var catSubUl = $(this).next().next('.menu-mobile');
-            if (catSubUl.is(':hidden')) {
-                console.log('hidden');
-                catSubUl.slideDown();
-                $(this).addClass('active');
-            } else {
-                console.log('show');
-                catSubUl.slideUp();
-                $(this).removeClass('active');
-            }
-            return false;
-        });
-    }
-
 });
 
 // check resolution
