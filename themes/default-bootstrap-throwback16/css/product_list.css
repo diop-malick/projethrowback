@@ -381,7 +381,8 @@ ul.product_list.grid > li .product-container .functional-buttons div {
         text-align: center;
     }
     #index ul.product_list.grid > li.hovered .product-container {
-        position: relative;
+        position: absolute;
+        top: 0px;
     }
     #category ul.product_list.grid > li.hovered .product-container {
         position: absolute;
