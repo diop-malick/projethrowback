@@ -20,6 +20,9 @@
     #htmlcontent_home ul li a h3 {
         top: -110px;
     }
+    #index #slider_row {
+        margin-top: 0 !important;
+    }
     .mobile-icon {
         padding: 10px !important;
     }

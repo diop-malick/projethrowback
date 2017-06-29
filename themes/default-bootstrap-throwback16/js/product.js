@@ -232,7 +232,7 @@ $('a.sizeTable-iframe').fancybox({
 	* ********************************************************************* */
 	// TODO fixe btn to product image footer
 	// JavaScript API built in for detecting media mobile
-    var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+    var isMobile = window.matchMedia("only screen and (max-width: 768px)");
 	var imgNew = document.getElementById('rigth-row-1').getElementsByTagName('img');
 	
 	if (!isMobile.matches) { 
