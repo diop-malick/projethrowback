@@ -32,13 +32,45 @@
 |* ------------------------------------------------------------ *|
 \* ------------------------------------------------------------ */
 
-@media (max-width: 767px) {
-    #header_logo {
-        text-align: center;
-    }
-}
-
 @media (min-width: 480px) and (max-width: 767px) {
+    #index #slider_row {
+        margin-top: 0 !important;
+    }
+    #header_logo .logo-throwback {
+        display: inline-block !important;
+        margin-bottom: 10px;
+        margin-top: 46.2px !important;
+    }
+    .logo.img-responsive.logo-throwback {
+        width: 90px;
+        height: 105px;
+    }
+    #header {
+        position: relative;
+    }
+    header #header_logo {
+        margin-top: -78px;
+    }
+    header .nav {
+        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+    }
+    .menu_vertical_mobile,
+    #search_block_top_mobile,
+    .header_user_info,
+    #mobil_blockcart {
+        height: 30px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        text-align: center !important;
+    }
+    .menu_vertical_mobile,
+    #search_block_top_mobile,
+    .header_user_info {
+        border-right: 2px solid #B5BDC1 !important;
+    }
     #search_block_top {
         width: 500px !important;
     }
@@ -52,6 +84,9 @@
     #picto_panier .visible-xs {
         display: inline !important;
     }
+    #htmlcontent_home ul li a h3 {
+        top: -100px !important;
+    }
     #block_contact_infos span {
         font-size: 10px !important;
         font-family: "Futura";
@@ -62,7 +97,7 @@
         margin-left: -23px !important;
     }
     #header .shopping_cart {
-        padding-top: 0px;
+        padding-top: 0;
     }
     #search_block_top .col-xs-8 {
         padding: 0 !important;
@@ -85,12 +120,23 @@
     #contact-link a {
         position: absolute;
         top: -50px;
-        right: 0px;
+        right: 0;
     }
     #social_block {
         right: 20%;
         position: absolute;
         top: -65px;
+    }
+    .pb-left-column #image-block {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    #rigth-row-3 > div > .row {
+        margin: 8px !important;
+    }
+    fieldset {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
 }
 
@@ -101,6 +147,12 @@
 |* Extra Small devices , for phones (< 768px)
 |* ------------------------------------------------------------ *|
 \* ------------------------------------------------------------ */
+
+@media (max-width: 767px) {
+    #header_logo {
+        text-align: center;
+    }
+}
 
 @media (max-width: 768px) {
     #block-history,
@@ -118,10 +170,10 @@
         margin-top: 5px;
     }
     .simplified-header .row {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 0;
+        margin-right: 0;
     }
     .simplified-header .vertical-center {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 }

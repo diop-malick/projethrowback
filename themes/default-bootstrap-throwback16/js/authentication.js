@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 	$(document).on('submit', '#create-account_form', function(e){
 		e.preventDefault();
-		// console.log('create-account_form');
 		submitFunction();
 		$('.alert-danger').empty().hide();
 		$('#identification .authentication').empty().append("Création de compte");

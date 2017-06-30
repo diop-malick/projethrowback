@@ -90,9 +90,7 @@ function initMap() {
             center: center,
             zoom: 20
         });
-        // listen for the window resize event & trigger Google Maps to update too
         $(window).resize(function() {
-            // (the 'map' here is the result of the created 'var map = ...' above)
             google.maps.event.trigger(map, "resize");
         });
 
@@ -111,8 +109,6 @@ function initMap() {
 function ajaxAddressSetup()
 {
 	if (typeof formatedAddressFieldsValuesList === 'undefined' || !formatedAddressFieldsValuesList){		
-		// $('.resp-tab-content:last-of-type').addClass('hidden');
-		// $('h2.resp-accordion:last-of-type').addClass('hidden');
 		$('#delivery_list').addClass('hidden');
 		$('#delivery_label').addClass('hidden');
 	}
@@ -165,9 +161,6 @@ function ajaxAddressSetup()
 										$('.addresses .none',tab).removeClass('none').addClass('hidden');
 										$('#id_address_delivery',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
 										$('#id_address_invoice',tab).append('<option selected="selected" value=' + Object.keys(formatedAddressFieldsValuesList)[Object.keys(formatedAddressFieldsValuesList).length - 1] + '>' + address['alias'] + '</option>').trigger("change");
-										// if($('#id_address_delivery option',tab).length >= 1){
-										// 	$('.addresses .address_add a',tab).addClass('hidden');
-										// }
 										$('#delivery_list').removeClass('hidden');
 										$('#delivery_label').removeClass('hidden');
 										if($('#id_address_delivery option',tab).length < 3){
@@ -193,9 +186,6 @@ function ajaxAddressSetup()
 								if(!$('.resp-tab-content-active #id_address_delivery option').length){
 							  		$('button.standard-checkout').attr('disabled','disabled');
 							  	}
-								  /*else{
-							  		$('button.standard-checkout').removeAttr('disabled');
-							  	}*/
 							}
 							
 						});

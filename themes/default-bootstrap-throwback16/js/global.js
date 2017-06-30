@@ -1,5 +1,5 @@
 
-//global variables
+// global variables
 var responsiveflag = false;
 
 $(document).ready(function(){
