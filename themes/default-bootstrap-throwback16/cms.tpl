@@ -39,12 +39,12 @@
 	<div class="rte{if $content_only} content_only{/if}">
 		<!--{$cms->content} -->
 
-				{assign var=cms_content_condition_livraison value=CMS::getCMSContent(7, true, true)}
-				{assign var=cms_content_condition_paiement value=CMS::getCMSContent(8, true, true)}
-				{assign var=cms_content_retour_remboursement value=CMS::getCMSContent(11, true, true)}
-				{assign var=cms_content_mention_legale value=CMS::getCMSContent(12, true, true)}
-				{assign var=cms_content_condition_cookie_et_donnees value=CMS::getCMSContent(14, true, true)}
-				{assign var=cms_content_condition_de_vente value=CMS::getCMSContent(16, true, true)}
+				{assign var=cms_content_condition_livraison value=CMS::getCMSContent(7, intval($cookie->id_lang), true)}
+				{assign var=cms_content_condition_paiement value=CMS::getCMSContent(8, intval($cookie->id_lang), true)}
+				{assign var=cms_content_retour_remboursement value=CMS::getCMSContent(11, intval($cookie->id_lang), true)}
+				{assign var=cms_content_mention_legale value=CMS::getCMSContent(12, intval($cookie->id_lang), true)}
+				{assign var=cms_content_condition_cookie_et_donnees value=CMS::getCMSContent(14, intval($cookie->id_lang), true)}
+				{assign var=cms_content_condition_de_vente value=CMS::getCMSContent(16, intval($cookie->id_lang), true)}
 				{assign var=cms_active_tab value=(int)Tools::getValue('id_cms')}
 				{assign var=cms_cat value=Tools::getFullPath(1, $cms->meta_title, 'CMS')}
 

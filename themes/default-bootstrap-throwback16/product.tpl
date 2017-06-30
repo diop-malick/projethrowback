@@ -775,8 +775,8 @@
 
 		<!-- CMS page  -->
 
-		{assign var=cms_content_17 value=CMS::getCMSContent(17, true, true)}
-		{assign var=cms_content_18 value=CMS::getCMSContent(18, true, true)}
+		{assign var=cms_content_17 value=CMS::getCMSContent(17, intval($cookie->id_lang), true)}
+		{assign var=cms_content_18 value=CMS::getCMSContent(18, intval($cookie->id_lang), true)}
 
 
 		<div class="row">
