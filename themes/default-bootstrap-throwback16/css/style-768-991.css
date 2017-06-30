@@ -15,7 +15,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     header .nav {
-        background: radial-gradient(51px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center;
+        background: radial-gradient(49px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center;
     }
     #htmlcontent_home ul li a h3 {
         top: -110px;
@@ -72,7 +72,8 @@
     }
     #header_logo .logo-throwback {
         margin-right: 42.7% !important;
-        margin-top: 33px !important;
+        margin-top: 28px !important;
+        margin-bottom: 5px;
     }
     header #header_logo {
         padding-left: 0 !important;

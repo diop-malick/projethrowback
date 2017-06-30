@@ -9,7 +9,7 @@
         margin-top: 40.2px !important;
     }
     header .nav {
-        background: radial-gradient(41px at 50% 170%, #fff 100.5%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+        background: radial-gradient(39px at 50% 170%, #fff 100.5%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     #accordion .address_title .page-subheading {
         font-size: 15px;
@@ -21,7 +21,7 @@
         margin-top: 40.2px !important;
     }
     header .nav {
-        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+        background: radial-gradient(39px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     #accordion .address_title .page-subheading {
         font-size: 16px;
@@ -31,7 +31,7 @@
 @media (min-width: 362px) and (max-width: 479px) {
     header .nav {
         /* (taillepixel at positionhorizontal, backgroundcoler positionverticle,  ,*/
-        background: radial-gradient(43px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+        background: radial-gradient(40px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     #accordion .address_title .page-subheading {
         font-size: 17px;
