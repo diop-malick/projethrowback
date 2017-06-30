@@ -65,7 +65,21 @@ function mce_success_cb(resp){
     $('#fc-success-response').hide();
     $('#fc-error-response').hide();
     if (resp.result=="success"){
-        window.location=page_confirm;
+        $.ajax({
+              type: 'GET',
+              url: baseDir + 'modules/myAjax/ajax.php',
+              data: 'method=myMethod',
+              dataType: 'json',
+              success: function(json) {
+
+                $.each(json, function(index, value) {
+                        console.log(value);                      
+                });
+                
+              }
+            });
+
+            window.location=page_confirm;
         $('#fc-'+resp.result+'-response').show();
         // $('#fc-'+resp.result+'-response').css('color', 'green');
         
