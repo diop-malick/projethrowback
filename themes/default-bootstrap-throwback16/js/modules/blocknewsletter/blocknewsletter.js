@@ -62,8 +62,27 @@ function mce_success_cb(resp) {
             $('#mc-embedded-subscribe-form').each(function() {
                 this.reset();
             });
-        } else
-            window.location = page_confirm;
+
+        }
+        else{
+        	$.ajax({
+		      type: 'GET',
+		      url: baseDir + 'modules/myAjax/ajax.php',
+		      data: 'method=myMethod',
+		      dataType: 'json',
+		      success: function(json) {
+
+		        $.each(json, function(index, value) {
+		                console.log(value);                      
+		        });
+		        
+		      }
+		    });
+
+		    window.location=page_confirm;
+        }
+             
+
     } else {
         var index = -1;
         var msg;
