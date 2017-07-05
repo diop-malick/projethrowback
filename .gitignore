@@ -94,7 +94,7 @@ blog/wp-content/plugins/*
 blog/wp-content/*.log
 
 blog/wp-content/uploads/*
-!blog/wp-content/uploads/2017/06/*
+!blog/wp-content/uploads/2017/*
 
 
 # blog/wp-content/advanced-cache.php
