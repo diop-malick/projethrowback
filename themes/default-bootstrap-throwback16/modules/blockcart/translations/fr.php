@@ -44,6 +44,7 @@ $_MODULE['<{blockcart}default-bootstrap-throwback16>crossselling_4351cfebe4b61d8
 $_MODULE['<{blockcart}default-bootstrap-throwback16>crossselling_10ac3d04253ef7e1ddc73e6091c0cd55'] = 'Suivant';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_98b3009e61879600839e1ee486bb3282'] = 'Fermer la fenêtre';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_544c3bd0eac526113a9c66542be1e5bc'] = 'Produit ajouté au panier avec succès';
+$_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_6f6cb72d544962fa333e2e34ce64f719'] = 'Taille';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_694e8d1f2ee056f98ee488bdc4982d73'] = 'Quantité';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_69d08bd5f8cf4e228930935c3f13e42f'] = 'Disponible';
 $_MODULE['<{blockcart}default-bootstrap-throwback16>blockcart_7e0bf6d67701868aac3116ade8fea957'] = 'Voir mon panier';
