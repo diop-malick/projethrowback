@@ -28,7 +28,7 @@
 		top:115px;
 	}
 	.searchform{
-		height: 33px;
+		height: 32px;
 	}
 	.toggle_menu_mobile{
 		margin-top: -5px;	
@@ -46,7 +46,7 @@
 		margin-top: -90px;
 	}
 	.seriousslider{
-		margin-top: 100px;
+		margin: 100px 0 20px 0;
 	}
 }
 
@@ -77,7 +77,7 @@
 		margin-top: -85px;
 	}
 	.seriousslider{
-		margin-top: 100px;
+		margin: 100px 0 20px 0;
 	}
 }
 
@@ -145,7 +145,7 @@
         height: 300px;
     }
     .seriousslider{
-		margin-top: 150px;
+		margin: 150px 0 20px 0;
 	}
 } 
 
@@ -254,7 +254,7 @@
    	 margin-top: 110px;
 	}
 	.seriousslider{
-		margin-top: 150px;
+		margin: 150px 0 20px 0;
 	}
 }
 

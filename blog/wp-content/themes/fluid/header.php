@@ -47,7 +47,7 @@ Context::getContext()->smarty->assign(array('meta_title' => html_entity_decode(g
 	<!-- // Widget RECHERCHE -->
 
 	
-			<?php echo do_shortcode( '[serious-slider id=13]' );?>
+			<?php //echo do_shortcode( '[serious-slider id=13]' );?>
 	
 
 	<?php cryout_body_hook(); ?>
