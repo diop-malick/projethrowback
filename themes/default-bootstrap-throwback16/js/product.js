@@ -455,7 +455,7 @@ $(document).on('change', '.attribute_select', function(e) {
     findCombination();
     getProductAttribute();
     // hide pve on click & change attributes select
-    $('#minimal_pve_price').hide();
+    // $('#minimal_pve_price').hide();
 });
 
 $(document).on('click', '.attribute_radio', function(e) {
@@ -920,13 +920,17 @@ function updatePrice() {
     $('.price-ecotax').hide();
     $('.unit-price').hide();
 
-    if (priceWithDiscountsDisplay > 0) {
+    if (priceWithDiscountsDisplay > 0) 
+    {
         if (findSpecificPrice()) {
+            console.log('findSpecificPrice : ' + indSpecificPrice());
             $('#our_price_display').text(findSpecificPrice()).trigger('change');
         } else {
+            console.log('findSpecificPrice none: ');
             $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
         }
-    } else {
+    } 
+    else {
         $('#our_price_display').text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
     }
 
