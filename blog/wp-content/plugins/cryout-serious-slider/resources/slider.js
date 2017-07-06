@@ -113,7 +113,7 @@ if (typeof jQuery === 'undefined') {
   Carousel.VERSION  = '3.3.6'
 
   Carousel.DEFAULTS = {
-    interval: 5000,
+    interval: 3000,
 	stransition: 600,
     pause: 'hover',
     wrap: true,
