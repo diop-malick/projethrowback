@@ -48,8 +48,14 @@
 				{assign var=cms_active_tab value=(int)Tools::getValue('id_cms')}
 				{assign var=cms_cat value=Tools::getFullPath(1, $cms->meta_title, 'CMS')}
 
-				{if isset($cms->id_cms_category) && $cms->id_cms_category == 3}{assign var=cms_categorie value="Nos Services"}
-				 {elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}{assign var=cms_categorie value="Liens légaux"}
+				{if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
+					{assign var=cms_categorie value="Nos Services"}
+				{elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
+					{if $lang_iso=='fr'}
+						{assign var=cms_categorie value="Liens légaux"}
+					{else}
+						{assign var=cms_categorie value="Legal Notice"}
+					{/if}				
 				{/if}
 				{if isset($cms_categorie) && $cms_categorie}
 						<div class="container" >

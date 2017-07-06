@@ -107,12 +107,12 @@
 			{/if}
 			<li class="item">
 				<a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}" >
-							{l s='Services'}
+							{l s='Services' mod='blockcms'}
 				</a>
 			</li>
 			<li class="item">
-				<a href="{$link->getCMSLink('12', 'mentions-legales')|escape:'html'}" >
-							{l s='Liens Légaux'}
+				<a href="{$link->getCMSLink('12')|escape:'html'}" >
+							{l s='Liens Légaux' mod='blockcms'}
 				</a>
 			</li>
 			{*
