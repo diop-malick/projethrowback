@@ -321,10 +321,10 @@ if (typeof jQuery === 'undefined') {
 
 /* swipe support for mobile devices */
 jQuery(document).ready(function() {  
-   jQuery(".cryout-serious-slider").swiperight(function() {  
+   jQuery(".cryout-serious-slider").on("swiperight",function() {  
       jQuery(".cryout-serious-slider").carousel('prev');  
     });  
-   jQuery(".cryout-serious-slider").swipeleft(function() {  
+   jQuery(".cryout-serious-slider").on("swipeleft",function() {  
       jQuery(".cryout-serious-slider").carousel('next');  
    });  
 });  
