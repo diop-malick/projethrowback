@@ -113,7 +113,7 @@ if (typeof jQuery === 'undefined') {
   Carousel.VERSION  = '3.3.6'
 
   Carousel.DEFAULTS = {
-    interval: 5000,
+    interval: 3000,
 	stransition: 600,
     pause: 'hover',
     wrap: true,
@@ -321,10 +321,10 @@ if (typeof jQuery === 'undefined') {
 
 /* swipe support for mobile devices */
 jQuery(document).ready(function() {  
-   jQuery(".cryout-serious-slider").swiperight(function() {  
+   jQuery(".cryout-serious-slider").on("swiperight",function() {  
       jQuery(".cryout-serious-slider").carousel('prev');  
     });  
-   jQuery(".cryout-serious-slider").swipeleft(function() {  
+   jQuery(".cryout-serious-slider").on("swipeleft",function() {  
       jQuery(".cryout-serious-slider").carousel('next');  
    });  
 });  

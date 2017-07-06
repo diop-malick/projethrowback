@@ -525,10 +525,11 @@ a:visited {
     clear: both;
     /*margin-top: 200px;*/
 }
-
+/*
 #container.one-column {
-    margin-top: 150px;
+    margin-top: 20px;
 }
+*/
 
 #content-masonry {
     margin-right: 5%;
@@ -2540,7 +2541,6 @@ body .main .wp-caption > a {
 
 .lp-boxes.lp-boxes-rows-4 .lp-boxes-margins .lp-box {
     width: 23.5%;
-    margin-right: 2%;
     margin-bottom: 2%;
 }
 
@@ -2552,8 +2552,7 @@ body .main .wp-caption > a {
 
 .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
     width: 49%;
-    margin-right: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 
@@ -2561,27 +2560,12 @@ body .main .wp-caption > a {
 	# throwback CUSTOM
 -------------------------------------------------------------- */
 
-@media (min-width: 1200px) {
 
-    .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
-        /*margin-right: 0 ;*/
-        /*width: 49% !important;*/
-    }
-
-    #block_top_menu .sf-menu {
-        /*background-color: rgba(53, 53, 53, 0.35) !important;*/
-    }
-}
-
-@media (min-width: 768px) {
-    .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
-        width: 47.5%;
-    }
-}
 
 @media (min-width: 600px) {
     .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
-        width: 47%;
+        width: 50%;
+        padding: 0 1%;
     }
     .lp-boxes.lp-boxes-rows-4 .lp-box:nth-child(4n+1),
     .lp-boxes.lp-boxes-rows-3 .lp-box:nth-child(3n+1),

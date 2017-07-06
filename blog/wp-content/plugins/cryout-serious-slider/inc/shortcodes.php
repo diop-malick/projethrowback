@@ -155,7 +155,7 @@ class Cryout_Serious_Slider_Shortcode {
 				<?php if (!empty($image_data[0])): ?>
 				<a <?php echo $meta_link; ?> <?php echo $meta_target; ?>>
 					<img src="<?php echo $image_data[0] ?>" alt="<?php the_title(); ?>" <?php echo $sizes ?>>
-				</a>
+				
 				<?php endif; ?>
 				<?php if ( !empty($slide_title) || !empty($slide_text) ): ?>
 				<div class="seriousslider-caption">
@@ -163,6 +163,7 @@ class Cryout_Serious_Slider_Shortcode {
 					<?php if (!empty($slide_text)) { ?><div class="seriousslider-caption-text"><?php the_content() ?></div><?php } ?>
 				</div>
 				<?php endif; ?>
+				</a>
 			</div>
 				
 			<?php endwhile; ?>
