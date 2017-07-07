@@ -287,6 +287,7 @@ $(document).ready(function() {
         for (var i in combinations) {
             if (combinations[i]['price'] > 0) {
                 $('#minimal_pve_price').show();
+                console.log('test');
                 break;
             }
         }
@@ -989,7 +990,7 @@ function updatePrice() {
     else
         updateDiscountTable(priceWithDiscountsWithTax);
 
-    $('.pve_petite').hide();
+    $('.pve_petite').remove();
     $('.our_price_display span.price').empty().text(new_custom_price);
 }
 
