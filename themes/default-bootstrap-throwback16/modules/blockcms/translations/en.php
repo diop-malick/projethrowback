@@ -70,4 +70,6 @@ $_MODULE['<{blockcms}default-bootstrap-throwback16>form_f2a6c498fb90ee345d997f88
 $_MODULE['<{blockcms}default-bootstrap-throwback16>form_49ee3087348e8d44e1feda1917443987'] = 'Name';
 $_MODULE['<{blockcms}default-bootstrap-throwback16>form_f7c68d40f8727c658e821c6e6d56af07'] = 'No pages have been created.';
 $_MODULE['<{blockcms}default-bootstrap-throwback16>blockcms_3cb29f0ccc5fd220a97df89dafe46290'] = 'Best sellers';
+$_MODULE['<{blockcms}default-bootstrap-throwback16>blockcms_992a0f0542384f1ee5ef51b7cf4ae6c4'] = 'Services';
+$_MODULE['<{blockcms}default-bootstrap-throwback16>blockcms_97055a28d60c6016daa01cdaaf9e8cde'] = 'Legal notice';
 $_MODULE['<{blockcms}default-bootstrap-throwback16>blockcms_8be39233fce812574e94aa277f5a2e32'] = '[1] %3$s %2$s - Ecommerce software by %1$s [/1]';

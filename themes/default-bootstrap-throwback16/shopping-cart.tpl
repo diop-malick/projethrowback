@@ -372,7 +372,9 @@
 								               	 	<span class="price{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies} {/if} price product-price price-prod">{convertPrice price=$product.price}</span>
 												{/if}
 												{if isset($product.is_discounted) && $product.is_discounted && isset($product.reduction_applies) && $product.reduction_applies}
-													<span class="reduction-text price product-price price-prod">
+
+												{* 													
+												<span class="reduction-text price product-price price-prod">
 														{if !$priceDisplay}
 								            				{if isset($product.reduction_type) && $product.reduction_type == 'amount'}
 								                    			{assign var='priceReduction' value=($product.price_wt - $product.price_without_specific_price)}
@@ -395,7 +397,9 @@
 														{else}
 															&nbsp;{convertPrice price=$priceReduction}&nbsp;
 														{/if}
-													</span>
+													</span> 
+													*}
+
 													<span class="old-price">{convertPrice price=$product.price_without_specific_price}</span>
 
 												{/if}
