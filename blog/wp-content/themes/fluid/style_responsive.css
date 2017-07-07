@@ -261,5 +261,10 @@
 }
 .content-search.pad-container {
 		box-shadow: none !important;
-	}
+}
 
+.country-selector{
+	position: fixed;
+    left: 85%;
+    top: -5px;
+}
