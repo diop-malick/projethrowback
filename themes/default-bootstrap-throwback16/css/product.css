@@ -1092,16 +1092,19 @@ table.table-product-discounts tr th {
     text-decoration: line-through;
     display: inline-block;
     font-family: "Open Sans", sans-serif;
+    padding-bottom: 0; 
+    font-size: 13px;
 }
 #reduction_percent,
 #reduction_amount {
     font-weight: 600;
     font-family: "Open Sans", sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 23px;
     color: #fff;
     background: #f13340;
     border: 1px solid #d02a2c;
+    padding: 1px 2px;
 }
 #reduction_percent span,
 #reduction_amount span {
