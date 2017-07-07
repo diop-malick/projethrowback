@@ -60,7 +60,7 @@
 									{if ($group.group_type == 'radio')}
 										{foreach from=$group.name_price key=id_attribute item=group_attribute}
 											{if $group_attribute > 0} 
-												<span class="pve_petite">A partir de </span>
+												<span class="pve_petite">{l s='A partir de '}</span>
 												{break}
 											{/if}	
 										{/foreach}
