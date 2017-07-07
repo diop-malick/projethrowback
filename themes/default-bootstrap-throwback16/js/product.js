@@ -284,13 +284,13 @@ $(document).ready(function() {
      * Mention "a parti de " sur les prix
      * --------------------------------------------------------------------- */
     if (typeof combinations !== 'undefined' && combinations != null) {
-        for (var i in combinations) {
-            if (combinations[i]['price'] > 0) {
-                $('#minimal_pve_price').show();
-                console.log('test');
-                break;
-            }
-        }
+        // for (var i in combinations) {
+        //     if (combinations[i]['price'] > 0) {
+        //         $('#minimal_pve_price').show();
+        //         console.log('test');
+        //         break;
+        //     }
+        // }
     }
 
     /* --------------------------------------------------------------------- 
