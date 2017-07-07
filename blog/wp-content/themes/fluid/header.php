@@ -39,6 +39,7 @@ Context::getContext()->smarty->assign(array('meta_title' => html_entity_decode(g
 	<?php $controllerPrestashop->displayHeaderBlog(); ?>
 	<!-- End - intégration WP-PS  -->
 
+<div id="weglot_here"></div>
 
 	<!-- Widget RECHERCHE -->
 	<div id="searchform-header">
