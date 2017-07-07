@@ -88,8 +88,10 @@ $(document).ready(function() {
     var url_found = checkUrl();
     //init the price in relation of the selected attributes
     if (!url_found) {
-        if (typeof productHasAttributes !== 'undefined' && productHasAttributes)
+        if (typeof productHasAttributes !== 'undefined' && productHasAttributes) {
+            console.log('Document Ready - findCombination()');
             findCombination();
+            }
         else
             refreshProductImages(0);
     }
@@ -276,7 +278,6 @@ $(document).ready(function() {
      * --------------------------------------------------------------------- */
     if (typeof combinations !== 'undefined' && combinations != null) {
         for (var i in combinations) {
-            // console.log(combinations[i]['price']);
             if (combinations[i]['price'] > 0) {
                 $('#minimal_pve_price').show();
                 break;
@@ -370,6 +371,7 @@ $(window).resize(function() {
 $(window).bind('hashchange', function() {
     checkUrl();
     findCombination();
+    console.log('window bind hashchange');
 });
 
 
@@ -440,11 +442,14 @@ $(document).on('change', '#quantity_wanted', function(e) {
     var specificPrice = findSpecificPrice();
 
     if (false !== specificPrice) {
+        console.log('specificPrice on change :' + specificPrice);
         $('#our_price_display').text(specificPrice);
     } else {
         if (typeof productHasAttributes != 'undefined' && productHasAttributes) {
             updateDisplay();
+            console.log('productHasAttributes on change ');
         } else {
+            console.log('productHasAttributes on change - our_price_display');
             $('#our_price_display').text(formatCurrency(parseFloat($('#our_price_display').attr('content')), currencyFormat, currencySign, currencyBlank));
         }
     }
@@ -452,6 +457,7 @@ $(document).on('change', '#quantity_wanted', function(e) {
 
 $(document).on('change', '.attribute_select', function(e) {
     e.preventDefault();
+    console.log('change attribute_select - findCombination()');
     findCombination();
     getProductAttribute();
     // hide pve on click & change attributes select
@@ -468,7 +474,7 @@ $(document).on('click', '.attribute_radio', function(e) {
     $('#attributes .attribute_list ul li').removeClass('checked_li');
     $('#attributes .attribute_list ul li').has('span.checked').addClass('checked_li');
 
-    //Init à qty à 1
+    // 0000262: [TS][MOB][FP] Actualiser le champ quantité sur la FP à chaque sélection de taille
     fieldName = 'qty';
     $('input[name=' + fieldName + ']').val(1);
     $('#quantity_wanted').change();
@@ -593,6 +599,7 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, price, eco
 
 // search the combinations' case of attributes and update displaying of availability, prices, ecotax, and image
 function findCombination() {
+    console.log('findCombination()');
     $('#minimal_quantity_wanted_p').fadeOut();
     if (typeof $('#minimal_quantity_label').text() === 'undefined' || $('#minimal_quantity_label').html() > 1)
         $('#quantity_wanted').val(1);
@@ -926,7 +933,7 @@ function updatePrice() {
             console.log('findSpecificPrice : ' + indSpecificPrice());
             $('#our_price_display').text(findSpecificPrice()).trigger('change');
         } else {
-            console.log('findSpecificPrice none: ');
+            console.log('findSpecificPrice none: ' + formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank));
             $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
         }
     } 
@@ -974,21 +981,15 @@ function updatePrice() {
 
     // Unit price are the price per piece, per Kg, per m²
     // It doesn't modify the price, it's only for display
-    if (productUnitPriceRatio > 0) {
+    if (productUnitPriceRatio > 0) 
+    {
         $('#unit_price_display').text(formatCurrency(unit_price * currencyRate, currencyFormat, currencySign, currencyBlank));
         $('.unit-price').show();
     }
-    var new_price;
-    if (noTaxForThisProduct || customerGroupWithoutTax) {
+    if (noTaxForThisProduct || customerGroupWithoutTax)
         updateDiscountTable(priceWithDiscountsWithoutTax);
-        new_price = priceWithDiscountsWithoutTax;
-    } else {
+    else
         updateDiscountTable(priceWithDiscountsWithTax);
-        new_price = priceWithDiscountsWithTax;
-    }
-
-    $('.pve_petite').hide();
-    $('.price').empty().text(formatCurrency(new_price, currencyFormat, currencySign, currencyBlank));
 }
 
 //update display of the large image
@@ -1255,6 +1256,7 @@ function checkUrl() {
             if (count) {
                 if (firstTime) {
                     firstTime = false;
+                    console.log('count() -findCombination ');
                     findCombination();
                 }
                 original_url = url;
