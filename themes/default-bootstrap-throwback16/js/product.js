@@ -85,10 +85,6 @@ if (typeof combinations !== 'undefined' && combinations) {
 
 
 $(document).ready(function() {
-    // console.log('combinations');
-    // console.log(combinations);
-    // console.log('attributesCombinations');
-    // console.log(attributesCombinations);
     var url_found = checkUrl();
     //init the price in relation of the selected attributes
     if (!url_found) {
@@ -282,6 +278,13 @@ $(document).ready(function() {
                 $(id_radio).closest('li').addClass("li_attribute_list").addClass("disabled");
             }
         }
+
+        if (typeof(isColorAttribute) !== 'undefined') {
+            var myspan = $('.attribute_list  #color_to_pick_list li.selected').first().children().first().attr('id');
+            var tab_myspan = myspan.split('_');
+            advancedCorlorAttributesManagement(tab_myspan[1]);
+        }
+
     }
 
     /* --------------------------------------------------------------------- 
@@ -291,7 +294,6 @@ $(document).ready(function() {
         // for (var i in combinations) {
         //     if (combinations[i]['price'] > 0) {
         //         $('#minimal_pve_price').show();
-        //         console.log('test');
         //         break;
         //     }
         // }
@@ -352,17 +354,15 @@ Trowback - display only existing Color combinations
 - Display only combinations of in stock attributes.
 */
 function advancedCorlorAttributesManagement(idColor) {
-    console.log('Advanced attributes Management');
     $('.attribute_list ul #btn-attributes-size li').addClass("li_attribute_list").addClass("disabled");
     // Reset Attributes Radio
-    $('#attributes .attribute_list ul #btn-attributes-size li').removeClass('checked_li');
-    $('#attributes .attribute_list ul #btn-attributes-size li label div span').removeClass('checked_li');
+    $('#attributes .attribute_list ul #btn-attributes-size li label div span').removeClass('checked');
+    // $('#pQuantityAvailable:visible').hide('slow');
+    $('#add_to_cart button').removeClass('active').addClass('disabled');
 
     for (i = 0; i < combinations.length; i++) {
-        if (combinations[i]['idsAttributes'][1] == idColor) {
-            console.log(combinations[i]['idsAttributes']);
-            // console.log('disable');
-            // console.log(combinations[i]['idsAttributes']);
+        // if combinaison exist and stock exist
+        if ((combinations[i]['idsAttributes'][1] == idColor) && combinations[i]['quantity'] != 0) {
             var attributeId = combinations[i]['idsAttributes'][0];
             var id_radio = '#radio_' + attributeId;
             $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
@@ -467,7 +467,6 @@ $(document).on('click', 'a[data-id=resetImages]', function(e) {
 
 $(document).on('click', '.color_pick', function(e) {
     e.preventDefault();
-    console.log('click - color_pick');
     colorPickerClick($(this));
     getProductAttribute();
 });
@@ -498,7 +497,6 @@ $(document).on('change', '.attribute_select', function(e) {
 
 $(document).on('click', '.attribute_radio', function(e) {
     e.preventDefault();
-    console.log('click attribute_radio');
     getProductAttribute();
     // hide pve on click & change attributes select
     $('#minimal_pve_price').hide();
@@ -632,7 +630,6 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, price, eco
 
 // search the combinations' case of attributes and update displaying of availability, prices, ecotax, and image
 function findCombination() {
-    // console.log('findCombination');
     $('#minimal_quantity_wanted_p').fadeOut();
     if (typeof $('#minimal_quantity_label').text() === 'undefined' || $('#minimal_quantity_label').html() > 1)
         $('#quantity_wanted').val(1);
@@ -708,11 +705,9 @@ function findCombination() {
 }
 //update display of the availability of the product AND the prices of the product
 function updateDisplay() {
-    // console.log('updateDisplay');
     var productPriceDisplay = productPrice;
     var productPriceWithoutReductionDisplay = productPriceWithoutReduction;
 
-    // console.log(selectedCombination);
 
     if (!selectedCombination['unavailable'] && quantityAvailable > 0 && productAvailableForOrder == 1) {
 
