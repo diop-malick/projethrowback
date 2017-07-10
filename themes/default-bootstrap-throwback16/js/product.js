@@ -89,10 +89,8 @@ $(document).ready(function() {
     //init the price in relation of the selected attributes
     if (!url_found) {
         if (typeof productHasAttributes !== 'undefined' && productHasAttributes) {
-            console.log('Document Ready - findCombination()');
             findCombination();
-            }
-        else
+        } else
             refreshProductImages(0);
     }
 
@@ -214,15 +212,24 @@ $(document).ready(function() {
     // TODO fixe btn to product image footer
     // JavaScript API built in for detecting media mobile
     var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-    var imgNew = document.getElementById('rigth-row-1').getElementsByTagName('img');
+    var imgNew = $('#rigth-row-1 .content_prices img');
 
     if (!isMobile.matches) {
-        var add_to_cart_heigh = $('#add_to_cart').height();
+        var rigth_row_3_min_heigth = 270;
         if (!$('#timer').length && imgNew.length) {
-            $('#rigth-row-3').css('min-height', '270px');
+            rigth_row_3_min_heigth = 270;
         } else if ($('#timer').length && !imgNew.length) {
-            $('#rigth-row-3').css('min-height', '236px');
+            rigth_row_3_min_heigth = 236;
         }
+
+        if ($('#rigth-row-1 #old_price').css('display') != 'none') {
+            rigth_row_3_min_heigth = rigth_row_3_min_heigth - 15;
+        }
+        if ($('#rigth-row-1 #reduction_amount').css('display') != 'none') {
+            rigth_row_3_min_heigth = rigth_row_3_min_heigth - 15;
+        }
+        $('#rigth-row-3').css('min-height', rigth_row_3_min_heigth + 'px');
+
 
     }
     /* --------------------------------------------------------------------- 
@@ -277,12 +284,13 @@ $(document).ready(function() {
      * Mention "a parti de " sur les prix
      * --------------------------------------------------------------------- */
     if (typeof combinations !== 'undefined' && combinations != null) {
-        for (var i in combinations) {
-            if (combinations[i]['price'] > 0) {
-                $('#minimal_pve_price').show();
-                break;
-            }
-        }
+        // for (var i in combinations) {
+        //     if (combinations[i]['price'] > 0) {
+        //         $('#minimal_pve_price').show();
+        //         console.log('test');
+        //         break;
+        //     }
+        // }
     }
 
     /* --------------------------------------------------------------------- 
@@ -371,7 +379,6 @@ $(window).resize(function() {
 $(window).bind('hashchange', function() {
     checkUrl();
     findCombination();
-    console.log('window bind hashchange');
 });
 
 
@@ -442,14 +449,11 @@ $(document).on('change', '#quantity_wanted', function(e) {
     var specificPrice = findSpecificPrice();
 
     if (false !== specificPrice) {
-        console.log('specificPrice on change :' + specificPrice);
         $('#our_price_display').text(specificPrice);
     } else {
         if (typeof productHasAttributes != 'undefined' && productHasAttributes) {
             updateDisplay();
-            console.log('productHasAttributes on change ');
         } else {
-            console.log('productHasAttributes on change - our_price_display');
             $('#our_price_display').text(formatCurrency(parseFloat($('#our_price_display').attr('content')), currencyFormat, currencySign, currencyBlank));
         }
     }
@@ -457,7 +461,6 @@ $(document).on('change', '#quantity_wanted', function(e) {
 
 $(document).on('change', '.attribute_select', function(e) {
     e.preventDefault();
-    console.log('change attribute_select - findCombination()');
     findCombination();
     getProductAttribute();
     // hide pve on click & change attributes select
@@ -599,7 +602,6 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, price, eco
 
 // search the combinations' case of attributes and update displaying of availability, prices, ecotax, and image
 function findCombination() {
-    console.log('findCombination()');
     $('#minimal_quantity_wanted_p').fadeOut();
     if (typeof $('#minimal_quantity_label').text() === 'undefined' || $('#minimal_quantity_label').html() > 1)
         $('#quantity_wanted').val(1);
@@ -784,8 +786,6 @@ function updateDisplay() {
             } else
                 $('#availability_statut:visible').hide('slow');
         } else {
-            // $('#add_to_cart:visible').fadeOut(600);
-            // $('#add_to_cart button').prop('disabled', true);
             $('#add_to_cart button').removeClass('active').addClass('disabled');
 
             if (stock_management == 1 && productAvailableForOrder)
@@ -927,17 +927,16 @@ function updatePrice() {
     $('.price-ecotax').hide();
     $('.unit-price').hide();
 
-    if (priceWithDiscountsDisplay > 0) 
-    {
+    var new_custom_price;
+    if (priceWithDiscountsDisplay > 0) {
         if (findSpecificPrice()) {
-            console.log('findSpecificPrice : ' + indSpecificPrice());
             $('#our_price_display').text(findSpecificPrice()).trigger('change');
+            new_custom_price = findSpecificPrice();
         } else {
-            console.log('findSpecificPrice none: ' + formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank));
+            new_custom_price = formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank);
             $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
         }
-    } 
-    else {
+    } else {
         $('#our_price_display').text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
     }
 
@@ -981,15 +980,18 @@ function updatePrice() {
 
     // Unit price are the price per piece, per Kg, per m²
     // It doesn't modify the price, it's only for display
-    if (productUnitPriceRatio > 0) 
-    {
+    if (productUnitPriceRatio > 0) {
         $('#unit_price_display').text(formatCurrency(unit_price * currencyRate, currencyFormat, currencySign, currencyBlank));
         $('.unit-price').show();
     }
+
     if (noTaxForThisProduct || customerGroupWithoutTax)
         updateDiscountTable(priceWithDiscountsWithoutTax);
     else
         updateDiscountTable(priceWithDiscountsWithTax);
+
+    $('.pve_petite').remove();
+    $('.our_price_display span.price').empty().text(new_custom_price);
 }
 
 //update display of the large image
@@ -1256,7 +1258,6 @@ function checkUrl() {
             if (count) {
                 if (firstTime) {
                     firstTime = false;
-                    console.log('count() -findCombination ');
                     findCombination();
                 }
                 original_url = url;
