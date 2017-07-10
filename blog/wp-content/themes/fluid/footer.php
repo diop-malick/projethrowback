@@ -29,6 +29,7 @@
 	?>
 	<!-- END - intégration WP-PS -->
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style_responsive.css">
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/style.js"></script>
 
 </body>
 </html>
