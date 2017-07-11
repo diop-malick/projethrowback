@@ -84,9 +84,6 @@
     #picto_panier .visible-xs {
         display: inline !important;
     }
-    #htmlcontent_home ul li a h3 {
-        top: -100px !important;
-    }
     #block_contact_infos span {
         font-size: 10px !important;
         font-family: "Futura";

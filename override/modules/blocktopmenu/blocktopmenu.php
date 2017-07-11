@@ -23,7 +23,9 @@ class BlocktopmenuOverride extends Blocktopmenu
        $html = '';
 
        foreach ($categories as $key => $category) {
-           if ($category['level_depth'] > 2) return false;
+        /* https://www.lije-creative.com/prestashop-limiter-arborescence-menu/ */
+           if ($category['level_depth'] > 3) return false;
+           
            if ($category['level_depth'] > 1) {
                $cat = new Category($category['id_category']);
                $link = Tools::HtmlEntitiesUTF8($cat->getLink());

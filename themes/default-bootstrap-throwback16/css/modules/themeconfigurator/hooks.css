@@ -2,7 +2,8 @@
 #htmlcontent_home ul {
 margin: 0 -5px; }
 #htmlcontent_home ul li {
-padding: 0 5px 10px; 
+padding: 0 5px 10px;
+position: relative; 
 }
 
 @media (max-width: 375px) {
@@ -22,9 +23,7 @@ width: 100%;
     padding: 10px;
     margin-bottom: 0;
 }
-#htmlcontent_home ul li a h3 {
-  top: -110px;
-}
+
 }
 #htmlcontent_home ul li img {
 max-width: 100%;
