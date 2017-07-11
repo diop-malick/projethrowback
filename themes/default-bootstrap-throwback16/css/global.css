@@ -11405,7 +11405,7 @@ div.star.star_hover:after {
 }
 #htmlcontent_home ul li a h3,
 #htmlcontent_homeFooter ul li a h3 {
-    position: relative;
+    position: absolute;
     float: left;
     bottom: 37%;
     left: 50%;
