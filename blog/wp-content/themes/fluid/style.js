@@ -33,9 +33,9 @@ jQuery( document ).ready( function() {
 	}
 	
 	if(url.match(expr)){
-		menuTraduction();
+		/*menuTraduction();*/
 		SearchFormTraduction();
-		footerTraduction();
+		/*footerTraduction();*/
 		linkNavigationTraduction();
 		searchResultTraduction();
 	}
