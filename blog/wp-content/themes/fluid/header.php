@@ -18,6 +18,17 @@ Context::getContext()->smarty->assign(array('meta_title' => html_entity_decode(g
 	                                           'meta_description' => get_post_meta($post->ID,'description',true),
 	                                           'meta_keywords' => ''
 	                                         ));
+global $wp;
+$current_url = home_url(add_query_arg(array(),$wp->request))."/";
+if(strpos($current_url, "/en/")){
+	$lang = new Language(2);
+	Context::getContext()->language = $lang;
+}
+else{
+	$lang = new Language(1);
+	Context::getContext()->language = $lang;
+}
+
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
