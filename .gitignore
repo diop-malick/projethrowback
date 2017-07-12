@@ -89,6 +89,7 @@ blog/*.log
 blog/wp-config.php
 
 blog/wp-content/plugins/*
+!blog/wp-content/plugins/bogo
 !blog/wp-content/plugins/elementor/*
 !blog/wp-content/plugins/cryout-serious-slider
 blog/wp-content/*.log
