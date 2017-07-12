@@ -41,7 +41,12 @@ class BlocktopmenuOverride extends Blocktopmenu
 
            $html .= '<li'.(($this->page_name == 'category'
                && (int)Tools::getValue('id_category') == (int)$category['id_category']) ? ' class="sfHoverForce"' : '').'>';
-           $html .= '<a href="'.$link.'" title="'.$category['name'].'">'.$category['name'].'</a>';
+           if($category['name'] == 'MARQUES') {
+              $html .= '<a href="#" title="'.$category['name'].'">'.$category['name'].'</a>';
+           } else {
+              $html .= '<a href="'.$link.'" title="'.$category['name'].'">'.$category['name'].'</a>';
+           }
+           
 
            if (isset($category['children']) && !empty($category['children'])) {
                $html .= '<ul>';

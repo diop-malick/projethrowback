@@ -457,6 +457,9 @@ ul.product_list.grid > li .product-container .functional-buttons div {
 
 ul.product_list.grid li.hovered h5 {
     min-height: 30px;
+    width: 265px;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 @media (min-width: 1200px) {
