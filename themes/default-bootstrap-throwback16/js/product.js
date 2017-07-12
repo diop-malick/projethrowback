@@ -278,6 +278,13 @@ $(document).ready(function() {
                 $(id_radio).closest('li').addClass("li_attribute_list").addClass("disabled");
             }
         }
+
+        if (typeof(isColorAttribute) !== 'undefined') {
+            var myspan = $('.attribute_list  #color_to_pick_list li.selected').first().children().first().attr('id');
+            var tab_myspan = myspan.split('_');
+            advancedCorlorAttributesManagement(tab_myspan[1]);
+        }
+
     }
 
     /* --------------------------------------------------------------------- 
@@ -287,7 +294,6 @@ $(document).ready(function() {
         // for (var i in combinations) {
         //     if (combinations[i]['price'] > 0) {
         //         $('#minimal_pve_price').show();
-        //         console.log('test');
         //         break;
         //     }
         // }
@@ -342,14 +348,35 @@ $(document).ready(function() {
 });
 
 
+/* 
+Trowback - display only existing Color combinations 
+- Display only combinations of existing attributes.
+- Display only combinations of in stock attributes.
+*/
+function advancedCorlorAttributesManagement(idColor) {
+    $('.attribute_list ul #btn-attributes-size li').addClass("li_attribute_list").addClass("disabled");
+    // Reset Attributes Radio
+    $('#attributes .attribute_list ul #btn-attributes-size li label div span').removeClass('checked');
+    // $('#pQuantityAvailable:visible').hide('slow');
+    $('#add_to_cart button').removeClass('active').addClass('disabled');
 
-//find a specific price rule, based on pre calculated dom display array
+    for (i = 0; i < combinations.length; i++) {
+        // if combinaison exist and stock exist
+        if ((combinations[i]['idsAttributes'][1] == idColor) && combinations[i]['quantity'] != 0) {
+            var attributeId = combinations[i]['idsAttributes'][0];
+            var id_radio = '#radio_' + attributeId;
+            $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
+        }
+    }
+}
+
+// find a specific price rule, based on pre calculated dom display array
 function findSpecificPrice() {
     var domData = $("#quantityDiscount table tbody tr").not(":hidden");
     var nbProduct = $('#quantity_wanted').val();
     var newPrice = false;
 
-    //construct current specific price for current combination
+    // construct current specific price for current combination
     domData.each(function(i) {
         var dataDiscountQuantity = parseInt($(this).attr('data-discount-quantity'));
         var dataDiscountNextQuantity = -1;
@@ -463,6 +490,7 @@ $(document).on('change', '.attribute_select', function(e) {
     e.preventDefault();
     findCombination();
     getProductAttribute();
+    // TODO - REmove 
     // hide pve on click & change attributes select
     // $('#minimal_pve_price').hide();
 });
@@ -679,6 +707,7 @@ function findCombination() {
 function updateDisplay() {
     var productPriceDisplay = productPrice;
     var productPriceWithoutReductionDisplay = productPriceWithoutReduction;
+
 
     if (!selectedCombination['unavailable'] && quantityAvailable > 0 && productAvailableForOrder == 1) {
 
@@ -1176,6 +1205,8 @@ function colorPickerClick(elt) {
         });
     });
     $(elt).parent().parent().parent().children('.color_pick_hidden').val(id_attribute);
+    // custom throwback 
+    advancedCorlorAttributesManagement(id_attribute);
 }
 
 

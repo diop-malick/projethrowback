@@ -23,7 +23,9 @@ class BlocktopmenuOverride extends Blocktopmenu
        $html = '';
 
        foreach ($categories as $key => $category) {
-           if ($category['level_depth'] > 2) return false;
+        /* https://www.lije-creative.com/prestashop-limiter-arborescence-menu/ */
+           if ($category['level_depth'] > 3) return false;
+           
            if ($category['level_depth'] > 1) {
                $cat = new Category($category['id_category']);
                $link = Tools::HtmlEntitiesUTF8($cat->getLink());
@@ -39,7 +41,12 @@ class BlocktopmenuOverride extends Blocktopmenu
 
            $html .= '<li'.(($this->page_name == 'category'
                && (int)Tools::getValue('id_category') == (int)$category['id_category']) ? ' class="sfHoverForce"' : '').'>';
-           $html .= '<a href="'.$link.'" title="'.$category['name'].'">'.$category['name'].'</a>';
+           if($category['name'] == 'MARQUES') {
+              $html .= '<a href="#" title="'.$category['name'].'">'.$category['name'].'</a>';
+           } else {
+              $html .= '<a href="'.$link.'" title="'.$category['name'].'">'.$category['name'].'</a>';
+           }
+           
 
            if (isset($category['children']) && !empty($category['children'])) {
                $html .= '<ul>';
