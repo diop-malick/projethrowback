@@ -118,7 +118,6 @@
         display: block;
         font-size: 13px;
         line-height: 30px;
-        padding: 0 10px 0 30px;
     }
     /*delete espace between a gauche*/
     #top_menu_row,
@@ -346,7 +345,7 @@ RECHERCHE
     /* ************************************************************
 LIVRAISON
 *********************************************************** */
-    #order [class*="col-"] {
+    #order .columns-container [class*="col-"] {
         padding-left: 0 !important;
     }
     #order #carrier_area .wrapper {
@@ -356,7 +355,7 @@ LIVRAISON
         padding: 0 !important;
     }
     #order .footer-container {
-        height: 135px !important;
+        height: 255px !important;
     }
     #order .delivery_options_address .panel-body {
         padding: 0px;

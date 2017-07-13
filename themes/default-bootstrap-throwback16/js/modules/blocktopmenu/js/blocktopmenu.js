@@ -14,10 +14,10 @@ $(document).ready(function() {
 
 // check resolution
 function responsiveMenu() {
-    if ($(window).width() <= 767 && responsiveflagMenu == false) {
+    if ($(window).width() <= 768 && responsiveflagMenu == false) {
         menuChange('enable');
         responsiveflagMenu = true;
-    } else if ($(window).width() >= 768) {
+    } else if ($(window).width() >= 769) {
         menuChange('disable');
         responsiveflagMenu = false;
     }

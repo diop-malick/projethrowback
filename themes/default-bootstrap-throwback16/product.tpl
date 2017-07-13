@@ -98,7 +98,6 @@
 
 										{* PVE plus petire *}
 										{foreach from=$combinations key=id_combinaison item=group_combinations}
-											<pre>{$group_combinations.price}</pre>
 											{if $group_combinations.price =! 0}
 											<span class ="pve_petite "id="minimal_pve_price">{l s='A partir de '}</span>
 												{break}
@@ -298,7 +297,6 @@
 											{/if}											
 										{/foreach}
 
-											{* <pre>{$product->base_price} / {$product->price} </pre> *}
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
 												{if $priceDisplay == 1} {l s='tax excl.'}{else} {l s='tax incl.'}{/if}
@@ -359,7 +357,6 @@
 						{* comingsoon without date *}
 						{if isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' }
 							{if isset($comingsoontplvalue) && $comingsoontplvalue == 'comingsoon'}
-								{* <pre>test : {$comingsoontplvalue}</pre> *}
 								<span id="chrono_without_date" class="hidden-xs">
 									<i class="material-icons" style="font-size:40px;color:rgb(214, 157, 50);">schedule</i>
 								</span>
@@ -488,14 +485,8 @@
 										{* TODO | test localization & product price*}
 										{if $productPrice >= 100}
 										<p id ="fMessage"> {l s='Livraison gratuite (en europe)'} </p>
-										{* Free Shipping (within Europe) *}
-										{elseif false}
-											{* <pre class="row">{$productPrice}</pre> *}
 										{/if}
-										{* <pre class="row">{$cart->_products|@print_r}</pre> *}
-										{* <pre class="row">{$cart->total}</pre> *}
-										{* <pre class="row">{$cart|@print_r}</pre> *}	
-										{* <pre>{convertPrice price=$productPrice|floatval}</pre> *}
+
 
 									</div>
 							{/if}
@@ -566,7 +557,6 @@
 															<a class="sizeTable-iframe" href="index.php?id_cms={$sizetable_brand}&controller=cms&content_only=1">Size Table</a>
 															</a>
 														</div>
-														{* <pre>{$group.attributes|@print_r}</pre> *}
 														<ul>
 															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->															
 																{foreach from=$group.attributes key=id_attribute item=group_attribute}																

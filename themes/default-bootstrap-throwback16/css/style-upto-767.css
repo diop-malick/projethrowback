@@ -39,7 +39,7 @@
     #header_logo .logo-throwback {
         display: inline-block !important;
         margin-bottom: 10px;
-        margin-top: 46.2px !important;
+        margin-top: 35px !important;
     }
     .logo.img-responsive.logo-throwback {
         width: 90px;
@@ -52,7 +52,7 @@
         margin-top: -78px;
     }
     header .nav {
-        background: radial-gradient(40px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+        background: radial-gradient(47px at 50% 173%, #fff 103%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     .menu_vertical_mobile,
     #search_block_top_mobile,
