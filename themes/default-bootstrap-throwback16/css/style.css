@@ -981,7 +981,7 @@ input[readonly] {
 .panier-vide,
 .alert-no-adress {
     text-align: justify;
-    font-size: 16px;
+    font-size: 15px;
     color: #000;
     margin: 20px 0 20px 0;
 }

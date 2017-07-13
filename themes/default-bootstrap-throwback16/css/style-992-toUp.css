@@ -18,7 +18,7 @@
 
 @media (min-width: 992px) and (max-width: 1199px) {
      header .nav {
-        background: radial-gradient(50.8px at 50.05% 176%, #fff 105%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
+        background: radial-gradient(45px at 50.05% 176%, #fff 105%, rgba(120, 120, 120, 0.20) 108%, rgba(210, 210, 210, 0.44) 180%, #ececeb 260%), url(../img/logo_shadow.png) no-repeat 52% center !important;
     }
     #quantity_wanted_p input {
         width: 30px !important;
