@@ -47,7 +47,7 @@ get_header();?>
 
 					<nav id="nav-below" class="navigation" role="navigation">
 
-					<div class="accueil"><a href="https://vps365425.ovh.net/throwback16/blog"> <i class="fa fa-angle-left" aria-hidden="true"></i> Accueil </a> </div>
+					<div class="accueil"><a href="<?php echo get_home_url(); ?>"> <i class="fa fa-angle-left" aria-hidden="true"></i> Accueil </a> </div>
 					
 					
 
