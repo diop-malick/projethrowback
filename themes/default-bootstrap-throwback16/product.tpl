@@ -19,6 +19,11 @@
 										{/if}
 	{/foreach}
 
+						{* <pre>{$product->category}</pre> *}
+					{* <pre>{$smarty.get.id_product}</pre> *}
+					
+					{* <pre>{$product|print_r}</pre> *}
+
 <div itemscope itemtype="https://schema.org/Product">
 	<meta itemprop="url" content="{$link->getProductLink($product)}">
 
@@ -59,21 +64,30 @@
 							</p>
 			</div>
 			<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
-			<section>
-									{foreach from=$features item=feature}
-										{if $feature.name eq 'genre'}
-											{if isset($feature.value)}
-												{assign var=gendertype value=$feature.value}
+			{if $product->category != 'accessoires'}
+					<section>
+								{assign var=categories_custom value=Product::getProductCategoriesFull($smarty.get.id_product)}
+							{foreach from=$categories_custom item=secondaryCategory}
+											{if $secondaryCategory.name eq 'Femme'}
+													{assign var=gendertype value='Femme'}
+											{elseif $secondaryCategory.name eq 'Enfant'}
+												{assign var=gendertype value='Enfant'}
 											{/if}
-										{/if}
-									{/foreach}
-									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
-										<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
-										<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
-										<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
-									</ul>
-								</section>
+							{/foreach}
+								<ul class="gender-label-group inline 
+										{if $product->category == 'Femme'} women
+										{elseif (isset($gendertype) and $gendertype eq 'Femme')} women
+										{elseif $product->category == 'Enfant'} kids
+										{elseif (isset($gendertype) and $gendertype eq 'Enfant')} kids
+										{else} men {/if}">
+											<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
+											<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
+											<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
+										</ul>
+						</section>
+						{/if}
 				</div>
+
 				<div class="col-xs-3 text-xs-left" style="margin-top: 10px">
 						<!-- FLAG chrono -->
 						{* comingsoon without date *}
@@ -396,26 +410,55 @@
 					<div class="col-md-12 text-left">
 					<!-- quantity wanted -->
 
-						<!-- Flag GENRE -->
-						<!-- features from `ps_feature_lang` table : genre : 10  -->
-						<div class="row hidden-xs">
-							<div class="col-md-12 col-xs-12">
-								<section>
-									{foreach from=$features item=feature}
-										{if $feature.name eq 'genre'}
-											{if isset($feature.value)}
-												{assign var=gendertype value=$feature.value}
+						<!-- Flag GENRE -->	
+						{* LINK - http://nemops.com/prestashop-all-product-categories/#.WWkfY3UpxQI *}
+						{* <pre>{$product->category}</pre>				 *}
+						{if $product->category != 'accessoires'}
+							{* GET product ID *}
+							{assign var=categories_custom value=Product::getProductCategoriesFull($smarty.get.id_product)}
+							{foreach from=$categories_custom item=secondaryCategory}
+											{if $secondaryCategory.name eq 'Femme'}
+													{assign var=gendertype value='Femme'}
+											{elseif $secondaryCategory.name eq 'Enfant'}
+												{assign var=gendertype value='Enfant'}
+											{/if}
+							{/foreach}							
+							{if isset($gendertype) and $gendertype eq 'Femme'}
+								{if isset($groups)}
+									{foreach from=$groups key=id_attribute_group item=group}
+										{if $group.attributes|@count}
+											{if ($group.group_type == 'radio')}
+												{foreach from=$group.attributes key=id_attribute item=group_attribute} 
+													{assign var=gender_size_keywords value=" / "|explode:$group_attribute}
+													{assign var=gender_size_keywords_eu_trimed value=$gender_size_keywords[0]|trim}
+													{assign var=gender_size_keywords_eu value=" "|explode:$gender_size_keywords_eu_trimed}
+													{assign var=gender_size_keywords_eu_sup value="."|explode:$gender_size_keywords_eu[1]}													
+													{if ($gender_size_keywords_eu[1]|intval > 40 )}
+														{assign var=gendertype_unisexe value='unisexe'}
+													{/if}
+												{/foreach}
 											{/if}
 										{/if}
 									{/foreach}
-									<ul class="gender-label-group inline  {if isset($gendertype)} {if $gendertype == 'homme' }men {/if} {if $gendertype == 'femme' }women {/if} {if $gendertype == 'enfant' }kids {/if}{/if}">
-										<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
-										<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
-										<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
-									</ul>
-								</section>
+								{/if}
+							{/if}
+							{* <pre>{$gendertype}</pre> *}
+							<div class="row hidden-xs">
+								<div class="col-md-12 col-xs-12">
+									<section>
+										<ul class="gender-label-group inline 
+												{if isset($gendertype_unisexe) and $gendertype_unisexe eq 'unisexe'} men women
+												{elseif isset($gendertype) and $gendertype eq 'Femme'} women
+												{elseif (isset($gendertype) and $gendertype eq 'Enfant')} kids
+												{else} men {/if}">
+											<li class="gender-label"><a class="men" title="Men"><i class="gender-icon gender-icon-male"></i></a></li>
+											<li class="gender-label"><a class="women" title="Women"><i class="gender-icon gender-icon-female"></i></a></li>
+											<li class="gender-label"><a class="kids" title="Kids"><i class="gender-icon gender-icon-kids"></i></a></li>
+										</ul>
+									</section>
+								</div>
 							</div>
-						</div>
+						{/if}
 
 					<div class="row">
 						<!-- QUANTITY  -->
@@ -783,6 +826,7 @@
 
 
 		<!-- CMS page  -->
+		
 
 		{assign var=cms_content_17 value=CMS::getCMSContent(17, intval($cookie->id_lang), true)}
 		{assign var=cms_content_18 value=CMS::getCMSContent(18, intval($cookie->id_lang), true)}
