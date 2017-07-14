@@ -687,7 +687,7 @@ EROR
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<i class="reglement">{l s='Conformément à la loi "Informatique et Libertés", vous disposez d’un droit d’accès et de rectification aux données vous concernant, et d’opposition à leur traitement. Pour en savoir plus cliquez'}&nbsp;
-				<a href="{$link->getCMSLink('14', 'donnees-personnelles-et-cookies')|escape:'html'}" target="_blank">ICI.<a>
+				<a href="{$link->getCMSLink('14', 'donnees-personnelles-et-cookies')|escape:'html'}" target="_blank">{l s='ICI'}<a>.
 				</i>
 				</div>
 		</div>
