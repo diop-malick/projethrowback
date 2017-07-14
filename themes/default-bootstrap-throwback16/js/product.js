@@ -362,7 +362,12 @@ function advancedCorlorAttributesManagement(idColor) {
 
     for (i = 0; i < combinations.length; i++) {
         // if combinaison exist and stock exist
-        if ((combinations[i]['idsAttributes'][1] == idColor) && combinations[i]['quantity'] != 0) {
+        if ((combinations[i]['idsAttributes'][0] == idColor) && combinations[i]['quantity'] != 0) {
+            var attributeId = combinations[i]['idsAttributes'][1];
+            var id_radio = '#radio_' + attributeId;
+            $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
+        } 
+        else if ((combinations[i]['idsAttributes'][1] == idColor) && combinations[i]['quantity'] != 0) {
             var attributeId = combinations[i]['idsAttributes'][0];
             var id_radio = '#radio_' + attributeId;
             $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
