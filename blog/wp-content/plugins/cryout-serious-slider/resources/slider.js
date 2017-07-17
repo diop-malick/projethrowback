@@ -114,7 +114,7 @@ if (typeof jQuery === 'undefined') {
 
   Carousel.DEFAULTS = {
     interval: 3000,
-	stransition: 600,
+  stransition: 600,
     pause: 'hover',
     wrap: true,
     keyboard: true
@@ -237,7 +237,7 @@ if (typeof jQuery === 'undefined') {
           }, 0)
         })
         .emulateTransitionEnd(this.options.stransition)
-		//.emulateTransitionEnd(Carousel.TRANSITION_DURATION)
+    //.emulateTransitionEnd(Carousel.TRANSITION_DURATION)
     } else {
       $active.removeClass('active')
       $next.addClass('active')
@@ -260,10 +260,10 @@ if (typeof jQuery === 'undefined') {
       var data    = $this.data('bs.carousel');
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option);
       var action  = typeof option == 'string' ? option : options.slide;
-	  //console.log(data);
+    //console.log(data);
 
       if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
-	   //console.log(data);
+     //console.log(data);
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
       else if (options.interval) data.pause().cycle()
@@ -310,12 +310,12 @@ if (typeof jQuery === 'undefined') {
     .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
     .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)
 
-  /*$(window).on('load', function () {
-    $('[data-ride="carousel"]').each(function () {
+  $(window).on('load', function () {
+    $('[data-ride="seriousslider"]').each(function () {
       var $carousel = $(this)
       Plugin.call($carousel, $carousel.data())
     })
-  })*/
+  })
 
 }(jQuery);
 
