@@ -282,7 +282,7 @@ $(document).ready(function() {
         if (typeof(isColorAttribute) !== 'undefined') {
             var myspan = $('.attribute_list  #color_to_pick_list li.selected').first().children().first().attr('id');
             var tab_myspan = myspan.split('_');
-            advancedCorlorAttributesManagement(tab_myspan[1]);
+            advancedCorlorAttributesManagement(tab_myspan[1], false);
         }
 
     }
@@ -353,7 +353,7 @@ Trowback - display only existing Color combinations
 - Display only combinations of existing attributes.
 - Display only combinations of in stock attributes.
 */
-function advancedCorlorAttributesManagement(idColor) {
+function advancedCorlorAttributesManagement(idColor, sizeTriggerSelect) {
     $('.attribute_list ul #btn-attributes-size li').addClass("li_attribute_list").addClass("disabled");
     // Reset Attributes Radio
     $('#attributes .attribute_list ul #btn-attributes-size li label div span').removeClass('checked');
@@ -373,8 +373,11 @@ function advancedCorlorAttributesManagement(idColor) {
             $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
         }
     }
-    // Trigger minimum size select when user click to color
-    $('#attributes .attribute_list ul #btn-attributes-size li:not(.disabled):first label .attribute_radio').prop("checked", true).trigger("click");
+    if (sizeTriggerSelect) {
+        console.log('sizeTriggerSelect')
+        // Trigger minimum size select when user click to color
+        $('#attributes .attribute_list ul #btn-attributes-size li:not(.disabled):first label .attribute_radio').prop("checked", true).trigger("click");        
+    }
 
 }
 
@@ -1214,7 +1217,7 @@ function colorPickerClick(elt) {
     });
     $(elt).parent().parent().parent().children('.color_pick_hidden').val(id_attribute);
     // custom throwback 
-    advancedCorlorAttributesManagement(id_attribute);
+    advancedCorlorAttributesManagement(id_attribute, true);
 }
 
 
