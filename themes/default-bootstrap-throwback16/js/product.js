@@ -373,6 +373,9 @@ function advancedCorlorAttributesManagement(idColor) {
             $(id_radio).closest('li').removeClass("li_attribute_list").removeClass("disabled");
         }
     }
+    // Trigger minimum size select when user click to color
+    $('#attributes .attribute_list ul #btn-attributes-size li:not(.disabled):first label .attribute_radio').prop("checked", true).trigger("click");
+
 }
 
 // find a specific price rule, based on pre calculated dom display array
