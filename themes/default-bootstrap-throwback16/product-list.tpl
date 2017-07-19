@@ -17,19 +17,27 @@
 	<ul{if isset($id) && $id} id="{$id}"{else} id="product_list"{/if} class="product_list grid row{if isset($class) && $class} {$class}{/if}">
 	{foreach from=$products item=product name=products}
 
-{if $smarty.foreach.products.iteration == 1 && $smarty.get.controller eq 'newproducts'}
 {* <pre>{$product|print_r}</pre> *}
-{assign var=categories_custom value=Product::getProductCategoriesFull($product.id_product)}
-{foreach from=$categories_custom item=secondaryCategory}
-											{if $secondaryCategory.name eq 'Deadstock'}
-													{assign var=filterDeadStock value='Femme'}
-													<pre>{$filterDeadStock}</pre>
+{* <pre>{$categories_custom|print_r}</pre> *}
+
+{* 
+{assign var=filterDeadStock value=''}
+{if $smarty.get.controller eq 'newproducts'}
+						{assign var=categories_custom value=Product::getProductCategoriesFull($product.id_product)}
+						{foreach from=$categories_custom item=secondaryCategory}
+											{if $secondaryCategory.name eq 'Adidas'}
+													{assign var=filterDeadStock value='Adidas'}
+													
 													{break}
 											{/if}
 							{/foreach}
 
 {/if}
-
+{if ($smarty.get.controller eq 'newproducts') and isset($filterDeadStock) and ($filterDeadStock eq 'Adidas')}
+<li><pre>{$filterDeadStock}</pre></li>
+{else}
+<li><pre>{$filterDeadStock}</pre></li> 
+*}
 		{math equation="(total%perLine)" total=$smarty.foreach.products.total perLine=$nbItemsPerLine assign=totModulo}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineMobile assign=totModuloMobile}
@@ -243,6 +251,9 @@
 			</div><!-- .product-container> -->
 
 		</li>
+
+{* {/if}  *}
+{* end test filter deadstock *}
 
 		{* REINITIALISATION *}
 		{* reset comming soon value *}
