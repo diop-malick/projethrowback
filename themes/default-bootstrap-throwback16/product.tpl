@@ -419,8 +419,10 @@
 							{foreach from=$categories_custom item=secondaryCategory}
 											{if $secondaryCategory.name eq 'Femme'}
 													{assign var=gendertype value='Femme'}
+													{break}
 											{elseif $secondaryCategory.name eq 'Enfant'}
 												{assign var=gendertype value='Enfant'}
+												{break}
 											{/if}
 							{/foreach}							
 							{if isset($gendertype) and $gendertype eq 'Femme'}
