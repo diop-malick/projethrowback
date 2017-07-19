@@ -158,9 +158,8 @@
 																		{else}
 																			{convertPrice price=$cart->getOrderTotal()}
 																		{/if}
-
-																		</span>
-																	<span>{l s='Total :' mod='blockcart'}</span>
+																	</span>
+																	<span>{l s='Total :' mod='blockcart'}</span>&nbsp;
 																</div>
 																{if $use_taxes && $display_tax_label && $show_tax}
 																	<p>
