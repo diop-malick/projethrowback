@@ -435,6 +435,7 @@
 													{assign var=gender_size_keywords_eu_sup value="."|explode:$gender_size_keywords_eu[1]}													
 													{if ($gender_size_keywords_eu[1]|intval > 40 )}
 														{assign var=gendertype_unisexe value='unisexe'}
+														{break}
 													{/if}
 												{/foreach}
 											{/if}
@@ -504,7 +505,7 @@
 																				{/if}
 											{/foreach}
 										{/if}
-										{if $isColorAttribute == 1}
+										{if isset($isColorAttribute) && $isColorAttribute == 1}
 										{*
 											<p id="availability_statut" style="margin-left: 5px; margin-top: 10px; padding: 3px 8px 4px;" {if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 											<span id="availability_value" style="color: #e4752b !important;">
@@ -1016,7 +1017,7 @@
 	{/if}
 </div> <!-- itemscope product wrapper -->
 {strip}
-{if $isColorAttribute == 1}
+{if isset($isColorAttribute) && $isColorAttribute == 1}
 {addJsDef isColorAttribute=$isColorAttribute}
 {/if}
 {if isset($comingsoontplvalue) && $comingsoontplvalue eq 'comingsoon'}

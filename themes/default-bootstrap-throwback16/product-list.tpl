@@ -56,6 +56,7 @@
 							{hook h="displayProductPriceBlock" product=$product type='before_price'}
 							
 								<!-- PVE la plus petite -->
+								{if isset($groups) && $groups}
 								{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 									{if ($group.group_type == 'radio')}
 										{foreach from=$group.name_price key=id_attribute item=group_attribute}
@@ -66,6 +67,7 @@
 										{/foreach}
 									{/if}
 								{/foreach}
+								{/if}
 
 							<span class="price product-price">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
@@ -167,6 +169,7 @@
 												{l s='In Stock'}
 											{else}
 												{* show availability msg only if at leat one of declinaison have quantity > 0 *}
+												{if isset($groups) && $groups}
 												{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 													{if ($group.group_type == 'radio')}
 														{foreach from=$group.attributes_quantity key=id_attribute item=group_attribute}
@@ -177,6 +180,7 @@
 														{/foreach}
 													{/if}
 												{/foreach}
+												{/if}
 											{/if}
 										{/if}
 										</span>
