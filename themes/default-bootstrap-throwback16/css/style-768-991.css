@@ -121,4 +121,9 @@
     #footer #newsletter_block_left .newsletter-input {
         width: 150px !important;
     }
+
+    #quantity_wanted_p .btn {
+         text-align: left; 
+}
+
 }
