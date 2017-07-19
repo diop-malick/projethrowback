@@ -42,7 +42,7 @@ class BlocktopmenuOverride extends Blocktopmenu
            $html .= '<li'.(($this->page_name == 'category'
                && (int)Tools::getValue('id_category') == (int)$category['id_category']) ? ' class="sfHoverForce"' : '').'>';
            // disable marque link
-           if($category['name'] == 'MARQUES') {
+           if( $category['name'] == 'MARQUES' || $category['name'] == 'BRANDS') {
               $html .= '<a href="#" title="'.$category['name'].'">'.$category['name'].'</a>';
            } else {
               $html .= '<a href="'.$link.'" title="'.$category['name'].'">'.$category['name'].'</a>';
