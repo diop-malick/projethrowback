@@ -87,14 +87,28 @@
 						{* <pre>{$attributes|print_r}</pre>
 						<pre>{$split_size[0]|print_r}</pre>
 						<pre>{$split_size[1]|print_r}</pre> *}
+						{*
+							{if isset($split_size[0]) }
+									{assign var="sizing" value=$split_size[0]|trim}
+							{/if}
 
-						{if isset($split_size[0]) }
-								{assign var="sizing" value=$split_size[0]|trim}
-						{/if}
-
+							{if isset($split_size[1]) }
+									{assign var="coloring" value=$split_size[1]|trim}
+									{else}
+									{assign var="coloring" value=null}
+							{/if}
+						*}
 						{if isset($split_size[1]) }
-								{assign var="coloring" value=$split_size[1]|trim}
+								{assign var="sizing" value=$split_size[1]|trim}
+
+								{if isset($split_size[0]) }
+									{assign var="coloring" value=$split_size[0]|trim}
 								{else}
+									{assign var="coloring" value=null}
+								{/if}
+
+						{else}
+								{assign var="sizing" value=$split_size[0]|trim}
 								{assign var="coloring" value=null}
 						{/if}
 

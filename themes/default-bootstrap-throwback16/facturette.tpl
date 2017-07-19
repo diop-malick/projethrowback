@@ -68,14 +68,30 @@
 					{elseif {$smarty.get.controller} eq 'order'}
 
 						{assign var="split_size" value=","|explode:$attributes}
+						{*
+							{if isset($split_size[0]) }
+								{assign var="sizing" value=$split_size[0]|trim}
+							{/if}
+								
+							{if isset($split_size[1]) }
+								{assign var="color" value=$split_size[1]|trim}
+							{/if}
+						*}
 
-						{if isset($split_size[0]) }
-							{assign var="sizing" value=$split_size[0]|trim}
-						{/if}
-							
 						{if isset($split_size[1]) }
-							{assign var="color" value=$split_size[1]|trim}
+								{assign var="sizing" value=$split_size[1]|trim}
+
+								{if isset($split_size[0]) }
+									{assign var="color" value=$split_size[0]|trim}
+								{else}
+									{assign var="color" value=null}
+								{/if}
+
+						{else}
+								{assign var="sizing" value=$split_size[0]|trim}
+								{assign var="color" value=null}
 						{/if}
+
 					{/if}
 					
 					<div id="facturette_{$product.id_product}_{$product.id_product_attribute}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="row row_line_product_commande facturette-tc">
