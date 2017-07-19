@@ -1362,9 +1362,6 @@ Quick View Styles
     background-image: -ms-linear-gradient( 90deg, rgb(255, 255, 255) 80%, rgb(230, 231, 232) 130%);
 }
 
-    li.product_accessories_description .s_title_block :first-child {
-    min-height: 97px;
-}
 
 /*productcategory.tpl*/
 .page-product-box .block_content .ajax_block_product .s_title_block:first-child {
