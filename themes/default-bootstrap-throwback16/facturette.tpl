@@ -134,7 +134,7 @@
 				{if $shippingCost > 0}
 					<span id="total_price">{displayPrice price=$shippingCost}</span>
 				{else}
-					<span id="total_price" style="color:#40ec40">GRATUIT</span>
+					<span id="total_price" style="color:#40ec40">{l s='GRATUIT'}</span>
 				{/if}		
 			</div>			
 		</div>
