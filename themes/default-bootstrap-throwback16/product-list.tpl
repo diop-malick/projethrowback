@@ -16,6 +16,20 @@
 	<!-- Products list -->
 	<ul{if isset($id) && $id} id="{$id}"{else} id="product_list"{/if} class="product_list grid row{if isset($class) && $class} {$class}{/if}">
 	{foreach from=$products item=product name=products}
+
+{if $smarty.foreach.products.iteration == 1 && $smarty.get.controller eq 'newproducts'}
+{* <pre>{$product|print_r}</pre> *}
+{assign var=categories_custom value=Product::getProductCategoriesFull($product.id_product)}
+{foreach from=$categories_custom item=secondaryCategory}
+											{if $secondaryCategory.name eq 'Deadstock'}
+													{assign var=filterDeadStock value='Femme'}
+													<pre>{$filterDeadStock}</pre>
+													{break}
+											{/if}
+							{/foreach}
+
+{/if}
+
 		{math equation="(total%perLine)" total=$smarty.foreach.products.total perLine=$nbItemsPerLine assign=totModulo}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineMobile assign=totModuloMobile}
