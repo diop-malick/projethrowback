@@ -420,6 +420,7 @@ $_LANG['order-carrier_3818429ccff49b9d6ab2b4a9a137a00a'] = 'No carrier is needed
 $_LANG['order-carrier_390b4c95516a4b7faf97389ca46fc0c7'] = 'Use the delivery address as the billing address.';
 $_LANG['order-carrier_4b39452b52e21dfdfda518802770ae5a'] = 'Add a new address';
 $_LANG['order-carrier_5508a53851720a210e50f7b8a6f66f46'] = 'You must agree to the terms of service before continuing.';
+$_LANG['order-carrier_55d0fbe49a3f65e7f96c84768cb97a34'] = 'Choose a delivery option';
 $_LANG['order-carrier_5c2dfd55fea1f5c6adef500fcb6403b4'] = 'Additional cost of';
 $_LANG['order-carrier_5f34efd649139e56512ab2d1a8b1626e'] = 'Add a new address to select it like billing address';
 $_LANG['order-carrier_6407498d5c2b5cdd00f58568a4835db3'] = 'Recyclable Packaging';
