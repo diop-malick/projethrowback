@@ -21,6 +21,14 @@
 	} 
 
 }
+#languages-block-top div.current:after,
+#languages-block-top .flag_img {
+	display: none
+}
+header .nav {
+	height: 35px;
+}
+
 
 @media (min-width: 280px) and (max-width: 479px) {
 
@@ -285,6 +293,6 @@
 
 .country-selector{
 	position: fixed;
-    left: 85%;
+    left: 80%;
     top: -5px;
 }
