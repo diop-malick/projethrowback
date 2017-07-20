@@ -600,8 +600,8 @@
 																 {else}
 																 	{assign var="sizetable_brand" value='26'}
 															{/if}
-															<a class="sizeTable-iframe" href="index.php?id_cms={$sizetable_brand}&controller=cms&content_only=1">Size Table</a>
-															</a>
+															{* <a class="sizeTable-iframe" href="index.php?id_cms={$sizetable_brand}&controller=cms&content_only=1">Size Table</a>
+															</a> *}
 														</div>
 														<ul>
 															<span class="btn" id="btn-attributes-size"> <!-- to disable attributes for comming soon -->															
