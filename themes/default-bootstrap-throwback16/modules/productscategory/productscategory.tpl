@@ -3,7 +3,7 @@
 <section class="row page-product-box blockproductscategory">
 	
 	<h3 class="productscategory_h3 page-product-heading">
-		{l s='Vous aimerez également'}
+		{l s='Vous aimerez également' mod='productscategory'}
 	</h3>
 
 	<!-- <div class="block products_block accessories-block clearfix"> -->
