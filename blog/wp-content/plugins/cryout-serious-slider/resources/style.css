@@ -282,15 +282,6 @@
 	(;transition : width 6s;);
  }
 
-/* safari 9+ */
- @supports (-webkit-appearance:none) {
- 	.seriousslider-underslide .seriousslider-inner > .item {
-	  -webkit-transition: width 6s;
-	  -o-transition: width 6s;
-	  transition: width 6s;
-	}
- }
-
 .seriousslider-underslide .seriousslider-inner > .active.left,
 .seriousslider-underslide .seriousslider-inner > .active.right {
 	z-index: 1;
