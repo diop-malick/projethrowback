@@ -21,21 +21,29 @@ class BlockNewProductsOverride extends BlockNewProducts
 	
 	public function hookdisplayHomeTabContent($params)
 	{
+		$products = (isset(BlockNewProducts::$cache_new_products) && BlockNewProducts::$cache_new_products) ? BlockNewProducts::$cache_new_products : null;
+		$tab_product = array();
+
+		foreach ($products as  $prod) {
+			$product = new Product($prod['id_product'], true,$this->context->language->id, $this->context->shop->id);
+			if( $product->category!="accessories" && $product->category!="vetements" )
+				$tab_product[$i++] = $prod;
+		}
+
 		if (!$this->isCached('blocknewproducts_home.tpl', $this->getCacheId('blocknewproducts-home')))
 		{
 			$this->smarty->assign(array(
-				'new_products' => BlockNewProducts::$cache_new_products,
+				'new_products' => $tab_product,
 				'mediumSize' => Image::getSize(ImageType::getFormatedName('medium')),
 				'homeSize' => Image::getSize(ImageType::getFormatedName('home'))
 			));
 		}
 		
-		if (BlockNewProducts::$cache_new_products === false)
+		if ($tab_product === false)
 			return false;
 
-		$products = (isset(BlockNewProducts::$cache_new_products) && BlockNewProducts::$cache_new_products) ? BlockNewProducts::$cache_new_products : null;
 
-    $groups = Size::getProductAttributeCombinations2($products , $this->context->language->id, $this->context->shop->id);
+    $groups = Size::getProductAttributeCombinations2($tab_product , $this->context->language->id, $this->context->shop->id);
     $this->context->smarty->assign('groups', $groups);
 
 		return $this->display(__FILE__, 'blocknewproducts_home.tpl', $this->getCacheId('blocknewproducts-home'));
