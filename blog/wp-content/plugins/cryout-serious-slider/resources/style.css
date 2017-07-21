@@ -276,6 +276,12 @@
   transition: .6s ease-in-out all;
 }
 
+.seriousslider-underslide .seriousslider-inner > .item { 
+	(;-webkit-transition : width 2s;);
+	(;-o-transition : width 2s;);
+	(;transition : width 2s;);
+ }
+
 .seriousslider-underslide .seriousslider-inner > .active.left,
 .seriousslider-underslide .seriousslider-inner > .active.right {
 	z-index: 1;
