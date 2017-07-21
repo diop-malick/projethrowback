@@ -275,11 +275,21 @@
   -o-transition: .6s ease-in-out all;
   transition: .6s ease-in-out all;
 }
-
+	/* safari 7- */
 .seriousslider-underslide .seriousslider-inner > .item { 
-	(;-webkit-transition : width 2s;);
-	(;-o-transition : width 2s;);
-	(;transition : width 2s;);
+	(;-webkit-transition : width 6s;);
+	(;-o-transition : width 6s;);
+	(;transition : width 6s;);
+ }
+
+/* safari 9+ */
+ @supports (-webkit-appearance:none) {
+ 	.seriousslider-underslide .seriousslider-inner > .item {
+	  -webkit-transition: width 6s;
+	  -o-transition: width 6s;
+	  transition: width 6s;
+	  display: none;
+	}
  }
 
 .seriousslider-underslide .seriousslider-inner > .active.left,
