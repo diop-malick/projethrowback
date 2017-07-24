@@ -543,7 +543,7 @@
 							<div class="row text-center" id="rest_shipping_message" {if $total_price >= 100}	style="display: none;"{/if}>
 								<hr style="width: 90%; border-color: #dbdbdb;">
 								<div class="col-xs-12">
-									<p>
+									<p style="color:#40ec40">
 									<span class="price-line" id="rest_shipping_message_total_price">{displayPrice price=100-($total_price-$frais_livraison)}</span>
 									{l s=' restant pour obtenir la livraison gratuite'}
 									</p>
