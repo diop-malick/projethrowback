@@ -73,6 +73,7 @@
 	                	</a>
 	                </li>
 	            </div>
+
                 {if $returnAllowed}
                 <div class="myacount-block-container">
                     <li>
@@ -97,18 +98,19 @@
                 		</a>
                 	</li>
                 </div>
+
+                {if $voucherAllowed || isset($HOOK_CUSTOMER_ACCOUNT) && $HOOK_CUSTOMER_ACCOUNT !=''}
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                            {if $voucherAllowed}
+                                <li><a href="{$link->getPageLink('discount', true)|escape:'html':'UTF-8'}" title="{l s='Vouchers'}"><i class="icon-barcode"></i><span>{l s='My vouchers'}</span></a></li>
+                            {/if}
+                            {$HOOK_CUSTOMER_ACCOUNT}
+                    </div>
+                {/if}
+
             </ul>
     	</div>
-    {if $voucherAllowed || isset($HOOK_CUSTOMER_ACCOUNT) && $HOOK_CUSTOMER_ACCOUNT !=''}
-    	<div class="col-xs-12 col-sm-6 col-lg-4">
-            <ul class="myaccount-link-list">
-                {if $voucherAllowed}
-                    <li><a href="{$link->getPageLink('discount', true)|escape:'html':'UTF-8'}" title="{l s='Vouchers'}"><i class="icon-barcode"></i><span>{l s='My vouchers'}</span></a></li>
-                {/if}
-                {$HOOK_CUSTOMER_ACCOUNT}
-            </ul>
-        </div>
-    {/if}
+
     </div>
 
 <div class="col-xs-12 text-xs-left">

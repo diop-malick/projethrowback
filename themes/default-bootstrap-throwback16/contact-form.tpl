@@ -158,12 +158,13 @@
 				<div class="col-xs-12 col-md-4">
 					<p class="shop-info">
 						
-							<strong>{l s='Horaires'}</strong><br>
-							{l s='Le lundi de 14H à 19H'}								
+							<strong>{l s='Horaires'}</strong>								
 							<br>
-							{l s='Du mardi au vendredi de 11H à 19H00'}
+							{l s='Du Mardi au Vendredi de 11H à 13h30 / de 15H à 19H30'}
 							<br>
-							{l s='Le samedi de 10h - 19H'}
+							{l s='Le Samedi de 11H à 19H30'}
+							<br>
+							{l s='Dimanche de 14H à 19H'}
 					</p>
 				</div>
 				

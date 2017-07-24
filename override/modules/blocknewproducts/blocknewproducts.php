@@ -34,6 +34,7 @@ class BlockNewProductsOverride extends BlockNewProducts
         if ($cat_custom['name'] == "VÊTEMENTS" || $cat_custom['name'] == "ACCESSOIRES") {
           // if yes, not add in final products to asign
           $add_product = false;
+          break;
         }
       }
       
