@@ -1366,4 +1366,9 @@ button.accordion.active:after {
 .num-client{
     margin-top: 6px;
 }
+.int-filter{
+    float: left;
+    margin: 18px 0;
+    color: #fff;
+}
 /*# sourceMappingURL=style.css.map */
