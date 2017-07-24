@@ -28,7 +28,7 @@ class BlockNewProductsOverride extends BlockNewProducts
       $add_product = true;
 			$product = new Product($prod['id_product'], true,$this->context->language->id, $this->context->shop->id);
       // get all others cateogry
-      $categories_custom=Product::getProductCategoriesFull($prod['id_product']);    
+      $categories_custom=Product::getProductCategoriesFull($prod['id_product'], 1);    
       // check if product is in accesories category
       foreach ($categories_custom as  $cat_custom) {        
         if ($cat_custom['name'] == "VÊTEMENTS" || $cat_custom['name'] == "ACCESSOIRES") {
