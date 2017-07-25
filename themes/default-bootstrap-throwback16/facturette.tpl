@@ -156,7 +156,7 @@
 	{/if}
 
 	{if $total_discounts_tax_exc }
-	{* <div class="row line_product">
+	 <div class="row line_product">
 			<div class="col-md-8 col-xs-6">
 				<p class="command-product-name total"><span>{l s='Total vouchers'}</span></p>
 			</div>
@@ -170,7 +170,7 @@
 						{displayPrice price=$total_discounts_negative}</span>
 			</div>			
 	</div>
-	<br> *}
+	<br>
 	{/if}
 
 	<div class="row line_product">
