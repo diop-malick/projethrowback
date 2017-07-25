@@ -40,7 +40,7 @@
 *}
 
 		{* LIMIT product to show to 12 *}
-		{if $smarty.get.controller eq 'index' and $smarty.foreach.products.iteration == 2}
+		{if $smarty.get.controller eq 'index' and $smarty.foreach.products.iteration == 13}
 			{break}
 		{/if}
 
