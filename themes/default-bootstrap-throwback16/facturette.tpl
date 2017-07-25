@@ -154,12 +154,31 @@
 	</div>
 	<br>
 	{/if}
+
+	{if $total_discounts_tax_exc }
+	<div class="row line_product">
+			<div class="col-md-8 col-xs-6">
+				<p class="command-product-name total"><span>{l s='Total vouchers'}</span></p>
+			</div>
+			<div class="col-md-4 col-xs-6 text-right total">
+					<span id="total_price">
+					{if $use_taxes && $priceDisplay == 0}
+						{assign var='total_discounts_negative' value=$total_discounts * -1}
+					{else}
+						{assign var='total_discounts_negative' value=$total_discounts_tax_exc * -1}
+					{/if}
+						{displayPrice price=$total_discounts_negative}</span>
+			</div>			
+	</div>
+	<br>
+	{/if}
+
 	<div class="row line_product">
 		<div class="col-lg-8 col-md-7 col-xs-6">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 		</div>
 		<div class="col-lg-4 col-md-5 col-xs-6 text-right total">			
-			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost}</span>			
+			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost+$total_discounts_negative}</span>			
 		</div>
 	</div>
 </div>

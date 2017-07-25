@@ -487,6 +487,37 @@
 
 						<input type="hidden" class="my" name="price_add" value="" />
 						<input type="hidden" class="you" name="total_add" value="" />
+
+						{if $voucherAllowed}
+						<div class="row line_product">
+								<div class="col-md-8 col-xs-8">
+									<p class="command-product-name total">
+										
+										{if $display_tax_label}
+						                    {if $use_taxes && $priceDisplay == 0}
+						                        {l s='Total vouchers (tax incl.)'}
+						                    {else}
+						                        {l s='Total vouchers (tax excl.)'}
+						                    {/if}
+						                {else}
+						                    {l s='Total vouchers'}
+						                {/if}
+									</p>
+								</div>
+								
+								<div class="col-md-4 col-xs-4 text-right total">
+										
+										<span class="price-line" id="total_price">
+												{if $use_taxes && $priceDisplay == 0}
+								                    {assign var='total_discounts_negative' value=$total_discounts * -1}
+								                {else}
+								                    {assign var='total_discounts_negative' value=$total_discounts_tax_exc * -1}
+								                {/if}
+								                {displayPrice price=$total_discounts_negative}
+								</div>
+						</div>
+						<br>
+						{/if}
 						<div class="row line_product">
 								<div class="col-md-8 col-xs-8">
 									<p class="command-product-name total">{l s='Total'|upper}</p>
