@@ -124,9 +124,11 @@ header .nav {
 	}
 
 	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
-        height: 300px;
+        max-height: 300px;
     }
-
+    .lp-boxes-1 .lp-box .lp-box-image{
+    	height: auto;
+    }
 }
 
 
@@ -160,7 +162,10 @@ header .nav {
 
 	
   .lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
-        height: 300px;
+        max-height: 300px;
+    }
+    .lp-boxes-1 .lp-box .lp-box-image{
+    	height: auto;
     }
     .seriousslider{
 		margin: 150px 0 20px 0;
