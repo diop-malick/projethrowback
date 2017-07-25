@@ -489,7 +489,7 @@
 						<input type="hidden" class="you" name="total_add" value="" />
 
 						{if $voucherAllowed}
-						<div class="row line_product">
+						{* <div class="row line_product">
 								<div class="col-md-8 col-xs-8">
 									<p class="command-product-name total">
 										
@@ -516,7 +516,7 @@
 								                {displayPrice price=$total_discounts_negative}
 								</div>
 						</div>
-						<br>
+						<br> *}
 						{/if}
 						<div class="row line_product">
 								<div class="col-md-8 col-xs-8">
@@ -588,7 +588,7 @@
 
 		
 	{if $use_taxes}
-            {if $priceDisplay}
+            {* {if $priceDisplay}
                 <tr class="cart_total_price">
                     <td rowspan="{$rowspan_total}" colspan="3" id="cart_voucher" class="cart_voucher">
                         {if $voucherAllowed}
@@ -665,7 +665,7 @@
                 </td>
                 <td colspan="{$col_span_subtotal}" class="text-right">{l s='Total products'}</td>
                 <td colspan="2" class="price" id="total_product">{displayPrice price=$total_products}</td>
-            </tr>
+            </tr> *}
         {/if}
 
 

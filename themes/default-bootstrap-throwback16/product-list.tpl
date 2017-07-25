@@ -38,6 +38,12 @@
 {else}
 <li><pre>{$filterDeadStock}</pre></li> 
 *}
+
+		{* LIMIT product to show to 12 *}
+		{if $smarty.get.controller eq 'index' and $smarty.foreach.products.iteration == 13}
+			{break}
+		{/if}
+
 		{math equation="(total%perLine)" total=$smarty.foreach.products.total perLine=$nbItemsPerLine assign=totModulo}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
 		{math equation="(total%perLineT)" total=$smarty.foreach.products.total perLineT=$nbItemsPerLineMobile assign=totModuloMobile}

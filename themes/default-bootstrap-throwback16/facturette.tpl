@@ -127,10 +127,10 @@
 	</div>
 	{if isset($shippingCost) }
 		<div class="row line_product">
-			<div class="col-md-8 col-xs-6">
+			<div class="col-lg-8 col-md-7 col-xs-6">
 				<p class="command-product-name total"><span>{l s='FRAIS DE PORT'}</span></p>
 			</div>
-			<div class="col-md-4 col-xs-6 text-right total">
+			<div class="col-lg-4 col-md-5 col-xs-6 text-right total">
 				{if $shippingCost > 0}
 					<span id="total_price">{displayPrice price=$shippingCost}</span>
 				{else}
@@ -149,14 +149,14 @@
 				<p class="command-product-name total"><span>{l s='RÉDUCTION'}</span></p>
 			</div>
 			<div class="col-md-4 col-xs-6 text-right total">
-					<span id="total_price">{$total_reduction} {$currency->sign}</span>
+					<span id="total_price">{displayPrice price=$total_reduction}</span>
 			</div>			
 	</div>
 	<br>
 	{/if}
 
 	{if $total_discounts_tax_exc }
-	<div class="row line_product">
+	{* <div class="row line_product">
 			<div class="col-md-8 col-xs-6">
 				<p class="command-product-name total"><span>{l s='Total vouchers'}</span></p>
 			</div>
@@ -170,14 +170,14 @@
 						{displayPrice price=$total_discounts_negative}</span>
 			</div>			
 	</div>
-	<br>
+	<br> *}
 	{/if}
 
 	<div class="row line_product">
-		<div class="col-md-8 col-xs-6">
+		<div class="col-lg-8 col-md-7 col-xs-6">
 			<p class="command-product-name total"><span>{l s='Total'|upper}</span></p>
 		</div>
-		<div class="col-md-4 col-xs-6 text-right total">			
+		<div class="col-lg-4 col-md-5 col-xs-6 text-right total">			
 			<span id="total_price">{displayPrice price=$total_products_wt+$shippingCost+$total_discounts_negative}</span>			
 		</div>
 	</div>
