@@ -37,7 +37,7 @@ header .nav {
 	}
 
 	#searchform-header{
-		top:114px;
+		top:112px;
 	}
 	.searchform{
 		height: 32px;
@@ -58,12 +58,19 @@ header .nav {
 		margin-top: -90px;
 	}
 	.seriousslider{
-		margin: 100px 0 20px 0;
+		margin: 150px 0 20px 0;
 	}
 
 	.single #main{
 		margin-top: 110px;
 	}
+
+	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
+        max-height: 300px;
+    }
+    .lp-boxes-1 .lp-box .lp-box-image{
+    	height: auto;
+    }
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
@@ -73,10 +80,10 @@ header .nav {
 	}
 
 	#searchform-header{
-		top:111px;
+		top:100px;
 	}
 	.searchform{
-		height: 32px;
+		height: 30px;
 	}
 
 	#social_block {
@@ -99,6 +106,13 @@ header .nav {
 	.single #main{
 		margin-top: 110px;
 	}
+
+	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
+        max-height: 300px;
+    }
+    .lp-boxes-1 .lp-box .lp-box-image{
+    	height: auto;
+    }
 }
 
 @media (min-width: 480px) and (max-width: 599px) {
