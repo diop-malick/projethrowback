@@ -110,13 +110,13 @@
 										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
 
-										{* PVE plus petire *}
-										{foreach from=$combinations key=id_combinaison item=group_combinations}
-											{if $group_combinations.price =! 0}
-											<span class ="pve_petite "id="minimal_pve_price">{l s='A partir de '}</span>
-												{break}
-											{/if}											
-										{/foreach}
+										{* PVE plus petite *}
+                   {foreach from=$combinations key=id_combinaison item=group_combinations}
+                     {if $group_combinations.price > 0}
+                       <span class ="pve_petite "id="minimal_pve_price">{l s='A partir de '}</span><br class="pve_petite"/>
+                       {break}
+                     {/if}                      
+                   {/foreach}
 
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
@@ -303,13 +303,16 @@
 										{if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
 
-											{* PVE plus petire *}
-										{foreach from=$combinations key=id_combinaison item=group_combinations}
-											{if $group_combinations.price =! 0}
-											<span class ="pve_petite "id="minimal_pve_price">{l s='A partir de '}</span><br class="pve_petite"/>
-												{break}
-											{/if}											
-										{/foreach}
+                   {* PVE plus petire *}
+                   {* <pre>{$combinations|print_r}</pre> *}
+                   {foreach from=$combinations key=id_combinaison item=group_combinations}
+                       {* <pre>{$group_combinations.price}</pre> *}
+                       {* <pre>{$group_combinations.specific_price}</pre> *}
+                     {if $group_combinations.price > 0}
+                       <span class ="pve_petite "id="minimal_pve_price">{l s='A partir de '}</span><br class="pve_petite"/>
+                       {break}
+                     {/if}											
+                   {/foreach}
 
 											<span id="our_price_display" class="price" itemprop="price" content="{$productPrice}">{convertPrice price=$productPrice|floatval}</span>
 											<!-- {if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) || !isset($display_tax_label))}
