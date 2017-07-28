@@ -762,6 +762,11 @@ input[readonly] {
 
 /******** Panier ********************/
 
+#order #display_cart_vouchers .voucher_name {
+    font-size: 16px; 
+    font-weight: bold;
+}
+
 .product_title {
     margin-bottom: 20px;
 }
