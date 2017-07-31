@@ -14,7 +14,6 @@ class IdentityController extends IdentityControllerCore
 	*/
     protected function updateMailchimpSubscriber( $email, $status, $list_id, $api_key, $merge_fields = array('FNAME' => '','LNAME' => '') )
     {
-        var_dump("MALICK updateMailchimpSubscriber");
 
         $data = array(
             'apikey'        => $api_key,
@@ -132,12 +131,10 @@ class IdentityController extends IdentityControllerCore
                     // subscribed ==> unsubscribed
                     if ($mce_origin_newletter && !$mce_current_newletter) {
                         $mce_status = 'unsubscribed';
-                        var_dump('subscribed ==> unsubscribed');
                     } 
                     // unsubscribed ==> subscribed
                     elseif (!$mce_origin_newletter && $mce_current_newletter) {
                         $mce_status = 'pending';
-                        var_dump('unsubscribed ==> subscribed');
                     }
 
                     $mce_email = $this->customer->email;

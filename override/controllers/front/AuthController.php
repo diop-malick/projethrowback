@@ -4,6 +4,53 @@ class AuthController extends AuthControllerCore
 {
 
     /**
+    * syncMailchimp
+    *
+    * Mailchimp API 3.0 – PHP subscription / unsubscription
+    * add and update list members
+    * @link https://rudrastyh.com/api/mailchimp-subscription.html
+    * @link http://stackoverflow.com/questions/30481979/adding-subscribers-to-a-list-using-mailchimps-api-v3
+    */
+    protected function updateMailchimpSubscriber( $email, $status, $list_id, $api_key, $merge_fields = array('FNAME' => '','LNAME' => '') )
+    {
+
+        $data = array(
+            'apikey'        => $api_key,
+            'email_address' => $email,
+            'status'        => $status,
+            'merge_fields'  => $merge_fields
+        );
+
+        $memberId = md5(strtolower($data['email_address']));
+        $dataCenter = substr($api_key,strpos($api_key,'-')+1);
+        $url = 'https://' . $dataCenter . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $memberId;
+
+
+        // initialize cURL connection
+        $mch_api = curl_init($url); 
+     
+        curl_setopt($mch_api, CURLOPT_USERPWD, 'user:' . $api_key);
+        curl_setopt($mch_api, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        // curl_setopt($mch_api, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
+        curl_setopt($mch_api, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($mch_api, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($mch_api, CURLOPT_TIMEOUT, 10);
+        // curl_setopt($mch_api, CURLOPT_POST, true);
+        curl_setopt($mch_api, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($mch_api, CURLOPT_POSTFIELDS, json_encode($data) );
+     
+        $result = curl_exec($mch_api);
+        $httpCode = curl_getinfo($mch_api, CURLINFO_HTTP_CODE);
+        curl_close($mch_api);
+
+        // var_dump($result);
+        // var_dump($httpCode);
+        // exit();
+
+        return $result;
+    }
+
+    /**
      * Process submit on an account
      */
     protected function processSubmitAccount()
@@ -118,6 +165,32 @@ class AuthController extends AuthControllerCore
                             Tools::redirect(html_entity_decode($back));
                         }
 
+                        // var_dump(Tools::getIsset('newsletter')); // output : boolean true OR boolean FALSE
+                        // var_dump(Tools::getValue('newsletter')); // string '1' (length=1) OR boolean false
+                        // var_dump($customer->email);
+                        // var_dump($customer->firstname);
+                        // var_dump($customer->lastname);
+                        // exit();
+                        if (Tools::getIsset('newsletter')) {
+                        // STATUS > "subscribed" or "unsubscribed" or "cleaned" or "pending"
+                                            $mce_status = 'pending';
+                                            $mce_email = $customer->email;
+                                            // TEST
+                                            $mce_list_id = '2eca580371';
+                                            $mce_api_key = 'bc44fc2b7f5e8f8f1c5c92130f3491cb-us15';
+                                            // PROD
+                                            // $mce_list_id = 'c85916a60a';
+                                            // $mce_api_key = '222b9ec7925fdd7b5781131ce57cec13-us5';
+
+                                            $mce_merge_fields = array(
+                                                    'FNAME' => $customer->firstname,
+                                                    'LNAME' => $customer->lastname
+                                            );
+                        // Overrides - Mailchimps custom throwback : 
+                        $mce_result = $this->updateMailchimpSubscriber($mce_email, $mce_status, $mce_list_id, $mce_api_key, $mce_merge_fields );
+
+                        }
+
                         // redirection: if cart is not empty : redirection to the cart
                         if (count($this->context->cart->getProducts(true)) > 0) {
                             $multi = (int)Tools::getValue('multi-shipping');
@@ -125,10 +198,7 @@ class AuthController extends AuthControllerCore
                         }
                         // else : redirection to the account
                         else {
-                            // Overrides - Mailchimps custom throwback :
-                            $processMailchimpsInscription = Tools::getValue('newsletter');
-
-                            Tools::redirect('index.php?controller='.(($this->authRedirection !== false) ? urlencode($this->authRedirection) : 'my-account&processMailchimpsInscription=' . $processMailchimpsInscription));
+                            Tools::redirect('index.php?controller='.(($this->authRedirection !== false) ? urlencode($this->authRedirection) : 'my-account'));
                         }
                     } else {
                         $this->errors[] = Tools::displayError('An error occurred while creating your account.');
