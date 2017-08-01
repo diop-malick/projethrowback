@@ -145,7 +145,7 @@
 										{if isset($groups)}
 											{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
 																				{if $group.attributes|@count}
-																					{if ($group.group_type == 'color')}
+																					{if ($group.group_type == 'color') || ($group.group_type == 'select')}
 																							{assign var=isColorAttribute value=true}
 																					{/if}
 																				{/if}
