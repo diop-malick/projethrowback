@@ -6,6 +6,7 @@
     <h3 class="page-subheading text-center">{l s='Bienvenue dans votre espace personnel'}</h3>
 
     {* BEGIN ============= MAILCHIMPS PROCESS =========  *}
+    {*     
     {if isset($processMailchimpsInscription) && $processMailchimpsInscription}
         {addJsDef processMailchimpsInscription=$processMailchimpsInscription}
         {addJsDef customer_firstname=$cookie->customer_firstname}
@@ -17,6 +18,7 @@
         <span class="response" id="mce-error-response" style="display:none; color:red;"></span>
         <span class="response" id="mce-success-response" style="display:none; color:green;"></span>
     </div>
+     *}
     {* END ============= MAILCHIMPS PROCESS ========= *}
 
     {if isset($smarty.get.action) && $smarty.get.action =="update"}

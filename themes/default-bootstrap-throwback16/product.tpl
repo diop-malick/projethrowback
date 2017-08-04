@@ -720,15 +720,14 @@
 					{if $product->available_for_order && isset($product->date_add) && $product->date_add < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S' && ! isset($comingsoontplvalue)}
 						<div class="row box-cart-bottom">
 							<div {if !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if} >
-							{if $product->quantity}
+							{* <pre>{$product->quantity}</pre> *}
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
-									<button type="submit" name="Submit" class="btn exclusive">
+									<button type="submit" name="Submit" class="btn exclusive {if $product->quantity == 0} disabled{/if}">
 										<i class="material-icons shopping-cart" style="color:#fff; margin-top: -10px; margin-right: .625rem; line-height: inherit;"></i>
 										<span>{l s='Add to cart'}</span>
 
 									</button>
 								</p>
-							{/if}
 							</div>
 							<div class="info"></div>
 							{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
