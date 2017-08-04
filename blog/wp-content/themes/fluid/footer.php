@@ -23,8 +23,10 @@
 	?>
 
 	<!-- BEGIN - intégration WP-PS -->
-	<?php		
+	<?php	
+	require_once(dirname(__FILE__).'/../../../../config/config.inc.php');	
 	global $controllerPrestashop;
+	$controllerPrestashop = new FrontController();
 	$controllerPrestashop->displayFooterBlog();
 	?>
 	<!-- END - intégration WP-PS -->
