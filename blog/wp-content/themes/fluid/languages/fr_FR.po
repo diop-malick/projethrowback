@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fluida 1.1\n"
 "POT-Creation-Date: 2017-08-03 16:21+0000\n"
-"PO-Revision-Date: 2017-08-03 16:23+0000\n"
+"PO-Revision-Date: 2017-08-04 10:17+0000\n"
 "Language-Team: Cryout Creations\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2231,11 +2231,11 @@ msgstr ""
 
 #: searchform.php:11
 msgid "Search for:"
-msgstr ""
+msgstr "Recherche:"
 
 #: searchform.php:12 searchform.php:14
 msgid "Search"
-msgstr ""
+msgstr "recherche"
 
 #: sidebar-left.php:20
 #, php-format

@@ -315,3 +315,18 @@ header .nav {
     left: 80%;
     top: -5px;
 }
+.not_found{
+	text-align: center;
+}
+
+.not_found .main{
+	margin-top: 120px;
+}
+
+.not_found .searchform {
+	display: inline-block;
+    text-align: center;
+}
+.s { 
+	margin-left: 50px !important;
+}
