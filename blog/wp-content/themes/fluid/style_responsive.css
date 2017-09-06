@@ -315,3 +315,26 @@ header .nav {
     left: 80%;
     top: -5px;
 }
+
+/******* page 404 ***************/
+.error404 .not_found{
+	text-align: center;
+}
+
+.error404 .not_found .main{
+	margin-top: 120px;
+}
+
+.error404 .not_found .searchform {
+	display: inline-block;
+    text-align: center;
+}
+.s { 
+	margin-left: 50px !important;
+}
+header.error404{
+	position: relative !important;
+}
+.search-no-results .no-results{
+	margin-top: 60px !important;
+}

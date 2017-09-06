@@ -170,7 +170,8 @@
 				
 			</div>
 			<p class="link-condition">
-				Vous pouvez consulter nos pages services pour en savoir plus sur nos <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">conditions de livraisons</a>, nos <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">conditions de paiement</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">retours et remboursements</a>
+				{l s='Vous pouvez consulter nos pages services pour en savoir plus sur nos'}
+				 <a href="{$link->getCMSLink('7', 'conditions-de-livraison')|escape:'html'}">{l s='conditions de livraisons'}</a>, {l s='nos'} <a href="{$link->getCMSLink('8', 'conditions-de-paiement')|escape:'html'}">{l s='conditions de paiement'}</a> et nos conditions de <a href="{$link->getCMSLink('11', 'retours-et-remboursements')|escape:'html'}">{l s='retours et remboursements'}</a>
 			</p>
 		</fieldset>
 	</form>

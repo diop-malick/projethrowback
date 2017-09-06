@@ -5,11 +5,11 @@
  * @package Fluida
  */
 
-// get_header(); 
+ get_header(); 
 
 ?>
 
-	<div id="container" class="<?php echo fluida_get_layout_class(); ?>">
+	<div id="container" class="<?php echo fluida_get_layout_class(); ?> not_found">
 		<main id="main" role="main" class="main">
 
 			<header id="post-0" class="pad-container error404 not-found" <?php cryout_schema_microdata( 'element' ); ?>>
