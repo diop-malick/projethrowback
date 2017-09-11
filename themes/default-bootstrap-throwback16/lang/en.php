@@ -779,6 +779,7 @@ $_LANG['product_992a0f0542384f1ee5ef51b7cf4ae6c4'] = 'Services';
 $_LANG['product_9981d2af851e4b4a4ea612d59f08ab9c'] = 'Other views';
 $_LANG['product_9a9a97ca85af73f90515e72745f730f0'] = 'Instead of';
 $_LANG['product_9dea4016dbcc290b773ab2fae678aaa8'] = 'Items';
+$_LANG['product_9fed2a8b0fa54f6b7ecf1efec492b5cd'] = 'Sold out';
 $_LANG['product_a134618182b99ff9151d7e0b6b92410a'] = '(not impacted by the discount)';
 $_LANG['product_ac230c36810502ea7e2a0e0ea427c586'] = 'for ecotax';
 $_LANG['product_b5a7adde1af5c87d7fd797b6245c2a39'] = 'Description';

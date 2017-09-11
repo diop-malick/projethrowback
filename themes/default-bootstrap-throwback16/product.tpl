@@ -470,7 +470,7 @@
 						<!-- QUANTITY  -->
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							{if !$PS_CATALOG_MODE}
-									<div id="quantity_wanted_p"{if !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+									<div id="quantity_wanted_p"{if !$product->available_for_order || $PS_CATALOG_MODE || $product->quantity <= 0 } style="display: none;"{/if}>
 											<div class="row">
 												<label class="col-xs-4 col-sm-5" for="quantity_wanted" style="margin-left:0">{l s='Quantity'}</label>
 												<div class="col-xs-8 col-sm-7">
@@ -487,8 +487,17 @@
 									<!-- STOCK AVAILABILITY -->
 									<div class="row">
 										{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-										<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
-											<span class="availability_quantity_value">{l s='Disponible'}</span>
+										<p id="pQuantityAvailable">
+											{if $product->quantity > 0} 
+												<span class="availability_quantity_value">
+													{l s='Disponible'} 
+												</span>
+											{else}
+												<span class="not_availability_quantity_value">
+													{l s='Epuisé'}
+												</span>
+											{/if}
+											
 											{* <span id="quantityAvailable">{$product->quantity|intval}</span>
 											<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
 											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}

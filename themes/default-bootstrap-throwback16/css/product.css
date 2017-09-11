@@ -1030,6 +1030,9 @@ margin-right: 25px;
 #pQuantityAvailable span.availability_quantity_value {
     color: #2e7a3a;
 }
+#pQuantityAvailable span.not_availability_quantity_value {
+    color: #F01800;
+}
 #min_quantity_message .info_quantity,
 #availability_statut #availability_value.label-warning {
     color: #e4752b !important;
