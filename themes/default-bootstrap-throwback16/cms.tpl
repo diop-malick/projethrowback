@@ -67,8 +67,8 @@
 						   <ul class="nav nav-tabs nav-justified" role="tablist">
 								 {if isset($cms->id_cms_category) && $cms->id_cms_category == 3}
 						      <li {if isset($cms_active_tab) && ($cms_active_tab == 7)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Conditions de Livraison'}</a></li>
-						      <li {if isset($cms_active_tab) && ($cms_active_tab == 8)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Condition de Paiement'}</a></li>
-						      <li {if isset($cms_active_tab) && ($cms_active_tab == 11)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Retour et Remboursements'}</a></li>
+						      <li {if isset($cms_active_tab) && ($cms_active_tab == 8)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Conditions de Paiement'}</a></li>
+						      <li {if isset($cms_active_tab) && ($cms_active_tab == 11)}class="active"{/if}><a href="#tab3" data-toggle="tab">{l s='Retours et Remboursements'}</a></li>
 									{elseif isset($cms->id_cms_category) && $cms->id_cms_category == 4}
 									<li {if isset($cms_active_tab) && ($cms_active_tab == 12)}class="active"{/if} ><a href="#tab1" data-toggle="tab">{l s='Mentions légales'}</a></li>
 									<li {if isset($cms_active_tab) && ($cms_active_tab == 14)}class="active"{/if}><a href="#tab2" data-toggle="tab">{l s='Données personnelles et cookies'}</a></li>
