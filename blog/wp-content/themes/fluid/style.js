@@ -29,6 +29,11 @@ jQuery( document ).ready( function() {
     //On Hover - Works on ios
     	jQuery(this).find(".lp-box-content").show();
  	});
-	
+
+ 	jQuery(".seriousslider-inner .item a").click(function(e){
+ 		e.preventDefault();
+        window.location.href = "www.leral.net";
+ 	});
+
 }); 
 
