@@ -32,7 +32,7 @@ jQuery( document ).ready( function() {
 
  	jQuery(".seriousslider-inner .item a").click(function(e){
  		e.preventDefault();
-        window.location.href = "www.leral.net";
+        window.location.href = jQuery(this).attr('href');
  	});
 
 }); 
