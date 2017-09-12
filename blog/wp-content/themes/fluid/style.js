@@ -24,6 +24,11 @@ jQuery( document ).ready( function() {
 		linkNavigationTraduction();
 		searchResultTraduction();
 	}
+
+	jQuery(".lp-box").click(function(){
+    //On Hover - Works on ios
+    	jQuery(this).find(".lp-box-content").show();
+ 	});
 	
 }); 
 

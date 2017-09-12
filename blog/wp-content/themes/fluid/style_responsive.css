@@ -196,6 +196,12 @@ header .nav {
 		 margin-top: -76.5px !important;
 	}
 
+	.lp-boxes.lp-boxes-rows-2 .lp-boxes-margins .lp-box {
+        max-height: 300px;
+    }
+    .lp-boxes-1 .lp-box .lp-box-image{
+    	height: auto;
+    }
 }
 
 @media (max-width: 360px) {
