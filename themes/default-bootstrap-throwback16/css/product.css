@@ -1032,6 +1032,7 @@ margin-right: 25px;
 }
 #pQuantityAvailable span.not_availability_quantity_value {
     color: #F01800;
+    text-transform: uppercase;
 }
 #min_quantity_message .info_quantity,
 #availability_statut #availability_value.label-warning {
