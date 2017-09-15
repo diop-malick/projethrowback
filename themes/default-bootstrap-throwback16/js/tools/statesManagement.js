@@ -108,7 +108,7 @@ function bindZipcode()
 								} 
 								else if(count>1){
 										$.each(json.records, function(index, value) {
-											select += '<option  value=' + value.fields.libell_d_acheminement + '>' + value.fields.libell_d_acheminement + '</option>';
+											select += "<option  value='" + value.fields.libell_d_acheminement + "'>" + value.fields.libell_d_acheminement + "</option>";
 										});
 										select += '</select>';
 										$("#city").replaceWith(select);
