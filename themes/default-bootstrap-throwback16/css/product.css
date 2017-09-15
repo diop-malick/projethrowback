@@ -1030,7 +1030,7 @@ margin-right: 25px;
 #pQuantityAvailable span.availability_quantity_value {
     color: #2e7a3a;
 }
-#pQuantityAvailable span.not_availability_quantity_value {
+#pQuantityNotAvailable span.not_availability_quantity_value {
     color: #F01800;
     text-transform: uppercase;
 }
@@ -1048,7 +1048,7 @@ margin-right: 25px;
     border: none;
     line-height: 18px;
 }
-#pQuantityAvailable {
+#pQuantityAvailable,#pQuantityNotAvailable {
     margin-left: 5px;
     margin-top: 10px;
     padding: 3px 8px 4px;

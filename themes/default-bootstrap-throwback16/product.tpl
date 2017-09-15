@@ -487,27 +487,32 @@
 									<!-- STOCK AVAILABILITY -->
 									<div class="row">
 										{if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-										<p id="pQuantityAvailable">
 											{if $product->quantity > 0} 
-												<span class="availability_quantity_value">
-													{l s='Disponible'} 
-												</span>
-											{else}
-												<span class="not_availability_quantity_value">
-													{l s='Epuisé'}
-												</span>
-											{/if}
-											
-											{* <span id="quantityAvailable">{$product->quantity|intval}</span>
-											<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
-											<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
+												<p id="pQuantityAvailable">
 
-											<!-- Message stock Limit et épuisé -->
-											<span id="min_quantity_message">
-												<span class="availability_quantity_value info_quantity">
-												</span>
-											</span>
-										</p>
+						
+														<span class="availability_quantity_value">
+															{l s='Disponible'} 
+														</span>
+													
+													
+													{* <span id="quantityAvailable">{$product->quantity|intval}</span>
+													<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
+													<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span> *}
+
+													<!-- Message stock Limit et épuisé -->
+													<span id="min_quantity_message">
+														<span class="availability_quantity_value info_quantity">
+														</span>
+													</span>
+												</p>
+											{else}
+													<p id="pQuantityNotAvailable">
+														<span class="not_availability_quantity_value">
+															{l s='Epuisé'}
+														</span>
+													</p>
+											{/if}
 										{/if}
 										<!-- availability or doesntExist -->
 										{if isset($groups)}
