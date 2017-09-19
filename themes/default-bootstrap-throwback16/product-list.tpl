@@ -199,7 +199,7 @@
 												{* show availability msg only if at leat one of declinaison have quantity > 0 *}
 												{if isset($groups) && $groups}
 												{foreach from=$groups[$product.id_product] key=id_attribute_group item=group}
-													{if ($group.group_type == 'radio')}
+													{if ($group.group_type == 'radio' || $group.group_type == 'select')}
 														{foreach from=$group.attributes_quantity key=id_attribute item=group_attribute}
 															{if $group_attribute > 0} 
 																{l s='In Stock'}

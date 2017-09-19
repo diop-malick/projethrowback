@@ -45,4 +45,24 @@ class HomeFeaturedOverride extends HomeFeatured
 		if (HomeFeatured::$cache_products === false || empty(HomeFeatured::$cache_products))
 			return false;
 	}
+
+	public function hookDisplayHome($params)
+	{
+		if (!$this->isCached('homefeatured.tpl', $this->getCacheId()))
+		{
+			$this->_cacheProducts();
+			$this->smarty->assign(
+				array(
+					'products' => HomeFeatured::$cache_products,
+					'add_prod_display' => Configuration::get('PS_ATTRIBUTE_CATEGORY_DISPLAY'),
+					'homeSize' => Image::getSize(ImageType::getFormatedName('home')),
+				)
+			);
+		}
+
+	$groups = Size::getProductAttributeCombinations2(HomeFeatured::$cache_products , $this->context->language->id, $this->context->shop->id);
+    $this->context->smarty->assign('groups', $groups);
+
+		return $this->display(__FILE__, 'homefeatured.tpl', $this->getCacheId());
+	}
 }
